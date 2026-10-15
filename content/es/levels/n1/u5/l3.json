@@ -1,0 +1,203 @@
+{
+  "id": "n1-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "Rentabilidad total",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Sumar precio y dividendos en la rentabilidad total",
+    "Comparar dos inversiones"
+  ],
+  "concepts": [
+    "rentabilidad-total",
+    "rentabilidad-dividendo"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Precio más dividendos",
+      "text": "La rentabilidad total suma la variación del precio y los dividendos cobrados: (precio final − precio inicial + dividendos) / precio inicial. Mirar solo el precio olvida lo que has cobrado."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: compras una acción a 10 €, cobras 0,20 € de dividendo y la vendes a 10,50 €. Ganas 0,50 € por precio y 0,20 € por dividendo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "¿Qué incluye la rentabilidad total de una acción?",
+      "options": [
+        "La variación del precio y los dividendos cobrados",
+        "Solo la variación del precio",
+        "Solo los dividendos",
+        "El número de acciones"
+      ],
+      "answer": 0,
+      "explanation": "Suma las dos fuentes de rentabilidad.",
+      "wrongExplanations": {
+        "1": "Eso ignora los dividendos.",
+        "2": "Eso ignora el cambio de precio.",
+        "3": "El número de acciones no es una rentabilidad."
+      }
+    },
+    {
+      "id": "n1-u5-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "statement": "Para medir lo que has ganado con una acción basta con mirar la variación del precio.",
+      "answer": false,
+      "explanation": "Hay que sumar los dividendos cobrados."
+    },
+    {
+      "id": "n1-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "Compras a 10 €, cobras 0,20 € de dividendo y vendes a 10,50 €. ¿Cuál es la rentabilidad total, en %?",
+      "answer": 7,
+      "tolerance": 0,
+      "formula": "(10.50 - 10 + 0.20) / 10 * 100",
+      "explanation": "(0,50 + 0,20) / 10 = 0,07, es decir, un 7 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "¿Entra en la rentabilidad total?",
+      "categories": [
+        "Sí entra",
+        "No entra"
+      ],
+      "items": [
+        {
+          "text": "La variación del precio entre la compra y la venta",
+          "category": "Sí entra"
+        },
+        {
+          "text": "Los dividendos cobrados mientras mantienes la acción",
+          "category": "Sí entra"
+        },
+        {
+          "text": "Lo que pueda subir la acción en el futuro",
+          "category": "No entra"
+        },
+        {
+          "text": "El precio al que cotiza otra empresa",
+          "category": "No entra"
+        }
+      ],
+      "explanation": "La rentabilidad total mide lo ocurrido con tu inversión: precio más dividendos."
+    },
+    {
+      "id": "n1-u5-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "Compras a 20 €, cobras 1,50 € de dividendos y vendes a 19 €. ¿Cuál es la rentabilidad total, en %?",
+      "answer": 2.5,
+      "tolerance": 0,
+      "formula": "(19 - 20 + 1.50) / 20 * 100",
+      "explanation": "(−1 + 1,50) / 20 = 0,025, es decir, un 2,5 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l3-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "Una acción sube un 3 % de precio y paga un dividendo del 4 % sobre el precio de compra. ¿Cuál es su rentabilidad total, en %?",
+      "answer": 7,
+      "tolerance": 0,
+      "formula": "3 + 4",
+      "explanation": "3 % + 4 % = 7 % (sin tener en cuenta impuestos ni comisiones).",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "La rentabilidad ___ suma la variación del precio y los dividendos.",
+      "answers": [
+        [
+          "total"
+        ]
+      ],
+      "explanation": "Rentabilidad total."
+    },
+    {
+      "id": "n1-u5-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "La acción A sube un 3 % y paga un 4 % de dividendo; la B sube un 6 % y no paga dividendo. ¿Cuál tiene mayor rentabilidad total?",
+      "options": [
+        "La A",
+        "La B",
+        "Igual",
+        "No se puede saber"
+      ],
+      "answer": 0,
+      "explanation": "A: 3 % + 4 % = 7 %; B: 6 %.",
+      "wrongExplanations": {
+        "1": "La B suma solo un 6 %.",
+        "2": "Son 7 % y 6 %.",
+        "3": "Con esos datos se puede calcular."
+      }
+    }
+  ],
+  "realWorld": "En la ficha de un fondo o de una acción distingue siempre la rentabilidad por precio de la rentabilidad total con dividendos.",
+  "sources": [
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

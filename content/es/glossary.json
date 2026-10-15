@@ -1228,5 +1228,93 @@
     ],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "broker",
+    "term": "Bróker",
+    "definition": "Intermediario autorizado que transmite tus órdenes de compra y venta de valores al mercado. Las entidades autorizadas figuran en los registros de la CNMV.",
+    "level": 1,
+    "concepts": [
+      "broker-espana"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "comision",
+    "term": "Comisión",
+    "definition": "Importe que cobra el bróker por operar (normalmente un porcentaje del importe, a veces con un mínimo), por custodia o por cambio de divisa.",
+    "level": 1,
+    "concepts": [
+      "comisiones"
+    ],
+    "aliases": [
+      "comisiones"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "rentabilidad-dividendo",
+    "term": "Rentabilidad por dividendo",
+    "definition": "Dividendo por acción dividido entre el precio de la acción, en %.",
+    "level": 1,
+    "concepts": [
+      "rentabilidad-dividendo"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "rentabilidad-total",
+    "term": "Rentabilidad total",
+    "definition": "Variación del precio más los dividendos cobrados, dividida entre el precio inicial.",
+    "level": 1,
+    "concepts": [
+      "rentabilidad-total"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "scrip-dividend",
+    "term": "Scrip dividend",
+    "definition": "Dividendo flexible: el accionista elige entre cobrar en efectivo o recibir acciones nuevas, mediante derechos de asignación gratuita.",
+    "level": 1,
+    "concepts": [
+      "scrip-dividend"
+    ],
+    "aliases": [
+      "dividendo flexible"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "ganancia-patrimonial",
+    "term": "Ganancia patrimonial",
+    "definition": "Diferencia positiva entre el valor de venta y el de compra de un activo; en el IRPF, las derivadas de vender acciones tributan en la base del ahorro.",
+    "level": 1,
+    "concepts": [
+      "irpf-ganancias"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": "2027-03-31",
+    "sources": []
   }
 ]

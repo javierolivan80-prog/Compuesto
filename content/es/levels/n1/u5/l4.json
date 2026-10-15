@@ -1,0 +1,203 @@
+{
+  "id": "n1-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "El scrip dividend",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar el dividendo flexible",
+    "Calcular acciones nuevas y efectivo"
+  ],
+  "concepts": [
+    "scrip-dividend",
+    "dividendo"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Scrip dividend",
+      "text": "En un scrip dividend (dividendo flexible) recibes un derecho por cada acción y eliges: vender los derechos a la empresa y cobrar en efectivo, recibir acciones nuevas gratuitas o vender los derechos en el mercado. Un número fijo de derechos da una acción nueva."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: tienes 1.000 acciones y por cada acción recibes un derecho; hacen falta 50 derechos para una acción nueva, y la empresa te compra cada derecho a 0,20 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "¿Qué es un scrip dividend?",
+      "options": [
+        "Un dividendo en el que eliges entre efectivo y acciones nuevas",
+        "Un dividendo obligatorio en efectivo",
+        "Una orden limitada",
+        "Una subasta de apertura"
+      ],
+      "answer": 0,
+      "explanation": "Ofrece la opción de cobrar en efectivo o en acciones.",
+      "wrongExplanations": {
+        "1": "Aquí hay elección, no obligación.",
+        "2": "Una orden limitada es una orden de bolsa.",
+        "3": "Una subasta fija un precio de apertura."
+      }
+    },
+    {
+      "id": "n1-u5-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "statement": "En un scrip dividend puedes elegir entre cobrar en efectivo y recibir acciones nuevas.",
+      "answer": true,
+      "explanation": "Esa es su característica principal."
+    },
+    {
+      "id": "n1-u5-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "Tienes 1.000 acciones y por cada una recibes un derecho. Hacen falta 50 derechos para una acción nueva. ¿Cuántas acciones nuevas recibes?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "1000 / 50",
+      "explanation": "1.000 / 50 = 20 acciones nuevas.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u5-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "Tienes 1.000 derechos y la empresa los compra a 0,20 € cada uno. ¿Cuántos euros cobras en efectivo, antes de impuestos?",
+      "answer": 200,
+      "tolerance": 0,
+      "formula": "1000 * 0.20",
+      "explanation": "1.000 × 0,20 = 200 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "Tienes 1.000 acciones y eliges recibir 20 acciones nuevas. ¿Cuántas acciones tienes después?",
+      "answer": 1020,
+      "tolerance": 0,
+      "formula": "1000 + 20",
+      "explanation": "1.000 + 20 = 1.020 acciones.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u5-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "El scrip dividend se conoce también como dividendo ___.",
+      "answers": [
+        [
+          "flexible"
+        ]
+      ],
+      "explanation": "Dividendo flexible."
+    },
+    {
+      "id": "n1-u5-l4-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "¿Qué opción describe cada frase?",
+      "categories": [
+        "Efectivo",
+        "Acciones nuevas"
+      ],
+      "items": [
+        {
+          "text": "Recibes dinero",
+          "category": "Efectivo"
+        },
+        {
+          "text": "Aumenta tu número de acciones",
+          "category": "Acciones nuevas"
+        },
+        {
+          "text": "Vendes los derechos a la empresa",
+          "category": "Efectivo"
+        },
+        {
+          "text": "Recibes acciones sin pagar por ellas",
+          "category": "Acciones nuevas"
+        }
+      ],
+      "explanation": "Efectivo o acciones: tú eliges."
+    },
+    {
+      "id": "n1-u5-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "¿Qué ocurre con tu porcentaje en la empresa si eliges acciones nuevas y otros accionistas eligen efectivo?",
+      "options": [
+        "Puede aumentar",
+        "Siempre disminuye",
+        "Siempre se mantiene igual",
+        "Se anula"
+      ],
+      "answer": 0,
+      "explanation": "Tienes más acciones; si otros cobran en efectivo y no reciben acciones, tu parte del total crece.",
+      "wrongExplanations": {
+        "1": "Solo disminuiría si no tomaras acciones y otros sí.",
+        "2": "El efecto depende de lo que elijan todos.",
+        "3": "No se anula."
+      }
+    }
+  ],
+  "realWorld": "El tratamiento fiscal del scrip depende de la opción elegida: consulta la información de la empresa y de la AEAT antes de decidir.",
+  "sources": [
+    {
+      "title": "Agencia Tributaria: IRPF, ganancias patrimoniales y rendimientos del capital mobiliario",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-15"
+}

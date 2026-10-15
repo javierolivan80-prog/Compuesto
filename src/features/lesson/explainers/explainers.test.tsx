@@ -92,4 +92,10 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/horquilla 0,02/);
     expect(text).toMatch(/precio medio 10,03/);
   });
+  it('ExDividend explica la caída aproximada del precio y el dividendo cobrado', () => {
+    render(<ExplainerBlock component="ExDividend" props={{ price: 10, dividend: 0.2 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/9,80/);
+    expect(text).toMatch(/0,20/);
+  });
 });

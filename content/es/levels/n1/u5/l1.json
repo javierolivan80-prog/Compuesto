@@ -1,0 +1,196 @@
+{
+  "id": "n1-u5-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "El bróker y sus comisiones",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es un bróker y cómo comprobar que está autorizado",
+    "Calcular comisiones con porcentaje y mínimo"
+  ],
+  "concepts": [
+    "broker-espana",
+    "comisiones"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Bróker",
+      "text": "Un bróker es el intermediario autorizado que te permite comprar y vender valores. Las entidades autorizadas figuran en los registros de la CNMV, y conviene comprobarlo antes de operar. Compara también cómo custodia tus valores y qué comisiones cobra."
+    },
+    {
+      "type": "card",
+      "term": "Comisiones",
+      "text": "Las comisiones son lo que cobra el bróker: normalmente un porcentaje del importe de cada operación, a veces con un mínimo, y en algunos casos custodia o cambio de divisa. Reducen tu rentabilidad igual que cualquier coste."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "broker-espana"
+      ],
+      "prompt": "¿Qué es un bróker?",
+      "options": [
+        "Un intermediario autorizado que ejecuta tus órdenes de compra y venta",
+        "La empresa que emite las acciones",
+        "El organismo que supervisa los mercados",
+        "El mercado donde se negocian las acciones"
+      ],
+      "answer": 0,
+      "explanation": "El bróker transmite tus órdenes al mercado y custodia o registra tus valores.",
+      "wrongExplanations": {
+        "1": "La emisora es la empresa cuyas acciones compras.",
+        "2": "Eso es la CNMV.",
+        "3": "El mercado es, por ejemplo, la bolsa gestionada por BME."
+      }
+    },
+    {
+      "id": "n1-u5-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "broker-espana"
+      ],
+      "statement": "Antes de operar conviene comprobar que la entidad está autorizada y registrada en la CNMV.",
+      "answer": true,
+      "explanation": "Los registros de la CNMV permiten verificarlo."
+    },
+    {
+      "id": "n1-u5-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 2.000 €. ¿Cuál es la comisión en euros?",
+      "answer": 6,
+      "tolerance": 0,
+      "formula": "MAX(2000 * 0.001, 6)",
+      "explanation": "El 0,10 % de 2.000 € son 2 €, menos que el mínimo: se cobran 6 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 20.000 €. ¿Cuál es la comisión en euros?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "MAX(20000 * 0.001, 6)",
+      "explanation": "El 0,10 % de 20.000 € son 20 €, más que el mínimo: se cobran 20 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Compras 1.000 acciones a 5,00 €. ¿Cuánto pagas en total, comisión incluida, en euros?",
+      "answer": 5006,
+      "tolerance": 0,
+      "formula": "1000 * 5 + MAX(1000 * 5 * 0.001, 6)",
+      "explanation": "5.000 € de acciones más una comisión de 6 € (el 0,10 % serían 5 €, por debajo del mínimo) = 5.006 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Vendes 1.000 acciones a 5,20 €. ¿Cuánto recibes neto, tras la comisión, en euros?",
+      "answer": 5194,
+      "tolerance": 0,
+      "formula": "1000 * 5.2 - MAX(1000 * 5.2 * 0.001, 6)",
+      "explanation": "5.200 € menos una comisión de 6 € (el 0,10 % serían 5,20 €, por debajo del mínimo) = 5.194 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "La comisión suele ser un porcentaje del ___ de la operación.",
+      "answers": [
+        [
+          "importe"
+        ]
+      ],
+      "explanation": "Se calcula sobre el importe de la operación."
+    },
+    {
+      "id": "n1-u5-l1-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "¿Coste para ti o ingreso?",
+      "categories": [
+        "Coste",
+        "Ingreso"
+      ],
+      "items": [
+        {
+          "text": "Comisión de compra",
+          "category": "Coste"
+        },
+        {
+          "text": "Comisión de custodia",
+          "category": "Coste"
+        },
+        {
+          "text": "Dividendo cobrado",
+          "category": "Ingreso"
+        },
+        {
+          "text": "Intereses cobrados",
+          "category": "Ingreso"
+        }
+      ],
+      "explanation": "Las comisiones restan; los dividendos y los intereses suman."
+    }
+  ],
+  "realWorld": "Antes de abrir una cuenta en un bróker, mira su tarifa de comisiones: suele estar en un documento llamado «folleto de tarifas».",
+  "sources": [
+    {
+      "title": "CNMV: registros oficiales de entidades autorizadas",
+      "url": "https://www.cnmv.es/portal/Consultas/Registros.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

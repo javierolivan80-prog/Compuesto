@@ -23,6 +23,7 @@
   "src/features/home/Home.tsx",
   "src/features/lesson/LessonScreen.tsx",
   "src/features/lesson/explainers/CompoundCurve.tsx",
+  "src/features/lesson/explainers/ExDividend.tsx",
   "src/features/lesson/explainers/Explainer.tsx",
   "src/features/lesson/explainers/IndexWeights.tsx",
   "src/features/lesson/explainers/InflationCart.tsx",

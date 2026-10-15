@@ -1,0 +1,195 @@
+{
+  "id": "n1-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "Dividendos y rentabilidad por dividendo",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Calcular la rentabilidad por dividendo",
+    "Entender la fecha ex-dividendo"
+  ],
+  "concepts": [
+    "dividendo",
+    "rentabilidad-dividendo"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Rentabilidad por dividendo",
+      "text": "El dividendo es la parte del beneficio que se reparte a los accionistas y no está garantizado. La rentabilidad por dividendo es el dividendo por acción dividido entre el precio. Tras la fecha ex-dividendo, quien compra ya no cobra ese dividendo y el precio baja aproximadamente su importe."
+    },
+    {
+      "type": "visual",
+      "component": "ExDividend",
+      "props": {
+        "price": 10,
+        "dividend": 0.2
+      }
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: Naranjas del Turia reparte 2.400.000 € entre sus 12.000.000 de acciones, que cotizan a 10 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-dividendo"
+      ],
+      "prompt": "¿Qué mide la rentabilidad por dividendo?",
+      "options": [
+        "El dividendo por acción dividido entre el precio de la acción",
+        "El beneficio total de la empresa",
+        "La subida del precio en el año",
+        "El número de dividendos al año"
+      ],
+      "answer": 0,
+      "explanation": "Relaciona lo que cobras con lo que cuesta la acción.",
+      "wrongExplanations": {
+        "1": "El beneficio total no relaciona el dividendo con el precio.",
+        "2": "Eso es la variación del precio.",
+        "3": "Cuenta el importe, no el número de pagos."
+      }
+    },
+    {
+      "id": "n1-u5-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "statement": "Una empresa está obligada a pagar dividendo todos los años.",
+      "answer": false,
+      "explanation": "El dividendo depende de los beneficios y del acuerdo de la junta."
+    },
+    {
+      "id": "n1-u5-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "Una empresa reparte 2.400.000 € entre 12.000.000 de acciones. ¿Cuántos euros de dividendo corresponden a cada acción?",
+      "answer": 0.2,
+      "tolerance": 0,
+      "formula": "2400000 / 12000000",
+      "explanation": "2.400.000 / 12.000.000 = 0,20 € por acción.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-dividendo"
+      ],
+      "prompt": "Una acción cotiza a 10 € y paga 0,20 € de dividendo. ¿Cuál es la rentabilidad por dividendo, en %?",
+      "answer": 2,
+      "tolerance": 0,
+      "formula": "0.20 / 10 * 100",
+      "explanation": "0,20 / 10 = 0,02, es decir, un 2 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "Tienes 500 acciones y la empresa paga 0,20 € por acción. ¿Cuánto cobras en euros, antes de impuestos?",
+      "answer": 100,
+      "tolerance": 0,
+      "formula": "500 * 0.20",
+      "explanation": "500 × 0,20 = 100 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l2-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "Una acción cotiza a 10 € y paga un dividendo de 0,20 €. Si el precio baja exactamente el importe del dividendo en la fecha ex-dividendo, ¿a qué precio queda, en euros?",
+      "answer": 9.8,
+      "tolerance": 0,
+      "formula": "10 - 0.20",
+      "explanation": "10,00 − 0,20 = 9,80 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "Quien compra una acción después de la fecha ___-dividendo no cobra ese dividendo.",
+      "answers": [
+        [
+          "ex"
+        ]
+      ],
+      "explanation": "Fecha ex-dividendo."
+    },
+    {
+      "id": "n1-u5-l2-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "¿Por qué suele bajar el precio en la fecha ex-dividendo?",
+      "options": [
+        "Porque la empresa entrega valor a sus accionistas",
+        "Porque la CNMV lo ordena",
+        "Porque aumentan las acciones",
+        "Porque hay una subasta"
+      ],
+      "answer": 0,
+      "explanation": "La empresa entrega parte de su valor en efectivo y el precio lo refleja.",
+      "wrongExplanations": {
+        "1": "No es una orden de la CNMV.",
+        "2": "El número de acciones no cambia con un dividendo en efectivo.",
+        "3": "La fecha ex-dividendo no implica una subasta."
+      }
+    }
+  ],
+  "realWorld": "En la web de cualquier cotizada encontrarás su calendario de dividendos con las fechas clave.",
+  "sources": [
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

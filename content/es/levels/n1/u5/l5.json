@@ -1,0 +1,197 @@
+{
+  "id": "n1-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "Ganancias y dividendos en el IRPF",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Calcular una ganancia patrimonial",
+    "Estimar el impuesto y la retención"
+  ],
+  "concepts": [
+    "irpf-ganancias",
+    "dividendo"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ganancia patrimonial",
+      "text": "La ganancia patrimonial al vender acciones es el valor de venta menos el de compra, incluyendo comisiones. Tributa en la base del ahorro con la misma escala que los intereses: 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 €. Los dividendos también van a esa base, con una retención del 19 %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "¿En qué base del IRPF tributa la ganancia por vender acciones?",
+      "options": [
+        "En la base del ahorro",
+        "En la base general, como el salario",
+        "No tributa",
+        "En el impuesto de sociedades"
+      ],
+      "answer": 0,
+      "explanation": "Las ganancias patrimoniales por transmisiones van a la base del ahorro.",
+      "wrongExplanations": {
+        "1": "El salario va a la base general.",
+        "2": "Sí tributa.",
+        "3": "El impuesto de sociedades lo pagan las empresas."
+      }
+    },
+    {
+      "id": "n1-u5-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "statement": "Si vendes acciones por menos de lo que costaron, tienes una ganancia patrimonial positiva.",
+      "answer": false,
+      "explanation": "Es una pérdida patrimonial."
+    },
+    {
+      "id": "n1-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Compras 1.000 acciones a 10 € y las vendes a 12 €, sin comisiones. ¿Cuál es la ganancia en euros?",
+      "answer": 2000,
+      "tolerance": 0,
+      "formula": "1000 * 12 - 1000 * 10",
+      "explanation": "12.000 − 10.000 = 2.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Compras 1.000 acciones a 10 € con 20 € de comisión y las vendes a 12 € con otros 20 € de comisión. ¿Cuál es la ganancia patrimonial en euros?",
+      "answer": 1960,
+      "tolerance": 0,
+      "formula": "(12000 - 20) - (10000 + 20)",
+      "explanation": "Valor de venta neto 11.980 € menos valor de compra 10.020 € = 1.960 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Con una ganancia de 1.960 € como único ingreso de la base del ahorro y un tipo del 19 %, ¿cuánto impuesto resulta, en euros?",
+      "answer": 372.4,
+      "tolerance": 0.05,
+      "formula": "1960 * 0.19",
+      "explanation": "1.960 × 0,19 = 372,40 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias",
+        "dividendo"
+      ],
+      "prompt": "Cobras 300 € de dividendos brutos. ¿Cuántos euros te retienen al 19 %?",
+      "answer": 57,
+      "tolerance": 0,
+      "formula": "300 * 0.19",
+      "explanation": "300 × 0,19 = 57 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l5-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Las ganancias por vender acciones tributan en la base del ___ del IRPF.",
+      "answers": [
+        [
+          "ahorro"
+        ]
+      ],
+      "explanation": "Base del ahorro."
+    },
+    {
+      "id": "n1-u5-l5-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "¿Ganancia patrimonial o rendimiento del capital mobiliario?",
+      "categories": [
+        "Ganancia patrimonial",
+        "Rendimiento del capital mobiliario"
+      ],
+      "items": [
+        {
+          "text": "Beneficio por vender acciones más caras de lo que costaron",
+          "category": "Ganancia patrimonial"
+        },
+        {
+          "text": "Dividendos cobrados",
+          "category": "Rendimiento del capital mobiliario"
+        },
+        {
+          "text": "Intereses de un depósito",
+          "category": "Rendimiento del capital mobiliario"
+        },
+        {
+          "text": "Diferencia positiva entre venta y compra de unas acciones",
+          "category": "Ganancia patrimonial"
+        }
+      ],
+      "explanation": "Vender con beneficio es ganancia patrimonial; dividendos e intereses son rendimientos del capital."
+    }
+  ],
+  "realWorld": "Tu bróker suele enviarte un resumen fiscal con ganancias, dividendos y retenciones: alimenta el borrador de la renta.",
+  "sources": [
+    {
+      "title": "Agencia Tributaria: IRPF, ganancias patrimoniales y rendimientos del capital mobiliario",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "BOE: Ley 35/2006 del IRPF (texto consolidado)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-15"
+}

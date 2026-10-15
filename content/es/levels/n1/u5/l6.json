@@ -1,0 +1,239 @@
+{
+  "id": "n1-u5-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "title": "Jefe final: operar en España",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar comisiones, dividendos, rentabilidad total, scrip e IRPF"
+  ],
+  "concepts": [
+    "broker-espana",
+    "comisiones",
+    "dividendo",
+    "rentabilidad-dividendo",
+    "rentabilidad-total",
+    "scrip-dividend",
+    "irpf-ganancias"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: el bróker cobra comisiones (a veces con mínimo). La rentabilidad por dividendo es dividendo / precio; la rentabilidad total suma precio y dividendos. El scrip permite elegir entre efectivo y acciones."
+    },
+    {
+      "type": "card",
+      "text": "Las ganancias por vender y los dividendos tributan en la base del ahorro del IRPF; los dividendos llevan una retención del 19 %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 1.500 €. ¿Cuál es la comisión en euros?",
+      "answer": 6,
+      "tolerance": 0,
+      "formula": "MAX(1500 * 0.001, 6)",
+      "explanation": "El 0,10 % de 1.500 € son 1,50 €; se aplica el mínimo de 6 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l6-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "broker-espana"
+      ],
+      "prompt": "Antes de operar con una entidad, ¿qué conviene comprobar?",
+      "options": [
+        "Que está autorizada y registrada en la CNMV",
+        "Que tiene muchos seguidores",
+        "Que ofrece rentabilidades garantizadas",
+        "Que no cobra comisiones nunca"
+      ],
+      "answer": 0,
+      "explanation": "Los registros de la CNMV permiten verificar la autorización.",
+      "wrongExplanations": {
+        "1": "Los seguidores no acreditan autorización.",
+        "2": "Las rentabilidades garantizadas son una señal de alerta.",
+        "3": "Muchas entidades cobran comisiones de algún tipo."
+      }
+    },
+    {
+      "id": "n1-u5-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-dividendo"
+      ],
+      "prompt": "Una acción cotiza a 25 € y paga 1 € de dividendo. ¿Cuál es la rentabilidad por dividendo, en %?",
+      "answer": 4,
+      "tolerance": 0,
+      "formula": "1 / 25 * 100",
+      "explanation": "1 / 25 = 0,04, es decir, un 4 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l6-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "statement": "La rentabilidad total incluye los dividendos cobrados.",
+      "answer": true,
+      "explanation": "Suma el cambio de precio y los dividendos."
+    },
+    {
+      "id": "n1-u5-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "Compras a 50 €, cobras 2 € de dividendos y vendes a 52 €. ¿Cuál es la rentabilidad total, en %?",
+      "answer": 8,
+      "tolerance": 0,
+      "formula": "(52 - 50 + 2) / 50 * 100",
+      "explanation": "(2 + 2) / 50 = 0,08, es decir, un 8 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u5-l6-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "prompt": "El dividendo en el que eliges entre efectivo y acciones es el dividendo ___.",
+      "answers": [
+        [
+          "flexible"
+        ]
+      ],
+      "explanation": "Scrip dividend o dividendo flexible."
+    },
+    {
+      "id": "n1-u5-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "¿Ganancia patrimonial o rendimiento del capital mobiliario?",
+      "categories": [
+        "Ganancia patrimonial",
+        "Rendimiento del capital mobiliario"
+      ],
+      "items": [
+        {
+          "text": "Beneficio por vender acciones",
+          "category": "Ganancia patrimonial"
+        },
+        {
+          "text": "Dividendos cobrados",
+          "category": "Rendimiento del capital mobiliario"
+        },
+        {
+          "text": "Intereses de un depósito",
+          "category": "Rendimiento del capital mobiliario"
+        }
+      ],
+      "explanation": "Ventas con beneficio: ganancia; dividendos e intereses: rendimientos."
+    },
+    {
+      "id": "n1-u5-l6-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Compras 100 acciones a 30 € y las vendes a 34 €, sin comisiones. ¿Cuál es la ganancia en euros?",
+      "answer": 400,
+      "tolerance": 0,
+      "formula": "100 * 34 - 100 * 30",
+      "explanation": "3.400 − 3.000 = 400 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-ganancias",
+        "dividendo"
+      ],
+      "prompt": "Cobras 800 € de dividendos brutos. ¿Cuántos euros te retienen al 19 %?",
+      "answer": 152,
+      "tolerance": 0,
+      "formula": "800 * 0.19",
+      "explanation": "800 × 0,19 = 152 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u5-l6-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "¿Qué cuesta dinero al operar en bolsa?",
+      "options": [
+        "La comisión por operación",
+        "La comisión de custodia, si existe",
+        "El cambio de divisa, si compras en otra moneda",
+        "Los dividendos cobrados"
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Comisiones, custodia y cambio de divisa son costes; los dividendos cobrados son un ingreso."
+    }
+  ],
+  "realWorld": "Estas ideas están en cada operación que hagas: comisiones, dividendos, rentabilidad real e impuestos.",
+  "sources": [
+    {
+      "title": "Agencia Tributaria: IRPF, ganancias patrimoniales y rendimientos del capital mobiliario",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "CNMV: registros oficiales de entidades autorizadas",
+      "url": "https://www.cnmv.es/portal/Consultas/Registros.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-15"
+}
