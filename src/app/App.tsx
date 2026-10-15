@@ -1,7 +1,6 @@
 import { BrandDemo } from '../brand/BrandDemo';
 import { ThemeProvider } from '../design/ThemeProvider';
 import { TokensDemo } from '../design/TokensDemo';
-import { Prototypes } from '../prototypes/Prototypes';
 import { Styleguide } from './Styleguide';
 
 /** Las rutas de prueba solo existen en desarrollo: en producción import.meta.env.DEV es false. */
@@ -9,12 +8,9 @@ export function App() {
   const dev = import.meta.env.DEV;
   const hash = dev ? window.location.hash : '';
   const isStyleguide = dev && window.location.pathname === '/styleguide';
-  const isPrototypes = dev && window.location.pathname === '/prototypes';
   return (
     <ThemeProvider>
-      {isPrototypes ? (
-        <Prototypes />
-      ) : isStyleguide ? (
+      {isStyleguide ? (
         <Styleguide />
       ) : hash === '#tokens' ? (
         <TokensDemo />

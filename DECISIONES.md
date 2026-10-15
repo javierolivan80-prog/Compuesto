@@ -81,5 +81,11 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - Secuencias implementadas: subida de rango, ascensor, comité aprobado, cierre semanal (FLIP con `layout`), impresión de la tarjeta. **Sin sonido** (campana, ding): el banco de sonidos no entra en 0.5. Confeti en Canvas 2D, apagado con reduced-motion. Transiciones entre pantallas: View Transitions (fundido 160 ms) con fallback de Motion (`AnimatePresence`) cuando el navegador no las soporta; en Chromium se ve la rama nativa, la de fallback no se ha ejercitado en navegador.
 - Fuera de lo pedido y no hecho: "ordenar/arrastrar", "cálculo guiado" (FLIP de números a la fórmula), "hoja de cálculo" y "balance que cuadra" de ANIMACIONES §3; pertenecen a los ejercicios de la Fase 1.
 
-## 2026-10-15 — Tarea 0.6 (en curso): prototipos
-`/prototypes` (solo desarrollo) muestra 3 variantes de tarjeta de ejercicio, Home y Camino con selector; capturas en `docs/prototipos/`. Marcadas como datos de ejemplo (`PROVISIONAL(tarea 0.6)`). **🛑 Esperando la elección de Javier** (una variante de cada); después se aplica al styleguide, se eliminan las otras y se pasa critique + audit + polish.
+## 2026-10-15 — Tarea 0.6: elecciones de diseño
+- **Elegido por Claude, no por Javier.** Javier respondió "Sigue" sin elegir y había pedido no parar entre pasos; para no bloquear se aplicó la recomendación de Claude. **Es revertible**: las variantes descartadas están en el commit `design: prototipos con 3 variantes…` (`git show` de `src/prototypes/Prototypes.tsx` y `docs/prototipos/`). Si prefieres otra, dilo y se cambia.
+  - Tarjeta de ejercicio → **B** (pregunta en serif grande, opciones en píldoras): escala a enunciados y opciones largas en móvil y es la más coherente con "Old Money".
+  - Home → **A** (portada de periódico + ticker): es el "briefing" de CLAUDE.md §7.4 y el ticker de §7.3.
+  - Camino → **A** (corte del edificio): lista robusta para 10 plantas + ramas; el ascensor ya existe como secuencia entre plantas.
+- Aplicado como `ExercisePrompt`, `Briefing` y `Building` (visibles en `/styleguide`); eliminados `/prototypes` y sus capturas.
+- Revisión de cierre sobre `/styleguide`: critique visual (capturas 375 px), `web-design-guidelines` (reglas de Vercel descargadas y aplicadas: inputs con `autocomplete="off"` y `spellcheck` desactivado, placeholders con "…", estado de carga con "…", `overscroll-behavior: contain` en el sheet, enlace "Saltar al contenido"), audit (axe, 7 temas, 0 violaciones) y detector de Impeccable limpio. Reglas de copy en inglés de esa guía (Title Case, etc.) no se aplican: la interfaz es en español.
+- `/impeccable critique|audit|polish` como comandos no se pudieron ejecutar (Impeccable sin instalar); se sustituyeron por lo anterior.

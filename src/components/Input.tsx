@@ -18,6 +18,8 @@ export function Input({ label, error, hint, className = '', ...rest }: InputProp
       </label>
       <input
         id={id}
+        autoComplete="off"
+        spellCheck={false}
         aria-invalid={error ? true : undefined}
         aria-describedby={error || hint ? descId : undefined}
         className={`bg-surface-1 text-text min-h-12 rounded-[var(--radius-sm)] border px-4 text-base disabled:opacity-50 ${error ? 'border-bear' : 'border-line'} ${className}`}

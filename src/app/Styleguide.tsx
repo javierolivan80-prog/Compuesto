@@ -10,6 +10,9 @@ import { CandleChart } from '../components/CandleChart';
 import { Chip } from '../components/Chip';
 import { CompoundRing } from '../components/CompoundRing';
 import { ExerciseCard, type ExerciseCardState } from '../components/ExerciseCard';
+import { ExercisePrompt } from '../components/ExercisePrompt';
+import { Briefing } from '../features/home/Briefing';
+import { Building, type Floor } from '../features/path/Building';
 import { FeedbackSheet } from '../components/FeedbackSheet';
 import { Input } from '../components/Input';
 import { GlossaryTerm, ReviewTag, StreakCandles, TheoryCard } from '../components/Micro';
@@ -66,6 +69,19 @@ const AFTER: Row[] = [
   { id: 'c', name: 'Tu yo de la semana pasada', xp: 640 },
 ];
 
+const FLOORS: Floor[] = [
+  { level: 0, name: 'Recepción · El dinero', status: 'completed' },
+  { level: 1, name: 'Mercados', status: 'current' },
+  { level: 2, name: 'Productos', status: 'locked' },
+  { level: 3, name: 'Contabilidad y valoración', status: 'locked' },
+];
+
+const TICKER = [
+  { symbol: 'NTT', price: 41.2, changePct: 0.8 },
+  { symbol: 'PIR', price: 12.05, changePct: -1.1 },
+  { symbol: '$JAV', price: 108.4, changePct: 2.1 },
+];
+
 const TABS = ['Inicio', 'Camino', 'Practicar'] as const;
 
 function TabsDemo() {
@@ -112,6 +128,7 @@ export function Styleguide() {
   const { theme, setTheme } = useTheme();
   const [sheet, setSheet] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+  const [picked, setPicked] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
   const [progress, setProgress] = useState(3);
   const [counter, setCounter] = useState(1250);
@@ -119,7 +136,10 @@ export function Styleguide() {
   const states: ExerciseCardState[] = ['idle', 'selected', 'correct', 'incorrect', 'disabled'];
 
   return (
-    <main className="mx-auto grid max-w-3xl grid-cols-[minmax(0,1fr)] gap-10 p-6">
+    <main id="contenido" className="mx-auto grid max-w-3xl grid-cols-[minmax(0,1fr)] gap-10 p-6">
+      <a href="#contenido" className="sr-only focus:not-sr-only focus:underline">
+        Saltar al contenido
+      </a>
       <Toaster />
       <header className="grid gap-3">
         <Logo variant="full" size={48} />
@@ -150,17 +170,18 @@ export function Styleguide() {
           <Button variant="ghost">Fantasma</Button>
           <Button variant="danger">Peligro</Button>
           <Button disabled>Deshabilitado</Button>
-          <Button loading>Cargando</Button>
+          <Button loading>Cargando…</Button>
         </div>
       </Section>
 
       <Section id="sg-inputs" title="Input y chips">
         <Input
           label="Importe a invertir"
-          placeholder="1.000"
+          placeholder="Ej.: 1.000…"
+          name="importe"
           hint="Sin comisiones en este ejemplo."
         />
-        <Input label="Tipo anual" defaultValue="abc" error="Introduce un número." />
+        <Input label="Tipo anual" name="tipo" defaultValue="abc" error="Introduce un número." />
         <div className="flex flex-wrap gap-2">
           <Chip selected>Renta fija</Chip>
           <Chip>Renta variable</Chip>
@@ -222,6 +243,28 @@ export function Styleguide() {
             onContinue={() => setFeedback(null)}
           />
         )}
+      </Section>
+
+      <Section id="sg-screens" title="Piezas clave (elegidas en 0.6)">
+        <ExercisePrompt
+          topic="Interés compuesto"
+          question="Inviertes mil euros al cinco por ciento anual durante dos años. ¿Cuánto tienes?"
+          options={['1.000 €', '1.050 €', '1.102,50 €', '1.200 €'].map((l) => ({
+            id: l,
+            label: <span data-num>{l}</span>,
+            state: picked === l ? 'selected' : 'idle',
+          }))}
+          onSelect={setPicked}
+          onCheck={() => setFeedback(picked === '1.102,50 €' ? 'correct' : 'incorrect')}
+          checkDisabled={!picked}
+        />
+        <Briefing
+          ticker={TICKER}
+          headline="Naranjas del Turia sale a bolsa: ¿cuánto vale una acción?"
+          challengeMinutes={8}
+          onOpen={() => toast('Abrir mercado (ejemplo)')}
+        />
+        <Building floors={FLOORS} />
       </Section>
 
       <Section id="sg-progress" title="Progreso, anillo y contadores">

@@ -19,7 +19,7 @@ export function Sheet({ open, onOpenChange, title, description, children }: Shee
           style={{ zIndex: 'var(--z-overlay)' }}
         />
         <Drawer.Content
-          className="bg-surface-1 text-text border-line fixed inset-x-0 bottom-0 mx-auto max-w-xl rounded-t-[var(--radius-md)] border-t p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+          className="bg-surface-1 text-text border-line fixed inset-x-0 bottom-0 mx-auto max-w-xl rounded-t-[var(--radius-md)] overscroll-contain border-t p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]"
           style={{ zIndex: 'var(--z-sheet)' }}
         >
           <Drawer.Handle className="mb-4" />
