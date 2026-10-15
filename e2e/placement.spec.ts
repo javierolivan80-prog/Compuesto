@@ -62,9 +62,9 @@ test('test de salto aprobado: unidad marcada como dominada, persiste y no se rep
   page,
 }) => {
   await ready(page);
+  await page.goto('/#/camino');
   await page
-    .getByRole('listitem')
-    .filter({ hasText: 'El dinero en el tiempo' })
+    .getByRole('group', { name: /El dinero en el tiempo/ })
     .getByRole('button', { name: 'Test de salto' })
     .click();
   await expect(page.getByRole('heading', { name: 'Test de salto' })).toBeVisible();
@@ -72,15 +72,18 @@ test('test de salto aprobado: unidad marcada como dominada, persiste y no se rep
   await expect(page.getByRole('heading', { name: 'Unidad dominada' })).toBeVisible();
   await expect(page.getByTestId('placement-score')).toHaveText('8 de 8 · 100 %');
   await page.getByRole('button', { name: 'Volver al inicio' }).click();
-
-  const row = page
-    .getByRole('listitem')
-    .filter({ hasText: 'El dinero en el tiempo' })
-    .filter({ hasText: 'Dominada por test de salto' });
-  await expect(row.getByRole('button', { name: 'Test de salto' })).toBeDisabled();
-  await page.reload();
-  await expect(row.getByRole('button', { name: 'Test de salto' })).toBeDisabled();
   await expect(page.getByTestId('xp-total')).toHaveText('0'); // el test no da XP ni racha
+
+  await page.goto('/#/camino');
+  const unit = page.getByRole('group', { name: /El dinero en el tiempo/ });
+  await expect(unit).toContainText('✓ Dominada por test de salto');
+  await expect(unit.getByRole('button', { name: 'Test de salto' })).toBeDisabled();
+  await page.reload();
+  await expect(
+    page
+      .getByRole('group', { name: /El dinero en el tiempo/ })
+      .getByRole('button', { name: 'Test de salto' }),
+  ).toBeDisabled();
 });
 
 test('test de salto suspendido (6 de 8 = 75 %): no se marca y se ofrece estudiar la unidad', async ({

@@ -100,6 +100,8 @@ export function Camino({ data, onStart, onSkipUnit, onSkipLevel }: Props) {
                     return (
                       <div
                         key={u.id}
+                        role="group"
+                        aria-label={u.name}
                         className="border-line grid gap-2 rounded-[var(--radius-sm)] border p-3"
                       >
                         <p>
