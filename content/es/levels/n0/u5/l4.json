@@ -201,11 +201,16 @@
         0,
         1
       ],
-      "explanation": "Empezar pronto y ser constante da más años de capitalización; gastarlo todo o esperar lo impide."
+      "explanation": "Empezar pronto y ser constante da más años de capitalización. Gastar todo mientras cobras sueldo no deja nada para ahorrar, y esperar a los 60 años deja poco tiempo para que el interés compuesto actúe."
     }
   ],
-  "realWorld": "En tu vida laboral tendrás derecho a una pensión pública, pero muchas personas la complementan con planes de empleo o ahorro individual.",
+  "realWorld": "Si cumples los requisitos de cotización, tendrás derecho a una pensión pública; muchas personas la complementan con planes de empleo o ahorro individual.",
   "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 8/2015, Ley General de la Seguridad Social (art. 205 y disp. transitoria séptima)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724",
+      "date": "2026-10-15"
+    },
     {
       "title": "Seguridad Social: jubilación contributiva",
       "url": "https://www.seg-social.es/",

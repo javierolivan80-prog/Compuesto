@@ -680,5 +680,19 @@
     "reviewedBy": [],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "perdida-esperada",
+    "term": "Pérdida esperada",
+    "definition": "Probabilidad de un suceso multiplicada por el daño que causaría; mide el coste medio anual de un riesgo.",
+    "level": 0,
+    "concepts": [
+      "seguros-basicos"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

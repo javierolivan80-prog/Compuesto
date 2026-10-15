@@ -12,8 +12,7 @@
     "Calcular una pérdida esperada"
   ],
   "concepts": [
-    "seguros-basicos",
-    "riesgo-rentabilidad"
+    "seguros-basicos"
   ],
   "companies": [
     "albufera-partners"
@@ -23,7 +22,7 @@
     {
       "type": "card",
       "term": "Qué asegurar",
-      "text": "No hace falta asegurarlo todo. Conviene asegurar los riesgos poco probables pero de impacto enorme que no podrías pagar tú, como una responsabilidad civil o una hospitalización. Las pérdidas pequeñas y asumibles se pagan mejor del propio bolsillo. Algunos seguros son obligatorios, como el de responsabilidad civil del automóvil."
+      "text": "Conviene asegurar los riesgos poco probables pero de impacto enorme que no podrías pagar tú, como la responsabilidad civil (pagar los daños que causas a otros) o una incapacidad que te impida trabajar. Las pérdidas pequeñas y asumibles se pagan mejor del propio bolsillo. Algunos seguros son obligatorios, como el de responsabilidad civil del automóvil."
     }
   ],
   "exercises": [
@@ -88,7 +87,7 @@
           "category": "Asumir"
         },
         {
-          "text": "Gastos de una hospitalización larga",
+          "text": "Daños que causas a un tercero con tu coche",
           "category": "Asegurar"
         },
         {
@@ -121,8 +120,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": [
-        "seguros-basicos",
-        "riesgo-rentabilidad"
+        "seguros-basicos"
       ],
       "prompt": "Una avería de 150 € tiene un 20 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
       "answer": 30,
@@ -145,7 +143,11 @@
         [
           "alto",
           "gran",
-          "elevado"
+          "grande",
+          "elevado",
+          "enorme",
+          "severo",
+          "importante"
         ]
       ],
       "explanation": "Alto impacto significa que la pérdida sería difícil de pagar."

@@ -25,6 +25,10 @@
       "text": "Un seguro transfiere un riesgo a una aseguradora a cambio de una prima. Si ocurre el siniestro (el suceso cubierto), la aseguradora indemniza hasta la suma asegurada, descontando la franquicia, la parte del daño que paga el asegurado. El seguro no evita el riesgo: reparte su coste entre muchos asegurados."
     },
     {
+      "type": "card",
+      "text": "Pérdida esperada = probabilidad × daño. Mide el coste medio anual de un riesgo y sirve para compararlo con la prima, aunque la prima incluye los costes y el margen de la aseguradora."
+    },
+    {
       "type": "example",
       "text": "Lucía, becaria de Albufera Partners, paga 240 € al año por el seguro de su piso. Una tubería rota causa 1.500 € de daños y su póliza tiene una franquicia de 150 €."
     }
@@ -76,7 +80,7 @@
       "concepts": [
         "seguros-basicos"
       ],
-      "prompt": "Los daños son 1.500 € y la franquicia es de 150 €. ¿Cuántos euros paga la aseguradora?",
+      "prompt": "Los daños son 1.500 € y la franquicia (absoluta) es de 150 €. ¿Cuántos euros paga la aseguradora?",
       "answer": 1350,
       "tolerance": 0,
       "formula": "1500 - 150",
@@ -176,7 +180,7 @@
       "concepts": [
         "seguros-basicos"
       ],
-      "prompt": "La prima es de 300 € y la pérdida esperada de 200 €. ¿Por qué puede compensar asegurarse?",
+      "prompt": "Un daño de 20.000 € tiene un 1 % de probabilidad al año (pérdida esperada: 200 €). La prima cuesta 300 €. ¿Por qué alguien podría asegurarse aun así?",
       "options": [
         "Porque un daño de 20.000 € sería muy difícil de asumir de golpe",
         "Porque la aseguradora regala la diferencia",
@@ -184,7 +188,7 @@
         "No compensa nunca"
       ],
       "answer": 0,
-      "explanation": "La prima incluye costes y margen de la aseguradora, pero evita una pérdida que no podrías afrontar de una vez.",
+      "explanation": "La prima incluye costes y margen de la aseguradora, pero evita una pérdida que quizá no podrías afrontar de una vez. Es una decisión personal según tu capacidad de asumir la pérdida.",
       "wrongExplanations": {
         "1": "La aseguradora no regala nada: cobra costes y margen.",
         "2": "Aquí la prima es mayor que la pérdida esperada.",

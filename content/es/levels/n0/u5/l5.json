@@ -66,7 +66,7 @@
       ],
       "statement": "Una inversión que promete una rentabilidad alta garantizada y sin riesgo es una señal de alerta.",
       "answer": true,
-      "explanation": "Si fuese real, todos querrían comprarla y el precio cambiaría: suele ser un fraude."
+      "explanation": "Si fuese real, todos querrían comprarla y el precio cambiaría: puede ser un fraude o una estafa."
     },
     {
       "id": "n0-u5-l5-e3",
@@ -149,7 +149,7 @@
       ],
       "items": [
         {
-          "text": "Cuenta de ahorro cubierta por el FGD",
+          "text": "Cuenta de ahorro cubierta por el FGD (hasta 100.000 €)",
           "category": "Riesgo bajo"
         },
         {
@@ -193,7 +193,13 @@
     }
   ],
   "realWorld": "Cualquier folleto de inversión tiene un indicador de riesgo: es la forma oficial de recordarte que rentabilidad y riesgo van juntos.",
-  "sources": [],
+  "sources": [
+    {
+      "title": "CNMV y Banco de España: advertencia sobre criptoactivos",
+      "url": "https://www.cnmv.es/portal/Inversor/Criptoactivos.aspx",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

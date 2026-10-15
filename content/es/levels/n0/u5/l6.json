@@ -90,14 +90,14 @@
         "Las cotizaciones de quienes trabajan hoy",
         "El ahorro individual de cada pensionista",
         "Los préstamos bancarios",
-        "Las empresas del IBEX"
+        "Solo las empresas del IBEX"
       ],
       "answer": 0,
       "explanation": "Los cotizantes actuales financian a los pensionistas actuales.",
       "wrongExplanations": {
         "1": "Eso describe un sistema de capitalización.",
         "2": "El sistema no se financia con préstamos bancarios.",
-        "3": "Las empresas cotizan, pero no son la fuente exclusiva ni solo las del IBEX."
+        "3": "Las cotizaciones las pagan trabajadores y empresas de todo tipo, no un grupo concreto."
       }
     },
     {
@@ -229,11 +229,16 @@
         1,
         3
       ],
-      "explanation": "Primero identificas y valoras los riesgos y comparas; contratar todo sin criterio no ayuda."
+      "explanation": "Primero identificas y valoras los riesgos y comparas. Contratar todo lo que ofrezcan no ayuda a decidir, y no estimar si podrías asumir la pérdida te deja sin criterio."
     }
   ],
   "realWorld": "Estas ideas están detrás de tu póliza de hogar, tu vida laboral y cualquier propuesta de inversión que veas.",
   "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 8/2015, Ley General de la Seguridad Social (art. 205 y disp. transitoria séptima)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724",
+      "date": "2026-10-15"
+    },
     {
       "title": "Seguridad Social: jubilación contributiva",
       "url": "https://www.seg-social.es/",

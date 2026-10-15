@@ -20,7 +20,11 @@
     {
       "type": "card",
       "term": "Pensiones públicas",
-      "text": "El sistema público español es de reparto: las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy. Para la jubilación contributiva se exige un mínimo de 15 años cotizados y una edad que sube gradualmente hasta los 67 años en 2027, o 65 si se acreditan 38 años y 6 meses cotizados."
+      "text": "El sistema público español es de reparto: las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy. La jubilación contributiva exige, entre otros requisitos, 15 años cotizados y una edad que sube hasta 67 años en 2027 (65 con 38 años y 6 meses cotizados)."
+    },
+    {
+      "type": "card",
+      "text": "Frente al reparto, en un sistema de capitalización cada persona acumula su propio ahorro en una cuenta que se invierte."
     }
   ],
   "exercises": [
@@ -118,7 +122,7 @@
           "category": "Capitalización"
         },
         {
-          "text": "La Seguridad Social",
+          "text": "Pensión de jubilación pública",
           "category": "Reparto"
         },
         {
@@ -157,14 +161,14 @@
       "options": [
         "Hay menos cotizantes por cada pensionista",
         "Los pensionistas cotizan más",
-        "Suben las cotizaciones automáticamente",
+        "El número de pensionistas baja",
         "No tiene ningún efecto"
       ],
       "answer": 0,
       "explanation": "Con menos cotizantes por pensionista, cada cotización debe financiar más pensión.",
       "wrongExplanations": {
-        "1": "Los pensionistas no financian el sistema con cotizaciones.",
-        "2": "Las cotizaciones no suben solas.",
+        "1": "El problema es que hay más pensionistas por cotizante, no que los pensionistas coticen más.",
+        "2": "Si bajara el número de pensionistas, la presión sería menor, no mayor.",
         "3": "Sí afecta: cambia la relación entre cotizantes y pensionistas."
       }
     },
@@ -188,6 +192,11 @@
   ],
   "realWorld": "Puedes consultar tu vida laboral y tus cotizaciones en la sede de la Seguridad Social.",
   "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 8/2015, Ley General de la Seguridad Social (art. 205 y disp. transitoria séptima)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724",
+      "date": "2026-10-15"
+    },
     {
       "title": "Seguridad Social: jubilación contributiva",
       "url": "https://www.seg-social.es/",
