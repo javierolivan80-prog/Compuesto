@@ -1,8 +1,10 @@
 {
   "id": "n1-u3-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 3,
   "title": "El IBEX 35",

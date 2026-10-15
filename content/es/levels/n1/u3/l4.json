@@ -1,8 +1,10 @@
 {
   "id": "n1-u3-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 3,
   "title": "BME Growth, índices del mundo y OTC",
@@ -188,11 +190,11 @@
       "concepts": [
         "indices-mundiales"
       ],
-      "prompt": "El S&P 500 agrupa unas 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces el número de empresas del Euro Stoxx 50 es el del S&P 500?",
+      "prompt": "El S&P 500 agrupa unas 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces mayor es el número de empresas del S&P 500 que el del Euro Stoxx 50?",
       "answer": 10,
       "tolerance": 0,
       "formula": "500 / 50",
-      "explanation": "500 / 50 = 10 veces más.",
+      "explanation": "500 / 50 = 10: el S&P 500 tiene 10 veces las empresas del Euro Stoxx 50.",
       "unit": "veces"
     },
     {
@@ -227,6 +229,11 @@
     {
       "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX, Deutsche Börse y Nikkei",
       "url": "https://www.spglobal.com/spdji/es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Reglamento (UE) 648/2012 (EMIR): derivados extrabursátiles (OTC)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2012/648/oj",
       "date": "2026-10-15"
     }
   ],

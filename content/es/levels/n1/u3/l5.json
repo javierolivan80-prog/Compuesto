@@ -1,8 +1,10 @@
 {
   "id": "n1-u3-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 3,
   "title": "Jefe final: bolsas e índices",
@@ -22,7 +24,7 @@
   "intro": [
     {
       "type": "card",
-      "text": "Repaso: BME gestiona las bolsas españolas y el mercado continuo. El IBEX 35 agrupa 35 grandes empresas ponderadas por capitalización ajustada por free float, con un tope por valor."
+      "text": "Repaso: BME gestiona las bolsas españolas y el mercado continuo. El IBEX 35 agrupa 35 grandes empresas ponderadas por capitalización ajustada por free float, con un tope del 20 % por valor."
     },
     {
       "type": "card",

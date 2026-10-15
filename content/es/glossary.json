@@ -966,8 +966,10 @@
     "aliases": [
       "Bolsas y Mercados Españoles"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -991,8 +993,10 @@
       "bme"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1010,14 +1014,16 @@
   {
     "id": "ibex-35",
     "term": "IBEX 35",
-    "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float con un tope por valor; se revisa dos veces al año.",
+    "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float con un tope del 20 % por valor; se revisa dos veces al año.",
     "level": 1,
     "concepts": [
       "ibex-35"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1038,8 +1044,10 @@
     "aliases": [
       "índice"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -1058,8 +1066,10 @@
       "bme-growth"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1080,13 +1090,15 @@
     "aliases": [
       "over the counter"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
-        "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX, Deutsche Börse y Nikkei",
-        "url": "https://www.spglobal.com/spdji/es/",
+        "title": "Reglamento (UE) 648/2012 (EMIR): derivados extrabursátiles (OTC)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2012/648/oj",
         "date": "2026-10-15"
       }
     ]
