@@ -22,6 +22,22 @@ const timeZone = z.string().refine(
 const id = z.string().min(1);
 const xp = z.number().int().min(0).max(10_000);
 
+/** Bloques de una sesión "Abrir mercado" (CLAUDE.md §7, §8b). El minijuego se sustituye por `review` hasta que haya juegos (2.5). */
+export const blockSpec = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal('briefing') }),
+  z.object({ kind: z.literal('due'), cards: z.number().int().min(1).max(15) }),
+  z.object({ kind: z.literal('lesson'), lessonId: id }),
+  z.object({ kind: z.literal('review'), exercises: z.number().int().min(1).max(15) }),
+  z.object({
+    kind: z.literal('reto'),
+    exercises: z.number().int().min(1).max(15),
+    /** Encargo del jefe: una vez por semana. */
+    weekly: z.boolean(),
+  }),
+  z.object({ kind: z.literal('cierre') }),
+]);
+export type BlockSpec = z.infer<typeof blockSpec>;
+
 /** Carga útil de cada tipo de evento (CLAUDE.md §3b). */
 export const payloads = {
   lesson_started: z.object({
@@ -58,6 +74,15 @@ export const payloads = {
     key: id,
     value: z.union([z.string(), z.number(), z.boolean(), z.null()]),
   }),
+  session_started: z.object({
+    sessionId: id,
+    /** Día (clave en la zona del dispositivo) en que se abre la sesión. */
+    day: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    minutes: z.number().int().min(1).max(60),
+    blocks: z.array(blockSpec).min(1).max(12),
+  }),
+  session_block_completed: z.object({ sessionId: id, index: z.number().int().min(0).max(11) }),
+  session_completed: z.object({ sessionId: id }),
 } as const;
 
 export type EventType = keyof typeof payloads;
@@ -82,6 +107,9 @@ export const eventSchema = z.discriminatedUnion('type', [
   ev('unit_skipped'),
   ev('explainer_interacted'),
   ev('settings_changed'),
+  ev('session_started'),
+  ev('session_block_completed'),
+  ev('session_completed'),
 ]);
 
 type Base = { id: string; createdAt: string; deviceId: string; schemaVersion: 1; tz: string };

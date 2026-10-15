@@ -310,3 +310,65 @@ export function practiceConcept(
 
 /** Fecha en que vencerá una tarjeta, como clave de día; útil para tests y para mostrar "vuelve el …". */
 export const nextReviewDay = (c: SrsCard, tz?: string): string => dueDay(c, tz);
+
+/* ---------- Bloques de la sesión diaria (2.2) ---------- */
+
+/**
+ * Repaso en lugar del minijuego: primero los fallos recientes, luego los ejercicios de los conceptos más flojos
+ * y, si faltan, lo que antes vence. Todo intercalado y acotado a `n`.
+ */
+export function buildPractice(input: {
+  cards: ReadonlyMap<string, SrsCard>;
+  catalog: readonly ExerciseRef[];
+  mastery: ReadonlyMap<string, ConceptMastery>;
+  today: string;
+  n: number;
+  exclude?: ReadonlySet<string>;
+}): ReviewItem[] {
+  const { cards, catalog, mastery, today, n } = input;
+  const taken = new Set(input.exclude ?? []);
+  const out: ReviewItem[] = [];
+  const push = (items: readonly ReviewItem[]) => {
+    for (const it of items) {
+      if (out.length >= n) return;
+      if (taken.has(it.exerciseId)) continue;
+      taken.add(it.exerciseId);
+      out.push(it);
+    }
+  };
+  push(recentMistakes(cards, catalog, n));
+  const weakest = [...mastery.values()]
+    .filter((m) => m.mastery !== null)
+    .sort((a, b) => (a.mastery ?? 1) - (b.mastery ?? 1) || a.conceptId.localeCompare(b.conceptId));
+  for (const m of weakest) push(practiceConcept(m.conceptId, cards, catalog, today, n));
+  // lo que antes vence entre lo ya practicado
+  const live = new Set(catalog.map((e) => e.id));
+  push(
+    [...cards.values()]
+      .filter((c) => live.has(c.exerciseId))
+      .sort((a, b) => a.card.due.getTime() - b.card.due.getTime())
+      .map((c) => ({ exerciseId: c.exerciseId, lessonId: c.lessonId, reason: 'tema' as const })),
+  );
+  return interleave(out.slice(0, n));
+}
+
+/**
+ * Reto del día (o Encargo del jefe): ejercicios de lo ya estudiado, elegidos de forma determinista por el día,
+ * que no se hayan respondido hoy. Mezcla lecciones para que haga falta recordar, no seguir el hilo.
+ */
+export function buildChallenge(input: {
+  catalog: readonly ExerciseRef[];
+  completedLessons: ReadonlySet<string>;
+  day: string;
+  n: number;
+  answeredToday?: ReadonlySet<string>;
+  shuffle: <T>(items: readonly T[], seed: string) => T[];
+}): ReviewItem[] {
+  const pool = input.catalog.filter(
+    (e) => input.completedLessons.has(e.lessonId) && !(input.answeredToday ?? new Set()).has(e.id),
+  );
+  const picked = input.shuffle(pool, `reto:${input.day}`).slice(0, input.n);
+  return interleave(
+    picked.map((e) => ({ exerciseId: e.id, lessonId: e.lessonId, reason: 'tema' as const })),
+  );
+}

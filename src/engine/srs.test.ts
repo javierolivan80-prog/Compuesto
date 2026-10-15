@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { addDays } from './days';
 import { makeEvent, type AppEvent } from './events';
+import { seededShuffle } from './grading';
 import {
   archivedCards,
+  buildChallenge,
+  buildPractice,
   buildReview,
   conceptMastery,
   dueCards,
@@ -229,5 +232,46 @@ describe('intercalado y modos de práctica', () => {
 
   it('addDays se usa con claves de día (sanity del reloj simulado)', () => {
     expect(addDays('2026-10-15', 1)).toBe('2026-10-16');
+  });
+});
+
+describe('bloques de la sesión diaria', () => {
+  it('Repaso (en lugar del minijuego): primero los fallos, luego lo flojo, acotado y sin repetir', () => {
+    const events = [
+      answer('e1', false, '2026-10-15T10:00:00Z'),
+      answer('e2', true, '2026-10-15T10:30:00Z'),
+      answer('e3', true, '2026-10-15T11:00:00Z', ['c2'], 'l2'),
+    ];
+    const cards = projectCards(events);
+    const items = buildPractice({
+      cards,
+      catalog,
+      mastery: conceptMastery(events),
+      today: '2026-10-16',
+      n: 3,
+    });
+    expect(items).toHaveLength(3);
+    expect(items[0]!.exerciseId === 'e1' || items.some((i) => i.exerciseId === 'e1')).toBe(true);
+    expect(new Set(items.map((i) => i.exerciseId)).size).toBe(3);
+    expect(
+      buildPractice({ cards, catalog, mastery: conceptMastery(events), today: '2026-10-16', n: 99 })
+        .length,
+    ).toBeLessThanOrEqual(3);
+  });
+
+  it('Reto del día: determinista por día, solo de lo estudiado y sin lo respondido hoy', () => {
+    const base = {
+      catalog,
+      completedLessons: new Set(['l1', 'l2']),
+      day: '2026-10-15',
+      n: 2,
+      shuffle: seededShuffle,
+    };
+    const a = buildChallenge(base);
+    expect(buildChallenge(base)).toEqual(a);
+    expect(a.every((i) => ['e1', 'e2', 'e3'].includes(i.exerciseId))).toBe(true);
+    const without = buildChallenge({ ...base, n: 5, answeredToday: new Set(['e1']) });
+    expect(without.some((i) => i.exerciseId === 'e1')).toBe(false);
+    expect(buildChallenge({ ...base, completedLessons: new Set() })).toEqual([]);
   });
 });
