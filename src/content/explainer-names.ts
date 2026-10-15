@@ -6,5 +6,6 @@ export const EXPLAINER_NAMES = [
   'TinVsTae',
   'LoanAmortization',
   'MoneyCreation',
+  'MarketCapFloat',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

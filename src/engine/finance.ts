@@ -120,3 +120,16 @@ export function maxDeposits(deposit: number, ratioPct: number): number {
     throw new RangeError('El coeficiente debe estar entre 0 y 100');
   return deposit / (ratioPct / 100);
 }
+
+/** Capitalización bursátil: precio por acción × acciones en circulación. */
+export function marketCap(price: number, shares: number): number {
+  if (price < 0 || shares < 0) throw new RangeError('Precio y acciones no pueden ser negativos');
+  return price * shares;
+}
+
+/** Acciones del free float dado el porcentaje (0–100) que cotiza libremente. */
+export function freeFloatShares(shares: number, freeFloatPct: number): number {
+  if (freeFloatPct < 0 || freeFloatPct > 100)
+    throw new RangeError('El free float debe estar entre 0 y 100');
+  return (shares * freeFloatPct) / 100;
+}

@@ -1,0 +1,216 @@
+{
+  "id": "n1-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 1,
+  "title": "Free float: las acciones que cotizan libremente",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Definir el free float",
+    "Calcular acciones y capitalización del free float"
+  ],
+  "concepts": [
+    "free-float",
+    "capitalizacion"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Free float",
+      "text": "El free float es la parte de las acciones que cotiza libremente en el mercado. Se excluyen paquetes estables, como los de accionistas de control, y las acciones propias de la empresa (autocartera). Importa porque con pocas acciones libres es más difícil comprar y vender sin mover el precio."
+    },
+    {
+      "type": "visual",
+      "component": "MarketCapFloat",
+      "props": {
+        "price": 20,
+        "shares": 5000000,
+        "freeFloat": 30
+      }
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: una empresa ficticia con 5 millones de acciones a 20 € tiene 100 millones de capitalización; si el 30 % es free float, son 1,5 millones de acciones, 30 millones de euros."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u1-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "¿Qué es el free float?",
+      "options": [
+        "La parte de las acciones que cotiza libremente",
+        "Todas las acciones de la empresa",
+        "Las acciones de los fundadores",
+        "Las acciones que la empresa recompra"
+      ],
+      "answer": 0,
+      "explanation": "Es lo que realmente puede comprar y vender el público.",
+      "wrongExplanations": {
+        "1": "Todas las acciones son la totalidad; el free float es solo una parte.",
+        "2": "Los paquetes estables de fundadores quedan fuera.",
+        "3": "Las acciones recompradas son autocartera, que se excluye."
+      }
+    },
+    {
+      "id": "n1-u1-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "statement": "El free float incluye el paquete estable del accionista de control.",
+      "answer": false,
+      "explanation": "Los paquetes estables se excluyen del free float."
+    },
+    {
+      "id": "n1-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "12.000.000 de acciones con un 40 % de free float. ¿Cuántas acciones cotizan libremente?",
+      "answer": 4800000,
+      "tolerance": 0,
+      "formula": "12000000 * 0.40",
+      "explanation": "12.000.000 × 0,40 = 4.800.000 acciones.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u1-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "free-float",
+        "capitalizacion"
+      ],
+      "prompt": "Con esas 4.800.000 acciones libres y un precio de 10 €, ¿cuál es la capitalización del free float en euros?",
+      "answer": 48000000,
+      "tolerance": 0,
+      "formula": "4800000 * 10",
+      "explanation": "4.800.000 × 10 = 48.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "Una empresa tiene 10.000.000 de acciones y 3.000.000 cotizan libremente. ¿Qué porcentaje es free float?",
+      "answer": 30,
+      "tolerance": 0,
+      "formula": "3000000 / 10000000 * 100",
+      "explanation": "3.000.000 / 10.000.000 = 0,30, es decir, un 30 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u1-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "La capitalización del free float es el precio por las acciones del ___.",
+      "answers": [
+        [
+          "free float",
+          "float"
+        ]
+      ],
+      "explanation": "Se calcula solo con las acciones que cotizan libremente."
+    },
+    {
+      "id": "n1-u1-l4-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "¿Forma parte del free float?",
+      "categories": [
+        "Free float",
+        "No es free float"
+      ],
+      "items": [
+        {
+          "text": "Acciones que compra y vende el público en bolsa",
+          "category": "Free float"
+        },
+        {
+          "text": "Paquete estable de un accionista de control",
+          "category": "No es free float"
+        },
+        {
+          "text": "Acciones propias de la empresa (autocartera)",
+          "category": "No es free float"
+        },
+        {
+          "text": "Acciones de pequeños accionistas minoristas",
+          "category": "Free float"
+        }
+      ],
+      "explanation": "El free float es lo que circula libremente."
+    },
+    {
+      "id": "n1-u1-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "Una empresa tiene muy poco free float. ¿Qué riesgo suele implicar para quien quiera comprar o vender?",
+      "options": [
+        "Mover el precio con operaciones pequeñas",
+        "Cobrar siempre más dividendos",
+        "Que no haya junta general",
+        "Ninguno"
+      ],
+      "answer": 0,
+      "explanation": "Con pocas acciones disponibles, una compra o venta grande puede mover bastante el precio.",
+      "wrongExplanations": {
+        "1": "El dividendo no depende del free float.",
+        "2": "La junta se celebra igualmente.",
+        "3": "Sí hay un riesgo: operar con pocas acciones disponibles."
+      }
+    }
+  ],
+  "realWorld": "Los índices bursátiles ponderan a veces por capitalización ajustada por free float: lo verás en las fichas de índices.",
+  "sources": [
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

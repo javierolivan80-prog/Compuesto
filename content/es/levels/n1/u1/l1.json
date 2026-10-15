@@ -1,0 +1,199 @@
+{
+  "id": "n1-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 1,
+  "title": "La empresa y sus propietarios",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es una sociedad anónima y la responsabilidad limitada",
+    "Calcular el valor nominal y el porcentaje de propiedad"
+  ],
+  "concepts": [
+    "empresa"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Sociedad anónima",
+      "text": "Una empresa produce bienes o servicios. En una sociedad anónima (S.A.) el capital está dividido en acciones y los accionistas son sus propietarios. Su responsabilidad es limitada: solo pueden perder lo que aportaron, no su patrimonio personal. El capital social dividido entre las acciones da el valor nominal de cada una."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas del Turia S.A., empresa ficticia de Valencia, tiene un capital social de 6.000.000 € dividido en 12.000.000 de acciones. Carmen, su fundadora, posee 3.600.000 de ellas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u1-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "¿Qué significa que la responsabilidad de los accionistas de una S.A. sea limitada?",
+      "options": [
+        "Solo pueden perder lo que han aportado",
+        "Responden de las deudas con todo su patrimonio personal",
+        "No pueden ganar más de lo que aportaron",
+        "Solo pueden vender sus acciones una vez al año"
+      ],
+      "answer": 0,
+      "explanation": "Si la empresa quiebra, el accionista pierde el valor de sus acciones, pero no responde con su patrimonio personal de las deudas de la sociedad.",
+      "wrongExplanations": {
+        "1": "Eso sería responsabilidad ilimitada.",
+        "2": "La responsabilidad limitada se refiere a las pérdidas, no a las ganancias.",
+        "3": "No tiene que ver con cuándo se pueden vender las acciones."
+      }
+    },
+    {
+      "id": "n1-u1-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "statement": "Los accionistas de una S.A. responden de las deudas de la empresa con todo su patrimonio personal.",
+      "answer": false,
+      "explanation": "Su responsabilidad se limita a lo aportado."
+    },
+    {
+      "id": "n1-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Capital social de 6.000.000 € dividido en 12.000.000 de acciones. ¿Cuál es el valor nominal de cada acción?",
+      "answer": 0.5,
+      "tolerance": 0,
+      "formula": "6000000 / 12000000",
+      "explanation": "6.000.000 / 12.000.000 = 0,50 € de valor nominal por acción.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Carmen posee 3.600.000 de las 12.000.000 de acciones. ¿Qué porcentaje de la empresa es suyo?",
+      "answer": 30,
+      "tolerance": 0,
+      "formula": "3600000 / 12000000 * 100",
+      "explanation": "3.600.000 / 12.000.000 = 0,30, es decir, un 30 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u1-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Un socio quiere el 25 % de las 12.000.000 de acciones. ¿Cuántas acciones necesita?",
+      "answer": 3000000,
+      "tolerance": 0,
+      "formula": "12000000 * 0.25",
+      "explanation": "12.000.000 × 0,25 = 3.000.000 de acciones.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u1-l1-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Una sociedad cuyo capital está dividido en acciones es una sociedad ___.",
+      "answers": [
+        [
+          "anónima",
+          "anonima"
+        ]
+      ],
+      "explanation": "Sociedad anónima (S.A.)."
+    },
+    {
+      "id": "n1-u1-l1-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "¿Accionista o acreedor?",
+      "categories": [
+        "Accionista",
+        "Acreedor"
+      ],
+      "items": [
+        {
+          "text": "Aporta capital y es propietario de una parte de la empresa",
+          "category": "Accionista"
+        },
+        {
+          "text": "Presta dinero y espera que se lo devuelvan con intereses",
+          "category": "Acreedor"
+        },
+        {
+          "text": "Participa en los beneficios mediante dividendos",
+          "category": "Accionista"
+        },
+        {
+          "text": "Cobra los intereses pactados en un contrato",
+          "category": "Acreedor"
+        }
+      ],
+      "explanation": "El accionista es dueño y comparte el riesgo; el acreedor es un prestamista con derecho a cobrar."
+    },
+    {
+      "id": "n1-u1-l1-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Ordena el ciclo de vida financiero de una empresa nueva.",
+      "steps": [
+        "Los socios aportan el capital",
+        "La empresa compra activos y empieza a operar",
+        "Genera ingresos y beneficios",
+        "Parte del beneficio se reparte como dividendos"
+      ],
+      "explanation": "Capital, operaciones, beneficios y reparto."
+    }
+  ],
+  "realWorld": "Cuando mires una empresa cotizada, busca su capital social, el número de acciones y sus principales accionistas.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

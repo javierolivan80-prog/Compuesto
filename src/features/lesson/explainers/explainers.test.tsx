@@ -35,4 +35,15 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/10\.000/);
     expect(text).toMatch(/modelo/i);
   });
+  it('MarketCapFloat describe la capitalización y el free float', () => {
+    render(
+      <ExplainerBlock
+        component="MarketCapFloat"
+        props={{ price: 10, shares: 12_000_000, freeFloat: 40 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/120,0 M/);
+    expect(text).toMatch(/48,0 M/);
+  });
 });

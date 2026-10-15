@@ -34,4 +34,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     /** Coeficiente de reservas del modelo, en % */
     reserveRatio: z.number().min(1).max(50),
   }),
+  MarketCapFloat: z.object({
+    price: z.number().positive(),
+    shares: z.number().int().positive(),
+    /** % de las acciones que cotiza libremente */
+    freeFloat: z.number().min(1).max(100),
+  }),
 };

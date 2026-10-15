@@ -10,6 +10,8 @@ import {
   amortizationSchedule,
   totalInterest,
   depositChain,
+  marketCap,
+  freeFloatShares,
   maxDeposits,
   purchasingPower,
   realReturnPct,
@@ -82,5 +84,13 @@ describe('finanzas básicas', () => {
     expect(depositChain(1000, 10, 200)[199]!.cumulative).toBeCloseTo(10000, 3);
     expect(() => depositChain(1000, 0, 3)).toThrow(RangeError);
     expect(() => maxDeposits(1000, 101)).toThrow(RangeError);
+  });
+  it('capitalización y free float', () => {
+    expect(marketCap(10, 12_000_000)).toBe(120_000_000);
+    expect(freeFloatShares(12_000_000, 40)).toBe(4_800_000);
+    expect(marketCap(10, freeFloatShares(12_000_000, 40))).toBe(48_000_000);
+    expect(freeFloatShares(100, 0)).toBe(0);
+    expect(() => marketCap(-1, 10)).toThrow(RangeError);
+    expect(() => freeFloatShares(100, 101)).toThrow(RangeError);
   });
 });

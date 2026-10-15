@@ -708,5 +708,75 @@
     ],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "sociedad-anonima",
+    "term": "Sociedad anónima",
+    "definition": "Sociedad cuyo capital está dividido en acciones y en la que los socios responden solo con lo aportado (responsabilidad limitada).",
+    "level": 1,
+    "concepts": [
+      "empresa"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "accion",
+    "term": "Acción",
+    "definition": "Parte alícuota del capital de una sociedad. Da derechos económicos (dividendo, cuota de liquidación) y políticos (voto en la junta, información).",
+    "level": 1,
+    "concepts": [
+      "accion"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "capitalizacion",
+    "term": "Capitalización bursátil",
+    "definition": "Precio de una acción multiplicado por el número de acciones en circulación; el valor que el mercado asigna a la empresa en ese momento.",
+    "level": 1,
+    "concepts": [
+      "capitalizacion"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "free-float",
+    "term": "Free float",
+    "definition": "Parte de las acciones de una empresa que cotiza libremente, excluyendo paquetes estables y autocartera.",
+    "level": 1,
+    "concepts": [
+      "free-float"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "dividendo",
+    "term": "Dividendo",
+    "definition": "Parte del beneficio que una sociedad reparte entre sus accionistas por acuerdo de la junta general. No está garantizado.",
+    "level": 1,
+    "concepts": [
+      "accion"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

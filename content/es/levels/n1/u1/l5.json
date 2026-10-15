@@ -1,0 +1,244 @@
+{
+  "id": "n1-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 1,
+  "title": "Jefe final: la empresa y la acción",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar propiedad, derechos, capitalización y free float"
+  ],
+  "concepts": [
+    "empresa",
+    "accion",
+    "capitalizacion",
+    "free-float"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: la S.A. divide su capital en acciones y limita la responsabilidad del accionista a lo aportado. La acción da derechos económicos (dividendo) y políticos (voto)."
+    },
+    {
+      "type": "card",
+      "text": "La capitalización es precio × acciones; el free float es la parte que cotiza libremente y sirve para medir la facilidad de comprar y vender."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Capital social de 3.000.000 € y 6.000.000 de acciones. ¿Cuál es el valor nominal por acción?",
+      "answer": 0.5,
+      "tolerance": 0,
+      "formula": "3000000 / 6000000",
+      "explanation": "3.000.000 / 6.000.000 = 0,50 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l5-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "empresa"
+      ],
+      "prompt": "Un accionista de una S.A. puede perder como máximo…",
+      "options": [
+        "Lo que ha aportado",
+        "Todo su patrimonio",
+        "El doble de lo aportado",
+        "Nada"
+      ],
+      "answer": 0,
+      "explanation": "Responsabilidad limitada: pierde el valor de sus acciones.",
+      "wrongExplanations": {
+        "1": "Eso es responsabilidad ilimitada.",
+        "2": "No hay una pérdida mayor a lo aportado.",
+        "3": "Si la empresa va mal, sí puede perder lo aportado."
+      }
+    },
+    {
+      "id": "n1-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "capitalizacion"
+      ],
+      "prompt": "Precio de 8 € y 5.000.000 de acciones. ¿Cuál es la capitalización en euros?",
+      "answer": 40000000,
+      "tolerance": 0,
+      "formula": "8 * 5000000",
+      "explanation": "8 × 5.000.000 = 40.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l5-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "statement": "Una acción da derecho a votar en la junta general.",
+      "answer": true,
+      "explanation": "Es un derecho político básico."
+    },
+    {
+      "id": "n1-u1-l5-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "La parte de las acciones que cotiza libremente se llama free ___.",
+      "answers": [
+        [
+          "float"
+        ]
+      ],
+      "explanation": "Free float."
+    },
+    {
+      "id": "n1-u1-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "¿Derecho económico o político?",
+      "categories": [
+        "Económico",
+        "Político"
+      ],
+      "items": [
+        {
+          "text": "Cobrar un dividendo",
+          "category": "Económico"
+        },
+        {
+          "text": "Votar en la junta",
+          "category": "Político"
+        },
+        {
+          "text": "Cuota de liquidación",
+          "category": "Económico"
+        }
+      ],
+      "explanation": "Económico = dinero; político = decisión."
+    },
+    {
+      "id": "n1-u1-l5-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "5.000.000 de acciones con un 30 % de free float. ¿Cuántas cotizan libremente?",
+      "answer": 1500000,
+      "tolerance": 0,
+      "formula": "5000000 * 0.30",
+      "explanation": "5.000.000 × 0,30 = 1.500.000 acciones.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u1-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "capitalizacion"
+      ],
+      "prompt": "¿Qué mide mejor el tamaño de una empresa cotizada?",
+      "options": [
+        "La capitalización bursátil",
+        "El precio por acción",
+        "El número de accionistas",
+        "El valor nominal"
+      ],
+      "answer": 0,
+      "explanation": "La capitalización combina precio y número de acciones.",
+      "wrongExplanations": {
+        "1": "Un precio alto con pocas acciones puede ser una empresa pequeña.",
+        "2": "El número de accionistas no da el valor.",
+        "3": "El nominal es un dato contable sin relación con el precio."
+      }
+    },
+    {
+      "id": "n1-u1-l5-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "Dividendo de 0,10 € por acción y 2.000 acciones. ¿Cuánto cobras?",
+      "answer": 200,
+      "tolerance": 0,
+      "formula": "2000 * 0.10",
+      "explanation": "2.000 × 0,10 = 200 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l5-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "free-float"
+      ],
+      "prompt": "¿Qué queda fuera del free float?",
+      "options": [
+        "El paquete estable de un accionista de control",
+        "Las acciones propias de la empresa",
+        "Las acciones de pequeños inversores",
+        "Las acciones que se negocian a diario en bolsa"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "Los paquetes estables y la autocartera no circulan libremente; las acciones de minoristas y las negociadas a diario sí forman parte."
+    }
+  ],
+  "realWorld": "Estas cuatro ideas aparecen en la ficha de cualquier cotizada: capital, acciones, capitalización y free float.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

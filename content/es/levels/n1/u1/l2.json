@@ -1,0 +1,204 @@
+{
+  "id": "n1-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 1,
+  "title": "La acción y sus derechos",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir los derechos económicos y políticos de un accionista",
+    "Calcular un dividendo total"
+  ],
+  "concepts": [
+    "accion"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Acción",
+      "text": "Una acción es una parte alícuota del capital de una sociedad. Da derechos económicos, como cobrar el dividendo si se acuerda y la cuota de liquidación, y derechos políticos, como votar en la junta general y recibir información. Cada acción suele dar un voto."
+    },
+    {
+      "type": "example",
+      "text": "La junta de Naranjas del Turia acuerda un dividendo de 0,20 € por acción. Con 12.000.000 de acciones, repartirá 2.400.000 € entre los accionistas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u1-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "¿Cuál de estos es un derecho político de un accionista?",
+      "options": [
+        "Votar en la junta general",
+        "Cobrar un dividendo",
+        "Recibir la cuota de liquidación",
+        "Vender las acciones"
+      ],
+      "answer": 0,
+      "explanation": "Votar en la junta es el derecho político por excelencia.",
+      "wrongExplanations": {
+        "1": "El dividendo es un derecho económico.",
+        "2": "La cuota de liquidación también es económica.",
+        "3": "Vender es una facultad de propiedad, no un derecho político."
+      }
+    },
+    {
+      "id": "n1-u1-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "statement": "Una acción da derecho a cobrar siempre un dividendo fijo cada año.",
+      "answer": false,
+      "explanation": "El dividendo depende de que haya beneficios y de que la junta lo acuerde."
+    },
+    {
+      "id": "n1-u1-l2-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "¿Derecho económico o político?",
+      "categories": [
+        "Económico",
+        "Político"
+      ],
+      "items": [
+        {
+          "text": "Cobrar el dividendo acordado",
+          "category": "Económico"
+        },
+        {
+          "text": "Votar en la junta general",
+          "category": "Político"
+        },
+        {
+          "text": "Recibir la cuota de liquidación",
+          "category": "Económico"
+        },
+        {
+          "text": "Recibir información de la sociedad",
+          "category": "Político"
+        }
+      ],
+      "explanation": "Los económicos afectan al dinero que recibes; los políticos, a participar en las decisiones."
+    },
+    {
+      "id": "n1-u1-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "Tienes 1.000 acciones y la junta acuerda 0,20 € por acción. ¿Cuánto cobras?",
+      "answer": 200,
+      "tolerance": 0,
+      "formula": "1000 * 0.20",
+      "explanation": "1.000 × 0,20 = 200 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "La sociedad reparte 0,20 € por acción entre 12.000.000 de acciones. ¿Cuál es el dividendo total?",
+      "answer": 2400000,
+      "tolerance": 0,
+      "formula": "12000000 * 0.20",
+      "explanation": "12.000.000 × 0,20 = 2.400.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u1-l2-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "El órgano en el que votan los accionistas se llama junta ___.",
+      "answers": [
+        [
+          "general"
+        ]
+      ],
+      "explanation": "Junta general de accionistas."
+    },
+    {
+      "id": "n1-u1-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "Si una sociedad se liquida, ¿cuándo cobran los accionistas?",
+      "options": [
+        "Después de pagar a los acreedores, con lo que quede",
+        "Antes que los acreedores",
+        "Nunca",
+        "Solo si votan a favor"
+      ],
+      "answer": 0,
+      "explanation": "Los acreedores cobran primero; los accionistas reciben lo que sobre.",
+      "wrongExplanations": {
+        "1": "Los acreedores tienen preferencia sobre los accionistas.",
+        "2": "Si sobra algo, les corresponde.",
+        "3": "No depende de su voto."
+      }
+    },
+    {
+      "id": "n1-u1-l2-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "accion"
+      ],
+      "prompt": "Cobras 150 € de dividendo a 0,30 € por acción. ¿Cuántas acciones tienes?",
+      "answer": 500,
+      "tolerance": 0,
+      "formula": "150 / 0.30",
+      "explanation": "150 / 0,30 = 500 acciones.",
+      "unit": "acciones"
+    }
+  ],
+  "realWorld": "En la web de cualquier cotizada encontrarás la convocatoria de la junta general y su política de dividendos.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

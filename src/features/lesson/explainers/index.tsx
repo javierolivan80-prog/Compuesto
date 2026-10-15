@@ -4,6 +4,7 @@ import type { ExplainerName } from '../../../content/explainer-names';
 import { CompoundCurve } from './CompoundCurve';
 import { InflationCart } from './InflationCart';
 import { LoanAmortization } from './LoanAmortization';
+import { MarketCapFloat } from './MarketCapFloat';
 import { MoneyCreation } from './MoneyCreation';
 import { Rule72 } from './Rule72';
 import { TinVsTae } from './TinVsTae';
@@ -20,6 +21,7 @@ const REGISTRY = {
   TinVsTae,
   LoanAmortization,
   MoneyCreation,
+  MarketCapFloat,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */
