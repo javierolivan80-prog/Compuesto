@@ -1,0 +1,207 @@
+{
+  "id": "n1-u6-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 6,
+  "title": "Ampliación de capital",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es una ampliación y su efecto en el porcentaje",
+    "Calcular recaudación y dilución"
+  ],
+  "concepts": [
+    "ampliacion-capital"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Emitir acciones nuevas",
+      "text": "Una ampliación de capital es una emisión de acciones nuevas por una empresa que ya existe, para captar dinero. El total de acciones sube: quien no acude ve diluido su porcentaje. Suele hacerse a un precio inferior al de mercado para atraer a los inversores."
+    },
+    {
+      "type": "visual",
+      "component": "ShareDilution",
+      "props": {
+        "shares": 12000000,
+        "newShares": 3000000,
+        "holding": 3600000
+      }
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: Naranjas del Turia, con 12.000.000 de acciones, emite 3.000.000 nuevas a 8 €. Carmen posee 3.600.000 acciones."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u6-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "¿Qué es una ampliación de capital?",
+      "options": [
+        "La emisión de acciones nuevas por una empresa que ya existe",
+        "La compra de acciones propias",
+        "La división de cada acción en varias",
+        "Una oferta para comprar a todos los accionistas"
+      ],
+      "answer": 0,
+      "explanation": "La empresa emite acciones nuevas para captar fondos.",
+      "wrongExplanations": {
+        "1": "Eso es una recompra de acciones.",
+        "2": "Eso es un split.",
+        "3": "Eso es una OPA."
+      }
+    },
+    {
+      "id": "n1-u6-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "statement": "Tras una ampliación de capital aumenta el número total de acciones.",
+      "answer": true,
+      "explanation": "Se suman las acciones nuevas a las existentes."
+    },
+    {
+      "id": "n1-u6-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € emite 3.000.000 de acciones nuevas a 8 €. ¿Cuántos euros recauda?",
+      "answer": 24000000,
+      "tolerance": 0,
+      "formula": "3000000 * 8",
+      "explanation": "3.000.000 × 8 = 24.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € emite 3.000.000 de acciones nuevas. ¿Cuántas acciones tiene después?",
+      "answer": 15000000,
+      "tolerance": 0,
+      "formula": "12000000 + 3000000",
+      "explanation": "12.000.000 + 3.000.000 = 15.000.000.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u6-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € emite 3.000.000 de acciones nuevas. Un accionista con 3.600.000 acciones no acude. ¿Qué porcentaje tiene después?",
+      "answer": 24,
+      "tolerance": 0,
+      "formula": "3600000 / 15000000 * 100",
+      "explanation": "3.600.000 / 15.000.000 = 0,24, es decir, el 24 % (antes tenía el 30 %).",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u6-l1-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Cuando la ampliación reduce el porcentaje de quien no acude se habla de ___.",
+      "answers": [
+        [
+          "dilución",
+          "dilucion"
+        ]
+      ],
+      "explanation": "Es la dilución."
+    },
+    {
+      "id": "n1-u6-l1-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Tras una ampliación, ¿qué le pasa a cada cosa?",
+      "categories": [
+        "Sube",
+        "Baja",
+        "No cambia"
+      ],
+      "items": [
+        {
+          "text": "El número total de acciones",
+          "category": "Sube"
+        },
+        {
+          "text": "El porcentaje de un accionista que no acude",
+          "category": "Baja"
+        },
+        {
+          "text": "El dinero que recibe la empresa",
+          "category": "Sube"
+        },
+        {
+          "text": "El número de acciones del accionista que no acude",
+          "category": "No cambia"
+        }
+      ],
+      "explanation": "Más acciones en total; quien no acude conserva las suyas pero con menos peso."
+    },
+    {
+      "id": "n1-u6-l1-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € emite una acción nueva por cada 4 antiguas. ¿Cuántas acciones nuevas emite?",
+      "answer": 3000000,
+      "tolerance": 0,
+      "formula": "12000000 / 4",
+      "explanation": "12.000.000 / 4 = 3.000.000 acciones nuevas.",
+      "unit": "acciones"
+    }
+  ],
+  "realWorld": "Cuando una cotizada anuncia una ampliación, el anuncio indica cuántas acciones nuevas emite, a qué precio y en qué proporción.",
+  "sources": [
+    {
+      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

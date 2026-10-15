@@ -11,6 +11,8 @@ import { MoneyCreation } from './MoneyCreation';
 import { OrderBook } from './OrderBook';
 import { PrimarySecondary } from './PrimarySecondary';
 import { Rule72 } from './Rule72';
+import { ShareDilution } from './ShareDilution';
+import { StockSplit } from './StockSplit';
 import { TinVsTae } from './TinVsTae';
 
 type Registry = {
@@ -30,6 +32,8 @@ const REGISTRY = {
   IndexWeights,
   OrderBook,
   ExDividend,
+  StockSplit,
+  ShareDilution,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

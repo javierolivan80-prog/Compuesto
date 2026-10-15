@@ -163,3 +163,35 @@ export function capWeightedIndex(items: readonly IndexConstituent[]): {
   });
   return { rows, returnPct: rows.reduce((s, r) => s + r.contributionPp, 0) };
 }
+
+/** Precio teórico tras una ampliación (TERP): media ponderada del precio actual y del precio de emisión. */
+export function theoreticalExRightsPrice(
+  price: number,
+  shares: number,
+  issuePrice: number,
+  newShares: number,
+): number {
+  if (shares <= 0 || newShares < 0) throw new RangeError('Número de acciones no válido');
+  return (price * shares + issuePrice * newShares) / (shares + newShares);
+}
+
+/** Valor teórico de un derecho de suscripción: precio actual − precio teórico tras la ampliación. */
+export function rightValue(
+  price: number,
+  shares: number,
+  issuePrice: number,
+  newShares: number,
+): number {
+  return price - theoreticalExRightsPrice(price, shares, issuePrice, newShares);
+}
+
+/** Split N×1: las acciones se multiplican por `ratio` y el precio se divide; la capitalización no cambia. */
+export function stockSplit(
+  price: number,
+  shares: number,
+  ratio: number,
+): { price: number; shares: number } {
+  if (!Number.isInteger(ratio) || ratio < 2)
+    throw new RangeError('El ratio debe ser un entero ≥ 2');
+  return { price: price / ratio, shares: shares * ratio };
+}

@@ -33,6 +33,8 @@
   "src/features/lesson/explainers/OrderBook.tsx",
   "src/features/lesson/explainers/PrimarySecondary.tsx",
   "src/features/lesson/explainers/Rule72.tsx",
+  "src/features/lesson/explainers/ShareDilution.tsx",
+  "src/features/lesson/explainers/StockSplit.tsx",
   "src/features/lesson/explainers/TinVsTae.tsx",
   "src/features/lesson/explainers/index.tsx",
   "src/features/onboarding/Onboarding.tsx",

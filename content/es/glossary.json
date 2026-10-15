@@ -1346,5 +1346,95 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "ampliacion-capital",
+    "term": "Ampliación de capital",
+    "definition": "Emisión de acciones nuevas por una empresa que ya existe para captar dinero; aumenta el número total de acciones y puede diluir a quien no acude.",
+    "level": 1,
+    "concepts": [
+      "ampliacion-capital"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "derecho-suscripcion",
+    "term": "Derecho de suscripción preferente",
+    "definition": "Derecho de los accionistas a suscribir acciones nuevas en una ampliación, en proporción a su participación, antes que otros inversores; puede venderse en el mercado.",
+    "level": 1,
+    "concepts": [
+      "derechos-suscripcion"
+    ],
+    "aliases": [
+      "derechos de suscripción"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "split",
+    "term": "Split",
+    "definition": "División de cada acción en varias (por ejemplo, 4 por 1): aumenta el número de acciones y baja su precio, sin cambiar el valor de la empresa ni tu participación.",
+    "level": 1,
+    "concepts": [
+      "split"
+    ],
+    "aliases": [
+      "desdoblamiento"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "recompra-acciones",
+    "term": "Recompra de acciones",
+    "definition": "Compra por una empresa de sus propias acciones, normalmente para amortizarlas; reduce el número de acciones y aumenta el porcentaje de quien no vende.",
+    "level": 1,
+    "concepts": [
+      "recompra-acciones"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "autocartera",
+    "term": "Autocartera",
+    "definition": "Acciones propias que una empresa mantiene tras recomprarlas; la ley limita su volumen.",
+    "level": 1,
+    "concepts": [
+      "recompra-acciones"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "opa",
+    "term": "OPA",
+    "definition": "Oferta pública de adquisición: oferta dirigida a todos los accionistas para comprarles sus acciones a un precio fijado. Es obligatoria al alcanzar el 30 % de los derechos de voto.",
+    "level": 1,
+    "concepts": [
+      "opa"
+    ],
+    "aliases": [
+      "oferta pública de adquisición"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": "2027-06-30",
+    "sources": []
   }
 ]

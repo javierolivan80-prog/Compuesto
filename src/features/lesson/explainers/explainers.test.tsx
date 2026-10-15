@@ -98,4 +98,23 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/9,80/);
     expect(text).toMatch(/0,20/);
   });
+  it('StockSplit conserva la capitalización', () => {
+    render(
+      <ExplainerBlock component="StockSplit" props={{ price: 40, shares: 3_000_000, ratio: 4 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/12\.000\.000 acciones a 10,00/);
+    expect(text).toMatch(/120\.000\.000/);
+  });
+  it('ShareDilution muestra el porcentaje antes, diluido y mantenido', () => {
+    render(
+      <ExplainerBlock
+        component="ShareDilution"
+        props={{ shares: 12_000_000, newShares: 3_000_000, holding: 3_600_000 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/30,00 %/);
+    expect(text).toMatch(/24,00 %/);
+  });
 });

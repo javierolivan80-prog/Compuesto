@@ -1,0 +1,200 @@
+{
+  "id": "n1-u6-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 6,
+  "title": "El split de acciones",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es un split",
+    "Calcular acciones y precio tras un split"
+  ],
+  "concepts": [
+    "split"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Split",
+      "text": "En un split cada acción se divide en varias: con un split 4 por 1, cada acción pasa a ser cuatro y el precio se divide entre cuatro. El valor de la empresa y tu parte no cambian; solo cambia el número de piezas. La empresa no recibe dinero."
+    },
+    {
+      "type": "visual",
+      "component": "StockSplit",
+      "props": {
+        "price": 40,
+        "shares": 3000000,
+        "ratio": 4
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u6-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "¿Qué ocurre con el valor total de la empresa en un split?",
+      "options": [
+        "No cambia",
+        "Se multiplica por el ratio",
+        "Se divide por el ratio",
+        "Desaparece"
+      ],
+      "answer": 0,
+      "explanation": "Solo cambia el número de acciones y su precio.",
+      "wrongExplanations": {
+        "1": "Se multiplican las acciones, no el valor.",
+        "2": "Se divide el precio, no el valor total.",
+        "3": "El valor no desaparece."
+      }
+    },
+    {
+      "id": "n1-u6-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "statement": "Un split hace que la empresa reciba dinero nuevo.",
+      "answer": false,
+      "explanation": "No se emiten acciones para captar dinero: se divide lo que ya existe."
+    },
+    {
+      "id": "n1-u6-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Una empresa con 3.000.000 de acciones hace un split 4 por 1. ¿Cuántas acciones tiene después?",
+      "answer": 12000000,
+      "tolerance": 0,
+      "formula": "3000000 * 4",
+      "explanation": "3.000.000 × 4 = 12.000.000.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u6-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Una acción cotiza a 40 € y se hace un split 4 por 1. ¿A qué precio queda, en euros?",
+      "answer": 10,
+      "tolerance": 0,
+      "formula": "40 / 4",
+      "explanation": "40 / 4 = 10 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Tienes 100 acciones y se hace un split 4 por 1. ¿Cuántas acciones tienes después?",
+      "answer": 400,
+      "tolerance": 0,
+      "formula": "100 * 4",
+      "explanation": "100 × 4 = 400 acciones.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u6-l3-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Tras un split 4 por 1, la empresa tiene 12.000.000 de acciones a 10 €. ¿Cuál es su capitalización en euros?",
+      "answer": 120000000,
+      "tolerance": 0,
+      "formula": "12000000 * 10",
+      "explanation": "12.000.000 × 10 = 120.000.000 €, igual que antes del split (3.000.000 × 40 €).",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "En un split 2 por 1, cada acción se convierte en ___ acciones.",
+      "answers": [
+        [
+          "dos",
+          "2"
+        ]
+      ],
+      "explanation": "Dos acciones, cada una con la mitad de precio."
+    },
+    {
+      "id": "n1-u6-l3-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Tras un split, ¿cambia o no?",
+      "categories": [
+        "Cambia",
+        "No cambia"
+      ],
+      "items": [
+        {
+          "text": "El número de acciones",
+          "category": "Cambia"
+        },
+        {
+          "text": "El precio por acción",
+          "category": "Cambia"
+        },
+        {
+          "text": "La capitalización de la empresa",
+          "category": "No cambia"
+        },
+        {
+          "text": "El porcentaje que posees de la empresa",
+          "category": "No cambia"
+        }
+      ],
+      "explanation": "Cambian las piezas; el valor y tu parte, no."
+    }
+  ],
+  "realWorld": "Cuando oigas que una empresa «hace un split», solo cambia el número de acciones y su precio, no lo que vale tu inversión.",
+  "sources": [
+    {
+      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

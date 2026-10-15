@@ -1,0 +1,237 @@
+{
+  "id": "n1-u6-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 6,
+  "title": "Jefe final: operaciones corporativas",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar ampliación, derechos, split, recompra y OPA"
+  ],
+  "concepts": [
+    "ampliacion-capital",
+    "derechos-suscripcion",
+    "split",
+    "recompra-acciones",
+    "opa"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: la ampliación emite acciones nuevas y diluye a quien no acude; los derechos permiten suscribir o vender. El split solo cambia el número de piezas."
+    },
+    {
+      "type": "card",
+      "text": "La recompra, si se amortiza, reduce las acciones y sube tu porcentaje. La OPA es una oferta a todos los accionistas y es obligatoria al alcanzar el 30 % de los votos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u6-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Una empresa emite 2.000.000 de acciones nuevas a 5 €. ¿Cuántos euros recauda?",
+      "answer": 10000000,
+      "tolerance": 0,
+      "formula": "2000000 * 5",
+      "explanation": "2.000.000 × 5 = 10.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l6-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ampliacion-capital"
+      ],
+      "prompt": "Un accionista no acude a una ampliación de capital. Su porcentaje…",
+      "options": [
+        "Disminuye",
+        "Aumenta",
+        "No cambia",
+        "Se duplica"
+      ],
+      "answer": 0,
+      "explanation": "Mismas acciones sobre un total mayor.",
+      "wrongExplanations": {
+        "1": "Aumentaría si comprase más.",
+        "2": "El total creció.",
+        "3": "No hay motivo para duplicarse."
+      }
+    },
+    {
+      "id": "n1-u6-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "derechos-suscripcion"
+      ],
+      "prompt": "Supuesto ilustrativo: acción a 10 €, 12.000.000 de acciones, ampliación de 3.000.000 a 8 €. ¿Cuál es el precio teórico tras la ampliación, en euros?",
+      "answer": 9.6,
+      "tolerance": 0,
+      "formula": "(10 * 12000000 + 8 * 3000000) / 15000000",
+      "explanation": "(120.000.000 + 24.000.000) / 15.000.000 = 9,60 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l6-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "statement": "En un split cambia el valor total de la empresa.",
+      "answer": false,
+      "explanation": "Solo cambian el número de acciones y el precio."
+    },
+    {
+      "id": "n1-u6-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "split"
+      ],
+      "prompt": "Una acción de 60 € se divide en un split 3 por 1. ¿A qué precio queda, en euros?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "60 / 3",
+      "explanation": "60 / 3 = 20 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l6-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "recompra-acciones"
+      ],
+      "prompt": "Las acciones propias que mantiene una empresa se llaman ___.",
+      "answers": [
+        [
+          "autocartera"
+        ]
+      ],
+      "explanation": "Autocartera."
+    },
+    {
+      "id": "n1-u6-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "recompra-acciones"
+      ],
+      "prompt": "Una empresa con 10.000.000 de acciones recompra y amortiza 500.000. Un accionista posee 1.000.000. ¿Qué porcentaje tiene después, en %? (2 decimales)",
+      "answer": 10.53,
+      "tolerance": 0.1,
+      "formula": "1000000 / 9500000 * 100",
+      "explanation": "1.000.000 / 9.500.000 = 0,1053, es decir, un 10,53 % (antes, el 10 %).",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u6-l6-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "¿OPA voluntaria u obligatoria?",
+      "categories": [
+        "Voluntaria",
+        "Obligatoria"
+      ],
+      "items": [
+        {
+          "text": "Se lanza por iniciativa del oferente",
+          "category": "Voluntaria"
+        },
+        {
+          "text": "Se lanza al alcanzar el 30 % de los votos",
+          "category": "Obligatoria"
+        },
+        {
+          "text": "El oferente decide lanzarla antes de alcanzar ese umbral",
+          "category": "Voluntaria"
+        }
+      ],
+      "explanation": "El umbral de control hace obligatoria la OPA."
+    },
+    {
+      "id": "n1-u6-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "Una OPA ofrece 15 € por una acción que cotiza a 12 €. ¿Cuál es el premio, en %?",
+      "answer": 25,
+      "tolerance": 0,
+      "formula": "(15 - 12) / 12 * 100",
+      "explanation": "3 / 12 = 0,25, es decir, un 25 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u6-l6-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "derechos-suscripcion"
+      ],
+      "prompt": "¿Qué puedes hacer con tus derechos de suscripción preferente?",
+      "options": [
+        "Suscribir acciones nuevas",
+        "Venderlos en el mercado",
+        "Votar con ellos en la junta",
+        "Cobrar con ellos el dividendo del año"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "Se pueden usar para suscribir acciones nuevas o venderlos; no dan voto ni dividendo."
+    }
+  ],
+  "realWorld": "Estas operaciones aparecen en las noticias de cualquier cotizada: ampliaciones, splits, recompras y OPAs.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1066/2007 sobre el régimen de las ofertas públicas de adquisición de valores",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

@@ -11,6 +11,9 @@ import {
   totalInterest,
   depositChain,
   marketCap,
+  theoreticalExRightsPrice,
+  rightValue,
+  stockSplit,
   capWeightedIndex,
   freeFloatShares,
   maxDeposits,
@@ -106,5 +109,20 @@ describe('finanzas básicas', () => {
     expect(returnPct).toBeCloseTo(2.5, 9);
     expect(() => capWeightedIndex([])).toThrow(RangeError);
     expect(() => capWeightedIndex([{ name: 'X', cap: 0, returnPct: 1 }])).toThrow(RangeError);
+  });
+  it('ampliación con derechos y split', () => {
+    // 12 M acciones a 10 €, ampliación 1×4 (3 M nuevas) a 8 €
+    expect(theoreticalExRightsPrice(10, 12_000_000, 8, 3_000_000)).toBeCloseTo(9.6, 9);
+    expect(rightValue(10, 12_000_000, 8, 3_000_000)).toBeCloseTo(0.4, 9);
+    // quien vende sus derechos no pierde valor: 3,6 M acciones
+    const before = 3_600_000 * 10;
+    const after =
+      3_600_000 * theoreticalExRightsPrice(10, 12_000_000, 8, 3_000_000) +
+      3_600_000 * rightValue(10, 12_000_000, 8, 3_000_000);
+    expect(after).toBeCloseTo(before, 4);
+    expect(() => theoreticalExRightsPrice(10, 0, 8, 1)).toThrow(RangeError);
+    expect(stockSplit(40, 3_000_000, 4)).toEqual({ price: 10, shares: 12_000_000 });
+    expect(marketCap(40, 3_000_000)).toBe(marketCap(10, 12_000_000));
+    expect(() => stockSplit(10, 10, 1)).toThrow(RangeError);
   });
 });

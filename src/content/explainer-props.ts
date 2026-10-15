@@ -71,4 +71,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     price: z.number().positive(),
     dividend: z.number().positive(),
   }),
+  StockSplit: z.object({
+    price: z.number().positive(),
+    shares: z.number().int().positive(),
+    ratio: z.number().int().min(2).max(10),
+  }),
+  ShareDilution: z.object({
+    shares: z.number().int().positive(),
+    newShares: z.number().int().positive(),
+    holding: z.number().int().positive(),
+  }),
 };

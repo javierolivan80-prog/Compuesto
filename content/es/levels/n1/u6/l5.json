@@ -1,0 +1,210 @@
+{
+  "id": "n1-u6-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 6,
+  "title": "Las OPA",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es una OPA y cuándo es obligatoria",
+    "Calcular el premio y el coste de una OPA"
+  ],
+  "concepts": [
+    "opa"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "OPA",
+      "text": "Una OPA (oferta pública de adquisición) es una oferta dirigida a todos los accionistas para comprarles sus acciones a un precio fijado. La CNMV la autoriza. Es obligatoria cuando alguien alcanza el control, que en España se fija en el 30 % de los derechos de voto, y el precio debe ser equitativo."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: Ebro Capital, inversor ficticio, ofrece 12 € por cada acción de Naranjas del Turia, que cotiza a 10 €. La empresa tiene 12.000.000 de acciones."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u6-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "¿Qué es una OPA?",
+      "options": [
+        "Una oferta a todos los accionistas para comprarles sus acciones a un precio fijado",
+        "Una emisión de acciones nuevas",
+        "Una división de acciones",
+        "Una subasta de apertura"
+      ],
+      "answer": 0,
+      "explanation": "El oferente se dirige a todos los accionistas.",
+      "wrongExplanations": {
+        "1": "Eso es una ampliación de capital.",
+        "2": "Eso es un split.",
+        "3": "Una subasta fija un precio de apertura."
+      }
+    },
+    {
+      "id": "n1-u6-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "statement": "En España, alcanzar el 30 % de los derechos de voto de una cotizada obliga a lanzar una OPA.",
+      "answer": true,
+      "explanation": "Ese es el umbral de control que da lugar a la OPA obligatoria."
+    },
+    {
+      "id": "n1-u6-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "Una acción cotiza a 10 € y se ofrece 12 € por ella en una OPA. ¿Cuál es el premio sobre el precio de cotización, en %?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "(12 - 10) / 10 * 100",
+      "explanation": "2 / 10 = 0,20, es decir, un 20 % de premio.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u6-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "Una OPA ofrece 12 € por acción por el 100 % de una empresa con 12.000.000 de acciones. ¿Cuántos euros costaría comprarla entera?",
+      "answer": 144000000,
+      "tolerance": 0,
+      "formula": "12 * 12000000",
+      "explanation": "12 × 12.000.000 = 144.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u6-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "Una empresa tiene 12.000.000 de acciones con derecho de voto y un inversor posee 2.500.000. ¿Cuántas acciones más necesita para alcanzar el 30 %?",
+      "answer": 1100000,
+      "tolerance": 0,
+      "formula": "12000000 * 0.30 - 2500000",
+      "explanation": "El 30 % de 12.000.000 son 3.600.000; le faltan 3.600.000 − 2.500.000 = 1.100.000.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u6-l5-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "OPA significa oferta pública de ___.",
+      "answers": [
+        [
+          "adquisición",
+          "adquisicion"
+        ]
+      ],
+      "explanation": "Oferta pública de adquisición."
+    },
+    {
+      "id": "n1-u6-l5-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "¿OPA voluntaria u obligatoria?",
+      "categories": [
+        "Voluntaria",
+        "Obligatoria"
+      ],
+      "items": [
+        {
+          "text": "Un inversor decide comprar la empresa sin tener aún el 30 % de los votos",
+          "category": "Voluntaria"
+        },
+        {
+          "text": "Se lanza porque alguien ha alcanzado el 30 % de los votos",
+          "category": "Obligatoria"
+        },
+        {
+          "text": "Se lanza tras superar el umbral de control",
+          "category": "Obligatoria"
+        },
+        {
+          "text": "El oferente la lanza por iniciativa propia antes del umbral",
+          "category": "Voluntaria"
+        }
+      ],
+      "explanation": "Voluntaria: por iniciativa; obligatoria: por superar el umbral de control."
+    },
+    {
+      "id": "n1-u6-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opa"
+      ],
+      "prompt": "Si aceptas una OPA, ¿qué recibes?",
+      "options": [
+        "El precio ofrecido por tus acciones",
+        "Acciones nuevas siempre",
+        "Nada",
+        "Un dividendo extraordinario siempre"
+      ],
+      "answer": 0,
+      "explanation": "Vendes tus acciones al oferente al precio de la oferta.",
+      "wrongExplanations": {
+        "1": "La contraprestación puede ser en efectivo o en acciones, según la oferta, pero siempre recibes lo que se ofrece por tus acciones.",
+        "2": "Si aceptas, vendes y cobras.",
+        "3": "No es un dividendo."
+      }
+    }
+  ],
+  "realWorld": "Cuando se anuncia una OPA en la CNMV verás el precio ofrecido, el plazo de aceptación y las condiciones.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1066/2007 sobre el régimen de las ofertas públicas de adquisición de valores",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}
