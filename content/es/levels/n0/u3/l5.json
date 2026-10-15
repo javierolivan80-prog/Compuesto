@@ -64,9 +64,9 @@
       "concepts": [
         "celdas-suma"
       ],
-      "statement": "Una fórmula de Excel empieza siempre por el signo =.",
+      "statement": "Sin el signo =, Excel trata lo que escribes como texto y no como una fórmula.",
       "answer": true,
-      "explanation": "Sin el = la hoja trata lo escrito como texto."
+      "explanation": "Para escribir una fórmula se empieza por =."
     },
     {
       "id": "n0-u3-l5-e3",
@@ -259,7 +259,7 @@
       }
     }
   ],
-  "realWorld": "Los extractos de tu banco se pueden descargar como hoja de cálculo: con SUMA y referencias montas tu presupuesto en minutos.",
+  "realWorld": "Muchos bancos permiten descargar tus movimientos en CSV o Excel: con SUMA (SUM en la versión en inglés) y referencias montas tu presupuesto en minutos.",
   "sources": [],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"

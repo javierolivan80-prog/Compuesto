@@ -346,7 +346,7 @@
   {
     "id": "regla-50-30-20",
     "term": "Regla 50/30/20",
-    "definition": "Pauta popular para repartir ingresos netos: 50 % necesidades, 30 % deseos y 20 % ahorro y devolución de deudas. Es una orientación, no una norma.",
+    "definition": "Pauta popular para repartir ingresos netos: 50 % necesidades (incluidas las cuotas obligatorias de deuda), 30 % deseos y 20 % ahorro y amortización extra de deudas. Es una orientación, no una norma.",
     "level": 0,
     "concepts": [
       "presupuesto"
@@ -374,7 +374,7 @@
     "sources": []
   },
   {
-    "id": "liquidez",
+    "id": "liquidez-general",
     "term": "Liquidez",
     "definition": "Facilidad para convertir un activo en efectivo rápidamente y sin perder valor.",
     "level": 0,
@@ -390,7 +390,7 @@
   {
     "id": "sesgo-presente",
     "term": "Sesgo del presente",
-    "definition": "Tendencia a preferir una recompensa inmediata aunque otra mayor esperase más adelante; dificulta ahorrar.",
+    "definition": "Tendencia a preferir una recompensa inmediata aunque otra mayor llegue más adelante; dificulta ahorrar.",
     "level": 0,
     "concepts": [
       "sesgo-presente"
@@ -424,6 +424,20 @@
     "level": 0,
     "concepts": [
       "celdas-suma"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "deficit",
+    "term": "Déficit",
+    "definition": "Situación en la que los gastos de un periodo superan a los ingresos; la diferencia es el déficit.",
+    "level": 0,
+    "concepts": [
+      "presupuesto"
     ],
     "aliases": [],
     "status": "draft",

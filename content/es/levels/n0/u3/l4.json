@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Sesgo del presente",
-      "text": "El sesgo del presente es la tendencia a preferir una recompensa inmediata aunque otra mayor esperase más adelante. Por eso cuesta ahorrar: el gasto de hoy se siente más que el beneficio de dentro de años. Una defensa es automatizar el ahorro nada más cobrar: pagarte primero."
+      "text": "El sesgo del presente es la tendencia a preferir una recompensa inmediata aunque otra mayor llegue más adelante. Por eso cuesta ahorrar: el gasto de hoy se siente más que el beneficio de dentro de años. Una defensa es automatizar el ahorro nada más cobrar: pagarte primero."
     },
     {
       "type": "visual",
@@ -37,7 +37,7 @@
     },
     {
       "type": "example",
-      "text": "Si Lucía aparta hoy 1.200 € y los deja al 5 % anual compuesto, en 30 años tendría unos 5.186 €. Gastarlos hoy parece más cómodo, pero renuncia a esa curva."
+      "text": "Si Lucía aparta hoy 1.200 € y los deja a un 5 % anual compuesto (supuesto constante, solo como ilustración), en 30 años tendría unos 5.186 €. Gastarlos hoy parece más cómodo, pero renuncia a esa curva."
     }
   ],
   "exercises": [
@@ -60,9 +60,9 @@
       "answer": 0,
       "explanation": "Es dar un peso excesivo a lo inmediato frente a lo que ocurrirá más adelante.",
       "wrongExplanations": {
-        "1": "Eso no es el sesgo del presente.",
-        "2": "Es lo contrario: cuesta ahorrar.",
-        "3": "Comparar con el pasado es otra cosa."
+        "1": "Eso es ignorar la inflación, no preferir lo inmediato.",
+        "2": "El sesgo del presente lleva a ahorrar menos de lo que querrías, no más.",
+        "3": "Comparar con el pasado es otra cosa: aquí se trata de elegir entre ahora y después."
       }
     },
     {
@@ -175,7 +175,7 @@
         "Cobras tu sueldo",
         "Una transferencia automática lleva una parte al ahorro",
         "Gastas lo que queda",
-        "Revisas el ahorro cada mes"
+        "Al final del mes revisas cuánto has ahorrado"
       ],
       "explanation": "El ahorro sale antes de que puedas gastarlo."
     },

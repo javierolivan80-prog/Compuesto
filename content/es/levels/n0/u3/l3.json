@@ -24,11 +24,11 @@
     {
       "type": "card",
       "term": "Deuda buena y mala",
-      "text": "No toda la deuda es igual. Se suele considerar buena la que financia algo que genera ingresos o valor por encima de su coste (la TAE), y mala la que financia consumo con un coste alto, como aplazar compras con tarjeta. Es una regla práctica: siempre hay que poder pagar las cuotas."
+      "text": "No toda la deuda es igual. Suele considerarse buena la que financia algo que se espera que rinda más que su coste (la TAE), y mala la que financia consumo con coste alto. Ese rendimiento puede no cumplirse: por eso importa poder pagar siempre las cuotas."
     },
     {
       "type": "example",
-      "text": "Carmen, dueña de Naranjas del Turia, pide 10.000 € al 6 % TIN para una máquina que le da 1.500 € más de beneficio al año. Rinde más de lo que cuesta."
+      "text": "Carmen, dueña de Naranjas del Turia, pide 10.000 € a una TAE del 6 % para una máquina que le da 1.500 € más de beneficio al año (antes de intereses). Ejemplo simplificado, sin amortización: rinde más de lo que cuesta."
     }
   ],
   "exercises": [
@@ -79,7 +79,7 @@
         "deuda-buena-mala",
         "tae"
       ],
-      "prompt": "Debes 1.000 € en una tarjeta con TAE del 24 % y no pagas nada durante un año. ¿Cuántos euros de intereses se acumulan?",
+      "prompt": "Debes 1.000 € en una tarjeta con una TAE del 24 % (cifra ilustrativa) y no pagas nada durante un año. ¿Cuántos euros de intereses se acumulan?",
       "answer": 240,
       "tolerance": 0,
       "formula": "1000 * 0.24",
@@ -112,7 +112,7 @@
         "deuda-buena-mala",
         "prestamo"
       ],
-      "prompt": "Si el capital de 10.000 € se mantuviera todo el año al 6 % TIN, ¿cuántos euros de intereses se pagarían en el año?",
+      "prompt": "En el ejemplo simplificado, con 10.000 € a una TAE del 6 % durante un año, ¿cuántos euros de intereses se pagan?",
       "answer": 600,
       "tolerance": 0,
       "formula": "10000 * 0.06",
@@ -135,15 +135,15 @@
       ],
       "items": [
         {
-          "text": "Préstamo al 6 % para una máquina que rinde un 15 %",
+          "text": "Préstamo a una TAE del 6 % para una máquina que se espera que rinda un 15 %",
           "category": "Deuda buena"
         },
         {
-          "text": "Compra de un capricho aplazada con tarjeta al 24 % de TAE",
+          "text": "Compra de un capricho aplazada con tarjeta a una TAE alta, por ejemplo del 24 %",
           "category": "Deuda mala"
         },
         {
-          "text": "Préstamo para un curso que aumenta tus ingresos por encima de su coste",
+          "text": "Préstamo para un curso que se espera que aumente tus ingresos por encima de su coste",
           "category": "Deuda buena"
         },
         {
@@ -175,28 +175,31 @@
     },
     {
       "id": "n0-u3-l3-e8",
-      "type": "order_steps",
-      "difficulty": 2,
-      "bloom": "entender",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
       "tags": [],
       "concepts": [
         "deuda-buena-mala"
       ],
-      "prompt": "Ordena los pasos para decidir si endeudarte.",
-      "steps": [
-        "Calcula el coste total de la deuda (TAE)",
-        "Estima lo que te aporta lo financiado",
-        "Comprueba que puedes pagar la cuota con tus ingresos",
-        "Decide solo si el beneficio supera al coste y la cuota es asumible"
-      ],
-      "explanation": "Coste, beneficio, capacidad de pago y, al final, decisión."
+      "prompt": "En el ejemplo, la máquina aporta 1.500 € al año y la deuda cuesta 600 € de intereses. ¿Cuántos euros quedan de beneficio neto?",
+      "answer": 900,
+      "tolerance": 0,
+      "formula": "1500 - 600",
+      "explanation": "1.500 − 600 = 900 € de beneficio neto, en este ejemplo simplificado.",
+      "unit": "€"
     }
   ],
-  "realWorld": "Antes de aceptar un aplazamiento o un préstamo, mira la TAE: es la cifra que permite comparar su coste real.",
+  "realWorld": "Antes de aceptar un aplazamiento o un préstamo, mira la TAE: es la cifra que permite comparar su coste.",
   "sources": [
     {
       "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
       "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Finanzas para Todos (CNMV y Banco de España): educación financiera",
+      "url": "https://www.finanzasparatodos.es/",
       "date": "2026-10-15"
     }
   ],

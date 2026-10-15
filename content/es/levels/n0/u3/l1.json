@@ -23,11 +23,11 @@
     {
       "type": "card",
       "term": "Presupuesto",
-      "text": "Un presupuesto es un plan de ingresos y gastos para un periodo, normalmente un mes. Sirve para saber a dónde va tu dinero y decidir cuánto ahorras. Una pauta popular es la regla 50/30/20: 50 % necesidades, 30 % deseos y 20 % ahorro y devolución de deudas. Es una orientación, no una norma."
+      "text": "Un presupuesto es un plan de ingresos y gastos para un mes. Una pauta popular es la regla 50/30/20: 50 % necesidades (incluidas las cuotas obligatorias de deuda), 30 % deseos y 20 % ahorro y amortización extra de deudas. Es una orientación, no una norma."
     },
     {
       "type": "example",
-      "text": "Lucía, becaria de Albufera Partners, cobra 1.800 € netos al mes. Con la regla 50/30/20 destinaría 900 € a necesidades, 540 € a deseos y 360 € a ahorro."
+      "text": "Lucía, becaria de Albufera Partners, cobra 1.500 € netos al mes. Con la regla 50/30/20 destinaría 750 € a necesidades, 450 € a deseos y 300 € a ahorro."
     }
   ],
   "exercises": [
@@ -64,9 +64,9 @@
       "concepts": [
         "presupuesto"
       ],
-      "statement": "En la regla 50/30/20, el 20 % se destina al ahorro y a devolver deudas.",
+      "statement": "En la regla 50/30/20, el 20 % se destina al ahorro y a amortizar deuda de forma extra.",
       "answer": true,
-      "explanation": "Es la parte que no se gasta en necesidades ni deseos."
+      "explanation": "Es la parte que no se gasta en necesidades (que ya incluyen las cuotas obligatorias) ni en deseos."
     },
     {
       "id": "n0-u3-l1-e3",
@@ -77,11 +77,11 @@
       "concepts": [
         "presupuesto"
       ],
-      "prompt": "Con 1.800 € netos al mes, ¿cuántos euros van a necesidades según la regla 50/30/20?",
-      "answer": 900,
+      "prompt": "Con 1.500 € netos al mes, ¿cuántos euros van a necesidades según la regla 50/30/20?",
+      "answer": 750,
       "tolerance": 0,
-      "formula": "1800 * 0.5",
-      "explanation": "El 50 % de 1.800 € son 900 €.",
+      "formula": "1500 * 0.5",
+      "explanation": "El 50 % de 1.500 € son 750 €.",
       "unit": "€"
     },
     {
@@ -93,11 +93,11 @@
       "concepts": [
         "presupuesto"
       ],
-      "prompt": "Con 1.800 € netos al mes, ¿cuántos euros van a ahorro y deudas según la regla 50/30/20?",
-      "answer": 360,
+      "prompt": "Con 1.500 € netos al mes, ¿cuántos euros van a ahorro y amortización extra según la regla 50/30/20?",
+      "answer": 300,
       "tolerance": 0,
-      "formula": "1800 * 0.2",
-      "explanation": "El 20 % de 1.800 € son 360 €.",
+      "formula": "1500 * 0.2",
+      "explanation": "El 20 % de 1.500 € son 300 €.",
       "unit": "€"
     },
     {
@@ -125,7 +125,7 @@
           "category": "Deseos"
         },
         {
-          "text": "Aportación al fondo de emergencia",
+          "text": "Transferencia mensual a una cuenta de ahorro",
           "category": "Ahorro"
         },
         {
@@ -141,63 +141,35 @@
     },
     {
       "id": "n0-u3-l1-e6",
-      "type": "fill_blank",
-      "difficulty": 2,
-      "bloom": "recordar",
-      "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
-      "prompt": "Si tus gastos superan tus ingresos, tienes un ___.",
-      "answers": [
-        [
-          "déficit",
-          "deficit"
-        ]
-      ],
-      "explanation": "Un déficit significa que gastas más de lo que ingresas."
-    },
-    {
-      "id": "n0-u3-l1-e7",
-      "type": "spreadsheet",
+      "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
       "concepts": [
-        "presupuesto",
-        "celdas-suma"
+        "presupuesto"
       ],
-      "prompt": "Escribe en B3 la fórmula del ahorro: ingresos × porcentaje de ahorro.",
-      "cells": {
-        "A1": "Ingresos (€)",
-        "B1": 1800,
-        "A2": "% de ahorro",
-        "B2": 0.2,
-        "A3": "Ahorro (€)"
-      },
-      "target": "B3",
-      "solution": "=B1*B2",
-      "expected": 360,
+      "prompt": "Un mes ingresas 1.800 € y gastas 1.950 €. El déficit es lo que gastas de más. ¿Cuántos euros de déficit tienes?",
+      "answer": 150,
       "tolerance": 0,
-      "editable": [],
-      "requireFormula": true,
-      "hiddenCases": [
-        {
-          "set": {
-            "B1": 2000,
-            "B2": 0.2
-          },
-          "expected": 400
-        },
-        {
-          "set": {
-            "B1": 1500,
-            "B2": 0.1
-          },
-          "expected": 150
-        }
+      "formula": "1950 - 1800",
+      "explanation": "Déficit = gastos − ingresos = 1.950 − 1.800 = 150 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l1-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
       ],
-      "explanation": "Ahorro = ingresos × porcentaje = 1.800 × 0,2 = 360 €. Con referencias, la fórmula se recalcula si cambias los datos."
+      "prompt": "Si apartas 300 € cada mes, ¿cuánto ahorras en un año (sin contar intereses)?",
+      "answer": 3600,
+      "tolerance": 0,
+      "formula": "300 * 12",
+      "explanation": "300 × 12 = 3.600 €.",
+      "unit": "€"
     },
     {
       "id": "n0-u3-l1-e8",
@@ -208,18 +180,29 @@
       "concepts": [
         "presupuesto"
       ],
-      "prompt": "Ordena los pasos para hacer un presupuesto.",
+      "prompt": "Ordena los pasos para hacer un presupuesto, empezando por los ingresos.",
       "steps": [
         "Calcula tus ingresos netos mensuales",
-        "Lista tus gastos fijos y variables",
-        "Compara ingresos y gastos",
+        "Lista tus gastos del mes",
+        "Resta los gastos a los ingresos",
         "Ajusta lo que sobra o falta y revísalo cada mes"
       ],
       "explanation": "Primero datos, luego comparación y ajuste periódico."
     }
   ],
-  "realWorld": "La mayoría de las apps bancarias clasifican tus gastos por categorías: es un presupuesto hecho a medias.",
-  "sources": [],
+  "realWorld": "Muchas apps bancarias clasifican tus gastos por categorías: es un presupuesto hecho a medias.",
+  "sources": [
+    {
+      "title": "Warren, E. y Tyagi, A. W. (2005). All Your Worth: The Ultimate Lifetime Money Plan",
+      "url": "https://www.simonandschuster.com/books/All-Your-Worth/Elizabeth-Warren/9780743269889",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Finanzas para Todos (CNMV y Banco de España): educación financiera",
+      "url": "https://www.finanzasparatodos.es/",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

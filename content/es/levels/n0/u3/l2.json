@@ -15,13 +15,15 @@
     "fondo-emergencia",
     "presupuesto"
   ],
-  "companies": [],
+  "companies": [
+    "albufera-partners"
+  ],
   "historical": false,
   "intro": [
     {
       "type": "card",
       "term": "Fondo de emergencia",
-      "text": "El fondo de emergencia es dinero líquido y seguro para imprevistos: perder el empleo, una avería, una factura médica. Una pauta habitual es guardar entre 3 y 6 meses de gastos esenciales. Es una orientación, no una norma: depende de lo estable que sea tu ingreso."
+      "text": "El fondo de emergencia es dinero líquido y seguro para imprevistos: perder el empleo, una avería, una factura médica. Una pauta habitual es guardar entre 3 y 6 meses de gastos esenciales. Es una orientación, no una norma: depende de lo estable que sea tu ingreso y de tus obligaciones."
     },
     {
       "type": "example",
@@ -124,14 +126,13 @@
       "concepts": [
         "fondo-emergencia"
       ],
-      "prompt": "Un fondo de emergencia debe ser ___: poder disponer de él rápido.",
+      "prompt": "La facilidad para convertir un activo en efectivo rápido y sin perder valor se llama ___.",
       "answers": [
         [
-          "líquido",
-          "liquido"
+          "liquidez"
         ]
       ],
-      "explanation": "Liquidez es la facilidad para convertir algo en efectivo sin perder valor."
+      "explanation": "Un fondo de emergencia debe tener liquidez."
     },
     {
       "id": "n0-u3-l2-e7",
@@ -192,8 +193,14 @@
       }
     }
   ],
-  "realWorld": "Los bancos de España suelen ofrecer cuentas o depósitos de disponibilidad inmediata: ahí suele guardarse el fondo de emergencia.",
-  "sources": [],
+  "realWorld": "En España, una cuenta corriente o de ahorro permite disponer del dinero en cualquier momento; ahí suele guardarse el fondo de emergencia.",
+  "sources": [
+    {
+      "title": "Finanzas para Todos (CNMV y Banco de España): educación financiera",
+      "url": "https://www.finanzasparatodos.es/",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

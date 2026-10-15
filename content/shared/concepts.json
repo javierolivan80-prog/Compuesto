@@ -168,10 +168,11 @@
  },
  {
   "id": "deuda-buena-mala",
-  "name": "Deuda buena y deuda cara",
+  "name": "Deuda buena y deuda mala",
   "level": 0,
   "prerequisites": [
-   "prestamo"
+   "prestamo",
+   "tae"
   ],
   "unit": "n0-u3",
   "description": "Cuándo endeudarse tiene sentido y cuándo destruye riqueza (tarjetas revolving)."

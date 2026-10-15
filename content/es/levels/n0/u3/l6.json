@@ -8,7 +8,7 @@
   "title": "Jefe final: presupuesto, deuda y Excel",
   "estimatedMinutes": 5,
   "objectives": [
-    "Aplicar presupuesto, fondo de emergencia, deuda, sesgo del presente y Excel en un mismo caso"
+    "Aplicar presupuesto, fondo de emergencia, deuda, sesgo del presente y Excel"
   ],
   "concepts": [
     "presupuesto",
@@ -18,14 +18,13 @@
     "celdas-suma"
   ],
   "companies": [
-    "albufera-partners",
-    "naranjas-del-turia"
+    "albufera-partners"
   ],
   "historical": false,
   "intro": [
     {
       "type": "card",
-      "text": "Repaso: un presupuesto reparte ingresos entre necesidades, deseos y ahorro. El fondo de emergencia cubre de 3 a 6 meses de gastos esenciales en algo líquido y seguro. La deuda compensa si rinde más que su coste."
+      "text": "Repaso: un presupuesto reparte ingresos entre necesidades, deseos y ahorro (50/30/20 es solo una pauta orientativa). Una pauta habitual es que el fondo de emergencia cubra de 3 a 6 meses de gastos esenciales en algo líquido y seguro. Una deuda compensa si se espera que rinda más que su coste."
     },
     {
       "type": "card",
@@ -98,7 +97,7 @@
       "concepts": [
         "deuda-buena-mala"
       ],
-      "statement": "Aplazar compras de consumo con una TAE del 24 % suele considerarse mala deuda.",
+      "statement": "Aplazar compras de consumo con una TAE muy alta (por ejemplo, del 24 %) suele considerarse mala deuda.",
       "answer": true,
       "explanation": "Financia consumo con un coste alto y no genera rendimiento."
     },
@@ -111,11 +110,11 @@
       "concepts": [
         "deuda-buena-mala"
       ],
-      "prompt": "Debes 1.000 € con una TAE del 24 % y no pagas en un año. ¿Cuántos euros de intereses se acumulan?",
-      "answer": 240,
+      "prompt": "Una deuda cuesta 600 € de intereses al año y financia algo que aporta 1.500 € al año. ¿Cuántos euros de beneficio neto quedan?",
+      "answer": 900,
       "tolerance": 0,
-      "formula": "1000 * 0.24",
-      "explanation": "1.000 × 0,24 = 240 €.",
+      "formula": "1500 - 600",
+      "explanation": "1.500 − 600 = 900 €: el rendimiento supera al coste.",
       "unit": "€"
     },
     {
@@ -160,7 +159,7 @@
           "category": "Deseos"
         },
         {
-          "text": "Transferencia al fondo de emergencia",
+          "text": "Transferencia mensual a una cuenta de ahorro",
           "category": "Ahorro"
         }
       ],
@@ -213,21 +212,20 @@
     },
     {
       "id": "n0-u3-l6-e9",
-      "type": "order_steps",
+      "type": "fill_blank",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "recordar",
       "tags": [],
       "concepts": [
         "sesgo-presente"
       ],
-      "prompt": "Ordena el método de pagarte primero.",
-      "steps": [
-        "Cobras tu sueldo",
-        "Una transferencia automática lleva una parte al ahorro",
-        "Gastas lo que queda",
-        "Revisas el ahorro cada mes"
+      "prompt": "Para pagarte primero, la transferencia automática al ahorro se hace ___ de gastar.",
+      "answers": [
+        [
+          "antes"
+        ]
       ],
-      "explanation": "El ahorro sale antes del gasto."
+      "explanation": "Primero se aparta el ahorro y después se gasta lo que queda."
     },
     {
       "id": "n0-u3-l6-e10",
@@ -257,6 +255,11 @@
     {
       "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
       "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Finanzas para Todos (CNMV y Banco de España): educación financiera",
+      "url": "https://www.finanzasparatodos.es/",
       "date": "2026-10-15"
     }
   ],
