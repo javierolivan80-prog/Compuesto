@@ -319,7 +319,8 @@ describe('reglas de la teoría y de los explicadores', () => {
 });
 
 describe('Unidad 1 del Nivel 0 (contenido real)', () => {
-  const { lessons, issues } = validateContent(base);
+  const { lessons: all, issues } = validateContent(base);
+  const lessons = all.filter((l) => l.level === 0 && l.unit === 1);
   it('tiene 5 lecciones en estado reviewed, sin errores ni avisos', () => {
     expect(lessons.map((l) => l.id)).toEqual([
       'n0-u1-l1',
