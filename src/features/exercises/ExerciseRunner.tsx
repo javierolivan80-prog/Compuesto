@@ -10,6 +10,7 @@ import {
   type GradeResult,
 } from '../../engine/grading';
 import { parseNumber } from '../../engine/number-parse';
+import { BuildStatementView, SpreadsheetView } from './AdvancedViews';
 import {
   CategorizeView,
   FillBlankView,
@@ -31,6 +32,8 @@ export const SUPPORTED_TYPES = [
   'order_steps',
   'numeric_input',
   'categorize',
+  'build_statement',
+  'spreadsheet',
 ] as const;
 
 export function isSupported(e: Exercise): boolean {
@@ -60,6 +63,10 @@ export function emptyAnswer(e: Exercise): Answer {
       return { type: 'numeric_input', text: '', locale: 'es' };
     case 'categorize':
       return { type: 'categorize', assignments: {} };
+    case 'build_statement':
+      return { type: 'build_statement', values: {}, locale: 'es' };
+    case 'spreadsheet':
+      return { type: 'spreadsheet', cells: {} };
     default:
       throw new Error(`Tipo sin componente todavía: ${e.type}`);
   }
@@ -132,6 +139,12 @@ export function ExerciseRunner({ exercise, onComplete, xp = 10 }: Props) {
         );
       case 'categorize':
         return <CategorizeView {...(common as object as Parameters<typeof CategorizeView>[0])} />;
+      case 'build_statement':
+        return (
+          <BuildStatementView {...(common as object as Parameters<typeof BuildStatementView>[0])} />
+        );
+      case 'spreadsheet':
+        return <SpreadsheetView {...(common as object as Parameters<typeof SpreadsheetView>[0])} />;
       default:
         return <p>Tipo de ejercicio no disponible todavía: {exercise.type}</p>;
     }

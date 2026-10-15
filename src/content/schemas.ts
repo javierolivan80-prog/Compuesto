@@ -133,6 +133,19 @@ const ss = z.object({
   solution: text,
   expected: z.number(),
   tolerance: z.number().min(0).max(100).default(0),
+  /** Celdas que la persona puede escribir (por defecto, solo `target`). */
+  editable: z.array(z.string().regex(/^[A-Z]+\d+$/)).default([]),
+  /** Exige escribir una fórmula (=…) en `target`: un número tecleado a mano no vale. */
+  requireFormula: z.boolean().default(true),
+  /** Casos ocultos: se cambian celdas de entrada y la fórmula debe dar el valor esperado (comprueba que generaliza). */
+  hiddenCases: z
+    .array(
+      z.object({
+        set: z.record(z.string().regex(/^[A-Z]+\d+$/), z.number()),
+        expected: z.number(),
+      }),
+    )
+    .default([]),
 });
 const code = z.object({
   ...exerciseBase,

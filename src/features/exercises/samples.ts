@@ -96,6 +96,61 @@ export const SAMPLE_EXERCISES = {
     explanation:
       'Caja y clientes son derechos de cobro (activo); deuda y proveedores son obligaciones de pago (pasivo).',
   },
+  build_statement: {
+    id: 'lab-bs',
+    type: 'build_statement',
+    ...c,
+    statement: 'balance',
+    prompt: 'Completa el balance de Naranjas del Turia para que cuadre.',
+    sections: [
+      {
+        name: 'Activo',
+        side: 'activo',
+        rows: [
+          { label: 'Caja', value: 5152, blank: true },
+          { label: 'Clientes', value: 5214 },
+          { label: 'Existencias', value: 7560 },
+          { label: 'Inmovilizado', value: 20000 },
+        ],
+      },
+      {
+        name: 'Pasivo',
+        side: 'pasivo',
+        rows: [
+          { label: 'Proveedores', value: 5195 },
+          { label: 'Deuda', value: 9000 },
+        ],
+      },
+      {
+        name: 'Patrimonio',
+        side: 'patrimonio',
+        rows: [
+          { label: 'Capital', value: 6000 },
+          { label: 'Reservas', value: 17731, blank: true },
+        ],
+      },
+    ],
+    explanation:
+      'El activo (37.926) debe igualar pasivo + patrimonio. Con 5.152 de caja, las reservas son 37.926 − 14.195 − 6.000 = 17.731.',
+  },
+  spreadsheet: {
+    id: 'lab-ss',
+    type: 'spreadsheet',
+    ...c,
+    prompt:
+      'Calcula en B3 el importe final: capital (B1) más intereses al tipo de B2 (en tanto por uno).',
+    cells: { A1: 'Capital', B1: 1000, A2: 'Tipo', B2: 0.05, A3: 'Final' },
+    target: 'B3',
+    solution: 'B1 * (1 + B2)',
+    expected: 1050,
+    tolerance: 0,
+    hiddenCases: [
+      { set: { B1: 2000 }, expected: 2100 },
+      { set: { B2: 0.1 }, expected: 1100 },
+    ],
+    explanation:
+      'Final = capital × (1 + tipo) = 1.000 × 1,05 = 1.050. La fórmula usa las celdas, así que sigue valiendo si cambian los datos.',
+  },
 } as const;
 
 export type SampleType = keyof typeof SAMPLE_EXERCISES;

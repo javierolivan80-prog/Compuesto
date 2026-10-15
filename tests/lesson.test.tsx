@@ -18,7 +18,9 @@ beforeEach(() => {
   db = new CompuestoDB(`lesson-${++n}`);
   // el reloj avanza 1 s por evento: con marcas de tiempo idénticas el orden se desempata por id aleatorio
   let tick = 0;
-  repo = new Repository(db, { now: () => new Date(Date.parse('2026-03-10T10:00:00Z') + 1000 * tick++) });
+  repo = new Repository(db, {
+    now: () => new Date(Date.parse('2026-03-10T10:00:00Z') + 1000 * tick++),
+  });
 });
 afterEach(async () => {
   db.close();

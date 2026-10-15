@@ -1,4 +1,5 @@
-import { evaluateNumber, evaluate, ExprError, type Value } from '../engine/expr';
+import { evaluateNumber } from '../engine/expr';
+import { evaluateSheet, numericValue } from '../engine/sheet';
 import { checkCompany } from './accounting';
 import { EXPLAINER_NAMES, type ExplainerName } from './explainer-names';
 import { EXPLAINER_PROPS } from './explainer-props';
@@ -177,42 +178,30 @@ export function checkExercise(e: Exercise, strict: boolean): Issue[] {
       break;
     }
     case 'spreadsheet': {
-      const cache = new Map<string, Value>();
-      const resolving = new Set<string>();
-      const get = (name: string): Value | undefined => {
-        const key = name.toUpperCase();
-        if (cache.has(key)) return cache.get(key);
-        const raw = e.cells[key];
-        if (raw === undefined) return key === e.target.toUpperCase() ? undefined : 0;
-        if (resolving.has(key)) throw new ExprError(`Referencia circular en ${key}`);
-        resolving.add(key);
-        const v =
-          typeof raw === 'number'
-            ? raw
-            : raw.startsWith('=')
-              ? evaluate(raw, { get })
-              : Number.isNaN(Number(raw))
-                ? raw
-                : Number(raw);
-        resolving.delete(key);
-        cache.set(key, v);
-        return v;
-      };
-      try {
-        const v = evaluateNumber(e.solution, { get });
-        const allowed = Math.max(
-          (Math.abs(e.expected) * e.tolerance) / 100,
-          Math.abs(e.expected) * 1e-6,
-          1e-9,
+      const formula = e.solution.startsWith('=') ? e.solution : `=${e.solution}`;
+      const run = (set: Record<string, number>) =>
+        numericValue(evaluateSheet({ ...e.cells, ...set, [e.target]: formula })[e.target]);
+      const within = (v: number | null, expected: number) =>
+        v !== null &&
+        Math.abs(v - expected) <=
+          Math.max((Math.abs(expected) * e.tolerance) / 100, Math.abs(expected) * 1e-6, 1e-9);
+      const v = run({});
+      if (!within(v, e.expected))
+        err(
+          'formula',
+          `La solución "${e.solution}" da ${v === null ? 'un error o un valor no numérico' : Number(v.toPrecision(12))}, no ${e.expected}`,
         );
-        if (Math.abs(v - e.expected) > allowed)
+      e.hiddenCases.forEach((c, i) => {
+        const hv = run(c.set);
+        if (!within(hv, c.expected))
           err(
             'formula',
-            `La solución "${e.solution}" da ${Number(v.toPrecision(12))}, no ${e.expected}`,
+            `Caso oculto ${i + 1}: la solución da ${hv === null ? 'un error' : Number(hv.toPrecision(12))}, no ${c.expected}`,
           );
-      } catch (x) {
-        err('formula', `La solución "${e.solution}" no se puede evaluar: ${(x as Error).message}`);
-      }
+      });
+      for (const ref of e.editable)
+        if (ref in e.cells && e.cells[ref] !== '')
+          err('editable', `La celda editable ${ref} ya tiene contenido inicial`);
       break;
     }
     case 'spot_the_error':

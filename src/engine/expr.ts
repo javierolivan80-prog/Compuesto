@@ -7,7 +7,28 @@
 
 export type Value = number | boolean | string;
 
-export class ExprError extends Error {}
+export type ErrorCode =
+  '#REF!' | '#DIV/0!' | '#NAME?' | '#NUM!' | '#VALUE!' | '#SYNTAX!' | '#CIRC!';
+
+/** Error de fórmula con código tipo Excel; `message` está en español para mostrarlo a la persona. */
+export class ExprError extends Error {
+  constructor(
+    message: string,
+    readonly code: ErrorCode = '#SYNTAX!',
+  ) {
+    super(message);
+  }
+}
+
+export const ERROR_LABELS: Record<ErrorCode, string> = {
+  '#REF!': 'Referencia a una celda que no existe',
+  '#DIV/0!': 'División por cero',
+  '#NAME?': 'Función o nombre desconocido',
+  '#NUM!': 'Número no válido o sin solución',
+  '#VALUE!': 'Valor del tipo equivocado',
+  '#SYNTAX!': 'Fórmula inválida',
+  '#CIRC!': 'Referencia circular',
+};
 
 type Tok =
   | { t: 'num'; v: number }
@@ -15,9 +36,29 @@ type Tok =
   | { t: 'str'; v: string }
   | { t: 'op'; v: string };
 
-const OPS = ['<=', '>=', '<>', '+', '-', '*', '/', '^', '%', '(', ')', ',', ':', '<', '>', '='];
+const OPS = [
+  '<=',
+  '>=',
+  '<>',
+  '+',
+  '-',
+  '*',
+  '/',
+  '^',
+  '%',
+  '(',
+  ')',
+  ',',
+  ';',
+  ':',
+  '<',
+  '>',
+  '=',
+];
 
-function tokenize(src: string): Tok[] {
+function tokenize(rawSrc: string): Tok[] {
+  // Con `;` como separador de argumentos (Excel en español) la coma es el decimal: 1,5 → 1.5
+  const src = rawSrc.includes(';') ? rawSrc.replace(/(\d),(\d)/g, '$1.$2') : rawSrc;
   const out: Tok[] = [];
   let i = 0;
   while (i < src.length) {
@@ -26,7 +67,7 @@ function tokenize(src: string): Tok[] {
       i++;
     } else if (/[0-9.]/.test(c)) {
       const m = /^(\d+\.?\d*|\.\d+)(e[+-]?\d+)?/i.exec(src.slice(i));
-      if (!m) throw new ExprError(`Número no válido en "${src}"`);
+      if (!m) throw new ExprError(`Número no válido en "${src}"`, '#SYNTAX!');
       out.push({ t: 'num', v: Number(m[0]) });
       i += m[0].length;
     } else if (/[A-Za-z_$]/.test(c)) {
@@ -65,7 +106,7 @@ const colName = (n: number) => {
 export function expandRange(a: string, b: string): string[] {
   const pa = /^([A-Za-z]+)(\d+)$/.exec(a);
   const pb = /^([A-Za-z]+)(\d+)$/.exec(b);
-  if (!pa || !pb) throw new ExprError(`Rango no válido ${a}:${b}`);
+  if (!pa || !pb) throw new ExprError(`Rango no válido ${a}:${b}`, '#REF!');
   const [c1, c2] = [col(pa[1]!), col(pb[1]!)].sort((x, y) => x - y);
   const [r1, r2] = [Number(pa[2]), Number(pb[2])].sort((x, y) => x - y);
   const cells: string[] = [];
@@ -77,7 +118,7 @@ const num = (v: Value | undefined): number => {
   if (typeof v === 'number') return v;
   if (typeof v === 'boolean') return v ? 1 : 0;
   if (v === undefined || v === '') return 0;
-  throw new ExprError(`"${String(v)}" no es un número`);
+  throw new ExprError(`"${String(v)}" no es un número`, '#VALUE!');
 };
 
 const flat = (args: (Value | Value[])[]): number[] =>
@@ -89,7 +130,7 @@ const FUNCS: Record<string, (args: (Value | Value[])[]) => Value> = {
   SUM: (a) => flat(a).reduce((s, x) => s + x, 0),
   AVERAGE: (a) => {
     const v = flat(a);
-    if (!v.length) throw new ExprError('PROMEDIO de nada');
+    if (!v.length) throw new ExprError('PROMEDIO de nada', '#DIV/0!');
     return v.reduce((s, x) => s + x, 0) / v.length;
   },
   MIN: (a) => Math.min(...flat(a)),
@@ -98,14 +139,14 @@ const FUNCS: Record<string, (args: (Value | Value[])[]) => Value> = {
   ABS: (a) => Math.abs(num(a[0] as Value)),
   SQRT: (a) => {
     const x = num(a[0] as Value);
-    if (x < 0) throw new ExprError('RAIZ de un negativo');
+    if (x < 0) throw new ExprError('RAIZ de un negativo', '#NUM!');
     return Math.sqrt(x);
   },
   POWER: (a) => Math.pow(num(a[0] as Value), num(a[1] as Value)),
   EXP: (a) => Math.exp(num(a[0] as Value)),
   LN: (a) => {
     const x = num(a[0] as Value);
-    if (x <= 0) throw new ExprError('LN de un número no positivo');
+    if (x <= 0) throw new ExprError('LN de un número no positivo', '#NUM!');
     return Math.log(x);
   },
   ROUND: (a) => {
@@ -113,6 +154,12 @@ const FUNCS: Record<string, (args: (Value | Value[])[]) => Value> = {
     return Math.round(num(a[0] as Value) * f + Number.EPSILON * Math.sign(num(a[0] as Value))) / f;
   },
   IF: (a) => (a[0] ? (a[1] as Value) : ((a[2] as Value) ?? false)),
+  IRR: (a) => {
+    const first = a[0];
+    const flows = Array.isArray(first) ? flat([first]) : flat(a);
+    const guess = Array.isArray(first) && a[1] !== undefined ? num(a[1] as Value) : 0.1;
+    return irr(flows, guess);
+  },
   // Valor temporal del dinero (convención: tasa por periodo)
   FV: (a) => num(a[0] as Value) * Math.pow(1 + num(a[1] as Value), num(a[2] as Value)),
   PV: (a) => num(a[0] as Value) / Math.pow(1 + num(a[1] as Value), num(a[2] as Value)),
@@ -141,7 +188,48 @@ const ALIASES: Record<string, string> = {
   VA: 'PV',
   VNA: 'NPV',
   POW: 'POWER',
+  TIR: 'IRR',
 };
+
+const npvAt = (flows: number[], r: number) =>
+  flows.reduce((s, cf, i) => s + cf / Math.pow(1 + r, i), 0);
+
+/**
+ * TIR: tasa r > −1 que anula el VAN de los flujos (el primero en el periodo 0).
+ * Método: se busca un cambio de signo del VAN en una malla de tasas y se refina por bisección en cada
+ * intervalo (no depende de una suposición inicial como Newton, así que no diverge). Si hay varias TIR
+ * se devuelve la más cercana a `guess`; sin cambio de signo no hay solución (#NUM!).
+ */
+export function irr(flows: number[], guess = 0.1): number {
+  if (flows.length < 2 || !flows.some((x) => x > 0) || !flows.some((x) => x < 0))
+    throw new ExprError('La TIR necesita al menos un flujo positivo y otro negativo', '#NUM!');
+  const grid: number[] = [];
+  for (let r = -0.99; r < 0; r += 0.01) grid.push(r);
+  for (let r = 0; r <= 1; r += 0.005) grid.push(r);
+  for (let r = 1.05; r <= 100; r *= 1.05) grid.push(r);
+  const roots: number[] = [];
+  for (let i = 0; i < grid.length - 1; i++) {
+    let lo = grid[i]!;
+    let hi = grid[i + 1]!;
+    let flo = npvAt(flows, lo);
+    const fhi = npvAt(flows, hi);
+    if (flo === 0) roots.push(lo);
+    if (flo * fhi < 0) {
+      for (let k = 0; k < 200; k++) {
+        const mid = (lo + hi) / 2;
+        const fm = npvAt(flows, mid);
+        if (flo * fm <= 0) hi = mid;
+        else {
+          lo = mid;
+          flo = fm;
+        }
+      }
+      roots.push((lo + hi) / 2);
+    }
+  }
+  if (!roots.length) throw new ExprError('La TIR no tiene solución', '#NUM!');
+  return roots.reduce((best, r) => (Math.abs(r - guess) < Math.abs(best - guess) ? r : best));
+}
 
 /** Evalúa `src`. Un error de sintaxis, división por cero, etc. lanza ExprError. */
 export function evaluate(src: string, env: Env = {}): Value {
@@ -191,7 +279,7 @@ export function evaluate(src: string, env: Env = {}): Value {
     while (isOp('*') || isOp('/')) {
       const op = (toks[p++] as { v: string }).v;
       const r = pow();
-      if (op === '/' && num(r) === 0) throw new ExprError('División por cero');
+      if (op === '/' && num(r) === 0) throw new ExprError('División por cero', '#DIV/0!');
       l = op === '*' ? num(l) * num(r) : num(l) / num(r);
     }
     return l;
@@ -240,19 +328,19 @@ export function evaluate(src: string, env: Env = {}): Value {
         const args: (Value | Value[])[] = [];
         if (!isOp(')')) {
           do {
-            if (isOp(',')) p++;
+            if (isOp(',') || isOp(';')) p++;
             args.push(argument());
-          } while (isOp(','));
+          } while (isOp(',') || isOp(';'));
         }
         eat(')');
         const fn = FUNCS[ALIASES[name.toUpperCase()] ?? name.toUpperCase()];
-        if (!fn) throw new ExprError(`Función desconocida: ${name}`);
+        if (!fn) throw new ExprError(`Función desconocida: ${name}`, '#NAME?');
         return fn(args);
       }
       if (name.toUpperCase() === 'TRUE' || name.toUpperCase() === 'VERDADERO') return true;
       if (name.toUpperCase() === 'FALSE' || name.toUpperCase() === 'FALSO') return false;
       const v = env.get?.(name);
-      if (v === undefined) throw new ExprError(`Referencia desconocida: ${name}`);
+      if (v === undefined) throw new ExprError(`Referencia desconocida: ${name}`, '#REF!');
       return v;
     }
     throw new ExprError(`Símbolo inesperado en "${src}"`);
@@ -278,6 +366,6 @@ export function evaluate(src: string, env: Env = {}): Value {
 export function evaluateNumber(src: string, env: Env = {}): number {
   const v = evaluate(src, env);
   if (typeof v !== 'number' || !Number.isFinite(v))
-    throw new ExprError(`"${src}" no da un número finito`);
+    throw new ExprError(`"${src}" no da un número finito`, '#VALUE!');
   return v;
 }

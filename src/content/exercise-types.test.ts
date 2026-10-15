@@ -168,3 +168,10 @@ describe('los 19 tipos de ejercicio del esquema', () => {
     expect(exerciseSchema.safeParse({ ...b, rubric: ['a', 'b'] }).success).toBe(false);
   });
 });
+
+describe('ejemplos de /exercises-lab', () => {
+  it('pasan la validación semántica del contenido (el balance cuadra, la solución da lo esperado…)', async () => {
+    const { SAMPLE_TYPES, sampleExercise } = await import('../features/exercises/samples');
+    for (const t of SAMPLE_TYPES) expect(checkExercise(sampleExercise(t), true), t).toEqual([]);
+  });
+});

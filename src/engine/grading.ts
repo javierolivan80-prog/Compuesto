@@ -1,10 +1,42 @@
 import { parseNumber, type NumberLocale } from './number-parse';
 import { mulberry32 } from './prng';
+import { evaluateSheet, isFormula, numericValue, type CellInput } from './sheet';
+import { rowKey } from './statement';
 import type { Exercise } from '../content/schemas';
 
 /* Corrección pura de los 8 primeros tipos (TEMARIO §6). Sin React, sin IndexedDB. */
 
 type Of<T extends Exercise['type']> = Extract<Exercise, { type: T }>;
+
+const within = (v: number | null, expected: number, tolerancePct: number) =>
+  v !== null &&
+  Math.abs(v - expected) <=
+    Math.max((Math.abs(expected) * tolerancePct) / 100, Math.abs(expected) * 1e-6, 1e-9);
+
+/**
+ * Corrige por RESULTADO, no por el texto de la fórmula: se evalúa la hoja con lo escrito y se compara el valor de `target`.
+ * Con `requireFormula` hay que escribir una fórmula (=…); además se prueban los casos ocultos cambiando las entradas.
+ */
+export function gradeSpreadsheet(
+  e: Of<'spreadsheet'>,
+  entered: Record<string, string>,
+): GradeResult {
+  const editable = new Set(e.editable.length ? e.editable : [e.target]);
+  const user: Record<string, CellInput> = {};
+  for (const [ref, text] of Object.entries(entered))
+    if (editable.has(ref) && text.trim() !== '') user[ref] = text.trim();
+  const targetText = user[e.target];
+  if (targetText === undefined) return { correct: false, empty: true };
+  if (e.requireFormula && !isFormula(targetText)) return ko({ wrongItems: [e.target] });
+  const run = (set: Record<string, number>) =>
+    numericValue(evaluateSheet({ ...e.cells, ...user, ...set })[e.target]);
+  const value = run({});
+  if (!within(value, e.expected, e.tolerance)) return ko({ parsed: value, wrongItems: [e.target] });
+  for (const c of e.hiddenCases)
+    if (!within(run(c.set), c.expected, e.tolerance))
+      return ko({ parsed: value, wrongItems: [e.target] });
+  return ok({ parsed: value });
+}
 
 export type Answer =
   | { type: 'multiple_choice'; choice: number | null }
@@ -17,7 +49,11 @@ export type Answer =
   | { type: 'order_steps'; order: number[] }
   | { type: 'numeric_input'; text: string; locale?: NumberLocale }
   /** texto del elemento → categoría elegida */
-  | { type: 'categorize'; assignments: Record<string, string> };
+  | { type: 'categorize'; assignments: Record<string, string> }
+  /** Contenido escrito en las celdas editables (valor o fórmula) */
+  | { type: 'spreadsheet'; cells: Record<string, string> }
+  /** Huecos del estado financiero: clave "sección.fila" → texto escrito */
+  | { type: 'build_statement'; values: Record<string, string>; locale?: NumberLocale };
 
 export interface GradeResult {
   correct: boolean;
@@ -73,6 +109,10 @@ export function isEmptyAnswer(a: Answer): boolean {
       return a.text.trim() === '';
     case 'categorize':
       return Object.keys(a.assignments).length === 0;
+    case 'spreadsheet':
+      return Object.values(a.cells).every((v) => v.trim() === '');
+    case 'build_statement':
+      return Object.values(a.values).every((v) => v.trim() === '');
   }
 }
 
@@ -138,6 +178,22 @@ export function grade(exercise: Exercise, answer: Answer): GradeResult {
       const wrongItems = exercise.items
         .filter((i) => a.assignments[i.text] !== i.category)
         .map((i) => i.text);
+      return wrongItems.length ? ko({ wrongItems }) : ok();
+    }
+    case 'spreadsheet': {
+      const a = answer as Extract<Answer, { type: 'spreadsheet' }>;
+      return gradeSpreadsheet(exercise, a.cells);
+    }
+    case 'build_statement': {
+      const a = answer as Extract<Answer, { type: 'build_statement' }>;
+      const wrongItems: string[] = [];
+      exercise.sections.forEach((s, si) =>
+        s.rows.forEach((r, ri) => {
+          if (!r.blank) return;
+          const n = parseNumber(a.values[rowKey(si, ri)] ?? '', a.locale ?? 'es');
+          if (n === null || Math.abs(n - r.value) > 0.005) wrongItems.push(rowKey(si, ri));
+        }),
+      );
       return wrongItems.length ? ko({ wrongItems }) : ok();
     }
     default:

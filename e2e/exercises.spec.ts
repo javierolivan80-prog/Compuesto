@@ -94,6 +94,18 @@ const FLOWS: Record<string, (page: Page) => Promise<void>> = {
     await tabTo(p, 'input');
     await p.keyboard.type('1.102,50');
   },
+  build_statement: async (p) => {
+    await tabTo(p, 'input[inputmode="decimal"]');
+    await p.keyboard.type('5.152');
+    await tabTo(p, 'input[inputmode="decimal"]:not([value="5.152"])');
+    await p.keyboard.type('17731');
+    await expect(p.getByText('✓ El balance cuadra')).toBeVisible();
+  },
+  spreadsheet: async (p) => {
+    await tabTo(p, 'input[aria-label="Celda B3"]');
+    await p.keyboard.type('=B1*(1+B2)');
+    await expect(p.getByText('Resultado de B3: 1.050')).toBeVisible();
+  },
   categorize: async (p) => {
     for (const [item, cat] of [
       ['Caja', 'Activo'],

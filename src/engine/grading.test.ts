@@ -241,3 +241,108 @@ describe('guardas', () => {
     expect(empties.every(isEmptyAnswer)).toBe(true);
   });
 });
+
+describe('spreadsheet (corrección por resultado)', () => {
+  const ss = mk({
+    type: 'spreadsheet',
+    prompt: 'Calcula el total con comisión.',
+    cells: { A1: 1000, A2: 0.001 },
+    target: 'A3',
+    solution: 'A1 * (1 + A2)',
+    expected: 1001,
+    tolerance: 0,
+    hiddenCases: [{ set: { A1: 2000 }, expected: 2002 }],
+  });
+  const answer = (text: string): Answer => ({ type: 'spreadsheet', cells: { A3: text } });
+
+  it('acepta cualquier fórmula que dé el resultado, no solo el texto de la solución', () => {
+    expect(grade(ss, answer('=A1*(1+A2)')).correct).toBe(true);
+    expect(grade(ss, answer('=A1+A1*A2')).correct).toBe(true);
+    expect(grade(ss, answer('=A1+A2*A1')).correct).toBe(true);
+  });
+  it('rechaza un número tecleado a mano aunque sea el resultado (se exige fórmula)', () => {
+    expect(grade(ss, answer('1001'))).toMatchObject({
+      correct: false,
+      empty: false,
+      wrongItems: ['A3'],
+    });
+  });
+  it('rechaza una fórmula que solo funciona con los datos visibles (casos ocultos)', () => {
+    expect(grade(ss, answer('=1000*1.001')).correct).toBe(false); // da 1001 pero no generaliza a A1 = 2000
+    expect(grade(ss, answer('=A1+1')).correct).toBe(false); // da 1001, pero con A1 = 2000 da 2001 ≠ 2002
+  });
+  it('un error de fórmula (#DIV/0!, #REF!, sintaxis) es incorrecto, no excepción', () => {
+    for (const f of ['=A1/0', '=ZZ+', '=FOO(A1)', '=A3'])
+      expect(grade(ss, answer(f)).correct, f).toBe(false);
+  });
+  it('vacío si la celda editable no se ha escrito', () => {
+    expect(grade(ss, answer('  ')).empty).toBe(true);
+    expect(isEmptyAnswer({ type: 'spreadsheet', cells: {} })).toBe(true);
+  });
+  it('solo cuentan las celdas editables: no se puede cambiar un dato de entrada', () => {
+    const cheat: Answer = { type: 'spreadsheet', cells: { A1: '1', A3: '=A1*(1+A2)' } };
+    expect(grade(ss, cheat).correct).toBe(true); // A1 escrito se ignora: sigue valiendo 1000
+    expect(grade(ss, { type: 'spreadsheet', cells: { A1: '1', A3: '=A1' } }).correct).toBe(false);
+  });
+  it('tolerancia relativa', () => {
+    const t = mk({
+      type: 'spreadsheet',
+      prompt: 'Divide.',
+      cells: { A1: 1000 },
+      target: 'B1',
+      solution: 'A1/3',
+      expected: 333.33,
+      tolerance: 0.01,
+    });
+    expect(grade(t, { type: 'spreadsheet', cells: { B1: '=A1/3' } }).correct).toBe(true);
+    expect(grade(t, { type: 'spreadsheet', cells: { B1: '=A1/4' } }).correct).toBe(false);
+  });
+});
+
+describe('build_statement (rellenar hasta que cuadre)', () => {
+  const bs = mk({
+    type: 'build_statement',
+    statement: 'balance',
+    prompt: 'Cuadra el balance.',
+    sections: [
+      {
+        name: 'Activo',
+        side: 'activo',
+        rows: [
+          { label: 'Caja', value: 100, blank: true },
+          { label: 'Clientes', value: 50 },
+        ],
+      },
+      { name: 'Pasivo', side: 'pasivo', rows: [{ label: 'Deuda', value: 60 }] },
+      {
+        name: 'Patrimonio',
+        side: 'patrimonio',
+        rows: [
+          { label: 'Capital', value: 40, blank: true },
+          { label: 'Reservas', value: 50 },
+        ],
+      },
+    ],
+  });
+  const fill = (v: Record<string, string>): Answer => ({ type: 'build_statement', values: v });
+
+  it('acierta con todos los huecos correctos (admite coma decimal y separador de miles)', () => {
+    expect(grade(bs, fill({ '0.0': '100', '2.0': '40' })).correct).toBe(true);
+    expect(grade(bs, fill({ '0.0': '100,00', '2.0': '40,0' })).correct).toBe(true);
+  });
+  it('señala qué huecos fallan, y un hueco vacío cuenta como fallo', () => {
+    expect(grade(bs, fill({ '0.0': '90', '2.0': '40' }))).toMatchObject({
+      correct: false,
+      wrongItems: ['0.0'],
+    });
+    expect(grade(bs, fill({ '0.0': '100' }))).toMatchObject({
+      correct: false,
+      wrongItems: ['2.0'],
+    });
+    expect(grade(bs, fill({ '0.0': 'cien', '2.0': '40' })).wrongItems).toEqual(['0.0']);
+  });
+  it('vacío cuando no se ha escrito nada', () => {
+    expect(grade(bs, fill({})).empty).toBe(true);
+    expect(grade(bs, fill({ '0.0': ' ' })).empty).toBe(true);
+  });
+});

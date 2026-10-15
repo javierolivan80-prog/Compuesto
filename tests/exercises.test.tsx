@@ -212,6 +212,64 @@ describe('cada tipo se completa solo con teclado', () => {
   });
 });
 
-it('hay un ejemplo de los 8 tipos', () => {
-  expect(SAMPLE_TYPES).toHaveLength(8);
+describe('build_statement y spreadsheet con teclado', () => {
+  it('build_statement: los totales en vivo avisan de si cuadra y se completa con teclado', async () => {
+    const { user, onComplete } = setup('build_statement');
+    const caja = screen.getByRole('textbox', { name: 'Caja' });
+    const reservas = screen.getByRole('textbox', { name: 'Reservas' });
+    await tabTo(user, caja);
+    await user.keyboard('5.152');
+    expect(screen.getByText('—')).toBeInTheDocument(); // falta el otro hueco: aún no se sabe
+    await tabTo(user, reservas);
+    await user.keyboard('1000');
+    expect(screen.getByText(/El balance no cuadra todavía/)).toBeInTheDocument();
+    await user.clear(reservas);
+    await user.keyboard('17.731{Enter}');
+    expect(screen.getByRole('status')).toHaveTextContent('Correcto');
+    await pressKey(user, screen.getByRole('button', { name: 'Continuar' }));
+    expect(onComplete.mock.calls[0]![0].correct).toBe(true);
+  });
+
+  it('build_statement: un hueco mal marca ✗ con la cifra correcta', async () => {
+    const { user } = setup('build_statement');
+    await tabTo(user, screen.getByRole('textbox', { name: 'Caja' }));
+    await user.keyboard('5000');
+    await tabTo(user, screen.getByRole('textbox', { name: 'Reservas' }));
+    await user.keyboard('17731{Enter}');
+    expect(screen.getByText(/✗ era 5\.152/)).toBeInTheDocument();
+  });
+
+  it('spreadsheet: escribir la fórmula en B3 y comprobar; muestra el resultado en vivo', async () => {
+    const { user, onComplete } = setup('spreadsheet');
+    const cell = screen.getByRole('textbox', { name: 'Celda B3' });
+    await tabTo(user, cell);
+    await user.keyboard('=B1*(1+B2)');
+    expect(screen.getByText('Resultado de B3: 1.050')).toBeInTheDocument();
+    await user.keyboard('{Enter}');
+    expect(screen.getByRole('status')).toHaveTextContent('Correcto');
+    await pressKey(user, screen.getByRole('button', { name: 'Continuar' }));
+    expect(onComplete.mock.calls[0]![0].correct).toBe(true);
+  });
+
+  it('spreadsheet: el número a mano no vale y un error de fórmula se muestra con su código', async () => {
+    const { user } = setup('spreadsheet');
+    const cell = screen.getByRole('textbox', { name: 'Celda B3' });
+    await tabTo(user, cell);
+    await user.keyboard('=B1/0');
+    expect(screen.getByText(/#DIV\/0! División por cero/)).toBeInTheDocument();
+    await user.clear(cell);
+    await user.keyboard('1050{Enter}');
+    expect(screen.getByText(/hay que escribir una fórmula/)).toBeInTheDocument();
+  });
+
+  it('spreadsheet: una fórmula con los números tecleados falla los casos ocultos', async () => {
+    const { user } = setup('spreadsheet');
+    await tabTo(user, screen.getByRole('textbox', { name: 'Celda B3' }));
+    await user.keyboard('=1000*1.05{Enter}');
+    expect(screen.getByRole('status')).toHaveTextContent('Casi: repásalo');
+  });
+});
+
+it('hay un ejemplo de los 10 tipos con componente', () => {
+  expect(SAMPLE_TYPES).toHaveLength(10);
 });
