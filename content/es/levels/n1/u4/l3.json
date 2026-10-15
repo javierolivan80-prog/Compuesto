@@ -179,15 +179,15 @@
       "options": [
         "De mercado",
         "Limitada con un precio muy bajo",
-        "Ninguna",
-        "Una subasta"
+        "Una subasta",
+        "Esperar al cierre"
       ],
       "answer": 0,
       "explanation": "La orden de mercado se ejecuta ya al mejor precio disponible.",
       "wrongExplanations": {
         "1": "Con un límite muy bajo probablemente no se ejecutaría.",
-        "2": "Hay una orden adecuada.",
-        "3": "Una subasta solo se da al abrir y cerrar."
+        "2": "Una subasta casa órdenes a un único precio en fases concretas; no sirve para comprar ya.",
+        "3": "Esperar al cierre no asegura la ejecución inmediata."
       }
     }
   ],

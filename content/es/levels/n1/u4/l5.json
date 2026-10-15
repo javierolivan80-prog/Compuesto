@@ -20,7 +20,7 @@
     {
       "type": "card",
       "term": "FOMO",
-      "text": "El FOMO (miedo a perderse algo) y el efecto manada nos llevan a comprar porque otros compran y el precio sube, no por un análisis. Suele ocurrir cerca de los máximos. Una defensa: decidir antes, con un plan y un precio límite, y no perseguir el precio."
+      "text": "El FOMO (miedo a perderse algo) y el efecto manada nos llevan a comprar porque otros compran y el precio sube, no por un análisis. Suele aparecer tras subidas rápidas, cuando todo el mundo habla de una acción. Una defensa: decidir antes, con un plan y un precio límite, y no perseguir el precio."
     }
   ],
   "exercises": [
@@ -120,7 +120,7 @@
       "concepts": [
         "fomo-manada"
       ],
-      "prompt": "Alguien compra a 13 € tras esa subida y la acción baja a 11,70 €. ¿Cuál es la variación, en %?",
+      "prompt": "Una acción ha subido de 10 € a 13 € en una semana. Alguien compra a 13 € y después baja a 11,70 €. ¿Cuál es la variación desde su precio de compra, en %?",
       "answer": -10,
       "tolerance": 0,
       "formula": "(11.70 - 13) / 13 * 100",
@@ -157,7 +157,7 @@
       "prompt": "Ordena una defensa contra el FOMO.",
       "steps": [
         "Defines antes qué quieres comprar y por qué",
-        "Fijas un precio máximo",
+        "Con esa valoración, fijas un precio máximo",
         "Dejas una orden limitada a ese precio",
         "Si el precio no llega, esperas"
       ],
@@ -190,13 +190,7 @@
     }
   ],
   "realWorld": "Las portadas de «lo que más sube» y los grupos de mensajes sobre una acción son terreno típico del FOMO.",
-  "sources": [
-    {
-      "title": "CNMV: el inversor y los mercados de valores",
-      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
-      "date": "2026-10-15"
-    }
-  ],
+  "sources": [],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

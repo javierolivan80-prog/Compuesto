@@ -75,11 +75,11 @@
       "concepts": [
         "subastas"
       ],
-      "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. A 10,10 € se casan 400 acciones, a 10,20 € 300, a 10,00 € 150 y a 10,30 € 100. ¿A qué precio se casa la subasta, en euros?",
+      "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. ¿A qué precio se casa la subasta, en euros?",
       "answer": 10.1,
       "tolerance": 0,
       "formula": "10.10",
-      "explanation": "El precio de subasta es el que maximiza el volumen: 10,10 € con 400 acciones.",
+      "explanation": "A 10,10 € la demanda es de 600 y la oferta de 400: se casan 400, el mayor volumen (a 10,00 € serían 150; a 10,20 €, 300; a 10,30 €, 100).",
       "unit": "€"
     },
     {
@@ -174,27 +174,27 @@
       "concepts": [
         "subastas"
       ],
-      "prompt": "¿Para qué sirve una subasta de apertura?",
+      "prompt": "Dos precios permiten casar el mismo volumen en una subasta. ¿Cuál se elige primero según la regla?",
       "options": [
-        "Para fijar un precio de apertura a partir de las órdenes acumuladas",
-        "Para cerrar el mercado",
-        "Para pagar dividendos",
-        "Para cambiar el IBEX 35"
+        "El de menor desequilibrio entre compra y venta",
+        "El más alto",
+        "El más bajo",
+        "El de la primera orden recibida"
       ],
       "answer": 0,
-      "explanation": "Reúne las órdenes acumuladas y fija un precio de apertura equilibrado.",
+      "explanation": "Si hay empate de volumen, se elige el precio con menor desequilibrio entre demanda y oferta y, después, el más cercano al de referencia.",
       "wrongExplanations": {
-        "1": "El cierre tiene su propia subasta.",
-        "2": "Los dividendos no tienen que ver con las subastas.",
-        "3": "Las subastas no modifican la composición del índice."
+        "1": "No se elige por ser el más alto.",
+        "2": "No se elige por ser el más bajo.",
+        "3": "El orden de llegada no fija el precio de subasta."
       }
     }
   ],
   "realWorld": "En la pantalla de tu bróker verás una fase de «subasta» antes de la apertura y al cierre.",
   "sources": [
     {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
+      "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
       "date": "2026-10-15"
     }
   ],

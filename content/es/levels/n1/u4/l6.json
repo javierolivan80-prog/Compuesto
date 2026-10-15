@@ -113,7 +113,8 @@
       "prompt": "El precio al que puedes comprar a mercado es el precio de ___ (ask).",
       "answers": [
         [
-          "venta"
+          "venta",
+          "oferta"
         ]
       ],
       "explanation": "El ask es el mejor precio de venta."
@@ -135,19 +136,19 @@
       ],
       "items": [
         {
-          "text": "Se ejecuta ya",
+          "text": "Prioriza ejecutarse al mejor precio disponible",
           "category": "De mercado"
         },
         {
-          "text": "Puede quedarse sin ejecutar",
+          "text": "Prioriza no pagar más que un precio fijado",
           "category": "Limitada"
         },
         {
-          "text": "Asegura el precio máximo",
+          "text": "Se queda esperando en el libro si el precio no llega",
           "category": "Limitada"
         }
       ],
-      "explanation": "De mercado: ejecución; limitada: precio."
+      "explanation": "La de mercado prioriza la ejecución; la limitada, el precio."
     },
     {
       "id": "n1-u4-l6-e7",
@@ -225,14 +226,14 @@
         0,
         1
       ],
-      "explanation": "Un plan y un precio máximo evitan decidir por impulso."
+      "explanation": "Un plan y un precio máximo evitan decidir por impulso. Comprar porque todo el mundo compra es el efecto manada, y perseguir el precio cuando sube es justo lo que alimenta el FOMO."
     }
   ],
   "realWorld": "Estas ideas están detrás de cada orden que lances: precio, horquilla, tipo de orden y disciplina.",
   "sources": [
     {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
+      "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
       "date": "2026-10-15"
     }
   ],

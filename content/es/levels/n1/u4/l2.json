@@ -139,11 +139,11 @@
       "concepts": [
         "orden-mercado"
       ],
-      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿A qué precio se ejecuta el último tramo, en euros?",
-      "answer": 10.2,
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 200 acciones a mercado. ¿Cuál es el precio medio de ejecución en euros?",
+      "answer": 10.1,
       "tolerance": 0,
-      "formula": "10.20",
-      "explanation": "Las primeras 200 acciones se ejecutan a 10,10 € y las 200 restantes a 10,20 €.",
+      "formula": "10.10",
+      "explanation": "Las 200 acciones caben todas en el primer nivel, a 10,10 €: el precio medio es 10,10 €.",
       "unit": "€"
     },
     {

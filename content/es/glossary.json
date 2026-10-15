@@ -1136,7 +1136,7 @@
   {
     "id": "liquidez-mercado",
     "term": "Liquidez de mercado",
-    "definition": "Facilidad para comprar o vender un activo rápidamente sin mover mucho su precio. Se nota en una horquilla estrecha y un libro de órdenes con muchas órdenes.",
+    "definition": "Facilidad para comprar o vender un activo en el mercado rápidamente sin mover mucho su precio; se nota en una horquilla estrecha y un libro con muchas órdenes. No confundir con la liquidez personal de un fondo de emergencia.",
     "level": 1,
     "concepts": [
       "liquidez"
@@ -1190,8 +1190,14 @@
     ],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
+        "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "fomo",
