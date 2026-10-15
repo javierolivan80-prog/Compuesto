@@ -91,3 +91,9 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Ronda 1:** 0 críticos, 3 mayores (términos fiscales sin definir en los categorize, fill_blank con varias respuestas, fuentes del glosario), 8 menores. Aceptados; tags rellenados.
 - **Ronda 2:** aprobada; 3 menores aplicados (fuente del scrip en L4, art. 76 en la fuente fiscal, margen de palabras en la tarjeta).
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL / caduca:** escala del IRPF (19/21/23 %) y retención del 19 % (`verificarAntesDe` 2027-03-31); scrip dividend sin tratamiento fiscal (a propósito); URLs genéricas de CNMV/AEAT/BOE por sustituir por la página exacta.
+
+## n1-u6 — Operaciones corporativas y OPAs (2026-10-15)
+- 6 lecciones (ampliación de capital, derechos de suscripción, split, recompra, OPA, Jefe final) + 6 términos de glosario. Explicadores nuevos `ShareDilution` y `StockSplit`; motor (`theoreticalExRightsPrice`, `rightValue`, `stockSplit`) con tests.
+- **Ronda 1:** 0 críticos, 3 mayores (riesgo de coma flotante en l2-e6, tarjeta de la OPA jurídicamente incompleta —voluntaria, efectivo/valores, precio equitativo solo en la obligatoria—, glosario sin fuentes), 9 menores. Aceptados.
+- **Ronda 2:** aprobada sin errores.
+- Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL / caduca:** umbral del 30 % y reglas de la OPA, autocartera y suscripción preferente (`verificarAntesDe` 2027-06-30). **Pendiente de producto:** `document_read` (anuncio de una OPA en la CNMV, 📄 del Nivel 1) y fiscalidad de la venta de derechos de suscripción (TEMARIO §2 N1) no incluidos en esta unidad: se harán cuando exista el tipo de ejercicio y con fuente AEAT verificada.
