@@ -27,7 +27,7 @@ export default defineConfig({
     },
     {
       name: 'dev',
-      testMatch: 'styleguide.spec.ts',
+      testMatch: ['styleguide.spec.ts', 'db.spec.ts'],
       use: { baseURL: 'http://localhost:5174', launchOptions },
     },
   ],
