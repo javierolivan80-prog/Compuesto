@@ -1,0 +1,240 @@
+import { useEffect, useRef, useState } from 'react';
+import { Avatar } from '../../brand/Characters';
+import { Bolsin } from '../../brand/Bolsin';
+import { AnimatedNumber } from '../../components/AnimatedNumber';
+import { Button } from '../../components/Button';
+import { TheoryCard } from '../../components/Micro';
+import { ProgressBar } from '../../components/ProgressBar';
+import type { Lesson } from '../../content/schemas';
+import { useRepo } from '../../db/RepoProvider';
+import {
+  accuracy,
+  answer,
+  completionXp,
+  currentId,
+  isDone,
+  startSession,
+  xpForAnswer,
+} from '../../engine/lesson-session';
+import type { Summary } from '../../engine/projections';
+import { formatNumber } from '../../lib/format';
+import { ExerciseRunner, isSupported, type ExerciseOutcome } from '../exercises/ExerciseRunner';
+import { ExplainerBlock } from './explainers';
+
+interface Closing {
+  xp: number;
+  accuracy: number;
+  summary: Summary;
+}
+
+interface Props {
+  lesson: Lesson;
+  onExit: () => void;
+}
+
+/** Lección completa: teoría (≤3 tarjetas) → ejercicios (fallos al final) → Cierre con XP y racha reales. */
+export function LessonScreen({ lesson, onExit }: Props) {
+  const repo = useRepo();
+  const [phase, setPhase] = useState<'intro' | 'exercises' | 'closing'>(
+    lesson.intro.length ? 'intro' : 'exercises',
+  );
+  const [introIdx, setIntroIdx] = useState(0);
+  const [session, setSession] = useState(() => startSession(lesson.exercises.map((e) => e.id)));
+  const [closing, setClosing] = useState<Closing | null>(null);
+  const [saveError, setSaveError] = useState(false);
+  const started = useRef(false);
+  const unitId = `n${lesson.level}-u${lesson.unit}`;
+
+  /** Guardar nunca bloquea la lección: si falla se avisa y se sigue (el progreso de esta lección puede perderse). */
+  const save = async (fn: () => Promise<unknown>) => {
+    try {
+      await fn();
+    } catch (e) {
+      console.error('No se pudo guardar el progreso', e);
+      setSaveError(true);
+    }
+  };
+
+  useEffect(() => {
+    if (started.current) return; // StrictMode monta dos veces en desarrollo
+    started.current = true;
+    void save(() =>
+      repo.record('lesson_started', { lessonId: lesson.id, unitId, level: lesson.level }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const exercise = lesson.exercises.find((e) => e.id === currentId(session));
+
+  const onComplete = async (outcome: ExerciseOutcome) => {
+    if (!exercise) return;
+    const { state, xp } = answer(session, outcome.correct);
+    await save(() =>
+      repo.record('exercise_answered', {
+        exerciseId: exercise.id,
+        lessonId: lesson.id,
+        conceptIds: exercise.concepts,
+        correct: outcome.correct,
+        timeMs: Math.min(outcome.timeMs, 3_600_000),
+        xp,
+      }),
+    );
+    setSession(state);
+    if (isDone(state)) {
+      const acc = accuracy(state);
+      const bonus = completionXp(acc);
+      await save(() =>
+        repo.record('lesson_completed', {
+          lessonId: lesson.id,
+          unitId,
+          level: lesson.level,
+          xp: bonus,
+          accuracy: acc,
+        }),
+      );
+      let summary: Summary | null = null;
+      await save(async () => {
+        summary = await repo.summary();
+      });
+      setClosing({ xp: state.xp + bonus, accuracy: acc, summary: summary as unknown as Summary });
+      setPhase('closing');
+    }
+  };
+
+  const header = (
+    <header className="flex items-center justify-between gap-3">
+      <p className="text-text-2 text-sm">
+        <span data-num>{unitId.toUpperCase()}</span> · {lesson.title}
+      </p>
+      <Button variant="ghost" onClick={onExit}>
+        Salir
+      </Button>
+    </header>
+  );
+
+  const errorBanner = saveError && (
+    <p role="alert" className="text-bear border-bear rounded-[var(--radius-sm)] border p-3 text-sm">
+      Error: no se pudo guardar tu progreso en este dispositivo. Puedes seguir, pero esta lección
+      podría no contar.
+    </p>
+  );
+
+  if (phase === 'intro') {
+    const block = lesson.intro[introIdx]!;
+    const last = introIdx === lesson.intro.length - 1;
+    return (
+      <section aria-label={`Lección: ${lesson.title}`} className="grid gap-5">
+        {header}
+        {errorBanner}
+        <ProgressBar value={introIdx} max={lesson.intro.length + 1} label="Progreso de la teoría" />
+        <h2 className="text-3xl">{lesson.title}</h2>
+        <div key={introIdx} className="grid gap-4">
+          {block.type === 'card' && (
+            <TheoryCard term={block.term ?? 'Idea clave'}>{block.text}</TheoryCard>
+          )}
+          {block.type === 'example' && (
+            <aside className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
+              <p className="text-text-2 mb-1 text-sm">Ejemplo</p>
+              <p>{block.text}</p>
+            </aside>
+          )}
+          {block.type === 'visual' && (
+            <ExplainerBlock
+              component={block.component}
+              props={block.props}
+              onInteract={(explainerId) =>
+                void save(() =>
+                  repo.record('explainer_interacted', { explainerId, lessonId: lesson.id }),
+                )
+              }
+            />
+          )}
+        </div>
+        <div className="bg-bg sticky bottom-0 py-3">
+          <Button
+            className="w-full"
+            onClick={() => (last ? setPhase('exercises') : setIntroIdx(introIdx + 1))}
+          >
+            {last ? 'Empezar los ejercicios' : 'Siguiente'}
+          </Button>
+        </div>
+      </section>
+    );
+  }
+
+  if (phase === 'closing' && closing) {
+    const streak = closing.summary?.streak.current;
+    return (
+      <section
+        aria-label="Cierre de la lección"
+        className="grid justify-items-center gap-5 text-center"
+      >
+        <Bolsin state="celebrando" size={120} />
+        <h2 className="text-4xl">Lección completada</h2>
+        <p className="text-text-2">{lesson.title}</p>
+        <dl className="grid w-full max-w-sm grid-cols-2 gap-3 text-left">
+          <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
+            <dt className="text-text-2 text-sm">XP ganado</dt>
+            <dd className="text-3xl">
+              +<AnimatedNumber value={closing.xp} initial={0} />
+            </dd>
+          </div>
+          <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
+            <dt className="text-text-2 text-sm">Precisión</dt>
+            <dd className="text-3xl" data-num>
+              {formatNumber(Math.round(closing.accuracy * 100))} %
+            </dd>
+          </div>
+          <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
+            <dt className="text-text-2 text-sm">Racha</dt>
+            <dd className="text-3xl" data-num>
+              {streak === undefined
+                ? '—'
+                : `${formatNumber(streak)} ${streak === 1 ? 'día' : 'días'}`}
+            </dd>
+          </div>
+          <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
+            <dt className="text-text-2 text-sm">Rango</dt>
+            <dd className="text-xl">{closing.summary?.rank.rank ?? '—'}</dd>
+          </div>
+        </dl>
+        {errorBanner}
+        <Button className="w-full max-w-sm" onClick={onExit}>
+          Continuar
+        </Button>
+      </section>
+    );
+  }
+
+  return (
+    <section aria-label={`Ejercicios: ${lesson.title}`} className="grid gap-4">
+      {header}
+      {errorBanner}
+      <ProgressBar
+        value={session.done.length}
+        max={session.total}
+        label="Progreso de la lección"
+        asCurve={session.done.length === session.total - 1 && session.queue.length === 1}
+      />
+      {exercise ? (
+        <>
+          {exercise.character && (
+            <div className="flex items-center gap-3">
+              <Avatar character={exercise.character} size={48} />
+            </div>
+          )}
+          {isSupported(exercise) ? (
+            <ExerciseRunner
+              key={`${exercise.id}#${session.failedOnce.includes(exercise.id) ? 2 : 1}`}
+              exercise={exercise}
+              xp={xpForAnswer(true, session.failedOnce.includes(exercise.id))}
+              onComplete={(o) => void onComplete(o)}
+            />
+          ) : (
+            <p role="alert">Este tipo de ejercicio aún no está disponible ({exercise.type}).</p>
+          )}
+        </>
+      ) : null}
+    </section>
+  );
+}

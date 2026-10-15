@@ -50,6 +50,8 @@ export const payloads = {
     level: z.number().int().min(0).max(10).optional(),
     scorePct: z.number().min(0).max(100),
   }),
+  /** Estadística personal: la persona manipuló un explicador (ANIMACIONES §2). */
+  explainer_interacted: z.object({ explainerId: id, lessonId: id.optional() }),
   settings_changed: z.object({
     key: id,
     value: z.union([z.string(), z.number(), z.boolean(), z.null()]),
@@ -76,6 +78,7 @@ export const eventSchema = z.discriminatedUnion('type', [
   ev('exercise_answered'),
   ev('lesson_completed'),
   ev('unit_skipped'),
+  ev('explainer_interacted'),
   ev('settings_changed'),
 ]);
 

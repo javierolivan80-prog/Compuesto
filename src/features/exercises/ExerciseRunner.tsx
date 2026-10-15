@@ -140,9 +140,8 @@ export function ExerciseRunner({ exercise, onComplete, xp = 10 }: Props) {
   return (
     <form onSubmit={check} className="grid gap-5" aria-labelledby={titleId} noValidate>
       <h3 id={titleId} className="text-2xl leading-snug">
-        {exercise.type === 'true_false_swipe' ? exercise.statement : promptOf(exercise)}
+        {promptOf(exercise)}
       </h3>
-      {exercise.type === 'true_false_swipe' ? <p className="sr-only">Verdadero o falso</p> : null}
       {view}
       {error && (
         <p role="alert" className="text-bear text-sm">

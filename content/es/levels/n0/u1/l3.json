@@ -1,0 +1,204 @@
+{
+  "id": "n0-u1-l3",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "level": 0,
+  "unit": 1,
+  "title": "La regla del 72",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Estimar en cuántos años se duplica un capital",
+    "Despejar la rentabilidad necesaria para duplicarlo"
+  ],
+  "concepts": [
+    "regla-del-72",
+    "interes-compuesto",
+    "inflacion"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Regla del 72",
+      "text": "Para estimar en cuántos años se duplica un capital, divide 72 entre el tipo de interés anual en %. Con un 6 % tardas unos 12 años. Es una aproximación muy útil para hacer cuentas de cabeza; para el dato exacto se usa el logaritmo."
+    },
+    {
+      "type": "visual",
+      "component": "Rule72",
+      "props": {
+        "rate": 6
+      }
+    },
+    {
+      "type": "example",
+      "text": "Si Naranjas del Turia sube sus precios un 3 % cada año, los precios se duplican en 72 / 3 = 24 años aproximadamente."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u1-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "¿Para qué sirve la regla del 72?",
+      "options": [
+        "Para estimar en cuántos años se duplica un capital",
+        "Para calcular la TAE de un préstamo",
+        "Para saber cuánto sube la inflación",
+        "Para calcular la cuota de una hipoteca"
+      ],
+      "answer": 0,
+      "explanation": "Divide 72 entre la rentabilidad anual en % y obtienes los años aproximados para duplicar el capital.",
+      "wrongExplanations": {
+        "1": "La TAE se calcula con otra fórmula; la regla del 72 no la da.",
+        "2": "La inflación se mide con el IPC; la regla solo estima tiempos de duplicación.",
+        "3": "La cuota de una hipoteca se calcula con la fórmula de amortización."
+      }
+    },
+    {
+      "id": "n0-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "Con una rentabilidad del 6 % anual, ¿en cuántos años se duplica aproximadamente un capital según la regla del 72?",
+      "answer": 12,
+      "tolerance": 0,
+      "formula": "72 / 6",
+      "explanation": "72 / 6 = 12 años.",
+      "unit": "años"
+    },
+    {
+      "id": "n0-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "Quieres duplicar tu dinero en 9 años. ¿Qué rentabilidad anual aproximada necesitas? (en %)",
+      "answer": 8,
+      "tolerance": 0,
+      "formula": "72 / 9",
+      "explanation": "Despejando: 72 / 9 = 8 % anual.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u1-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72",
+        "interes-compuesto"
+      ],
+      "prompt": "Comprueba la regla: 1.000 € al 6 % anual compuesto durante 12 años. ¿Cuánto tienes al final? (2 decimales)",
+      "answer": 2012.2,
+      "tolerance": 0.01,
+      "formula": "1000 * 1.06 ^ 12",
+      "explanation": "1.000 × 1,06¹² ≈ 2.012,20 €: casi exactamente el doble, como decía la regla del 72 (12 años).",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l3-e5",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "statement": "La regla del 72 da siempre el tiempo exacto de duplicación.",
+      "answer": false,
+      "explanation": "Es una aproximación: funciona bien con tipos habituales (aproximadamente del 5 % al 10 %), pero no es exacta."
+    },
+    {
+      "id": "n0-u1-l3-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "Si divides 72 entre el tipo de interés anual en %, obtienes los ___ que tarda en duplicarse el capital.",
+      "answers": [
+        [
+          "años",
+          "anos"
+        ]
+      ],
+      "explanation": "El resultado de 72 / tipo son años."
+    },
+    {
+      "id": "n0-u1-l3-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72",
+        "inflacion"
+      ],
+      "prompt": "Con una inflación del 3 % anual, ¿en cuántos años se duplican aproximadamente los precios?",
+      "answer": 24,
+      "tolerance": 0,
+      "formula": "72 / 3",
+      "explanation": "72 / 3 = 24 años. Es la misma regla, aplicada a los precios en vez de a una inversión.",
+      "unit": "años"
+    },
+    {
+      "id": "n0-u1-l3-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "¿En qué casos se duplica el capital en menos de 10 años?",
+      "categories": [
+        "Menos de 10 años",
+        "10 años o más"
+      ],
+      "items": [
+        {
+          "text": "Rentabilidad del 9 % anual",
+          "category": "Menos de 10 años"
+        },
+        {
+          "text": "Rentabilidad del 4 % anual",
+          "category": "10 años o más"
+        },
+        {
+          "text": "Rentabilidad del 8 % anual",
+          "category": "Menos de 10 años"
+        },
+        {
+          "text": "Rentabilidad del 3 % anual",
+          "category": "10 años o más"
+        }
+      ],
+      "explanation": "72 / 9 = 8 años y 72 / 8 = 9 años; en cambio 72 / 4 = 18 y 72 / 3 = 24 años."
+    }
+  ],
+  "realWorld": "Verás la regla del 72 en simuladores de ahorro y fondos de inversión, y en la conversación de cualquier profesional que haga cuentas rápidas.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

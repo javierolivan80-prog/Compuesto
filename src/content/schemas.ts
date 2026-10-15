@@ -271,7 +271,11 @@ export const EXERCISE_TYPES = Object.keys(EXERCISE_CATEGORY) as ExerciseType[];
 /* ---------- Lección ---------- */
 
 const introBlock = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('card'), text }),
+  z.object({
+    type: z.literal('card'),
+    text,
+    /** Término clave: se subraya con el trazo dorado. */ term: text.optional(),
+  }),
   z.object({ type: z.literal('example'), text }),
   z.object({
     type: z.literal('visual'),

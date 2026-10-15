@@ -1,0 +1,196 @@
+{
+  "id": "n0-u1-l2",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "level": 0,
+  "unit": 1,
+  "title": "Interés simple e interés compuesto",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir interés simple y compuesto",
+    "Calcular el valor final con cada uno"
+  ],
+  "concepts": [
+    "interes-simple",
+    "interes-compuesto",
+    "porcentajes"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Interés compuesto",
+      "text": "En el interés simple cobras siempre sobre el capital inicial. En el compuesto, los intereses se suman al capital y generan nuevos intereses: valor final = capital × (1 + i)^n. Al principio la diferencia es pequeña; con los años, enorme. De ahí el nombre de esta app."
+    },
+    {
+      "type": "visual",
+      "component": "CompoundCurve",
+      "props": {
+        "principal": 1000,
+        "rate": 5,
+        "years": 20
+      }
+    },
+    {
+      "type": "example",
+      "text": "Carmen, dueña de Naranjas del Turia, deposita 1.000 € al 5 % anual. Con interés simple gana 50 € cada año. Con compuesto, el segundo año gana 52,50 €, porque ya cuenta los 50 € del primero."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u1-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "interes-simple"
+      ],
+      "prompt": "¿Sobre qué se calcula el interés simple?",
+      "options": [
+        "Siempre sobre el capital inicial",
+        "Sobre el capital más los intereses acumulados",
+        "Solo sobre los intereses del último año",
+        "Sobre la inflación del periodo"
+      ],
+      "answer": 0,
+      "explanation": "El interés simple no se reinvierte: cada periodo se calcula sobre el capital inicial.",
+      "wrongExplanations": {
+        "1": "Eso es el interés compuesto.",
+        "2": "Ni el simple ni el compuesto se calculan solo sobre los intereses del último año.",
+        "3": "La inflación no interviene en el cálculo del interés."
+      }
+    },
+    {
+      "id": "n0-u1-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "statement": "En el interés compuesto, los intereses generan a su vez nuevos intereses.",
+      "answer": true,
+      "explanation": "Esa es la clave: los intereses se acumulan al capital y cuentan para el cálculo siguiente."
+    },
+    {
+      "id": "n0-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-simple"
+      ],
+      "prompt": "Depositas 1.000 € al 5 % anual de interés simple durante 3 años. ¿Cuánto tienes al final?",
+      "answer": 1150,
+      "tolerance": 0,
+      "formula": "1000 * (1 + 0.05 * 3)",
+      "explanation": "Interés simple: 1.000 × (1 + 0,05 × 3) = 1.150 €, es decir 50 € cada año.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "Depositas 1.000 € al 5 % anual de interés compuesto durante 3 años. ¿Cuánto tienes al final? (2 decimales)",
+      "answer": 1157.63,
+      "tolerance": 0.01,
+      "formula": "1000 * (1 + 0.05) ^ 3",
+      "explanation": "1.000 × 1,05³ = 1.157,625 €, que redondeado son 1.157,63 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l2-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "En la fórmula capital × (1 + i)^n, la letra n representa el número de ___.",
+      "answers": [
+        [
+          "periodos",
+          "períodos"
+        ]
+      ],
+      "explanation": "El exponente n es el número de periodos: cada periodo multiplica el capital por (1 + i)."
+    },
+    {
+      "id": "n0-u1-l2-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-simple",
+        "interes-compuesto"
+      ],
+      "prompt": "¿Cuántos euros más ganas con interés compuesto que con simple al invertir 1.000 € al 5 % durante 3 años? (2 decimales)",
+      "answer": 7.63,
+      "tolerance": 0.1,
+      "formula": "1000 * 1.05 ^ 3 - 1000 * (1 + 0.05 * 3)",
+      "explanation": "1.157,63 € − 1.150 € = 7,63 € más. En 3 años la diferencia es pequeña; con más años crece mucho.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l2-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "Ordena cómo crece un capital con interés compuesto.",
+      "steps": [
+        "Primer año: ganas intereses sobre el capital inicial",
+        "Los intereses del primer año se suman al capital",
+        "Segundo año: ganas intereses sobre un capital mayor",
+        "Se repite cada año: el capital crece cada vez más deprisa"
+      ],
+      "explanation": "Cada año el capital de partida es mayor, por eso la curva se acelera."
+    },
+    {
+      "id": "n0-u1-l2-e8",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "¿Qué ayuda a que el interés compuesto trabaje a tu favor?",
+      "options": [
+        "Empezar pronto",
+        "Reinvertir los intereses",
+        "Retirar los intereses cada año",
+        "Dejar pasar más años"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Empezar pronto, reinvertir y esperar más tiempo dan más periodos de capitalización. Retirar los intereses elimina el efecto compuesto."
+    }
+  ],
+  "realWorld": "En el contrato de un depósito o de un préstamo verás si el interés se capitaliza (se suma al capital) y cada cuánto tiempo.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

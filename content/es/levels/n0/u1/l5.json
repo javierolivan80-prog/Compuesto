@@ -1,0 +1,237 @@
+{
+  "id": "n0-u1-l5",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "level": 0,
+  "unit": 1,
+  "title": "Jefe final: el dinero en el tiempo",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar inflación, interés compuesto y regla del 72 en un mismo caso"
+  ],
+  "concepts": [
+    "inflacion",
+    "interes-simple",
+    "interes-compuesto",
+    "regla-del-72",
+    "tipo-real-nominal",
+    "valor-temporal-dinero"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso de la unidad: la inflación hace subir los precios y baja tu poder adquisitivo; el interés compuesto hace crecer tu dinero capitalizando los intereses; la regla del 72 estima cuándo se duplica; la rentabilidad real descuenta la inflación; el valor actual trae el futuro al presente."
+    },
+    {
+      "type": "card",
+      "text": "Para dominar la unidad necesitas un 80 % de aciertos. Úsala para comprobar que las cinco ideas encajan: inflación, interés compuesto, regla del 72, rentabilidad real y valor actual."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "inflacion"
+      ],
+      "prompt": "Naranjas del Turia sube sus precios un 4 % cada año. ¿Cuánto costará dentro de 2 años un lote que hoy cuesta 500 €?",
+      "answer": 540.8,
+      "tolerance": 0,
+      "formula": "500 * 1.04 ^ 2",
+      "explanation": "500 × 1,04² = 540,80 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "Depositas 2.000 € al 4 % anual compuesto durante 5 años. ¿Cuánto tienes al final? (2 decimales)",
+      "answer": 2433.31,
+      "tolerance": 0.01,
+      "formula": "2000 * 1.04 ^ 5",
+      "explanation": "2.000 × 1,04⁵ = 2.433,31 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72"
+      ],
+      "prompt": "Con un 4 % anual, ¿en cuántos años se duplica aproximadamente el capital?",
+      "answer": 18,
+      "tolerance": 0,
+      "formula": "72 / 4",
+      "explanation": "72 / 4 = 18 años.",
+      "unit": "años"
+    },
+    {
+      "id": "n0-u1-l5-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "inflacion",
+        "tipo-real-nominal"
+      ],
+      "prompt": "Tu sueldo sube un 3 % y los precios suben un 3 %. Tu poder adquisitivo…",
+      "options": [
+        "Sube un 3 %",
+        "Baja",
+        "Se mantiene",
+        "No se puede saber"
+      ],
+      "answer": 2,
+      "explanation": "Si ingresos y precios suben lo mismo, puedes comprar lo mismo que antes.",
+      "wrongExplanations": {
+        "0": "El 3 % es lo que suben tu sueldo y los precios, no tu poder adquisitivo.",
+        "1": "Bajaría si los precios subieran más que tu sueldo.",
+        "3": "Con esos dos datos sí se puede saber: suben igual."
+      }
+    },
+    {
+      "id": "n0-u1-l5-e5",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "interes-simple"
+      ],
+      "statement": "Con interés simple, el capital crece cada año más que el anterior.",
+      "answer": false,
+      "explanation": "Con interés simple el interés es el mismo cada año: crece en línea recta."
+    },
+    {
+      "id": "n0-u1-l5-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "El interés ___ se calcula sobre el capital inicial más los intereses acumulados.",
+      "answers": [
+        [
+          "compuesto"
+        ]
+      ],
+      "explanation": "Esa es la definición del interés compuesto."
+    },
+    {
+      "id": "n0-u1-l5-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "interes-simple",
+        "interes-compuesto"
+      ],
+      "prompt": "¿Simple o compuesto?",
+      "categories": [
+        "Simple",
+        "Compuesto"
+      ],
+      "items": [
+        {
+          "text": "Interés sobre el capital inicial siempre",
+          "category": "Simple"
+        },
+        {
+          "text": "Interés sobre los intereses ya ganados",
+          "category": "Compuesto"
+        },
+        {
+          "text": "Crece en línea recta",
+          "category": "Simple"
+        },
+        {
+          "text": "Crece como una curva que se acelera",
+          "category": "Compuesto"
+        }
+      ],
+      "explanation": "El simple es lineal; el compuesto es exponencial."
+    },
+    {
+      "id": "n0-u1-l5-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-simple",
+        "interes-compuesto"
+      ],
+      "prompt": "¿Cuántos euros más ganas con interés compuesto que con simple al invertir 2.000 € al 4 % durante 5 años? (2 decimales)",
+      "answer": 33.31,
+      "tolerance": 0.1,
+      "formula": "2000 * 1.04 ^ 5 - 2000 * (1 + 0.04 * 5)",
+      "explanation": "2.433,31 € − 2.400 € = 33,31 € más.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l5-e9",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal",
+        "inflacion"
+      ],
+      "prompt": "¿Qué puede hacerte perder poder adquisitivo aunque tu saldo no baje?",
+      "options": [
+        "Una inflación mayor que el tipo de interés",
+        "Un tipo de interés mayor que la inflación",
+        "Guardar el dinero sin intereses mientras los precios suben",
+        "Reinvertir los intereses cada año"
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "explanation": "Si los precios suben más de lo que crece tu dinero, o si el dinero no rinde nada, pierdes poder adquisitivo."
+    },
+    {
+      "id": "n0-u1-l5-e10",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "valor-temporal-dinero"
+      ],
+      "prompt": "Recibirás 1.215,51 € dentro de 4 años y la tasa de descuento es del 5 % anual. ¿Cuánto vale hoy?",
+      "answer": 1000,
+      "tolerance": 0.01,
+      "formula": "1215.51 / 1.05 ^ 4",
+      "explanation": "1.215,51 / 1,05⁴ ≈ 1.000 €.",
+      "unit": "€"
+    }
+  ],
+  "realWorld": "Estas cinco ideas están detrás de cualquier depósito, préstamo o plan de ahorro que veas en un banco: comprueba siempre el tipo, el plazo y la inflación.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

@@ -9,18 +9,12 @@
    "units": [
     {
      "id": "n0-u1",
-     "name": "Inflación y poder adquisitivo",
+     "name": "El dinero en el tiempo: inflación e interés compuesto",
      "concepts": [
       "inflacion",
       "poder-adquisitivo",
       "tipo-real-nominal",
-      "porcentajes"
-     ]
-    },
-    {
-     "id": "n0-u2",
-     "name": "Interés simple y compuesto",
-     "concepts": [
+      "porcentajes",
       "interes-simple",
       "interes-compuesto",
       "regla-del-72",
@@ -28,7 +22,7 @@
      ]
     },
     {
-     "id": "n0-u3",
+     "id": "n0-u2",
      "name": "TIN, TAE, préstamos e hipotecas",
      "concepts": [
       "tin",
@@ -41,7 +35,7 @@
      ]
     },
     {
-     "id": "n0-u4",
+     "id": "n0-u3",
      "name": "Presupuesto, deuda y primeros pasos con Excel",
      "concepts": [
       "presupuesto",
@@ -52,7 +46,7 @@
      ]
     },
     {
-     "id": "n0-u5",
+     "id": "n0-u4",
      "name": "Bancos y depósitos",
      "concepts": [
       "banco",
@@ -63,7 +57,7 @@
      ]
     },
     {
-     "id": "n0-u6",
+     "id": "n0-u5",
      "name": "Seguros, pensiones y riesgo",
      "concepts": [
       "seguros-basicos",

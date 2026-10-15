@@ -1,5 +1,7 @@
 import { evaluateNumber, evaluate, ExprError, type Value } from '../engine/expr';
 import { checkCompany } from './accounting';
+import { EXPLAINER_NAMES, type ExplainerName } from './explainer-names';
+import { EXPLAINER_PROPS } from './explainer-props';
 import {
   EXERCISE_CATEGORY,
   companiesSchema,
@@ -278,6 +280,39 @@ function checkLesson(
     err('mezcla', `Demasiados ejercicios de reconocer: ${count.reconocer}/${n} (máx. 40 %)`);
   if (count.producir / n < PERCENT_MIN_PRODUCE)
     err('mezcla', `Pocos ejercicios de producir: ${count.producir}/${n} (mín. 40 %)`);
+
+  // teoría breve: máx. 60 palabras por tarjeta y máx. 3 tarjetas antes de la primera pregunta (CLAUDE.md §8)
+  if (l.intro.length > 3)
+    err(
+      'intro-larga',
+      `La introducción tiene ${l.intro.length} tarjetas; el máximo antes de la primera pregunta es 3`,
+    );
+  l.intro.forEach((b, i) => {
+    if (b.type === 'visual' && !(EXPLAINER_NAMES as readonly string[]).includes(b.component))
+      err(
+        'explicador-inexistente',
+        `El explicador "${b.component}" no existe (disponibles: ${EXPLAINER_NAMES.join(', ')})`,
+        `${l.id} intro[${i}]`,
+      );
+    if (b.type === 'visual' && (EXPLAINER_NAMES as readonly string[]).includes(b.component)) {
+      const r = EXPLAINER_PROPS[b.component as ExplainerName].safeParse(b.props);
+      if (!r.success)
+        err(
+          'explicador-props',
+          `Props de ${b.component} no válidas: ${r.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`).join('; ')}`,
+          `${l.id} intro[${i}]`,
+        );
+    }
+    if (b.type !== 'visual') {
+      const words = b.text.trim().split(/\s+/).length;
+      if (words > 60)
+        err(
+          'teoria-larga',
+          `La tarjeta ${i + 1} tiene ${words} palabras; el máximo es 60`,
+          `${l.id} intro[${i}]`,
+        );
+    }
+  });
 
   // estado y revisión
   if (l.status === 'published' && !l.reviewedBy.includes('humano'))

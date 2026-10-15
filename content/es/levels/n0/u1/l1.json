@@ -1,0 +1,223 @@
+{
+  "id": "n0-u1-l1",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "level": 0,
+  "unit": 1,
+  "title": "Inflación: por qué tu dinero compra menos",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Definir la inflación y el poder adquisitivo",
+    "Calcular cuánto sube una cesta con una inflación dada"
+  ],
+  "concepts": [
+    "inflacion",
+    "poder-adquisitivo",
+    "porcentajes"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Inflación",
+      "text": "La inflación es la subida generalizada y sostenida de los precios. Si sube, con la misma cantidad de euros compras menos cosas: pierdes poder adquisitivo. Un precio que sube un día no es inflación; lo es que suban casi todos, y de forma continuada."
+    },
+    {
+      "type": "visual",
+      "component": "InflationCart",
+      "props": {
+        "basketPrice": 100,
+        "inflationRate": 3,
+        "years": 10
+      }
+    },
+    {
+      "type": "example",
+      "text": "Carmen, dueña de Naranjas del Turia, paga hoy 100 € por una cesta de compra. Con una inflación del 3 % anual, esa misma cesta le costará 103 € el año que viene."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u1-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "inflacion"
+      ],
+      "prompt": "¿Qué es la inflación?",
+      "options": [
+        "La subida generalizada y sostenida de los precios",
+        "La subida del precio de un solo producto",
+        "La bajada de los tipos de interés",
+        "El aumento de los salarios"
+      ],
+      "answer": 0,
+      "explanation": "La inflación mide cuánto suben los precios en general y de forma continuada.",
+      "wrongExplanations": {
+        "1": "Que suba un solo producto no es inflación: tiene que ser algo generalizado.",
+        "2": "Los tipos de interés los fija el banco central; no son la inflación (aunque se relacionan).",
+        "3": "Los salarios pueden subir o no; la inflación mide precios, no sueldos."
+      }
+    },
+    {
+      "id": "n0-u1-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "poder-adquisitivo"
+      ],
+      "statement": "Con una inflación del 3 %, dentro de un año con 100 € compras lo mismo que hoy.",
+      "answer": false,
+      "explanation": "Con inflación los precios suben, así que 100 € compran menos: pierden poder adquisitivo."
+    },
+    {
+      "id": "n0-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "inflacion",
+        "porcentajes"
+      ],
+      "prompt": "Una cesta de la compra cuesta 100 € hoy. Con una inflación del 3 % anual, ¿cuánto costará dentro de 1 año?",
+      "answer": 103,
+      "tolerance": 0,
+      "formula": "100 * (1 + 0.03)",
+      "explanation": "100 € × 1,03 = 103 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "inflacion",
+        "porcentajes"
+      ],
+      "prompt": "La misma cesta de 100 € sufre una inflación del 3 % cada año durante 2 años. ¿Cuánto costará al final del segundo año?",
+      "answer": 106.09,
+      "tolerance": 0,
+      "formula": "100 * (1 + 0.03) ^ 2",
+      "explanation": "Cada año se multiplica por 1,03: 100 × 1,03² = 106,09 €. Los aumentos se componen, no se suman.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l1-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "poder-adquisitivo"
+      ],
+      "prompt": "Si los precios suben más que tus ingresos, tu poder ___ baja.",
+      "answers": [
+        [
+          "adquisitivo"
+        ]
+      ],
+      "explanation": "El poder adquisitivo es lo que puedes comprar con tu dinero."
+    },
+    {
+      "id": "n0-u1-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "inflacion"
+      ],
+      "prompt": "¿Qué situaciones describen inflación?",
+      "categories": [
+        "Inflación",
+        "No es inflación"
+      ],
+      "items": [
+        {
+          "text": "Los precios de casi todo suben un 4 % en un año",
+          "category": "Inflación"
+        },
+        {
+          "text": "El aceite sube un 30 % por una mala cosecha y lo demás no cambia",
+          "category": "No es inflación"
+        },
+        {
+          "text": "Con los mismos euros compras cada año menos cosas, de forma generalizada",
+          "category": "Inflación"
+        },
+        {
+          "text": "Una tienda hace rebajas del 20 % en enero",
+          "category": "No es inflación"
+        }
+      ],
+      "explanation": "La inflación es una subida generalizada y sostenida; un precio aislado o una rebaja puntual no lo son."
+    },
+    {
+      "id": "n0-u1-l1-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "inflacion",
+        "poder-adquisitivo"
+      ],
+      "prompt": "Ordena cómo la inflación reduce tu poder adquisitivo.",
+      "steps": [
+        "Los precios en general suben",
+        "Cada euro compra menos cosas",
+        "Tu sueldo en euros alcanza para menos compras",
+        "Tu poder adquisitivo baja"
+      ],
+      "explanation": "Suben los precios, cada euro compra menos, tu sueldo en euros alcanza para menos compras y, en consecuencia, baja tu poder adquisitivo."
+    },
+    {
+      "id": "n0-u1-l1-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "poder-adquisitivo",
+        "porcentajes"
+      ],
+      "prompt": "Tus ingresos suben un 2 % pero los precios suben un 5 %. ¿Qué le pasa a tu poder adquisitivo?",
+      "options": [
+        "Sube",
+        "Baja",
+        "Se mantiene",
+        "No se puede saber"
+      ],
+      "answer": 1,
+      "explanation": "Tus ingresos crecen menos que los precios (2 % frente a 5 %), así que con ellos compras menos: tu poder adquisitivo baja.",
+      "wrongExplanations": {
+        "0": "Subiría solo si tus ingresos crecieran más que los precios.",
+        "2": "Se mantendría solo si ingresos y precios subieran lo mismo.",
+        "3": "Con esos dos datos sí se puede saber: los precios suben más que los ingresos."
+      }
+    }
+  ],
+  "realWorld": "Cada mes el INE publica la inflación (IPC) en España. Ahí verás cuánto han subido los precios.",
+  "sources": [
+    {
+      "title": "INE — Índice de Precios de Consumo (IPC)",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

@@ -42,7 +42,7 @@
   "prerequisites": [
    "porcentajes"
   ],
-  "unit": "n0-u2",
+  "unit": "n0-u1",
   "description": "Interés que se calcula siempre sobre el capital inicial."
  },
  {
@@ -52,7 +52,7 @@
   "prerequisites": [
    "interes-simple"
   ],
-  "unit": "n0-u2",
+  "unit": "n0-u1",
   "description": "Interés calculado sobre el capital más los intereses ya acumulados: capital × (1 + i)^n."
  },
  {
@@ -62,7 +62,7 @@
   "prerequisites": [
    "interes-compuesto"
   ],
-  "unit": "n0-u2",
+  "unit": "n0-u1",
   "description": "Atajo para estimar en cuántos años se duplica un capital: 72 / tipo %."
  },
  {
@@ -72,7 +72,7 @@
   "prerequisites": [
    "interes-compuesto"
   ],
-  "unit": "n0-u2",
+  "unit": "n0-u1",
   "description": "Un euro hoy vale más que un euro mañana: valor futuro y valor actual."
  },
  {
@@ -82,7 +82,7 @@
   "prerequisites": [
    "interes-simple"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Tipo de interés nominal anual, sin comisiones ni capitalización."
  },
  {
@@ -93,7 +93,7 @@
    "tin",
    "interes-compuesto"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Tasa anual equivalente: coste o rentabilidad efectiva con capitalización y comisiones."
  },
  {
@@ -103,7 +103,7 @@
   "prerequisites": [
    "tin"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Capital prestado que se devuelve en cuotas con intereses."
  },
  {
@@ -113,7 +113,7 @@
   "prerequisites": [
    "prestamo"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Reparto de cada cuota entre intereses y capital amortizado."
  },
  {
@@ -123,7 +123,7 @@
   "prerequisites": [
    "prestamo"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Préstamo con garantía sobre un inmueble."
  },
  {
@@ -133,7 +133,7 @@
   "prerequisites": [
    "hipoteca"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Índice de referencia al que se ligan las hipotecas a tipo variable."
  },
  {
@@ -143,7 +143,7 @@
   "prerequisites": [
    "hipoteca"
   ],
-  "unit": "n0-u3",
+  "unit": "n0-u2",
   "description": "Comparar el coste total y el coste de oportunidad de cada opción."
  },
  {
@@ -153,7 +153,7 @@
   "prerequisites": [
    "porcentajes"
   ],
-  "unit": "n0-u4",
+  "unit": "n0-u3",
   "description": "Ingresos, gastos fijos y variables y capacidad de ahorro."
  },
  {
@@ -163,7 +163,7 @@
   "prerequisites": [
    "presupuesto"
   ],
-  "unit": "n0-u4",
+  "unit": "n0-u3",
   "description": "Colchón de liquidez para imprevistos, de varios meses de gastos."
  },
  {
@@ -173,7 +173,7 @@
   "prerequisites": [
    "prestamo"
   ],
-  "unit": "n0-u4",
+  "unit": "n0-u3",
   "description": "Cuándo endeudarse tiene sentido y cuándo destruye riqueza (tarjetas revolving)."
  },
  {
@@ -181,7 +181,7 @@
   "name": "Sesgo del presente",
   "level": 0,
   "prerequisites": [],
-  "unit": "n0-u4",
+  "unit": "n0-u3",
   "description": "Tendencia a preferir una recompensa inmediata aunque sea menor."
  },
  {
@@ -189,7 +189,7 @@
   "name": "Celdas, SUMA y referencias",
   "level": 0,
   "prerequisites": [],
-  "unit": "n0-u4",
+  "unit": "n0-u3",
   "description": "Primeros pasos con una hoja de cálculo: celdas, SUMA y referencias."
  },
  {
@@ -197,7 +197,7 @@
   "name": "Cómo funciona un banco",
   "level": 0,
   "prerequisites": [],
-  "unit": "n0-u5",
+  "unit": "n0-u4",
   "description": "Intermediario que capta depósitos y concede créditos."
  },
  {
@@ -207,7 +207,7 @@
   "prerequisites": [
    "banco"
   ],
-  "unit": "n0-u5",
+  "unit": "n0-u4",
   "description": "Los créditos de los bancos crean dinero (depósitos) y lo multiplican."
  },
  {
@@ -218,7 +218,7 @@
    "banco",
    "tin"
   ],
-  "unit": "n0-u5",
+  "unit": "n0-u4",
   "description": "Dinero entregado al banco a cambio de un interés."
  },
  {
@@ -228,7 +228,7 @@
   "prerequisites": [
    "deposito"
   ],
-  "unit": "n0-u5",
+  "unit": "n0-u4",
   "description": "Protege los depósitos hasta 100.000 € por titular y entidad."
  },
  {
@@ -238,7 +238,7 @@
   "prerequisites": [
    "deposito"
   ],
-  "unit": "n0-u5",
+  "unit": "n0-u4",
   "description": "Tributación de los intereses como rendimientos del capital mobiliario."
  },
  {
@@ -246,7 +246,7 @@
   "name": "Seguros básicos",
   "level": 0,
   "prerequisites": [],
-  "unit": "n0-u6",
+  "unit": "n0-u5",
   "description": "Seguros de salud, hogar, vida y coche: qué cubren y qué no."
  },
  {
@@ -254,7 +254,7 @@
   "name": "Pensiones públicas en España",
   "level": 0,
   "prerequisites": [],
-  "unit": "n0-u6",
+  "unit": "n0-u5",
   "description": "Sistema de reparto de la Seguridad Social."
  },
  {
@@ -264,7 +264,7 @@
   "prerequisites": [
    "pensiones-publicas"
   ],
-  "unit": "n0-u6",
+  "unit": "n0-u5",
   "description": "Pensión pública, planes de empresa y ahorro individual."
  },
  {
@@ -274,7 +274,7 @@
   "prerequisites": [
    "porcentajes"
   ],
-  "unit": "n0-u6",
+  "unit": "n0-u5",
   "description": "A mayor rentabilidad esperada, mayor riesgo."
  },
  {

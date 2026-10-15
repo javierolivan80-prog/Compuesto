@@ -1,0 +1,198 @@
+{
+  "id": "n0-u1-l4",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "level": 0,
+  "unit": 1,
+  "title": "Rentabilidad real y valor del dinero en el tiempo",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Calcular la rentabilidad real descontando la inflación",
+    "Traer una cantidad futura a valor actual"
+  ],
+  "concepts": [
+    "tipo-real-nominal",
+    "valor-temporal-dinero",
+    "inflacion"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Rentabilidad real",
+      "text": "La rentabilidad nominal es la que ves en el contrato. La real descuenta la inflación: real = (1 + nominal) / (1 + inflación) − 1. Si es negativa, aunque tu saldo suba, tu poder adquisitivo baja. Esta es la base del valor temporal del dinero: un euro hoy vale más que uno futuro."
+    },
+    {
+      "type": "card",
+      "term": "Valor actual",
+      "text": "Valor actual = valor futuro / (1 + i)^n. Si vas a recibir 1.100 € dentro de 1 año y la tasa es del 10 %, hoy vale 1.100 / 1,10 = 1.000 €. Es el camino inverso al interés compuesto."
+    },
+    {
+      "type": "example",
+      "text": "El depósito de Carmen rinde un 2 % y la inflación es del 3 %. Su saldo sube, pero su rentabilidad real es de aproximadamente −1 % (nominal menos inflación): cada euro compra menos que antes."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u1-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal"
+      ],
+      "prompt": "Tu depósito rinde un 2 % y la inflación es del 3 %. Tu rentabilidad real es…",
+      "options": [
+        "Positiva",
+        "Negativa",
+        "Cero",
+        "Imposible de saber"
+      ],
+      "answer": 1,
+      "explanation": "La rentabilidad real es aproximadamente 2 % − 3 % = −1 %: el saldo sube, pero compras menos.",
+      "wrongExplanations": {
+        "0": "La inflación supera a la rentabilidad, así que la real es negativa.",
+        "2": "Solo sería cero si rentabilidad nominal e inflación coincidieran.",
+        "3": "Con esos dos datos sí se puede calcular."
+      }
+    },
+    {
+      "id": "n0-u1-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "valor-temporal-dinero"
+      ],
+      "statement": "Un euro hoy vale lo mismo que un euro dentro de 10 años.",
+      "answer": false,
+      "explanation": "Hoy puedes invertirlo y ganar intereses, y con inflación comprará menos en el futuro. Por eso vale más hoy."
+    },
+    {
+      "id": "n0-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal"
+      ],
+      "prompt": "Depósito al 2 % con inflación del 3 %. Rentabilidad real aproximada = nominal − inflación. ¿Cuántos puntos porcentuales es?",
+      "answer": -1,
+      "tolerance": 0,
+      "formula": "2 - 3",
+      "explanation": "2 − 3 = −1 puntos porcentuales.",
+      "unit": "p. p."
+    },
+    {
+      "id": "n0-u1-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 4,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal"
+      ],
+      "prompt": "Calcula la rentabilidad real exacta: (1,02 / 1,03 − 1) × 100, en % y con 2 decimales.",
+      "answer": -0.97,
+      "tolerance": 0.1,
+      "formula": "(1.02 / 1.03 - 1) * 100",
+      "explanation": "1,02 / 1,03 − 1 = −0,0097, es decir −0,97 %. La aproximación (−1) se queda muy cerca.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u1-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "valor-temporal-dinero"
+      ],
+      "prompt": "Recibirás 1.102,50 € dentro de 2 años. Con una tasa del 5 % anual, ¿cuánto vale ese dinero hoy?",
+      "answer": 1000,
+      "tolerance": 0,
+      "formula": "1102.5 / 1.05 ^ 2",
+      "explanation": "Valor actual = 1.102,50 / 1,05² = 1.000 €. Es el camino inverso al interés compuesto.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u1-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "valor-temporal-dinero"
+      ],
+      "prompt": "Traer una cantidad futura al presente se llama calcular su valor ___.",
+      "answers": [
+        [
+          "actual",
+          "presente"
+        ]
+      ],
+      "explanation": "El valor actual es lo que vale hoy una cantidad que recibirás en el futuro."
+    },
+    {
+      "id": "n0-u1-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal",
+        "inflacion"
+      ],
+      "prompt": "Carmen guarda 10.000 € en un depósito al 1 % con inflación del 3 %. ¿Qué pasa con su poder adquisitivo en un año?",
+      "options": [
+        "Aumenta aproximadamente un 2 %",
+        "Disminuye aproximadamente un 2 %",
+        "No cambia",
+        "Aumenta un 1 %"
+      ],
+      "answer": 1,
+      "explanation": "Rentabilidad real ≈ 1 % − 3 % = −2 %: el saldo sube un poco, pero los precios suben más.",
+      "wrongExplanations": {
+        "0": "Tendría que rendir más que la inflación para aumentar.",
+        "2": "Solo no cambiaría si rentabilidad e inflación fueran iguales.",
+        "3": "El 1 % es la rentabilidad nominal, no el cambio en el poder adquisitivo."
+      }
+    },
+    {
+      "id": "n0-u1-l4-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tipo-real-nominal"
+      ],
+      "prompt": "Ordena los pasos para saber si has ganado dinero de verdad.",
+      "steps": [
+        "Reúne la rentabilidad nominal y la inflación del mismo periodo",
+        "Calcula la rentabilidad real descontando la inflación",
+        "Interpreta si tu poder adquisitivo sube o baja"
+      ],
+      "explanation": "Primero se reúnen los datos, luego se calcula la rentabilidad real y al final se interpreta."
+    }
+  ],
+  "realWorld": "En los anuncios de depósitos verás el TIN o la TAE (nominal). La inflación que debes restar la publica el INE cada mes.",
+  "sources": [
+    {
+      "title": "INE — Índice de Precios de Consumo (IPC)",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

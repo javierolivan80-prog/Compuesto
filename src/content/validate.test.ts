@@ -18,6 +18,7 @@ const bundle = (lessons: unknown[], extra: Partial<ContentBundle> = {}): Content
   ...base,
   lessons: lessons.map((data, i) => ({ path: `fixture-${i}.json`, data })),
   placements: [],
+  idsLock: {},
   ...extra,
 });
 const codes = (r: ReturnType<typeof validateContent>) =>
@@ -280,5 +281,85 @@ describe('content:check (caducidades)', () => {
       { id: 'b', kind: 'proximo', date: '2026-11-01', daysLeft: 17 },
     ]);
     expect(findExpiring(items, '2026-10-15', 5)).toHaveLength(1);
+  });
+});
+
+describe('reglas de la teoría y de los explicadores', () => {
+  const lessonWith = (patch: (l: { intro: object[] }) => void) => {
+    const l = JSON.parse(JSON.stringify(fixture('valid-lesson')));
+    patch(l);
+    return validateContent(bundle([l]));
+  };
+  const card = (text: string) => ({ type: 'card', text });
+  it('máximo 3 tarjetas antes de la primera pregunta', () => {
+    const r = lessonWith((l) => (l.intro = [card('a'), card('b'), card('c'), card('d')]));
+    expect(codes(r)).toEqual(['intro-larga']);
+  });
+  it('máximo 60 palabras por tarjeta', () => {
+    const long = Array.from({ length: 61 }, (_, i) => `palabra${i}`).join(' ');
+    expect(
+      lessonWith((l) => (l.intro = [card(long)]))
+        .issues.map((i) => i.message)
+        .join(),
+    ).toContain('tiene 61 palabras');
+    expect(
+      codes(lessonWith((l) => (l.intro = [card(long.split(' ').slice(0, 60).join(' '))]))),
+    ).toEqual([]);
+  });
+  it('el explicador debe existir y recibir props válidas', () => {
+    const visual = (component: string, props: object) => ({ type: 'visual', component, props });
+    expect(codes(lessonWith((l) => (l.intro = [visual('NoExiste', {})])))).toEqual([
+      'explicador-inexistente',
+    ]);
+    expect(codes(lessonWith((l) => (l.intro = [visual('Rule72', { rate: 6 })])))).toEqual([]);
+    const bad = lessonWith((l) => (l.intro = [visual('Rule72', { rate: 'seis' })]));
+    expect(codes(bad)).toEqual(['explicador-props']);
+    expect(bad.issues[0]!.message).toContain('rate');
+  });
+});
+
+describe('Unidad 1 del Nivel 0 (contenido real)', () => {
+  const { lessons, issues } = validateContent(base);
+  it('tiene 5 lecciones en estado reviewed, sin errores ni avisos', () => {
+    expect(lessons.map((l) => l.id)).toEqual([
+      'n0-u1-l1',
+      'n0-u1-l2',
+      'n0-u1-l3',
+      'n0-u1-l4',
+      'n0-u1-l5',
+    ]);
+    expect(issues).toEqual([]);
+    for (const l of lessons) {
+      expect(l.status).toBe('reviewed');
+      expect(l.reviewedBy).toEqual(['subagente']); // nunca "humano" hasta que Javier lo revise
+      expect(l.exercises.length).toBeGreaterThanOrEqual(6);
+    }
+  });
+  it('solo usa los tipos 1–8', () => {
+    const allowed = [
+      'multiple_choice',
+      'multi_select',
+      'true_false_swipe',
+      'match_pairs',
+      'fill_blank',
+      'order_steps',
+      'numeric_input',
+      'categorize',
+    ];
+    for (const e of lessons.flatMap((l) => l.exercises)) expect(allowed).toContain(e.type);
+  });
+  it('usa los 3 explicadores y cada lección tiene Dónde verás esto', () => {
+    const used = lessons
+      .flatMap((l) => l.intro)
+      .filter((b) => b.type === 'visual')
+      .map((b) => (b as { component: string }).component);
+    expect(new Set(used)).toEqual(new Set(['CompoundCurve', 'InflationCart', 'Rule72']));
+    for (const l of lessons) expect(l.realWorld, l.id).toBeTruthy();
+  });
+  it('en conjunto cumple el Bloom del nivel 0 (≥ 50 % recordar/entender)', () => {
+    const ex = lessons.flatMap((l) => l.exercises);
+    expect(
+      ex.filter((e) => ['recordar', 'entender'].includes(e.bloom)).length / ex.length,
+    ).toBeGreaterThanOrEqual(0.5);
   });
 });
