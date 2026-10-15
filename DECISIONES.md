@@ -55,3 +55,13 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 
 ## 2026-10-15 — Tarea 0.2: PRODUCT.md y DESIGN.md manuales
 `/impeccable init` no está disponible (Impeccable no se pudo instalar, ver 0.1), así que `PRODUCT.md` y `DESIGN.md` se escribieron a mano desde CLAUDE.md §1, §2, §5–§8b. UI UX Pro Max sí generó `design-system/compuesto/MASTER.md`; orientado a landing SaaS, se reconcilió al final del propio archivo (lista de propuestas descartadas y motivo).
+
+## 2026-10-15 — Tarea 0.3: tokens, temas, tipografía y motion
+- Fuente única de los colores: `src/design/themes/themes.css`. El test `tests/contrast.test.ts` lee ese mismo CSS, convierte OKLCH → sRGB (`src/engine/color.ts`) y comprueba 11 pares por tema (texto, texto-2, brand, bull, bear, info sobre fondo/superficies) ≥ 4,5:1 en los 7 temas. Pasó a la primera con los valores de abajo; no hubo que ajustar ninguno.
+- CLAUDE.md §5 solo da valores completos para Noche y Mayfair. Los de Salmón, Ginebra, Monte Carlo, Tokio y Platino los he definido yo siguiendo la descripción (papel de prensa, marino + plata, verde carreras + oro, índigo con cian/magenta, grafito + platino). **Pendiente de tu validación visual** en 0.6.
+- Añadidos a los dos temas base los roles que faltaban: `--accent` en Noche (= info) y `--info` en Mayfair (`oklch(0.5 0.12 245)`).
+- Glow solo en Tokio (`--glow`), la excepción documentada en CLAUDE.md §4.
+- Tailwind v4: colores/fuentes expuestos con `@theme inline` apuntando a las variables, así cambian con `data-theme` sin recompilar.
+- Reduced-motion: en CSS las duraciones pasan a ~0; en JS `transition()` sustituye el movimiento por un fundido de 120 ms.
+- Página de prueba `#tokens` (`TokensDemo`), solo en desarrollo; la sustituye `/styleguide` en 0.5.
+- Escala tipográfica: `--text-xs` y `--text-sm` valen lo mismo (0,8 rem); se separarán cuando haga falta.
