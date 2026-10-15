@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { ease } from '../../design/motion';
 
 const SIGNATURES = [
@@ -16,7 +16,7 @@ export function CommitteeApproved({ unit }: { unit: string }) {
       aria-label={`Comité de inversión aprobado: ${unit}`}
       className="bg-surface-1 border-line relative grid gap-4 overflow-hidden rounded-[var(--radius-md)] border p-6"
     >
-      <motion.div
+      <m.div
         className="bg-surface-2 border-line grid gap-3 rounded-[var(--radius-sm)] border p-4"
         initial={reduced ? false : { y: 24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -31,7 +31,7 @@ export function CommitteeApproved({ unit }: { unit: string }) {
               aria-hidden="true"
               className="border-line h-10 w-full border-b"
             >
-              <motion.path
+              <m.path
                 d={path}
                 fill="none"
                 stroke="var(--brand)"
@@ -48,8 +48,8 @@ export function CommitteeApproved({ unit }: { unit: string }) {
             </svg>
           ))}
         </div>
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         className="text-bull border-bull justify-self-center rounded-[var(--radius-sm)] border-4 px-6 py-2 text-3xl tracking-widest"
         style={{ fontFamily: 'var(--font-display)', rotate: -6 }}
         initial={reduced ? false : { scale: 1.4, opacity: 0 }}
@@ -57,15 +57,15 @@ export function CommitteeApproved({ unit }: { unit: string }) {
         transition={{ delay: d(1.6), duration: reduced ? 0.01 : 0.25, ease: ease.out }}
       >
         ✓ APROBADO
-      </motion.div>
-      <motion.p
+      </m.div>
+      <m.p
         className="text-text-2 text-center text-sm"
         initial={reduced ? false : { y: 0, opacity: 0 }}
         animate={reduced ? { opacity: 1 } : { y: [0, 0, -24], opacity: [0, 1, 1] }}
         transition={{ delay: d(2), duration: reduced ? 0.01 : 0.6, ease: ease.out }}
       >
         Diploma enviado al Despacho
-      </motion.p>
+      </m.p>
     </section>
   );
 }

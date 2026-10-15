@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { useState } from 'react';
 import { ease } from '../design/motion';
 import { Sheet } from './Sheet';
@@ -8,7 +8,7 @@ import { Button } from './Button';
 export function TheoryCard({ term, children }: { term: string; children: React.ReactNode }) {
   const reduced = useReducedMotion();
   return (
-    <motion.article
+    <m.article
       initial={reduced ? false : { y: 16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: reduced ? 0.01 : 0.32, ease: ease.out }}
@@ -18,7 +18,7 @@ export function TheoryCard({ term, children }: { term: string; children: React.R
         <span className="key-term">{term}</span>
       </h3>
       <p className="text-text-2">{children}</p>
-    </motion.article>
+    </m.article>
   );
 }
 
@@ -78,7 +78,7 @@ export function StreakCandles({ days, broken = false }: { days: number; broken?:
           const last = i === days - 1;
           const bear = broken && last;
           return (
-            <motion.div
+            <m.div
               key={i}
               className={`w-3 origin-bottom rounded-sm ${bear ? 'bg-bear' : 'bg-bull'}`}
               style={{ height: h }}

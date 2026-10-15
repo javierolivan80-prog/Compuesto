@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { ease } from '../../design/motion';
 import { Logo } from '../../brand/Logo';
 import { formatNumber } from '../../lib/format';
@@ -19,7 +19,7 @@ export function TicketPrint({ rank, streak, accuracy }: Props) {
     >
       <div className="bg-surface-2 h-2" aria-hidden="true" />
       <div className="overflow-hidden">
-        <motion.div
+        <m.div
           className="bg-surface-1 grid gap-2 p-4 font-mono"
           style={{ fontFamily: 'var(--font-mono)' }}
           initial={reduced ? false : { y: '-100%' }}
@@ -35,7 +35,7 @@ export function TicketPrint({ rank, streak, accuracy }: Props) {
             <dt className="text-text-2">Precisión</dt>
             <dd data-num>{formatNumber(accuracy)} %</dd>
           </dl>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

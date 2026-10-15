@@ -1,7 +1,8 @@
 import { CompoundRing } from '../../components/CompoundRing';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
-import { allLessons, companies } from '../../content/library';
+import { allLessonMeta } from '../../content/meta';
+import { useUniverse } from '../../content/useUniverse';
 import { todayKey } from '../../engine/stats';
 import { universeTicker } from '../../engine/ticker';
 import { formatDelta, formatNumber } from '../../lib/format';
@@ -9,6 +10,7 @@ import type { AppData } from '../../app/hooks';
 
 /** Inicio: ticker del universo ficticio, objetivo del día, racha y la siguiente lección (hasta que exista la sesión, 2.2). */
 export function Home({ data, onStart }: { data: AppData; onStart: (id: string) => void }) {
+  const universe = useUniverse();
   if (data.loading) return <Loading />;
   if (data.error || !data.summary)
     return (
@@ -18,16 +20,19 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
       />
     );
   const { summary } = data;
-  const lessons = allLessons();
+  const lessons = allLessonMeta();
   const completed = (id: string) => summary.progress.lessons[id]?.status === 'completed';
   const next = lessons.find((l) => !completed(l.id));
   const started = next ? !!summary.progress.lessons[next.id] : false;
   const goal = summary.dailyGoal;
-  const ticker = universeTicker(companies(), todayKey(new Date()));
+  const ticker = universe ? universeTicker(universe, todayKey(new Date())) : [];
 
   return (
     <div className="grid gap-6">
-      <section aria-label="Cinta del universo Compuesto" className="grid gap-1">
+      <section
+        aria-label="Cinta del universo Compuesto"
+        className="grid min-h-12 content-start gap-1"
+      >
         <ul
           className="text-text-2 flex flex-wrap justify-between gap-x-4 gap-y-1 text-xs"
           style={{ fontFamily: 'var(--font-mono)' }}

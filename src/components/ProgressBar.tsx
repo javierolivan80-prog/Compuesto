@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { CURVE_PATH } from '../brand/Logo';
 import { dur, ease } from '../design/motion';
 
@@ -29,7 +29,7 @@ export function ProgressBar({ value, max, label, asCurve = false }: Props) {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <motion.path
+          <m.path
             d={CURVE_PATH}
             fill="none"
             stroke="var(--brand)"
@@ -53,7 +53,7 @@ export function ProgressBar({ value, max, label, asCurve = false }: Props) {
       aria-valuenow={value}
       className="bg-surface-2 h-2 w-full overflow-hidden rounded-full"
     >
-      <motion.div
+      <m.div
         className="bg-brand h-full w-full origin-left rounded-full"
         initial={false}
         animate={{ scaleX: ratio }}

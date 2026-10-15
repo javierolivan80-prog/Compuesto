@@ -1,31 +1,51 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { Suspense, lazy, useEffect, useState, type ReactNode } from 'react';
 import { Toaster } from '../components/Toaster';
 import { TabBar } from '../components/TabBar';
-import { OfflineBanner } from '../components/States';
-import { getLesson, getPlacement, lessonsOfUnit, unitsOfLevel } from '../content/library';
+import { RouteBoundary } from '../components/RouteBoundary';
+import { Loading, OfflineBanner } from '../components/States';
+import { hasLesson, hasPlacement, lessonMetaOfUnit, unitsOfLevel } from '../content/meta';
 import { useRepo } from '../db/RepoProvider';
-import { Camino } from '../features/camino/Camino';
-import { Ajustes } from '../features/despacho/Ajustes';
-import { Despacho } from '../features/despacho/Despacho';
-import { Reportes } from '../features/despacho/Reportes';
-import { Glosario } from '../features/glossary/Glosario';
 import { Home } from '../features/home/Home';
-import { LessonScreen } from '../features/lesson/LessonScreen';
-import { Onboarding } from '../features/onboarding/Onboarding';
-import { LevelSkip } from '../features/placement/LevelSkip';
-import { PlacementScreen } from '../features/placement/PlacementScreen';
-import { Practicar } from '../features/practicar/Practicar';
-import { Rivales } from '../features/practicar/Rivales';
 import { backupReminder } from '../engine/pwa';
 import { exportBackup, requestPersistence } from '../db/backup';
 import { downloadText } from '../lib/download';
 import { dayKey } from '../engine/days';
-import { toast } from 'sonner';
+import { toast } from '../lib/toast';
 import { BackupReminderBanner, UpdateBanner } from '../pwa/PwaBanners';
 import { usePwa } from '../pwa/usePwa';
 import { setHapticsEnabled } from '../lib/haptics';
 import { useAppData, useOnline } from './hooks';
 import { parseRoute, tabOf } from './routes';
+
+const Camino = lazy(() => import('../features/camino/Camino').then((m) => ({ default: m.Camino })));
+const Ajustes = lazy(() =>
+  import('../features/despacho/Ajustes').then((m) => ({ default: m.Ajustes })),
+);
+const Despacho = lazy(() =>
+  import('../features/despacho/Despacho').then((m) => ({ default: m.Despacho })),
+);
+const Reportes = lazy(() =>
+  import('../features/despacho/Reportes').then((m) => ({ default: m.Reportes })),
+);
+const Glosario = lazy(() =>
+  import('../features/glossary/Glosario').then((m) => ({ default: m.Glosario })),
+);
+const Onboarding = lazy(() =>
+  import('../features/onboarding/Onboarding').then((m) => ({ default: m.Onboarding })),
+);
+const LevelSkip = lazy(() =>
+  import('../features/placement/LevelSkip').then((m) => ({ default: m.LevelSkip })),
+);
+const Practicar = lazy(() =>
+  import('../features/practicar/Practicar').then((m) => ({ default: m.Practicar })),
+);
+const Rivales = lazy(() =>
+  import('../features/practicar/Rivales').then((m) => ({ default: m.Rivales })),
+);
+const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
+const PlacementRoute = lazy(() =>
+  import('./LazyRoutes').then((m) => ({ default: m.PlacementRoute })),
+);
 
 function useHash() {
   const [hash, setHash] = useState(() => window.location.hash);
@@ -40,7 +60,7 @@ function useHash() {
 /** Primera lección de una unidad con contenido; undefined si aún no hay (las unidades se producen por fases). */
 function firstLessonOf(unitId: string): string | undefined {
   const m = /^n(\d+)-u(\d+)$/.exec(unitId);
-  return m ? lessonsOfUnit(Number(m[1]), Number(m[2]))[0]?.id : undefined;
+  return m ? lessonMetaOfUnit(Number(m[1]), Number(m[2]))[0]?.id : undefined;
 }
 
 const levelOf = (unitId: string) => Number(/^n(\d+)-/.exec(unitId)?.[1] ?? 0);
@@ -141,31 +161,31 @@ export function Product() {
       <Onboarding
         onFinish={() => {
           setOnboarded(true);
-          go(`#/leccion/${lessonsOfUnit(0, 1)[0]?.id ?? ''}`);
+          go(`#/leccion/${lessonMetaOfUnit(0, 1)[0]?.id ?? ''}`);
         }}
       />
     );
   } else {
     switch (route.name) {
       case 'leccion': {
-        const lesson = getLesson(route.id);
-        body = lesson ? (
-          <LessonScreen key={lesson.id} lesson={lesson} onExit={() => go('#/')} />
+        const exists = hasLesson(route.id);
+        body = exists ? (
+          <LessonRoute key={route.id} id={route.id} onExit={() => go('#/')} />
         ) : (
           <Home data={data} onStart={(id) => go(`#/leccion/${id}`)} />
         );
-        fullScreen = !!lesson;
+        fullScreen = exists;
         break;
       }
       case 'salto': {
-        const bank = getPlacement(route.unitId);
+        const bank = hasPlacement(route.unitId);
         const level = levelOf(route.unitId);
         const unit = unitsOfLevel(level).find((u) => u.id === route.unitId);
         fullScreen = !!bank;
         body = bank ? (
-          <PlacementScreen
+          <PlacementRoute
             key={route.unitId}
-            bank={bank}
+            unitId={route.unitId}
             unitName={unit?.name ?? route.unitId}
             level={level}
             continueLabel="Volver al inicio"
@@ -250,7 +270,9 @@ export function Product() {
           />
         )}
         {showTabs && route.name !== 'home' && backLink(route.name)}
-        {body}
+        <RouteBoundary key={hash}>
+          <Suspense fallback={<Loading />}>{body}</Suspense>
+        </RouteBoundary>
       </main>
       {showTabs && <TabBar active={tabOf(route)} />}
     </>

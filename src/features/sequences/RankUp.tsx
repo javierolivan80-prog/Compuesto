@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { DelayMount } from '../../components/DelayMount';
 import { Confetti } from '../../components/Confetti';
 import { CURVE_PATH } from '../../brand/Logo';
@@ -18,7 +18,7 @@ export function RankUp({ rank, onContinue }: { rank: string; onContinue?: () => 
       className="relative grid min-h-80 place-items-center overflow-hidden rounded-[var(--radius-md)] p-6"
     >
       {/* 0–200 ms: la UI se atenúa */}
-      <motion.div
+      <m.div
         aria-hidden="true"
         className="bg-bg absolute inset-0"
         initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ export function RankUp({ rank, onContinue }: { rank: string; onContinue?: () => 
       <div className="relative grid justify-items-center gap-4 text-center">
         {/* 200–700 ms: se dibuja la curva dorada */}
         <svg viewBox="0 0 64 64" width="120" height="120" aria-hidden="true">
-          <motion.path
+          <m.path
             d={CURVE_PATH}
             fill="none"
             stroke="var(--brand)"
@@ -40,31 +40,31 @@ export function RankUp({ rank, onContinue }: { rank: string; onContinue?: () => 
           />
         </svg>
         {/* 700–1.100 ms: el rango en serif, escala 1,1 → 1 + fundido */}
-        <motion.h2
+        <m.h2
           className="text-4xl"
           initial={reduced ? false : { scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={t(0.7, 0.4)}
         >
           {rank}
-        </motion.h2>
+        </m.h2>
         {/* 1.100–1.500 ms: insignia con reflejo */}
-        <motion.div
+        <m.div
           className="review-tag border-brand text-brand rounded-full border px-4 py-1 text-sm"
           initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={t(1.1, 0.4)}
         >
           Nuevo rango desbloqueado
-        </motion.div>
+        </m.div>
         {/* 1.500–1.800 ms: botón (el confeti ya está en marcha) */}
-        <motion.div
+        <m.div
           initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={t(1.5, 0.3)}
         >
           <Button onClick={onContinue}>Continuar</Button>
-        </motion.div>
+        </m.div>
       </div>
       <DelayMount ms={1500}>
         <Confetti />

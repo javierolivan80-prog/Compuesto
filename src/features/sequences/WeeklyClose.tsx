@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { ease, stagger } from '../../design/motion';
 import { formatNumber } from '../../lib/format';
@@ -23,7 +23,7 @@ export function WeeklyClose({ before, after }: { before: Row[]; after: Row[] }) 
   return (
     <ol aria-label="Clasificación semanal" className="grid gap-2">
       {rows.map((r, i) => (
-        <motion.li
+        <m.li
           key={r.id}
           layout={!reduced}
           transition={{ duration: 0.32, ease: ease.out, delay: reduced ? 0 : i * stagger }}
@@ -37,7 +37,7 @@ export function WeeklyClose({ before, after }: { before: Row[]; after: Row[] }) 
             {r.you && <strong className="text-brand ml-2 text-sm">(tú)</strong>}
           </span>
           <span data-num>{formatNumber(r.xp)} XP</span>
-        </motion.li>
+        </m.li>
       ))}
     </ol>
   );

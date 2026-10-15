@@ -1,3 +1,4 @@
+import { LazyMotion } from 'motion/react';
 import { useEffect } from 'react';
 import { BrandDemo } from '../brand/BrandDemo';
 import { RepoProvider } from '../db/RepoProvider';
@@ -16,19 +17,21 @@ export function App() {
   const hash = dev ? window.location.hash : '';
   return (
     <ThemeProvider>
-      <RepoProvider>
-        {path === '/exercises-lab' ? (
-          <ExercisesLab />
-        ) : path === '/styleguide' ? (
-          <Styleguide />
-        ) : hash === '#tokens' ? (
-          <TokensDemo />
-        ) : hash === '#brand' ? (
-          <BrandDemo />
-        ) : (
-          <Product />
-        )}
-      </RepoProvider>
+      <LazyMotion features={() => import('../design/motion-features').then((m) => m.default)}>
+        <RepoProvider>
+          {path === '/exercises-lab' ? (
+            <ExercisesLab />
+          ) : path === '/styleguide' ? (
+            <Styleguide />
+          ) : hash === '#tokens' ? (
+            <TokensDemo />
+          ) : hash === '#brand' ? (
+            <BrandDemo />
+          ) : (
+            <Product />
+          )}
+        </RepoProvider>
+      </LazyMotion>
     </ThemeProvider>
   );
 }

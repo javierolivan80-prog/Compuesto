@@ -1,14 +1,56 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig, type Plugin } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { VitePWA } from 'vite-plugin-pwa';
 
 const { version } = JSON.parse(readFileSync('./package.json', 'utf8')) as { version: string };
 
+const walkJson = (dir: string): string[] =>
+  readdirSync(dir).flatMap((n) => {
+    const p = join(dir, n);
+    return statSync(p).isDirectory() ? walkJson(p) : p.endsWith('.json') ? [p] : [];
+  });
+
+/**
+ * Módulo virtual con los metadatos ligeros de lecciones y bancos de salto, calculados al compilar.
+ * Así la carga inicial no arrastra las lecciones completas (que van en su propio trozo, ver library.ts).
+ */
+function contentIndex(): Plugin {
+  const id = 'virtual:content-index';
+  const resolved = '\0' + id;
+  return {
+    name: 'compuesto-content-index',
+    resolveId: (source) => (source === id ? resolved : undefined),
+    load(this: { addWatchFile: (f: string) => void }, source) {
+      if (source !== resolved) return undefined;
+      const lessons = walkJson('content/es/levels').map((f) => {
+        this.addWatchFile(join(process.cwd(), f));
+        const d = JSON.parse(readFileSync(f, 'utf8')) as Record<string, unknown>;
+        return {
+          id: d['id'],
+          title: d['title'],
+          level: d['level'],
+          unit: d['unit'],
+          status: d['status'],
+          estimatedMinutes: d['estimatedMinutes'],
+        };
+      });
+      const placements = walkJson('content/es/placement').map((f) => {
+        this.addWatchFile(join(process.cwd(), f));
+        const d = JSON.parse(readFileSync(f, 'utf8')) as Record<string, unknown>;
+        return { unitId: d['unitId'], status: d['status'] };
+      });
+      return `export const lessons = ${JSON.stringify(lessons)};\nexport const placements = ${JSON.stringify(placements)};`;
+    },
+  };
+}
+
 export default defineConfig({
   define: { __APP_VERSION__: JSON.stringify(version) },
   plugins: [
+    contentIndex(),
     react(),
     tailwindcss(),
     VitePWA({

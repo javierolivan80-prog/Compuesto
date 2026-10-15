@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { useEffect } from 'react';
 import { Bolsin } from '../brand/Bolsin';
 import { dur, ease } from '../design/motion';
@@ -22,7 +22,7 @@ export function FeedbackSheet({ result, xp = 10, explanation, onContinue }: Prop
   }, [ok]);
 
   return (
-    <motion.section
+    <m.section
       role="status"
       aria-live="polite"
       initial={reduced ? { opacity: 0 } : { y: 48, opacity: 0 }}
@@ -36,7 +36,7 @@ export function FeedbackSheet({ result, xp = 10, explanation, onContinue }: Prop
           <strong className={`flex items-center gap-2 text-lg ${ok ? 'text-bull' : 'text-bear'}`}>
             {ok && (
               <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-                <motion.path
+                <m.path
                   d="M4 12.5 L10 18 L20 6"
                   fill="none"
                   stroke="currentColor"
@@ -52,7 +52,7 @@ export function FeedbackSheet({ result, xp = 10, explanation, onContinue }: Prop
             {ok ? 'Correcto' : 'Casi: repásalo'}
           </strong>
           {ok && (
-            <motion.span
+            <m.span
               data-num
               className="text-brand"
               initial={reduced ? false : { y: 0, opacity: 0 }}
@@ -60,7 +60,7 @@ export function FeedbackSheet({ result, xp = 10, explanation, onContinue }: Prop
               transition={{ duration: 0.6, ease: ease.out }}
             >
               +{xp} XP
-            </motion.span>
+            </m.span>
           )}
         </div>
       </div>
@@ -68,6 +68,6 @@ export function FeedbackSheet({ result, xp = 10, explanation, onContinue }: Prop
       <Button onClick={onContinue} variant={ok ? 'primary' : 'secondary'}>
         Continuar
       </Button>
-    </motion.section>
+    </m.section>
   );
 }

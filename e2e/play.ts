@@ -38,7 +38,7 @@ export async function playLesson(
     const wrong = e.id === opts.wrongFirst && !failed.has(e.id);
     await solve(page, e, wrong);
     await check.click();
-    const status = page.getByRole('status').first();
+    const status = page.getByRole('status').filter({ hasText: /Correcto|Casi: repásalo/ });
     await expect(status).toContainText(wrong ? 'Casi: repásalo' : 'Correcto');
     if (answered === 0) await shot(wrong ? 'feedback-fallo' : 'feedback-acierto');
     if (answered === 1) await shot('ejercicio-siguiente');

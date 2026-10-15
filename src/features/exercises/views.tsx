@@ -1,4 +1,4 @@
-import { Reorder, motion, useReducedMotion } from 'motion/react';
+import { Reorder, m, useReducedMotion } from 'motion/react';
 import { useId, useState, type ReactNode } from 'react';
 import { ExerciseCard, type ExerciseCardState } from '../../components/ExerciseCard';
 import { formatPlain } from '../../lib/format';
@@ -108,7 +108,7 @@ export function TrueFalseView({
   const set = (v: boolean) => !locked(result) && onChange({ type: 'true_false_swipe', value: v });
   return (
     <div className="grid gap-3">
-      <motion.p
+      <m.p
         id={`${labelledBy}-statement`}
         drag={reduced || locked(result) ? false : 'x'}
         dragSnapToOrigin
@@ -120,7 +120,7 @@ export function TrueFalseView({
         className="bg-surface-2 border-line rounded-[var(--radius-md)] border p-5 text-xl"
       >
         {exercise.statement}
-      </motion.p>
+      </m.p>
       <p className="text-text-2 text-sm">
         Desliza a la derecha (verdadero) o a la izquierda (falso), o usa los botones.
       </p>

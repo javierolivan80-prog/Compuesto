@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { toast } from 'sonner';
+import { toast } from '../../lib/toast';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
 import { findExerciseText } from '../../content/library';

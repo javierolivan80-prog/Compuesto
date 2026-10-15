@@ -1,9 +1,7 @@
-import curriculumJson from '../../content/es/curriculum.json';
 import companiesJson from '../../content/shared/companies.json';
 import glossaryJson from '../../content/es/glossary.json';
 import {
   companiesSchema,
-  curriculumSchema,
   glossarySchema,
   lessonSchema,
   placementSchema,
@@ -47,26 +45,9 @@ export const getLesson = (id: string): Lesson | undefined => lessons.find((l) =>
 export const lessonsOfUnit = (level: number, unit: number): Lesson[] =>
   lessons.filter((l) => l.level === level && l.unit === unit);
 
-/* ---------- Curriculum y tests de salto ---------- */
+/* ---------- Curriculum (ligero, en meta.ts) y tests de salto ---------- */
 
-const curriculum = curriculumSchema.parse(curriculumJson);
-
-export interface UnitInfo {
-  id: string;
-  name: string;
-  level: number;
-  concepts: string[];
-}
-
-export const unitsOfLevel = (level: number): UnitInfo[] =>
-  (curriculum.levels.find((l) => l.level === level)?.units ?? []).map((u) => ({ ...u, level }));
-
-export const levelName = (level: number): string =>
-  curriculum.levels.find((l) => l.level === level)?.name ?? `Nivel ${level}`;
-
-/** unitId → conceptos de la unidad (para contar como "vistos" los de una unidad saltada). */
-export const unitConcepts = (): Record<string, string[]> =>
-  Object.fromEntries(curriculum.levels.flatMap((l) => l.units).map((u) => [u.id, u.concepts]));
+export { levelName, unitConcepts, unitsOfLevel, type UnitInfo } from './meta';
 
 const placementModules = import.meta.glob('/content/es/placement/*.json', {
   eager: true,

@@ -1,6 +1,6 @@
 import { Lock } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { toast } from 'sonner';
+import { toast } from '../../lib/toast';
 import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
 import { Chip } from '../../components/Chip';

@@ -1,6 +1,6 @@
-import { animate, useReducedMotion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { dur, ease } from '../design/motion';
+import { dur } from '../design/motion';
+import { usePrefersReducedMotion } from '../lib/reduced-motion';
 import { formatNumber } from '../lib/format';
 
 interface Props {
@@ -14,21 +14,29 @@ interface Props {
 
 /** Contador con cifras tabulares (no bailan). Con reduced-motion salta al valor final. */
 export function AnimatedNumber({ value, initial, digits = 0, format, duration = dur.long }: Props) {
-  const reduced = useReducedMotion();
+  const reduced = usePrefersReducedMotion();
   const [shown, setShown] = useState(initial ?? value);
   const prev = useRef(initial ?? value);
 
   useEffect(() => {
-    // Con reduced-motion el contador salta al valor final (duración ~0).
-    const controls = animate(prev.current, value, {
-      duration: reduced ? 0.001 : duration,
-      ease: ease.out,
-      onUpdate: (v) => setShown(v),
-      onComplete: () => {
-        prev.current = value;
-      },
-    });
-    return () => controls.stop();
+    // Con reduced-motion el contador salta al valor final. Si no, cuenta con una curva de salida (ease-out).
+    const from = prev.current;
+    if (reduced || from === value) {
+      prev.current = value;
+      setShown(value);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / (duration * 1000));
+      const eased = 1 - Math.pow(1 - t, 4);
+      setShown(from + (value - from) * eased);
+      if (t < 1) raf = requestAnimationFrame(tick);
+      else prev.current = value;
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [value, duration, reduced]);
 
   const fmt = format ?? ((n: number) => formatNumber(n, digits));

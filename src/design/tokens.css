@@ -27,9 +27,10 @@
   /* z-index por capas */
   --z-base: 0;
   --z-sticky: 10;
+  /* el fondo oscuro de un sheet va debajo del propio sheet (si no, intercepta los toques) */
+  --z-overlay: 30;
   --z-sheet: 40;
   --z-toast: 60;
-  --z-overlay: 80;
 
   /* motion (espejo de src/design/motion.ts) */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { AnimatedNumber } from '../../components/AnimatedNumber';
 import { ease } from '../../design/motion';
 
@@ -18,7 +18,7 @@ export function Elevator({ from, to, name }: { from: number; to: number; name: s
       aria-label={`Ascensor: de la planta ${from} a la planta ${to}, ${name}`}
       className="bg-surface-1 border-line relative grid h-56 place-items-center overflow-hidden rounded-[var(--radius-md)] border"
     >
-      <motion.div
+      <m.div
         className="grid justify-items-center gap-1"
         animate={reduced ? {} : { x: [0, 2, -2, 2, -2, 0] }}
         transition={reduced ? undefined : { delay: 0.3, duration: 0.6 }}
@@ -33,13 +33,13 @@ export function Elevator({ from, to, name }: { from: number; to: number; name: s
           />
         </span>
         <span className="text-xl">{name}</span>
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         aria-hidden="true"
         className="bg-surface-2 border-line absolute inset-y-0 left-0 w-1/2 border-r"
         {...door('l')}
       />
-      <motion.div
+      <m.div
         aria-hidden="true"
         className="bg-surface-2 border-line absolute inset-y-0 right-0 w-1/2 border-l"
         {...door('r')}

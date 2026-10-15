@@ -1,23 +1,12 @@
-import { Toaster as SonnerToaster } from 'sonner';
-import { useTheme } from '../design/ThemeProvider';
+import { Suspense, lazy } from 'react';
 
-const LIGHT = new Set(['mayfair', 'salmon']);
+const Impl = lazy(() => import('./ToasterImpl').then((m) => ({ default: m.ToasterImpl })));
 
-/** Sonner con los tokens del tema. La región es aria-live: los toasts se anuncian. */
+/** Región de avisos (Sonner), cargada aparte del arranque. */
 export function Toaster() {
-  const { theme } = useTheme();
   return (
-    <SonnerToaster
-      theme={LIGHT.has(theme) ? 'light' : 'dark'}
-      position="top-center"
-      toastOptions={{
-        style: {
-          background: 'var(--surface-2)',
-          color: 'var(--text)',
-          border: '1px solid var(--line)',
-          borderRadius: 'var(--radius-sm)',
-        },
-      }}
-    />
+    <Suspense fallback={null}>
+      <Impl />
+    </Suspense>
   );
 }

@@ -182,6 +182,8 @@ test('estados vacíos: sin fallos, sin reportes y sin lecciones completadas', as
 
 test('offline: avisa pero la app sigue funcionando y guardando', async ({ page, context }) => {
   await ready(page);
+  // sin conexión solo es posible tras la primera carga: espera a que el service worker haya precacheado la app
+  await page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
   await context.setOffline(true);
   await expect(page.getByText(/Sin conexión\. Compuesto funciona igual/)).toBeVisible();
   await page

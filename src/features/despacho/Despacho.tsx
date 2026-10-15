@@ -1,5 +1,5 @@
 import { BookOpen, Bug, Settings } from 'lucide-react';
-import { toast } from 'sonner';
+import { toast } from '../../lib/toast';
 import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';

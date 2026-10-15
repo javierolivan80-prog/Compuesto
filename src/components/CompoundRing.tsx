@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { dur, ease } from '../design/motion';
 import { formatNumber } from '../lib/format';
 
@@ -25,7 +25,7 @@ export function CompoundRing({ progress, label, size = 120 }: Props) {
       viewBox="0 0 100 100"
     >
       <circle cx="50" cy="50" r={R} fill="none" stroke="var(--surface-2)" strokeWidth="6" />
-      <motion.circle
+      <m.circle
         cx="50"
         cy="50"
         r={R}

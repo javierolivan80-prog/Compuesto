@@ -2,6 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createServer, type Server } from 'node:http';
 import { extname, join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
+import { playLesson, type Lesson as PlayLesson } from './play';
 import { completeOnboarding, currentExercise, solve, type Ex } from './solver';
 
 /* PWA contra la build de producción servida por un servidor propio, para poder cambiar sw.js
@@ -215,4 +216,43 @@ test('iPhone sin instalar: pasos de «Añadir a pantalla de inicio» y aviso de 
   await expect(page.getByText(/Añadir a pantalla de inicio/)).toBeVisible();
   await page.screenshot({ path: 'docs/capturas/1.8/ios-instalar.png', fullPage: true });
   await ctx.close();
+});
+
+test('flujo completo: onboarding → 3 lecciones sin conexión → recarga → progreso intacto', async ({
+  page,
+  context,
+}) => {
+  test.setTimeout(180_000);
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await ready(page);
+  await completeOnboarding(page, 'JAV', `${base}/`);
+  await page.goto(`${base}/#/`);
+  await page.reload();
+  await expect(page.getByTestId('xp-total')).toBeVisible();
+
+  await context.setOffline(true);
+  await page.reload();
+  const lessons: PlayLesson[] = [1, 2, 3].map((n) =>
+    JSON.parse(readFileSync(`content/es/levels/n0/u1/l${n}.json`, 'utf8')),
+  );
+  for (const l of lessons) {
+    await page.goto(`${base}/#/leccion/${l.id}`);
+    await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
+    await playLesson(page, l);
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByTestId('xp-total')).toBeVisible();
+  }
+  const xp = await page.getByTestId('xp-total').innerText();
+  expect(Number(xp.replace(/\./g, ''))).toBeGreaterThanOrEqual(300);
+
+  // recarga (todavía sin conexión): el progreso sigue ahí
+  await page.reload();
+  await expect(page.getByTestId('xp-total')).toHaveText(xp);
+  await expect(page.getByTestId('streak')).toHaveText('1 d');
+  await page.goto(`${base}/#/camino`);
+  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
+    '▶ En curso',
+  );
+  expect(errors).toEqual([]);
 });

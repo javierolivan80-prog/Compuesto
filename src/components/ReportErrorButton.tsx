@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { toast } from 'sonner';
+import { toast } from '../lib/toast';
 import { useRepo } from '../db/RepoProvider';
 import { Button } from './Button';
 import { Sheet } from './Sheet';
