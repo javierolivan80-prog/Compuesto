@@ -1,0 +1,210 @@
+{
+  "id": "salto-n0-u2",
+  "unitId": "n0-u2",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n0-u2-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "tin"
+      ],
+      "prompt": "El TIN es…",
+      "options": [
+        "El coste total anual incluyendo comisiones",
+        "El índice al que se ligan las hipotecas variables",
+        "El tipo de interés nominal anual, sin incluir comisiones",
+        "La cuota mensual del préstamo"
+      ],
+      "answer": 2,
+      "explanation": "El TIN es el tipo nominal: no incluye comisiones ni capitalización.",
+      "wrongExplanations": {
+        "0": "Eso es la TAE.",
+        "1": "Eso es el Euríbor.",
+        "3": "La cuota es lo que pagas cada mes; el TIN es un tipo."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q2",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "tae"
+      ],
+      "prompt": "¿Qué indicador permite comparar mejor dos préstamos con comisiones distintas?",
+      "options": [
+        "El TIN",
+        "La TAE",
+        "El plazo",
+        "El importe"
+      ],
+      "answer": 1,
+      "explanation": "La TAE incluye intereses y comisiones, por eso permite comparar.",
+      "wrongExplanations": {
+        "0": "El TIN no incluye comisiones, así que puede ocultar diferencias.",
+        "2": "El plazo no mide el coste total.",
+        "3": "El importe no dice cuánto cuesta el préstamo."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q3",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "tae"
+      ],
+      "statement": "La TAE incluye las comisiones del préstamo; el TIN no.",
+      "answer": true,
+      "explanation": "La TAE suma comisiones y capitalización al tipo nominal."
+    },
+    {
+      "id": "salto-n0-u2-q4",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "prestamo"
+      ],
+      "prompt": "En un préstamo, la cuota es…",
+      "options": [
+        "Solo los intereses",
+        "Solo el capital",
+        "La comisión de apertura",
+        "La cantidad periódica que se paga, con intereses y parte del capital"
+      ],
+      "answer": 3,
+      "explanation": "La cuota combina intereses y amortización del capital.",
+      "wrongExplanations": {
+        "0": "La cuota incluye también devolución de capital.",
+        "1": "También incluye intereses.",
+        "2": "La apertura se paga una vez, no es la cuota."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "cuadro-amortizacion"
+      ],
+      "prompt": "En un préstamo con cuota constante (sistema francés), la parte de cada cuota que va a intereses a lo largo del tiempo…",
+      "options": [
+        "Aumenta",
+        "Se mantiene",
+        "Disminuye",
+        "Desaparece en el primer año"
+      ],
+      "answer": 2,
+      "explanation": "Cada cuota amortiza algo de capital: el saldo baja y los intereses también.",
+      "wrongExplanations": {
+        "0": "Al amortizar capital, el saldo baja y con él los intereses.",
+        "1": "Solo la cuota total es constante, no su reparto.",
+        "3": "Los intereses existen hasta la última cuota."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q6",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "hipoteca"
+      ],
+      "prompt": "¿Qué es una hipoteca?",
+      "options": [
+        "Un seguro para la vivienda",
+        "Un préstamo cuya devolución se garantiza con un inmueble",
+        "Un impuesto sobre la vivienda",
+        "Una subvención del Estado"
+      ],
+      "answer": 1,
+      "explanation": "En la hipoteca, el inmueble sirve de garantía del préstamo.",
+      "wrongExplanations": {
+        "0": "Un seguro es otro contrato.",
+        "2": "Los impuestos son distintos (IBI, etc.).",
+        "3": "No es una ayuda: hay que devolverla."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "euribor"
+      ],
+      "prompt": "Si el Euríbor sube y tu hipoteca es a tipo variable referenciada a él, tu cuota…",
+      "options": [
+        "Tiende a subir en la próxima revisión",
+        "Baja",
+        "No cambia nunca",
+        "Se cancela"
+      ],
+      "answer": 0,
+      "explanation": "En una hipoteca variable el interés es Euríbor + diferencial.",
+      "wrongExplanations": {
+        "1": "Con un índice más alto, el interés sube, no baja.",
+        "2": "En una hipoteca variable la cuota se revisa con el índice.",
+        "3": "No se cancela nada: cambia el interés aplicado."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
+      "prompt": "¿Qué debe incluir una comparación honesta entre alquilar y comprar una vivienda?",
+      "options": [
+        "Solo la cuota hipotecaria y el IBI",
+        "Solo el alquiler y la comunidad",
+        "Solo el precio de la vivienda y su revalorización",
+        "Entrada, impuestos, mantenimiento y coste de oportunidad, además de cuota y alquiler"
+      ],
+      "answer": 3,
+      "explanation": "Comprar implica entrada, impuestos, mantenimiento y coste de oportunidad.",
+      "wrongExplanations": {
+        "0": "Faltan entrada, gastos de compra, mantenimiento y coste de oportunidad.",
+        "1": "Hay que compararlo con todos los costes de comprar, no solo con una parte.",
+        "2": "Ignora la financiación, los gastos y el coste de oportunidad."
+      }
+    }
+  ],
+  "sources": [],
+  "verificarAntesDe": null
+}

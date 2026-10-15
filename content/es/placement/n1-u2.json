@@ -1,0 +1,197 @@
+{
+  "id": "salto-n1-u2",
+  "unitId": "n1-u2",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n1-u2-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "¿Dónde recibe la empresa el dinero de una emisión de acciones nuevas?",
+      "options": [
+        "En el mercado secundario",
+        "En el mercado de divisas",
+        "En el mercado primario",
+        "En ninguno"
+      ],
+      "answer": 2,
+      "explanation": "En el primario la empresa emite y cobra.",
+      "wrongExplanations": {
+        "0": "Ahí se negocian valores ya emitidos entre inversores.",
+        "1": "Ahí se negocian monedas, no acciones.",
+        "3": "La empresa sí recibe el dinero en el primario."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q2",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Cuando compras acciones a otro inversor en bolsa, la operación ocurre en el mercado…",
+      "options": [
+        "Primario",
+        "Secundario",
+        "De divisas",
+        "Monetario"
+      ],
+      "answer": 1,
+      "explanation": "En el secundario se negocian valores ya emitidos.",
+      "wrongExplanations": {
+        "0": "El primario es la emisión original.",
+        "2": "Se negocian monedas, no acciones.",
+        "3": "El monetario es de deuda a muy corto plazo."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q3",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "statement": "En el mercado secundario, el dinero de la compra va a la empresa emisora.",
+      "answer": false,
+      "explanation": "Va al inversor que vende; la empresa no cobra nada."
+    },
+    {
+      "id": "salto-n1-u2-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "Una OPV (oferta pública de venta) es…",
+      "options": [
+        "Una oferta de compra de acciones dirigida a los accionistas",
+        "Un dividendo especial",
+        "Una ampliación de capital entre accionistas",
+        "Un ofrecimiento al público de acciones ya existentes, típico de una salida a bolsa"
+      ],
+      "answer": 3,
+      "explanation": "En la OPV los actuales dueños venden acciones al público.",
+      "wrongExplanations": {
+        "0": "Eso es una OPA, no una OPV.",
+        "1": "No es un reparto de beneficios.",
+        "2": "Es una oferta al público."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En una salida a bolsa, ¿qué se busca principalmente?",
+      "options": [
+        "Fusionar dos bancos",
+        "Eliminar la deuda automáticamente",
+        "Que las acciones puedan cotizar y, en su caso, captar fondos",
+        "Pagar menos impuestos"
+      ],
+      "answer": 2,
+      "explanation": "Salir a bolsa da acceso al mercado y a nuevos inversores.",
+      "wrongExplanations": {
+        "0": "No es el objetivo.",
+        "1": "No elimina deuda por sí sola.",
+        "3": "No es el objetivo."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "¿Cuál es un ejemplo de operación en el mercado primario?",
+      "options": [
+        "Comprar acciones a otro inversor",
+        "Una empresa emite bonos nuevos y los coloca entre inversores",
+        "Vender un bono a otro inversor antes de que venza",
+        "Comprar un ETF en bolsa a otro inversor"
+      ],
+      "answer": 1,
+      "explanation": "En el primario la emisión es nueva.",
+      "wrongExplanations": {
+        "0": "Eso es secundario.",
+        "2": "Eso es secundario.",
+        "3": "Eso es una operación del mercado secundario."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q7",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "statement": "El mercado secundario da liquidez a los valores emitidos en el primario.",
+      "answer": true,
+      "explanation": "Permite vender cuando se quiere."
+    },
+    {
+      "id": "salto-n1-u2-q8",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "¿Qué rasgos tiene una salida a bolsa?",
+      "options": [
+        "La empresa pasa a cotizar en un mercado",
+        "Se ofrecen acciones al público",
+        "La empresa deja de tener accionistas",
+        "La empresa deja de dar información"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "Sale a un mercado, ofrece acciones y debe informar más, no menos."
+    }
+  ],
+  "sources": [],
+  "verificarAntesDe": null
+}

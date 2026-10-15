@@ -363,3 +363,65 @@ describe('Unidad 1 del Nivel 0 (contenido real)', () => {
     ).toBeGreaterThanOrEqual(0.5);
   });
 });
+
+describe('tests de salto (validación)', () => {
+  const real = JSON.parse(readFileSync('content/es/placement/n0-u2.json', 'utf8'));
+  const withPlacement = (patch: (p: typeof real) => void) => {
+    const p = JSON.parse(JSON.stringify(real));
+    patch(p);
+    return validateContent({
+      ...base,
+      lessons: [],
+      idsLock: {},
+      placements: [{ path: 'p.json', data: p }],
+    });
+  };
+  const placementCodes = (r: ReturnType<typeof validateContent>) =>
+    r.issues.filter((i) => i.severity === 'error').map((i) => i.code);
+
+  it('acepta un banco real y detecta que fue revisado', () => {
+    const r = withPlacement(() => {});
+    expect(placementCodes(r)).toEqual([]);
+    expect(r.placements).toHaveLength(1);
+  });
+  it('exige exactamente 8 preguntas', () => {
+    const r = withPlacement((p) => p.questions.pop());
+    expect(placementCodes(r)).toEqual(['esquema']);
+    expect(r.issues[0]!.message).toContain('exactamente 8 preguntas');
+  });
+  it('una pregunta con un concepto de otra unidad es un error, y todo concepto de la unidad debe estar cubierto', () => {
+    const r = withPlacement((p) => (p.questions[0].concepts = ['inflacion']));
+    expect(placementCodes(r)).toEqual(['concepto-ajeno', 'concepto-sin-cubrir']);
+  });
+  it('published exige revisión humana; la unidad debe existir; el id debe llevar el prefijo de la unidad', () => {
+    expect(
+      placementCodes(
+        withPlacement((p) => ((p.status = 'published'), (p.reviewedBy = ['subagente']))),
+      ),
+    ).toEqual(['revision']);
+    expect(placementCodes(withPlacement((p) => (p.unitId = 'n9-u9')))).toContain(
+      'unidad-inexistente',
+    );
+    expect(placementCodes(withPlacement((p) => (p.questions[2].id = 'otra-cosa')))).toContain(
+      'id-formato',
+    );
+  });
+  it('ids de pregunta repetidos y lock de ids estables', () => {
+    expect(placementCodes(withPlacement((p) => (p.questions[1].id = p.questions[0].id)))).toContain(
+      'id-duplicado',
+    );
+    const lock = { 'salto-n0-u2-q1': 'published', 'salto-n0-u9-q1': 'published' };
+    const r = validateContent({
+      ...base,
+      lessons: [],
+      idsLock: lock,
+      placements: [{ path: 'p.json', data: real }],
+    });
+    expect(placementCodes(r)).toEqual(['id-desaparecido']);
+  });
+  it('un test de salto sin fuente no puede llevar fecha de verificación', () => {
+    expect(
+      placementCodes(withPlacement((p) => ((p.sources = []), (p.verificarAntesDe = '2027-01-01')))),
+    ).toEqual(['caducidad-sin-fuente']);
+  });
+});

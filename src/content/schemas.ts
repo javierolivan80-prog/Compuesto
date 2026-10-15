@@ -354,7 +354,10 @@ export const placementSchema = z.object({
   questions: z
     .array(z.union([mc, tf, ms]))
     .length(8, 'el test de salto tiene exactamente 8 preguntas'),
+  sources: z.array(sourceSchema).default([]),
+  verificarAntesDe: isoDay.nullable().default(null),
 });
+export type Placement = z.infer<typeof placementSchema>;
 
 export const curriculumSchema = z.object({
   levels: z.array(

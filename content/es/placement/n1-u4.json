@@ -1,0 +1,199 @@
+{
+  "id": "salto-n1-u4",
+  "unitId": "n1-u4",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n1-u4-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "formacion-precios"
+      ],
+      "prompt": "En un mercado, el precio se forma por…",
+      "options": [
+        "Una decisión del Gobierno",
+        "El número de empleados",
+        "El cruce de órdenes de compra y de venta",
+        "El dividendo del año pasado"
+      ],
+      "answer": 2,
+      "explanation": "El precio surge donde coinciden oferta y demanda.",
+      "wrongExplanations": {
+        "0": "No lo fija el Gobierno.",
+        "1": "No determina el precio.",
+        "3": "Influye en la valoración, pero no fija el precio."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q2",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "La horquilla (bid-ask) es…",
+      "options": [
+        "El dividendo",
+        "La diferencia entre el mejor precio de compra y el mejor precio de venta",
+        "La comisión del bróker",
+        "La variación diaria del precio"
+      ],
+      "answer": 1,
+      "explanation": "Es el diferencial entre lo que se ofrece y lo que se pide.",
+      "wrongExplanations": {
+        "0": "No tiene relación.",
+        "2": "Es un coste distinto.",
+        "3": "Eso es la variación, no la horquilla."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q3",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "liquidez"
+      ],
+      "prompt": "Un valor con mucha liquidez se caracteriza por…",
+      "options": [
+        "Poder comprarse y venderse con facilidad sin mover mucho el precio",
+        "Pagar siempre dividendos",
+        "No tener riesgo",
+        "Cotizar siempre al alza"
+      ],
+      "answer": 0,
+      "explanation": "Liquidez es facilidad para operar sin alterar el precio.",
+      "wrongExplanations": {
+        "1": "Pagar dividendos no depende de la liquidez.",
+        "2": "Un valor líquido puede ser muy arriesgado.",
+        "3": "La liquidez no implica subidas."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "statement": "Una orden de mercado prioriza la ejecución sobre el precio.",
+      "answer": true,
+      "explanation": "Se ejecuta al mejor precio disponible en ese momento."
+    },
+    {
+      "id": "salto-n1-u4-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Compras con una orden limitada a 10,00 € y la acción cotiza a 10,20 €. ¿Qué ocurre?",
+      "options": [
+        "Se ejecuta a 10,20 €",
+        "Se ejecuta a 10,10 €",
+        "No se ejecuta hasta que haya ventas a 10,00 € o menos",
+        "Se cancela siempre"
+      ],
+      "answer": 2,
+      "explanation": "La limitada fija el precio máximo de compra.",
+      "wrongExplanations": {
+        "0": "Una limitada no paga más que el límite.",
+        "1": "El límite es 10,00 €.",
+        "3": "Queda pendiente hasta que se pueda ejecutar o venza."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "La subasta de apertura sirve para…",
+      "options": [
+        "Repartir dividendos",
+        "Fijar el precio con el que se abre la sesión",
+        "Cerrar el mercado",
+        "Emitir acciones"
+      ],
+      "answer": 1,
+      "explanation": "Concentra órdenes para fijar un precio de apertura.",
+      "wrongExplanations": {
+        "0": "No tiene relación.",
+        "2": "La subasta de cierre fija el precio de cierre; la de apertura, el de apertura.",
+        "3": "No emite nada."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q7",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "statement": "El FOMO es el miedo a perderse una subida, que lleva a comprar porque otros lo hacen.",
+      "answer": true,
+      "explanation": "Es un sesgo ligado al efecto manada."
+    },
+    {
+      "id": "salto-n1-u4-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "Una horquilla muy ancha suele indicar…",
+      "options": [
+        "Mayor dividendo",
+        "Una empresa sin deuda",
+        "Que el mercado está cerrado",
+        "Menor liquidez y mayor coste de operar"
+      ],
+      "answer": 3,
+      "explanation": "A mayor diferencia entre compra y venta, mayor coste implícito.",
+      "wrongExplanations": {
+        "0": "El dividendo no depende de la horquilla.",
+        "1": "La deuda de la empresa no se mide con la horquilla.",
+        "2": "Con el mercado cerrado no hay horquilla que medir."
+      }
+    }
+  ],
+  "sources": [],
+  "verificarAntesDe": null
+}

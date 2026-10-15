@@ -1,0 +1,205 @@
+{
+  "id": "salto-n1-u5",
+  "unitId": "n1-u5",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n1-u5-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "comisiones"
+      ],
+      "prompt": "Compras 100 acciones a 10 € con una comisión del 0,2 %. ¿Cuánto pagas de comisión?",
+      "options": [
+        "20 €",
+        "0,2 €",
+        "2 €",
+        "0,02 €"
+      ],
+      "answer": 2,
+      "explanation": "1.000 € × 0,2 % = 2 €.",
+      "wrongExplanations": {
+        "0": "Eso sería un 2 %.",
+        "1": "Eso sería un 0,02 %.",
+        "3": "Es demasiado pequeña."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "broker-espana"
+      ],
+      "prompt": "Antes de elegir un bróker en España, conviene comprobar que…",
+      "options": [
+        "Promete una rentabilidad fija",
+        "Está registrado y supervisado por la CNMV o por una autoridad europea equivalente",
+        "Te pide enviar el dinero a una cuenta de un particular",
+        "Es el más barato aunque no tenga registro"
+      ],
+      "answer": 1,
+      "explanation": "La CNMV publica el registro de entidades autorizadas.",
+      "wrongExplanations": {
+        "0": "Es una señal de alerta.",
+        "2": "Es una señal de fraude.",
+        "3": "Sin supervisión no hay protección."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q3",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "dividendo"
+      ],
+      "prompt": "Un dividendo es…",
+      "options": [
+        "La parte del beneficio que la empresa reparte entre sus accionistas",
+        "Un préstamo al accionista",
+        "Una comisión del bróker",
+        "Un impuesto"
+      ],
+      "answer": 0,
+      "explanation": "Se reparte beneficio entre los accionistas.",
+      "wrongExplanations": {
+        "1": "No es un préstamo.",
+        "2": "No es un coste.",
+        "3": "No es un impuesto."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q4",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "rentabilidad-dividendo"
+      ],
+      "prompt": "Una acción cotiza a 20 € y paga 1 € de dividendo anual. Su rentabilidad por dividendo es…",
+      "options": [
+        "20 %",
+        "1 %",
+        "0,05 %",
+        "5 %"
+      ],
+      "answer": 3,
+      "explanation": "1 / 20 = 0,05 = 5 %.",
+      "wrongExplanations": {
+        "0": "Se divide dividendo entre precio: 1/20.",
+        "1": "1 € es el dividendo en euros, no un porcentaje; hay que dividir entre el precio (1/20 = 5 %).",
+        "2": "0,05 es el resultado en tanto por uno; en porcentaje son 5 %."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "rentabilidad-total"
+      ],
+      "prompt": "Compras a 50 €, vendes a 55 € y cobras 2 € de dividendo. La rentabilidad total es…",
+      "options": [
+        "10 %",
+        "4 %",
+        "14 %",
+        "7 %"
+      ],
+      "answer": 2,
+      "explanation": "(5 + 2) / 50 = 14 %.",
+      "wrongExplanations": {
+        "0": "Solo cuenta la revalorización (5/50); falta el dividendo.",
+        "1": "Es solo la rentabilidad por dividendo (2/50); falta la revalorización.",
+        "3": "7 € es la ganancia en euros; hay que dividir entre 50 €."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q6",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "scrip-dividend"
+      ],
+      "statement": "Con un scrip dividend puedes elegir entre cobrar en efectivo o recibir acciones nuevas.",
+      "answer": true,
+      "explanation": "Es el mecanismo del dividendo flexible."
+    },
+    {
+      "id": "salto-n1-u5-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "irpf-ganancias"
+      ],
+      "prompt": "Si vendes acciones con beneficio, en el IRPF esa ganancia se considera…",
+      "options": [
+        "Ganancia patrimonial",
+        "Rendimiento del trabajo",
+        "Rendimiento de una actividad económica",
+        "Exenta siempre"
+      ],
+      "answer": 0,
+      "explanation": "La venta con beneficio es ganancia patrimonial.",
+      "wrongExplanations": {
+        "1": "No procede de un empleo.",
+        "2": "Solo lo sería con medios y organización propios, un caso excepcional; la venta de acciones por un particular es ganancia patrimonial.",
+        "3": "Tributa."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q8",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "comisiones"
+      ],
+      "statement": "Los costes de operar en bolsa incluyen la comisión, el canon de bolsa y la horquilla.",
+      "answer": true,
+      "explanation": "Son costes explícitos e implícitos."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ley 35/2006 del IRPF (rendimientos del capital mobiliario y ganancias patrimoniales) — Agencia Tributaria",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-10-15"
+}

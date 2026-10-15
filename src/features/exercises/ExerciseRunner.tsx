@@ -84,10 +84,20 @@ interface Props {
   /** Se llama al pulsar "Continuar" en la hoja de feedback. */
   onComplete: (outcome: ExerciseOutcome) => void;
   xp?: number;
+  /** false = modo examen: al comprobar se pasa directamente a la siguiente, sin revelar la solución. */
+  showFeedback?: boolean;
+  /** Texto del botón de comprobar (por defecto "Comprobar"). */
+  checkLabel?: string;
 }
 
 /** Ejercicio completo: respuesta → Comprobar → hoja de feedback → Continuar. Enter comprueba. */
-export function ExerciseRunner({ exercise, onComplete, xp = 10 }: Props) {
+export function ExerciseRunner({
+  exercise,
+  onComplete,
+  xp = 10,
+  showFeedback = true,
+  checkLabel = 'Comprobar',
+}: Props) {
   const titleId = useId();
   const [answer, setAnswer] = useState<Answer>(() => emptyAnswer(exercise));
   const [result, setResult] = useState<GradeResult | null>(null);
@@ -107,7 +117,17 @@ export function ExerciseRunner({ exercise, onComplete, xp = 10 }: Props) {
       return;
     }
     setError(null);
-    setResult(grade(exercise, answer));
+    const graded = grade(exercise, answer);
+    if (!showFeedback) {
+      onComplete({
+        correct: graded.correct,
+        answer,
+        grade: graded,
+        timeMs: Date.now() - startedAt,
+      });
+      return;
+    }
+    setResult(graded);
   };
 
   const common = {
@@ -178,7 +198,7 @@ export function ExerciseRunner({ exercise, onComplete, xp = 10 }: Props) {
       ) : (
         <div className="bg-bg sticky bottom-0 py-3">
           <Button type="submit" disabled={empty} className="w-full">
-            Comprobar
+            {checkLabel}
           </Button>
         </div>
       )}

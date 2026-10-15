@@ -1,0 +1,210 @@
+{
+  "id": "salto-n0-u4",
+  "unitId": "n0-u4",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n0-u4-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "¿Qué hace básicamente un banco comercial?",
+      "options": [
+        "Emite billetes",
+        "Fija el precio oficial del dinero",
+        "Capta depósitos y concede créditos",
+        "Cobra impuestos"
+      ],
+      "answer": 2,
+      "explanation": "Su negocio es captar ahorro y prestarlo.",
+      "wrongExplanations": {
+        "0": "Eso lo hace el banco central.",
+        "1": "Eso lo hace el banco central.",
+        "3": "Los impuestos los cobra la Hacienda pública."
+      }
+    },
+    {
+      "id": "salto-n0-u4-q2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "banco"
+      ],
+      "statement": "Un banco comercial capta depósitos y concede préstamos.",
+      "answer": true,
+      "explanation": "Es la base de su actividad: intermediar entre ahorradores y prestatarios."
+    },
+    {
+      "id": "salto-n0-u4-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "creacion-dinero"
+      ],
+      "prompt": "¿Cómo crean dinero los bancos?",
+      "options": [
+        "Al conceder créditos se generan nuevos depósitos",
+        "Imprimiendo billetes",
+        "Fundiendo monedas",
+        "Comprando oro"
+      ],
+      "answer": 0,
+      "explanation": "Al conceder un préstamo, el importe se abona en una cuenta: nuevo dinero bancario.",
+      "wrongExplanations": {
+        "1": "Los billetes los emite el banco central.",
+        "2": "No tiene relación con la creación de dinero bancario.",
+        "3": "No es el mecanismo."
+      }
+    },
+    {
+      "id": "salto-n0-u4-q4",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "creacion-dinero"
+      ],
+      "statement": "Cuando un banco concede un préstamo, el importe puede acabar como un depósito en el sistema bancario.",
+      "answer": true,
+      "explanation": "Ese depósito puede volver a prestarse en parte."
+    },
+    {
+      "id": "salto-n0-u4-q5",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "Un depósito a plazo fijo es…",
+      "options": [
+        "Una acción del banco",
+        "Un seguro de vida",
+        "Dinero que entregas al banco por un plazo a cambio de un interés pactado",
+        "Un fondo de inversión"
+      ],
+      "answer": 2,
+      "explanation": "Se pacta plazo e interés de antemano.",
+      "wrongExplanations": {
+        "0": "Una acción da propiedad, no un interés pactado.",
+        "1": "Es un producto distinto.",
+        "3": "El fondo no garantiza un interés pactado."
+      }
+    },
+    {
+      "id": "salto-n0-u4-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "Si cancelas antes de tiempo un depósito a plazo fijo, lo habitual es que…",
+      "options": [
+        "El banco te pague más",
+        "Haya penalización o pérdida de parte de los intereses",
+        "No pase nada",
+        "El depósito se duplique"
+      ],
+      "answer": 1,
+      "explanation": "Es habitual una penalización por cancelación anticipada (conviene leer el contrato).",
+      "wrongExplanations": {
+        "0": "No: suele haber penalización.",
+        "2": "Suele aplicarse una penalización.",
+        "3": "Imposible: no hay mecanismo para eso."
+      }
+    },
+    {
+      "id": "salto-n0-u4-q7",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "El Fondo de Garantía de Depósitos protege los depósitos de cada titular en cada entidad hasta…",
+      "options": [
+        "100.000 euros",
+        "10.000 euros",
+        "1.000.000 de euros",
+        "Sin límite"
+      ],
+      "answer": 0,
+      "explanation": "La garantía es de 100.000 € por titular y entidad.",
+      "wrongExplanations": {
+        "1": "El límite es mayor.",
+        "2": "El límite es menor.",
+        "3": "Sí hay límite."
+      }
+    },
+    {
+      "id": "salto-n0-u4-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "En el IRPF, los intereses de un depósito bancario se consideran…",
+      "options": [
+        "Rendimientos del trabajo",
+        "Ganancias patrimoniales por venta",
+        "Rentas exentas siempre",
+        "Rendimientos del capital mobiliario"
+      ],
+      "answer": 3,
+      "explanation": "Los intereses tributan como rendimientos del capital mobiliario.",
+      "wrongExplanations": {
+        "0": "Provienen del ahorro, no de un empleo.",
+        "1": "No hay venta de un activo.",
+        "2": "Tributan, no están exentos."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito (RDL 16/2011): garantía de 100.000 € por titular y entidad",
+      "url": "https://www.fgd.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Ley 35/2006 del IRPF (rendimientos del capital mobiliario y ganancias patrimoniales) — Agencia Tributaria",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-10-15"
+}

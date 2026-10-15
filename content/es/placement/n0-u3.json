@@ -1,0 +1,199 @@
+{
+  "id": "salto-n0-u3",
+  "unitId": "n0-u3",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n0-u3-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "En un presupuesto personal, los gastos fijos son…",
+      "options": [
+        "Los que ocurren de vez en cuando",
+        "Los ahorros",
+        "Los que se repiten cada mes con un importe parecido, como el alquiler",
+        "Solo los impuestos"
+      ],
+      "answer": 2,
+      "explanation": "Un gasto fijo se repite con importe parecido.",
+      "wrongExplanations": {
+        "0": "Esos son gastos ocasionales.",
+        "1": "El ahorro es lo que queda de los ingresos tras los gastos; no es un gasto.",
+        "3": "Los fijos incluyen muchos más conceptos."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "presupuesto"
+      ],
+      "statement": "La capacidad de ahorro mensual es lo que queda de los ingresos después de restar los gastos.",
+      "answer": true,
+      "explanation": "Ahorro = ingresos − gastos."
+    },
+    {
+      "id": "salto-n0-u3-q3",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "¿Para qué sirve un fondo de emergencia?",
+      "options": [
+        "Para cubrir imprevistos sin endeudarte",
+        "Para invertir en bolsa",
+        "Para pagar las vacaciones",
+        "Para comprar un coche"
+      ],
+      "answer": 0,
+      "explanation": "Es una reserva de liquidez para imprevistos.",
+      "wrongExplanations": {
+        "1": "Un fondo de emergencia no debe asumir riesgo de pérdida.",
+        "2": "Las vacaciones son un gasto planificable.",
+        "3": "Es un colchón, no una partida de compra."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "Una deuda para formarte que puede aumentar tus ingresos futuros suele considerarse…",
+      "options": [
+        "Siempre una mala deuda",
+        "Una deuda que no hay que devolver",
+        "Equivalente a una compra impulsiva",
+        "Potencialmente productiva, si su coste es asumible"
+      ],
+      "answer": 3,
+      "explanation": "Una deuda puede ser razonable si financia algo que genera más valor del que cuesta.",
+      "wrongExplanations": {
+        "0": "Depende del coste y del retorno esperado; no toda deuda es mala.",
+        "1": "Toda deuda se devuelve, con sus intereses.",
+        "2": "Una deuda para formarte se contrata con un plan y un retorno esperado; una compra impulsiva no."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "¿Cuál de estas deudas suele ser la más cara?",
+      "options": [
+        "Una hipoteca",
+        "Un préstamo de estudios a tipo bajo",
+        "El saldo aplazado de una tarjeta revolving",
+        "Una financiación al 0 % de TAE"
+      ],
+      "answer": 2,
+      "explanation": "Las tarjetas revolving tienen TAE muy altas.",
+      "wrongExplanations": {
+        "0": "Suele tener tipos mucho más bajos.",
+        "1": "Su tipo suele ser reducido.",
+        "3": "No genera intereses."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q6",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "statement": "El sesgo del presente lleva a preferir una recompensa inmediata aunque sea menor que una futura.",
+      "answer": true,
+      "explanation": "Es la tendencia a sobrevalorar lo inmediato."
+    },
+    {
+      "id": "salto-n0-u3-q7",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "En una hoja de cálculo, ¿qué hace =SUMA(A1:A3)?",
+      "options": [
+        "Suma los valores de A1, A2 y A3",
+        "Multiplica A1 por A3",
+        "Cuenta cuántas celdas hay",
+        "Calcula la media"
+      ],
+      "answer": 0,
+      "explanation": "SUMA añade todos los valores del rango.",
+      "wrongExplanations": {
+        "1": "Multiplicar sería =A1*A3.",
+        "2": "Contar sería =CONTAR(A1:A3).",
+        "3": "La media sería =PROMEDIO(A1:A3)."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q8",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "En B1 escribes =A1*2. Si cambias el valor de A1, ¿qué le pasa a B1?",
+      "options": [
+        "Se queda igual",
+        "Da error",
+        "Se borra",
+        "Se recalcula automáticamente"
+      ],
+      "answer": 3,
+      "explanation": "Las fórmulas se actualizan al cambiar sus referencias.",
+      "wrongExplanations": {
+        "0": "Una fórmula depende de las celdas a las que hace referencia.",
+        "1": "No hay error: la referencia sigue siendo válida.",
+        "2": "No se borra nada."
+      }
+    }
+  ],
+  "sources": [],
+  "verificarAntesDe": null
+}

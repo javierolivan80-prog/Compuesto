@@ -14,6 +14,7 @@ import {
   type Concept,
   type Exercise,
   type Lesson,
+  type Placement,
 } from './schemas';
 
 export type Severity = 'error' | 'warning';
@@ -400,6 +401,7 @@ export function validateContent(b: ContentBundle): {
   issues: Issue[];
   lessons: Lesson[];
   concepts: Concept[];
+  placements: Placement[];
 } {
   const issues: Issue[] = [];
 
@@ -490,31 +492,64 @@ export function validateContent(b: ContentBundle): {
     );
   }
 
+  const placements: Placement[] = [];
+  const unitConcepts = new Map<string, string[]>();
+  if (b.curriculum !== undefined) {
+    const cur = curriculumSchema.safeParse(b.curriculum);
+    if (cur.success)
+      for (const u of cur.data.levels.flatMap((l) => l.units)) unitConcepts.set(u.id, u.concepts);
+  }
   for (const f of b.placements ?? []) {
     const r = placementSchema.safeParse(f.data);
-    if (!r.success) issues.push(...zodIssues(f.path, r.error));
-    else {
-      if (r.data.status === 'published' && !r.data.reviewedBy.includes('humano'))
-        issues.push({
-          severity: 'error',
-          code: 'revision',
-          where: f.path,
-          message: 'published exige reviewedBy con "humano"',
-        });
-      for (const q of r.data.questions) {
-        issues.push(
-          ...checkExercise(q, true).map((i) => ({ ...i, where: `${f.path} › ${i.where}` })),
-        );
-        for (const id of q.concepts)
-          if (!conceptIds.has(id))
-            issues.push({
-              severity: 'error',
-              code: 'concepto-inexistente',
-              where: f.path,
-              message: `Concepto inexistente: ${id}`,
-            });
-      }
+    if (!r.success) {
+      issues.push(...zodIssues(f.path, r.error));
+      continue;
     }
+    const pl = r.data;
+    placements.push(pl);
+    const bad = (code: string, message: string, where = f.path) =>
+      issues.push({ severity: 'error', code, where, message });
+    if (pl.status === 'published' && !pl.reviewedBy.includes('humano'))
+      bad('revision', 'published exige reviewedBy con "humano"');
+    if (pl.status === 'reviewed' && !pl.reviewedBy.includes('subagente'))
+      bad('revision', 'reviewed exige reviewedBy con "subagente"');
+    const expected = unitConcepts.get(pl.unitId);
+    if (!expected)
+      bad('unidad-inexistente', `La unidad "${pl.unitId}" no existe en curriculum.json`);
+    const seen = new Set<string>();
+    pl.questions.forEach((q, i) => {
+      issues.push(
+        ...checkExercise(q, true).map((x) => ({ ...x, where: `${f.path} › ${x.where}` })),
+      );
+      if (!q.id.startsWith(`salto-${pl.unitId}-`))
+        bad('id-formato', `El id debería empezar por "salto-${pl.unitId}-"`, `${f.path} › ${q.id}`);
+      for (const id of q.concepts) {
+        seen.add(id);
+        if (!conceptIds.has(id))
+          bad('concepto-inexistente', `Concepto inexistente: ${id}`, `${f.path} › ${q.id}`);
+        else if (expected && !expected.includes(id))
+          bad(
+            'concepto-ajeno',
+            `El concepto "${id}" no pertenece a la unidad ${pl.unitId}`,
+            `${f.path} › ${q.id}`,
+          );
+      }
+      if (new Set(pl.questions.map((x) => x.id)).size !== pl.questions.length && i === 0)
+        bad('id-duplicado', 'Hay ids de pregunta repetidos');
+    });
+    for (const c of expected ?? [])
+      if (!seen.has(c))
+        bad(
+          'concepto-sin-cubrir',
+          `Ninguna pregunta evalúa el concepto "${c}" de la unidad ${pl.unitId}`,
+        );
+    // contenido de las preguntas: sin empresas reales
+    const text = strings(pl.questions).join('\n');
+    for (const name of b.realCompanies ?? [])
+      if (new RegExp(`(^|[^\\p{L}])${escapeRe(name)}([^\\p{L}]|$)`, 'u').test(text))
+        bad('empresa-real', `Aparece la empresa real "${name}" en un test de salto`);
+    if (pl.sources.length === 0 && pl.verificarAntesDe !== null)
+      bad('caducidad-sin-fuente', 'verificarAntesDe sin sources');
   }
 
   // ids únicos entre lecciones y ejercicios
@@ -538,6 +573,18 @@ export function validateContent(b: ContentBundle): {
       ids.set(id, l.id);
     }
   }
+  for (const pl of placements) {
+    for (const id of [pl.id, ...pl.questions.map((q) => q.id)]) {
+      if (ids.has(id))
+        issues.push({
+          severity: 'error',
+          code: 'id-duplicado',
+          where: id,
+          message: `Id repetido (también en ${ids.get(id)})`,
+        });
+      ids.set(id, pl.id);
+    }
+  }
   // ids estables: lo ya publicado nunca desaparece (se retira con status "retired")
   for (const [id, status] of Object.entries(b.idsLock ?? {})) {
     if (!ids.has(id) && status !== 'retired')
@@ -551,16 +598,24 @@ export function validateContent(b: ContentBundle): {
   }
 
   issues.push(...checkBloom(lessons));
-  return { issues, lessons, concepts };
+  return { issues, lessons, concepts, placements };
 }
 
 /** id → status de lo que ya está reviewed/published, para escribir ids-lock.json. */
-export function buildIdsLock(lessons: Lesson[]): Record<string, string> {
+export function buildIdsLock(
+  lessons: Lesson[],
+  placements: Placement[] = [],
+): Record<string, string> {
   const lock: Record<string, string> = {};
   for (const l of lessons) {
     if (l.status === 'draft') continue;
     lock[l.id] = l.status;
     for (const e of l.exercises) lock[e.id] = l.status;
+  }
+  for (const p of placements) {
+    if (p.status === 'draft') continue;
+    lock[p.id] = p.status;
+    for (const q of p.questions) lock[q.id] = p.status;
   }
   return Object.fromEntries(Object.entries(lock).sort(([a], [b]) => a.localeCompare(b)));
 }

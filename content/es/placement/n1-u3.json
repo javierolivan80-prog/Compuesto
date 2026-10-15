@@ -1,0 +1,199 @@
+{
+  "id": "salto-n1-u3",
+  "unitId": "n1-u3",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n1-u3-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "BME es…",
+      "options": [
+        "Un índice bursátil",
+        "Un banco comercial",
+        "El operador de las bolsas y mercados españoles",
+        "El organismo supervisor"
+      ],
+      "answer": 2,
+      "explanation": "BME gestiona los mercados; supervisa la CNMV.",
+      "wrongExplanations": {
+        "0": "Un índice es, por ejemplo, el IBEX 35.",
+        "1": "No capta depósitos.",
+        "3": "Esa función es de la CNMV."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q2",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "El IBEX 35 es…",
+      "options": [
+        "La bolsa española",
+        "Un índice de 35 valores del mercado continuo seleccionados por liquidez y capitalización",
+        "Un tipo de interés",
+        "Una empresa"
+      ],
+      "answer": 1,
+      "explanation": "Mide la evolución conjunta de esas 35 acciones.",
+      "wrongExplanations": {
+        "0": "La bolsa es el mercado; el IBEX es un índice.",
+        "2": "No es un tipo.",
+        "3": "No es una empresa."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q3",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "ibex-35"
+      ],
+      "statement": "Un índice bursátil mide la evolución conjunta de un grupo de acciones.",
+      "answer": true,
+      "explanation": "Resume cómo se comporta un mercado."
+    },
+    {
+      "id": "salto-n1-u3-q4",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "bme-growth"
+      ],
+      "prompt": "BME Growth es…",
+      "options": [
+        "Un fondo de inversión",
+        "El mercado de bonos del Estado",
+        "Un índice mundial",
+        "Un mercado para pequeñas y medianas empresas en expansión"
+      ],
+      "answer": 3,
+      "explanation": "Está pensado para empresas pequeñas con requisitos adaptados.",
+      "wrongExplanations": {
+        "0": "No es un fondo.",
+        "1": "No es deuda pública.",
+        "2": "No es un índice mundial."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "bme-growth"
+      ],
+      "prompt": "En comparación con el mercado continuo, BME Growth tiene normalmente requisitos…",
+      "options": [
+        "Más estrictos",
+        "Idénticos",
+        "Más flexibles para la empresa",
+        "Inexistentes"
+      ],
+      "answer": 2,
+      "explanation": "Está adaptado a empresas de menor tamaño.",
+      "wrongExplanations": {
+        "0": "Es al revés.",
+        "1": "Están adaptados a empresas pequeñas.",
+        "3": "Sí hay requisitos, aunque más ligeros."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q6",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "indices-mundiales"
+      ],
+      "prompt": "¿Cuál es un índice de grandes empresas de Estados Unidos?",
+      "options": [
+        "IBEX 35",
+        "S&P 500",
+        "Nikkei 225",
+        "Euro Stoxx 50"
+      ],
+      "answer": 1,
+      "explanation": "El S&P 500 agrupa 500 grandes empresas estadounidenses.",
+      "wrongExplanations": {
+        "0": "Es español.",
+        "2": "Es japonés.",
+        "3": "Es de la zona euro."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "otc"
+      ],
+      "prompt": "Un mercado OTC es aquel en el que las operaciones se cierran…",
+      "options": [
+        "Directamente entre las partes, fuera de un mercado organizado",
+        "En la bolsa de Madrid",
+        "Solo por el Estado",
+        "Solo en euros"
+      ],
+      "answer": 0,
+      "explanation": "OTC significa \"over the counter\": a medida entre las partes.",
+      "wrongExplanations": {
+        "1": "La bolsa de Madrid es un mercado organizado, lo contrario de un OTC.",
+        "2": "Un OTC es privado entre partes, no una operación estatal.",
+        "3": "La moneda no define un OTC."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q8",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "indices-mundiales"
+      ],
+      "statement": "El Euro Stoxx 50 agrupa grandes empresas de la zona euro.",
+      "answer": true,
+      "explanation": "Es un índice de referencia europeo."
+    }
+  ],
+  "sources": [],
+  "verificarAntesDe": null
+}

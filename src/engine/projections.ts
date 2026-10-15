@@ -224,6 +224,24 @@ export function projectDailyGoal(xp: XpProjection, today: string, goal: number):
   return { day: today, xp: got, goal, reached: got >= goal };
 }
 
+/**
+ * Conceptos "vistos" (para el repaso espaciado): los de los ejercicios respondidos y los de las unidades
+ * saltadas con el test de salto (TEMARIO §5: "sus conceptos entran en el repaso como vistos").
+ * `unitConcepts` viene del curriculum: unitId → conceptos.
+ */
+export function projectSeenConcepts(
+  events: readonly AppEvent[],
+  unitConcepts: Record<string, string[]>,
+): string[] {
+  const seen = new Set<string>();
+  for (const e of normalizeEvents(events)) {
+    if (e.type === 'exercise_answered') for (const c of e.payload.conceptIds) seen.add(c);
+    if (e.type === 'unit_skipped')
+      for (const c of unitConcepts[e.payload.unitId] ?? []) seen.add(c);
+  }
+  return [...seen].sort();
+}
+
 export type Settings = Record<string, string | number | boolean | null>;
 
 /** Último valor de cada ajuste (gana el evento más reciente). */

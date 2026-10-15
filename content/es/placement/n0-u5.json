@@ -1,0 +1,204 @@
+{
+  "id": "salto-n0-u5",
+  "unitId": "n0-u5",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
+  "questions": [
+    {
+      "id": "salto-n0-u5-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "¿Qué cubre, en general, un seguro de hogar?",
+      "options": [
+        "Los pagos de la hipoteca",
+        "La pérdida del empleo",
+        "Daños en la vivienda y su contenido, y la responsabilidad civil",
+        "Las pérdidas en bolsa"
+      ],
+      "answer": 2,
+      "explanation": "Cubre continente, contenido y responsabilidad civil.",
+      "wrongExplanations": {
+        "0": "Eso lo cubre un seguro de amortización de préstamo, no el de hogar.",
+        "1": "No es objeto de un seguro de hogar.",
+        "3": "Ningún seguro de hogar cubre inversiones."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "statement": "Un seguro transfiere a la aseguradora el riesgo de un gasto grande e improbable a cambio de una prima.",
+      "answer": true,
+      "explanation": "La prima es el precio de transferir ese riesgo."
+    },
+    {
+      "id": "salto-n0-u5-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "El sistema público de pensiones español es, principalmente, de…",
+      "options": [
+        "Reparto: las cotizaciones actuales financian las pensiones actuales",
+        "Capitalización individual",
+        "Ahorro voluntario",
+        "Beneficencia"
+      ],
+      "answer": 0,
+      "explanation": "Las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy.",
+      "wrongExplanations": {
+        "1": "En la capitalización cada persona ahorra para sí misma.",
+        "2": "El sistema público es obligatorio.",
+        "3": "Es un sistema principalmente contributivo: se financia con cotizaciones."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q4",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "¿Cuáles son los tres pilares de la jubilación?",
+      "options": [
+        "Hipoteca, seguro y depósito",
+        "Bolsa, renta fija y oro",
+        "Sueldo, bonus y herencia",
+        "Pensión pública, planes de empresa y ahorro individual"
+      ],
+      "answer": 3,
+      "explanation": "Primer pilar público, segundo de empresa, tercero individual.",
+      "wrongExplanations": {
+        "0": "No son pilares de jubilación.",
+        "1": "Son tipos de activos, no pilares.",
+        "2": "No son un sistema de previsión."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q5",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "Un plan de pensiones individual que contratas tú pertenece al pilar…",
+      "options": [
+        "Primero (público)",
+        "Segundo (empresa)",
+        "Tercero (ahorro individual)",
+        "Ninguno"
+      ],
+      "answer": 2,
+      "explanation": "El ahorro individual es el tercer pilar.",
+      "wrongExplanations": {
+        "0": "El primero es la pensión pública.",
+        "1": "El segundo es el que ofrece la empresa.",
+        "3": "Es el tercero."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q6",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "En general, una inversión con mayor rentabilidad esperada…",
+      "options": [
+        "Es siempre más segura",
+        "Implica asumir más riesgo",
+        "No tiene relación con el riesgo",
+        "Garantiza el capital"
+      ],
+      "answer": 1,
+      "explanation": "Riesgo y rentabilidad esperada van juntos.",
+      "wrongExplanations": {
+        "0": "No existe tal relación.",
+        "2": "Sí la tiene: a más rentabilidad esperada, más riesgo.",
+        "3": "Las inversiones de más rentabilidad suelen no garantizarlo."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "statement": "Una rentabilidad alta, garantizada y sin riesgo es una señal de alerta de posible fraude.",
+      "answer": true,
+      "explanation": "Si suena demasiado bueno para ser verdad, suele serlo."
+    },
+    {
+      "id": "salto-n0-u5-q8",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "¿Qué riesgos se pueden transferir a una aseguradora a cambio de una prima?",
+      "options": [
+        "Un incendio en tu vivienda",
+        "Daños a terceros causados con tu coche",
+        "Una hospitalización",
+        "Que tu inversión rinda menos de lo esperado"
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Se aseguran sucesos de daño o responsabilidad; el riesgo de mercado de una inversión no es asegurable así."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Seguridad Social — sistema contributivo de reparto (Ley General de la Seguridad Social, RDL 8/2015)",
+      "url": "https://www.seg-social.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-10-15"
+}

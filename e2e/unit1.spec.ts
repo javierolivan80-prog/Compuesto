@@ -1,97 +1,17 @@
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
+import { completeOnboarding, currentExercise, solve, type Ex } from './solver';
 
 /* Flujo completo de la Unidad 1 del Nivel 0 contra la build de producción:
    las respuestas salen de los propios JSON de contenido, así el test sigue valiendo si se edita una lección. */
 
-type Ex = {
-  id: string;
-  type: string;
-  prompt?: string;
-  statement?: string;
-  options?: string[];
-  answer?: number | boolean;
-  answers?: unknown;
-  steps?: string[];
-  categories?: string[];
-  items?: { text: string; category: string }[];
-};
 type Lesson = { id: string; title: string; intro: { type: string }[]; exercises: Ex[] };
 
 const lessons: Lesson[] = [1, 2, 3, 4, 5].map((n) =>
   JSON.parse(readFileSync(`content/es/levels/n0/u1/l${n}.json`, 'utf8')),
 );
 const SHOTS = 'docs/capturas/1.4';
-
-const promptOf = (e: Ex) =>
-  e.type === 'true_false_swipe' ? 'Verdadero o falso' : (e.prompt ?? '');
-
-async function currentExercise(page: Page, lesson: Lesson): Promise<Ex> {
-  const heading = (await page.getByRole('heading', { level: 3 }).first().textContent())?.trim();
-  const candidates = lesson.exercises.filter((e) => promptOf(e) === heading);
-  if (candidates.length === 1) return candidates[0]!;
-  for (const e of candidates)
-    if (e.statement && (await page.getByText(e.statement, { exact: true }).count())) return e;
-  throw new Error(`No reconozco el ejercicio con título "${heading}"`);
-}
-
-async function solve(page: Page, e: Ex, wrong = false) {
-  const exact = { exact: true } as const;
-  switch (e.type) {
-    case 'multiple_choice': {
-      const idx = wrong ? (e.answer === 0 ? 1 : 0) : (e.answer as number);
-      await page.getByRole('radio', { name: e.options![idx]!, ...exact }).click();
-      break;
-    }
-    case 'multi_select':
-      for (const i of e.answers as number[])
-        await page.getByRole('checkbox', { name: e.options![i]!, ...exact }).click();
-      break;
-    case 'true_false_swipe':
-      await page
-        .getByRole('radio', {
-          name: (e.answer as boolean) !== wrong ? 'Verdadero' : 'Falso',
-          ...exact,
-        })
-        .click();
-      break;
-    case 'fill_blank':
-      await page
-        .getByRole('textbox')
-        .first()
-        .fill((e.answers as string[][])[0]![0]!);
-      break;
-    case 'numeric_input': {
-      const a = (e as unknown as { answer: number }).answer;
-      await page.getByRole('textbox', { name: /Tu respuesta/ }).fill(String(a).replace('.', ','));
-      break;
-    }
-    case 'order_steps':
-      for (let target = 0; target < e.steps!.length; target++) {
-        for (let guard = 0; guard < 10; guard++) {
-          const order = await page
-            .locator('ol[aria-labelledby] > li')
-            .evaluateAll(
-              (lis, ss) => lis.map((li) => ss.findIndex((s) => li.textContent?.includes(s))),
-              e.steps!,
-            );
-          if (order[target] === target) break;
-          await page.getByRole('button', { name: `Subir «${e.steps![target]}»`, ...exact }).click();
-        }
-      }
-      break;
-    case 'categorize':
-      for (const it of e.items!)
-        await page
-          .getByRole('group', { name: it.text, ...exact })
-          .getByRole('button', { name: new RegExp(`${it.category}$`) })
-          .click();
-      break;
-    default:
-      throw new Error(`Tipo sin solver: ${e.type}`);
-  }
-}
 
 async function playLesson(
   page: Page,
@@ -120,10 +40,10 @@ async function playLesson(
     // tras Continuar, guardar y pasar al siguiente ejercicio (o al cierre) es asíncrono
     await expect(check.or(closing)).toBeVisible();
     if (await closing.count()) break;
-    const e = await currentExercise(page, lesson);
+    const e = await currentExercise(page, lesson.exercises);
     const wrong = e.id === opts.wrongFirst && !failed.has(e.id);
     await solve(page, e, wrong);
-    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await check.click();
     const status = page.getByRole('status').first();
     await expect(status).toContainText(wrong ? 'Casi: repásalo' : 'Correcto');
     if (answered === 0) await shot(wrong ? 'feedback-fallo' : 'feedback-acierto');
@@ -147,14 +67,10 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
 
-  await page.goto('/');
-  await expect(page.getByTestId('xp-total')).toHaveText('0');
-  await page.screenshot({ path: `${SHOTS}/home-inicial.png` });
+  // el onboarding termina directamente en la primera lección
+  await completeOnboarding(page);
 
   // L1: el primer ejercicio se falla a propósito → vuelve al final
-  await page
-    .getByRole('button', { name: 'Abrir mercado: Inflación: por qué tu dinero compra menos' })
-    .click();
   const r1 = await playLesson(page, lessons[0]!, {
     wrongFirst: lessons[0]!.exercises[0]!.id,
     shots: 'l1',
@@ -182,7 +98,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   await expect(page.getByText(/✓ completada/)).toHaveCount(5);
   await page.screenshot({ path: `${SHOTS}/home-final.png` });
 
-  // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB)
+  // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB); el onboarding no vuelve
   await page.reload();
   await expect(page.getByTestId('xp-total')).toHaveText('515');
   await expect(page.getByTestId('streak')).toHaveText('1 d');
@@ -190,9 +106,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   expect(errors).toEqual([]);
 });
 
-test('axe: Home, teoría con explicador, ejercicio con feedback y cierre sin errores (también con movimiento)', async ({
-  page,
-}) => {
+test('axe: onboarding, Home, teoría con explicador y feedback sin errores', async ({ page }) => {
   const scan = async (label: string) => {
     const r = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
@@ -204,18 +118,26 @@ test('axe: Home, teoría con explicador, ejercicio con feedback y cierre sin err
   };
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  await expect(page.getByTestId('xp-total')).toBeVisible();
-  await scan('home');
-  await page.goto('/#/leccion/n0-u1-l1');
+  await expect(page.getByRole('heading', { name: 'Bienvenido a Albufera Partners' })).toBeVisible();
+  await scan('onboarding 1');
+  await page.getByRole('button', { name: 'Entrar a la oficina' }).click();
+  await scan('onboarding 2');
+  await page.getByRole('button', { name: 'Continuar', exact: true }).click();
+  await scan('onboarding 3');
+  await page.getByLabel('Tus iniciales').fill('JAV');
+  await page.getByRole('button', { name: 'Empezar mi primera lección' }).click();
+
   await expect(page.getByText('Inflación', { exact: true }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
   await expect(page.getByRole('figure', { name: 'La cesta que se encarece' })).toBeVisible();
   await scan('explicador');
   await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
   await page.getByRole('button', { name: 'Empezar los ejercicios' }).click();
-  const e = lessons[0]!.exercises[0]!;
-  await solve(page, e);
+  await solve(page, lessons[0]!.exercises[0]!);
   await page.getByRole('button', { name: 'Comprobar' }).click();
   await expect(page.getByRole('status').first()).toContainText('Correcto');
   await scan('feedback');
+  await page.goto('/#/');
+  await expect(page.getByTestId('xp-total')).toBeVisible();
+  await scan('home');
 });

@@ -9,10 +9,11 @@ const today = arg('today') ?? new Date().toISOString().slice(0, 10);
 const windowDays = Number(arg('window') ?? 30);
 
 const bundle = loadContent();
-const { lessons } = validateContent(bundle);
+const { lessons, placements } = validateContent(bundle);
 const glossary = glossarySchema.safeParse(bundle.glossary);
 const items = [
   ...lessons.map((l) => ({ id: l.id, verificarAntesDe: l.verificarAntesDe })),
+  ...placements.map((p) => ({ id: p.id, verificarAntesDe: p.verificarAntesDe })),
   ...(glossary.success
     ? glossary.data.map((g) => ({ id: `glosario:${g.id}`, verificarAntesDe: g.verificarAntesDe }))
     : []),

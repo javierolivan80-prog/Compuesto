@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Logo } from '../../brand/Logo';
 import { Button } from '../../components/Button';
+import { getPlacement, unitsOfLevel } from '../../content/library';
 import type { Lesson } from '../../content/schemas';
 import { useRepo } from '../../db/RepoProvider';
 import type { Summary } from '../../engine/projections';
 import { formatNumber } from '../../lib/format';
 
 /** PROVISIONAL(tarea 1.7): Home mínima de la rebanada vertical; se rehace con las 5 pestañas. */
-export function HomeMinimal({
-  lessons,
-  onStart,
-}: {
+interface Props {
   lessons: Lesson[];
   onStart: (id: string) => void;
-}) {
+  onSkipUnit: (unitId: string) => void;
+  onSkipLevel: (level: number) => void;
+}
+
+export function HomeMinimal({ lessons, onStart, onSkipUnit, onSkipLevel }: Props) {
   const repo = useRepo();
   const [summary, setSummary] = useState<Summary | null>(null);
   const [error, setError] = useState(false);
@@ -99,6 +101,55 @@ export function HomeMinimal({
             );
           })}
         </ul>
+      </section>
+
+      <section aria-labelledby="skip-title" className="grid gap-2">
+        <h2 id="skip-title" className="text-2xl">
+          ¿Ya sabes algo de esto?
+        </h2>
+        <p className="text-text-2 text-sm">
+          Con un test de salto de 8 preguntas (80 % para aprobar) te saltas una unidad que ya
+          dominas.
+        </p>
+        {[0, 1].map((level) => {
+          const units = unitsOfLevel(level).filter((u) => getPlacement(u.id));
+          if (!units.length) return null;
+          const skipped = new Set(summary?.progress.skippedUnits ?? []);
+          return (
+            <div key={level} className="grid gap-2">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-lg">Nivel {level}</h3>
+                <Button variant="secondary" onClick={() => onSkipLevel(level)}>
+                  Saltar el Nivel {level}
+                </Button>
+              </div>
+              <ul className="grid gap-2">
+                {units.map((u) => (
+                  <li
+                    key={u.id}
+                    className="bg-surface-1 border-line flex items-center justify-between gap-3 rounded-[var(--radius-md)] border p-3"
+                  >
+                    <span>
+                      {u.name}
+                      {skipped.has(u.id) && (
+                        <span className="text-bull block text-sm">
+                          ✓ Dominada por test de salto
+                        </span>
+                      )}
+                    </span>
+                    <Button
+                      variant="ghost"
+                      disabled={skipped.has(u.id)}
+                      onClick={() => onSkipUnit(u.id)}
+                    >
+                      Test de salto
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </section>
 
       <p className="text-text-2 text-sm">Contenido educativo, no asesoramiento financiero.</p>
