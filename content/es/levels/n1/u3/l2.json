@@ -22,7 +22,7 @@
     {
       "type": "card",
       "term": "IBEX 35",
-      "text": "El IBEX 35 es el índice de referencia de la bolsa española: agrupa 35 de las empresas más grandes y negociadas del mercado continuo. Pondera cada empresa por su capitalización ajustada por free float y se revisa dos veces al año. Un índice mide cómo se mueve un conjunto de acciones, no el precio de ninguna."
+      "text": "El IBEX 35 agrupa 35 de las empresas más grandes y negociadas del mercado continuo. Pondera cada una por su capitalización ajustada por free float, con un tope del 20 % por valor, y se revisa dos veces al año. Un índice mide cómo se mueve un conjunto de acciones, no el precio de ninguna."
     }
   ],
   "exercises": [
@@ -45,9 +45,9 @@
       "answer": 0,
       "explanation": "El nombre lo dice: 35 valores.",
       "wrongExplanations": {
-        "1": "50 es el tamaño del Euro Stoxx 50.",
-        "2": "No tiene 100 valores.",
-        "3": "500 es el S&P 500."
+        "1": "No es el número de valores del IBEX 35.",
+        "2": "No agrupa tantas empresas.",
+        "3": "Es una cifra mucho mayor que la del IBEX 35."
       }
     },
     {
@@ -131,10 +131,10 @@
         "Porque refleja las acciones que realmente se pueden negociar",
         "Porque es más fácil de calcular",
         "Porque el free float es siempre mayor",
-        "Porque lo exige la CNMV a cada empresa"
+        "Porque así lo decide cada empresa"
       ],
       "answer": 0,
-      "explanation": "Lo que no cotiza libremente no influye en el precio de mercado.",
+      "explanation": "Las acciones que no cotizan libremente no se pueden comprar ni vender, así que el índice solo cuenta las negociables.",
       "wrongExplanations": {
         "1": "No es por facilidad, sino por reflejar lo negociable.",
         "2": "El free float suele ser menor que la capitalización total.",
@@ -179,8 +179,8 @@
   "realWorld": "En la web de BME verás la composición del IBEX 35 y el peso de cada empresa.",
   "sources": [
     {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
+      "title": "Sociedad de Bolsas / BME: Normas técnicas del IBEX 35",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
       "date": "2026-10-15"
     }
   ],

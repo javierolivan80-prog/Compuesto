@@ -21,7 +21,7 @@
     {
       "type": "card",
       "term": "Índice ponderado",
-      "text": "En un índice ponderado por capitalización, las empresas grandes pesan más y mueven más el índice. Peso = capitalización de la empresa / capitalización total. Rentabilidad del índice = suma de (peso × rentabilidad de cada valor)."
+      "text": "En un índice ponderado por capitalización (sin topes, para simplificar), las empresas grandes pesan más y mueven más el índice. Peso = capitalización de la empresa / capitalización total. Rentabilidad del índice = suma de (peso × rentabilidad de cada valor)."
     },
     {
       "type": "visual",
@@ -72,7 +72,7 @@
       "explanation": "Pesan más y por tanto aportan más.",
       "wrongExplanations": {
         "1": "El precio por acción no determina el peso.",
-        "2": "Eso sería un índice equiponderado.",
+        "2": "Eso daría el mismo peso a todas, sin tener en cuenta su tamaño.",
         "3": "El dividendo no determina el peso."
       }
     },
@@ -180,7 +180,7 @@
       "concepts": [
         "ibex-35"
       ],
-      "prompt": "Solo sube la empresa más grande del índice. ¿Qué efecto tiene sobre el índice comparado con la misma subida de una empresa pequeña?",
+      "prompt": "Solo sube la empresa más grande del índice. ¿Qué efecto tiene sobre el índice comparado con la misma subida porcentual de una empresa pequeña?",
       "options": [
         "Lo mueve más",
         "Lo mueve menos",
@@ -197,13 +197,7 @@
     }
   ],
   "realWorld": "Cuando oigas que «el IBEX sube un 1 %», recuerda que lo hacen más unas empresas que otras según su peso.",
-  "sources": [
-    {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
-      "date": "2026-10-15"
-    }
-  ],
+  "sources": [],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

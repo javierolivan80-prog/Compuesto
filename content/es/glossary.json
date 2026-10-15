@@ -968,8 +968,19 @@
     ],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BME: horarios y fases de negociación del mercado continuo",
+        "url": "https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones",
+        "date": "2026-10-15"
+      },
+      {
+        "title": "SIX / BME: cierre de la OPA de SIX sobre BME (2020)",
+        "url": "https://www.six-group.com/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "mercado-continuo",
@@ -982,13 +993,24 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BME: horarios y fases de negociación del mercado continuo",
+        "url": "https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones",
+        "date": "2026-10-15"
+      },
+      {
+        "title": "SIX / BME: cierre de la OPA de SIX sobre BME (2020)",
+        "url": "https://www.six-group.com/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "ibex-35",
     "term": "IBEX 35",
-    "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float.",
+    "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float con un tope por valor; se revisa dos veces al año.",
     "level": 1,
     "concepts": [
       "ibex-35"
@@ -996,8 +1018,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "Sociedad de Bolsas / BME: Normas técnicas del IBEX 35",
+        "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "indice-bursatil",
@@ -1013,12 +1041,18 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX, Deutsche Börse y Nikkei",
+        "url": "https://www.spglobal.com/spdji/es/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "bme-growth",
     "term": "BME Growth",
-    "definition": "Mercado de BME para pymes en expansión, con requisitos más ligeros que el mercado principal.",
+    "definition": "Mercado de BME para pymes en expansión (antes Mercado Alternativo Bursátil, MAB), con requisitos más ligeros que el mercado principal.",
     "level": 1,
     "concepts": [
       "bme-growth"
@@ -1026,13 +1060,19 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BME Growth: mercado para empresas en expansión (antiguo MAB)",
+        "url": "https://www.bmegrowth.es/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "otc",
     "term": "OTC",
-    "definition": "Operación pactada directamente entre dos partes, fuera de un mercado organizado (over the counter).",
+    "definition": "Operación pactada directamente entre dos partes, fuera de un mercado organizado (over the counter). Suele tener menos transparencia de precios.",
     "level": 1,
     "concepts": [
       "otc"
@@ -1043,6 +1083,12 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX, Deutsche Börse y Nikkei",
+        "url": "https://www.spglobal.com/spdji/es/",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

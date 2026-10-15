@@ -14,15 +14,13 @@
   "concepts": [
     "bme"
   ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "companies": [],
   "historical": false,
   "intro": [
     {
       "type": "card",
       "term": "BME",
-      "text": "BME (Bolsas y Mercados Españoles) gestiona las bolsas de Madrid, Barcelona, Bilbao y Valencia y, desde 2020, forma parte del grupo suizo SIX. Las acciones más negociadas cotizan en el mercado continuo, un sistema electrónico que casa órdenes de compra y venta durante la sesión, de 9:00 a 17:30 (hora de Madrid)."
+      "text": "BME gestiona las bolsas de Madrid, Barcelona, Bilbao y Valencia y, desde 2020, forma parte del grupo suizo SIX. Las acciones más negociadas cotizan en el mercado continuo, un sistema electrónico que casa órdenes de compra y venta en continuo de 9:00 a 17:30 (hora de Madrid); antes y después hay subastas de apertura y de cierre."
     }
   ],
   "exercises": [
@@ -72,13 +70,13 @@
       "concepts": [
         "bme"
       ],
-      "prompt": "La negociación electrónica de las acciones españolas más negociadas se hace en el mercado ___.",
+      "prompt": "El sistema de BME que casa órdenes sin interrupción durante la negociación se llama mercado ___.",
       "answers": [
         [
           "continuo"
         ]
       ],
-      "explanation": "Es el mercado continuo."
+      "explanation": "Continuo, porque las órdenes se cruzan de forma ininterrumpida mientras dura la negociación."
     },
     {
       "id": "n1-u3-l1-e4",
@@ -89,7 +87,7 @@
       "concepts": [
         "bme"
       ],
-      "prompt": "La sesión del mercado continuo va de 9:00 a 17:30. ¿Cuántas horas dura?",
+      "prompt": "La negociación en continuo va de 9:00 a 17:30. ¿Cuántas horas dura?",
       "answer": 8.5,
       "tolerance": 0,
       "formula": "17.5 - 9",
@@ -107,8 +105,8 @@
       ],
       "prompt": "Ordena el recorrido de una orden de compra en el mercado continuo.",
       "steps": [
-        "Envías la orden a tu bróker",
-        "El bróker la lleva al sistema electrónico de BME",
+        "Envías la orden a tu intermediario (tu bróker)",
+        "Tu intermediario la lleva al sistema electrónico de BME",
         "El sistema la casa con una orden de venta contraria",
         "Se ejecuta la operación y recibes la confirmación"
       ],
@@ -143,7 +141,7 @@
       "categories": [
         "BME",
         "CNMV",
-        "Bróker"
+        "Intermediario (bróker)"
       ],
       "items": [
         {
@@ -156,7 +154,7 @@
         },
         {
           "text": "Transmite tus órdenes al mercado",
-          "category": "Bróker"
+          "category": "Intermediario (bróker)"
         },
         {
           "text": "Opera el sistema de negociación electrónica",
@@ -193,8 +191,13 @@
   "realWorld": "En la web de BME puedes consultar el horario de la sesión y la cotización de cada valor del mercado continuo.",
   "sources": [
     {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
+      "title": "BME: horarios y fases de negociación del mercado continuo",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "SIX / BME: cierre de la OPA de SIX sobre BME (2020)",
+      "url": "https://www.six-group.com/",
       "date": "2026-10-15"
     }
   ],

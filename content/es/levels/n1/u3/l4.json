@@ -21,12 +21,12 @@
     {
       "type": "card",
       "term": "BME Growth",
-      "text": "BME Growth es el mercado de BME para pymes en expansión, con requisitos más ligeros que el mercado principal. Los índices mundiales resumen otros mercados: S&P 500 (500 grandes empresas de EE. UU.), Euro Stoxx 50 (50 grandes de la eurozona), DAX 40 (Alemania) y Nikkei 225 (Japón)."
+      "text": "BME Growth es el mercado de BME para pymes (pequeñas y medianas empresas) en expansión, con requisitos más ligeros que el mercado principal. Los índices mundiales resumen otros mercados: S&P 500 (EE. UU.), Euro Stoxx 50 (grandes empresas de la eurozona), DAX 40 (Alemania) y Nikkei 225 (Japón)."
     },
     {
       "type": "card",
       "term": "Mercado OTC",
-      "text": "Una operación OTC (over the counter) se pacta directamente entre dos partes, fuera de un mercado organizado. Hay menos transparencia de precios y más riesgo de que la otra parte no cumpla."
+      "text": "Una operación OTC (over the counter) se pacta directamente entre dos partes, fuera de un mercado organizado. Suele haber menos transparencia de precios y más riesgo de que la otra parte no cumpla."
     }
   ],
   "exercises": [
@@ -79,7 +79,7 @@
       "prompt": "¿De qué país o zona es cada índice?",
       "categories": [
         "EE. UU.",
-        "Eurozona",
+        "Varios países de la eurozona",
         "Japón",
         "Alemania"
       ],
@@ -90,7 +90,7 @@
         },
         {
           "text": "Euro Stoxx 50",
-          "category": "Eurozona"
+          "category": "Varios países de la eurozona"
         },
         {
           "text": "Nikkei 225",
@@ -101,7 +101,7 @@
           "category": "Alemania"
         }
       ],
-      "explanation": "S&P 500: EE. UU.; Euro Stoxx 50: eurozona; Nikkei 225: Japón; DAX 40: Alemania."
+      "explanation": "S&P 500: EE. UU.; Euro Stoxx 50: varios países de la eurozona; Nikkei 225: Japón; DAX 40: Alemania."
     },
     {
       "id": "n1-u3-l4-e4",
@@ -117,14 +117,14 @@
         "Una operación pactada directamente entre dos partes fuera de un mercado organizado",
         "Una operación en el mercado continuo",
         "Una orden enviada al bróker",
-        "Una subasta en bolsa"
+        "Una operación en BME Growth"
       ],
       "answer": 0,
       "explanation": "OTC significa que se negocia directamente entre las partes.",
       "wrongExplanations": {
         "1": "El continuo es un mercado organizado.",
         "2": "Enviar una orden al bróker no la hace OTC.",
-        "3": "Una subasta en bolsa es un mercado organizado."
+        "3": "BME Growth es un mercado con reglas y negociación centralizada, no una operación bilateral."
       }
     },
     {
@@ -173,7 +173,7 @@
           "category": "Mercado organizado"
         },
         {
-          "text": "Más riesgo de que la contraparte no cumpla",
+          "text": "Suele haber más riesgo de que la otra parte no cumpla",
           "category": "OTC"
         }
       ],
@@ -188,7 +188,7 @@
       "concepts": [
         "indices-mundiales"
       ],
-      "prompt": "El S&P 500 agrupa 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces más empresas tiene el S&P 500?",
+      "prompt": "El S&P 500 agrupa unas 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces el número de empresas del Euro Stoxx 50 es el del S&P 500?",
       "answer": 10,
       "tolerance": 0,
       "formula": "500 / 50",
@@ -209,7 +209,9 @@
         [
           "Euro Stoxx",
           "EuroStoxx",
-          "Eurostoxx"
+          "Eurostoxx",
+          "Euro Stoxx 50",
+          "EuroStoxx 50"
         ]
       ],
       "explanation": "Euro Stoxx 50."
@@ -218,8 +220,13 @@
   "realWorld": "Cuando veas la cotización de un valor en BME Growth o el nombre de un índice extranjero, ya sabrás de qué mercado se trata.",
   "sources": [
     {
-      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
-      "url": "https://www.bolsasymercados.es/",
+      "title": "BME Growth: mercado para empresas en expansión (antiguo MAB)",
+      "url": "https://www.bmegrowth.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX, Deutsche Börse y Nikkei",
+      "url": "https://www.spglobal.com/spdji/es/",
       "date": "2026-10-15"
     }
   ],
