@@ -38,7 +38,18 @@ test('la capa de datos funciona en un navegador real y sobrevive a la recarga', 
       db.close();
       return { before: before.xp.total, after: after.xp.total, streak: after.streak.current };
     });
-  expect(await run()).toEqual({ before: 25, after: 25, streak: 1 });
+  const retry = async <T>(fn: () => Promise<T>, n = 3): Promise<T> => {
+    try {
+      return await fn();
+    } catch (e) {
+      if (n > 0 && /context was destroyed/.test(String(e))) {
+        await page.waitForLoadState('load');
+        return retry(fn, n - 1);
+      }
+      throw e;
+    }
+  };
+  expect(await retry(run)).toEqual({ before: 25, after: 25, streak: 1 });
 
   await page.reload();
   const persisted = await page.evaluate(async () => {

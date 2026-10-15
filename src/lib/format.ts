@@ -21,3 +21,10 @@ export function formatDelta(pct: number, digits = 1): string {
   const sign = pct > 0 ? '+' : '−';
   return `${arrow} ${sign}${formatNumber(Math.abs(pct), digits)} %`;
 }
+
+/** Número tal cual, sin decimales de relleno (hasta 6): 1102.5 → "1.102,5". */
+export function formatPlain(value: number): string {
+  return new Intl.NumberFormat('es-ES', { maximumFractionDigits: 6, useGrouping: 'always' }).format(
+    value,
+  );
+}

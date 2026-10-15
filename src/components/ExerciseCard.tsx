@@ -20,15 +20,17 @@ interface ExerciseCardProps {
   state: ExerciseCardState;
   children: ReactNode;
   onSelect?: () => void;
+  /** Selección múltiple: role checkbox en vez de radio. */
+  multi?: boolean;
 }
 
-export function ExerciseCard({ state, children, onSelect }: ExerciseCardProps) {
+export function ExerciseCard({ state, children, onSelect, multi = false }: ExerciseCardProps) {
   const badge = BADGE[state];
   const checked = state === 'selected' || state === 'correct' || state === 'incorrect';
   return (
     <button
       type="button"
-      role="radio"
+      role={multi ? 'checkbox' : 'radio'}
       aria-checked={checked}
       disabled={state === 'disabled'}
       onClick={onSelect}

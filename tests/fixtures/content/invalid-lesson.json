@@ -2,24 +2,14 @@
   "id": "n1-u4-l3",
   "version": 1,
   "status": "published",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "Lección inválida a propósito",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Distinguir orden de mercado y limitada"
-  ],
-  "concepts": [
-    "orden-limitada",
-    "dcf",
-    "no-existe"
-  ],
-  "companies": [
-    "empresa-fantasma"
-  ],
+  "objectives": ["Distinguir orden de mercado y limitada"],
+  "concepts": ["orden-limitada", "dcf", "no-existe"],
+  "companies": ["empresa-fantasma"],
   "intro": [
     {
       "type": "card",
@@ -36,19 +26,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
       "prompt": "¿Qué orden garantiza el precio pero no la ejecución?",
-      "options": [
-        "De mercado",
-        "Limitada",
-        "Stop",
-        "Ninguna"
-      ],
+      "options": ["De mercado", "Limitada", "Stop", "Ninguna"],
       "answer": 1,
       "explanation": "La limitada fija el precio; si el mercado no llega, no se ejecuta.",
       "wrongExplanations": {
@@ -60,12 +41,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
       "statement": "Inditex cotiza en el IBEX 35 y su acción siempre sube.",
       "answer": false,
       "explanation": "La orden de mercado se ejecuta al mejor precio disponible, no al que tú fijas."
@@ -75,13 +52,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "ordenes",
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["ordenes", "comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Compras 100 acciones a 10,00 € con una comisión del 0,1 %. ¿Cuánto pagas en total?",
       "answer": 1000,
       "unit": "€",
@@ -94,12 +66,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "dcf"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["dcf"],
       "prompt": "Con una limitada de compra a 9,80 € y la acción a 10,20 €, ¿cuánto debe bajar el precio (en €) para que se ejecute?",
       "answer": 0.4,
       "unit": "€",
@@ -112,19 +80,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
       "prompt": "La orden ___ garantiza ___ la ejecución.",
-      "answers": [
-        [
-          "de mercado",
-          "a mercado"
-        ]
-      ],
+      "answers": [["de mercado", "a mercado"]],
       "explanation": "La orden de mercado prioriza ejecutarse ya."
     },
     {
@@ -132,12 +91,8 @@
       "type": "order_steps",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
       "prompt": "Ordena lo que ocurre al lanzar una orden limitada de compra.",
       "steps": [
         "Fijas el precio máximo",
@@ -152,19 +107,11 @@
       "type": "scenario",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "ordenes"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
       "situation": "Quieres comprar acciones de Naranjas del Turia, pero solo si bajan a 10,00 €.",
       "prompt": "¿Qué orden usas?",
-      "options": [
-        "De mercado",
-        "Limitada a 10,00 €",
-        "Ninguna"
-      ],
+      "options": ["De mercado", "Limitada a 10,00 €", "Ninguna"],
       "answer": 5,
       "explanation": "La limitada fija el precio máximo que aceptas.",
       "wrongExplanations": {
