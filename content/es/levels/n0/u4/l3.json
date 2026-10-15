@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Depósito",
-      "text": "Un depósito a la vista (cuenta corriente o de ahorro) permite sacar el dinero cuando quieras y suele pagar poco. Un depósito a plazo inmoviliza el dinero un tiempo a cambio de un tipo mayor; si lo retiras antes, puede haber penalización. Antes de contratar, la entidad entrega una ficha informativa con el TIN y la TAE."
+      "text": "Un depósito a la vista (cuenta corriente o de ahorro) permite sacar el dinero cuando quieras y suele pagar poco. Uno a plazo inmoviliza el dinero a cambio de un tipo mayor; retirarlo antes puede tener penalización. La TAE incluye la capitalización de intereses dentro del año; con liquidación anual coincide con el TIN."
     },
     {
       "type": "example",

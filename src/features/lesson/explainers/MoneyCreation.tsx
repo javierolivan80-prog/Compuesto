@@ -31,7 +31,7 @@ export function MoneyCreation({ deposit, reserveRatio, onInteract }: Props) {
     },
     {
       title: 'El límite del modelo',
-      text: `Cada ronda es más pequeña. En el límite, los depósitos suman ${fmt(deposit)} / ${formatNumber(reserveRatio / 100, 2)} = ${fmt(limit)}. Es un modelo escolar: en la realidad los bancos conceden crédito y se limitan por su solvencia y su demanda de crédito, no solo por la reserva.`,
+      text: `Cada ronda es más pequeña. En el límite, los depósitos suman ${fmt(deposit)} / ${formatNumber(reserveRatio / 100, 2)} = ${fmt(limit)}. Es un modelo escolar: en la realidad el crédito crea depósitos y lo que frena a los bancos es su solvencia, el capital, la liquidez y la demanda de crédito, no solo la reserva.`,
     },
   ];
   return (

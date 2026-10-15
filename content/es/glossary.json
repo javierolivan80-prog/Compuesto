@@ -486,8 +486,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-10-15",
+    "sources": [
+      {
+        "title": "BCE: reservas mínimas",
+        "url": "https://www.ecb.europa.eu/mopo/implement/mr/html/index.es.html",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "deposito-plazo",
@@ -516,8 +522,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-10-15",
+    "sources": [
+      {
+        "title": "Fondo de Garantía de Depósitos de Entidades de Crédito (FGD)",
+        "url": "https://www.fgd.es/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "retencion",
@@ -530,8 +542,19 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-03-31",
+    "sources": [
+      {
+        "title": "BOE: Ley 35/2006 del IRPF (texto consolidado), arts. 66 y 101",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+        "date": "2026-10-15"
+      },
+      {
+        "title": "Agencia Tributaria: IRPF, rendimientos del capital mobiliario y base del ahorro",
+        "url": "https://sede.agenciatributaria.gob.es/",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "base-ahorro",
@@ -544,7 +567,18 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-03-31",
+    "sources": [
+      {
+        "title": "BOE: Ley 35/2006 del IRPF (texto consolidado), arts. 66 y 101",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+        "date": "2026-10-15"
+      },
+      {
+        "title": "Agencia Tributaria: IRPF, rendimientos del capital mobiliario y base del ahorro",
+        "url": "https://sede.agenciatributaria.gob.es/",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

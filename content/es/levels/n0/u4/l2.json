@@ -33,7 +33,7 @@
     },
     {
       "type": "example",
-      "text": "Es un modelo simplificado: en la realidad un banco no está limitado solo por sus reservas, sino también por su solvencia y por la demanda de crédito. El coeficiente de reservas mínimas del BCE es muy bajo (un 1 % en la zona euro)."
+      "text": "Es un modelo escolar. En la realidad, al conceder un crédito el banco abre a la vez un depósito en la cuenta del cliente: el crédito crea depósitos. A los bancos los frenan su solvencia, el capital, la liquidez y la demanda de crédito, no solo las reservas. El coeficiente mínimo del BCE es del 1 % desde 2012."
     }
   ],
   "exercises": [
@@ -51,14 +51,14 @@
         "El dinero se gasta y vuelve al sistema como un nuevo depósito",
         "El dinero desaparece",
         "Se queda siempre en la caja del banco",
-        "Se destruye al devolverse el primer pago"
+        "Se destruye en cuanto se gasta"
       ],
       "answer": 0,
       "explanation": "Quien recibe el préstamo lo gasta y el dinero acaba depositado en otro banco, que vuelve a prestar parte.",
       "wrongExplanations": {
         "1": "El dinero no desaparece: pasa de mano en mano y vuelve como depósito.",
         "2": "Si se quedara en la caja, no se multiplicaría.",
-        "3": "El modelo describe lo que ocurre al conceder crédito, no al devolverlo."
+        "3": "El dinero no se destruye al gastarse: pasa a otro titular y vuelve como depósito."
       }
     },
     {
@@ -181,7 +181,7 @@
       }
     }
   ],
-  "realWorld": "Cuando oigas que «los bancos crean dinero al prestar», recuerda que es una simplificación: el crédito está limitado por la solvencia y la demanda, no solo por las reservas.",
+  "realWorld": "Los bancos sí crean dinero al conceder crédito, pero el multiplicador de reservas del modelo escolar no describe bien cómo ocurre: los límites reales son capital, liquidez, solvencia y demanda.",
   "sources": [
     {
       "title": "BCE: reservas mínimas",
@@ -189,6 +189,6 @@
       "date": "2026-10-15"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-10-15",
   "lastReviewed": "2026-10-15"
 }

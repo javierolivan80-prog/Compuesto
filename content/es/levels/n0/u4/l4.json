@@ -23,7 +23,7 @@
     {
       "type": "card",
       "term": "FGD",
-      "text": "El Fondo de Garantía de Depósitos protege los depósitos si una entidad quiebra, hasta 100.000 € por titular y por entidad. Cubre cuentas y depósitos, no las pérdidas de valor de inversiones como acciones o fondos. Si tienes más de 100.000 € en una entidad, la parte que excede no está cubierta."
+      "text": "El Fondo de Garantía de Depósitos protege los depósitos si una entidad quiebra, hasta 100.000 € por titular y por entidad. Cubre cuentas y depósitos, no las pérdidas de valor de inversiones. Cada entidad adherida tiene su propio límite; la parte que excede en una misma entidad no está cubierta."
     },
     {
       "type": "example",
@@ -109,7 +109,7 @@
       "concepts": [
         "fgd"
       ],
-      "prompt": "Tienes 80.000 € en un banco y 80.000 € en otro banco de un grupo distinto. ¿Cuántos euros están cubiertos en total?",
+      "prompt": "Tienes 80.000 € en una entidad y 80.000 € en otra entidad distinta. ¿Cuántos euros están cubiertos en total?",
       "answer": 160000,
       "tolerance": 0,
       "formula": "MIN(80000, 100000) + MIN(80000, 100000)",
@@ -178,7 +178,7 @@
       ],
       "prompt": "Tienes 150.000 € ahorrados en depósitos. ¿Qué te protege mejor frente a la quiebra de una entidad?",
       "options": [
-        "Repartirlos entre entidades de grupos distintos",
+        "Repartirlos entre entidades distintas",
         "Dejarlos todos en la misma entidad",
         "Pedir un préstamo",
         "Comprar acciones del banco"

@@ -179,11 +179,16 @@
           "category": "Base del ahorro"
         }
       ],
-      "explanation": "Los rendimientos del capital y las ganancias patrimoniales van a la base del ahorro; el trabajo, a la general."
+      "explanation": "Los intereses, los dividendos y las ganancias por vender activos van a la base del ahorro; el trabajo, a la general."
     }
   ],
   "realWorld": "En el resumen fiscal que te da el banco aparecen los intereses y la retención practicada: esos importes alimentan el borrador de la renta.",
   "sources": [
+    {
+      "title": "BOE: Ley 35/2006 del IRPF (texto consolidado), arts. 66 y 101",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "date": "2026-10-15"
+    },
     {
       "title": "Agencia Tributaria: IRPF, rendimientos del capital mobiliario y base del ahorro",
       "url": "https://sede.agenciatributaria.gob.es/",
