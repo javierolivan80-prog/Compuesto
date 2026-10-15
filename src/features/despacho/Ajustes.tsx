@@ -23,6 +23,7 @@ import { downloadText } from '../../lib/download';
 import { setHapticsEnabled } from '../../lib/haptics';
 import { buildIcs, isValidTime } from '../../lib/ics';
 import { dayKey } from '../../engine/days';
+import { InstallGuide, OfflineStatus } from '../../pwa/InstallGuide';
 
 const rankIndex = (name: string | null) => (name ? RANKS.findIndex((r) => r.name === name) : 0);
 
@@ -91,6 +92,7 @@ export function Ajustes({ data }: { data: AppData }) {
         JSON.stringify(backup),
         'application/json',
       );
+      if (ok) void setSetting('lastBackupAt', new Date().toISOString());
       toast(
         ok
           ? `Copia exportada (${backup.events.length} eventos).`
@@ -238,10 +240,13 @@ export function Ajustes({ data }: { data: AppData }) {
         </Button>
       </section>
 
+      <InstallGuide />
+
       <section aria-labelledby="s-datos" className="grid gap-3">
         <h2 id="s-datos" className="text-2xl">
           Tus datos
         </h2>
+        <OfflineStatus />
         <p className="text-text-2 text-sm">
           Todo se guarda en este dispositivo.{' '}
           {persisted === true

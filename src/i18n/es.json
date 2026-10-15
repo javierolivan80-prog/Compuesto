@@ -1,0 +1,34 @@
+{
+  "pwa": {
+    "update": {
+      "title": "Nueva versión disponible",
+      "body": "Se aplicará al pulsar Actualizar; tu progreso está a salvo.",
+      "action": "Actualizar",
+      "later": "Más tarde",
+      "forced": "Hay una actualización necesaria. Actualizando al terminar la lección."
+    },
+    "offline": {
+      "ready": "Lista para usar sin conexión.",
+      "preparing": "Preparando el modo sin conexión…",
+      "unavailable": "El modo sin conexión no está disponible en este navegador."
+    },
+    "install": {
+      "title": "Instalar Compuesto",
+      "intro": "Instalada, la app abre a pantalla completa, funciona sin conexión y el navegador protege mejor tus datos.",
+      "iosWarning": "En iPhone, Safari puede borrar los datos de una web que no se visita en 7 días si no está instalada en la pantalla de inicio.",
+      "iosStep1": "Abre esta página en Safari.",
+      "iosStep2": "Pulsa el botón Compartir de la barra inferior.",
+      "iosStep3": "Elige «Añadir a pantalla de inicio» y confirma.",
+      "installed": "Instalada en este dispositivo.",
+      "androidAction": "Instalar la app",
+      "androidHint": "En Chrome, abre el menú y elige «Instalar app» si el botón no aparece."
+    },
+    "backup": {
+      "reminderTitle": "Haz una copia de seguridad",
+      "reminderNever": "Aún no has exportado ninguna copia de tu progreso.",
+      "reminderOld": "Tu última copia tiene {{days}} días.",
+      "action": "Exportar copia ahora",
+      "dismiss": "Recordármelo más tarde"
+    }
+  }
+}

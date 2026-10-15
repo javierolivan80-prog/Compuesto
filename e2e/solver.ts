@@ -90,8 +90,8 @@ export async function solve(page: Page, e: Ex, wrong = false) {
 }
 
 /** Onboarding de 3 pantallas hasta la primera lección. */
-export async function completeOnboarding(page: Page, initials = 'JAV') {
-  await page.goto('/');
+export async function completeOnboarding(page: Page, initials = 'JAV', url = '/') {
+  await page.goto(url);
   await page.getByRole('button', { name: 'Entrar a la oficina' }).click();
   await page.getByRole('button', { name: 'Continuar', exact: true }).click();
   await page.getByLabel('Tus iniciales').fill(initials);

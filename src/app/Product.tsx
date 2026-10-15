@@ -16,6 +16,13 @@ import { LevelSkip } from '../features/placement/LevelSkip';
 import { PlacementScreen } from '../features/placement/PlacementScreen';
 import { Practicar } from '../features/practicar/Practicar';
 import { Rivales } from '../features/practicar/Rivales';
+import { backupReminder } from '../engine/pwa';
+import { exportBackup, requestPersistence } from '../db/backup';
+import { downloadText } from '../lib/download';
+import { dayKey } from '../engine/days';
+import { toast } from 'sonner';
+import { BackupReminderBanner, UpdateBanner } from '../pwa/PwaBanners';
+import { usePwa } from '../pwa/usePwa';
 import { setHapticsEnabled } from '../lib/haptics';
 import { useAppData, useOnline } from './hooks';
 import { parseRoute, tabOf } from './routes';
@@ -51,6 +58,53 @@ export function Product() {
   const online = useOnline();
   const data = useAppData();
   const [onboarded, setOnboarded] = useState<boolean | null>(null);
+
+  // el SW nunca avisa ni recarga con una lección o un test en curso
+  const busy = route.name === 'leccion' || route.name === 'salto' || route.name === 'saltar-nivel';
+  const pwa = usePwa(busy);
+
+  // se pide al navegador que no borre los datos en cuanto hay algo que proteger
+  const hasProgress = (data.summary?.xp.total ?? 0) > 0;
+  useEffect(() => {
+    if (hasProgress) void requestPersistence();
+  }, [hasProgress]);
+
+  const [dismissedNow, setDismissedNow] = useState(false);
+  const reminder = data.summary
+    ? backupReminder({
+        now: new Date(),
+        lastBackupAt: strSetting(data.summary.settings['lastBackupAt']),
+        lastDismissedAt: strSetting(data.summary.settings['backupReminderDismissedAt']),
+        hasProgress,
+      })
+    : null;
+
+  const exportNow = async () => {
+    try {
+      const backup = await exportBackup(repo);
+      const ok = downloadText(
+        `compuesto-copia-${dayKey(new Date(), 'Europe/Madrid')}.json`,
+        JSON.stringify(backup),
+        'application/json',
+      );
+      if (ok)
+        await repo.record('settings_changed', {
+          key: 'lastBackupAt',
+          value: new Date().toISOString(),
+        });
+      toast(ok ? 'Copia exportada.' : 'No se pudo exportar en este navegador.');
+      data.reload();
+    } catch {
+      toast('No se pudo exportar la copia.');
+    }
+  };
+  const dismissReminder = async () => {
+    setDismissedNow(true);
+    await repo.record('settings_changed', {
+      key: 'backupReminderDismissedAt',
+      value: new Date().toISOString(),
+    });
+  };
 
   // el ajuste de háptica se aplica al arrancar
   useEffect(() => {
@@ -185,6 +239,16 @@ export function Product() {
         className={`mx-auto grid max-w-xl grid-cols-[minmax(0,1fr)] gap-6 p-6 outline-none ${showTabs ? 'pb-28' : ''}`}
       >
         {!online && <OfflineBanner />}
+        {showTabs && pwa.updateAvailable && (
+          <UpdateBanner forced={pwa.forced} onApply={pwa.apply} onDismiss={pwa.dismiss} />
+        )}
+        {showTabs && route.name === 'home' && reminder?.due && !dismissedNow && (
+          <BackupReminderBanner
+            days={reminder.days}
+            onExport={() => void exportNow()}
+            onDismiss={() => void dismissReminder()}
+          />
+        )}
         {showTabs && route.name !== 'home' && backLink(route.name)}
         {body}
       </main>
@@ -202,3 +266,5 @@ function backLink(name: string): ReactNode {
     </a>
   );
 }
+
+const strSetting = (v: unknown): string | null => (typeof v === 'string' ? v : null);

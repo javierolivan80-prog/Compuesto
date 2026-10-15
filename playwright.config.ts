@@ -22,7 +22,7 @@ export default defineConfig({
   projects: [
     {
       name: 'prod',
-      testMatch: ['app.spec.ts', 'unit1.spec.ts', 'placement.spec.ts', 'screens.spec.ts'],
+      testMatch: ['app.spec.ts', 'unit1.spec.ts', 'placement.spec.ts', 'screens.spec.ts', 'pwa.spec.ts'],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },
     {
