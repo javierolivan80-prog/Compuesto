@@ -1,0 +1,252 @@
+{
+ "levels": [
+  {
+   "level": 0,
+   "name": "El dinero",
+   "rank": "Becario",
+   "floor": "Planta 0",
+   "weeks": "Semanas 1–4",
+   "units": [
+    {
+     "id": "n0-u1",
+     "name": "Inflación y poder adquisitivo",
+     "concepts": [
+      "inflacion",
+      "poder-adquisitivo",
+      "tipo-real-nominal",
+      "porcentajes"
+     ]
+    },
+    {
+     "id": "n0-u2",
+     "name": "Interés simple y compuesto",
+     "concepts": [
+      "interes-simple",
+      "interes-compuesto",
+      "regla-del-72",
+      "valor-temporal-dinero"
+     ]
+    },
+    {
+     "id": "n0-u3",
+     "name": "TIN, TAE, préstamos e hipotecas",
+     "concepts": [
+      "tin",
+      "tae",
+      "prestamo",
+      "cuadro-amortizacion",
+      "hipoteca",
+      "euribor",
+      "alquilar-vs-comprar"
+     ]
+    },
+    {
+     "id": "n0-u4",
+     "name": "Presupuesto, deuda y primeros pasos con Excel",
+     "concepts": [
+      "presupuesto",
+      "fondo-emergencia",
+      "deuda-buena-mala",
+      "sesgo-presente",
+      "celdas-suma"
+     ]
+    },
+    {
+     "id": "n0-u5",
+     "name": "Bancos y depósitos",
+     "concepts": [
+      "banco",
+      "creacion-dinero",
+      "deposito",
+      "fgd",
+      "irpf-intereses"
+     ]
+    },
+    {
+     "id": "n0-u6",
+     "name": "Seguros, pensiones y riesgo",
+     "concepts": [
+      "seguros-basicos",
+      "pensiones-publicas",
+      "tres-pilares",
+      "riesgo-rentabilidad"
+     ]
+    }
+   ]
+  },
+  {
+   "level": 1,
+   "name": "Mercados 101",
+   "rank": "Analista Junior",
+   "floor": "Planta 1",
+   "weeks": "Semanas 5–10",
+   "units": [
+    {
+     "id": "n1-u1",
+     "name": "La empresa y la acción",
+     "concepts": [
+      "empresa",
+      "accion",
+      "capitalizacion",
+      "free-float"
+     ]
+    },
+    {
+     "id": "n1-u2",
+     "name": "Mercado primario y secundario",
+     "concepts": [
+      "mercado-primario",
+      "opv",
+      "mercado-secundario"
+     ]
+    },
+    {
+     "id": "n1-u3",
+     "name": "Bolsas e índices",
+     "concepts": [
+      "bme",
+      "ibex-35",
+      "bme-growth",
+      "indices-mundiales",
+      "otc"
+     ]
+    },
+    {
+     "id": "n1-u4",
+     "name": "Precios, órdenes y subastas",
+     "concepts": [
+      "formacion-precios",
+      "horquilla",
+      "liquidez",
+      "orden-mercado",
+      "orden-limitada",
+      "subastas",
+      "fomo-manada"
+     ]
+    },
+    {
+     "id": "n1-u5",
+     "name": "Operar en España: bróker, dividendos y fiscalidad",
+     "concepts": [
+      "comisiones",
+      "broker-espana",
+      "dividendo",
+      "rentabilidad-dividendo",
+      "rentabilidad-total",
+      "scrip-dividend",
+      "irpf-ganancias"
+     ]
+    },
+    {
+     "id": "n1-u6",
+     "name": "Operaciones corporativas y OPAs",
+     "concepts": [
+      "ampliacion-capital",
+      "derechos-suscripcion",
+      "split",
+      "recompra-acciones",
+      "opa"
+     ]
+    }
+   ]
+  },
+  {
+   "level": 2,
+   "name": "Productos",
+   "rank": "Analista",
+   "floor": "Planta 2",
+   "weeks": "Semanas 11–16",
+   "units": []
+  },
+  {
+   "level": 3,
+   "name": "Contabilidad, finanzas corporativas y valoración",
+   "rank": "Asociado",
+   "floor": "Planta 3",
+   "weeks": "Semanas 17–25",
+   "units": []
+  },
+  {
+   "level": 4,
+   "name": "Macro, finanzas internacionales y banca",
+   "rank": "VP",
+   "floor": "Planta 4",
+   "weeks": "Semanas 26–32",
+   "units": []
+  },
+  {
+   "level": 5,
+   "name": "Trading y microestructura",
+   "rank": "Director",
+   "floor": "Planta 5",
+   "weeks": "Semanas 33–36",
+   "units": []
+  },
+  {
+   "level": 6,
+   "name": "Carteras, riesgo y alternativos",
+   "rank": "Director Sénior",
+   "floor": "Planta 6",
+   "weeks": "Semanas 37–41",
+   "units": []
+  },
+  {
+   "level": 7,
+   "name": "Derivados",
+   "rank": "Managing Director",
+   "floor": "Planta 7",
+   "weeks": "Semanas 42–45",
+   "units": []
+  },
+  {
+   "level": 8,
+   "name": "Finanzas profesionales y fintech",
+   "rank": "Partner",
+   "floor": "Planta 8",
+   "weeks": "Semanas 46–49",
+   "units": []
+  },
+  {
+   "level": 9,
+   "name": "Historia, regulación, ética y fiscalidad",
+   "rank": "Leyenda",
+   "floor": "Planta 9",
+   "weeks": "Semanas 50–52",
+   "units": []
+  },
+  {
+   "level": 10,
+   "name": "Despacho de socios (examen final del año)",
+   "rank": "Leyenda",
+   "floor": "Planta 10",
+   "weeks": "Semana 52",
+   "units": []
+  }
+ ],
+ "tracks": [
+  {
+   "id": "banca-riesgos",
+   "name": "Banca y riesgos",
+   "unlocksAfterLevel": 4,
+   "weeks": 8
+  },
+  {
+   "id": "mercados-trading",
+   "name": "Mercados y trading",
+   "unlocksAfterLevel": 5,
+   "weeks": 8
+  },
+  {
+   "id": "corporate-valoracion",
+   "name": "Corporate y valoración",
+   "unlocksAfterLevel": 3,
+   "weeks": 8
+  },
+  {
+   "id": "fintech-cuantitativo",
+   "name": "Fintech y cuantitativo",
+   "unlocksAfterLevel": 6,
+   "weeks": 8
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "n1-u4-l4",
+  "version": 1,
+  "status": "published",
+  "reviewedBy": ["subagente"],
+  "level": 1,
+  "unit": 4,
+  "title": "Lección inválida a propósito",
+  "estimatedMinutes": 4,
+  "objectives": ["Distinguir orden de mercado y limitada"],
+  "concepts": ["orden-limitada", "dcf", "no-existe"],
+  "companies": ["empresa-fantasma"],
+  "intro": [
+    {
+      "type": "card",
+      "text": "Una orden limitada fija el precio máximo al que compras o mínimo al que vendes."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas del Turia cotiza a 10,20 €. Limitada a 10,00 €: solo compras si baja a 10,00 € o menos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "¿Qué orden garantiza el precio pero no la ejecución?",
+      "options": ["De mercado", "Limitada", "Stop", "Ninguna"],
+      "answer": 1,
+      "explanation": "La limitada fija el precio; si el mercado no llega, no se ejecuta.",
+      "wrongExplanations": {
+        "0": "Solo explico una de tres."
+      }
+    },
+    {
+      "id": "n1-u4-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "statement": "Inditex cotiza en el IBEX 35 y su acción siempre sube.",
+      "answer": false,
+      "explanation": "La orden de mercado se ejecuta al mejor precio disponible, no al que tú fijas."
+    },
+    {
+      "id": "n1-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["ordenes", "comisiones"],
+      "concepts": ["comisiones"],
+      "prompt": "Compras 100 acciones a 10,00 € con una comisión del 0,1 %. ¿Cuánto pagas en total?",
+      "answer": 1000,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "100 * 10 * (1 + 0.001)",
+      "explanation": "1.000 € de acciones + 1 € de comisión = 1.001 €."
+    },
+    {
+      "id": "n1-u4-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["ordenes"],
+      "concepts": ["dcf"],
+      "prompt": "Con una limitada de compra a 9,80 € y la acción a 10,20 €, ¿cuánto debe bajar el precio (en €) para que se ejecute?",
+      "answer": 0.4,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "10.20 - 9.80",
+      "explanation": "10,20 − 9,80 = 0,40 €."
+    },
+    {
+      "id": "n1-u4-l4-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "La orden ___ garantiza ___ la ejecución.",
+      "answers": [["de mercado", "a mercado"]],
+      "explanation": "La orden de mercado prioriza ejecutarse ya."
+    }
+  ],
+  "realWorld": "En la ficha de cualquier bróker verás \"limitada\" y \"a mercado\" al lanzar una orden.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-13"
+}

@@ -1,0 +1,2197 @@
+[
+ {
+  "id": "inflacion",
+  "name": "Inflación",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u1",
+  "description": "Subida generalizada y sostenida de los precios; el dinero compra menos con el tiempo."
+ },
+ {
+  "id": "poder-adquisitivo",
+  "name": "Poder adquisitivo",
+  "level": 0,
+  "prerequisites": [
+   "inflacion"
+  ],
+  "unit": "n0-u1",
+  "description": "Cantidad de bienes y servicios que se pueden comprar con una cantidad de dinero."
+ },
+ {
+  "id": "tipo-real-nominal",
+  "name": "Tipo real y nominal",
+  "level": 0,
+  "prerequisites": [
+   "inflacion"
+  ],
+  "unit": "n0-u1",
+  "description": "La rentabilidad nominal descontada la inflación da la rentabilidad real."
+ },
+ {
+  "id": "porcentajes",
+  "name": "Porcentajes y variaciones",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u1",
+  "description": "Calcular y componer porcentajes y variaciones relativas."
+ },
+ {
+  "id": "interes-simple",
+  "name": "Interés simple",
+  "level": 0,
+  "prerequisites": [
+   "porcentajes"
+  ],
+  "unit": "n0-u2",
+  "description": "Interés que se calcula siempre sobre el capital inicial."
+ },
+ {
+  "id": "interes-compuesto",
+  "name": "Interés compuesto",
+  "level": 0,
+  "prerequisites": [
+   "interes-simple"
+  ],
+  "unit": "n0-u2",
+  "description": "Interés calculado sobre el capital más los intereses ya acumulados: capital × (1 + i)^n."
+ },
+ {
+  "id": "regla-del-72",
+  "name": "Regla del 72",
+  "level": 0,
+  "prerequisites": [
+   "interes-compuesto"
+  ],
+  "unit": "n0-u2",
+  "description": "Atajo para estimar en cuántos años se duplica un capital: 72 / tipo %."
+ },
+ {
+  "id": "valor-temporal-dinero",
+  "name": "Valor temporal del dinero",
+  "level": 0,
+  "prerequisites": [
+   "interes-compuesto"
+  ],
+  "unit": "n0-u2",
+  "description": "Un euro hoy vale más que un euro mañana: valor futuro y valor actual."
+ },
+ {
+  "id": "tin",
+  "name": "TIN",
+  "level": 0,
+  "prerequisites": [
+   "interes-simple"
+  ],
+  "unit": "n0-u3",
+  "description": "Tipo de interés nominal anual, sin comisiones ni capitalización."
+ },
+ {
+  "id": "tae",
+  "name": "TAE",
+  "level": 0,
+  "prerequisites": [
+   "tin",
+   "interes-compuesto"
+  ],
+  "unit": "n0-u3",
+  "description": "Tasa anual equivalente: coste o rentabilidad efectiva con capitalización y comisiones."
+ },
+ {
+  "id": "prestamo",
+  "name": "Préstamo y cuota",
+  "level": 0,
+  "prerequisites": [
+   "tin"
+  ],
+  "unit": "n0-u3",
+  "description": "Capital prestado que se devuelve en cuotas con intereses."
+ },
+ {
+  "id": "cuadro-amortizacion",
+  "name": "Cuadro de amortización",
+  "level": 0,
+  "prerequisites": [
+   "prestamo"
+  ],
+  "unit": "n0-u3",
+  "description": "Reparto de cada cuota entre intereses y capital amortizado."
+ },
+ {
+  "id": "hipoteca",
+  "name": "Hipoteca",
+  "level": 0,
+  "prerequisites": [
+   "prestamo"
+  ],
+  "unit": "n0-u3",
+  "description": "Préstamo con garantía sobre un inmueble."
+ },
+ {
+  "id": "euribor",
+  "name": "Euríbor y tipo variable",
+  "level": 0,
+  "prerequisites": [
+   "hipoteca"
+  ],
+  "unit": "n0-u3",
+  "description": "Índice de referencia al que se ligan las hipotecas a tipo variable."
+ },
+ {
+  "id": "alquilar-vs-comprar",
+  "name": "Alquilar o comprar",
+  "level": 0,
+  "prerequisites": [
+   "hipoteca"
+  ],
+  "unit": "n0-u3",
+  "description": "Comparar el coste total y el coste de oportunidad de cada opción."
+ },
+ {
+  "id": "presupuesto",
+  "name": "Presupuesto personal",
+  "level": 0,
+  "prerequisites": [
+   "porcentajes"
+  ],
+  "unit": "n0-u4",
+  "description": "Ingresos, gastos fijos y variables y capacidad de ahorro."
+ },
+ {
+  "id": "fondo-emergencia",
+  "name": "Fondo de emergencia",
+  "level": 0,
+  "prerequisites": [
+   "presupuesto"
+  ],
+  "unit": "n0-u4",
+  "description": "Colchón de liquidez para imprevistos, de varios meses de gastos."
+ },
+ {
+  "id": "deuda-buena-mala",
+  "name": "Deuda buena y deuda cara",
+  "level": 0,
+  "prerequisites": [
+   "prestamo"
+  ],
+  "unit": "n0-u4",
+  "description": "Cuándo endeudarse tiene sentido y cuándo destruye riqueza (tarjetas revolving)."
+ },
+ {
+  "id": "sesgo-presente",
+  "name": "Sesgo del presente",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u4",
+  "description": "Tendencia a preferir una recompensa inmediata aunque sea menor."
+ },
+ {
+  "id": "celdas-suma",
+  "name": "Celdas, SUMA y referencias",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u4",
+  "description": "Primeros pasos con una hoja de cálculo: celdas, SUMA y referencias."
+ },
+ {
+  "id": "banco",
+  "name": "Cómo funciona un banco",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u5",
+  "description": "Intermediario que capta depósitos y concede créditos."
+ },
+ {
+  "id": "creacion-dinero",
+  "name": "Creación de dinero bancario",
+  "level": 0,
+  "prerequisites": [
+   "banco"
+  ],
+  "unit": "n0-u5",
+  "description": "Los créditos de los bancos crean dinero (depósitos) y lo multiplican."
+ },
+ {
+  "id": "deposito",
+  "name": "Depósito bancario",
+  "level": 0,
+  "prerequisites": [
+   "banco",
+   "tin"
+  ],
+  "unit": "n0-u5",
+  "description": "Dinero entregado al banco a cambio de un interés."
+ },
+ {
+  "id": "fgd",
+  "name": "Fondo de Garantía de Depósitos",
+  "level": 0,
+  "prerequisites": [
+   "deposito"
+  ],
+  "unit": "n0-u5",
+  "description": "Protege los depósitos hasta 100.000 € por titular y entidad."
+ },
+ {
+  "id": "irpf-intereses",
+  "name": "Intereses en el IRPF",
+  "level": 0,
+  "prerequisites": [
+   "deposito"
+  ],
+  "unit": "n0-u5",
+  "description": "Tributación de los intereses como rendimientos del capital mobiliario."
+ },
+ {
+  "id": "seguros-basicos",
+  "name": "Seguros básicos",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u6",
+  "description": "Seguros de salud, hogar, vida y coche: qué cubren y qué no."
+ },
+ {
+  "id": "pensiones-publicas",
+  "name": "Pensiones públicas en España",
+  "level": 0,
+  "prerequisites": [],
+  "unit": "n0-u6",
+  "description": "Sistema de reparto de la Seguridad Social."
+ },
+ {
+  "id": "tres-pilares",
+  "name": "Los tres pilares de la jubilación",
+  "level": 0,
+  "prerequisites": [
+   "pensiones-publicas"
+  ],
+  "unit": "n0-u6",
+  "description": "Pensión pública, planes de empresa y ahorro individual."
+ },
+ {
+  "id": "riesgo-rentabilidad",
+  "name": "Riesgo y rentabilidad",
+  "level": 0,
+  "prerequisites": [
+   "porcentajes"
+  ],
+  "unit": "n0-u6",
+  "description": "A mayor rentabilidad esperada, mayor riesgo."
+ },
+ {
+  "id": "empresa",
+  "name": "Empresa y propiedad",
+  "level": 1,
+  "prerequisites": [],
+  "unit": "n1-u1",
+  "description": "Organización que produce bienes o servicios y pertenece a sus socios."
+ },
+ {
+  "id": "accion",
+  "name": "Acción",
+  "level": 1,
+  "prerequisites": [
+   "empresa"
+  ],
+  "unit": "n1-u1",
+  "description": "Parte alícuota del capital de una sociedad que da derechos económicos y políticos."
+ },
+ {
+  "id": "capitalizacion",
+  "name": "Capitalización bursátil",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u1",
+  "description": "Precio por acción multiplicado por el número de acciones."
+ },
+ {
+  "id": "free-float",
+  "name": "Free float",
+  "level": 1,
+  "prerequisites": [
+   "capitalizacion"
+  ],
+  "unit": "n1-u1",
+  "description": "Parte de las acciones que cotiza libremente en el mercado."
+ },
+ {
+  "id": "mercado-primario",
+  "name": "Mercado primario",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u2",
+  "description": "Donde la empresa emite valores nuevos y recibe el dinero."
+ },
+ {
+  "id": "opv",
+  "name": "OPV y OPS",
+  "level": 1,
+  "prerequisites": [
+   "mercado-primario"
+  ],
+  "unit": "n1-u2",
+  "description": "Oferta pública de venta o suscripción: salida a bolsa."
+ },
+ {
+  "id": "mercado-secundario",
+  "name": "Mercado secundario",
+  "level": 1,
+  "prerequisites": [
+   "mercado-primario"
+  ],
+  "unit": "n1-u2",
+  "description": "Donde los inversores se compran y venden valores ya emitidos."
+ },
+ {
+  "id": "bme",
+  "name": "BME y mercado continuo",
+  "level": 1,
+  "prerequisites": [
+   "mercado-secundario"
+  ],
+  "unit": "n1-u3",
+  "description": "Operador de las bolsas españolas y su sistema de negociación continua."
+ },
+ {
+  "id": "ibex-35",
+  "name": "IBEX 35",
+  "level": 1,
+  "prerequisites": [
+   "capitalizacion",
+   "bme"
+  ],
+  "unit": "n1-u3",
+  "description": "Índice de las 35 mayores empresas del mercado continuo."
+ },
+ {
+  "id": "bme-growth",
+  "name": "BME Growth",
+  "level": 1,
+  "prerequisites": [
+   "bme"
+  ],
+  "unit": "n1-u3",
+  "description": "Mercado para pequeñas empresas en expansión."
+ },
+ {
+  "id": "indices-mundiales",
+  "name": "Índices mundiales",
+  "level": 1,
+  "prerequisites": [
+   "ibex-35"
+  ],
+  "unit": "n1-u3",
+  "description": "S&P 500, Euro Stoxx 50, Nikkei y otros índices de referencia."
+ },
+ {
+  "id": "otc",
+  "name": "Mercados OTC",
+  "level": 1,
+  "prerequisites": [
+   "mercado-secundario"
+  ],
+  "unit": "n1-u3",
+  "description": "Operaciones bilaterales fuera de un mercado organizado."
+ },
+ {
+  "id": "formacion-precios",
+  "name": "Formación de precios",
+  "level": 1,
+  "prerequisites": [
+   "mercado-secundario"
+  ],
+  "unit": "n1-u4",
+  "description": "El precio surge del cruce de órdenes de compra y venta."
+ },
+ {
+  "id": "horquilla",
+  "name": "Horquilla (bid-ask)",
+  "level": 1,
+  "prerequisites": [
+   "formacion-precios"
+  ],
+  "unit": "n1-u4",
+  "description": "Diferencia entre el mejor precio de compra y el de venta."
+ },
+ {
+  "id": "liquidez",
+  "name": "Liquidez de mercado",
+  "level": 1,
+  "prerequisites": [
+   "horquilla"
+  ],
+  "unit": "n1-u4",
+  "description": "Facilidad para comprar o vender sin mover el precio."
+ },
+ {
+  "id": "orden-mercado",
+  "name": "Orden de mercado",
+  "level": 1,
+  "prerequisites": [
+   "formacion-precios"
+  ],
+  "unit": "n1-u4",
+  "description": "Se ejecuta ya al mejor precio disponible; garantiza ejecución, no precio."
+ },
+ {
+  "id": "orden-limitada",
+  "name": "Orden limitada",
+  "level": 1,
+  "prerequisites": [
+   "orden-mercado"
+  ],
+  "unit": "n1-u4",
+  "description": "Fija el precio máximo de compra o mínimo de venta; garantiza precio, no ejecución."
+ },
+ {
+  "id": "subastas",
+  "name": "Subastas de apertura y cierre",
+  "level": 1,
+  "prerequisites": [
+   "formacion-precios"
+  ],
+  "unit": "n1-u4",
+  "description": "Fases en las que se fija el precio de apertura y cierre."
+ },
+ {
+  "id": "comisiones",
+  "name": "Comisiones y costes de operar",
+  "level": 1,
+  "prerequisites": [
+   "orden-mercado"
+  ],
+  "unit": "n1-u5",
+  "description": "Comisión del bróker, canon de bolsa y la horquilla como coste."
+ },
+ {
+  "id": "broker-espana",
+  "name": "Abrir un bróker en España",
+  "level": 1,
+  "prerequisites": [
+   "bme"
+  ],
+  "unit": "n1-u5",
+  "description": "Qué mirar al elegir un bróker regulado por la CNMV."
+ },
+ {
+  "id": "dividendo",
+  "name": "Dividendo",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u5",
+  "description": "Parte del beneficio que la empresa reparte a sus accionistas."
+ },
+ {
+  "id": "rentabilidad-dividendo",
+  "name": "Rentabilidad por dividendo",
+  "level": 1,
+  "prerequisites": [
+   "dividendo",
+   "porcentajes"
+  ],
+  "unit": "n1-u5",
+  "description": "Dividendo por acción entre precio de la acción."
+ },
+ {
+  "id": "rentabilidad-total",
+  "name": "Rentabilidad total",
+  "level": 1,
+  "prerequisites": [
+   "rentabilidad-dividendo"
+  ],
+  "unit": "n1-u5",
+  "description": "Revalorización más dividendos."
+ },
+ {
+  "id": "scrip-dividend",
+  "name": "Scrip dividend",
+  "level": 1,
+  "prerequisites": [
+   "dividendo"
+  ],
+  "unit": "n1-u5",
+  "description": "Dividendo a elegir entre efectivo o acciones nuevas."
+ },
+ {
+  "id": "irpf-ganancias",
+  "name": "Ganancias patrimoniales en el IRPF",
+  "level": 1,
+  "prerequisites": [
+   "rentabilidad-total"
+  ],
+  "unit": "n1-u5",
+  "description": "Tributación de la venta de acciones y de los dividendos."
+ },
+ {
+  "id": "ampliacion-capital",
+  "name": "Ampliación de capital",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u6",
+  "description": "La empresa emite acciones nuevas para captar fondos."
+ },
+ {
+  "id": "derechos-suscripcion",
+  "name": "Derechos de suscripción",
+  "level": 1,
+  "prerequisites": [
+   "ampliacion-capital"
+  ],
+  "unit": "n1-u6",
+  "description": "Derecho de los accionistas a suscribir acciones nuevas antes que nadie."
+ },
+ {
+  "id": "split",
+  "name": "Split y contrasplit",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u6",
+  "description": "Cambio del número de acciones sin cambiar el valor de la empresa."
+ },
+ {
+  "id": "recompra-acciones",
+  "name": "Recompra de acciones",
+  "level": 1,
+  "prerequisites": [
+   "accion"
+  ],
+  "unit": "n1-u6",
+  "description": "La empresa compra sus propias acciones para amortizarlas."
+ },
+ {
+  "id": "opa",
+  "name": "OPA",
+  "level": 1,
+  "prerequisites": [
+   "accion",
+   "capitalizacion"
+  ],
+  "unit": "n1-u6",
+  "description": "Oferta pública de adquisición dirigida a todos los accionistas."
+ },
+ {
+  "id": "fomo-manada",
+  "name": "FOMO y efecto manada",
+  "level": 1,
+  "prerequisites": [
+   "sesgo-presente"
+  ],
+  "unit": "n1-u4",
+  "description": "Comprar por miedo a perderse una subida porque otros lo hacen."
+ },
+ {
+  "id": "cupon-bono",
+  "name": "Cupón y valor nominal de un bono",
+  "level": 2,
+  "prerequisites": [
+   "interes-compuesto"
+  ]
+ },
+ {
+  "id": "precio-bono-tipos",
+  "name": "Precio de un bono y tipos de interés",
+  "level": 2,
+  "prerequisites": [
+   "cupon-bono"
+  ]
+ },
+ {
+  "id": "tir-bono",
+  "name": "TIR de un bono",
+  "level": 2,
+  "prerequisites": [
+   "precio-bono-tipos"
+  ]
+ },
+ {
+  "id": "curva-tipos",
+  "name": "Curva de tipos",
+  "level": 2,
+  "prerequisites": [
+   "tir-bono"
+  ]
+ },
+ {
+  "id": "curva-cupon-cero",
+  "name": "Curva cupón cero",
+  "level": 2,
+  "prerequisites": [
+   "curva-tipos"
+  ]
+ },
+ {
+  "id": "duracion",
+  "name": "Duración",
+  "level": 2,
+  "prerequisites": [
+   "precio-bono-tipos"
+  ]
+ },
+ {
+  "id": "convexidad",
+  "name": "Convexidad",
+  "level": 2,
+  "prerequisites": [
+   "duracion"
+  ]
+ },
+ {
+  "id": "rating-spread",
+  "name": "Rating y spread de crédito",
+  "level": 2,
+  "prerequisites": [
+   "tir-bono"
+  ]
+ },
+ {
+  "id": "letras-bonos-tesoro",
+  "name": "Letras y Bonos del Tesoro",
+  "level": 2,
+  "prerequisites": [
+   "cupon-bono"
+  ]
+ },
+ {
+  "id": "mercado-monetario-repo",
+  "name": "Mercado monetario y repo",
+  "level": 2,
+  "prerequisites": [
+   "letras-bonos-tesoro"
+  ]
+ },
+ {
+  "id": "cedulas-titulizaciones",
+  "name": "Cédulas hipotecarias y titulizaciones",
+  "level": 2,
+  "prerequisites": [
+   "hipoteca",
+   "rating-spread"
+  ]
+ },
+ {
+  "id": "fondos-inversion",
+  "name": "Fondos de inversión y TER",
+  "level": 2,
+  "prerequisites": [
+   "riesgo-rentabilidad"
+  ]
+ },
+ {
+  "id": "traspasos-fondos",
+  "name": "Traspasos entre fondos",
+  "level": 2,
+  "prerequisites": [
+   "fondos-inversion"
+  ]
+ },
+ {
+  "id": "etf",
+  "name": "ETF",
+  "level": 2,
+  "prerequisites": [
+   "fondos-inversion",
+   "mercado-secundario"
+  ]
+ },
+ {
+  "id": "planes-pensiones",
+  "name": "Planes de pensiones",
+  "level": 2,
+  "prerequisites": [
+   "tres-pilares"
+  ]
+ },
+ {
+  "id": "socimi-reit",
+  "name": "SOCIMI y REIT",
+  "level": 2,
+  "prerequisites": [
+   "accion"
+  ]
+ },
+ {
+  "id": "materias-primas",
+  "name": "Materias primas",
+  "level": 2,
+  "prerequisites": [
+   "mercado-secundario"
+  ]
+ },
+ {
+  "id": "divisas",
+  "name": "Divisas y tipo de cambio",
+  "level": 2,
+  "prerequisites": [
+   "mercado-secundario"
+  ]
+ },
+ {
+  "id": "alternativos-intro",
+  "name": "Introducción a alternativos",
+  "level": 2,
+  "prerequisites": [
+   "riesgo-rentabilidad"
+  ]
+ },
+ {
+  "id": "cripto-mica",
+  "name": "Cripto y MiCA",
+  "level": 2,
+  "prerequisites": [
+   "riesgo-rentabilidad"
+  ]
+ },
+ {
+  "id": "derivados-intro",
+  "name": "Introducción a derivados",
+  "level": 2,
+  "prerequisites": [
+   "accion"
+  ]
+ },
+ {
+  "id": "productos-complejos",
+  "name": "Productos complejos y avisos CNMV",
+  "level": 2,
+  "prerequisites": [
+   "derivados-intro"
+  ]
+ },
+ {
+  "id": "media-desviacion",
+  "name": "Media y desviación típica",
+  "level": 2,
+  "prerequisites": [
+   "porcentajes"
+  ]
+ },
+ {
+  "id": "distribucion-normal",
+  "name": "Distribución normal y colas gordas",
+  "level": 2,
+  "prerequisites": [
+   "media-desviacion"
+  ]
+ },
+ {
+  "id": "ilusion-control",
+  "name": "Ilusión de control",
+  "level": 2,
+  "prerequisites": [
+   "fomo-manada"
+  ]
+ },
+ {
+  "id": "fiscalidad-fondos",
+  "name": "Fiscalidad de fondos, ETF y cripto",
+  "level": 2,
+  "prerequisites": [
+   "fondos-inversion",
+   "irpf-ganancias"
+  ]
+ },
+ {
+  "id": "balance",
+  "name": "Balance",
+  "level": 3,
+  "prerequisites": [
+   "empresa"
+  ]
+ },
+ {
+  "id": "pyg",
+  "name": "Cuenta de pérdidas y ganancias",
+  "level": 3,
+  "prerequisites": [
+   "empresa"
+  ]
+ },
+ {
+  "id": "flujos-caja",
+  "name": "Estado de flujos de caja",
+  "level": 3,
+  "prerequisites": [
+   "balance",
+   "pyg"
+  ]
+ },
+ {
+  "id": "conexion-estados",
+  "name": "Conexión entre los tres estados",
+  "level": 3,
+  "prerequisites": [
+   "balance",
+   "pyg",
+   "flujos-caja"
+  ]
+ },
+ {
+  "id": "pgc-niif",
+  "name": "PGC español vs NIIF",
+  "level": 3,
+  "prerequisites": [
+   "balance"
+  ]
+ },
+ {
+  "id": "consolidacion",
+  "name": "Consolidación",
+  "level": 3,
+  "prerequisites": [
+   "balance"
+  ]
+ },
+ {
+  "id": "fondo-comercio",
+  "name": "Fondo de comercio y deterioros",
+  "level": 3,
+  "prerequisites": [
+   "consolidacion"
+  ]
+ },
+ {
+  "id": "provisiones",
+  "name": "Provisiones",
+  "level": 3,
+  "prerequisites": [
+   "pyg"
+  ]
+ },
+ {
+  "id": "arrendamientos-ifrs16",
+  "name": "Arrendamientos (IFRS 16)",
+  "level": 3,
+  "prerequisites": [
+   "balance"
+  ]
+ },
+ {
+  "id": "ratios",
+  "name": "Ratios financieros",
+  "level": 3,
+  "prerequisites": [
+   "balance",
+   "pyg"
+  ]
+ },
+ {
+  "id": "ciclo-caja",
+  "name": "Circulante y ciclo de caja",
+  "level": 3,
+  "prerequisites": [
+   "balance"
+  ]
+ },
+ {
+  "id": "prestamo-sindicado",
+  "name": "Préstamo bancario y sindicado",
+  "level": 3,
+  "prerequisites": [
+   "prestamo"
+  ]
+ },
+ {
+  "id": "leasing-renting",
+  "name": "Leasing y renting",
+  "level": 3,
+  "prerequisites": [
+   "arrendamientos-ifrs16"
+  ]
+ },
+ {
+  "id": "factoring-confirming",
+  "name": "Factoring y confirming",
+  "level": 3,
+  "prerequisites": [
+   "ciclo-caja"
+  ]
+ },
+ {
+  "id": "emision-bonos",
+  "name": "Emisión de bonos corporativos",
+  "level": 3,
+  "prerequisites": [
+   "cupon-bono"
+  ]
+ },
+ {
+  "id": "estructura-capital",
+  "name": "Estructura de capital",
+  "level": 3,
+  "prerequisites": [
+   "balance"
+  ]
+ },
+ {
+  "id": "modigliani-miller",
+  "name": "Modigliani-Miller (intuitivo)",
+  "level": 3,
+  "prerequisites": [
+   "estructura-capital"
+  ]
+ },
+ {
+  "id": "politica-dividendos",
+  "name": "Política de dividendos",
+  "level": 3,
+  "prerequisites": [
+   "dividendo",
+   "estructura-capital"
+  ]
+ },
+ {
+  "id": "van",
+  "name": "VAN",
+  "level": 3,
+  "prerequisites": [
+   "valor-temporal-dinero"
+  ]
+ },
+ {
+  "id": "tir-proyecto",
+  "name": "TIR de un proyecto",
+  "level": 3,
+  "prerequisites": [
+   "van"
+  ]
+ },
+ {
+  "id": "multiplos",
+  "name": "Múltiplos de valoración",
+  "level": 3,
+  "prerequisites": [
+   "ratios"
+  ]
+ },
+ {
+  "id": "dcf",
+  "name": "DCF paso a paso",
+  "level": 3,
+  "prerequisites": [
+   "van",
+   "flujos-caja"
+  ]
+ },
+ {
+  "id": "coste-capital",
+  "name": "Coste del capital",
+  "level": 3,
+  "prerequisites": [
+   "estructura-capital"
+  ]
+ },
+ {
+  "id": "wacc",
+  "name": "WACC",
+  "level": 3,
+  "prerequisites": [
+   "coste-capital"
+  ]
+ },
+ {
+  "id": "trampas-contables",
+  "name": "Trampas contables",
+  "level": 3,
+  "prerequisites": [
+   "conexion-estados"
+  ]
+ },
+ {
+  "id": "impuesto-sociedades",
+  "name": "Impuesto sobre sociedades",
+  "level": 3,
+  "prerequisites": [
+   "pyg"
+  ]
+ },
+ {
+  "id": "anclaje",
+  "name": "Sesgo de anclaje",
+  "level": 3,
+  "prerequisites": [
+   "ilusion-control"
+  ]
+ },
+ {
+  "id": "pib",
+  "name": "PIB",
+  "level": 4,
+  "prerequisites": [
+   "porcentajes"
+  ]
+ },
+ {
+  "id": "ipc",
+  "name": "IPC e inflación",
+  "level": 4,
+  "prerequisites": [
+   "inflacion"
+  ]
+ },
+ {
+  "id": "paro-pmi",
+  "name": "Paro y PMI",
+  "level": 4,
+  "prerequisites": [
+   "pib"
+  ]
+ },
+ {
+  "id": "calendario-macro",
+  "name": "Calendario macro",
+  "level": 4,
+  "prerequisites": [
+   "pib",
+   "ipc"
+  ]
+ },
+ {
+  "id": "bce",
+  "name": "BCE y política monetaria",
+  "level": 4,
+  "prerequisites": [
+   "ipc"
+  ]
+ },
+ {
+  "id": "fed",
+  "name": "Fed",
+  "level": 4,
+  "prerequisites": [
+   "bce"
+  ]
+ },
+ {
+  "id": "qe-qt",
+  "name": "QE y QT",
+  "level": 4,
+  "prerequisites": [
+   "bce"
+  ]
+ },
+ {
+  "id": "inversion-curva",
+  "name": "Inversión de la curva de tipos",
+  "level": 4,
+  "prerequisites": [
+   "curva-tipos"
+  ]
+ },
+ {
+  "id": "ciclo-economico",
+  "name": "Ciclo económico y rotación sectorial",
+  "level": 4,
+  "prerequisites": [
+   "pib"
+  ]
+ },
+ {
+  "id": "politica-fiscal",
+  "name": "Política fiscal y deuda pública",
+  "level": 4,
+  "prerequisites": [
+   "pib"
+  ]
+ },
+ {
+  "id": "prima-riesgo",
+  "name": "Prima de riesgo",
+  "level": 4,
+  "prerequisites": [
+   "rating-spread",
+   "politica-fiscal"
+  ]
+ },
+ {
+  "id": "balanza-pagos",
+  "name": "Balanza de pagos",
+  "level": 4,
+  "prerequisites": [
+   "pib"
+  ]
+ },
+ {
+  "id": "ppa-pti",
+  "name": "Paridad del poder adquisitivo y de tipos",
+  "level": 4,
+  "prerequisites": [
+   "divisas"
+  ]
+ },
+ {
+  "id": "emergentes",
+  "name": "Mercados emergentes",
+  "level": 4,
+  "prerequisites": [
+   "divisas"
+  ]
+ },
+ {
+  "id": "margen-intereses",
+  "name": "Margen de intereses bancario",
+  "level": 4,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "solvencia-cet1",
+  "name": "Solvencia y CET1",
+  "level": 4,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "basilea",
+  "name": "Basilea",
+  "level": 4,
+  "prerequisites": [
+   "solvencia-cet1"
+  ]
+ },
+ {
+  "id": "liquidez-lcr-nsfr",
+  "name": "Liquidez bancaria: LCR y NSFR",
+  "level": 4,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "test-estres",
+  "name": "Test de estrés",
+  "level": 4,
+  "prerequisites": [
+   "solvencia-cet1"
+  ]
+ },
+ {
+  "id": "pd-lgd-ead",
+  "name": "PD, LGD y EAD",
+  "level": 4,
+  "prerequisites": [
+   "rating-spread"
+  ]
+ },
+ {
+  "id": "morosidad-ifrs9",
+  "name": "Morosidad y provisiones IFRS 9",
+  "level": 4,
+  "prerequisites": [
+   "pd-lgd-ead"
+  ]
+ },
+ {
+  "id": "union-bancaria",
+  "name": "Unión Bancaria, MUS y resolución",
+  "level": 4,
+  "prerequisites": [
+   "basilea"
+  ]
+ },
+ {
+  "id": "valorar-bancos",
+  "name": "Valorar bancos (P/VTC, ROTE)",
+  "level": 4,
+  "prerequisites": [
+   "multiplos",
+   "solvencia-cet1"
+  ]
+ },
+ {
+  "id": "correlacion",
+  "name": "Correlación",
+  "level": 4,
+  "prerequisites": [
+   "media-desviacion"
+  ]
+ },
+ {
+  "id": "sesgo-narrativa",
+  "name": "Sesgo de narrativa",
+  "level": 4,
+  "prerequisites": [
+   "anclaje"
+  ]
+ },
+ {
+  "id": "libro-ordenes",
+  "name": "Libro de órdenes",
+  "level": 5,
+  "prerequisites": [
+   "horquilla",
+   "orden-limitada"
+  ]
+ },
+ {
+  "id": "market-makers",
+  "name": "Market makers y HFT",
+  "level": 5,
+  "prerequisites": [
+   "libro-ordenes"
+  ]
+ },
+ {
+  "id": "dark-pools",
+  "name": "Dark pools",
+  "level": 5,
+  "prerequisites": [
+   "libro-ordenes"
+  ]
+ },
+ {
+  "id": "subastas-avanzadas",
+  "name": "Subastas y fixing",
+  "level": 5,
+  "prerequisites": [
+   "subastas"
+  ]
+ },
+ {
+  "id": "costes-reales-operar",
+  "name": "Costes reales de operar",
+  "level": 5,
+  "prerequisites": [
+   "comisiones",
+   "horquilla"
+  ]
+ },
+ {
+  "id": "cortos",
+  "name": "Ventas en corto y préstamo de valores",
+  "level": 5,
+  "prerequisites": [
+   "accion"
+  ]
+ },
+ {
+  "id": "analisis-tecnico",
+  "name": "Análisis técnico con mirada crítica",
+  "level": 5,
+  "prerequisites": [
+   "formacion-precios"
+  ]
+ },
+ {
+  "id": "perdida-minorista",
+  "name": "Por qué pierde el inversor minorista",
+  "level": 5,
+  "prerequisites": [
+   "analisis-tecnico"
+  ]
+ },
+ {
+  "id": "stop-tamano",
+  "name": "Stop y tamaño de posición",
+  "level": 5,
+  "prerequisites": [
+   "orden-mercado"
+  ]
+ },
+ {
+  "id": "valor-esperado",
+  "name": "Probabilidad y valor esperado",
+  "level": 5,
+  "prerequisites": [
+   "media-desviacion"
+  ]
+ },
+ {
+  "id": "exceso-confianza",
+  "name": "Exceso de confianza y aversión a la pérdida",
+  "level": 5,
+  "prerequisites": [
+   "sesgo-narrativa"
+  ]
+ },
+ {
+  "id": "si-buscarx",
+  "name": "SI y BUSCARX en hojas de cálculo",
+  "level": 5,
+  "prerequisites": [
+   "celdas-suma"
+  ]
+ },
+ {
+  "id": "rentabilidad-log",
+  "name": "Rentabilidad simple y logarítmica",
+  "level": 6,
+  "prerequisites": [
+   "rentabilidad-total"
+  ]
+ },
+ {
+  "id": "twr-mwr",
+  "name": "TWR vs MWR",
+  "level": 6,
+  "prerequisites": [
+   "rentabilidad-log"
+  ]
+ },
+ {
+  "id": "volatilidad",
+  "name": "Volatilidad",
+  "level": 6,
+  "prerequisites": [
+   "media-desviacion"
+  ]
+ },
+ {
+  "id": "diversificacion",
+  "name": "Diversificación",
+  "level": 6,
+  "prerequisites": [
+   "correlacion",
+   "volatilidad"
+  ]
+ },
+ {
+  "id": "markowitz",
+  "name": "Markowitz y frontera eficiente",
+  "level": 6,
+  "prerequisites": [
+   "diversificacion"
+  ]
+ },
+ {
+  "id": "capm-beta",
+  "name": "CAPM y beta",
+  "level": 6,
+  "prerequisites": [
+   "markowitz"
+  ]
+ },
+ {
+  "id": "sharpe-sortino",
+  "name": "Sharpe y Sortino",
+  "level": 6,
+  "prerequisites": [
+   "volatilidad"
+  ]
+ },
+ {
+  "id": "drawdown",
+  "name": "Drawdown",
+  "level": 6,
+  "prerequisites": [
+   "volatilidad"
+  ]
+ },
+ {
+  "id": "var-cvar",
+  "name": "VaR y CVaR",
+  "level": 6,
+  "prerequisites": [
+   "distribucion-normal",
+   "volatilidad"
+  ]
+ },
+ {
+  "id": "factores",
+  "name": "Inversión por factores",
+  "level": 6,
+  "prerequisites": [
+   "capm-beta"
+  ]
+ },
+ {
+  "id": "pasiva-activa",
+  "name": "Gestión pasiva vs activa",
+  "level": 6,
+  "prerequisites": [
+   "fondos-inversion"
+  ]
+ },
+ {
+  "id": "alternativos-inversion",
+  "name": "Alternativos como inversión",
+  "level": 6,
+  "prerequisites": [
+   "alternativos-intro"
+  ]
+ },
+ {
+  "id": "esg-sfdr",
+  "name": "ESG y SFDR",
+  "level": 6,
+  "prerequisites": [
+   "fondos-inversion"
+  ]
+ },
+ {
+  "id": "asset-allocation",
+  "name": "Asset allocation y rebalanceo",
+  "level": 6,
+  "prerequisites": [
+   "diversificacion"
+  ]
+ },
+ {
+  "id": "monte-carlo",
+  "name": "Simulación Monte Carlo",
+  "level": 6,
+  "prerequisites": [
+   "distribucion-normal"
+  ]
+ },
+ {
+  "id": "backtesting",
+  "name": "Trampas del backtesting",
+  "level": 6,
+  "prerequisites": [
+   "monte-carlo"
+  ]
+ },
+ {
+  "id": "comisiones-compuestas",
+  "name": "Efecto compuesto de las comisiones",
+  "level": 6,
+  "prerequisites": [
+   "interes-compuesto",
+   "fondos-inversion"
+  ]
+ },
+ {
+  "id": "contabilidad-mental",
+  "name": "Contabilidad mental",
+  "level": 6,
+  "prerequisites": [
+   "exceso-confianza"
+  ]
+ },
+ {
+  "id": "futuros-forwards",
+  "name": "Futuros y forwards",
+  "level": 7,
+  "prerequisites": [
+   "derivados-intro"
+  ]
+ },
+ {
+  "id": "opciones",
+  "name": "Opciones call y put",
+  "level": 7,
+  "prerequisites": [
+   "derivados-intro"
+  ]
+ },
+ {
+  "id": "payoff",
+  "name": "Payoffs",
+  "level": 7,
+  "prerequisites": [
+   "opciones"
+  ]
+ },
+ {
+  "id": "valor-intrinseco-temporal",
+  "name": "Valor intrínseco y temporal",
+  "level": 7,
+  "prerequisites": [
+   "opciones"
+  ]
+ },
+ {
+  "id": "binomial-un-paso",
+  "name": "Modelo binomial de un paso",
+  "level": 7,
+  "prerequisites": [
+   "valor-intrinseco-temporal"
+  ]
+ },
+ {
+  "id": "black-scholes",
+  "name": "Black-Scholes intuitivo",
+  "level": 7,
+  "prerequisites": [
+   "binomial-un-paso",
+   "volatilidad"
+  ]
+ },
+ {
+  "id": "griegas",
+  "name": "Griegas",
+  "level": 7,
+  "prerequisites": [
+   "black-scholes"
+  ]
+ },
+ {
+  "id": "estrategias-opciones",
+  "name": "Estrategias con opciones",
+  "level": 7,
+  "prerequisites": [
+   "payoff"
+  ]
+ },
+ {
+  "id": "swaps",
+  "name": "Swaps de tipos y divisa",
+  "level": 7,
+  "prerequisites": [
+   "futuros-forwards"
+  ]
+ },
+ {
+  "id": "cds",
+  "name": "CDS",
+  "level": 7,
+  "prerequisites": [
+   "rating-spread"
+  ]
+ },
+ {
+  "id": "apalancamiento-margin",
+  "name": "Apalancamiento y margin call",
+  "level": 7,
+  "prerequisites": [
+   "futuros-forwards"
+  ]
+ },
+ {
+  "id": "coberturas-empresa",
+  "name": "Coberturas en empresas",
+  "level": 7,
+  "prerequisites": [
+   "futuros-forwards",
+   "divisas"
+  ]
+ },
+ {
+  "id": "sesgo-resultado",
+  "name": "Sesgo de resultado",
+  "level": 7,
+  "prerequisites": [
+   "contabilidad-mental"
+  ]
+ },
+ {
+  "id": "fiscalidad-derivados",
+  "name": "Tributación de derivados",
+  "level": 7,
+  "prerequisites": [
+   "irpf-ganancias"
+  ]
+ },
+ {
+  "id": "mapa-sector",
+  "name": "Mapa del sector financiero",
+  "level": 8,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "emisiones-opv",
+  "name": "OPV y emisiones en detalle",
+  "level": 8,
+  "prerequisites": [
+   "opv"
+  ]
+ },
+ {
+  "id": "m-and-a",
+  "name": "M&A y sinergias",
+  "level": 8,
+  "prerequisites": [
+   "valorar-bancos"
+  ]
+ },
+ {
+  "id": "lbo",
+  "name": "LBO",
+  "level": 8,
+  "prerequisites": [
+   "m-and-a",
+   "estructura-capital"
+  ]
+ },
+ {
+  "id": "venture-capital",
+  "name": "Venture capital y rondas",
+  "level": 8,
+  "prerequisites": [
+   "alternativos-inversion"
+  ]
+ },
+ {
+  "id": "fintech-panorama",
+  "name": "Panorama fintech",
+  "level": 8,
+  "prerequisites": [
+   "mapa-sector"
+  ]
+ },
+ {
+  "id": "open-banking",
+  "name": "Open banking",
+  "level": 8,
+  "prerequisites": [
+   "fintech-panorama"
+  ]
+ },
+ {
+  "id": "euro-digital",
+  "name": "Euro digital",
+  "level": 8,
+  "prerequisites": [
+   "bce"
+  ]
+ },
+ {
+  "id": "tokenizacion",
+  "name": "Tokenización",
+  "level": 8,
+  "prerequisites": [
+   "cripto-mica"
+  ]
+ },
+ {
+  "id": "research-informe",
+  "name": "Informe de research",
+  "level": 8,
+  "prerequisites": [
+   "dcf",
+   "multiplos"
+  ]
+ },
+ {
+  "id": "entrevistas-banca",
+  "name": "Preparación de entrevistas de banca",
+  "level": 8,
+  "prerequisites": [
+   "mapa-sector"
+  ]
+ },
+ {
+  "id": "certificaciones",
+  "name": "CFA, EFPA y FRM",
+  "level": 8,
+  "prerequisites": [
+   "mapa-sector"
+  ]
+ },
+ {
+  "id": "pensamiento-grupo",
+  "name": "Pensamiento de grupo",
+  "level": 8,
+  "prerequisites": [
+   "sesgo-resultado"
+  ]
+ },
+ {
+  "id": "burbujas-historia",
+  "name": "Burbujas y crisis históricas",
+  "level": 9,
+  "prerequisites": [
+   "ciclo-economico"
+  ]
+ },
+ {
+  "id": "crisis-2008",
+  "name": "Crisis de 2008",
+  "level": 9,
+  "prerequisites": [
+   "burbujas-historia"
+  ]
+ },
+ {
+  "id": "burbuja-inmobiliaria-es",
+  "name": "Burbuja inmobiliaria española",
+  "level": 9,
+  "prerequisites": [
+   "crisis-2008"
+  ]
+ },
+ {
+  "id": "crisis-cajas-bankia",
+  "name": "Crisis de las cajas y Bankia",
+  "level": 9,
+  "prerequisites": [
+   "crisis-2008"
+  ]
+ },
+ {
+  "id": "deuda-europea-2012",
+  "name": "Crisis de deuda europea 2012",
+  "level": 9,
+  "prerequisites": [
+   "prima-riesgo"
+  ]
+ },
+ {
+  "id": "banco-popular-2017",
+  "name": "Resolución del Banco Popular",
+  "level": 9,
+  "prerequisites": [
+   "union-bancaria"
+  ]
+ },
+ {
+  "id": "covid-svb",
+  "name": "COVID y SVB 2023",
+  "level": 9,
+  "prerequisites": [
+   "burbujas-historia"
+  ]
+ },
+ {
+  "id": "fraudes",
+  "name": "Fraudes financieros",
+  "level": 9,
+  "prerequisites": [
+   "trampas-contables"
+  ]
+ },
+ {
+  "id": "chiringuitos",
+  "name": "Chiringuitos financieros",
+  "level": 9,
+  "prerequisites": [
+   "fraudes"
+  ]
+ },
+ {
+  "id": "regulacion-cnmv-esma",
+  "name": "CNMV, ESMA y MiFID II",
+  "level": 9,
+  "prerequisites": [
+   "broker-espana"
+  ]
+ },
+ {
+  "id": "idoneidad-conveniencia",
+  "name": "Idoneidad y conveniencia",
+  "level": 9,
+  "prerequisites": [
+   "regulacion-cnmv-esma"
+  ]
+ },
+ {
+  "id": "abuso-mercado",
+  "name": "Abuso de mercado",
+  "level": 9,
+  "prerequisites": [
+   "regulacion-cnmv-esma"
+  ]
+ },
+ {
+  "id": "blanqueo-kyc",
+  "name": "Prevención del blanqueo y KYC",
+  "level": 9,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "reclamaciones-be",
+  "name": "Reclamaciones al Banco de España",
+  "level": 9,
+  "prerequisites": [
+   "banco"
+  ]
+ },
+ {
+  "id": "fiscalidad-avanzada",
+  "name": "Fiscalidad avanzada (720/721, doble imposición)",
+  "level": 9,
+  "prerequisites": [
+   "irpf-ganancias"
+  ]
+ },
+ {
+  "id": "patrimonio-sucesiones",
+  "name": "Patrimonio y Sucesiones",
+  "level": 9,
+  "prerequisites": [
+   "fiscalidad-avanzada"
+  ]
+ },
+ {
+  "id": "etica-conflictos",
+  "name": "Ética y conflictos de interés",
+  "level": 9,
+  "prerequisites": [
+   "abuso-mercado"
+  ]
+ },
+ {
+  "id": "productos-activo-pasivo",
+  "name": "Productos de activo y pasivo",
+  "level": 4,
+  "prerequisites": [
+   "margen-intereses"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "scoring-rating-interno",
+  "name": "Scoring y rating interno",
+  "level": 4,
+  "prerequisites": [
+   "pd-lgd-ead"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "modelos-irb",
+  "name": "Modelos IRB (intuición)",
+  "level": 4,
+  "prerequisites": [
+   "scoring-rating-interno"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "ifrs9-fases",
+  "name": "IFRS 9: fases y pérdida esperada",
+  "level": 4,
+  "prerequisites": [
+   "morosidad-ifrs9"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "alm-tipo-interes",
+  "name": "ALM y riesgo de tipo de interés",
+  "level": 4,
+  "prerequisites": [
+   "margen-intereses"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "liquidez-financiacion",
+  "name": "Liquidez y financiación",
+  "level": 4,
+  "prerequisites": [
+   "liquidez-lcr-nsfr"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "riesgo-mercado-operacional",
+  "name": "Riesgo de mercado y operacional",
+  "level": 4,
+  "prerequisites": [
+   "solvencia-cet1"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "capital-pilares",
+  "name": "Capital: Pilares 1, 2 y 3",
+  "level": 4,
+  "prerequisites": [
+   "basilea"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "test-estres-avanzado",
+  "name": "Test de estrés avanzado",
+  "level": 4,
+  "prerequisites": [
+   "test-estres"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "banca-privada-mifid",
+  "name": "Banca privada y asesoramiento MiFID",
+  "level": 4,
+  "prerequisites": [
+   "idoneidad-conveniencia"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "blanqueo-avanzado",
+  "name": "Prevención del blanqueo avanzada",
+  "level": 4,
+  "prerequisites": [
+   "blanqueo-kyc"
+  ],
+  "track": "banca-riesgos"
+ },
+ {
+  "id": "inmunizacion",
+  "name": "Inmunización",
+  "level": 5,
+  "prerequisites": [
+   "duracion"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "carry-roll-down",
+  "name": "Carry y roll-down",
+  "level": 5,
+  "prerequisites": [
+   "curva-tipos"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "posicionamiento-curva",
+  "name": "Posicionamiento en la curva",
+  "level": 5,
+  "prerequisites": [
+   "inversion-curva"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "griegas-cartera",
+  "name": "Griegas de una cartera",
+  "level": 5,
+  "prerequisites": [
+   "griegas"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "volatilidad-implicita",
+  "name": "Volatilidad implícita y sonrisa",
+  "level": 5,
+  "prerequisites": [
+   "black-scholes"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "exoticos-intro",
+  "name": "Introducción a exóticos",
+  "level": 5,
+  "prerequisites": [
+   "payoff"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "divisas-materias",
+  "name": "Divisas y materias primas avanzadas",
+  "level": 5,
+  "prerequisites": [
+   "divisas"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "mesa-trading",
+  "name": "Cómo funciona una mesa",
+  "level": 5,
+  "prerequisites": [
+   "market-makers"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "ejecucion-algoritmica",
+  "name": "Ejecución algorítmica",
+  "level": 5,
+  "prerequisites": [
+   "libro-ordenes"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "riesgo-mesa",
+  "name": "Riesgo de mesa: VaR, límites y P&L",
+  "level": 5,
+  "prerequisites": [
+   "var-cvar"
+  ],
+  "track": "mercados-trading"
+ },
+ {
+  "id": "modelo-tres-estados",
+  "name": "Modelo de 3 estados completo",
+  "level": 3,
+  "prerequisites": [
+   "conexion-estados"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "dcf-avanzado",
+  "name": "DCF avanzado",
+  "level": 3,
+  "prerequisites": [
+   "dcf"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "comparables",
+  "name": "Comparables y transacciones precedentes",
+  "level": 3,
+  "prerequisites": [
+   "multiplos"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "suma-partes",
+  "name": "Suma de partes",
+  "level": 3,
+  "prerequisites": [
+   "dcf"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "valoracion-sectores",
+  "name": "Valorar bancos, aseguradoras e inmobiliarias",
+  "level": 3,
+  "prerequisites": [
+   "valorar-bancos"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "ma-completo",
+  "name": "M&A completo (acreción/dilución, due diligence)",
+  "level": 3,
+  "prerequisites": [
+   "multiplos"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "lbo-completo",
+  "name": "LBO completo",
+  "level": 3,
+  "prerequisites": [
+   "lbo"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "concurso-acreedores",
+  "name": "Concurso de acreedores en España",
+  "level": 3,
+  "prerequisites": [
+   "emision-bonos"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "pe-vc-dentro",
+  "name": "Private equity y VC desde dentro",
+  "level": 3,
+  "prerequisites": [
+   "venture-capital"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "pitch-book",
+  "name": "Cómo se hace un pitch book",
+  "level": 3,
+  "prerequisites": [
+   "comparables"
+  ],
+  "track": "corporate-valoracion"
+ },
+ {
+  "id": "medios-pago",
+  "name": "Medios de pago e infraestructura",
+  "level": 6,
+  "prerequisites": [
+   "banco"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "psd2-psd3",
+  "name": "Open banking: PSD2 y PSD3",
+  "level": 6,
+  "prerequisites": [
+   "open-banking"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "euro-digital-rama",
+  "name": "Euro digital en detalle",
+  "level": 6,
+  "prerequisites": [
+   "euro-digital"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "defi-mica",
+  "name": "Cripto, DeFi y tokenización bajo MiCA",
+  "level": 6,
+  "prerequisites": [
+   "tokenizacion"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "regtech",
+  "name": "Regtech",
+  "level": 6,
+  "prerequisites": [
+   "regulacion-cnmv-esma"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "ia-finanzas",
+  "name": "IA en finanzas: usos y sesgos",
+  "level": 6,
+  "prerequisites": [
+   "fintech-panorama"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "python-finanzas",
+  "name": "Python para finanzas",
+  "level": 6,
+  "prerequisites": [
+   "valor-temporal-dinero"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "series-temporales",
+  "name": "Series temporales",
+  "level": 6,
+  "prerequisites": [
+   "volatilidad"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "modelos-factores",
+  "name": "Modelos de factores",
+  "level": 6,
+  "prerequisites": [
+   "factores"
+  ],
+  "track": "fintech-cuantitativo"
+ },
+ {
+  "id": "montecarlo-riguroso",
+  "name": "Monte Carlo y backtesting rigurosos",
+  "level": 6,
+  "prerequisites": [
+   "backtesting"
+  ],
+  "track": "fintech-cuantitativo"
+ }
+]

@@ -1,0 +1,567 @@
+import { evaluateNumber, evaluate, ExprError, type Value } from '../engine/expr';
+import { checkCompany } from './accounting';
+import {
+  EXERCISE_CATEGORY,
+  companiesSchema,
+  conceptsSchema,
+  curriculumSchema,
+  glossarySchema,
+  lessonSchema,
+  placementSchema,
+  type Concept,
+  type Exercise,
+  type Lesson,
+} from './schemas';
+
+export type Severity = 'error' | 'warning';
+export interface Issue {
+  severity: Severity;
+  code: string;
+  where: string;
+  message: string;
+}
+
+export interface RawFile {
+  path: string;
+  data: unknown;
+}
+
+export interface ContentBundle {
+  concepts: unknown;
+  companies: unknown;
+  glossary?: unknown;
+  curriculum?: unknown;
+  lessons: RawFile[];
+  placements?: RawFile[];
+  /** Nombres de empresas reales que no pueden aparecer fuera de document_read y lecciones históricas. */
+  realCompanies?: string[];
+  /** id → estado de lo ya publicado (ids-lock.json). */
+  idsLock?: Record<string, string>;
+}
+
+const PERCENT_MIN_PRODUCE = 0.4;
+const PERCENT_MAX_RECOGNIZE = 0.4;
+
+function zodIssues(
+  where: string,
+  error: { issues: { path: PropertyKey[]; message: string }[] },
+): Issue[] {
+  return error.issues.slice(0, 8).map((i) => ({
+    severity: 'error' as const,
+    code: 'esquema',
+    where,
+    message: `${i.path.join('.') || '(raíz)'}: ${i.message}`,
+  }));
+}
+
+/** Todas las cadenas de un valor (para buscar nombres de empresas reales). */
+function strings(v: unknown): string[] {
+  if (typeof v === 'string') return [v];
+  if (Array.isArray(v)) return v.flatMap(strings);
+  if (v && typeof v === 'object') return Object.values(v).flatMap(strings);
+  return [];
+}
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+export function conceptCycles(concepts: Concept[]): string[][] {
+  const byId = new Map(concepts.map((c) => [c.id, c]));
+  const cycles: string[][] = [];
+  const state = new Map<string, 0 | 1 | 2>();
+  const stack: string[] = [];
+  const visit = (id: string) => {
+    state.set(id, 1);
+    stack.push(id);
+    for (const p of byId.get(id)?.prerequisites ?? []) {
+      if (!byId.has(p)) continue;
+      if (state.get(p) === 1) cycles.push([...stack.slice(stack.indexOf(p)), p]);
+      else if (!state.has(p)) visit(p);
+    }
+    stack.pop();
+    state.set(id, 2);
+  };
+  for (const c of concepts) if (!state.has(c.id)) visit(c.id);
+  return cycles;
+}
+
+/** Comprobaciones semánticas de un ejercicio (más allá de la forma del JSON). */
+export function checkExercise(e: Exercise, strict: boolean): Issue[] {
+  const out: Issue[] = [];
+  const err = (code: string, message: string) =>
+    out.push({ severity: 'error', code, where: e.id, message });
+  const soft = (code: string, message: string) =>
+    out.push({ severity: strict ? 'error' : 'warning', code, where: e.id, message });
+
+  const wrongCoverage = (n: number, answers: number[], w: Record<string, string> | undefined) => {
+    for (let i = 0; i < n; i++) {
+      if (answers.includes(i)) {
+        if (w?.[String(i)])
+          err(
+            'explicacion-opcion-correcta',
+            `wrongExplanations["${i}"] explica la opción correcta`,
+          );
+      } else if (!w?.[String(i)]) {
+        soft(
+          'falta-explicacion-erronea',
+          `Falta explicación específica para la opción incorrecta ${i}`,
+        );
+      }
+    }
+    for (const k of Object.keys(w ?? {}))
+      if (Number(k) >= n) err('indice', `wrongExplanations["${k}"] fuera de rango`);
+  };
+
+  switch (e.type) {
+    case 'multiple_choice':
+    case 'scenario':
+    case 'chart_read':
+      if (e.answer >= e.options.length)
+        err('indice', `answer ${e.answer} fuera de las ${e.options.length} opciones`);
+      else wrongCoverage(e.options.length, [e.answer], e.wrongExplanations);
+      if (new Set(e.options).size !== e.options.length)
+        err('opciones-duplicadas', 'Hay opciones repetidas');
+      break;
+    case 'best_argument':
+      if (e.answer >= e.options.length)
+        err('indice', `answer ${e.answer} fuera de las ${e.options.length} opciones`);
+      else wrongCoverage(e.options.length, [e.answer], e.wrongExplanations);
+      break;
+    case 'multi_select':
+      if (e.answers.some((a) => a >= e.options.length))
+        err('indice', 'Una respuesta está fuera de las opciones');
+      if (new Set(e.answers).size !== e.answers.length)
+        err('respuestas-duplicadas', 'Respuestas repetidas');
+      if (e.answers.length === e.options.length)
+        err('sin-distractores', 'Todas las opciones son correctas');
+      break;
+    case 'fill_blank': {
+      const gaps = (e.prompt.match(/___/g) ?? []).length;
+      if (gaps !== e.answers.length)
+        err(
+          'huecos',
+          `El enunciado tiene ${gaps} hueco(s) (___) y ${e.answers.length} respuesta(s)`,
+        );
+      break;
+    }
+    case 'match_pairs':
+      if (new Set(e.pairs.map((p) => p.left)).size !== e.pairs.length)
+        err('pares-duplicados', 'Hay elementos de la izquierda repetidos');
+      break;
+    case 'categorize': {
+      const bad = e.items.filter((i) => !e.categories.includes(i.category));
+      if (bad.length)
+        err(
+          'categoria',
+          `Elemento(s) con categoría inexistente: ${bad.map((b) => b.text).join(', ')}`,
+        );
+      break;
+    }
+    case 'numeric_input': {
+      try {
+        const v = evaluateNumber(e.formula);
+        const allowed = Math.max(
+          (Math.abs(e.answer) * e.tolerance) / 100,
+          Math.abs(e.answer) * 1e-6,
+          1e-9,
+        );
+        if (Math.abs(v - e.answer) > allowed)
+          err(
+            'formula',
+            `La fórmula "${e.formula}" da ${Number(v.toPrecision(12))}, no ${e.answer} (tolerancia ${e.tolerance} %)`,
+          );
+      } catch (x) {
+        err('formula', `La fórmula "${e.formula}" no se puede evaluar: ${(x as Error).message}`);
+      }
+      break;
+    }
+    case 'spreadsheet': {
+      const cache = new Map<string, Value>();
+      const resolving = new Set<string>();
+      const get = (name: string): Value | undefined => {
+        const key = name.toUpperCase();
+        if (cache.has(key)) return cache.get(key);
+        const raw = e.cells[key];
+        if (raw === undefined) return key === e.target.toUpperCase() ? undefined : 0;
+        if (resolving.has(key)) throw new ExprError(`Referencia circular en ${key}`);
+        resolving.add(key);
+        const v =
+          typeof raw === 'number'
+            ? raw
+            : raw.startsWith('=')
+              ? evaluate(raw, { get })
+              : Number.isNaN(Number(raw))
+                ? raw
+                : Number(raw);
+        resolving.delete(key);
+        cache.set(key, v);
+        return v;
+      };
+      try {
+        const v = evaluateNumber(e.solution, { get });
+        const allowed = Math.max(
+          (Math.abs(e.expected) * e.tolerance) / 100,
+          Math.abs(e.expected) * 1e-6,
+          1e-9,
+        );
+        if (Math.abs(v - e.expected) > allowed)
+          err(
+            'formula',
+            `La solución "${e.solution}" da ${Number(v.toPrecision(12))}, no ${e.expected}`,
+          );
+      } catch (x) {
+        err('formula', `La solución "${e.solution}" no se puede evaluar: ${(x as Error).message}`);
+      }
+      break;
+    }
+    case 'spot_the_error':
+      if (e.errorIndex >= e.lines.length) err('indice', 'errorIndex fuera de las líneas');
+      break;
+    case 'slider_estimate':
+      if (!(e.min < e.max)) err('rango', 'min debe ser menor que max');
+      else if (e.answer < e.min || e.answer > e.max) err('rango', 'answer fuera de [min, max]');
+      break;
+    case 'case_step':
+      e.steps.forEach((s, i) => {
+        if (s.answer >= s.options.length)
+          err('indice', `Paso ${i + 1}: answer fuera de las opciones`);
+      });
+      break;
+    case 'document_read':
+      e.questions.forEach((q, i) => {
+        if (q.answer >= q.options.length)
+          err('indice', `Pregunta ${i + 1}: answer fuera de las opciones`);
+      });
+      if (Date.parse(e.documentDate) > Date.now()) err('fecha', 'documentDate está en el futuro');
+      break;
+    case 'build_statement': {
+      const blanks = e.sections.flatMap((s) => s.rows).filter((r) => r.blank).length;
+      if (!blanks) err('sin-huecos', 'build_statement debe tener al menos una fila a completar');
+      if (e.statement === 'balance') {
+        const sum = (side: string) =>
+          e.sections
+            .filter((s) => s.side === side)
+            .flatMap((s) => s.rows)
+            .reduce((a, r) => a + r.value, 0);
+        if (sum('activo') !== sum('pasivo') + sum('patrimonio'))
+          err(
+            'balance',
+            `El balance no cuadra: activo ${sum('activo')} ≠ pasivo + patrimonio ${sum('pasivo') + sum('patrimonio')}`,
+          );
+      }
+      break;
+    }
+    case 'code':
+    case 'true_false_swipe':
+    case 'order_steps':
+    case 'self_explain':
+      break;
+  }
+  return out;
+}
+
+function checkLesson(
+  l: Lesson,
+  ctx: { conceptIds: Map<string, Concept>; companyIds: Set<string>; realCompanies: string[] },
+): Issue[] {
+  const out: Issue[] = [];
+  const err = (code: string, message: string, where = l.id) =>
+    out.push({ severity: 'error', code, where, message });
+  const strict = l.status === 'reviewed' || l.status === 'published';
+
+  // 6–10 ejercicios; mezcla (TEMARIO §6, CLAUDE.md §8)
+  const n = l.exercises.length;
+  if (n < 6 || n > 10)
+    err('num-ejercicios', `Una lección tiene entre 6 y 10 ejercicios; esta tiene ${n}`);
+  const count = { reconocer: 0, producir: 0, aplicar: 0 };
+  for (const e of l.exercises) count[EXERCISE_CATEGORY[e.type]]++;
+  if (count.reconocer / n > PERCENT_MAX_RECOGNIZE)
+    err('mezcla', `Demasiados ejercicios de reconocer: ${count.reconocer}/${n} (máx. 40 %)`);
+  if (count.producir / n < PERCENT_MIN_PRODUCE)
+    err('mezcla', `Pocos ejercicios de producir: ${count.producir}/${n} (mín. 40 %)`);
+
+  // estado y revisión
+  if (l.status === 'published' && !l.reviewedBy.includes('humano'))
+    err('revision', 'published exige reviewedBy con "humano"');
+  if (strict && !l.reviewedBy.includes('subagente'))
+    err('revision', `${l.status} exige reviewedBy con "subagente"`);
+
+  // conceptos: existen y no se usan antes de su nivel
+  const used = new Set([...l.concepts, ...l.exercises.flatMap((e) => e.concepts)]);
+  for (const id of used) {
+    const c = ctx.conceptIds.get(id);
+    if (!c) {
+      err('concepto-inexistente', `El concepto "${id}" no existe en concepts.json`);
+    } else if (c.level > l.level && !(l.track && c.track === l.track)) {
+      err(
+        'concepto-adelantado',
+        `El concepto "${id}" es del nivel ${c.level} y se usa en el nivel ${l.level}`,
+      );
+    }
+  }
+
+  // empresas: solo del universo ficticio
+  for (const id of l.companies)
+    if (!ctx.companyIds.has(id))
+      err('empresa-inexistente', `La empresa "${id}" no está en companies.json`);
+  if (!l.historical) {
+    const scanned = [
+      l.title,
+      l.objectives,
+      l.intro,
+      l.realWorld,
+      l.exercises.filter((e) => e.type !== 'document_read'),
+    ];
+    const text = strings(scanned).join('\n');
+    for (const name of ctx.realCompanies) {
+      if (new RegExp(`(^|[^\\p{L}])${escapeRe(name)}([^\\p{L}]|$)`, 'u').test(text))
+        err(
+          'empresa-real',
+          `Aparece la empresa real "${name}" fuera de document_read o de una lección histórica`,
+        );
+    }
+  }
+
+  // fiscalidad / normativa: fuente y fecha
+  const regulated = l.exercises.some((e) =>
+    e.tags.some((t) => ['fiscalidad', 'normativa'].includes(t.toLowerCase())),
+  );
+  if (regulated && !l.sources.length)
+    err('sin-fuente', 'Contenido de fiscalidad o normativa sin sources oficiales');
+  if (regulated && l.verificarAntesDe === null)
+    err('sin-caducidad', 'Contenido de fiscalidad o normativa sin verificarAntesDe');
+
+  // ejercicios
+  const seen = new Set<string>();
+  for (const e of l.exercises) {
+    if (seen.has(e.id)) err('id-duplicado', `Ejercicio repetido en la lección: ${e.id}`, e.id);
+    seen.add(e.id);
+    if (!e.id.startsWith(`${l.id}-`))
+      err('id-formato', `El id debería empezar por "${l.id}-"`, e.id);
+    out.push(...checkExercise(e, strict));
+  }
+  return out;
+}
+
+/** Bloom por nivel (CLAUDE.md §8): sobre lecciones reviewed/published; error con ≥4 lecciones, aviso si hay pocas. */
+function checkBloom(lessons: Lesson[]): Issue[] {
+  const out: Issue[] = [];
+  const levels = [...new Set(lessons.filter((l) => !l.track).map((l) => l.level))];
+  for (const level of levels) {
+    const ls = lessons.filter(
+      (l) => !l.track && l.level === level && (l.status === 'reviewed' || l.status === 'published'),
+    );
+    const ex = ls.flatMap((l) => l.exercises);
+    if (!ex.length) continue;
+    const share = (names: readonly string[]) =>
+      ex.filter((e) => names.includes(e.bloom)).length / ex.length;
+    const rule =
+      level <= 2
+        ? { names: ['recordar', 'entender'], min: 0.5, text: '≥ 50 % recordar/entender' }
+        : level <= 6
+          ? { names: ['aplicar', 'analizar'], min: 0.5, text: '≥ 50 % aplicar/analizar' }
+          : { names: ['evaluar'], min: 0.3, text: '≥ 30 % evaluar' };
+    const s = share(rule.names);
+    if (s < rule.min)
+      out.push({
+        severity: ls.length >= 4 ? 'error' : 'warning',
+        code: 'bloom',
+        where: `nivel-${level}`,
+        message: `Nivel ${level}: ${(s * 100).toFixed(0)} % (${rule.text}) sobre ${ls.length} lección(es)`,
+      });
+  }
+  return out;
+}
+
+export function validateContent(b: ContentBundle): {
+  issues: Issue[];
+  lessons: Lesson[];
+  concepts: Concept[];
+} {
+  const issues: Issue[] = [];
+
+  const cp = conceptsSchema.safeParse(b.concepts);
+  if (!cp.success) issues.push(...zodIssues('concepts.json', cp.error));
+  const concepts = cp.success ? cp.data : [];
+  const conceptIds = new Map(concepts.map((c) => [c.id, c]));
+  const dup = concepts.map((c) => c.id).filter((id, i, a) => a.indexOf(id) !== i);
+  for (const id of new Set(dup))
+    issues.push({
+      severity: 'error',
+      code: 'id-duplicado',
+      where: 'concepts.json',
+      message: `Concepto repetido: ${id}`,
+    });
+  for (const c of concepts) {
+    for (const p of c.prerequisites) {
+      const pc = conceptIds.get(p);
+      if (!pc)
+        issues.push({
+          severity: 'error',
+          code: 'prerrequisito',
+          where: c.id,
+          message: `Prerrequisito inexistente: ${p}`,
+        });
+      else if (pc.level > c.level && !(c.track && c.track !== pc.track))
+        issues.push({
+          severity: 'error',
+          code: 'prerrequisito-nivel',
+          where: c.id,
+          message: `Prerrequisito ${p} (nivel ${pc.level}) posterior a ${c.id} (nivel ${c.level})`,
+        });
+    }
+  }
+  for (const cycle of conceptCycles(concepts))
+    issues.push({
+      severity: 'error',
+      code: 'ciclo',
+      where: 'concepts.json',
+      message: `Ciclo de prerrequisitos: ${cycle.join(' → ')}`,
+    });
+
+  const co = companiesSchema.safeParse(b.companies);
+  if (!co.success) issues.push(...zodIssues('companies.json', co.error));
+  const companies = co.success ? co.data : [];
+  for (const c of companies)
+    for (const a of checkCompany(c))
+      issues.push({
+        severity: 'error',
+        code: 'cuentas',
+        where: `${a.company} ${a.year}`,
+        message: a.message,
+      });
+
+  if (b.glossary !== undefined) {
+    const g = glossarySchema.safeParse(b.glossary);
+    if (!g.success) issues.push(...zodIssues('glossary.json', g.error));
+  }
+  if (b.curriculum !== undefined) {
+    const c = curriculumSchema.safeParse(b.curriculum);
+    if (!c.success) issues.push(...zodIssues('curriculum.json', c.error));
+    else
+      for (const u of c.data.levels.flatMap((l) => l.units).flatMap((u) => u.concepts))
+        if (!conceptIds.has(u))
+          issues.push({
+            severity: 'error',
+            code: 'concepto-inexistente',
+            where: 'curriculum.json',
+            message: `Concepto inexistente en el curriculum: ${u}`,
+          });
+  }
+
+  const ctx = {
+    conceptIds,
+    companyIds: new Set(companies.map((c) => c.id)),
+    realCompanies: b.realCompanies ?? [],
+  };
+  const lessons: Lesson[] = [];
+  for (const f of b.lessons) {
+    const r = lessonSchema.safeParse(f.data);
+    if (!r.success) {
+      issues.push(...zodIssues(f.path, r.error));
+      continue;
+    }
+    lessons.push(r.data);
+    issues.push(
+      ...checkLesson(r.data, ctx).map((i) => ({ ...i, where: `${f.path} › ${i.where}` })),
+    );
+  }
+
+  for (const f of b.placements ?? []) {
+    const r = placementSchema.safeParse(f.data);
+    if (!r.success) issues.push(...zodIssues(f.path, r.error));
+    else {
+      if (r.data.status === 'published' && !r.data.reviewedBy.includes('humano'))
+        issues.push({
+          severity: 'error',
+          code: 'revision',
+          where: f.path,
+          message: 'published exige reviewedBy con "humano"',
+        });
+      for (const q of r.data.questions) {
+        issues.push(
+          ...checkExercise(q, true).map((i) => ({ ...i, where: `${f.path} › ${i.where}` })),
+        );
+        for (const id of q.concepts)
+          if (!conceptIds.has(id))
+            issues.push({
+              severity: 'error',
+              code: 'concepto-inexistente',
+              where: f.path,
+              message: `Concepto inexistente: ${id}`,
+            });
+      }
+    }
+  }
+
+  // ids únicos entre lecciones y ejercicios
+  const ids = new Map<string, string>();
+  for (const l of lessons) {
+    for (const id of [l.id, ...l.exercises.map((e) => e.id)]) {
+      if (ids.has(id) && id !== l.id)
+        issues.push({
+          severity: 'error',
+          code: 'id-duplicado',
+          where: id,
+          message: `Id repetido (también en ${ids.get(id)})`,
+        });
+      else if (ids.has(id) && id === l.id)
+        issues.push({
+          severity: 'error',
+          code: 'id-duplicado',
+          where: id,
+          message: `Lección repetida (también en ${ids.get(id)})`,
+        });
+      ids.set(id, l.id);
+    }
+  }
+  // ids estables: lo ya publicado nunca desaparece (se retira con status "retired")
+  for (const [id, status] of Object.entries(b.idsLock ?? {})) {
+    if (!ids.has(id) && status !== 'retired')
+      issues.push({
+        severity: 'error',
+        code: 'id-desaparecido',
+        where: id,
+        message:
+          'Un id publicado ha desaparecido; los ids son inmutables: usa status "retired" en vez de borrar',
+      });
+  }
+
+  issues.push(...checkBloom(lessons));
+  return { issues, lessons, concepts };
+}
+
+/** id → status de lo que ya está reviewed/published, para escribir ids-lock.json. */
+export function buildIdsLock(lessons: Lesson[]): Record<string, string> {
+  const lock: Record<string, string> = {};
+  for (const l of lessons) {
+    if (l.status === 'draft') continue;
+    lock[l.id] = l.status;
+    for (const e of l.exercises) lock[e.id] = l.status;
+  }
+  return Object.fromEntries(Object.entries(lock).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+export interface Expiry {
+  id: string;
+  kind: 'vencido' | 'proximo';
+  date: string;
+  daysLeft: number;
+}
+
+/** content:check: verificarAntesDe vencido o dentro de `windowDays` días. */
+export function findExpiring(
+  items: { id: string; verificarAntesDe: string | null }[],
+  today: string,
+  windowDays = 30,
+): Expiry[] {
+  const day = 86_400_000;
+  const out: Expiry[] = [];
+  for (const i of items) {
+    if (!i.verificarAntesDe) continue;
+    const left = Math.round((Date.parse(i.verificarAntesDe) - Date.parse(today)) / day);
+    if (left < 0) out.push({ id: i.id, kind: 'vencido', date: i.verificarAntesDe, daysLeft: left });
+    else if (left <= windowDays)
+      out.push({ id: i.id, kind: 'proximo', date: i.verificarAntesDe, daysLeft: left });
+  }
+  return out.sort((a, b) => a.daysLeft - b.daysLeft);
+}

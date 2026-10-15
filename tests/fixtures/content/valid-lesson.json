@@ -1,0 +1,129 @@
+{
+  "id": "n1-u4-l2",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
+  "level": 1,
+  "unit": 4,
+  "title": "La orden limitada",
+  "estimatedMinutes": 4,
+  "objectives": ["Distinguir orden de mercado y limitada"],
+  "concepts": ["orden-limitada", "orden-mercado", "comisiones"],
+  "companies": ["naranjas-del-turia"],
+  "intro": [
+    {
+      "type": "card",
+      "text": "Una orden limitada fija el precio máximo al que compras o mínimo al que vendes."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas del Turia cotiza a 10,20 €. Limitada a 10,00 €: solo compras si baja a 10,00 € o menos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "¿Qué orden garantiza el precio pero no la ejecución?",
+      "options": ["De mercado", "Limitada", "Stop", "Ninguna"],
+      "answer": 1,
+      "explanation": "La limitada fija el precio; si el mercado no llega, no se ejecuta.",
+      "wrongExplanations": {
+        "0": "La de mercado garantiza ejecución, no precio.",
+        "2": "La stop se activa al tocar un precio y después ejecuta a mercado.",
+        "3": "La limitada sí lo garantiza."
+      }
+    },
+    {
+      "id": "n1-u4-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "statement": "Una orden de mercado se ejecuta siempre al precio que tú fijas.",
+      "answer": false,
+      "explanation": "La orden de mercado se ejecuta al mejor precio disponible, no al que tú fijas."
+    },
+    {
+      "id": "n1-u4-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["ordenes", "comisiones"],
+      "concepts": ["comisiones"],
+      "prompt": "Compras 100 acciones a 10,00 € con una comisión del 0,1 %. ¿Cuánto pagas en total?",
+      "answer": 1001,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "100 * 10 * (1 + 0.001)",
+      "explanation": "1.000 € de acciones + 1 € de comisión = 1.001 €."
+    },
+    {
+      "id": "n1-u4-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "Con una limitada de compra a 9,80 € y la acción a 10,20 €, ¿cuánto debe bajar el precio (en €) para que se ejecute?",
+      "answer": 0.4,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "10.20 - 9.80",
+      "explanation": "10,20 − 9,80 = 0,40 €."
+    },
+    {
+      "id": "n1-u4-l2-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "La orden ___ garantiza la ejecución pero no el precio.",
+      "answers": [["de mercado", "a mercado"]],
+      "explanation": "La orden de mercado prioriza ejecutarse ya."
+    },
+    {
+      "id": "n1-u4-l2-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "prompt": "Ordena lo que ocurre al lanzar una orden limitada de compra.",
+      "steps": [
+        "Fijas el precio máximo",
+        "La orden entra en el libro",
+        "Aparece una venta a ese precio o menos",
+        "Se ejecuta la operación"
+      ],
+      "explanation": "La orden espera en el libro hasta que hay contrapartida."
+    },
+    {
+      "id": "n1-u4-l2-e7",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "situation": "Quieres comprar acciones de Naranjas del Turia, pero solo si bajan a 10,00 €.",
+      "prompt": "¿Qué orden usas?",
+      "options": ["De mercado", "Limitada a 10,00 €", "Ninguna"],
+      "answer": 1,
+      "explanation": "La limitada fija el precio máximo que aceptas.",
+      "wrongExplanations": {
+        "0": "Se ejecutaría ya, a 10,20 €.",
+        "2": "Sin orden no compras nada."
+      }
+    }
+  ],
+  "realWorld": "En la ficha de cualquier bróker verás \"limitada\" y \"a mercado\" al lanzar una orden.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-13"
+}
