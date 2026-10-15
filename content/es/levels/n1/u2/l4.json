@@ -110,7 +110,7 @@
       "concepts": [
         "capitalizacion"
       ],
-      "prompt": "Tras la emisión, el precio por acción no cambia. ¿Qué ocurre con la capitalización?",
+      "prompt": "Una empresa con 12.000.000 de acciones a 10 € emite 3.000.000 más y el precio sigue en 10 € (supuesto ilustrativo). ¿Qué ocurre con su capitalización?",
       "options": [
         "Aumenta, porque hay más acciones",
         "Disminuye",
@@ -120,7 +120,7 @@
       "answer": 0,
       "explanation": "Capitalización = precio × acciones; con el mismo precio y más acciones, aumenta.",
       "wrongExplanations": {
-        "1": "Habría menos si bajara el precio o las acciones.",
+        "1": "Con el mismo precio y más acciones no puede bajar.",
         "2": "Sí cambia: hay más acciones.",
         "3": "Se puede calcular con precio y número de acciones."
       }
@@ -132,13 +132,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": [
-        "mercado-primario"
+        "capitalizacion"
       ],
-      "prompt": "La empresa emite 3.000.000 de acciones nuevas a 10 €. ¿Cuántos euros recauda?",
-      "answer": 30000000,
+      "prompt": "Una empresa con 12.000.000 de acciones emite 3.000.000 nuevas a 10 € y el precio de cotización sigue en 10 €. ¿Cuál es su capitalización después, en euros?",
+      "answer": 150000000,
       "tolerance": 0,
-      "formula": "3000000 * 10",
-      "explanation": "3.000.000 × 10 = 30.000.000 €.",
+      "formula": "15000000 * 10",
+      "explanation": "15.000.000 de acciones × 10 € = 150.000.000 €.",
       "unit": "€"
     },
     {
@@ -168,7 +168,7 @@
       "concepts": [
         "mercado-primario"
       ],
-      "prompt": "Para mantener su 30 % de 15.000.000 de acciones, Carmen (con 3.600.000) quiere comprar acciones nuevas. ¿Cuántas más necesita?",
+      "prompt": "Para mantener su 30 % de 15.000.000 de acciones, Carmen (con 3.600.000) quiere comprar acciones, dentro de los 3.000.000 nuevos que se emiten. ¿Cuántas más necesita?",
       "answer": 900000,
       "tolerance": 0,
       "formula": "15000000 * 0.30 - 3600000",
@@ -176,7 +176,7 @@
       "unit": "acciones"
     }
   ],
-  "realWorld": "Las ampliaciones de capital diluyen a quien no acude: más adelante verás cómo los derechos de suscripción lo evitan.",
+  "realWorld": "Emitir acciones nuevas diluye a quien no las compra: es lo que verás en las ampliaciones de capital.",
   "sources": [
     {
       "title": "CNMV: folletos y ofertas públicas de valores",

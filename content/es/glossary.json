@@ -822,7 +822,7 @@
   {
     "id": "mercado-primario",
     "term": "Mercado primario",
-    "definition": "Mercado en el que una empresa emite títulos nuevos (acciones, bonos) y recibe el dinero de los inversores.",
+    "definition": "Mercado en el que una empresa emite títulos nuevos (por ahora, acciones) y recibe el dinero de los inversores.",
     "level": 1,
     "concepts": [
       "mercado-primario"
@@ -831,7 +831,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "mercado-secundario",
@@ -845,7 +851,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "ops",
@@ -861,7 +873,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "opv",
@@ -877,7 +895,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "dilucion",
@@ -891,12 +915,18 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "emisor",
     "term": "Emisor",
-    "definition": "Empresa o entidad que emite títulos, como acciones o bonos, para financiarse.",
+    "definition": "Empresa o entidad que emite títulos, como las acciones, para financiarse.",
     "level": 1,
     "concepts": [
       "mercado-primario"
@@ -905,6 +935,12 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: folletos y ofertas públicas de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

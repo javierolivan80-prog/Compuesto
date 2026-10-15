@@ -26,7 +26,7 @@
     },
     {
       "type": "card",
-      "text": "En el mercado secundario los inversores se compran y venden acciones ya emitidas: el dinero no llega a la empresa. Emitir acciones nuevas diluye a quien no acude."
+      "text": "En el mercado secundario los inversores se compran y venden acciones ya emitidas: el dinero no llega a la empresa. Emitir acciones nuevas diluye a quien no acude. Precios ilustrativos."
     }
   ],
   "exercises": [
@@ -127,6 +127,10 @@
         {
           "text": "Aumenta el número de acciones",
           "category": "OPS"
+        },
+        {
+          "text": "El número de acciones no cambia",
+          "category": "OPV"
         }
       ],
       "explanation": "La OPS crea acciones; la OPV las traspasa."
@@ -154,38 +158,32 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": [
+        "mercado-primario",
         "mercado-secundario"
       ],
-      "prompt": "Compras 200 acciones a 15 € en bolsa a otro inversor. ¿Cuánto recibe la empresa emisora?",
-      "answer": 0,
+      "prompt": "Se venden 200 acciones entre inversores a 15 € y la empresa emite 100 acciones nuevas a 15 €. ¿Cuántos euros recibe la empresa?",
+      "answer": 1500,
       "tolerance": 0,
-      "formula": "200 * 15 * 0",
-      "explanation": "Nada: el dinero va al vendedor.",
+      "formula": "100 * 15",
+      "explanation": "Solo la emisión de 100 acciones nuevas aporta dinero a la empresa: 100 × 15 = 1.500 €. Los 3.000 € de la compraventa van al vendedor.",
       "unit": "€"
     },
     {
       "id": "n1-u2-l5-e8",
-      "type": "multiple_choice",
-      "difficulty": 2,
-      "bloom": "entender",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
       "tags": [],
       "concepts": [
+        "opv",
         "mercado-primario"
       ],
-      "prompt": "Una empresa emite acciones nuevas y un accionista no las suscribe. Su porcentaje…",
-      "options": [
-        "Disminuye",
-        "Aumenta",
-        "Se mantiene",
-        "Se duplica"
-      ],
-      "answer": 0,
-      "explanation": "Mismas acciones sobre un total mayor.",
-      "wrongExplanations": {
-        "1": "No compró más acciones.",
-        "2": "El total creció.",
-        "3": "No hay razón para duplicarse."
-      }
+      "prompt": "Una salida a bolsa combina una OPS de 2.000.000 de acciones y una OPV de 1.000.000, todas a 10 €. ¿Cuántos euros recibe la empresa?",
+      "answer": 20000000,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "2000000 * 10",
+      "explanation": "Solo la OPS aporta dinero a la empresa: 2.000.000 × 10 = 20.000.000 €. Los 10.000.000 € de la OPV van a los vendedores."
     },
     {
       "id": "n1-u2-l5-e9",
@@ -196,7 +194,7 @@
       "concepts": [
         "mercado-primario"
       ],
-      "prompt": "Una empresa tiene 10.000.000 de acciones y emite 2.000.000 más. Un accionista con 1.000.000, que no acude, ¿qué porcentaje tendrá después?",
+      "prompt": "Una empresa tiene 10.000.000 de acciones y emite 2.000.000 más. Un accionista con 1.000.000, que no acude, ¿qué porcentaje tendrá después? (redondea a dos decimales)",
       "answer": 8.33,
       "tolerance": 0.1,
       "formula": "1000000 / 12000000 * 100",

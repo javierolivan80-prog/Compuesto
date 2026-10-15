@@ -27,7 +27,7 @@
     },
     {
       "type": "card",
-      "text": "En España, la CNMV aprueba el folleto que describe la oferta. El precio final suele fijarse dentro de una horquilla (un rango) según la demanda de los inversores."
+      "text": "La OPV es un cambio de manos: las acciones ya existían y el dinero no llega a la empresa. La CNMV aprueba el folleto de la oferta, aunque no avala que la inversión salga bien. El precio final suele fijarse dentro de un rango indicativo, según la demanda."
     }
   ],
   "exercises": [
@@ -178,7 +178,7 @@
       "concepts": [
         "opv"
       ],
-      "prompt": "¿Por qué se suele fijar una horquilla de precio antes de una salida a bolsa?",
+      "prompt": "¿Por qué se suele fijar un rango indicativo de precio antes de una salida a bolsa?",
       "options": [
         "Porque el precio final depende de la demanda de los inversores",
         "Porque la empresa no sabe cuántas acciones tiene",
@@ -196,6 +196,11 @@
   ],
   "realWorld": "Cuando una empresa anuncie su salida a bolsa, busca en el folleto en la CNMV si es OPS, OPV o ambas.",
   "sources": [
+    {
+      "title": "Reglamento (UE) 2017/1129 sobre el folleto de valores",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/1129/oj",
+      "date": "2026-10-15"
+    },
     {
       "title": "CNMV: folletos y ofertas públicas de valores",
       "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",

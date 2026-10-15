@@ -123,7 +123,7 @@
           "emisora"
         ]
       ],
-      "explanation": "El emisor es quien emite acciones o bonos."
+      "explanation": "El emisor es quien emite títulos, como las acciones."
     },
     {
       "id": "n1-u2-l1-e6",
@@ -141,7 +141,7 @@
       ],
       "items": [
         {
-          "text": "Suscribes acciones nuevas en una emisión",
+          "text": "Compras acciones nuevas que emite la empresa",
           "category": "La empresa"
         },
         {
@@ -149,7 +149,7 @@
           "category": "Otro inversor"
         },
         {
-          "text": "Los inversores pagan una ampliación de capital",
+          "text": "Los inversores pagan por acciones nuevas",
           "category": "La empresa"
         },
         {
@@ -192,7 +192,7 @@
       "unit": "acciones"
     }
   ],
-  "realWorld": "Cuando una empresa anuncia una emisión de acciones o una ampliación de capital, está acudiendo al mercado primario.",
+  "realWorld": "Cuando una empresa anuncia una emisión de acciones nuevas, está acudiendo al mercado primario.",
   "sources": [
     {
       "title": "CNMV: folletos y ofertas públicas de valores",

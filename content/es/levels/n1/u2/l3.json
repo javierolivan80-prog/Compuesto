@@ -70,7 +70,7 @@
       "concepts": [
         "mercado-secundario"
       ],
-      "prompt": "Compras 500 acciones a 10,40 € cada una en el mercado secundario. ¿Cuántos euros paga el comprador?",
+      "prompt": "Compras 500 acciones a 10,40 € cada una en bolsa, sin comisiones. ¿Cuántos euros pagas?",
       "answer": 5200,
       "tolerance": 0,
       "formula": "500 * 10.4",
@@ -86,11 +86,11 @@
       "concepts": [
         "mercado-secundario"
       ],
-      "prompt": "Esa compra de 500 acciones a 10,40 € se hace en el mercado secundario. ¿Cuántos euros recibe la empresa emisora?",
-      "answer": 0,
+      "prompt": "Un inversor vende 300 acciones a 12,50 € cada una a otro inversor en bolsa (sin comisiones). ¿Cuántos euros cobra el vendedor?",
+      "answer": 3750,
       "tolerance": 0,
-      "formula": "500 * 10.4 * 0",
-      "explanation": "El dinero va al vendedor: la empresa recibe 0 € de esta compraventa.",
+      "formula": "300 * 12.5",
+      "explanation": "300 × 12,50 = 3.750 €, que cobra el vendedor. La empresa emisora no recibe nada de esta compraventa.",
       "unit": "€"
     },
     {
