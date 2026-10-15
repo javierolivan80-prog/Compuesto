@@ -85,3 +85,9 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Ronda 1:** 0 críticos, 2 mayores (fuente específica del mecanismo de subasta; «cerca de los máximos» sin respaldo), 10 menores (autocontención de l5-e5, ejercicio de subasta que daba el resultado, ambigüedades de categorize/fill_blank, explicaciones). Aceptados.
 - **Ronda 2:** aprobada; menores aplicados (l6-e9 sin volúmenes dados, 4.º ítem del categorize).
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: URL de la normativa de BME por sustituir por la circular exacta; `verificarAntesDe` 2027-06-30.
+
+## n1-u5 — Operar en España: bróker, dividendos y fiscalidad (2026-10-15)
+- 6 lecciones (bróker y comisiones, dividendos y rentabilidad por dividendo, rentabilidad total, scrip dividend, ganancias y dividendos en el IRPF, Jefe final) + 6 términos de glosario. Explicador nuevo `ExDividend`.
+- **Ronda 1:** 0 críticos, 3 mayores (términos fiscales sin definir en los categorize, fill_blank con varias respuestas, fuentes del glosario), 8 menores. Aceptados; tags rellenados.
+- **Ronda 2:** aprobada; 3 menores aplicados (fuente del scrip en L4, art. 76 en la fuente fiscal, margen de palabras en la tarjeta).
+- Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL / caduca:** escala del IRPF (19/21/23 %) y retención del 19 % (`verificarAntesDe` 2027-03-31); scrip dividend sin tratamiento fiscal (a propósito); URLs genéricas de CNMV/AEAT/BOE por sustituir por la página exacta.

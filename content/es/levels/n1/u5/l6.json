@@ -1,8 +1,10 @@
 {
   "id": "n1-u5-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 5,
   "title": "Jefe final: operar en España",
@@ -244,7 +246,7 @@
   "realWorld": "Estas ideas están en cada operación que hagas: comisiones, dividendos, rentabilidad total e impuestos.",
   "sources": [
     {
-      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 (escala del ahorro) y 101 (retenciones)",
+      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 y 76 (escala del ahorro) y 101 (retenciones)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
       "date": "2026-10-15"
     },

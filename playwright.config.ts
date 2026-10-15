@@ -36,6 +36,7 @@ export default defineConfig({
         'n1u2.spec.ts',
         'n1u3.spec.ts',
         'n1u4.spec.ts',
+        'n1u5.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

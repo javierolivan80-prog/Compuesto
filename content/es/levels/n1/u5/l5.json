@@ -1,8 +1,10 @@
 {
   "id": "n1-u5-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 5,
   "title": "Ganancias y dividendos en el IRPF",
@@ -21,7 +23,7 @@
     {
       "type": "card",
       "term": "Ganancia patrimonial",
-      "text": "La ganancia patrimonial al vender acciones es el valor de venta menos el de compra. Dividendos e intereses son rendimientos del capital mobiliario. Ambos tributan en la base del ahorro: 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 € (hay tramos superiores). La retención del 19 % es solo un pago a cuenta."
+      "text": "La ganancia patrimonial al vender acciones es el valor de venta menos el de compra. Dividendos e intereses son rendimientos del capital mobiliario. Ambos tributan en la base del ahorro: 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 € y más tramos. La retención del 19 % es solo un pago a cuenta."
     }
   ],
   "exercises": [
@@ -198,7 +200,7 @@
   "realWorld": "Tu bróker suele enviarte un resumen fiscal con ganancias, dividendos y retenciones: alimenta el borrador de la renta.",
   "sources": [
     {
-      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 (escala del ahorro) y 101 (retenciones)",
+      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 y 76 (escala del ahorro) y 101 (retenciones)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
       "date": "2026-10-15"
     }

@@ -1,8 +1,10 @@
 {
   "id": "n1-u5-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 5,
   "title": "El scrip dividend",
@@ -207,7 +209,13 @@
     }
   ],
   "realWorld": "El tratamiento fiscal del scrip depende de la opción elegida: consulta la información de la empresa y de la AEAT antes de decidir.",
-  "sources": [],
+  "sources": [
+    {
+      "title": "CNMV: información al inversor sobre dividendos y operaciones corporativas",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": "2027-03-31",
   "lastReviewed": "2026-10-15"
 }
