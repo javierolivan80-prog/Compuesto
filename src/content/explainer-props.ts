@@ -56,4 +56,15 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       .min(2)
       .max(6),
   }),
+  OrderBook: z.object({
+    asks: z
+      .array(z.object({ price: z.number().positive(), qty: z.number().int().positive() }))
+      .min(2)
+      .max(5),
+    bids: z
+      .array(z.object({ price: z.number().positive(), qty: z.number().int().positive() }))
+      .min(2)
+      .max(5),
+    buySize: z.number().int().positive(),
+  }),
 };

@@ -9,5 +9,6 @@ export const EXPLAINER_NAMES = [
   'MarketCapFloat',
   'PrimarySecondary',
   'IndexWeights',
+  'OrderBook',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

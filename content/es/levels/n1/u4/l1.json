@@ -1,0 +1,209 @@
+{
+  "id": "n1-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "Cómo se forma el precio y qué es la horquilla",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar cómo se forma el precio",
+    "Calcular la horquilla y su coste"
+  ],
+  "concepts": [
+    "formacion-precios",
+    "horquilla"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Formación de precios",
+      "text": "El precio de una acción se forma por la oferta y la demanda: cada operación se cierra al precio en que coinciden un comprador y un vendedor. Si a un precio hay más compradores que vendedores, el precio tiende a subir; si hay más vendedores, tiende a bajar."
+    },
+    {
+      "type": "card",
+      "term": "Horquilla",
+      "text": "En el libro de órdenes hay un precio de compra más alto (bid) y un precio de venta más bajo (ask). Si compras a mercado pagas el ask; si vendes, recibes el bid. La diferencia entre ambos es la horquilla (spread)."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: una acción de una empresa ficticia tiene un mejor precio de compra de 10,00 € y un mejor precio de venta de 10,10 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "formacion-precios"
+      ],
+      "prompt": "¿Cómo se forma el precio de una acción en bolsa?",
+      "options": [
+        "Por la oferta y la demanda de compradores y vendedores",
+        "Lo fija la CNMV cada día",
+        "Lo decide la propia empresa",
+        "Es siempre el valor contable"
+      ],
+      "answer": 0,
+      "explanation": "Cada operación se cierra al precio en que coinciden comprador y vendedor.",
+      "wrongExplanations": {
+        "1": "La CNMV supervisa el mercado, no fija precios.",
+        "2": "La empresa no decide el precio de cotización.",
+        "3": "El valor contable es un dato de balance, no el precio de mercado."
+      }
+    },
+    {
+      "id": "n1-u4-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "formacion-precios"
+      ],
+      "statement": "Si a un precio hay más compradores que vendedores, el precio tiende a subir.",
+      "answer": true,
+      "explanation": "La demanda supera a la oferta y empuja el precio al alza."
+    },
+    {
+      "id": "n1-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "El mejor precio de compra es 10,00 € y el mejor de venta, 10,10 €. ¿Cuánto vale la horquilla en euros?",
+      "answer": 0.1,
+      "tolerance": 0,
+      "formula": "10.10 - 10.00",
+      "explanation": "10,10 − 10,00 = 0,10 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "Con un mejor precio de compra de 10,00 € y de venta de 10,10 €, ¿qué porcentaje del precio de venta supone la horquilla? (2 decimales)",
+      "answer": 0.99,
+      "tolerance": 0.1,
+      "formula": "(10.10 - 10.00) / 10.10 * 100",
+      "explanation": "0,10 / 10,10 = 0,0099, es decir, un 0,99 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u4-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "Compras 100 acciones a mercado al precio de venta de 10,10 € y las vendes enseguida a mercado al precio de compra de 10,00 €, sin comisiones y sin que cambie el libro. ¿Cuántos euros pierdes?",
+      "answer": 10,
+      "tolerance": 0,
+      "formula": "100 * 10.10 - 100 * 10.00",
+      "explanation": "Pagas 1.010 € y recibes 1.000 €: 10 € que se llevan la horquilla.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l1-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "La diferencia entre el mejor precio de venta y el mejor precio de compra se llama ___.",
+      "answers": [
+        [
+          "horquilla",
+          "spread"
+        ]
+      ],
+      "explanation": "Horquilla, o spread en inglés."
+    },
+    {
+      "id": "n1-u4-l1-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "¿Bid o ask?",
+      "categories": [
+        "Mejor precio de compra (bid)",
+        "Mejor precio de venta (ask)"
+      ],
+      "items": [
+        {
+          "text": "El precio que recibes si vendes a mercado",
+          "category": "Mejor precio de compra (bid)"
+        },
+        {
+          "text": "El precio que pagas si compras a mercado",
+          "category": "Mejor precio de venta (ask)"
+        },
+        {
+          "text": "El más alto de los precios a los que alguien quiere comprar",
+          "category": "Mejor precio de compra (bid)"
+        },
+        {
+          "text": "El más bajo de los precios a los que alguien ofrece vender",
+          "category": "Mejor precio de venta (ask)"
+        }
+      ],
+      "explanation": "Quien compra a mercado paga el ask; quien vende a mercado recibe el bid."
+    },
+    {
+      "id": "n1-u4-l1-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "La acción A tiene una horquilla de 0,01 € sobre 10 € y la B, de 0,50 € sobre 10 €. ¿Cuál es más barata de operar por este concepto?",
+      "options": [
+        "La A",
+        "La B",
+        "Igual",
+        "No se puede saber"
+      ],
+      "answer": 0,
+      "explanation": "Una horquilla menor significa un coste de entrada y salida menor.",
+      "wrongExplanations": {
+        "1": "La B tiene la horquilla más ancha y por tanto más cara.",
+        "2": "Las horquillas son distintas.",
+        "3": "Con las horquillas se puede comparar."
+      }
+    }
+  ],
+  "realWorld": "En la pantalla de cualquier bróker verás dos precios para cada acción: el de compra y el de venta. La diferencia es la horquilla.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

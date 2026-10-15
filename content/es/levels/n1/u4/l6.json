@@ -1,0 +1,241 @@
+{
+  "id": "n1-u4-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "Jefe final: precios, órdenes y subastas",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar horquilla, liquidez, órdenes, subastas y FOMO"
+  ],
+  "concepts": [
+    "formacion-precios",
+    "horquilla",
+    "liquidez",
+    "orden-mercado",
+    "orden-limitada",
+    "subastas",
+    "fomo-manada"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: el precio se forma por oferta y demanda; la horquilla es la diferencia entre el mejor precio de venta (ask) y el de compra (bid). La liquidez es operar rápido sin mover el precio."
+    },
+    {
+      "type": "card",
+      "text": "La orden de mercado asegura la ejecución, no el precio; la limitada, el precio, no la ejecución. Las subastas casan todo a un único precio. El FOMO se combate decidiendo antes."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "Mejor precio de compra 24,90 € y mejor precio de venta 25,00 €. ¿Cuánto vale la horquilla en euros?",
+      "answer": 0.1,
+      "tolerance": 0,
+      "formula": "25.00 - 24.90",
+      "explanation": "25,00 − 24,90 = 0,10 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l6-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "liquidez"
+      ],
+      "prompt": "Una acción con horquilla ancha y pocas órdenes en el libro es…",
+      "options": [
+        "Poco líquida",
+        "Muy líquida",
+        "Más barata",
+        "Más segura"
+      ],
+      "answer": 0,
+      "explanation": "La horquilla ancha y el libro vacío son señales de poca liquidez.",
+      "wrongExplanations": {
+        "1": "Muy líquida sería lo contrario.",
+        "2": "La liquidez no dice si es barata.",
+        "3": "La liquidez no mide seguridad."
+      }
+    },
+    {
+      "id": "n1-u4-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Libro de ventas: 100 acciones a 5,00 € y 300 a 5,20 €. Compras 200 acciones a mercado. ¿Cuál es el precio medio en euros?",
+      "answer": 5.1,
+      "tolerance": 0,
+      "formula": "(100 * 5.00 + 100 * 5.20) / 200",
+      "explanation": "100 × 5,00 + 100 × 5,20 = 1.020 € por 200 acciones, es decir 5,10 € de media.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l6-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "statement": "Una orden limitada garantiza que se ejecutará.",
+      "answer": false,
+      "explanation": "Garantiza el precio máximo o mínimo, no la ejecución."
+    },
+    {
+      "id": "n1-u4-l6-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "horquilla"
+      ],
+      "prompt": "El precio al que puedes comprar a mercado es el precio de ___ (ask).",
+      "answers": [
+        [
+          "venta"
+        ]
+      ],
+      "explanation": "El ask es el mejor precio de venta."
+    },
+    {
+      "id": "n1-u4-l6-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "orden-mercado",
+        "orden-limitada"
+      ],
+      "prompt": "¿Orden de mercado o limitada?",
+      "categories": [
+        "De mercado",
+        "Limitada"
+      ],
+      "items": [
+        {
+          "text": "Se ejecuta ya",
+          "category": "De mercado"
+        },
+        {
+          "text": "Puede quedarse sin ejecutar",
+          "category": "Limitada"
+        },
+        {
+          "text": "Asegura el precio máximo",
+          "category": "Limitada"
+        }
+      ],
+      "explanation": "De mercado: ejecución; limitada: precio."
+    },
+    {
+      "id": "n1-u4-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Libro de ventas: 100 acciones a 5,00 €, 300 a 5,20 € y 500 a 5,50 €. Dejas una orden de compra limitada de 1.000 acciones con límite de 5,20 €. ¿Cuántas se ejecutan?",
+      "answer": 400,
+      "tolerance": 0,
+      "formula": "100 + 300",
+      "explanation": "Solo hay 400 acciones a 5,20 € o menos (100 + 300).",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u4-l6-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "En una subasta, ¿a qué precio se casan las órdenes ejecutadas?",
+      "options": [
+        "A un único precio",
+        "Cada una a su precio límite",
+        "Al precio de la última orden",
+        "Al precio más alto"
+      ],
+      "answer": 0,
+      "explanation": "Todas las órdenes ejecutadas se casan al mismo precio.",
+      "wrongExplanations": {
+        "1": "Eso sería negociación continua.",
+        "2": "La última orden no fija el precio.",
+        "3": "No necesariamente es el más alto."
+      }
+    },
+    {
+      "id": "n1-u4-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "Compras: 200 acciones con límite 5,10 €, 300 con 5,00 € y 100 con 4,90 €. Ventas: 100 acciones con límite 4,90 €, 200 con 5,00 € y 300 con 5,10 €. A 5,00 € se casan 300 acciones, a 5,10 € 200 y a 4,90 € 100. ¿A qué precio se casa la subasta, en euros?",
+      "answer": 5,
+      "tolerance": 0,
+      "formula": "5.00",
+      "explanation": "El precio que maximiza el volumen es 5,00 € con 300 acciones.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l6-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "¿Qué ayuda contra el FOMO?",
+      "options": [
+        "Decidir antes con un plan",
+        "Fijar un precio máximo",
+        "Comprar porque todo el mundo compra",
+        "Perseguir el precio cuando sube"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "Un plan y un precio máximo evitan decidir por impulso."
+    }
+  ],
+  "realWorld": "Estas ideas están detrás de cada orden que lances: precio, horquilla, tipo de orden y disciplina.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

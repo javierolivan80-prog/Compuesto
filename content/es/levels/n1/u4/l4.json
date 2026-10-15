@@ -1,0 +1,203 @@
+{
+  "id": "n1-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "Las subastas de apertura y cierre",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar cómo se fija el precio de una subasta",
+    "Calcular el precio de casación"
+  ],
+  "concepts": [
+    "subastas",
+    "formacion-precios"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Subasta",
+      "text": "Antes de la apertura y al cierre hay subastas: se acumulan órdenes sin cruzarlas y, al terminar, se casan a un único precio. Ese precio es el que permite negociar el mayor volumen de acciones."
+    },
+    {
+      "type": "card",
+      "text": "Las subastas fijan el precio de apertura y de cierre. Si dos precios permiten el mismo volumen, se elige el de menor desequilibrio entre compra y venta y, después, el más cercano al de referencia."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "¿Qué precio se fija en una subasta?",
+      "options": [
+        "El que permite negociar el mayor volumen",
+        "El más alto",
+        "El más bajo",
+        "El de la primera orden"
+      ],
+      "answer": 0,
+      "explanation": "Se busca el precio al que más acciones se pueden casar.",
+      "wrongExplanations": {
+        "1": "El más alto reduce el volumen de compras que se casan.",
+        "2": "El más bajo reduce el volumen de ventas que se casan.",
+        "3": "La primera orden no fija el precio."
+      }
+    },
+    {
+      "id": "n1-u4-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "statement": "En una subasta las órdenes se casan a medida que llegan, cada una a su precio.",
+      "answer": false,
+      "explanation": "Se acumulan y se casan todas a un único precio al final."
+    },
+    {
+      "id": "n1-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. A 10,10 € se casan 400 acciones, a 10,20 € 300, a 10,00 € 150 y a 10,30 € 100. ¿A qué precio se casa la subasta, en euros?",
+      "answer": 10.1,
+      "tolerance": 0,
+      "formula": "10.10",
+      "explanation": "El precio de subasta es el que maximiza el volumen: 10,10 € con 400 acciones.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. El precio que maximiza el volumen es 10,10 €. ¿Cuántas acciones se casan?",
+      "answer": 400,
+      "tolerance": 0,
+      "formula": "MIN(600, 400)",
+      "explanation": "A 10,10 € la demanda es de 600 acciones y la oferta de 400: se casan 400.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u4-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. ¿Cuántas acciones se casarían si el precio fuese 10,20 €?",
+      "answer": 300,
+      "tolerance": 0,
+      "formula": "MIN(300, 400)",
+      "explanation": "A 10,20 € la demanda baja a 300 (límites de 10,20 € o más) y la oferta es de 400: se casan 300.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u4-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "En una subasta las órdenes se casan a un único ___.",
+      "answers": [
+        [
+          "precio"
+        ]
+      ],
+      "explanation": "Un único precio para todas."
+    },
+    {
+      "id": "n1-u4-l4-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "¿Subasta o negociación continua?",
+      "categories": [
+        "Subasta",
+        "Negociación continua"
+      ],
+      "items": [
+        {
+          "text": "Se acumulan órdenes y se casan a un único precio",
+          "category": "Subasta"
+        },
+        {
+          "text": "Cada operación puede cerrarse a un precio distinto",
+          "category": "Negociación continua"
+        },
+        {
+          "text": "Fija el precio de apertura",
+          "category": "Subasta"
+        },
+        {
+          "text": "Las órdenes se cruzan según llegan",
+          "category": "Negociación continua"
+        }
+      ],
+      "explanation": "La subasta casa todo a la vez; la continua, orden a orden."
+    },
+    {
+      "id": "n1-u4-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "subastas"
+      ],
+      "prompt": "¿Para qué sirve una subasta de apertura?",
+      "options": [
+        "Para fijar un precio de apertura a partir de las órdenes acumuladas",
+        "Para cerrar el mercado",
+        "Para pagar dividendos",
+        "Para cambiar el IBEX 35"
+      ],
+      "answer": 0,
+      "explanation": "Reúne las órdenes acumuladas y fija un precio de apertura equilibrado.",
+      "wrongExplanations": {
+        "1": "El cierre tiene su propia subasta.",
+        "2": "Los dividendos no tienen que ver con las subastas.",
+        "3": "Las subastas no modifican la composición del índice."
+      }
+    }
+  ],
+  "realWorld": "En la pantalla de tu bróker verás una fase de «subasta» antes de la apertura y al cierre.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

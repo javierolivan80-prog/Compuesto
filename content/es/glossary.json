@@ -1102,5 +1102,111 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "formacion-precios",
+    "term": "Formación de precios",
+    "definition": "Proceso por el que el precio de una acción surge de la oferta y la demanda: cada operación se cierra donde coinciden comprador y vendedor.",
+    "level": 1,
+    "concepts": [
+      "formacion-precios"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "horquilla",
+    "term": "Horquilla",
+    "definition": "Diferencia entre el mejor precio de venta (ask) y el mejor precio de compra (bid) en el libro de órdenes; también llamada spread.",
+    "level": 1,
+    "concepts": [
+      "horquilla"
+    ],
+    "aliases": [
+      "spread"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "liquidez-mercado",
+    "term": "Liquidez de mercado",
+    "definition": "Facilidad para comprar o vender un activo rápidamente sin mover mucho su precio. Se nota en una horquilla estrecha y un libro de órdenes con muchas órdenes.",
+    "level": 1,
+    "concepts": [
+      "liquidez"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "orden-mercado",
+    "term": "Orden de mercado",
+    "definition": "Orden que se ejecuta ya al mejor precio disponible; asegura la ejecución, no el precio.",
+    "level": 1,
+    "concepts": [
+      "orden-mercado"
+    ],
+    "aliases": [
+      "orden a mercado"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "orden-limitada",
+    "term": "Orden limitada",
+    "definition": "Orden que fija el precio máximo de compra o mínimo de venta; asegura el precio, no la ejecución.",
+    "level": 1,
+    "concepts": [
+      "orden-limitada"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "subasta",
+    "term": "Subasta",
+    "definition": "Fase en la que se acumulan órdenes sin cruzarlas y se casan a un único precio, el que permite negociar el mayor volumen. Fija el precio de apertura y de cierre.",
+    "level": 1,
+    "concepts": [
+      "subastas"
+    ],
+    "aliases": [
+      "subastas"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "fomo",
+    "term": "FOMO",
+    "definition": "Miedo a perderse una subida (fear of missing out) que lleva a comprar por impulso, a menudo imitando a la mayoría (efecto manada).",
+    "level": 1,
+    "concepts": [
+      "fomo-manada"
+    ],
+    "aliases": [
+      "efecto manada"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

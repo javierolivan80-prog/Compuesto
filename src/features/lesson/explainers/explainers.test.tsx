@@ -71,4 +71,25 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/\+2,50 %/);
     expect(text).toMatch(/peso 50 %/);
   });
+  it('OrderBook describe la horquilla y el precio medio de una compra a mercado', () => {
+    render(
+      <ExplainerBlock
+        component="OrderBook"
+        props={{
+          asks: [
+            { price: 10.02, qty: 300 },
+            { price: 10.03, qty: 500 },
+          ],
+          bids: [
+            { price: 10.0, qty: 400 },
+            { price: 9.99, qty: 600 },
+          ],
+          buySize: 600,
+        }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/horquilla 0,02/);
+    expect(text).toMatch(/precio medio 10,03/);
+  });
 });

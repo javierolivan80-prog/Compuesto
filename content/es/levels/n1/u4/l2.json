@@ -1,0 +1,227 @@
+{
+  "id": "n1-u4-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "Liquidez y orden de mercado",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Definir la liquidez",
+    "Calcular el precio medio de una orden a mercado"
+  ],
+  "concepts": [
+    "liquidez",
+    "orden-mercado"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Liquidez",
+      "text": "La liquidez es la facilidad para comprar o vender rápido sin mover mucho el precio. Una acción líquida suele tener la horquilla estrecha y muchas órdenes en el libro; una poco líquida, la horquilla ancha y pocas órdenes."
+    },
+    {
+      "type": "card",
+      "term": "Orden de mercado",
+      "text": "Una orden de mercado se ejecuta ya, al mejor precio disponible. Si es grande, consume varios niveles del libro y el precio medio empeora. Tienes la ejecución casi asegurada, pero no el precio."
+    },
+    {
+      "type": "visual",
+      "component": "OrderBook",
+      "props": {
+        "asks": [
+          {
+            "price": 10.1,
+            "qty": 200
+          },
+          {
+            "price": 10.2,
+            "qty": 300
+          },
+          {
+            "price": 10.4,
+            "qty": 500
+          }
+        ],
+        "bids": [
+          {
+            "price": 10.0,
+            "qty": 300
+          },
+          {
+            "price": 9.9,
+            "qty": 400
+          }
+        ],
+        "buySize": 400
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "liquidez"
+      ],
+      "prompt": "¿Qué es la liquidez de una acción?",
+      "options": [
+        "La facilidad para comprarla o venderla rápido sin mover mucho el precio",
+        "Los dividendos que paga",
+        "Su precio por acción",
+        "El número de accionistas"
+      ],
+      "answer": 0,
+      "explanation": "Una acción líquida se negocia con facilidad y poca variación de precio.",
+      "wrongExplanations": {
+        "1": "Los dividendos no miden la liquidez.",
+        "2": "El precio por acción no mide la liquidez.",
+        "3": "Hay acciones con muchos accionistas y poco volumen."
+      }
+    },
+    {
+      "id": "n1-u4-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "statement": "Una orden a mercado garantiza el precio al que se ejecutará.",
+      "answer": false,
+      "explanation": "Garantiza (casi siempre) la ejecución, pero no el precio."
+    },
+    {
+      "id": "n1-u4-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿Cuál es el precio medio de ejecución en euros?",
+      "answer": 10.15,
+      "tolerance": 0,
+      "formula": "(200 * 10.10 + 200 * 10.20) / 400",
+      "explanation": "Pagas 200 a 10,10 € y 200 a 10,20 €: 4.060 € por 400 acciones, es decir 10,15 € de media.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿Cuántos euros pagas en total?",
+      "answer": 4060,
+      "tolerance": 0,
+      "formula": "200 * 10.10 + 200 * 10.20",
+      "explanation": "200 × 10,10 + 200 × 10,20 = 2.020 + 2.040 = 4.060 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿A qué precio se ejecuta el último tramo, en euros?",
+      "answer": 10.2,
+      "tolerance": 0,
+      "formula": "10.20",
+      "explanation": "Las primeras 200 acciones se ejecutan a 10,10 € y las 200 restantes a 10,20 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l2-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Libro de compras: 300 acciones a 10,00 € y 400 a 9,90 €. Vendes 500 acciones a mercado. ¿Cuántos euros recibes?",
+      "answer": 4980,
+      "tolerance": 0,
+      "formula": "300 * 10.00 + 200 * 9.90",
+      "explanation": "300 × 10,00 + 200 × 9,90 = 3.000 + 1.980 = 4.980 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Una orden que se ejecuta ya al mejor precio disponible es una orden a ___.",
+      "answers": [
+        [
+          "mercado"
+        ]
+      ],
+      "explanation": "Orden a mercado."
+    },
+    {
+      "id": "n1-u4-l2-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "liquidez"
+      ],
+      "prompt": "¿Acción líquida o poco líquida?",
+      "categories": [
+        "Líquida",
+        "Poco líquida"
+      ],
+      "items": [
+        {
+          "text": "Horquilla de un céntimo y muchas órdenes en el libro",
+          "category": "Líquida"
+        },
+        {
+          "text": "Horquilla ancha y pocas órdenes",
+          "category": "Poco líquida"
+        },
+        {
+          "text": "Se puede vender mucho sin mover el precio",
+          "category": "Líquida"
+        },
+        {
+          "text": "Una orden grande mueve mucho el precio",
+          "category": "Poco líquida"
+        }
+      ],
+      "explanation": "La liquidez se nota en la horquilla y en la profundidad del libro."
+    }
+  ],
+  "realWorld": "Cuando compres una acción poco negociada, la horquilla ancha y el libro vacío te harán pagar más al entrar y recibir menos al salir.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

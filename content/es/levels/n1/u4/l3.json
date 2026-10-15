@@ -1,0 +1,204 @@
+{
+  "id": "n1-u4-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "La orden limitada",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir orden limitada y de mercado",
+    "Calcular cuánto se ejecuta con un límite"
+  ],
+  "concepts": [
+    "orden-limitada",
+    "orden-mercado"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Orden limitada",
+      "text": "Una orden limitada fija el precio máximo al que compras (o el mínimo al que vendes). Si el mercado no llega a tu precio, la orden espera y puede no ejecutarse. Tienes el precio asegurado, pero no la ejecución."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: una acción cotiza a 10,20 € y dejas una orden de compra limitada a 10,00 €. Solo comprarás si el precio baja a 10,00 € o menos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "¿Qué garantiza una orden limitada de compra?",
+      "options": [
+        "Que no pagarás más que el límite, aunque puede no ejecutarse",
+        "Que se ejecutará siempre",
+        "Que pagarás el mejor precio del día",
+        "Que se ejecuta a mercado"
+      ],
+      "answer": 0,
+      "explanation": "Asegura el precio máximo, no la ejecución.",
+      "wrongExplanations": {
+        "1": "Si el mercado no llega a tu precio, no se ejecuta.",
+        "2": "No garantiza el mejor precio del día.",
+        "3": "Eso es una orden de mercado."
+      }
+    },
+    {
+      "id": "n1-u4-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "statement": "Una orden limitada de compra a 10,00 € puede ejecutarse a 10,05 €.",
+      "answer": false,
+      "explanation": "No pagará más que su límite de 10,00 €."
+    },
+    {
+      "id": "n1-u4-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Dejas una orden de compra limitada de 400 acciones con límite de 10,20 €. ¿Cuántas acciones se ejecutan?",
+      "answer": 400,
+      "tolerance": 0,
+      "formula": "200 + 200",
+      "explanation": "Hay 200 a 10,10 € y 300 a 10,20 €, ambos dentro del límite: se ejecutan las 400.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u4-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Dejas una orden de compra limitada de 1.000 acciones con límite de 10,20 €. ¿Cuántas acciones se ejecutan?",
+      "answer": 500,
+      "tolerance": 0,
+      "formula": "200 + 300",
+      "explanation": "Solo hay 500 acciones a 10,20 € o menos (200 + 300); el nivel de 10,40 € supera tu límite.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u4-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Dejas una orden de compra limitada de 400 acciones con límite de 10,20 €. ¿Cuál es el importe máximo que podrías pagar, en euros?",
+      "answer": 4080,
+      "tolerance": 0,
+      "formula": "400 * 10.20",
+      "explanation": "400 × 10,20 = 4.080 €, si todas se ejecutaran al límite.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u4-l3-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "orden-limitada"
+      ],
+      "prompt": "Una orden que fija el precio máximo de compra es una orden ___.",
+      "answers": [
+        [
+          "limitada"
+        ]
+      ],
+      "explanation": "Orden limitada."
+    },
+    {
+      "id": "n1-u4-l3-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "orden-limitada",
+        "orden-mercado"
+      ],
+      "prompt": "¿Orden de mercado o limitada?",
+      "categories": [
+        "De mercado",
+        "Limitada"
+      ],
+      "items": [
+        {
+          "text": "Se ejecuta ya al mejor precio disponible",
+          "category": "De mercado"
+        },
+        {
+          "text": "Puede no ejecutarse si el precio no llega",
+          "category": "Limitada"
+        },
+        {
+          "text": "Garantiza el precio máximo que pagas",
+          "category": "Limitada"
+        },
+        {
+          "text": "No garantiza el precio de ejecución",
+          "category": "De mercado"
+        }
+      ],
+      "explanation": "La de mercado asegura la ejecución; la limitada, el precio."
+    },
+    {
+      "id": "n1-u4-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "orden-mercado"
+      ],
+      "prompt": "Necesitas comprar ya y la ejecución inmediata importa más que unos céntimos. ¿Qué orden encaja mejor?",
+      "options": [
+        "De mercado",
+        "Limitada con un precio muy bajo",
+        "Ninguna",
+        "Una subasta"
+      ],
+      "answer": 0,
+      "explanation": "La orden de mercado se ejecuta ya al mejor precio disponible.",
+      "wrongExplanations": {
+        "1": "Con un límite muy bajo probablemente no se ejecutaría.",
+        "2": "Hay una orden adecuada.",
+        "3": "Una subasta solo se da al abrir y cerrar."
+      }
+    }
+  ],
+  "realWorld": "Al lanzar una orden en tu bróker verás las opciones «a mercado» y «limitada».",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

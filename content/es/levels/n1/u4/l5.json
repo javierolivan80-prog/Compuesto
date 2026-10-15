@@ -1,0 +1,202 @@
+{
+  "id": "n1-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "FOMO y efecto manada",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Reconocer el FOMO y el efecto manada",
+    "Poner una defensa práctica"
+  ],
+  "concepts": [
+    "fomo-manada"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "FOMO",
+      "text": "El FOMO (miedo a perderse algo) y el efecto manada nos llevan a comprar porque otros compran y el precio sube, no por un análisis. Suele ocurrir cerca de los máximos. Una defensa: decidir antes, con un plan y un precio límite, y no perseguir el precio."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "¿Qué es el FOMO en inversión?",
+      "options": [
+        "El miedo a perderse una subida que lleva a comprar sin análisis",
+        "Una orden limitada",
+        "Un tipo de dividendo",
+        "Una subasta"
+      ],
+      "answer": 0,
+      "explanation": "Es la presión por no quedarse fuera cuando todos parecen ganar.",
+      "wrongExplanations": {
+        "1": "Una orden limitada es una orden de bolsa, no un sesgo.",
+        "2": "Un dividendo es un reparto de beneficios.",
+        "3": "Una subasta es un método de fijar precios."
+      }
+    },
+    {
+      "id": "n1-u4-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "statement": "Comprar solo porque todo el mundo compra es un ejemplo de efecto manada.",
+      "answer": true,
+      "explanation": "Se imita a la mayoría en lugar de analizar."
+    },
+    {
+      "id": "n1-u4-l5-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "¿FOMO o decisión con plan?",
+      "categories": [
+        "FOMO",
+        "Decisión con plan"
+      ],
+      "items": [
+        {
+          "text": "Compro porque la acción lleva una semana subiendo y todos hablan de ella",
+          "category": "FOMO"
+        },
+        {
+          "text": "Compro tras valorar la empresa y fijo un precio máximo",
+          "category": "Decisión con plan"
+        },
+        {
+          "text": "Compro a cualquier precio por miedo a quedarme fuera",
+          "category": "FOMO"
+        },
+        {
+          "text": "Dejo una orden limitada al precio que decidí antes",
+          "category": "Decisión con plan"
+        }
+      ],
+      "explanation": "El plan decide antes; el FOMO decide por impulso."
+    },
+    {
+      "id": "n1-u4-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "Una acción sube de 10 € a 13 € en una semana. ¿Cuánto ha subido, en %?",
+      "answer": 30,
+      "tolerance": 0,
+      "formula": "(13 - 10) / 10 * 100",
+      "explanation": "3 / 10 = 0,30, es decir, un 30 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u4-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "Alguien compra a 13 € tras esa subida y la acción baja a 11,70 €. ¿Cuál es la variación, en %?",
+      "answer": -10,
+      "tolerance": 0,
+      "formula": "(11.70 - 13) / 13 * 100",
+      "explanation": "−1,30 / 13 = −0,10, es decir, −10 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u4-l5-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "El miedo a perderse una subida se conoce por sus siglas inglesas ___.",
+      "answers": [
+        [
+          "FOMO",
+          "fomo"
+        ]
+      ],
+      "explanation": "FOMO: fear of missing out."
+    },
+    {
+      "id": "n1-u4-l5-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fomo-manada"
+      ],
+      "prompt": "Ordena una defensa contra el FOMO.",
+      "steps": [
+        "Defines antes qué quieres comprar y por qué",
+        "Fijas un precio máximo",
+        "Dejas una orden limitada a ese precio",
+        "Si el precio no llega, esperas"
+      ],
+      "explanation": "Plan, precio, orden limitada y paciencia."
+    },
+    {
+      "id": "n1-u4-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fomo-manada",
+        "orden-limitada"
+      ],
+      "prompt": "¿Qué herramienta de este tema ayuda a no perseguir el precio?",
+      "options": [
+        "La orden limitada",
+        "La orden de mercado",
+        "La subasta de cierre",
+        "La horquilla"
+      ],
+      "answer": 0,
+      "explanation": "Fijar un precio máximo de antemano evita pagar cualquier cosa en el momento de euforia.",
+      "wrongExplanations": {
+        "1": "La de mercado te lleva a pagar el precio que haya.",
+        "2": "La subasta de cierre no es una herramienta de disciplina.",
+        "3": "La horquilla es un coste, no una defensa."
+      }
+    }
+  ],
+  "realWorld": "Las portadas de «lo que más sube» y los grupos de mensajes sobre una acción son terreno típico del FOMO.",
+  "sources": [
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}
