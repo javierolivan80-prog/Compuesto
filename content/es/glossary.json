@@ -1112,8 +1112,10 @@
       "formacion-precios"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1128,8 +1130,10 @@
     "aliases": [
       "spread"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1142,8 +1146,10 @@
       "liquidez"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1158,8 +1164,10 @@
     "aliases": [
       "orden a mercado"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1172,8 +1180,10 @@
       "orden-limitada"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1188,8 +1198,10 @@
     "aliases": [
       "subastas"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1210,8 +1222,10 @@
     "aliases": [
       "efecto manada"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   }

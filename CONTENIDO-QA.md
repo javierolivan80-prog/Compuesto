@@ -79,3 +79,9 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Ronda 1:** 0 críticos, 6 mayores, 9 menores. Aceptados: sesión sin mencionar subastas, tope del 20 % del IBEX 35, categorize ambiguo (DAX en eurozona y en Alemania), dos fill_blank con otras respuestas defendibles, fuentes genéricas, vocabulario antes de nivel (bróker, subasta, contraparte).
 - **Ronda 2:** 1 mayor (enunciado invertido en l4-e7) y 2 menores (fuente de OTC → EMIR; 20 % en glosario) aplicados.
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL / caduca:** horario del continuo, composición y tope del IBEX 35 (`verificarAntesDe` 2027-06-30); URLs de fuentes genéricas por sustituir por las páginas exactas; SIX/BME sin enlace a la nota de prensa concreta.
+
+## n1-u4 — Precios, órdenes y subastas (2026-10-15)
+- 6 lecciones (precio y horquilla, liquidez y orden de mercado, orden limitada, subastas, FOMO y efecto manada, Jefe final) + 7 términos de glosario. Explicador nuevo `OrderBook`; motor `engine/orderbook.ts` (horquilla, compra/venta a mercado, limitada, precio de subasta con desempates) con tests.
+- **Ronda 1:** 0 críticos, 2 mayores (fuente específica del mecanismo de subasta; «cerca de los máximos» sin respaldo), 10 menores (autocontención de l5-e5, ejercicio de subasta que daba el resultado, ambigüedades de categorize/fill_blank, explicaciones). Aceptados.
+- **Ronda 2:** aprobada; menores aplicados (l6-e9 sin volúmenes dados, 4.º ítem del categorize).
+- Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: URL de la normativa de BME por sustituir por la circular exacta; `verificarAntesDe` 2027-06-30.

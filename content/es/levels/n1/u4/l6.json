@@ -1,8 +1,10 @@
 {
   "id": "n1-u4-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 4,
   "title": "Jefe final: precios, órdenes y subastas",
@@ -146,6 +148,10 @@
         {
           "text": "Se queda esperando en el libro si el precio no llega",
           "category": "Limitada"
+        },
+        {
+          "text": "Si es grande, consume varios niveles del libro",
+          "category": "De mercado"
         }
       ],
       "explanation": "La de mercado prioriza la ejecución; la limitada, el precio."
@@ -199,11 +205,11 @@
       "concepts": [
         "subastas"
       ],
-      "prompt": "Compras: 200 acciones con límite 5,10 €, 300 con 5,00 € y 100 con 4,90 €. Ventas: 100 acciones con límite 4,90 €, 200 con 5,00 € y 300 con 5,10 €. A 5,00 € se casan 300 acciones, a 5,10 € 200 y a 4,90 € 100. ¿A qué precio se casa la subasta, en euros?",
+      "prompt": "Compras: 200 acciones con límite 5,10 €, 300 con 5,00 € y 100 con 4,90 €. Ventas: 100 acciones con límite 4,90 €, 200 con 5,00 € y 300 con 5,10 €. ¿A qué precio se casa la subasta, en euros?",
       "answer": 5,
       "tolerance": 0,
       "formula": "5.00",
-      "explanation": "El precio que maximiza el volumen es 5,00 € con 300 acciones.",
+      "explanation": "A 5,00 € la demanda es de 500 y la oferta de 300: se casan 300, el mayor volumen (a 4,90 € serían 100; a 5,10 €, 200).",
       "unit": "€"
     },
     {
