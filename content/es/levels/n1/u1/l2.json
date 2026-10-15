@@ -22,7 +22,7 @@
     {
       "type": "card",
       "term": "Acción",
-      "text": "Una acción es una parte alícuota del capital de una sociedad. Da derechos económicos, como cobrar el dividendo si se acuerda y la cuota de liquidación, y derechos políticos, como votar en la junta general y recibir información. Cada acción suele dar un voto."
+      "text": "Una acción es una parte alícuota (proporcional) del capital de una sociedad. Da derechos económicos, como cobrar el dividendo si se acuerda y la cuota de liquidación (lo que sobra tras pagar las deudas si la sociedad se disuelve), y políticos, como votar en la junta general y recibir información."
     },
     {
       "type": "example",
@@ -142,7 +142,7 @@
       "concepts": [
         "accion"
       ],
-      "prompt": "El órgano en el que votan los accionistas se llama junta ___.",
+      "prompt": "El órgano en el que votan los accionistas se llama junta ___ de accionistas.",
       "answers": [
         [
           "general"
@@ -167,7 +167,7 @@
         "Solo si votan a favor"
       ],
       "answer": 0,
-      "explanation": "Los acreedores cobran primero; los accionistas reciben lo que sobre.",
+      "explanation": "En una liquidación se pagan primero las deudas; los accionistas reciben lo que sobre. Por eso son quienes asumen el riesgo.",
       "wrongExplanations": {
         "1": "Los acreedores tienen preferencia sobre los accionistas.",
         "2": "Si sobra algo, les corresponde.",
@@ -194,7 +194,7 @@
   "realWorld": "En la web de cualquier cotizada encontrarás la convocatoria de la junta general y su política de dividendos.",
   "sources": [
     {
-      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }

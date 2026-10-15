@@ -721,7 +721,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "accion",
@@ -735,12 +741,18 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "capitalizacion",
     "term": "Capitalización bursátil",
-    "definition": "Precio de una acción multiplicado por el número de acciones en circulación; el valor que el mercado asigna a la empresa en ese momento.",
+    "definition": "Precio de una acción multiplicado por el número de acciones emitidas (admitidas a cotización); el valor que el mercado asigna a la empresa en ese momento.",
     "level": 1,
     "concepts": [
       "capitalizacion"
@@ -754,7 +766,7 @@
   {
     "id": "free-float",
     "term": "Free float",
-    "definition": "Parte de las acciones de una empresa que cotiza libremente, excluyendo paquetes estables y autocartera.",
+    "definition": "Parte de las acciones de una empresa que cotiza libremente, excluyendo paquetes estables y autocartera. Cada proveedor de índices fija sus propios criterios y umbrales.",
     "level": 1,
     "concepts": [
       "free-float"
@@ -763,7 +775,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "BME: normas técnicas del IBEX 35 (capitalización ajustada por free float)",
+        "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "dividendo",
@@ -777,6 +795,12 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

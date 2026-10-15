@@ -23,20 +23,20 @@
     {
       "type": "card",
       "term": "Free float",
-      "text": "El free float es la parte de las acciones que cotiza libremente en el mercado. Se excluyen paquetes estables, como los de accionistas de control, y las acciones propias de la empresa (autocartera). Importa porque con pocas acciones libres es más difícil comprar y vender sin mover el precio."
+      "text": "El free float es la parte de las acciones que cotiza libremente en el mercado. Se excluyen paquetes estables, como los de accionistas de control, y la autocartera (acciones propias). Cada proveedor de índices fija sus umbrales; aquí usamos la versión simple. Con pocas acciones libres es más difícil comprar y vender sin mover el precio."
     },
     {
       "type": "visual",
       "component": "MarketCapFloat",
       "props": {
-        "price": 20,
-        "shares": 5000000,
-        "freeFloat": 30
+        "price": 10,
+        "shares": 12000000,
+        "freeFloat": 40
       }
     },
     {
       "type": "example",
-      "text": "Supuesto ilustrativo: una empresa ficticia con 5 millones de acciones a 20 € tiene 100 millones de capitalización; si el 30 % es free float, son 1,5 millones de acciones, 30 millones de euros."
+      "text": "Supuesto ilustrativo: Naranjas del Turia, con 12 millones de acciones a 10 €, tendría 120 millones de capitalización; si el 40 % fuese free float, serían 4,8 millones de acciones, 48 millones de euros."
     }
   ],
   "exercises": [
@@ -53,14 +53,14 @@
       "options": [
         "La parte de las acciones que cotiza libremente",
         "Todas las acciones de la empresa",
-        "Las acciones de los fundadores",
+        "Los paquetes estables de los accionistas de control",
         "Las acciones que la empresa recompra"
       ],
       "answer": 0,
       "explanation": "Es lo que realmente puede comprar y vender el público.",
       "wrongExplanations": {
         "1": "Todas las acciones son la totalidad; el free float es solo una parte.",
-        "2": "Los paquetes estables de fundadores quedan fuera.",
+        "2": "Los paquetes estables de accionistas de control quedan fuera del free float.",
         "3": "Las acciones recompradas son autocartera, que se excluye."
       }
     },
@@ -103,7 +103,7 @@
         "free-float",
         "capitalizacion"
       ],
-      "prompt": "Con esas 4.800.000 acciones libres y un precio de 10 €, ¿cuál es la capitalización del free float en euros?",
+      "prompt": "Supuesto ilustrativo: 4.800.000 acciones libres cotizan a 10 €. ¿Cuál es la capitalización del free float en euros?",
       "answer": 48000000,
       "tolerance": 0,
       "formula": "4800000 * 10",
@@ -135,14 +135,14 @@
       "concepts": [
         "free-float"
       ],
-      "prompt": "La capitalización del free float es el precio por las acciones del ___.",
+      "prompt": "Las acciones que cotizan libremente forman el free ___.",
       "answers": [
         [
-          "free float",
-          "float"
+          "float",
+          "flotante"
         ]
       ],
-      "explanation": "Se calcula solo con las acciones que cotizan libremente."
+      "explanation": "Free float, o capital flotante."
     },
     {
       "id": "n1-u1-l4-e7",
@@ -182,7 +182,7 @@
       "id": "n1-u1-l4-e8",
       "type": "multiple_choice",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": [],
       "concepts": [
         "free-float"
@@ -206,8 +206,13 @@
   "realWorld": "Los índices bursátiles ponderan a veces por capitalización ajustada por free float: lo verás en las fichas de índices.",
   "sources": [
     {
-      "title": "CNMV: el inversor y los mercados de valores",
-      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "title": "BME: normas técnicas del IBEX 35 (capitalización ajustada por free float)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }
   ],

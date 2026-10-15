@@ -22,7 +22,11 @@
     {
       "type": "card",
       "term": "Sociedad anónima",
-      "text": "Una empresa produce bienes o servicios. En una sociedad anónima (S.A.) el capital está dividido en acciones y los accionistas son sus propietarios. Su responsabilidad es limitada: solo pueden perder lo que aportaron, no su patrimonio personal. El capital social dividido entre las acciones da el valor nominal de cada una."
+      "text": "Una empresa produce bienes o servicios. En una sociedad anónima (S.A.) el capital está dividido en acciones y los accionistas son sus propietarios. Su responsabilidad es limitada: solo pueden perder lo invertido en sus acciones, no su patrimonio personal. El capital social dividido entre las acciones da el valor nominal."
+    },
+    {
+      "type": "card",
+      "text": "Acreedor: quien presta dinero a la empresa y tiene derecho a que se lo devuelvan. Dividendo: parte del beneficio que la junta decide repartir entre los accionistas."
     },
     {
       "type": "example",
@@ -41,7 +45,7 @@
       ],
       "prompt": "¿Qué significa que la responsabilidad de los accionistas de una S.A. sea limitada?",
       "options": [
-        "Solo pueden perder lo que han aportado",
+        "Solo pueden perder lo que han invertido en sus acciones",
         "Responden de las deudas con todo su patrimonio personal",
         "No pueden ganar más de lo que aportaron",
         "Solo pueden vender sus acciones una vez al año"
@@ -65,7 +69,7 @@
       ],
       "statement": "Los accionistas de una S.A. responden de las deudas de la empresa con todo su patrimonio personal.",
       "answer": false,
-      "explanation": "Su responsabilidad se limita a lo aportado."
+      "explanation": "Su responsabilidad se limita a lo invertido en sus acciones."
     },
     {
       "id": "n1-u1-l1-e3",
@@ -124,7 +128,7 @@
       "concepts": [
         "empresa"
       ],
-      "prompt": "Una sociedad cuyo capital está dividido en acciones es una sociedad ___.",
+      "prompt": "En una sociedad ___ (S.A.), el capital está dividido en acciones y los socios tienen responsabilidad limitada.",
       "answers": [
         [
           "anónima",
@@ -176,20 +180,20 @@
       "concepts": [
         "empresa"
       ],
-      "prompt": "Ordena el ciclo de vida financiero de una empresa nueva.",
+      "prompt": "Ordena los pasos básicos de una empresa nueva financiada solo por sus socios.",
       "steps": [
         "Los socios aportan el capital",
-        "La empresa compra activos y empieza a operar",
-        "Genera ingresos y beneficios",
+        "La empresa compra lo que necesita (máquinas, naranjas…) y empieza a operar",
+        "Vende y genera beneficios",
         "Parte del beneficio se reparte como dividendos"
       ],
-      "explanation": "Capital, operaciones, beneficios y reparto."
+      "explanation": "Capital, operaciones, beneficios y reparto. Es un esquema simplificado: una empresa también puede financiarse con deuda."
     }
   ],
   "realWorld": "Cuando mires una empresa cotizada, busca su capital social, el número de acciones y sus principales accionistas.",
   "sources": [
     {
-      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }

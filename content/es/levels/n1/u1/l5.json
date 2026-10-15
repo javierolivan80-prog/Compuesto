@@ -58,13 +58,13 @@
       ],
       "prompt": "Un accionista de una S.A. puede perder como máximo…",
       "options": [
-        "Lo que ha aportado",
+        "Lo que ha invertido en sus acciones",
         "Todo su patrimonio",
         "El doble de lo aportado",
         "Nada"
       ],
       "answer": 0,
-      "explanation": "Responsabilidad limitada: pierde el valor de sus acciones.",
+      "explanation": "Responsabilidad limitada: pierde el valor de sus acciones, no su patrimonio personal.",
       "wrongExplanations": {
         "1": "Eso es responsabilidad ilimitada.",
         "2": "No hay una pérdida mayor a lo aportado.",
@@ -96,7 +96,7 @@
       "concepts": [
         "accion"
       ],
-      "statement": "Una acción da derecho a votar en la junta general.",
+      "statement": "Una acción ordinaria da derecho a votar en la junta general.",
       "answer": true,
       "explanation": "Es un derecho político básico."
     },
@@ -217,25 +217,25 @@
         "El paquete estable de un accionista de control",
         "Las acciones propias de la empresa",
         "Las acciones de pequeños inversores",
-        "Las acciones que se negocian a diario en bolsa"
+        "Las acciones en manos de inversores que pueden venderlas libremente"
       ],
       "answers": [
         0,
         1
       ],
-      "explanation": "Los paquetes estables y la autocartera no circulan libremente; las acciones de minoristas y las negociadas a diario sí forman parte."
+      "explanation": "Los paquetes estables y la autocartera no circulan libremente. Las acciones de minoristas y las de inversores que pueden venderlas libremente sí forman parte del free float."
     }
   ],
   "realWorld": "Estas cuatro ideas aparecen en la ficha de cualquier cotizada: capital, acciones, capitalización y free float.",
   "sources": [
     {
-      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital",
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (arts. 1, 59, 90, 93, 273, 391 y ss.)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     },
     {
-      "title": "CNMV: el inversor y los mercados de valores",
-      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "title": "BME: normas técnicas del IBEX 35 (capitalización ajustada por free float)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
       "date": "2026-10-15"
     }
   ],

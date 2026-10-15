@@ -33,6 +33,13 @@ function optionState(
 
 /* ---------- multiple_choice / multi_select ---------- */
 
+/** Orden de presentación de las opciones: barajado y estable por ejercicio, para que la correcta no sea siempre la primera. */
+export const optionOrder = (e: { id: string; options: readonly string[] }): number[] =>
+  seededShuffle(
+    e.options.map((_, i) => i),
+    e.id,
+  );
+
 export function MultipleChoiceView({
   exercise,
   value,
@@ -42,7 +49,7 @@ export function MultipleChoiceView({
 }: ViewProps<Of<'multiple_choice'>, 'multiple_choice'>) {
   return (
     <div role="radiogroup" aria-labelledby={labelledBy} className="grid gap-2">
-      {exercise.options.map((o, i) => (
+      {optionOrder(exercise).map((i) => (
         <ExerciseCard
           key={i}
           state={optionState(value.choice === i, result, i === exercise.answer)}
@@ -50,7 +57,7 @@ export function MultipleChoiceView({
             locked(result) ? undefined : () => onChange({ type: 'multiple_choice', choice: i })
           }
         >
-          {o}
+          {exercise.options[i]}
         </ExerciseCard>
       ))}
     </div>
@@ -74,14 +81,14 @@ export function MultiSelectView({
   return (
     <div role="group" aria-labelledby={labelledBy} className="grid gap-2">
       <p className="text-text-2 text-sm">Elige todas las que correspondan.</p>
-      {exercise.options.map((o, i) => (
+      {optionOrder(exercise).map((i) => (
         <ExerciseCard
           key={i}
           multi
           state={optionState(value.choices.includes(i), result, exercise.answers.includes(i))}
           onSelect={locked(result) ? undefined : () => toggle(i)}
         >
-          {o}
+          {exercise.options[i]}
         </ExerciseCard>
       ))}
     </div>
