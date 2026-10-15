@@ -80,3 +80,6 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - Detector de diseño (`npx impeccable detect src/`): un hallazgo (`border-accent-on-rounded` en la hoja de feedback), corregido quitando el radio (la hoja va de borde a borde). Ahora sin hallazgos.
 - Secuencias implementadas: subida de rango, ascensor, comité aprobado, cierre semanal (FLIP con `layout`), impresión de la tarjeta. **Sin sonido** (campana, ding): el banco de sonidos no entra en 0.5. Confeti en Canvas 2D, apagado con reduced-motion. Transiciones entre pantallas: View Transitions (fundido 160 ms) con fallback de Motion (`AnimatePresence`) cuando el navegador no las soporta; en Chromium se ve la rama nativa, la de fallback no se ha ejercitado en navegador.
 - Fuera de lo pedido y no hecho: "ordenar/arrastrar", "cálculo guiado" (FLIP de números a la fórmula), "hoja de cálculo" y "balance que cuadra" de ANIMACIONES §3; pertenecen a los ejercicios de la Fase 1.
+
+## 2026-10-15 — Tarea 0.6 (en curso): prototipos
+`/prototypes` (solo desarrollo) muestra 3 variantes de tarjeta de ejercicio, Home y Camino con selector; capturas en `docs/prototipos/`. Marcadas como datos de ejemplo (`PROVISIONAL(tarea 0.6)`). **🛑 Esperando la elección de Javier** (una variante de cada); después se aplica al styleguide, se eliminan las otras y se pasa critique + audit + polish.
