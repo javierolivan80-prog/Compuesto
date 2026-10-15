@@ -1,0 +1,205 @@
+{
+  "id": "n0-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 3,
+  "title": "Deuda buena y deuda mala",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir deuda que financia consumo de deuda que financia algo que rinde",
+    "Comparar el coste de una deuda con lo que aporta"
+  ],
+  "concepts": [
+    "deuda-buena-mala",
+    "tae",
+    "prestamo"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Deuda buena y mala",
+      "text": "No toda la deuda es igual. Se suele considerar buena la que financia algo que genera ingresos o valor por encima de su coste (la TAE), y mala la que financia consumo con un coste alto, como aplazar compras con tarjeta. Es una regla práctica: siempre hay que poder pagar las cuotas."
+    },
+    {
+      "type": "example",
+      "text": "Carmen, dueña de Naranjas del Turia, pide 10.000 € al 6 % TIN para una máquina que le da 1.500 € más de beneficio al año. Rinde más de lo que cuesta."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u3-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "¿Cuándo suele considerarse buena una deuda?",
+      "options": [
+        "Cuando financia algo que aporta más de lo que cuesta la deuda",
+        "Cuando tiene muchas cuotas",
+        "Cuando la pide un banco conocido",
+        "Cuando es pequeña"
+      ],
+      "answer": 0,
+      "explanation": "El criterio es el rendimiento de lo financiado frente al coste de la deuda.",
+      "wrongExplanations": {
+        "1": "El número de cuotas no dice nada sobre si compensa.",
+        "2": "Da igual quién preste: importa el coste y lo que aporta.",
+        "3": "Una deuda pequeña con un coste altísimo sigue siendo mala."
+      }
+    },
+    {
+      "id": "n0-u3-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "statement": "Toda deuda es mala.",
+      "answer": false,
+      "explanation": "La que financia algo que rinde más que su coste puede ser razonable, siempre que puedas pagar las cuotas."
+    },
+    {
+      "id": "n0-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala",
+        "tae"
+      ],
+      "prompt": "Debes 1.000 € en una tarjeta con TAE del 24 % y no pagas nada durante un año. ¿Cuántos euros de intereses se acumulan?",
+      "answer": 240,
+      "tolerance": 0,
+      "formula": "1000 * 0.24",
+      "explanation": "Con una TAE del 24 %, 1.000 € generan 240 € de intereses en un año.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "La máquina de Carmen cuesta 10.000 € y le da 1.500 € más de beneficio al año. ¿Qué rendimiento anual es, en %?",
+      "answer": 15,
+      "tolerance": 0,
+      "formula": "1500 / 10000 * 100",
+      "explanation": "1.500 / 10.000 = 0,15, es decir, un 15 % al año.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u3-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala",
+        "prestamo"
+      ],
+      "prompt": "Si el capital de 10.000 € se mantuviera todo el año al 6 % TIN, ¿cuántos euros de intereses se pagarían en el año?",
+      "answer": 600,
+      "tolerance": 0,
+      "formula": "10000 * 0.06",
+      "explanation": "10.000 × 0,06 = 600 €: menos que los 1.500 € que aporta la máquina.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "¿Deuda buena o mala?",
+      "categories": [
+        "Deuda buena",
+        "Deuda mala"
+      ],
+      "items": [
+        {
+          "text": "Préstamo al 6 % para una máquina que rinde un 15 %",
+          "category": "Deuda buena"
+        },
+        {
+          "text": "Compra de un capricho aplazada con tarjeta al 24 % de TAE",
+          "category": "Deuda mala"
+        },
+        {
+          "text": "Préstamo para un curso que aumenta tus ingresos por encima de su coste",
+          "category": "Deuda buena"
+        },
+        {
+          "text": "Aplazar pagos de ropa con una TAE alta",
+          "category": "Deuda mala"
+        }
+      ],
+      "explanation": "Cuenta el rendimiento de lo financiado frente a su coste."
+    },
+    {
+      "id": "n0-u3-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "Una deuda compensa cuando el rendimiento de lo financiado supera al ___ de la deuda.",
+      "answers": [
+        [
+          "coste",
+          "interés",
+          "interes",
+          "tipo"
+        ]
+      ],
+      "explanation": "El coste de la deuda es lo que pagas por ella."
+    },
+    {
+      "id": "n0-u3-l3-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "deuda-buena-mala"
+      ],
+      "prompt": "Ordena los pasos para decidir si endeudarte.",
+      "steps": [
+        "Calcula el coste total de la deuda (TAE)",
+        "Estima lo que te aporta lo financiado",
+        "Comprueba que puedes pagar la cuota con tus ingresos",
+        "Decide solo si el beneficio supera al coste y la cuota es asumible"
+      ],
+      "explanation": "Coste, beneficio, capacidad de pago y, al final, decisión."
+    }
+  ],
+  "realWorld": "Antes de aceptar un aplazamiento o un préstamo, mira la TAE: es la cifra que permite comparar su coste real.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

@@ -1,0 +1,211 @@
+{
+  "id": "n0-u3-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 3,
+  "title": "El sesgo del presente",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Reconocer el sesgo del presente",
+    "Aplicar una defensa práctica: pagarte primero"
+  ],
+  "concepts": [
+    "sesgo-presente",
+    "interes-compuesto",
+    "valor-temporal-dinero"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Sesgo del presente",
+      "text": "El sesgo del presente es la tendencia a preferir una recompensa inmediata aunque otra mayor esperase más adelante. Por eso cuesta ahorrar: el gasto de hoy se siente más que el beneficio de dentro de años. Una defensa es automatizar el ahorro nada más cobrar: pagarte primero."
+    },
+    {
+      "type": "visual",
+      "component": "CompoundCurve",
+      "props": {
+        "principal": 1200,
+        "rate": 5,
+        "years": 30
+      }
+    },
+    {
+      "type": "example",
+      "text": "Si Lucía aparta hoy 1.200 € y los deja al 5 % anual compuesto, en 30 años tendría unos 5.186 €. Gastarlos hoy parece más cómodo, pero renuncia a esa curva."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u3-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "prompt": "¿Qué es el sesgo del presente?",
+      "options": [
+        "Preferir una recompensa inmediata a otra mayor futura",
+        "Creer que los precios no subirán",
+        "Ahorrar más de lo necesario",
+        "Comparar siempre con el año pasado"
+      ],
+      "answer": 0,
+      "explanation": "Es dar un peso excesivo a lo inmediato frente a lo que ocurrirá más adelante.",
+      "wrongExplanations": {
+        "1": "Eso no es el sesgo del presente.",
+        "2": "Es lo contrario: cuesta ahorrar.",
+        "3": "Comparar con el pasado es otra cosa."
+      }
+    },
+    {
+      "id": "n0-u3-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "statement": "El sesgo del presente solo afecta a quienes saben poco de finanzas.",
+      "answer": false,
+      "explanation": "Es un sesgo humano general: también afecta a quien sabe finanzas."
+    },
+    {
+      "id": "n0-u3-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "1.200 € al 5 % anual compuesto durante 30 años. ¿Cuánto tienes al final? (2 decimales)",
+      "answer": 5186.33,
+      "tolerance": 0.05,
+      "formula": "1200 * 1.05 ^ 30",
+      "explanation": "1.200 × 1,05³⁰ = 5.186,33 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "valor-temporal-dinero"
+      ],
+      "prompt": "¿Cuánto debes ahorrar hoy al 5 % anual para tener 1.000 € dentro de 10 años? (2 decimales)",
+      "answer": 613.91,
+      "tolerance": 0.05,
+      "formula": "1000 / 1.05 ^ 10",
+      "explanation": "Valor actual = 1.000 / 1,05¹⁰ = 613,91 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l4-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "prompt": "Automatizar el ahorro nada más cobrar se llama pagarte ___.",
+      "answers": [
+        [
+          "primero"
+        ]
+      ],
+      "explanation": "Pagarte primero: apartas el ahorro antes de gastar."
+    },
+    {
+      "id": "n0-u3-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "prompt": "¿Sesgo del presente o defensa contra él?",
+      "categories": [
+        "Sesgo del presente",
+        "Defensa"
+      ],
+      "items": [
+        {
+          "text": "Pensar: \"ahorro el mes que viene\"",
+          "category": "Sesgo del presente"
+        },
+        {
+          "text": "Transferencia automática al ahorro el día de cobro",
+          "category": "Defensa"
+        },
+        {
+          "text": "Comprar ya porque \"me lo merezco\"",
+          "category": "Sesgo del presente"
+        },
+        {
+          "text": "Fijar un importe y una fecha de ahorro mensuales",
+          "category": "Defensa"
+        }
+      ],
+      "explanation": "Automatizar y fijar reglas de antemano quita la decisión del momento."
+    },
+    {
+      "id": "n0-u3-l4-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "prompt": "Ordena el método de pagarte primero.",
+      "steps": [
+        "Cobras tu sueldo",
+        "Una transferencia automática lleva una parte al ahorro",
+        "Gastas lo que queda",
+        "Revisas el ahorro cada mes"
+      ],
+      "explanation": "El ahorro sale antes de que puedas gastarlo."
+    },
+    {
+      "id": "n0-u3-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "prompt": "¿Qué medida combate mejor el sesgo del presente?",
+      "options": [
+        "Programar una transferencia automática el día de cobro",
+        "Prometerte ahorrar si sobra algo",
+        "Mirar el saldo a diario",
+        "Esperar a una ocasión mejor"
+      ],
+      "answer": 0,
+      "explanation": "Automatizar elimina la decisión en el momento en que el sesgo es más fuerte.",
+      "wrongExplanations": {
+        "1": "Si \"sobra algo\" casi nunca sobra: es el propio sesgo.",
+        "2": "Mirar el saldo no cambia lo que haces con él.",
+        "3": "Esperar a mejor ocasión es posponer: el sesgo mismo."
+      }
+    }
+  ],
+  "realWorld": "Verás el sesgo del presente en cualquier oferta de \"compra ahora y paga después\" o en la facilidad de gastar frente a la dificultad de ahorrar.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

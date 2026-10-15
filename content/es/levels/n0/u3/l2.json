@@ -1,0 +1,199 @@
+{
+  "id": "n0-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 3,
+  "title": "El fondo de emergencia",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Definir el fondo de emergencia y dimensionarlo",
+    "Calcular cuántos meses de gastos cubre"
+  ],
+  "concepts": [
+    "fondo-emergencia",
+    "presupuesto"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Fondo de emergencia",
+      "text": "El fondo de emergencia es dinero líquido y seguro para imprevistos: perder el empleo, una avería, una factura médica. Una pauta habitual es guardar entre 3 y 6 meses de gastos esenciales. Es una orientación, no una norma: depende de lo estable que sea tu ingreso."
+    },
+    {
+      "type": "example",
+      "text": "Marc, compañero becario de Lucía, tiene unos gastos esenciales de 1.200 € al mes. Su fondo objetivo, a 6 meses, sería de 7.200 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u3-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "¿Dónde debe estar el fondo de emergencia?",
+      "options": [
+        "En algo líquido y sin riesgo de perder capital",
+        "En acciones de una sola empresa",
+        "En criptomonedas",
+        "En un fondo que bloquea el dinero 5 años"
+      ],
+      "answer": 0,
+      "explanation": "Necesitas poder disponer del dinero rápido y sin que haya perdido valor justo cuando surge el imprevisto.",
+      "wrongExplanations": {
+        "1": "Una acción puede estar bajando justo cuando necesitas el dinero.",
+        "2": "Las criptomonedas son muy volátiles: no cumplen la función de seguridad.",
+        "3": "Un dinero bloqueado no está disponible en una emergencia."
+      }
+    },
+    {
+      "id": "n0-u3-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "statement": "El fondo de emergencia debería invertirse en acciones para que rinda más.",
+      "answer": false,
+      "explanation": "Su función es la seguridad y la liquidez, no la rentabilidad."
+    },
+    {
+      "id": "n0-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "Gastos esenciales de 1.200 € al mes. ¿Cuánto es un fondo de 6 meses?",
+      "answer": 7200,
+      "tolerance": 0,
+      "formula": "1200 * 6",
+      "explanation": "1.200 × 6 = 7.200 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "Con esos mismos gastos, ¿cuánto es un fondo de 3 meses?",
+      "answer": 3600,
+      "tolerance": 0,
+      "formula": "1200 * 3",
+      "explanation": "1.200 × 3 = 3.600 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia",
+        "presupuesto"
+      ],
+      "prompt": "Marc ahorra 300 € al mes para su fondo de 7.200 €, sin contar intereses. ¿Cuántos meses tarda en completarlo?",
+      "answer": 24,
+      "tolerance": 0,
+      "formula": "7200 / 300",
+      "explanation": "7.200 / 300 = 24 meses, es decir, 2 años.",
+      "unit": "meses"
+    },
+    {
+      "id": "n0-u3-l2-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "Un fondo de emergencia debe ser ___: poder disponer de él rápido.",
+      "answers": [
+        [
+          "líquido",
+          "liquido"
+        ]
+      ],
+      "explanation": "Liquidez es la facilidad para convertir algo en efectivo sin perder valor."
+    },
+    {
+      "id": "n0-u3-l2-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "¿Es una emergencia?",
+      "categories": [
+        "Emergencia",
+        "No es una emergencia"
+      ],
+      "items": [
+        {
+          "text": "Avería del coche que necesitas para trabajar",
+          "category": "Emergencia"
+        },
+        {
+          "text": "Rebajas de enero",
+          "category": "No es una emergencia"
+        },
+        {
+          "text": "Factura médica imprevista",
+          "category": "Emergencia"
+        },
+        {
+          "text": "Un viaje de ocio",
+          "category": "No es una emergencia"
+        }
+      ],
+      "explanation": "Una emergencia es imprevista e inevitable; un capricho o un plan se pagan con otro presupuesto."
+    },
+    {
+      "id": "n0-u3-l2-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "prompt": "Tienes 2.400 € en tu fondo y gastos esenciales de 800 € al mes. ¿Cuántos meses cubres?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "2.400 / 800 = 3 meses.",
+      "wrongExplanations": {
+        "0": "Con 2 meses habría solo 1.600 €.",
+        "2": "Para 4 meses necesitarías 3.200 €.",
+        "3": "Para 6 meses necesitarías 4.800 €."
+      }
+    }
+  ],
+  "realWorld": "Los bancos de España suelen ofrecer cuentas o depósitos de disponibilidad inmediata: ahí suele guardarse el fondo de emergencia.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

@@ -1,0 +1,266 @@
+{
+  "id": "n0-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 3,
+  "title": "Primeros pasos con Excel: celdas y SUMA",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Usar referencias de celda y fórmulas sencillas",
+    "Sumar un rango con SUMA"
+  ],
+  "concepts": [
+    "celdas-suma",
+    "presupuesto"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Celdas y fórmulas",
+      "text": "Una hoja de cálculo organiza datos en celdas, nombradas por columna y fila (B2). Una fórmula empieza por = y puede usar referencias: =B1+B2. SUMA(B2:B5) suma todo un rango. Si cambias una celda, los resultados se recalculan solos."
+    },
+    {
+      "type": "example",
+      "text": "Lucía anota sus gastos fijos en B1:B4 y escribe =SUMA(B1:B4) en B5: cada vez que cambie un gasto, el total se actualiza."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u3-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "¿Qué hace =SUMA(B2:B5)?",
+      "options": [
+        "Suma las celdas de B2 a B5",
+        "Suma solo B2 y B5",
+        "Multiplica B2 por B5",
+        "Cuenta cuántas celdas hay"
+      ],
+      "answer": 0,
+      "explanation": "El rango B2:B5 incluye las cuatro celdas, de B2 a B5, y SUMA las suma.",
+      "wrongExplanations": {
+        "1": "Para sumar solo B2 y B5 escribirías =B2+B5.",
+        "2": "La multiplicación usa el signo *.",
+        "3": "Contar celdas se haría con otra función."
+      }
+    },
+    {
+      "id": "n0-u3-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "statement": "Una fórmula de Excel empieza siempre por el signo =.",
+      "answer": true,
+      "explanation": "Sin el = la hoja trata lo escrito como texto."
+    },
+    {
+      "id": "n0-u3-l5-e3",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "celdas-suma",
+        "presupuesto"
+      ],
+      "prompt": "Escribe en B5 la fórmula del total de gastos fijos: suma de B1 a B4.",
+      "cells": {
+        "A1": "Alquiler",
+        "B1": 700,
+        "A2": "Luz",
+        "B2": 90,
+        "A3": "Comida",
+        "B3": 250,
+        "A4": "Transporte",
+        "B4": 120,
+        "A5": "Total"
+      },
+      "target": "B5",
+      "solution": "=SUMA(B1:B4)",
+      "expected": 1160,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B1": 800,
+            "B2": 100,
+            "B3": 300,
+            "B4": 150
+          },
+          "expected": 1350
+        },
+        {
+          "set": {
+            "B1": 0,
+            "B2": 0,
+            "B3": 0,
+            "B4": 10
+          },
+          "expected": 10
+        }
+      ],
+      "explanation": "=SUMA(B1:B4) suma 700 + 90 + 250 + 120 = 1.160 €."
+    },
+    {
+      "id": "n0-u3-l5-e4",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "celdas-suma",
+        "presupuesto"
+      ],
+      "prompt": "Escribe en B3 la fórmula del ahorro: ingresos menos gastos.",
+      "cells": {
+        "A1": "Ingresos",
+        "B1": 1800,
+        "A2": "Gastos",
+        "B2": 1500,
+        "A3": "Ahorro"
+      },
+      "target": "B3",
+      "solution": "=B1-B2",
+      "expected": 300,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B1": 2000,
+            "B2": 1700
+          },
+          "expected": 300
+        },
+        {
+          "set": {
+            "B1": 1000,
+            "B2": 1200
+          },
+          "expected": -200
+        }
+      ],
+      "explanation": "Ahorro = ingresos − gastos = 1.800 − 1.500 = 300 €. Si fuese negativo, sería un déficit."
+    },
+    {
+      "id": "n0-u3-l5-e5",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "Escribe en B3 la fórmula de qué fracción de los ingresos son gastos: gastos entre ingresos.",
+      "cells": {
+        "A1": "Ingresos",
+        "B1": 2000,
+        "A2": "Gastos",
+        "B2": 1500,
+        "A3": "Gastos / ingresos"
+      },
+      "target": "B3",
+      "solution": "=B2/B1",
+      "expected": 0.75,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B1": 1000,
+            "B2": 500
+          },
+          "expected": 0.5
+        },
+        {
+          "set": {
+            "B1": 1600,
+            "B2": 400
+          },
+          "expected": 0.25
+        }
+      ],
+      "explanation": "1.500 / 2.000 = 0,75, es decir, el 75 % de los ingresos."
+    },
+    {
+      "id": "n0-u3-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "A1 vale 10, A2 vale 20, A3 contiene =A1+A2 y A4 contiene =SUMA(A1:A3). ¿Cuánto vale A4?",
+      "answer": 60,
+      "tolerance": 0,
+      "formula": "10 + 20 + (10 + 20)",
+      "explanation": "A3 vale 30, así que A4 = 10 + 20 + 30 = 60."
+    },
+    {
+      "id": "n0-u3-l5-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "La celda de la columna C y la fila 4 se llama ___.",
+      "answers": [
+        [
+          "C4",
+          "c4"
+        ]
+      ],
+      "explanation": "Se nombra columna y fila: C4."
+    },
+    {
+      "id": "n0-u3-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "celdas-suma"
+      ],
+      "prompt": "Una fórmula usa B1. Cambias el valor de B1. ¿Qué pasa con el resultado?",
+      "options": [
+        "Se recalcula solo",
+        "Se queda con el valor antiguo",
+        "Da error",
+        "Hay que reescribir la fórmula"
+      ],
+      "answer": 0,
+      "explanation": "Las fórmulas con referencias se recalculan al cambiar sus datos: esa es su gracia.",
+      "wrongExplanations": {
+        "1": "Las fórmulas se actualizan automáticamente.",
+        "2": "No da error: sigue siendo válida.",
+        "3": "No hace falta reescribirla."
+      }
+    }
+  ],
+  "realWorld": "Los extractos de tu banco se pueden descargar como hoja de cálculo: con SUMA y referencias montas tu presupuesto en minutos.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

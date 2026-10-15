@@ -328,5 +328,107 @@
     ],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "presupuesto",
+    "term": "Presupuesto",
+    "definition": "Plan de ingresos y gastos para un periodo, normalmente un mes, que sirve para decidir cuánto se gasta y cuánto se ahorra.",
+    "level": 0,
+    "concepts": [
+      "presupuesto"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "regla-50-30-20",
+    "term": "Regla 50/30/20",
+    "definition": "Pauta popular para repartir ingresos netos: 50 % necesidades, 30 % deseos y 20 % ahorro y devolución de deudas. Es una orientación, no una norma.",
+    "level": 0,
+    "concepts": [
+      "presupuesto"
+    ],
+    "aliases": [
+      "50/30/20"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "fondo-emergencia",
+    "term": "Fondo de emergencia",
+    "definition": "Dinero líquido y seguro reservado para imprevistos. Una pauta habitual es que cubra entre 3 y 6 meses de gastos esenciales.",
+    "level": 0,
+    "concepts": [
+      "fondo-emergencia"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "liquidez",
+    "term": "Liquidez",
+    "definition": "Facilidad para convertir un activo en efectivo rápidamente y sin perder valor.",
+    "level": 0,
+    "concepts": [
+      "fondo-emergencia"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "sesgo-presente",
+    "term": "Sesgo del presente",
+    "definition": "Tendencia a preferir una recompensa inmediata aunque otra mayor esperase más adelante; dificulta ahorrar.",
+    "level": 0,
+    "concepts": [
+      "sesgo-presente"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "referencia-celda",
+    "term": "Referencia de celda",
+    "definition": "Nombre de una celda de una hoja de cálculo según su columna y su fila, como B2. Permite que las fórmulas se recalculen al cambiar los datos.",
+    "level": 0,
+    "concepts": [
+      "celdas-suma"
+    ],
+    "aliases": [
+      "celda"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "rango",
+    "term": "Rango",
+    "definition": "Conjunto de celdas contiguas de una hoja de cálculo, como B1:B4. SUMA(B1:B4) suma todas las del rango.",
+    "level": 0,
+    "concepts": [
+      "celdas-suma"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

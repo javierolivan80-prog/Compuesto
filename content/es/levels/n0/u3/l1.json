@@ -1,0 +1,225 @@
+{
+  "id": "n0-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 3,
+  "title": "El presupuesto: a dónde va tu dinero",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es un presupuesto",
+    "Repartir unos ingresos con la regla 50/30/20"
+  ],
+  "concepts": [
+    "presupuesto",
+    "celdas-suma"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Presupuesto",
+      "text": "Un presupuesto es un plan de ingresos y gastos para un periodo, normalmente un mes. Sirve para saber a dónde va tu dinero y decidir cuánto ahorras. Una pauta popular es la regla 50/30/20: 50 % necesidades, 30 % deseos y 20 % ahorro y devolución de deudas. Es una orientación, no una norma."
+    },
+    {
+      "type": "example",
+      "text": "Lucía, becaria de Albufera Partners, cobra 1.800 € netos al mes. Con la regla 50/30/20 destinaría 900 € a necesidades, 540 € a deseos y 360 € a ahorro."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u3-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "¿Qué es un presupuesto?",
+      "options": [
+        "Un plan de ingresos y gastos para un periodo",
+        "El saldo de tu cuenta corriente",
+        "Un préstamo que pide el banco",
+        "La suma de todos tus ahorros"
+      ],
+      "answer": 0,
+      "explanation": "Un presupuesto planifica cuánto ingresas y cuánto gastas para decidir cuánto ahorras.",
+      "wrongExplanations": {
+        "1": "El saldo es lo que tienes hoy; el presupuesto es un plan.",
+        "2": "Un presupuesto no es un préstamo.",
+        "3": "Los ahorros son un resultado posible del presupuesto, no el presupuesto."
+      }
+    },
+    {
+      "id": "n0-u3-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "statement": "En la regla 50/30/20, el 20 % se destina al ahorro y a devolver deudas.",
+      "answer": true,
+      "explanation": "Es la parte que no se gasta en necesidades ni deseos."
+    },
+    {
+      "id": "n0-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "Con 1.800 € netos al mes, ¿cuántos euros van a necesidades según la regla 50/30/20?",
+      "answer": 900,
+      "tolerance": 0,
+      "formula": "1800 * 0.5",
+      "explanation": "El 50 % de 1.800 € son 900 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "Con 1.800 € netos al mes, ¿cuántos euros van a ahorro y deudas según la regla 50/30/20?",
+      "answer": 360,
+      "tolerance": 0,
+      "formula": "1800 * 0.2",
+      "explanation": "El 20 % de 1.800 € son 360 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u3-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "Clasifica cada gasto según la regla 50/30/20.",
+      "categories": [
+        "Necesidades",
+        "Deseos",
+        "Ahorro"
+      ],
+      "items": [
+        {
+          "text": "Alquiler",
+          "category": "Necesidades"
+        },
+        {
+          "text": "Cena en un restaurante",
+          "category": "Deseos"
+        },
+        {
+          "text": "Aportación al fondo de emergencia",
+          "category": "Ahorro"
+        },
+        {
+          "text": "Suscripción a una plataforma de series",
+          "category": "Deseos"
+        },
+        {
+          "text": "Factura de la luz",
+          "category": "Necesidades"
+        }
+      ],
+      "explanation": "Las necesidades son lo imprescindible; los deseos, lo prescindible; el ahorro, lo que apartas."
+    },
+    {
+      "id": "n0-u3-l1-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "Si tus gastos superan tus ingresos, tienes un ___.",
+      "answers": [
+        [
+          "déficit",
+          "deficit"
+        ]
+      ],
+      "explanation": "Un déficit significa que gastas más de lo que ingresas."
+    },
+    {
+      "id": "n0-u3-l1-e7",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "presupuesto",
+        "celdas-suma"
+      ],
+      "prompt": "Escribe en B3 la fórmula del ahorro: ingresos × porcentaje de ahorro.",
+      "cells": {
+        "A1": "Ingresos (€)",
+        "B1": 1800,
+        "A2": "% de ahorro",
+        "B2": 0.2,
+        "A3": "Ahorro (€)"
+      },
+      "target": "B3",
+      "solution": "=B1*B2",
+      "expected": 360,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B1": 2000,
+            "B2": 0.2
+          },
+          "expected": 400
+        },
+        {
+          "set": {
+            "B1": 1500,
+            "B2": 0.1
+          },
+          "expected": 150
+        }
+      ],
+      "explanation": "Ahorro = ingresos × porcentaje = 1.800 × 0,2 = 360 €. Con referencias, la fórmula se recalcula si cambias los datos."
+    },
+    {
+      "id": "n0-u3-l1-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "presupuesto"
+      ],
+      "prompt": "Ordena los pasos para hacer un presupuesto.",
+      "steps": [
+        "Calcula tus ingresos netos mensuales",
+        "Lista tus gastos fijos y variables",
+        "Compara ingresos y gastos",
+        "Ajusta lo que sobra o falta y revísalo cada mes"
+      ],
+      "explanation": "Primero datos, luego comparación y ajuste periódico."
+    }
+  ],
+  "realWorld": "La mayoría de las apps bancarias clasifican tus gastos por categorías: es un presupuesto hecho a medias.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}
