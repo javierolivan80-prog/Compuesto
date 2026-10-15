@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Bolsin } from '../../brand/Bolsin';
 import { Button } from '../../components/Button';
 import { ProgressBar } from '../../components/ProgressBar';
+import { ReportErrorButton } from '../../components/ReportErrorButton';
 import type { Placement } from '../../content/schemas';
 import { useRepo } from '../../db/RepoProvider';
 import {
@@ -169,6 +170,7 @@ export function PlacementScreen({
         onComplete={(o) => void onAnswered(o)}
       />
       <span className="sr-only">{promptOf(q)}</span>
+      <ReportErrorButton exerciseId={q.id} />
     </section>
   );
 }

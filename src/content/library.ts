@@ -1,8 +1,13 @@
 import curriculumJson from '../../content/es/curriculum.json';
+import companiesJson from '../../content/shared/companies.json';
+import glossaryJson from '../../content/es/glossary.json';
 import {
+  companiesSchema,
   curriculumSchema,
+  glossarySchema,
   lessonSchema,
   placementSchema,
+  type GlossaryEntry,
   type Lesson,
   type Placement,
 } from './schemas';
@@ -76,3 +81,36 @@ for (const [path, data] of Object.entries(placementModules)) {
 
 export const getPlacement = (unitId: string): Placement | undefined =>
   placements.find((p) => p.unitId === unitId);
+
+/* ---------- Glosario ---------- */
+
+const glossaryAll = glossarySchema.parse(glossaryJson);
+const glossaryPlayable = glossaryAll
+  .filter((g) => PLAYABLE.includes(g.status))
+  .sort((a, b) => a.term.localeCompare(b.term, 'es'));
+
+export const glossary = (): GlossaryEntry[] => glossaryPlayable;
+
+const companiesAll = companiesSchema.parse(companiesJson);
+export const companies = () => companiesAll;
+
+/** Texto de un ejercicio (de una lección o de un test de salto) a partir de su id, para listados como "más fallados". */
+export function findExerciseText(id: string): { prompt: string; where: string } | undefined {
+  for (const l of lessons) {
+    const e = l.exercises.find((x) => x.id === id);
+    if (e)
+      return {
+        prompt: 'prompt' in e ? e.prompt : 'statement' in e ? e.statement : id,
+        where: l.title,
+      };
+  }
+  for (const p of placements) {
+    const e = p.questions.find((x) => x.id === id);
+    if (e)
+      return {
+        prompt: 'prompt' in e ? e.prompt : e.statement,
+        where: `Test de salto · ${p.unitId}`,
+      };
+  }
+  return undefined;
+}

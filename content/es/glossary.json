@@ -1,1 +1,198 @@
-[]
+[
+  {
+    "id": "inflacion",
+    "term": "Inflación",
+    "definition": "Subida generalizada y sostenida de los precios. Con inflación, la misma cantidad de euros compra menos cosas con el tiempo.",
+    "level": 0,
+    "concepts": [
+      "inflacion"
+    ],
+    "aliases": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "poder-adquisitivo",
+    "term": "Poder adquisitivo",
+    "definition": "Cantidad de bienes y servicios que se pueden comprar con una cantidad de dinero o con unos ingresos. Baja cuando los precios suben más que tus ingresos.",
+    "level": 0,
+    "concepts": [
+      "poder-adquisitivo"
+    ],
+    "aliases": [
+      "poder de compra"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "interes-simple",
+    "term": "Interés simple",
+    "definition": "Interés que se calcula siempre sobre el capital inicial: cada periodo se gana lo mismo. Valor final = capital × (1 + i × n).",
+    "level": 0,
+    "concepts": [
+      "interes-simple"
+    ],
+    "aliases": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "interes-compuesto",
+    "term": "Interés compuesto",
+    "definition": "Interés calculado sobre el capital más los intereses ya acumulados. Valor final = capital × (1 + i)^n, con i = tipo de interés por periodo (en tanto por uno) y n = número de periodos.",
+    "level": 0,
+    "concepts": [
+      "interes-compuesto"
+    ],
+    "aliases": [
+      "compuesto",
+      "capitalizan",
+      "capitaliza",
+      "capitalización"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "capital",
+    "term": "Capital",
+    "definition": "Cantidad de dinero que se invierte o se presta al principio; sobre ella se calculan los intereses.",
+    "level": 0,
+    "concepts": [
+      "interes-simple",
+      "interes-compuesto"
+    ],
+    "aliases": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "tipo-de-interes",
+    "term": "Tipo de interés",
+    "definition": "Porcentaje que se paga o se cobra por el uso del dinero durante un periodo, normalmente un año. También se le llama tasa.",
+    "level": 0,
+    "concepts": [
+      "interes-simple",
+      "interes-compuesto"
+    ],
+    "aliases": [
+      "tipo de interés anual"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "regla-del-72",
+    "term": "Regla del 72",
+    "definition": "Atajo para estimar en cuántos años se duplica un capital: se divide 72 entre el tipo de interés anual en %. Es aproximada; funciona bien con tipos habituales (del 5 % al 10 % aprox.).",
+    "level": 0,
+    "concepts": [
+      "regla-del-72"
+    ],
+    "aliases": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "rentabilidad-nominal",
+    "term": "Rentabilidad nominal",
+    "definition": "Rentabilidad que figura en el contrato o el anuncio, sin descontar la inflación.",
+    "level": 0,
+    "concepts": [
+      "tipo-real-nominal"
+    ],
+    "aliases": [
+      "tipo nominal"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "rentabilidad-real",
+    "term": "Rentabilidad real",
+    "definition": "Rentabilidad una vez descontada la inflación: (1 + nominal) / (1 + inflación) − 1, con las tasas en tanto por uno (2 % = 0,02). Aproximadamente, nominal − inflación. Si es negativa, pierdes poder adquisitivo aunque tu saldo suba.",
+    "level": 0,
+    "concepts": [
+      "tipo-real-nominal"
+    ],
+    "aliases": [
+      "tipo real"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "valor-actual",
+    "term": "Valor actual",
+    "definition": "Lo que vale hoy una cantidad que se recibirá en el futuro: valor futuro / (1 + i)^n, con i = tasa de descuento por periodo (en tanto por uno) y n = número de periodos.",
+    "level": 0,
+    "concepts": [
+      "valor-temporal-dinero"
+    ],
+    "aliases": [
+      "valor presente"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "valor-temporal-del-dinero",
+    "term": "Valor temporal del dinero",
+    "definition": "Idea de que un euro hoy vale más que un euro futuro, porque se puede invertir y porque la inflación erosiona el futuro.",
+    "level": 0,
+    "concepts": [
+      "valor-temporal-dinero"
+    ],
+    "aliases": [
+      "valor temporal",
+      "valor del dinero en el tiempo"
+    ],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
+    "verificarAntesDe": null,
+    "sources": []
+  }
+]

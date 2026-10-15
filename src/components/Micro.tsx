@@ -23,18 +23,30 @@ export function TheoryCard({ term, children }: { term: string; children: React.R
 }
 
 /** Término del glosario: al tocarlo abre un bottom sheet con la definición. */
-export function GlossaryTerm({ term, definition }: { term: string; definition: string }) {
+export function GlossaryTerm({
+  term,
+  title,
+  definition,
+  inline = false,
+}: {
+  term: string;
+  /** Título de la hoja (por defecto, el propio término) */
+  title?: string;
+  definition: string;
+  /** Dentro de un párrafo: no ocupa 48 px de alto (los enlaces en línea están exentos del tamaño mínimo) */
+  inline?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="text-brand min-h-12 cursor-pointer underline decoration-dotted underline-offset-4"
+        className={`text-brand cursor-pointer underline decoration-dotted underline-offset-4 ${inline ? '' : 'min-h-12'}`}
       >
         {term}
       </button>
-      <Sheet open={open} onOpenChange={setOpen} title={term} description="Glosario">
+      <Sheet open={open} onOpenChange={setOpen} title={title ?? term} description="Glosario">
         <p>{definition}</p>
         <div className="mt-4">
           <Button variant="secondary" onClick={() => setOpen(false)}>

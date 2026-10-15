@@ -339,10 +339,15 @@ export const glossarySchema = z.array(
     definition: text,
     level: z.number().int().min(0).max(10),
     concepts: z.array(slug).default([]),
+    /** Otras formas con las que aparece el término en los textos (se subrayan igual). */
+    aliases: z.array(text).default([]),
+    status: z.enum(STATUSES).default('draft'),
+    reviewedBy: z.array(z.enum(REVIEWERS)).default([]),
     verificarAntesDe: isoDay.nullable().default(null),
     sources: z.array(sourceSchema).default([]),
   }),
 );
+export type GlossaryEntry = z.infer<typeof glossarySchema>[number];
 
 /** Test de salto: 8 preguntas por unidad, etiquetadas por concepto (TEMARIO §5). */
 export const placementSchema = z.object({

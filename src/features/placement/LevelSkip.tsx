@@ -71,7 +71,7 @@ export function LevelSkip({ level, onExit, onStudy }: Props) {
           <Button onClick={() => onStudy(sum.stoppedAt!)}>Estudiar esa unidad</Button>
         )}
         <Button variant={sum.stoppedAt ? 'secondary' : 'primary'} onClick={onExit}>
-          Volver al inicio
+          Volver al Camino
         </Button>
       </div>
     </section>

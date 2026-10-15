@@ -459,6 +459,33 @@ export function validateContent(b: ContentBundle): {
   if (b.glossary !== undefined) {
     const g = glossarySchema.safeParse(b.glossary);
     if (!g.success) issues.push(...zodIssues('glossary.json', g.error));
+    else {
+      const seenId = new Set<string>();
+      const seenTerm = new Set<string>();
+      for (const e of g.data) {
+        const bad = (code: string, message: string) =>
+          issues.push({ severity: 'error', code, where: `glossary.json › ${e.id}`, message });
+        if (seenId.has(e.id)) bad('id-duplicado', `Término repetido: ${e.id}`);
+        seenId.add(e.id);
+        for (const t of [e.term, ...e.aliases].map((x) => x.toLowerCase())) {
+          if (seenTerm.has(t))
+            bad('termino-duplicado', `"${t}" aparece en más de un término o alias`);
+          seenTerm.add(t);
+        }
+        for (const c of e.concepts)
+          if (!conceptIds.has(c)) bad('concepto-inexistente', `Concepto inexistente: ${c}`);
+        const words = e.definition.trim().split(/\s+/).length;
+        if (words > 60)
+          bad('definicion-larga', `La definición tiene ${words} palabras; el máximo es 60`);
+        if (e.status === 'published' && !e.reviewedBy.includes('humano'))
+          bad('revision', 'published exige reviewedBy con "humano"');
+        if (e.status === 'reviewed' && !e.reviewedBy.includes('subagente'))
+          bad('revision', 'reviewed exige reviewedBy con "subagente"');
+        for (const a of e.aliases)
+          if (a.trim().split(/\s+/).length === 1 && a.length < 5)
+            bad('alias-ambiguo', `El alias "${a}" es demasiado corto y daría falsos positivos`);
+      }
+    }
   }
   if (b.curriculum !== undefined) {
     const c = curriculumSchema.safeParse(b.curriculum);

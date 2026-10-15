@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Avatar } from '../../brand/Characters';
 import { Bolsin } from '../../brand/Bolsin';
+import { ReportErrorButton } from '../../components/ReportErrorButton';
+import { GlossaryText } from '../glossary/GlossaryText';
 import { AnimatedNumber } from '../../components/AnimatedNumber';
 import { Button } from '../../components/Button';
 import { TheoryCard } from '../../components/Micro';
@@ -130,7 +132,9 @@ export function LessonScreen({ lesson, onExit }: Props) {
         <h2 className="text-3xl">{lesson.title}</h2>
         <div key={introIdx} className="grid gap-4">
           {block.type === 'card' && (
-            <TheoryCard term={block.term ?? 'Idea clave'}>{block.text}</TheoryCard>
+            <TheoryCard term={block.term ?? 'Idea clave'}>
+              <GlossaryText text={block.text} />
+            </TheoryCard>
           )}
           {block.type === 'example' && (
             <aside className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
@@ -233,6 +237,7 @@ export function LessonScreen({ lesson, onExit }: Props) {
           ) : (
             <p role="alert">Este tipo de ejercicio aún no está disponible ({exercise.type}).</p>
           )}
+          <ReportErrorButton exerciseId={exercise.id} />
         </>
       ) : null}
     </section>

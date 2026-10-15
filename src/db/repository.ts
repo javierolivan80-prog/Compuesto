@@ -114,6 +114,35 @@ export class Repository {
     return this.rebuild();
   }
 
+  async listReports(): Promise<ContentReport[]> {
+    return this.db.content_reports.orderBy('createdAt').reverse().toArray();
+  }
+
+  async deleteReport(id: string): Promise<void> {
+    await this.db.content_reports.delete(id);
+  }
+
+  /** Borra TODO el progreso y los reportes de este dispositivo (acción destructiva: la UI pide confirmación). */
+  async deleteAllData(): Promise<void> {
+    const { db } = this;
+    await db.transaction(
+      'rw',
+      [db.events, db.progress, db.stats, db.settings, db.srs_cards, db.content_reports],
+      async () => {
+        await Promise.all([
+          db.events.clear(),
+          db.progress.clear(),
+          db.stats.clear(),
+          db.srs_cards.clear(),
+          db.content_reports.clear(),
+        ]);
+        const keep = (await db.settings.toArray()).filter((r) => isDeviceSetting(r.key));
+        await db.settings.clear();
+        await db.settings.bulkPut(keep);
+      },
+    );
+  }
+
   async addReport(exerciseId: string, text: string): Promise<ContentReport> {
     const report = {
       id: crypto.randomUUID(),

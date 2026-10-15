@@ -95,14 +95,20 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   // 95 + 100 + 100 + 100 + 120
   await expect(page.getByTestId('xp-total')).toHaveText('515');
   await expect(page.getByText('Analista Junior').first()).toBeVisible();
-  await expect(page.getByText(/✓ completada/)).toHaveCount(5);
   await page.screenshot({ path: `${SHOTS}/home-final.png` });
+  await page.goto('/#/camino');
+  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
+    '✓ Completada',
+  );
 
   // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB); el onboarding no vuelve
   await page.reload();
   await expect(page.getByTestId('xp-total')).toHaveText('515');
   await expect(page.getByTestId('streak')).toHaveText('1 d');
-  await expect(page.getByText(/✓ completada/)).toHaveCount(5);
+  await page.goto('/#/camino');
+  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
+    '✓ Completada',
+  );
   expect(errors).toEqual([]);
 });
 

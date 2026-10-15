@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, it } from 'vitest';
 import { App } from '../src/app/App';
@@ -32,16 +32,17 @@ it('un usuario nuevo ve la bienvenida; tras el onboarding llega a su primera lec
   expect(window.location.hash).toBe('#/leccion/n0-u1-l1');
 });
 
-it('con el onboarding hecho la app abre en la Home con la Unidad 1 y los tests de salto', async () => {
+it('con el onboarding hecho la app abre en Inicio con la barra de 5 pestañas', async () => {
   window.location.hash = '#/';
   render(<App />); // misma base: el onboarding quedó guardado en el test anterior
+  expect(await screen.findByRole('heading', { name: 'Objetivo de hoy' })).toBeInTheDocument();
+  const nav = screen.getByRole('navigation', { name: 'Navegación principal' });
   expect(
-    await screen.findByRole('heading', { name: /El dinero en el tiempo/ }),
-  ).toBeInTheDocument();
-  expect(
-    screen.getAllByRole('button', { name: /Empezar|Abrir mercado/ }).length,
-  ).toBeGreaterThanOrEqual(5);
-  expect(screen.getByRole('button', { name: 'Saltar el Nivel 0' })).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: 'Saltar el Nivel 1' })).toBeInTheDocument();
-  expect(screen.getAllByRole('button', { name: 'Test de salto' })).toHaveLength(11);
+    within(nav)
+      .getAllByRole('link')
+      .map((a) => a.textContent),
+  ).toEqual(['Inicio', 'Camino', 'Practicar', 'Rivales', 'Despacho']);
+  expect(within(nav).getByRole('link', { name: 'Inicio' })).toHaveAttribute('aria-current', 'page');
+  expect(screen.getByRole('button', { name: /Abrir mercado|Continuar/ })).toBeInTheDocument();
+  expect(screen.getByText('Cifras ficticias del universo Compuesto.')).toBeInTheDocument();
 });

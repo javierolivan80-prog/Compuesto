@@ -95,7 +95,7 @@ test('test de salto suspendido (6 de 8 = 75 %): no se marca y se ofrece estudiar
   await expect(
     page.getByRole('heading', { name: 'Inflación: por qué tu dinero compra menos' }),
   ).toBeVisible();
-  await page.goto('/#/');
+  await page.goto('/#/camino');
   await expect(page.getByText('Dominada por test de salto')).toHaveCount(0);
 });
 
@@ -110,6 +110,7 @@ test('7 de 8 (87,5 %) es el mínimo que aprueba', async ({ page }) => {
 test('saltar el Nivel 0 completo encadena las 5 unidades', async ({ page }) => {
   test.setTimeout(120_000);
   await ready(page);
+  await page.goto('/#/camino');
   await page.getByRole('button', { name: 'Saltar el Nivel 0' }).click();
   const units = ['n0-u1', 'n0-u2', 'n0-u3', 'n0-u4', 'n0-u5'];
   for (const [i, u] of units.entries()) {
@@ -121,8 +122,8 @@ test('saltar el Nivel 0 completo encadena las 5 unidades', async ({ page }) => {
   }
   await expect(page.getByRole('heading', { name: /nivel saltado/ })).toBeVisible();
   await expect(page.getByText('✓ Dominada')).toHaveCount(5);
-  await page.getByRole('button', { name: 'Volver al inicio' }).click();
-  await expect(page.getByText('Dominada por test de salto')).toHaveCount(5);
+  await page.getByRole('button', { name: 'Volver al Camino' }).click();
+  await expect(page.getByText('✓ Dominada por test de salto')).toHaveCount(5);
 });
 
 test('saltar un nivel: la cadena se detiene en la primera unidad suspendida', async ({ page }) => {
