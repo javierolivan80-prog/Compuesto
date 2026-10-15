@@ -828,8 +828,10 @@
       "mercado-primario"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -848,8 +850,10 @@
       "mercado-secundario"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -870,8 +874,10 @@
     "aliases": [
       "oferta pública de suscripción"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -892,8 +898,10 @@
     "aliases": [
       "oferta pública de venta"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -912,8 +920,10 @@
       "mercado-primario"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -932,8 +942,10 @@
       "mercado-primario"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {

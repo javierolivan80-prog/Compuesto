@@ -1,8 +1,10 @@
 {
   "id": "n1-u2-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 2,
   "title": "Salir a bolsa: OPV y OPS",

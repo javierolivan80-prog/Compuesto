@@ -1,8 +1,10 @@
 {
   "id": "n1-u2-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 2,
   "title": "Qué cambia tras una emisión",
@@ -13,7 +15,6 @@
   ],
   "concepts": [
     "mercado-primario",
-    "opv",
     "capitalizacion"
   ],
   "companies": [

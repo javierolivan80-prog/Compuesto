@@ -67,3 +67,9 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Regla nueva para el resto de unidades:** cada ejercicio debe ser autocontenido (no remitir a «el ejercicio anterior» ni a «esos datos»).
 - **Ronda 2:** aprobada; 3 menores aplicados.
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: fuentes de BME y CNMV genéricas.
+
+## n1-u2 — Mercado primario y secundario (2026-10-15)
+- 5 lecciones (mercado primario, OPV/OPS, mercado secundario, qué cambia tras una emisión, Jefe final) + 6 términos de glosario. Explicador nuevo `PrimarySecondary`.
+- **Ronda 1:** 0 críticos, 3 mayores, 11 menores. Aceptados: ejercicios no autocontenidos (l3-e4, l4-e5/e6), respuestas 0 triviales con fórmula `*0` (sustituidas por escenarios con cálculo real), «horquilla» con dos significados (ahora «rango indicativo»), OPV vs «mercado primario» (nota de cambio de manos), «bonos»/«derechos de suscripción» antes de nivel, repeticiones en el Jefe final, fuente del Reglamento (UE) 2017/1129.
+- **Ronda 2:** aprobada; menor aplicado (concepto `opv` sobrante en l4).
+- Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: fuentes de la CNMV genéricas.

@@ -1,8 +1,10 @@
 {
   "id": "n1-u2-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 2,
   "title": "Mercado primario: nacen las acciones",
