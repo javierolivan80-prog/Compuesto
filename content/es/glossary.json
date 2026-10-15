@@ -592,5 +592,93 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "prima",
+    "term": "Prima",
+    "definition": "Precio que se paga a la aseguradora por la cobertura de un seguro.",
+    "level": 0,
+    "concepts": [
+      "seguros-basicos"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "franquicia",
+    "term": "Franquicia",
+    "definition": "Parte del daño que corre a cargo del asegurado; la aseguradora indemniza el resto.",
+    "level": 0,
+    "concepts": [
+      "seguros-basicos"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "siniestro",
+    "term": "Siniestro",
+    "definition": "Suceso cubierto por el seguro que da derecho a indemnización.",
+    "level": 0,
+    "concepts": [
+      "seguros-basicos"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "sistema-reparto",
+    "term": "Sistema de reparto",
+    "definition": "Sistema de pensiones en el que las cotizaciones actuales financian las pensiones actuales.",
+    "level": 0,
+    "concepts": [
+      "pensiones-publicas"
+    ],
+    "aliases": [
+      "reparto"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "tres-pilares",
+    "term": "Tres pilares",
+    "definition": "Esquema de la jubilación: pensión pública, planes de empleo y ahorro individual.",
+    "level": 0,
+    "concepts": [
+      "tres-pilares"
+    ],
+    "aliases": [
+      "pilares de la jubilación"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "riesgo-inversion",
+    "term": "Riesgo",
+    "definition": "Posibilidad de que el resultado real sea distinto del esperado, incluida la pérdida. A más rentabilidad esperada, suele haber más riesgo.",
+    "level": 0,
+    "concepts": [
+      "riesgo-rentabilidad"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

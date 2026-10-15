@@ -1,0 +1,217 @@
+{
+  "id": "n0-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 5,
+  "title": "Los tres pilares de la jubilación",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir los tres pilares",
+    "Ver el efecto de empezar a ahorrar antes"
+  ],
+  "concepts": [
+    "tres-pilares",
+    "interes-compuesto"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Tres pilares",
+      "text": "La jubilación se apoya en tres pilares: el primero, la pensión pública de la Seguridad Social; el segundo, los planes de empleo que ofrece una empresa o un sector; el tercero, el ahorro individual, como planes de pensiones o fondos. Cuanto antes empieces a ahorrar, más años trabaja el interés compuesto."
+    },
+    {
+      "type": "visual",
+      "component": "CompoundCurve",
+      "props": {
+        "principal": 3000,
+        "rate": 4,
+        "years": 35
+      }
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: 3.000 € ahorrados hoy a un 4 % anual constante se convierten en unos 11.838 € en 35 años. Si se empieza 10 años más tarde, en 25 años serían unos 7.998 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u5-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "¿Qué pilar es el ahorro individual para la jubilación?",
+      "options": [
+        "El tercero",
+        "El primero",
+        "El segundo",
+        "Ninguno"
+      ],
+      "answer": 0,
+      "explanation": "El tercer pilar es el ahorro que haces por tu cuenta.",
+      "wrongExplanations": {
+        "1": "El primero es la pensión pública.",
+        "2": "El segundo son los planes de empleo.",
+        "3": "Sí tiene un pilar propio."
+      }
+    },
+    {
+      "id": "n0-u5-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "statement": "Un plan de pensiones contratado por ti con un banco pertenece al primer pilar.",
+      "answer": false,
+      "explanation": "Es ahorro individual: tercer pilar."
+    },
+    {
+      "id": "n0-u5-l4-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "¿A qué pilar pertenece?",
+      "categories": [
+        "Primer pilar (público)",
+        "Segundo pilar (empresa)",
+        "Tercer pilar (individual)"
+      ],
+      "items": [
+        {
+          "text": "Pensión de jubilación de la Seguridad Social",
+          "category": "Primer pilar (público)"
+        },
+        {
+          "text": "Plan de pensiones de empleo de tu empresa",
+          "category": "Segundo pilar (empresa)"
+        },
+        {
+          "text": "Plan de pensiones que contratas tú con un banco",
+          "category": "Tercer pilar (individual)"
+        },
+        {
+          "text": "Ahorro en un fondo pensado para tu jubilación",
+          "category": "Tercer pilar (individual)"
+        }
+      ],
+      "explanation": "Público, empresa e individual."
+    },
+    {
+      "id": "n0-u5-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares",
+        "interes-compuesto"
+      ],
+      "prompt": "3.000 € a un 4 % anual compuesto durante 35 años. ¿Cuánto tienes al final? (2 decimales)",
+      "answer": 11838.27,
+      "tolerance": 0.01,
+      "formula": "3000 * 1.04 ^ 35",
+      "explanation": "3.000 × 1,04³⁵ = 11.838,27 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares",
+        "interes-compuesto"
+      ],
+      "prompt": "Los mismos 3.000 € a un 4 % durante solo 25 años. ¿Cuánto tienes? (2 decimales)",
+      "answer": 7997.51,
+      "tolerance": 0.01,
+      "formula": "3000 * 1.04 ^ 25",
+      "explanation": "3.000 × 1,04²⁵ = 7.997,51 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "El sistema público de la Seguridad Social es el ___ pilar.",
+      "answers": [
+        [
+          "primer",
+          "primero",
+          "1.º",
+          "1º",
+          "1"
+        ]
+      ],
+      "explanation": "Primer pilar: pensión pública."
+    },
+    {
+      "id": "n0-u5-l4-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto"
+      ],
+      "prompt": "¿Cuántos euros más obtienes por empezar 10 años antes (35 frente a 25 años)? (2 decimales)",
+      "answer": 3840.76,
+      "tolerance": 0.05,
+      "formula": "3000 * 1.04 ^ 35 - 3000 * 1.04 ^ 25",
+      "explanation": "11.838,27 − 7.997,51 = 3.840,76 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l4-e8",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "¿Qué ayuda a complementar la pensión pública?",
+      "options": [
+        "Empezar a ahorrar pronto",
+        "Aportar con regularidad",
+        "Gastar todo mientras se cobra sueldo",
+        "Esperar a los 60 años para empezar"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "Empezar pronto y ser constante da más años de capitalización; gastarlo todo o esperar lo impide."
+    }
+  ],
+  "realWorld": "En tu vida laboral tendrás derecho a una pensión pública, pero muchas personas la complementan con planes de empleo o ahorro individual.",
+  "sources": [
+    {
+      "title": "Seguridad Social: jubilación contributiva",
+      "url": "https://www.seg-social.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-01-31",
+  "lastReviewed": "2026-10-15"
+}

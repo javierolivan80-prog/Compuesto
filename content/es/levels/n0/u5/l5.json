@@ -1,0 +1,199 @@
+{
+  "id": "n0-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 5,
+  "title": "Riesgo y rentabilidad",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Relacionar riesgo y rentabilidad esperada",
+    "Calcular rentabilidades sencillas"
+  ],
+  "concepts": [
+    "riesgo-rentabilidad"
+  ],
+  "companies": [
+    "albufera-partners",
+    "pirineo-energia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Riesgo y rentabilidad",
+      "text": "El riesgo es la posibilidad de que el resultado real sea distinto del esperado, incluida la pérdida. Por lo general, a más rentabilidad esperada, más riesgo: nadie asume más incertidumbre gratis. Una inversión muy segura rinde poco; una que promete mucho con seguridad total suele ser una señal de alerta."
+    },
+    {
+      "type": "example",
+      "text": "Lucía anota los resultados anuales de una acción de Pirineo Energía, empresa ficticia: +20 %, −10 % y +15 %. La rentabilidad media es alta, pero el camino fue irregular."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u5-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "¿Qué relación suele haber entre riesgo y rentabilidad esperada?",
+      "options": [
+        "A más rentabilidad esperada, más riesgo",
+        "A más riesgo, menos rentabilidad esperada",
+        "No hay ninguna relación",
+        "Son siempre iguales"
+      ],
+      "answer": 0,
+      "explanation": "Para aceptar más incertidumbre se exige un premio mayor.",
+      "wrongExplanations": {
+        "1": "Sería contradictorio: nadie asumiría más riesgo por menos.",
+        "2": "La relación existe y es una idea central de las finanzas.",
+        "3": "No son lo mismo: riesgo es incertidumbre; rentabilidad, resultado."
+      }
+    },
+    {
+      "id": "n0-u5-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "statement": "Una inversión que promete una rentabilidad alta garantizada y sin riesgo es una señal de alerta.",
+      "answer": true,
+      "explanation": "Si fuese real, todos querrían comprarla y el precio cambiaría: suele ser un fraude."
+    },
+    {
+      "id": "n0-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Compras una acción a 80 € y vale 92 €. ¿Qué rentabilidad es, en %?",
+      "answer": 15,
+      "tolerance": 0,
+      "formula": "(92 - 80) / 80 * 100",
+      "explanation": "(92 − 80) / 80 = 0,15, es decir, un 15 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Rentabilidades de tres años: +20 %, −10 % y +15 %. ¿Cuál es su media aritmética, en %? (2 decimales)",
+      "answer": 8.33,
+      "tolerance": 0.1,
+      "formula": "(20 - 10 + 15) / 3",
+      "explanation": "(20 − 10 + 15) / 3 = 8,33 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u5-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Entre el mejor año (+20 %) y el peor (−10 %) hay una distancia de… (puntos porcentuales)",
+      "answer": 30,
+      "tolerance": 0,
+      "formula": "20 - (-10)",
+      "explanation": "20 − (−10) = 30 puntos porcentuales: una medida sencilla de lo irregular que fue.",
+      "unit": "p. p."
+    },
+    {
+      "id": "n0-u5-l5-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "A más rentabilidad esperada, más ___.",
+      "answers": [
+        [
+          "riesgo"
+        ]
+      ],
+      "explanation": "Riesgo y rentabilidad esperada suelen ir de la mano."
+    },
+    {
+      "id": "n0-u5-l5-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "¿Riesgo bajo o alto?",
+      "categories": [
+        "Riesgo bajo",
+        "Riesgo alto"
+      ],
+      "items": [
+        {
+          "text": "Cuenta de ahorro cubierta por el FGD",
+          "category": "Riesgo bajo"
+        },
+        {
+          "text": "Acciones de una sola empresa",
+          "category": "Riesgo alto"
+        },
+        {
+          "text": "Depósito a plazo en un banco",
+          "category": "Riesgo bajo"
+        },
+        {
+          "text": "Criptomonedas",
+          "category": "Riesgo alto"
+        }
+      ],
+      "explanation": "Los depósitos protegidos tienen poco riesgo; una sola acción o una criptomoneda pueden perder mucho valor."
+    },
+    {
+      "id": "n0-u5-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Tienes que pagar una matrícula en 6 meses. ¿Dónde conviene tener ese dinero?",
+      "options": [
+        "En algo de bajo riesgo y disponible",
+        "En una sola acción",
+        "En criptomonedas",
+        "En un producto que promete el doble"
+      ],
+      "answer": 0,
+      "explanation": "Con un plazo corto y una necesidad cierta, importa más no perder que ganar.",
+      "wrongExplanations": {
+        "1": "Una acción puede estar en pérdidas justo cuando la necesitas.",
+        "2": "Las criptomonedas son muy volátiles.",
+        "3": "Prometer el doble es una señal de alerta."
+      }
+    }
+  ],
+  "realWorld": "Cualquier folleto de inversión tiene un indicador de riesgo: es la forma oficial de recordarte que rentabilidad y riesgo van juntos.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

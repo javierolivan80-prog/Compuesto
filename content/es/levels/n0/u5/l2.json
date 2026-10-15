@@ -1,0 +1,206 @@
+{
+  "id": "n0-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 5,
+  "title": "Qué conviene asegurar",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Decidir qué riesgos asegurar y cuáles asumir",
+    "Calcular una pérdida esperada"
+  ],
+  "concepts": [
+    "seguros-basicos",
+    "riesgo-rentabilidad"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Qué asegurar",
+      "text": "No hace falta asegurarlo todo. Conviene asegurar los riesgos poco probables pero de impacto enorme que no podrías pagar tú, como una responsabilidad civil o una hospitalización. Las pérdidas pequeñas y asumibles se pagan mejor del propio bolsillo. Algunos seguros son obligatorios, como el de responsabilidad civil del automóvil."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u5-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "¿Qué riesgos conviene asegurar en primer lugar?",
+      "options": [
+        "Los de baja probabilidad y alto impacto",
+        "Los de alta probabilidad y bajo impacto",
+        "Todos los que ofrezca la aseguradora",
+        "Ninguno"
+      ],
+      "answer": 0,
+      "explanation": "El seguro es más útil donde una pérdida seria sería difícil de afrontar.",
+      "wrongExplanations": {
+        "1": "Esas pérdidas pequeñas y frecuentes se asumen mejor sin seguro.",
+        "2": "Asegurarlo todo encarece mucho y no siempre aporta.",
+        "3": "Sí hay riesgos que merece la pena cubrir."
+      }
+    },
+    {
+      "id": "n0-u5-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "statement": "En España, el seguro de responsabilidad civil de un vehículo es obligatorio.",
+      "answer": true,
+      "explanation": "Todo vehículo a motor necesita cubrir su responsabilidad civil frente a terceros."
+    },
+    {
+      "id": "n0-u5-l2-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "¿Asegurar o asumir?",
+      "categories": [
+        "Asegurar",
+        "Asumir"
+      ],
+      "items": [
+        {
+          "text": "Daños por un incendio en la vivienda",
+          "category": "Asegurar"
+        },
+        {
+          "text": "Rotura de un móvil de 100 €",
+          "category": "Asumir"
+        },
+        {
+          "text": "Gastos de una hospitalización larga",
+          "category": "Asegurar"
+        },
+        {
+          "text": "Perder un paraguas",
+          "category": "Asumir"
+        }
+      ],
+      "explanation": "Se asegura lo grave y poco probable; se asume lo pequeño."
+    },
+    {
+      "id": "n0-u5-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Un daño de 5.000 € tiene un 2 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
+      "answer": 100,
+      "tolerance": 0,
+      "formula": "5000 * 0.02",
+      "explanation": "0,02 × 5.000 = 100 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos",
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Una avería de 150 € tiene un 20 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
+      "answer": 30,
+      "tolerance": 0,
+      "formula": "150 * 0.20",
+      "explanation": "0,20 × 150 = 30 €. Es tan pequeña que suele convenir asumirla.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l2-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Conviene asegurar los riesgos de baja probabilidad y ___ impacto.",
+      "answers": [
+        [
+          "alto",
+          "gran",
+          "elevado"
+        ]
+      ],
+      "explanation": "Alto impacto significa que la pérdida sería difícil de pagar."
+    },
+    {
+      "id": "n0-u5-l2-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Ordena los pasos para decidir si contratar un seguro.",
+      "steps": [
+        "Identifica los riesgos que te pueden afectar",
+        "Estima su probabilidad y su impacto",
+        "Decide cuáles no podrías asumir tú",
+        "Compara coberturas y franquicias de varias aseguradoras"
+      ],
+      "explanation": "Primero identificas, luego valoras, luego decides y por último comparas ofertas."
+    },
+    {
+      "id": "n0-u5-l2-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Un seguro con una franquicia más alta suele tener una prima…",
+      "options": [
+        "Más baja",
+        "Más alta",
+        "Igual",
+        "Cero"
+      ],
+      "answer": 0,
+      "explanation": "Si asumes tú más parte del daño, la aseguradora cobra menos.",
+      "wrongExplanations": {
+        "1": "Sería lo contrario: asumes más y pagas más.",
+        "2": "La franquicia influye en la prima.",
+        "3": "Un seguro nunca es gratis."
+      }
+    }
+  ],
+  "realWorld": "Cuando compares seguros, mira la cobertura, la franquicia y las exclusiones, no solo la prima.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto Legislativo 8/2004 (seguro obligatorio de responsabilidad civil de vehículos)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-18911",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

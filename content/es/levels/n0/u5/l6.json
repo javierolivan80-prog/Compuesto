@@ -1,0 +1,245 @@
+{
+  "id": "n0-u5-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 5,
+  "title": "Jefe final: seguros, pensiones y riesgo",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar seguros, pensiones y riesgo-rentabilidad"
+  ],
+  "concepts": [
+    "seguros-basicos",
+    "pensiones-publicas",
+    "tres-pilares",
+    "riesgo-rentabilidad"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: un seguro transfiere un riesgo a cambio de una prima y se descuenta la franquicia. Conviene asegurar lo grave y poco probable, y asumir lo pequeño."
+    },
+    {
+      "type": "card",
+      "text": "El sistema público de pensiones es de reparto y se complementa con empresa e individuo (tres pilares). Y en inversión, más rentabilidad esperada suele implicar más riesgo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u5-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Un daño de 2.000 € con una franquicia de 200 €. ¿Cuántos euros paga la aseguradora?",
+      "answer": 1800,
+      "tolerance": 0,
+      "formula": "2000 - 200",
+      "explanation": "2.000 − 200 = 1.800 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "Un daño de 10.000 € con un 5 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
+      "answer": 500,
+      "tolerance": 0,
+      "formula": "10000 * 0.05",
+      "explanation": "0,05 × 10.000 = 500 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u5-l6-e3",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "statement": "Asegurar todas las pérdidas, incluso las pequeñas que puedes asumir, siempre compensa.",
+      "answer": false,
+      "explanation": "Las pérdidas pequeñas suelen salir más baratas pagándolas tú."
+    },
+    {
+      "id": "n0-u5-l6-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "En un sistema de reparto, ¿quién paga las pensiones de hoy?",
+      "options": [
+        "Las cotizaciones de quienes trabajan hoy",
+        "El ahorro individual de cada pensionista",
+        "Los préstamos bancarios",
+        "Las empresas del IBEX"
+      ],
+      "answer": 0,
+      "explanation": "Los cotizantes actuales financian a los pensionistas actuales.",
+      "wrongExplanations": {
+        "1": "Eso describe un sistema de capitalización.",
+        "2": "El sistema no se financia con préstamos bancarios.",
+        "3": "Las empresas cotizan, pero no son la fuente exclusiva ni solo las del IBEX."
+      }
+    },
+    {
+      "id": "n0-u5-l6-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "El ahorro individual para la jubilación es el ___ pilar.",
+      "answers": [
+        [
+          "tercer",
+          "tercero",
+          "3.º",
+          "3º",
+          "3"
+        ]
+      ],
+      "explanation": "Tercer pilar: ahorro individual."
+    },
+    {
+      "id": "n0-u5-l6-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "tres-pilares"
+      ],
+      "prompt": "¿A qué pilar pertenece?",
+      "categories": [
+        "Primer pilar (público)",
+        "Segundo pilar (empresa)",
+        "Tercer pilar (individual)"
+      ],
+      "items": [
+        {
+          "text": "Pensión de la Seguridad Social",
+          "category": "Primer pilar (público)"
+        },
+        {
+          "text": "Plan de empleo de una empresa",
+          "category": "Segundo pilar (empresa)"
+        },
+        {
+          "text": "Plan de pensiones contratado por ti",
+          "category": "Tercer pilar (individual)"
+        }
+      ],
+      "explanation": "Público, empresa e individual."
+    },
+    {
+      "id": "n0-u5-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Compras a 50 € y vale 56 €. ¿Qué rentabilidad es, en %?",
+      "answer": 12,
+      "tolerance": 0,
+      "formula": "(56 - 50) / 50 * 100",
+      "explanation": "6 / 50 = 0,12, es decir, un 12 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u5-l6-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "riesgo-rentabilidad"
+      ],
+      "prompt": "Un producto promete el doble de tu dinero en un año sin ningún riesgo. ¿Qué indica?",
+      "options": [
+        "Una señal de alerta",
+        "Una oportunidad segura",
+        "Un seguro de vida",
+        "Un depósito normal"
+      ],
+      "answer": 0,
+      "explanation": "Si la rentabilidad es muy alta, el riesgo también lo es; sin riesgo, sería sospechoso.",
+      "wrongExplanations": {
+        "1": "Nadie ofrece rentabilidades así sin riesgo.",
+        "2": "No es un seguro.",
+        "3": "Un depósito normal no promete eso."
+      }
+    },
+    {
+      "id": "n0-u5-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "3.000.000 de cotizantes y 1.500.000 pensionistas en un país ficticio. ¿Cuántos cotizantes hay por pensionista?",
+      "answer": 2,
+      "tolerance": 0,
+      "formula": "3000000 / 1500000",
+      "explanation": "3.000.000 / 1.500.000 = 2.",
+      "unit": "cotizantes"
+    },
+    {
+      "id": "n0-u5-l6-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "seguros-basicos"
+      ],
+      "prompt": "¿Qué conviene hacer antes de contratar un seguro?",
+      "options": [
+        "Identificar los riesgos graves",
+        "Comparar franquicias y coberturas",
+        "Contratar todo lo que ofrezcan",
+        "Estimar si podrías asumir la pérdida tú"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Primero identificas y valoras los riesgos y comparas; contratar todo sin criterio no ayuda."
+    }
+  ],
+  "realWorld": "Estas ideas están detrás de tu póliza de hogar, tu vida laboral y cualquier propuesta de inversión que veas.",
+  "sources": [
+    {
+      "title": "Seguridad Social: jubilación contributiva",
+      "url": "https://www.seg-social.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-01-31",
+  "lastReviewed": "2026-10-15"
+}

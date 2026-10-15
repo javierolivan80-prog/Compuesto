@@ -1,0 +1,199 @@
+{
+  "id": "n0-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 5,
+  "title": "La pensión pública: un sistema de reparto",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar el sistema de reparto",
+    "Aplicar los requisitos básicos de la jubilación contributiva"
+  ],
+  "concepts": [
+    "pensiones-publicas"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Pensiones públicas",
+      "text": "El sistema público español es de reparto: las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy. Para la jubilación contributiva se exige un mínimo de 15 años cotizados y una edad que sube gradualmente hasta los 67 años en 2027, o 65 si se acreditan 38 años y 6 meses cotizados."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u5-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "¿Qué significa que el sistema sea de reparto?",
+      "options": [
+        "Las cotizaciones actuales financian las pensiones actuales",
+        "Cada persona ahorra en una cuenta propia",
+        "El Estado paga todo sin cotizaciones",
+        "Las pensiones se pagan con préstamos"
+      ],
+      "answer": 0,
+      "explanation": "Los trabajadores actuales financian a los pensionistas actuales.",
+      "wrongExplanations": {
+        "1": "Eso es un sistema de capitalización individual.",
+        "2": "El sistema se financia sobre todo con cotizaciones.",
+        "3": "No se financia con préstamos."
+      }
+    },
+    {
+      "id": "n0-u5-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "statement": "En un sistema de reparto, tus cotizaciones se guardan en una cuenta a tu nombre hasta tu jubilación.",
+      "answer": false,
+      "explanation": "Se usan para pagar las pensiones actuales; tu derecho futuro depende de lo cotizado."
+    },
+    {
+      "id": "n0-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "Una persona ha cotizado 12 años y necesita un mínimo de 15 para la jubilación contributiva. ¿Cuántos años más necesita?",
+      "answer": 3,
+      "tolerance": 0,
+      "formula": "15 - 12",
+      "explanation": "15 − 12 = 3 años.",
+      "unit": "años"
+    },
+    {
+      "id": "n0-u5-l3-e4",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "El sistema público español de pensiones es un sistema de ___.",
+      "answers": [
+        [
+          "reparto"
+        ]
+      ],
+      "explanation": "Reparto: cotizaciones actuales, pensiones actuales."
+    },
+    {
+      "id": "n0-u5-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "¿Reparto o capitalización?",
+      "categories": [
+        "Reparto",
+        "Capitalización"
+      ],
+      "items": [
+        {
+          "text": "Las cotizaciones de hoy pagan las pensiones de hoy",
+          "category": "Reparto"
+        },
+        {
+          "text": "Cada persona acumula su ahorro en una cuenta propia que se invierte",
+          "category": "Capitalización"
+        },
+        {
+          "text": "La Seguridad Social",
+          "category": "Reparto"
+        },
+        {
+          "text": "Un plan de pensiones individual",
+          "category": "Capitalización"
+        }
+      ],
+      "explanation": "Reparto es solidaridad entre generaciones; capitalización, ahorro individual invertido."
+    },
+    {
+      "id": "n0-u5-l3-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "En un país ficticio hay 2.000.000 de cotizantes y 1.000.000 de pensionistas. ¿Cuántos cotizantes hay por pensionista?",
+      "answer": 2,
+      "tolerance": 0,
+      "formula": "2000000 / 1000000",
+      "explanation": "2.000.000 / 1.000.000 = 2.",
+      "unit": "cotizantes"
+    },
+    {
+      "id": "n0-u5-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "¿Por qué el envejecimiento de la población presiona un sistema de reparto?",
+      "options": [
+        "Hay menos cotizantes por cada pensionista",
+        "Los pensionistas cotizan más",
+        "Suben las cotizaciones automáticamente",
+        "No tiene ningún efecto"
+      ],
+      "answer": 0,
+      "explanation": "Con menos cotizantes por pensionista, cada cotización debe financiar más pensión.",
+      "wrongExplanations": {
+        "1": "Los pensionistas no financian el sistema con cotizaciones.",
+        "2": "Las cotizaciones no suben solas.",
+        "3": "Sí afecta: cambia la relación entre cotizantes y pensionistas."
+      }
+    },
+    {
+      "id": "n0-u5-l3-e8",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "pensiones-publicas"
+      ],
+      "prompt": "La edad ordinaria de jubilación sube gradualmente hasta los ___ años en 2027.",
+      "answers": [
+        [
+          "67"
+        ]
+      ],
+      "explanation": "Son 67 años, o 65 con carrera de 38 años y 6 meses cotizados."
+    }
+  ],
+  "realWorld": "Puedes consultar tu vida laboral y tus cotizaciones en la sede de la Seguridad Social.",
+  "sources": [
+    {
+      "title": "Seguridad Social: jubilación contributiva",
+      "url": "https://www.seg-social.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-01-31",
+  "lastReviewed": "2026-10-15"
+}
