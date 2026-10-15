@@ -1,8 +1,10 @@
 {
   "id": "n0-u3-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 3,
   "title": "El fondo de emergencia",

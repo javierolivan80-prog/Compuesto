@@ -1,8 +1,10 @@
 {
   "id": "n0-u3-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 3,
   "title": "Jefe final: presupuesto, deuda y Excel",
@@ -247,7 +249,7 @@
         0,
         1
       ],
-      "explanation": "Automatizar y fijar reglas de antemano funcionan; esperar a que sobre algo casi nunca da ahorro."
+      "explanation": "Automatizar y fijar reglas de antemano funcionan; esperar a que sobre algo casi nunca da ahorro. Esperar a que sobre algo casi nunca da ahorro, y apartar solo lo que no sabes en qué gastar convierte el ahorro en un residuo."
     }
   ],
   "realWorld": "Estas cinco ideas están detrás de cualquier plan de finanzas personales: presupuesto, fondo, deuda, hábitos y una hoja de cálculo.",

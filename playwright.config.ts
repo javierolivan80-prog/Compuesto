@@ -29,6 +29,7 @@ export default defineConfig({
         'screens.spec.ts',
         'pwa.spec.ts',
         'unit2.spec.ts',
+        'unit3.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

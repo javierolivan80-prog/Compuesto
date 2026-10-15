@@ -1,8 +1,10 @@
 {
   "id": "n0-u3-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 3,
   "title": "Primeros pasos con Excel: celdas y SUMA",
@@ -64,9 +66,9 @@
       "concepts": [
         "celdas-suma"
       ],
-      "statement": "Sin el signo =, Excel trata lo que escribes como texto y no como una fórmula.",
+      "statement": "Si escribes B1+B2 sin el signo =, Excel lo trata como texto y no calcula nada.",
       "answer": true,
-      "explanation": "Para escribir una fórmula se empieza por =."
+      "explanation": "Para que Excel calcule, la fórmula debe empezar por =."
     },
     {
       "id": "n0-u3-l5-e3",
@@ -260,7 +262,13 @@
     }
   ],
   "realWorld": "Muchos bancos permiten descargar tus movimientos en CSV o Excel: con SUMA (SUM en la versión en inglés) y referencias montas tu presupuesto en minutos.",
-  "sources": [],
+  "sources": [
+    {
+      "title": "Microsoft: función SUMA",
+      "url": "https://support.microsoft.com/es-es/office/suma-funci%C3%B3n-suma-043e1c7d-7726-4e80-8f32-07b23e057f89",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

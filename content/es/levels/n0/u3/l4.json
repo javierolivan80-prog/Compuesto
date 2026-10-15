@@ -1,8 +1,10 @@
 {
   "id": "n0-u3-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 3,
   "title": "El sesgo del presente",
@@ -205,7 +207,13 @@
     }
   ],
   "realWorld": "Verás el sesgo del presente en cualquier oferta de \"compra ahora y paga después\" o en la facilidad de gastar frente a la dificultad de ahorrar.",
-  "sources": [],
+  "sources": [
+    {
+      "title": "Finanzas para Todos (CNMV y Banco de España): educación financiera",
+      "url": "https://www.finanzasparatodos.es/",
+      "date": "2026-10-15"
+    }
+  ],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

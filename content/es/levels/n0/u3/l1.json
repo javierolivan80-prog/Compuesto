@@ -1,8 +1,10 @@
 {
   "id": "n0-u3-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 3,
   "title": "El presupuesto: a dónde va tu dinero",
@@ -12,8 +14,7 @@
     "Repartir unos ingresos con la regla 50/30/20"
   ],
   "concepts": [
-    "presupuesto",
-    "celdas-suma"
+    "presupuesto"
   ],
   "companies": [
     "albufera-partners"

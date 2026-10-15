@@ -338,8 +338,10 @@
       "presupuesto"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -354,8 +356,10 @@
     "aliases": [
       "50/30/20"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -368,8 +372,10 @@
       "fondo-emergencia"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -382,8 +388,10 @@
       "fondo-emergencia"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -396,8 +404,10 @@
       "sesgo-presente"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -412,8 +422,10 @@
     "aliases": [
       "celda"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -426,8 +438,10 @@
       "celdas-suma"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -440,8 +454,10 @@
       "presupuesto"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   }
