@@ -59,3 +59,11 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Ronda 1:** 0 críticos, 6 mayores, 7 menores. Aceptados todos: «pérdida esperada» usada sin definir (tarjeta + glosario), ejemplo de hospitalización discutible (sustituido), distractor del MEI inexacto, promesa de derecho a pensión sin condiciones, fuentes de pensiones (LGSS art. 205), L1-e8 sin contexto.
 - **Ronda 2:** 1 mayor (dato del FGD sin fuente en L5 → se quita la cifra del ítem y se añade la fuente) y 1 menor (distractor ambiguo de L4-e8) aplicados.
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: requisitos de jubilación (15 años; 67 años en 2027; 65 con 38 años y 6 meses) verificados solo con el revisor, no con la web oficial; `verificarAntesDe` 2027-01-31. URL de criptoactivos CNMV y fuentes genéricas por confirmar.
+
+## n1-u1 — La empresa y la acción (2026-10-15)
+- 5 lecciones (la empresa y sus propietarios, la acción y sus derechos, capitalización, free float, Jefe final) + 5 términos de glosario. Explicador nuevo `MarketCapFloat` (motor `marketCap`/`freeFloatShares`). Datos de Naranjas del Turia (capital 6 M€, 12 M de acciones) coherentes con `companies.json`; el precio de 10 € se declara siempre como supuesto ilustrativo.
+- **Ronda 1:** 0 críticos, 8 mayores, 12 menores. Aceptados: free float sin acotar (definición variable según proveedor), explicador con free float antes de su lección, ejercicios no autocontenidos (las tarjetas SRS se presentan sueltas), «cuota de liquidación»/«alícuota» sin definir, fill_blank con más de una respuesta defendible, multi_select ambiguo, «perder lo que aportaron» (el comprador en bolsa invierte, no aporta).
+- **Descubierto durante la revisión (defecto de producto):** las opciones de `multiple_choice`/`multi_select` no se barajaban y la correcta era la primera en 47 de 54 ejercicios. Corregido (orden barajado estable por ejercicio) con test que exige < 50 % de correctas en primer lugar.
+- **Regla nueva para el resto de unidades:** cada ejercicio debe ser autocontenido (no remitir a «el ejercicio anterior» ni a «esos datos»).
+- **Ronda 2:** aprobada; 3 menores aplicados.
+- Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** PROVISIONAL: fuentes de BME y CNMV genéricas.

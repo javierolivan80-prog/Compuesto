@@ -718,8 +718,10 @@
       "empresa"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -738,8 +740,10 @@
       "accion"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -758,10 +762,18 @@
       "capitalizacion"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: el inversor y los mercados de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "free-float",
@@ -772,8 +784,10 @@
       "free-float"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -792,8 +806,10 @@
       "accion"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": [
       {

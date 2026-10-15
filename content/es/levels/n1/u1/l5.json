@@ -1,8 +1,10 @@
 {
   "id": "n1-u1-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 1,
   "title": "Jefe final: la empresa y la acción",

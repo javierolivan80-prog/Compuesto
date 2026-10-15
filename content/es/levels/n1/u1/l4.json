@@ -1,8 +1,10 @@
 {
   "id": "n1-u1-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 1,
   "unit": 1,
   "title": "Free float: las acciones que cotizan libremente",
@@ -138,11 +140,10 @@
       "prompt": "Las acciones que cotizan libremente forman el free ___.",
       "answers": [
         [
-          "float",
-          "flotante"
+          "float"
         ]
       ],
-      "explanation": "Free float, o capital flotante."
+      "explanation": "Free float (en castellano, capital flotante)."
     },
     {
       "id": "n1-u1-l4-e7",
@@ -172,7 +173,7 @@
           "category": "No es free float"
         },
         {
-          "text": "Acciones de pequeños accionistas minoristas",
+          "text": "Acciones de pequeños accionistas",
           "category": "Free float"
         }
       ],
