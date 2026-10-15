@@ -21,6 +21,7 @@ import {
 import { todayKey } from '../engine/stats';
 import { ReviewScreen } from '../features/practicar/ReviewScreen';
 import { LessonScreen } from '../features/lesson/LessonScreen';
+import { SessionScreen } from '../features/session/SessionScreen';
 import { PlacementScreen } from '../features/placement/PlacementScreen';
 
 /* Rutas que necesitan el contenido completo: se cargan en un trozo aparte para que el arranque sea ligero. */
@@ -98,4 +99,8 @@ export function ExamRoute({ unitId, onExit }: { unitId: string; onExit: () => vo
       onExit={onExit}
     />
   );
+}
+
+export function SessionRoute({ onExit }: { onExit: () => void }) {
+  return <SessionScreen onExit={onExit} />;
 }

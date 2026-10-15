@@ -174,7 +174,7 @@ test('estados vacíos: sin fallos, sin reportes y sin lecciones completadas', as
   await expect(page.getByText('No hay reportes')).toBeVisible();
   await page.goto('/#/practicar');
   await expect(page.getByText('Todavía no has completado ninguna lección')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Repaso espaciado y minijuegos' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Due diligence' })).toBeVisible();
   await page.goto('/#/rivales');
   await expect(page.getByText('Próximamente')).toBeVisible();
   await expect(page.locator('main').getByRole('button')).toHaveCount(0);

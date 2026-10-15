@@ -32,10 +32,13 @@ interface Closing {
 interface Props {
   lesson: Lesson;
   onExit: () => void;
+  /** Dentro de una sesión: el botón final sigue la sesión en vez de volver al inicio. */
+  onFinished?: () => void;
+  finishLabel?: string;
 }
 
 /** Lección completa: teoría (≤3 tarjetas) → ejercicios (fallos al final) → Cierre con XP y racha reales. */
-export function LessonScreen({ lesson, onExit }: Props) {
+export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props) {
   const repo = useRepo();
   const [phase, setPhase] = useState<'intro' | 'exercises' | 'closing'>(
     lesson.intro.length ? 'intro' : 'exercises',
@@ -203,8 +206,8 @@ export function LessonScreen({ lesson, onExit }: Props) {
           </div>
         </dl>
         {errorBanner}
-        <Button className="w-full max-w-sm" onClick={onExit}>
-          Continuar
+        <Button className="w-full max-w-sm" onClick={onFinished ?? onExit}>
+          {finishLabel ?? 'Continuar'}
         </Button>
       </section>
     );

@@ -9,6 +9,7 @@ export type Route =
   | { name: 'ajustes' }
   | { name: 'glosario' }
   | { name: 'reportes' }
+  | { name: 'sesion' }
   | { name: 'leccion'; id: string }
   | { name: 'salto'; unitId: string }
   | { name: 'saltar-nivel'; level: number }
@@ -38,6 +39,7 @@ export function parseRoute(hash: string): Route {
   if (h === '#/despacho/ajustes') return { name: 'ajustes' };
   if (h === '#/despacho/glosario') return { name: 'glosario' };
   if (h === '#/despacho/reportes') return { name: 'reportes' };
+  if (h === '#/sesion') return { name: 'sesion' };
   let m = new RegExp(`^#/leccion/${SLUG}$`).exec(h);
   if (m) return { name: 'leccion', id: m[1]! };
   m = new RegExp(`^#/salto/${SLUG}$`).exec(h);

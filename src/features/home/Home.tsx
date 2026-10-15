@@ -3,6 +3,8 @@ import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
 import { allLessonMeta } from '../../content/meta';
 import { useUniverse } from '../../content/useUniverse';
+import { dailyMissions } from '../../engine/missions';
+import { activeSession } from '../../engine/session';
 import { todayKey } from '../../engine/stats';
 import { universeTicker } from '../../engine/ticker';
 import { formatDelta, formatNumber } from '../../lib/format';
@@ -25,6 +27,9 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
   const next = lessons.find((l) => !completed(l.id));
   const started = next ? !!summary.progress.lessons[next.id] : false;
   const goal = summary.dailyGoal;
+  const today = todayKey(new Date());
+  const resumable = activeSession(data.events, today);
+  const missions = dailyMissions(data.events, today, goal.goal);
   const ticker = universe ? universeTicker(universe, todayKey(new Date())) : [];
 
   return (
@@ -92,6 +97,32 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
           </dd>
         </div>
       </dl>
+
+      <section aria-labelledby="ses-title" className="grid gap-3">
+        <h2 id="ses-title" className="text-2xl">
+          Sesión de hoy
+        </h2>
+        <Button
+          variant="secondary"
+          className="w-full"
+          onClick={() => {
+            window.location.hash = '#/sesion';
+          }}
+        >
+          {resumable ? 'Reanudar sesión' : 'Sesión de 20 min'}
+        </Button>
+        <ul aria-label="Misiones de hoy" className="grid gap-2">
+          {missions.map((m) => (
+            <li
+              key={m.id}
+              className="bg-surface-1 border-line flex justify-between gap-3 rounded-[var(--radius-md)] border p-3 text-sm"
+            >
+              <span>{m.title}</span>
+              <span data-num>{m.done ? '✓' : `${m.progress}/${m.target}`}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {next ? (
         <section aria-labelledby="next-title" className="grid gap-3">

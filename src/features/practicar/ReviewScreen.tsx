@@ -23,6 +23,9 @@ interface Props {
   /** Examen cronometrado: minutos totales y sin feedback hasta el final. */
   exam?: { minutes: number };
   onExit: () => void;
+  /** Dentro de una sesión: el final del bloque sigue la sesión en vez de volver a Practicar. */
+  onFinish?: () => void;
+  finishLabel?: string;
 }
 
 interface Missed {
@@ -34,7 +37,7 @@ const mmss = (s: number) =>
   `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 
 /** Repaso, práctica por tema, Mis errores y examen: una lista fija de ejercicios con guardado de cada respuesta. */
-export function ReviewScreen({ title, items, exam, onExit }: Props) {
+export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel }: Props) {
   const repo = useRepo();
   const playable = useMemo(
     () =>
@@ -151,8 +154,8 @@ export function ReviewScreen({ title, items, exam, onExit }: Props) {
             </ul>
           </section>
         )}
-        <Button onClick={onExit} className="justify-self-start">
-          Volver a Practicar
+        <Button onClick={onFinish ?? onExit} className="justify-self-start">
+          {finishLabel ?? 'Volver a Practicar'}
         </Button>
       </section>
     );

@@ -30,5 +30,25 @@
       "action": "Exportar copia ahora",
       "dismiss": "Recordármelo más tarde"
     }
+  },
+  "session": {
+    "title": "Abrir mercado",
+    "intro": "Una sesión combina repaso, una lección y un reto. Elige cuánto tiempo tienes.",
+    "allDone": "Has completado todo lo disponible: la sesión será de repaso y reto.",
+    "back": "Volver",
+    "backHome": "Volver al inicio",
+    "closeTitle": "Cierre de mercado",
+    "goalReached": "✓ Objetivo cumplido",
+    "closeAction": "Cerrar mercado",
+    "later": "Seguir luego",
+    "error": "No se pudo leer o guardar la sesión en este dispositivo.",
+    "duration": "Duración de la sesión",
+    "missions": "Misiones de hoy",
+    "minutes": "{{n}} min",
+    "open": "Abrir sesión de {{n}} min",
+    "xp": "+{{n}} XP en esta sesión",
+    "streakOne": "Racha: {{n}} día",
+    "streakMany": "Racha: {{n}} días",
+    "tomorrow": "Mañana conviene repasar: {{list}}."
   }
 }

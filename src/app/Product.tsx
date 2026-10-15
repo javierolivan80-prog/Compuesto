@@ -42,6 +42,7 @@ const Practicar = lazy(() =>
 const Rivales = lazy(() =>
   import('../features/practicar/Rivales').then((m) => ({ default: m.Rivales })),
 );
+const SessionRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.SessionRoute })));
 const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
 const ReviewRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ReviewRoute })));
 const ExamRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ExamRoute })));
@@ -83,6 +84,7 @@ export function Product() {
 
   // el SW nunca avisa ni recarga con una lección o un test en curso
   const busy =
+    route.name === 'sesion' ||
     route.name === 'leccion' ||
     route.name === 'salto' ||
     route.name === 'saltar-nivel' ||
@@ -205,6 +207,10 @@ export function Product() {
         );
         break;
       }
+      case 'sesion':
+        fullScreen = true;
+        body = <SessionRoute onExit={() => go('#/')} />;
+        break;
       case 'repaso':
         fullScreen = true;
         body = (

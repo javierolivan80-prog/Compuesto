@@ -247,8 +247,10 @@ test('flujo completo: onboarding → 3 lecciones sin conexión → recarga → p
     await page.getByRole('button', { name: 'Continuar' }).click();
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
+  await expect
+    .poll(async () => Number((await page.getByTestId('xp-total').innerText()).replace(/\./g, '')))
+    .toBeGreaterThanOrEqual(300);
   const xp = await page.getByTestId('xp-total').innerText();
-  expect(Number(xp.replace(/\./g, ''))).toBeGreaterThanOrEqual(300);
 
   // recarga (todavía sin conexión): el progreso sigue ahí
   await page.reload();

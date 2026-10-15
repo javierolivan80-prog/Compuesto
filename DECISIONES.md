@@ -207,3 +207,13 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Practicar:** Due diligence (cuántas tocan hoy y próximo repaso), Mis errores (último intento fallado), Por tema (dominio por concepto, los 8 más flojos), Examen cronometrado (10 preguntas aleatorias —semilla de unidad y día— en 10 minutos, **sin ver la solución hasta el final**, lista de fallos al terminar) y repetir lecciones. Los repasos dan 5 XP por acierto, sin bonus de cierre.
 - Los minijuegos siguen como «Próximamente» (2.5). **Provisional:** el examen no tiene aún aprobado/suspenso ni se guarda como intento propio (solo cuenta como respuestas); XP de repaso (5) y ventana de 20 min pendientes de calibrar con uso real.
 - Verificación: 12 tests del motor con reloj simulado (un fallo reaparece al día siguiente, intervalos crecientes, reintentos, reconstrucción en cualquier orden e idempotencia, archivado, dominio, refuerzo de prerrequisitos, intercalado, Mis errores, Por tema) y 4 e2e (`e2e/practicar.spec.ts`).
+
+## 2.2 — Sesión "Abrir mercado" (15/10/2026)
+
+- **Orquestador puro** (`src/engine/session.ts`): orden fijo briefing → due diligence → lección 1 → repaso → lección 2 → reto/Encargo del jefe → cierre, ajustado a 5/10/15/20 min con costes por bloque (`COST`). Lo que sobra se reparte en repaso y reto sin huecos (máx. 15 por bloque). Los bloques se guardan en `session_started`, así reanudar usa el plan original.
+- **El minijuego se sustituye por repaso** hasta la 2.5 (`review`, ya previsto en `blockSpec`).
+- **Reanudar**: `session_block_completed` por bloque; Inicio muestra "Reanudar sesión" si hay sesión del día sin `session_completed`. Bloques vacíos (sin tarjetas ni lección ya completada) se saltan solos.
+- **"Objetivo cumplido" sin presionar**: el cierre solo informa (XP de la sesión, racha, misiones, conceptos que cuestan); nada empuja a seguir.
+- **Misiones diarias**: 3 por día, deterministas por fecha (`missions.ts`), calculadas desde eventos.
+- **Provisional**: duración elegida guardada en el ajuste `sessionMinutes`; el botón de Inicio "Abrir mercado/Continuar" sigue empezando la siguiente lección (lo usan los e2e).
+- Textos nuevos vía `t()` (`session.*` en `es.json`).

@@ -138,7 +138,6 @@ export function planSession(input: PlanInput): SessionPlan {
       const extra = Math.min(15 - b.exercises, Math.floor(left / COST.perRetoExercise));
       if (extra > 0) {
         blocks[ti] = { kind: 'reto', exercises: b.exercises + extra, weekly: false };
-        left -= extra * COST.perRetoExercise;
       }
     }
   }
