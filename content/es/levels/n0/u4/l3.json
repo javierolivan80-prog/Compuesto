@@ -1,8 +1,10 @@
 {
   "id": "n0-u4-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 4,
   "title": "Cuentas y depósitos",
@@ -114,7 +116,7 @@
       ],
       "prompt": "Un depósito paga un 2 % de TIN con liquidación trimestral. ¿Cuál es su TAE en %? (2 decimales)",
       "answer": 2.02,
-      "tolerance": 0.5,
+      "tolerance": 0.3,
       "formula": "((1 + 0.02 / 4) ^ 4 - 1) * 100",
       "explanation": "Cada trimestre se gana un 0,5 %: 1,005⁴ − 1 = 2,015 %, que redondeado es 2,02 %.",
       "unit": "%"

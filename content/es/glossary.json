@@ -470,8 +470,10 @@
       "banco"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -484,8 +486,10 @@
       "creacion-dinero"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-10-15",
     "sources": [
       {
@@ -506,8 +510,10 @@
     "aliases": [
       "imposición a plazo"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -520,8 +526,10 @@
       "fgd"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-10-15",
     "sources": [
       {
@@ -540,8 +548,10 @@
       "irpf-intereses"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-03-31",
     "sources": [
       {
@@ -565,8 +575,10 @@
       "irpf-intereses"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": "2027-03-31",
     "sources": [
       {

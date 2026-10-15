@@ -30,6 +30,7 @@ export default defineConfig({
         'pwa.spec.ts',
         'unit2.spec.ts',
         'unit3.spec.ts',
+        'unit4.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

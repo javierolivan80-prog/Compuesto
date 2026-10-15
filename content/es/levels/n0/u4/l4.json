@@ -1,8 +1,10 @@
 {
   "id": "n0-u4-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 4,
   "title": "El Fondo de Garantía de Depósitos",

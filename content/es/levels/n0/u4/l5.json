@@ -1,8 +1,10 @@
 {
   "id": "n0-u4-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 4,
   "title": "Intereses e IRPF",
@@ -20,7 +22,7 @@
   "intro": [
     {
       "type": "card",
-      "term": "Intereses e IRPF",
+      "term": "Rendimientos del capital",
       "text": "Los intereses de cuentas y depósitos son rendimientos del capital mobiliario y se integran en la base del ahorro del IRPF. El banco retiene un 19 % al pagarlos, a cuenta del impuesto final. La escala gradual empieza en el 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 €; hay tramos superiores."
     },
     {
