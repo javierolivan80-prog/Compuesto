@@ -1,9 +1,11 @@
 /** Tokens de motion de docs/ANIMACIONES.md §1. Personalidad "Premium": precisa, sin rebote en UI. */
-export const ease = {
+type Bezier = [number, number, number, number];
+
+export const ease: { out: Bezier; inOut: Bezier; exit: Bezier } = {
   out: [0.23, 1, 0.32, 1],
   inOut: [0.65, 0, 0.35, 1],
   exit: [0.4, 0, 1, 1],
-} as const;
+};
 
 export const spring = {
   /** Sheets, tarjetas, arrastres: sin rebote. */

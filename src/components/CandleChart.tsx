@@ -1,0 +1,86 @@
+import {
+  CandlestickSeries,
+  ColorType,
+  createChart,
+  type IChartApi,
+  type UTCTimestamp,
+} from 'lightweight-charts';
+import { useEffect, useRef } from 'react';
+import type { Candle } from '../engine/candles';
+import { oklchToHex, parseOklch } from '../engine/color';
+import { formatDelta, formatEur } from '../lib/format';
+import { useTheme } from '../design/ThemeProvider';
+
+interface Props {
+  candles: Candle[];
+  label: string;
+  height?: number;
+}
+
+const cssVar = (name: string) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+/** lightweight-charts no entiende OKLCH: se convierte el token del tema a hex. */
+const chartColor = (name: string) => oklchToHex(parseOklch(cssVar(name)));
+
+/** Velas con lightweight-charts. Descripción textual para lector de pantalla (CLAUDE.md §10). */
+export function CandleChart({ candles, label, height = 240 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<IChartApi | null>(null);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const chart = createChart(el, {
+      height,
+      autoSize: true,
+      layout: {
+        background: { type: ColorType.Solid, color: 'transparent' },
+        textColor: chartColor('--text-2'),
+        fontFamily: cssVar('--font-mono'),
+      },
+      grid: { vertLines: { visible: false }, horzLines: { color: chartColor('--line') } },
+      rightPriceScale: { borderVisible: false },
+      timeScale: { borderVisible: false },
+    });
+    chartRef.current = chart;
+    const series = chart.addSeries(CandlestickSeries, {
+      upColor: chartColor('--bull'),
+      downColor: chartColor('--bear'),
+      wickUpColor: chartColor('--bull'),
+      wickDownColor: chartColor('--bear'),
+      borderVisible: false,
+    });
+    series.setData(
+      candles.map((c) => ({
+        time: (Date.parse(`${c.time}T00:00:00Z`) / 1000) as UTCTimestamp,
+        open: c.open,
+        high: c.high,
+        low: c.low,
+        close: c.close,
+      })),
+    );
+    chart.timeScale().fitContent();
+    return () => {
+      chart.remove();
+      chartRef.current = null;
+    };
+  }, [candles, height, theme]);
+
+  const first = candles[0];
+  const last = candles[candles.length - 1];
+  const pct = first && last ? ((last.close - first.open) / first.open) * 100 : 0;
+  const summary =
+    first && last
+      ? `${label}: ${candles.length} velas diarias, de ${formatEur(first.open)} a ${formatEur(last.close)} (${formatDelta(pct)}). Datos de ejemplo.`
+      : label;
+
+  return (
+    <figure className="grid gap-2">
+      {/* inert: el canvas no entra en el árbol de accesibilidad; el resumen textual de abajo lo describe */}
+      <div ref={ref} inert style={{ height }} />
+      <figcaption className="text-text-2 text-sm">{summary}</figcaption>
+    </figure>
+  );
+}

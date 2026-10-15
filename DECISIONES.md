@@ -71,3 +71,12 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - Iconos PWA desde `assets/brand/*.svg` con `scripts/build-icons.mjs` (192, 512, maskable 512 con zona segura, apple-touch 180, favicon 32 + SVG). Colores fijos del tema Noche (los iconos no pueden cambiar de tema). Un test comprueba los tamaños exactos.
 - Bug encontrado por el e2e: el minificador de CSS reescribe `oklch(0.16 0.02 255)` como `oklch(16% .02 255)`, y el parser fallaba en producción (la app no arrancaba). Corregido en `parseOklch`, con test, y el e2e ahora comprueba que no hay errores de página y que `theme-color` se sincroniza.
 - Pendiente de tu criterio visual (0.6): el tono de piel de los avatares usa `--text-2` y en temas claros queda oscuro/verdoso.
+
+## 2026-10-15 — Tarea 0.5: componentes base y /styleguide
+- `/styleguide` existe solo con `import.meta.env.DEV` (en producción no se monta; un e2e lo comprueba). Por eso Playwright tiene dos proyectos: `prod` (build + preview, :4173) y `dev` (vite, :5174).
+- lightweight-charts no entiende OKLCH: `CandleChart` convierte los tokens a hex con `oklchToHex`. El canvas va `inert` y el resumen textual (primera/última cotización, variación, "datos de ejemplo") hace de descripción accesible. La librería muestra su logotipo de atribución de TradingView (lo exige su licencia Apache-2.0 con NOTICE); no se oculta.
+- Contador (`AnimatedNumber`): el valor final va en texto solo para lector de pantalla y el animado en `aria-hidden`, para que no anuncie cada fotograma.
+- Axe se ejecuta con reduced-motion activado (estado final de las animaciones); con opacidades a medias da falsos positivos de contraste.
+- Detector de diseño (`npx impeccable detect src/`): un hallazgo (`border-accent-on-rounded` en la hoja de feedback), corregido quitando el radio (la hoja va de borde a borde). Ahora sin hallazgos.
+- Secuencias implementadas: subida de rango, ascensor, comité aprobado, cierre semanal (FLIP con `layout`), impresión de la tarjeta. **Sin sonido** (campana, ding): el banco de sonidos no entra en 0.5. Confeti en Canvas 2D, apagado con reduced-motion. Transiciones entre pantallas: View Transitions (fundido 160 ms) con fallback de Motion (`AnimatePresence`) cuando el navegador no las soporta; en Chromium se ve la rama nativa, la de fallback no se ha ejercitado en navegador.
+- Fuera de lo pedido y no hecho: "ordenar/arrastrar", "cálculo guiado" (FLIP de números a la fórmula), "hoja de cálculo" y "balance que cuadra" de ANIMACIONES §3; pertenecen a los ejercicios de la Fase 1.

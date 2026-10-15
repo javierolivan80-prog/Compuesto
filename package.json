@@ -23,6 +23,7 @@
     "@fontsource/geist-sans": "5.3.0",
     "@fontsource/instrument-serif": "5.3.0",
     "dexie": "4.4.6",
+    "lightweight-charts": "5.2.1",
     "motion": "14.2.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
@@ -31,6 +32,7 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@tailwindcss/vite": "4.3.3",

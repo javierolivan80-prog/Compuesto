@@ -39,3 +39,85 @@ body {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
+
+/* Sacudida de error: traslación horizontal 4 px × 2 ciclos en 180 ms (solo transform). */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+}
+.shake {
+  animation: shake 180ms var(--ease-out) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shake {
+    animation: none;
+  }
+}
+
+/* Transición entre pestañas: fundido cruzado de 160 ms, sin deslizar (ANIMACIONES §5). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 160ms;
+  animation-timing-function: var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Trazo dorado que se dibuja de izquierda a derecha bajo el término clave. */
+.key-term {
+  background: linear-gradient(var(--brand), var(--brand)) left bottom / 0% 2px no-repeat;
+  animation: underline-draw 400ms var(--ease-out) 200ms forwards;
+  padding-bottom: 2px;
+}
+@keyframes underline-draw {
+  to {
+    background-size: 100% 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .key-term {
+    animation: none;
+    background-size: 100% 2px;
+  }
+}
+
+/* Brillo suave de la etiqueta de repaso. */
+.review-tag {
+  position: relative;
+  overflow: hidden;
+}
+.review-tag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, oklch(1 0 0 / 0.25) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shine 2.4s var(--ease-in-out) 1s 2;
+}
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .review-tag::after {
+    animation: none;
+  }
+}

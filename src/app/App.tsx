@@ -1,16 +1,20 @@
+import { BrandDemo } from '../brand/BrandDemo';
 import { ThemeProvider } from '../design/ThemeProvider';
 import { TokensDemo } from '../design/TokensDemo';
-import { BrandDemo } from '../brand/BrandDemo';
+import { Styleguide } from './Styleguide';
 
+/** Las rutas de prueba solo existen en desarrollo: en producción import.meta.env.DEV es false. */
 export function App() {
-  const hash = import.meta.env.DEV ? window.location.hash : '';
-  const showTokens = hash === '#tokens';
-  const showBrand = hash === '#brand';
+  const dev = import.meta.env.DEV;
+  const hash = dev ? window.location.hash : '';
+  const isStyleguide = dev && window.location.pathname === '/styleguide';
   return (
     <ThemeProvider>
-      {showTokens ? (
+      {isStyleguide ? (
+        <Styleguide />
+      ) : hash === '#tokens' ? (
         <TokensDemo />
-      ) : showBrand ? (
+      ) : hash === '#brand' ? (
         <BrandDemo />
       ) : (
         <main>
