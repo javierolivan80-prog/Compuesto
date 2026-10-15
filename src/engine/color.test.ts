@@ -6,6 +6,10 @@ describe('color OKLCH', () => {
     expect(parseOklch('oklch(0.16 0.020 255)')).toEqual({ l: 0.16, c: 0.02, h: 255 });
     expect(parseOklch('oklch(0.34 0.020 255 / 0.6)').l).toBe(0.34);
   });
+  it('acepta la forma minificada (% y sin cero inicial)', () => {
+    expect(parseOklch('oklch(16% .02 255)')).toEqual({ l: 0.16, c: 0.02, h: 255 });
+    expect(parseOklch('oklch(95% 0.01 85.5deg / 60%)')).toEqual({ l: 0.95, c: 0.01, h: 85.5 });
+  });
   it('rechaza valores no válidos', () => {
     expect(() => parseOklch('#fff')).toThrow();
   });

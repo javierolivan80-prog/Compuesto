@@ -65,3 +65,9 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - Reduced-motion: en CSS las duraciones pasan a ~0; en JS `transition()` sustituye el movimiento por un fundido de 120 ms.
 - Página de prueba `#tokens` (`TokensDemo`), solo en desarrollo; la sustituye `/styleguide` en 0.5.
 - Escala tipográfica: `--text-xs` y `--text-sm` valen lo mismo (0,8 rem); se separarán cuando haga falta.
+
+## 2026-10-15 — Tarea 0.4: marca
+- Logo (`src/brand/Logo.tsx`): curva del interés compuesto en trazo dorado fino + wordmark en Instrument Serif; usa variables del tema. Bolsín (6 estados, respiración y parpadeo con transform, desactivados con reduced-motion) y 4 avatares (Elena Marqués, Hugo Ferrer, Ramón Climent, Pilar Soler; nombres inventados, **pendiente de comprobar contra el registro de la CNMV** como pide CLAUDE.md §8b). Todos originales y planos; nada que imite un personaje o marca.
+- Iconos PWA desde `assets/brand/*.svg` con `scripts/build-icons.mjs` (192, 512, maskable 512 con zona segura, apple-touch 180, favicon 32 + SVG). Colores fijos del tema Noche (los iconos no pueden cambiar de tema). Un test comprueba los tamaños exactos.
+- Bug encontrado por el e2e: el minificador de CSS reescribe `oklch(0.16 0.02 255)` como `oklch(16% .02 255)`, y el parser fallaba en producción (la app no arrancaba). Corregido en `parseOklch`, con test, y el e2e ahora comprueba que no hay errores de página y que `theme-color` se sincroniza.
+- Pendiente de tu criterio visual (0.6): el tono de piel de los avatares usa `--text-2` y en temas claros queda oscuro/verdoso.

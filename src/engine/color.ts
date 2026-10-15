@@ -4,12 +4,20 @@ export interface Oklch {
   h: number;
 }
 
-const OKLCH_RE = /oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*[\d.%]+)?\s*\)/i;
+// El minificador de CSS reescribe `oklch(0.16 0.02 255)` como `oklch(16% .02 255)`:
+// se aceptan luminosidad en %, números sin cero inicial y alfa opcional.
+const NUM = '(\\d*\\.?\\d+)';
+const OKLCH_RE = new RegExp(
+  `oklch\\(\\s*${NUM}(%?)\\s+${NUM}(%?)\\s+${NUM}(?:deg)?(?:\\s*/\\s*[\\d.]+%?)?\\s*\\)`,
+  'i',
+);
 
 export function parseOklch(value: string): Oklch {
   const m = OKLCH_RE.exec(value);
   if (!m) throw new Error(`Color OKLCH no válido: "${value}"`);
-  return { l: Number(m[1]), c: Number(m[2]), h: Number(m[3]) };
+  const l = m[2] ? Number(m[1]) / 100 : Number(m[1]);
+  const c = m[4] ? (Number(m[3]) / 100) * 0.4 : Number(m[3]);
+  return { l, c, h: Number(m[5]) };
 }
 
 /** OKLCH → sRGB lineal (0–1, recortado al gamut). */

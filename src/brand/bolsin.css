@@ -1,0 +1,44 @@
+/* Solo transform/opacity. Con reduced-motion se queda el estado estático. */
+.bolsin-body {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bolsin-breathe 4s var(--ease-in-out, ease-in-out) infinite;
+}
+
+.bolsin[data-state='dormido'] .bolsin-body {
+  animation-duration: 6s;
+}
+
+.bolsin-eyes circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bolsin-blink 5s infinite;
+}
+
+@keyframes bolsin-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes bolsin-blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bolsin-body,
+  .bolsin-eyes circle {
+    animation: none;
+  }
+}
