@@ -34,7 +34,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -58,7 +60,9 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -71,7 +75,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -87,7 +93,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -103,7 +111,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -119,7 +129,9 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -136,7 +148,9 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -170,7 +184,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "scrip-dividend"
+      ],
       "concepts": [
         "scrip-dividend"
       ],
@@ -191,13 +207,7 @@
     }
   ],
   "realWorld": "El tratamiento fiscal del scrip depende de la opción elegida: consulta la información de la empresa y de la AEAT antes de decidir.",
-  "sources": [
-    {
-      "title": "Agencia Tributaria: IRPF, ganancias patrimoniales y rendimientos del capital mobiliario",
-      "url": "https://sede.agenciatributaria.gob.es/",
-      "date": "2026-10-15"
-    }
-  ],
+  "sources": [],
   "verificarAntesDe": "2027-03-31",
   "lastReviewed": "2026-10-15"
 }

@@ -34,7 +34,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -58,7 +60,9 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -71,7 +75,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -87,7 +93,9 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -121,7 +129,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -137,7 +147,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -153,7 +165,9 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
@@ -170,11 +184,13 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-total"
+      ],
       "concepts": [
         "rentabilidad-total"
       ],
-      "prompt": "La acción A sube un 3 % y paga un 4 % de dividendo; la B sube un 6 % y no paga dividendo. ¿Cuál tiene mayor rentabilidad total?",
+      "prompt": "La acción A sube un 2 % de precio y paga un 5 % de dividendo; la B sube un 6 % y no paga dividendo. ¿Cuál tiene mayor rentabilidad total?",
       "options": [
         "La A",
         "La B",
@@ -182,7 +198,7 @@
         "No se puede saber"
       ],
       "answer": 0,
-      "explanation": "A: 3 % + 4 % = 7 %; B: 6 %.",
+      "explanation": "A: 2 % + 5 % = 7 %; B: 6 %.",
       "wrongExplanations": {
         "1": "La B suma solo un 6 %.",
         "2": "Son 7 % y 6 %.",

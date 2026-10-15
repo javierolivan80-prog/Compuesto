@@ -1241,7 +1241,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: registros oficiales de entidades autorizadas",
+        "url": "https://www.cnmv.es/portal/Consultas/Registros.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "comision",
@@ -1301,7 +1307,13 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": null,
-    "sources": []
+    "sources": [
+      {
+        "title": "CNMV: información al inversor sobre dividendos y operaciones corporativas",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "ganancia-patrimonial",
@@ -1315,6 +1327,12 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": "2027-03-31",
-    "sources": []
+    "sources": [
+      {
+        "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 (escala del ahorro) y 101 (retenciones)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

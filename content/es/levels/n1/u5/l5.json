@@ -21,7 +21,7 @@
     {
       "type": "card",
       "term": "Ganancia patrimonial",
-      "text": "La ganancia patrimonial al vender acciones es el valor de venta menos el de compra, incluyendo comisiones. Tributa en la base del ahorro con la misma escala que los intereses: 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 €. Los dividendos también van a esa base, con una retención del 19 %."
+      "text": "La ganancia patrimonial al vender acciones es el valor de venta menos el de compra. Dividendos e intereses son rendimientos del capital mobiliario. Ambos tributan en la base del ahorro: 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 € (hay tramos superiores). La retención del 19 % es solo un pago a cuenta."
     }
   ],
   "exercises": [
@@ -30,7 +30,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -54,7 +56,9 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -67,7 +71,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -83,7 +89,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -99,7 +107,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -115,7 +125,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias",
         "dividendo"
@@ -132,7 +144,9 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -149,7 +163,9 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "irpf-ganancias"
+      ],
       "concepts": [
         "irpf-ganancias"
       ],
@@ -172,8 +188,8 @@
           "category": "Rendimiento del capital mobiliario"
         },
         {
-          "text": "Diferencia positiva entre venta y compra de unas acciones",
-          "category": "Ganancia patrimonial"
+          "text": "Intereses de una cuenta remunerada",
+          "category": "Rendimiento del capital mobiliario"
         }
       ],
       "explanation": "Vender con beneficio es ganancia patrimonial; dividendos e intereses son rendimientos del capital."
@@ -182,12 +198,7 @@
   "realWorld": "Tu bróker suele enviarte un resumen fiscal con ganancias, dividendos y retenciones: alimenta el borrador de la renta.",
   "sources": [
     {
-      "title": "Agencia Tributaria: IRPF, ganancias patrimoniales y rendimientos del capital mobiliario",
-      "url": "https://sede.agenciatributaria.gob.es/",
-      "date": "2026-10-15"
-    },
-    {
-      "title": "BOE: Ley 35/2006 del IRPF (texto consolidado)",
+      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 (escala del ahorro) y 101 (retenciones)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
       "date": "2026-10-15"
     }

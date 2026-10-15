@@ -44,7 +44,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "rentabilidad-dividendo"
+      ],
       "concepts": [
         "rentabilidad-dividendo"
       ],
@@ -68,7 +70,9 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
@@ -81,7 +85,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
@@ -97,7 +103,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "rentabilidad-dividendo"
+      ],
       "concepts": [
         "rentabilidad-dividendo"
       ],
@@ -113,7 +121,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
@@ -129,7 +139,9 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
@@ -145,7 +157,9 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
@@ -162,7 +176,9 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [],
+      "tags": [
+        "dividendo"
+      ],
       "concepts": [
         "dividendo"
       ],
