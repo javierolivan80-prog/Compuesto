@@ -133,3 +133,33 @@ export function freeFloatShares(shares: number, freeFloatPct: number): number {
     throw new RangeError('El free float debe estar entre 0 y 100');
   return (shares * freeFloatPct) / 100;
 }
+
+export interface IndexConstituent {
+  name: string;
+  /** Capitalización (o capitalización ajustada por free float) */
+  cap: number;
+  /** Rentabilidad del valor en % */
+  returnPct: number;
+}
+
+export interface IndexContribution extends IndexConstituent {
+  /** Peso en el índice, en % */
+  weightPct: number;
+  /** Aportación a la rentabilidad del índice, en puntos porcentuales */
+  contributionPp: number;
+}
+
+/** Índice ponderado por capitalización: peso = cap / suma de caps; rentabilidad = Σ peso × rentabilidad. */
+export function capWeightedIndex(items: readonly IndexConstituent[]): {
+  rows: IndexContribution[];
+  returnPct: number;
+} {
+  const total = items.reduce((s, i) => s + i.cap, 0);
+  if (items.length === 0 || total <= 0)
+    throw new RangeError('El índice necesita valores con capitalización positiva');
+  const rows = items.map((i) => {
+    const weightPct = (i.cap / total) * 100;
+    return { ...i, weightPct, contributionPp: (weightPct * i.returnPct) / 100 };
+  });
+  return { rows, returnPct: rows.reduce((s, r) => s + r.contributionPp, 0) };
+}

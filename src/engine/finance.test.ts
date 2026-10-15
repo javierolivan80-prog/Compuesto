@@ -11,6 +11,7 @@ import {
   totalInterest,
   depositChain,
   marketCap,
+  capWeightedIndex,
   freeFloatShares,
   maxDeposits,
   purchasingPower,
@@ -92,5 +93,18 @@ describe('finanzas básicas', () => {
     expect(freeFloatShares(100, 0)).toBe(0);
     expect(() => marketCap(-1, 10)).toThrow(RangeError);
     expect(() => freeFloatShares(100, 101)).toThrow(RangeError);
+  });
+  it('índice ponderado por capitalización', () => {
+    const { rows, returnPct } = capWeightedIndex([
+      { name: 'A', cap: 100, returnPct: 10 },
+      { name: 'B', cap: 50, returnPct: -10 },
+      { name: 'C', cap: 50, returnPct: 0 },
+    ]);
+    expect(rows.map((r) => r.weightPct)).toEqual([50, 25, 25]);
+    expect(rows[0]!.contributionPp).toBeCloseTo(5, 9);
+    expect(rows[1]!.contributionPp).toBeCloseTo(-2.5, 9);
+    expect(returnPct).toBeCloseTo(2.5, 9);
+    expect(() => capWeightedIndex([])).toThrow(RangeError);
+    expect(() => capWeightedIndex([{ name: 'X', cap: 0, returnPct: 1 }])).toThrow(RangeError);
   });
 });

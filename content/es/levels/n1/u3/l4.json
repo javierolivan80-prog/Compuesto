@@ -1,0 +1,228 @@
+{
+  "id": "n1-u3-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 3,
+  "title": "BME Growth, índices del mundo y OTC",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Reconocer BME Growth, los grandes índices y los mercados OTC"
+  ],
+  "concepts": [
+    "bme-growth",
+    "indices-mundiales",
+    "otc"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "BME Growth",
+      "text": "BME Growth es el mercado de BME para pymes en expansión, con requisitos más ligeros que el mercado principal. Los índices mundiales resumen otros mercados: S&P 500 (500 grandes empresas de EE. UU.), Euro Stoxx 50 (50 grandes de la eurozona), DAX 40 (Alemania) y Nikkei 225 (Japón)."
+    },
+    {
+      "type": "card",
+      "term": "Mercado OTC",
+      "text": "Una operación OTC (over the counter) se pacta directamente entre dos partes, fuera de un mercado organizado. Hay menos transparencia de precios y más riesgo de que la otra parte no cumpla."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u3-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "bme-growth"
+      ],
+      "prompt": "¿Para qué empresas está pensado BME Growth?",
+      "options": [
+        "Pymes en expansión",
+        "Solo las del IBEX 35",
+        "Solo bancos",
+        "Empresas extranjeras únicamente"
+      ],
+      "answer": 0,
+      "explanation": "Ofrece un acceso a bolsa con requisitos más ligeros.",
+      "wrongExplanations": {
+        "1": "Las del IBEX 35 cotizan en el mercado continuo.",
+        "2": "No es exclusivo de bancos.",
+        "3": "No es solo para empresas extranjeras."
+      }
+    },
+    {
+      "id": "n1-u3-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "bme-growth"
+      ],
+      "statement": "BME Growth es el mercado principal de las empresas del IBEX 35.",
+      "answer": false,
+      "explanation": "Está pensado para pymes en expansión, con requisitos más ligeros."
+    },
+    {
+      "id": "n1-u3-l4-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "indices-mundiales"
+      ],
+      "prompt": "¿De qué país o zona es cada índice?",
+      "categories": [
+        "EE. UU.",
+        "Eurozona",
+        "Japón",
+        "Alemania"
+      ],
+      "items": [
+        {
+          "text": "S&P 500",
+          "category": "EE. UU."
+        },
+        {
+          "text": "Euro Stoxx 50",
+          "category": "Eurozona"
+        },
+        {
+          "text": "Nikkei 225",
+          "category": "Japón"
+        },
+        {
+          "text": "DAX 40",
+          "category": "Alemania"
+        }
+      ],
+      "explanation": "S&P 500: EE. UU.; Euro Stoxx 50: eurozona; Nikkei 225: Japón; DAX 40: Alemania."
+    },
+    {
+      "id": "n1-u3-l4-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "otc"
+      ],
+      "prompt": "¿Qué es una operación OTC?",
+      "options": [
+        "Una operación pactada directamente entre dos partes fuera de un mercado organizado",
+        "Una operación en el mercado continuo",
+        "Una orden enviada al bróker",
+        "Una subasta en bolsa"
+      ],
+      "answer": 0,
+      "explanation": "OTC significa que se negocia directamente entre las partes.",
+      "wrongExplanations": {
+        "1": "El continuo es un mercado organizado.",
+        "2": "Enviar una orden al bróker no la hace OTC.",
+        "3": "Una subasta en bolsa es un mercado organizado."
+      }
+    },
+    {
+      "id": "n1-u3-l4-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "otc"
+      ],
+      "prompt": "Una operación pactada directamente entre dos partes, fuera de un mercado organizado, es una operación ___.",
+      "answers": [
+        [
+          "OTC",
+          "otc"
+        ]
+      ],
+      "explanation": "OTC: over the counter."
+    },
+    {
+      "id": "n1-u3-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "otc"
+      ],
+      "prompt": "¿Mercado organizado u OTC?",
+      "categories": [
+        "Mercado organizado",
+        "OTC"
+      ],
+      "items": [
+        {
+          "text": "Órdenes que se casan en un sistema central con reglas comunes",
+          "category": "Mercado organizado"
+        },
+        {
+          "text": "Contrato pactado directamente entre dos entidades",
+          "category": "OTC"
+        },
+        {
+          "text": "Cotización pública continua de cada acción",
+          "category": "Mercado organizado"
+        },
+        {
+          "text": "Más riesgo de que la contraparte no cumpla",
+          "category": "OTC"
+        }
+      ],
+      "explanation": "El organizado tiene reglas y transparencia; el OTC es bilateral."
+    },
+    {
+      "id": "n1-u3-l4-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "indices-mundiales"
+      ],
+      "prompt": "El S&P 500 agrupa 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces más empresas tiene el S&P 500?",
+      "answer": 10,
+      "tolerance": 0,
+      "formula": "500 / 50",
+      "explanation": "500 / 50 = 10 veces más.",
+      "unit": "veces"
+    },
+    {
+      "id": "n1-u3-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "indices-mundiales"
+      ],
+      "prompt": "El índice ___ 50 agrupa 50 grandes empresas de la eurozona.",
+      "answers": [
+        [
+          "Euro Stoxx",
+          "EuroStoxx",
+          "Eurostoxx"
+        ]
+      ],
+      "explanation": "Euro Stoxx 50."
+    }
+  ],
+  "realWorld": "Cuando veas la cotización de un valor en BME Growth o el nombre de un índice extranjero, ya sabrás de qué mercado se trata.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

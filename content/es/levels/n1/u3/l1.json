@@ -1,0 +1,203 @@
+{
+  "id": "n1-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 3,
+  "title": "BME y el mercado continuo",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es BME y el mercado continuo",
+    "Calcular el importe de una operación"
+  ],
+  "concepts": [
+    "bme"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "BME",
+      "text": "BME (Bolsas y Mercados Españoles) gestiona las bolsas de Madrid, Barcelona, Bilbao y Valencia y, desde 2020, forma parte del grupo suizo SIX. Las acciones más negociadas cotizan en el mercado continuo, un sistema electrónico que casa órdenes de compra y venta durante la sesión, de 9:00 a 17:30 (hora de Madrid)."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u3-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "¿Qué es el mercado continuo?",
+      "options": [
+        "Un sistema electrónico que casa órdenes de compra y venta durante la sesión",
+        "Un mercado donde solo se negocia una vez al día",
+        "Un mercado exclusivo para pymes",
+        "Un mercado sin horario"
+      ],
+      "answer": 0,
+      "explanation": "Las órdenes se cruzan electrónicamente de forma continua mientras dura la sesión.",
+      "wrongExplanations": {
+        "1": "Eso sería una subasta única, no negociación continua.",
+        "2": "Las pymes en expansión suelen ir a BME Growth.",
+        "3": "Tiene un horario de sesión."
+      }
+    },
+    {
+      "id": "n1-u3-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "statement": "Las bolsas de Madrid, Barcelona, Bilbao y Valencia están gestionadas por BME.",
+      "answer": true,
+      "explanation": "BME es el operador de las bolsas españolas."
+    },
+    {
+      "id": "n1-u3-l1-e3",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "La negociación electrónica de las acciones españolas más negociadas se hace en el mercado ___.",
+      "answers": [
+        [
+          "continuo"
+        ]
+      ],
+      "explanation": "Es el mercado continuo."
+    },
+    {
+      "id": "n1-u3-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "La sesión del mercado continuo va de 9:00 a 17:30. ¿Cuántas horas dura?",
+      "answer": 8.5,
+      "tolerance": 0,
+      "formula": "17.5 - 9",
+      "explanation": "De 9:00 a 17:30 hay 8 horas y media.",
+      "unit": "horas"
+    },
+    {
+      "id": "n1-u3-l1-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "Ordena el recorrido de una orden de compra en el mercado continuo.",
+      "steps": [
+        "Envías la orden a tu bróker",
+        "El bróker la lleva al sistema electrónico de BME",
+        "El sistema la casa con una orden de venta contraria",
+        "Se ejecuta la operación y recibes la confirmación"
+      ],
+      "explanation": "De tu bróker al mercado, cruce con un vendedor y confirmación."
+    },
+    {
+      "id": "n1-u3-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "Compras 300 acciones a 4,20 € cada una, sin comisiones. ¿Cuál es el importe de la operación?",
+      "answer": 1260,
+      "tolerance": 0,
+      "formula": "300 * 4.2",
+      "explanation": "300 × 4,20 = 1.260 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u3-l1-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "¿Quién hace qué?",
+      "categories": [
+        "BME",
+        "CNMV",
+        "Bróker"
+      ],
+      "items": [
+        {
+          "text": "Gestiona las bolsas y el mercado continuo",
+          "category": "BME"
+        },
+        {
+          "text": "Supervisa los mercados y aprueba folletos",
+          "category": "CNMV"
+        },
+        {
+          "text": "Transmite tus órdenes al mercado",
+          "category": "Bróker"
+        },
+        {
+          "text": "Opera el sistema de negociación electrónica",
+          "category": "BME"
+        }
+      ],
+      "explanation": "BME opera el mercado, la CNMV lo supervisa y el bróker te conecta."
+    },
+    {
+      "id": "n1-u3-l1-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "bme"
+      ],
+      "prompt": "¿Qué ventaja tiene negociar en un sistema electrónico continuo?",
+      "options": [
+        "Los precios se actualizan durante toda la sesión",
+        "Los precios nunca cambian",
+        "Solo se puede operar al cierre",
+        "Se elimina el riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Cada orden nueva puede cambiar el precio durante la sesión.",
+      "wrongExplanations": {
+        "1": "Cambian con cada operación.",
+        "2": "Se puede operar durante toda la sesión.",
+        "3": "Operar en bolsa siempre tiene riesgo."
+      }
+    }
+  ],
+  "realWorld": "En la web de BME puedes consultar el horario de la sesión y la cotización de cada valor del mercado continuo.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

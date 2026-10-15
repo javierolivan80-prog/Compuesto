@@ -2,6 +2,7 @@ import type { ComponentType } from 'react';
 import { EXPLAINER_PROPS } from '../../../content/explainer-props';
 import type { ExplainerName } from '../../../content/explainer-names';
 import { CompoundCurve } from './CompoundCurve';
+import { IndexWeights } from './IndexWeights';
 import { InflationCart } from './InflationCart';
 import { LoanAmortization } from './LoanAmortization';
 import { MarketCapFloat } from './MarketCapFloat';
@@ -24,6 +25,7 @@ const REGISTRY = {
   MoneyCreation,
   MarketCapFloat,
   PrimarySecondary,
+  IndexWeights,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

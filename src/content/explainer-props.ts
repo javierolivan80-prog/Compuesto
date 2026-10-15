@@ -44,4 +44,16 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     newShares: z.number().int().positive(),
     price: z.number().positive(),
   }),
+  IndexWeights: z.object({
+    constituents: z
+      .array(
+        z.object({
+          name: z.string().min(1).max(20),
+          cap: z.number().positive(),
+          returnPct: z.number().min(-100).max(1000),
+        }),
+      )
+      .min(2)
+      .max(6),
+  }),
 };

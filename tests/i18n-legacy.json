@@ -24,6 +24,7 @@
   "src/features/lesson/LessonScreen.tsx",
   "src/features/lesson/explainers/CompoundCurve.tsx",
   "src/features/lesson/explainers/Explainer.tsx",
+  "src/features/lesson/explainers/IndexWeights.tsx",
   "src/features/lesson/explainers/InflationCart.tsx",
   "src/features/lesson/explainers/LoanAmortization.tsx",
   "src/features/lesson/explainers/MarketCapFloat.tsx",

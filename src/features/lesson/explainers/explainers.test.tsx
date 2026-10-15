@@ -54,4 +54,21 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/30\.000\.000/);
     expect(text).toMatch(/recibe 0/);
   });
+  it('IndexWeights calcula pesos, aportaciones y rentabilidad del índice', () => {
+    render(
+      <ExplainerBlock
+        component="IndexWeights"
+        props={{
+          constituents: [
+            { name: 'A', cap: 100, returnPct: 10 },
+            { name: 'B', cap: 50, returnPct: -10 },
+            { name: 'C', cap: 50, returnPct: 0 },
+          ],
+        }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/\+2,50 %/);
+    expect(text).toMatch(/peso 50 %/);
+  });
 });

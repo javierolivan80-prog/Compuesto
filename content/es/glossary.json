@@ -954,5 +954,95 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "bme",
+    "term": "BME",
+    "definition": "Bolsas y Mercados Españoles: operador de las bolsas de Madrid, Barcelona, Bilbao y Valencia y de sus sistemas de negociación.",
+    "level": 1,
+    "concepts": [
+      "bme"
+    ],
+    "aliases": [
+      "Bolsas y Mercados Españoles"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "mercado-continuo",
+    "term": "Mercado continuo",
+    "definition": "Sistema electrónico de BME en el que las acciones más negociadas se casan de forma continua durante la sesión.",
+    "level": 1,
+    "concepts": [
+      "bme"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "ibex-35",
+    "term": "IBEX 35",
+    "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float.",
+    "level": 1,
+    "concepts": [
+      "ibex-35"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "indice-bursatil",
+    "term": "Índice bursátil",
+    "definition": "Medida que resume cómo se mueve un conjunto de acciones; no es el precio de ninguna.",
+    "level": 1,
+    "concepts": [
+      "ibex-35"
+    ],
+    "aliases": [
+      "índice"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "bme-growth",
+    "term": "BME Growth",
+    "definition": "Mercado de BME para pymes en expansión, con requisitos más ligeros que el mercado principal.",
+    "level": 1,
+    "concepts": [
+      "bme-growth"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "otc",
+    "term": "OTC",
+    "definition": "Operación pactada directamente entre dos partes, fuera de un mercado organizado (over the counter).",
+    "level": 1,
+    "concepts": [
+      "otc"
+    ],
+    "aliases": [
+      "over the counter"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

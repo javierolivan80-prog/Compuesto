@@ -1,0 +1,189 @@
+{
+  "id": "n1-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 3,
+  "title": "El IBEX 35",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Describir cómo se forma el IBEX 35",
+    "Calcular pesos y variaciones de un índice"
+  ],
+  "concepts": [
+    "ibex-35",
+    "capitalizacion",
+    "free-float"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "IBEX 35",
+      "text": "El IBEX 35 es el índice de referencia de la bolsa española: agrupa 35 de las empresas más grandes y negociadas del mercado continuo. Pondera cada empresa por su capitalización ajustada por free float y se revisa dos veces al año. Un índice mide cómo se mueve un conjunto de acciones, no el precio de ninguna."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u3-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "¿Cuántas empresas agrupa el IBEX 35?",
+      "options": [
+        "35",
+        "50",
+        "100",
+        "500"
+      ],
+      "answer": 0,
+      "explanation": "El nombre lo dice: 35 valores.",
+      "wrongExplanations": {
+        "1": "50 es el tamaño del Euro Stoxx 50.",
+        "2": "No tiene 100 valores.",
+        "3": "500 es el S&P 500."
+      }
+    },
+    {
+      "id": "n1-u3-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "statement": "El IBEX 35 incluye todas las empresas que cotizan en el mercado continuo.",
+      "answer": false,
+      "explanation": "Solo incluye 35 de las más grandes y negociadas."
+    },
+    {
+      "id": "n1-u3-l2-e3",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35",
+        "free-float"
+      ],
+      "prompt": "El IBEX 35 pondera cada empresa por su capitalización ajustada por ___.",
+      "answers": [
+        [
+          "free float",
+          "float"
+        ]
+      ],
+      "explanation": "Se usa la capitalización del free float."
+    },
+    {
+      "id": "n1-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35",
+        "capitalizacion"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa tiene una capitalización ajustada por free float de 12.000 millones y el total de las 35 empresas es de 120.000 millones. ¿Qué peso tiene en el índice, en %?",
+      "answer": 10,
+      "tolerance": 0,
+      "formula": "12000 / 120000 * 100",
+      "explanation": "12.000 / 120.000 = 0,10, es decir, el 10 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u3-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35",
+        "free-float"
+      ],
+      "prompt": "Supuesto ilustrativo: una empresa vale 40.000 millones en bolsa y el 25 % de sus acciones es free float. ¿Cuál es su capitalización ajustada por free float, en millones?",
+      "answer": 10000,
+      "tolerance": 0,
+      "formula": "40000 * 0.25",
+      "explanation": "40.000 × 0,25 = 10.000 millones.",
+      "unit": "millones €"
+    },
+    {
+      "id": "n1-u3-l2-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ibex-35",
+        "free-float"
+      ],
+      "prompt": "¿Por qué se pondera por la capitalización del free float y no por la total?",
+      "options": [
+        "Porque refleja las acciones que realmente se pueden negociar",
+        "Porque es más fácil de calcular",
+        "Porque el free float es siempre mayor",
+        "Porque lo exige la CNMV a cada empresa"
+      ],
+      "answer": 0,
+      "explanation": "Lo que no cotiza libremente no influye en el precio de mercado.",
+      "wrongExplanations": {
+        "1": "No es por facilidad, sino por reflejar lo negociable.",
+        "2": "El free float suele ser menor que la capitalización total.",
+        "3": "Es un criterio del proveedor del índice."
+      }
+    },
+    {
+      "id": "n1-u3-l2-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Un índice pasa de 10.000 a 10.250 puntos. ¿Cuánto ha subido, en %?",
+      "answer": 2.5,
+      "tolerance": 0,
+      "formula": "(10250 - 10000) / 10000 * 100",
+      "explanation": "250 / 10.000 = 0,025, es decir, un 2,5 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u3-l2-e8",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "El IBEX 35 se revisa ___ veces al año.",
+      "answers": [
+        [
+          "dos",
+          "2"
+        ]
+      ],
+      "explanation": "La composición se revisa dos veces al año."
+    }
+  ],
+  "realWorld": "En la web de BME verás la composición del IBEX 35 y el peso de cada empresa.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-15"
+}

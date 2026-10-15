@@ -1,0 +1,209 @@
+{
+  "id": "n1-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 3,
+  "title": "Cómo se mueve un índice",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Calcular el peso y la aportación de cada valor",
+    "Obtener la rentabilidad de un índice ponderado"
+  ],
+  "concepts": [
+    "ibex-35",
+    "capitalizacion"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Índice ponderado",
+      "text": "En un índice ponderado por capitalización, las empresas grandes pesan más y mueven más el índice. Peso = capitalización de la empresa / capitalización total. Rentabilidad del índice = suma de (peso × rentabilidad de cada valor)."
+    },
+    {
+      "type": "visual",
+      "component": "IndexWeights",
+      "props": {
+        "constituents": [
+          {
+            "name": "A",
+            "cap": 100,
+            "returnPct": 10
+          },
+          {
+            "name": "B",
+            "cap": 50,
+            "returnPct": -10
+          },
+          {
+            "name": "C",
+            "cap": 50,
+            "returnPct": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo con tres empresas ficticias: A (100 millones) sube un 10 %, B (50 millones) baja un 10 % y C (50 millones) no cambia."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u3-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "En un índice ponderado por capitalización, ¿qué empresas mueven más el índice?",
+      "options": [
+        "Las de mayor capitalización",
+        "Las de menor precio por acción",
+        "Todas por igual",
+        "Las que más dividendo pagan"
+      ],
+      "answer": 0,
+      "explanation": "Pesan más y por tanto aportan más.",
+      "wrongExplanations": {
+        "1": "El precio por acción no determina el peso.",
+        "2": "Eso sería un índice equiponderado.",
+        "3": "El dividendo no determina el peso."
+      }
+    },
+    {
+      "id": "n1-u3-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "statement": "En un índice ponderado por capitalización, todas las empresas pesan lo mismo.",
+      "answer": false,
+      "explanation": "El peso depende de la capitalización de cada una."
+    },
+    {
+      "id": "n1-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "capitalizacion"
+      ],
+      "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). ¿Qué peso tiene la empresa A en el índice, en %?",
+      "answer": 50,
+      "tolerance": 0,
+      "formula": "100 / (100 + 50 + 50) * 100",
+      "explanation": "100 / 200 = 0,50, es decir, el 50 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). A sube un 10 %. ¿Cuántos puntos porcentuales aporta al índice?",
+      "answer": 5,
+      "tolerance": 0,
+      "formula": "0.5 * 10",
+      "explanation": "Peso 50 % × 10 % = 5 puntos porcentuales.",
+      "unit": "p. p."
+    },
+    {
+      "id": "n1-u3-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). B (peso 25 %) baja un 10 %. ¿Cuántos puntos porcentuales aporta al índice?",
+      "answer": -2.5,
+      "tolerance": 0,
+      "formula": "0.25 * -10",
+      "explanation": "25 % × (−10 %) = −2,5 puntos porcentuales.",
+      "unit": "p. p."
+    },
+    {
+      "id": "n1-u3-l3-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). A sube un 10 %, B baja un 10 % y C no cambia. ¿Cuál es la rentabilidad del índice, en %?",
+      "answer": 2.5,
+      "tolerance": 0,
+      "formula": "0.5 * 10 + 0.25 * -10 + 0.25 * 0",
+      "explanation": "5 − 2,5 + 0 = 2,5 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u3-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Un índice ponderado por ___ da más peso a las empresas más grandes.",
+      "answers": [
+        [
+          "capitalización",
+          "capitalizacion"
+        ]
+      ],
+      "explanation": "Capitalización."
+    },
+    {
+      "id": "n1-u3-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "Solo sube la empresa más grande del índice. ¿Qué efecto tiene sobre el índice comparado con la misma subida de una empresa pequeña?",
+      "options": [
+        "Lo mueve más",
+        "Lo mueve menos",
+        "Lo mueve igual",
+        "No lo mueve"
+      ],
+      "answer": 0,
+      "explanation": "Su mayor peso hace que aporte más.",
+      "wrongExplanations": {
+        "1": "Pesa más, así que aporta más.",
+        "2": "El peso es distinto, por tanto la aportación también.",
+        "3": "Cualquier valor del índice lo mueve en proporción a su peso."
+      }
+    }
+  ],
+  "realWorld": "Cuando oigas que «el IBEX sube un 1 %», recuerda que lo hacen más unas empresas que otras según su peso.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (mercados, índices y horarios)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}
