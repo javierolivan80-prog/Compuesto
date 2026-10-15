@@ -1,0 +1,184 @@
+{
+  "id": "n0-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 2,
+  "title": "Hipoteca: tipo fijo, variable y Euríbor",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir hipoteca fija, variable y mixta",
+    "Entender cómo el Euríbor mueve la cuota"
+  ],
+  "concepts": ["hipoteca", "euribor", "tin"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Hipoteca",
+      "text": "Una hipoteca es un préstamo con garantía sobre un inmueble: si no pagas, el banco puede ejecutarla. A tipo fijo, el tipo no cambia; a tipo variable, se revisa periódicamente; la mixta es fija unos años y variable después."
+    },
+    {
+      "type": "card",
+      "term": "Euríbor",
+      "text": "El Euríbor es un tipo de referencia basado en los préstamos entre grandes bancos europeos. En una hipoteca variable, el tipo es el Euríbor más un diferencial pactado, y se revisa cada cierto tiempo (a menudo cada 12 meses). Si el Euríbor sube, tu cuota puede subir."
+    },
+    {
+      "type": "visual",
+      "component": "LoanAmortization",
+      "props": {
+        "principal": 150000,
+        "rate": 3,
+        "years": 25
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u2-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["euribor"],
+      "prompt": "¿Cómo se calcula el tipo de una hipoteca variable?",
+      "options": [
+        "Euríbor más un diferencial",
+        "Solo el diferencial",
+        "Solo el Euríbor",
+        "La inflación del año anterior"
+      ],
+      "answer": 0,
+      "explanation": "El tipo variable es el índice de referencia (Euríbor) más un diferencial fijado en el contrato.",
+      "wrongExplanations": {
+        "1": "El diferencial se suma al índice; sin el Euríbor el tipo no se revisaría.",
+        "2": "Al Euríbor se le suma el diferencial pactado con el banco.",
+        "3": "La inflación no determina el tipo de la hipoteca."
+      }
+    },
+    {
+      "id": "n0-u2-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["euribor"],
+      "statement": "Si el Euríbor sube, la cuota de una hipoteca variable puede subir tras la revisión.",
+      "answer": true,
+      "explanation": "El tipo de la hipoteca se recalcula con el nuevo Euríbor al revisarla, y la cuota se ajusta."
+    },
+    {
+      "id": "n0-u2-l4-e3",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["hipoteca"],
+      "statement": "En una hipoteca a tipo fijo, la cuota cambia cada año con el Euríbor.",
+      "answer": false,
+      "explanation": "En tipo fijo el tipo no cambia durante el periodo pactado, así que la cuota tampoco."
+    },
+    {
+      "id": "n0-u2-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["euribor"],
+      "prompt": "Una hipoteca variable tiene un Euríbor del 2,5 % y un diferencial del 0,9 %. ¿Qué tipo se aplica en %?",
+      "answer": 3.4,
+      "tolerance": 0,
+      "formula": "2.5 + 0.9",
+      "explanation": "Tipo variable = Euríbor + diferencial = 2,5 + 0,9 = 3,4 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u2-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["hipoteca"],
+      "prompt": "Hipoteca de 150.000 € al 3 % a 25 años. ¿Cuál es la cuota mensual? (2 decimales)",
+      "answer": 711.32,
+      "tolerance": 0.05,
+      "formula": "150000 * (0.03 / 12) / (1 - (1 + 0.03 / 12) ^ -300)",
+      "explanation": "Cuota = capital × i / (1 − (1 + i)^−n), con i = 0,0025 y n = 300 meses: 711,32 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l4-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["hipoteca", "euribor"],
+      "prompt": "Con la misma hipoteca (150.000 € a 25 años), ¿cuál sería la cuota si el tipo pasara a ser del 4 %? (2 decimales)",
+      "answer": 791.76,
+      "tolerance": 0.05,
+      "formula": "150000 * (0.04 / 12) / (1 - (1 + 0.04 / 12) ^ -300)",
+      "explanation": "Con i = 0,04 / 12 y n = 300: 791,76 €. Es una simplificación: en la realidad se recalcula sobre el saldo y el plazo que quedan.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l4-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["hipoteca", "euribor"],
+      "prompt": "¿Cuántos euros más al mes se pagan con el 4 % que con el 3 %? (2 decimales)",
+      "answer": 80.44,
+      "tolerance": 0.5,
+      "formula": "150000 * (0.04 / 12) / (1 - (1 + 0.04 / 12) ^ -300) - 150000 * (0.03 / 12) / (1 - (1 + 0.03 / 12) ^ -300)",
+      "explanation": "791,76 − 711,32 = 80,44 € más al mes: un punto más de tipo pesa mucho en una cuota a 25 años.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l4-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["hipoteca", "euribor"],
+      "prompt": "¿Hipoteca fija o variable?",
+      "categories": ["Fija", "Variable"],
+      "items": [
+        {
+          "text": "La cuota puede subir si sube el Euríbor",
+          "category": "Variable"
+        },
+        {
+          "text": "Sabes desde el principio cuánto pagarás de cuota",
+          "category": "Fija"
+        },
+        {
+          "text": "El tipo se calcula con Euríbor más diferencial",
+          "category": "Variable"
+        },
+        {
+          "text": "Te protege de las subidas de tipos durante el periodo pactado",
+          "category": "Fija"
+        }
+      ],
+      "explanation": "La fija da seguridad en la cuota; la variable sigue al Euríbor."
+    }
+  ],
+  "realWorld": "Cuando te ofrezcan una hipoteca verás la FEIN: tipo, si es fija, variable o mixta, y el diferencial sobre el Euríbor.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "EMMI — Euribor (índice de referencia)",
+      "url": "https://www.emmi-benchmarks.eu/benchmarks/euribor/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

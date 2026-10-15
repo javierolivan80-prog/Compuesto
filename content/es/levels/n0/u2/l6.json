@@ -1,0 +1,200 @@
+{
+  "id": "n0-u2-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 2,
+  "title": "Jefe final: TIN, TAE, préstamos e hipotecas",
+  "estimatedMinutes": 5,
+  "objectives": ["Aplicar TIN, TAE, cuota, cuadro de amortización y Euríbor en un mismo caso"],
+  "concepts": [
+    "tin",
+    "tae",
+    "prestamo",
+    "cuadro-amortizacion",
+    "hipoteca",
+    "euribor",
+    "alquilar-vs-comprar"
+  ],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso de la unidad: el TIN es el tipo de partida y la TAE lo convierte en una medida anual comparable. La cuota de un préstamo depende de capital, tipo y plazo; el cuadro de amortización reparte cada cuota entre intereses y capital."
+    },
+    {
+      "type": "card",
+      "text": "En una hipoteca variable, el tipo es Euríbor más diferencial. Y al comparar alquilar con comprar hay que contar los intereses, los impuestos y el coste de oportunidad de la entrada."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u2-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Un depósito paga un 8 % de TIN con liquidación trimestral. ¿Cuál es su TAE en %? (2 decimales)",
+      "answer": 8.24,
+      "tolerance": 0.1,
+      "formula": "((1 + 0.08 / 4) ^ 4 - 1) * 100",
+      "explanation": "Cada trimestre se gana un 2 %: 1,02⁴ − 1 = 8,24 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u2-l6-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Depósito A: 5 % de TIN con liquidación anual. Depósito B: 4,9 % de TIN con liquidación mensual (TAE 5,01 %). ¿Cuál rinde más?",
+      "options": ["El A", "El B", "Rinden igual", "No se puede saber"],
+      "answer": 1,
+      "explanation": "Con TAE, B rinde 5,01 % y A 5,00 %. Un TIN menor puede dar mayor TAE si se liquida más a menudo.",
+      "wrongExplanations": {
+        "0": "A tiene mayor TIN, pero su TAE (5,00 %) es menor que la de B.",
+        "2": "Sus TAE son 5,00 % y 5,01 %: no son iguales.",
+        "3": "Con las TAE sí se puede comparar."
+      }
+    },
+    {
+      "id": "n0-u2-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Préstamo de 30.000 € al 5 % TIN a 60 meses. ¿Cuál es la cuota mensual? (2 decimales)",
+      "answer": 566.14,
+      "tolerance": 0.05,
+      "formula": "30000 * (0.05 / 12) / (1 - (1 + 0.05 / 12) ^ -60)",
+      "explanation": "Con i = 0,05 / 12 y n = 60: 566,14 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l6-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "statement": "Alargar el plazo de un préstamo reduce los intereses totales que pagas.",
+      "answer": false,
+      "explanation": "Alargar el plazo baja la cuota, pero se pagan intereses durante más tiempo y el total sube."
+    },
+    {
+      "id": "n0-u2-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "En ese préstamo de 30.000 € al 5 %, ¿cuántos euros de intereses tiene la primera cuota?",
+      "answer": 125,
+      "tolerance": 0,
+      "formula": "30000 * 0.05 / 12",
+      "explanation": "30.000 × 0,05 / 12 = 125 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l6-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["euribor"],
+      "prompt": "En una hipoteca variable el tipo es Euríbor más el ___.",
+      "answers": [["diferencial"]],
+      "explanation": "El diferencial es el margen que se suma al Euríbor."
+    },
+    {
+      "id": "n0-u2-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["hipoteca", "euribor"],
+      "prompt": "¿Fija o variable?",
+      "categories": ["Fija", "Variable"],
+      "items": [
+        {
+          "text": "La cuota puede cambiar en cada revisión",
+          "category": "Variable"
+        },
+        {
+          "text": "El tipo no cambia en el periodo pactado",
+          "category": "Fija"
+        },
+        {
+          "text": "Depende del Euríbor",
+          "category": "Variable"
+        }
+      ],
+      "explanation": "La fija mantiene el tipo; la variable lo revisa según el Euríbor."
+    },
+    {
+      "id": "n0-u2-l6-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["alquilar-vs-comprar"],
+      "prompt": "¿Qué parte de la cuota de una hipoteca va a tu patrimonio?",
+      "options": ["La del capital amortizado", "La de los intereses", "Toda la cuota", "Ninguna"],
+      "answer": 0,
+      "explanation": "El capital amortizado reduce tu deuda y cuenta como patrimonio; los intereses se pagan al banco.",
+      "wrongExplanations": {
+        "1": "Los intereses son el coste del préstamo.",
+        "2": "La cuota incluye intereses, que no se recuperan.",
+        "3": "El capital amortizado sí es patrimonio."
+      }
+    },
+    {
+      "id": "n0-u2-l6-e9",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Ordena una fila del cuadro de amortización.",
+      "steps": [
+        "Calcula los intereses: saldo × TIN / 12",
+        "Resta los intereses a la cuota: es el capital amortizado",
+        "Resta el capital amortizado al saldo",
+        "El nuevo saldo es el punto de partida del mes siguiente"
+      ],
+      "explanation": "Intereses, capital amortizado, nuevo saldo y mes siguiente."
+    },
+    {
+      "id": "n0-u2-l6-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "¿Qué hace que la cuota de un préstamo sea mayor?",
+      "options": [
+        "Un capital mayor",
+        "Un tipo de interés mayor",
+        "Un plazo más corto",
+        "Un plazo más largo"
+      ],
+      "answers": [0, 1, 2],
+      "explanation": "Más capital, más tipo y menos plazo suben la cuota; un plazo más largo la baja."
+    }
+  ],
+  "realWorld": "Las ideas de esta unidad están detrás de la oferta de cualquier préstamo o hipoteca: pide siempre la TAE, el cuadro de amortización y la FEIN.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

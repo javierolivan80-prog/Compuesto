@@ -1,0 +1,185 @@
+{
+  "id": "n0-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 2,
+  "title": "El cuadro de amortización",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Repartir una cuota entre intereses y capital",
+    "Calcular el saldo tras una cuota"
+  ],
+  "concepts": ["cuadro-amortizacion", "prestamo"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cuadro de amortización",
+      "text": "El cuadro de amortización detalla, cuota a cuota, cuánto va a intereses y cuánto a capital. Intereses del mes = saldo pendiente × TIN / 12. El resto de la cuota amortiza capital: el saldo baja y, con él, los intereses del mes siguiente."
+    },
+    {
+      "type": "visual",
+      "component": "LoanAmortization",
+      "props": {
+        "principal": 100000,
+        "rate": 3,
+        "years": 20
+      }
+    },
+    {
+      "type": "example",
+      "text": "Préstamo de 100.000 € al 3 % a 20 años: cuota de 554,60 €. En la primera cuota, 250 € son intereses y 304,60 € amortizan capital."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u2-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "En un préstamo francés, ¿qué ocurre con la parte de capital de cada cuota a lo largo del tiempo?",
+      "options": ["Aumenta", "Disminuye", "Se mantiene constante", "Desaparece"],
+      "answer": 0,
+      "explanation": "Al bajar el saldo bajan los intereses, y como la cuota es constante, la parte de capital aumenta.",
+      "wrongExplanations": {
+        "1": "Es la parte de intereses la que disminuye.",
+        "2": "Lo que es constante es la cuota total, no su reparto.",
+        "3": "El capital se amortiza en cada cuota hasta llegar a cero."
+      }
+    },
+    {
+      "id": "n0-u2-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "statement": "Los intereses de cada cuota se calculan sobre el capital inicial prestado.",
+      "answer": false,
+      "explanation": "Se calculan sobre el saldo pendiente, que baja con cada cuota."
+    },
+    {
+      "id": "n0-u2-l3-e3",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Escribe en B3 la fórmula de los intereses del mes: saldo × TIN / 12.",
+      "cells": {
+        "A1": "Saldo (€)",
+        "B1": 100000,
+        "A2": "TIN",
+        "B2": 0.03,
+        "A3": "Intereses del mes"
+      },
+      "target": "B3",
+      "solution": "=B1*B2/12",
+      "expected": 250,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B1": 60000,
+            "B2": 0.05
+          },
+          "expected": 250
+        },
+        {
+          "set": {
+            "B1": 120000,
+            "B2": 0.06
+          },
+          "expected": 600
+        }
+      ],
+      "explanation": "Intereses = saldo × TIN / 12 = 100.000 × 0,03 / 12 = 250 €. Al usar referencias, la fórmula sirve con cualquier saldo y tipo."
+    },
+    {
+      "id": "n0-u2-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Un préstamo tiene un saldo de 80.000 € y un TIN del 3,6 %. ¿Cuántos euros de intereses tiene la cuota del mes?",
+      "answer": 240,
+      "tolerance": 0,
+      "formula": "80000 * 0.036 / 12",
+      "explanation": "80.000 × 0,036 / 12 = 240 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "La cuota de un préstamo de 100.000 € al 3 % es de 554,60 € y los intereses de la primera cuota son 250 €. ¿Cuánto capital se amortiza en la primera cuota?",
+      "answer": 304.6,
+      "tolerance": 0.05,
+      "formula": "554.6 - 100000 * 0.03 / 12",
+      "explanation": "Capital amortizado = cuota − intereses = 554,60 − 250 = 304,60 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l3-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Tras la primera cuota, el saldo es 100.000 − 304,60 = 99.695,40 €. ¿Cuántos euros de intereses tiene la segunda cuota? (2 decimales)",
+      "answer": 249.24,
+      "tolerance": 0.05,
+      "formula": "99695.4 * 0.03 / 12",
+      "explanation": "99.695,40 × 0,03 / 12 = 249,24 €: algo menos que los 250 € de la primera cuota.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Los intereses de cada cuota se calculan sobre el ___ pendiente.",
+      "answers": [["saldo", "capital", "saldo pendiente", "capital pendiente"]],
+      "explanation": "El interés de cada mes se calcula sobre lo que aún debes."
+    },
+    {
+      "id": "n0-u2-l3-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cuadro-amortizacion"],
+      "prompt": "Ordena los pasos para calcular una fila del cuadro de amortización.",
+      "steps": [
+        "Calcula los intereses: saldo × TIN / 12",
+        "Resta los intereses a la cuota: es el capital amortizado",
+        "Resta el capital amortizado al saldo",
+        "El nuevo saldo es el punto de partida del mes siguiente"
+      ],
+      "explanation": "Intereses, capital amortizado, nuevo saldo y vuelta a empezar con el mes siguiente."
+    }
+  ],
+  "realWorld": "En la oferta de una hipoteca o un préstamo puedes pedir el cuadro de amortización: verás el reparto de cada cuota entre intereses y capital.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

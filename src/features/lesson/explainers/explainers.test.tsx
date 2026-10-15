@@ -1,0 +1,30 @@
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { ExplainerBlock } from './index';
+
+describe('explicadores de la Unidad 2 del Nivel 0', () => {
+  it('TinVsTae nace en su estado final y describe todas las TAE', () => {
+    render(<ExplainerBlock component="TinVsTae" props={{ tin: 12 }} />);
+    const fig = screen.getByRole('figure');
+    expect(fig).toHaveAccessibleName(/TIN y TAE/);
+    expect(fig.textContent).toContain('12,68 %');
+    expect(fig.textContent).toContain('12,00 %');
+  });
+  it('LoanAmortization describe la primera y la última cuota con cifras del cuadro', () => {
+    render(
+      <ExplainerBlock
+        component="LoanAmortization"
+        props={{ principal: 100000, rate: 3, years: 20 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/554,60/); // cuota mensual
+    expect(text).toMatch(/250,00/); // intereses de la primera cuota
+  });
+  it('rechaza props fuera de rango en vez de pintar datos falsos', () => {
+    render(
+      <ExplainerBlock component="LoanAmortization" props={{ principal: 1, rate: 0, years: 20 }} />,
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent(/no válidos/);
+  });
+});

@@ -5,6 +5,10 @@ import {
   doublingYearsRule72,
   inflatedPrice,
   presentValue,
+  taeFromTin,
+  monthlyPayment,
+  amortizationSchedule,
+  totalInterest,
   purchasingPower,
   realReturnPct,
   simpleValue,
@@ -36,5 +40,32 @@ describe('finanzas básicas', () => {
     expect(realReturnPct(5, 0)).toBeCloseTo(5, 9);
     expect(presentValue(1102.5, 5, 2)).toBeCloseTo(1000, 9);
     expect(presentValue(1215.51, 5, 4)).toBeCloseTo(1000.003, 3);
+  });
+  it('TAE a partir del TIN', () => {
+    expect(taeFromTin(12, 1)).toBeCloseTo(12, 9);
+    expect(taeFromTin(12, 12)).toBeCloseTo(12.6825, 4);
+    expect(taeFromTin(6, 2)).toBeCloseTo(6.09, 9);
+    expect(taeFromTin(0, 12)).toBe(0);
+    expect(() => taeFromTin(5, 0)).toThrow(RangeError);
+    expect(() => taeFromTin(5, 1.5)).toThrow(RangeError);
+  });
+  it('cuota y cuadro de amortización francés', () => {
+    expect(monthlyPayment(120000, 3, 25)).toBeCloseTo(569.05, 2);
+    expect(monthlyPayment(12000, 0, 1)).toBe(1000);
+    expect(() => monthlyPayment(1000, 3, 0)).toThrow(RangeError);
+    const rows = amortizationSchedule(100000, 3, 20);
+    expect(rows).toHaveLength(240);
+    expect(rows[0]!.interest).toBeCloseTo(250, 9);
+    expect(rows[0]!.capital).toBeCloseTo(304.6, 1);
+    expect(rows[239]!.balance).toBe(0);
+    // el capital amortizado suma el principal y el interés baja cada mes
+    expect(rows.reduce((s, r) => s + r.capital, 0)).toBeCloseTo(100000, 6);
+    for (let i = 1; i < rows.length; i++)
+      expect(rows[i]!.interest).toBeLessThan(rows[i - 1]!.interest);
+    expect(totalInterest(100000, 3, 20)).toBeCloseTo(
+      rows.reduce((s, r) => s + r.payment, 0) - 100000,
+      6,
+    );
+    expect(totalInterest(10000, 0, 2)).toBeCloseTo(0, 9);
   });
 });

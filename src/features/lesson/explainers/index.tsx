@@ -3,14 +3,22 @@ import { EXPLAINER_PROPS } from '../../../content/explainer-props';
 import type { ExplainerName } from '../../../content/explainer-names';
 import { CompoundCurve } from './CompoundCurve';
 import { InflationCart } from './InflationCart';
+import { LoanAmortization } from './LoanAmortization';
 import { Rule72 } from './Rule72';
+import { TinVsTae } from './TinVsTae';
 
 type Registry = {
   [K in ExplainerName]: ComponentType<
     { onInteract?: (id: string) => void } & Record<string, never>
   >;
 };
-const REGISTRY = { CompoundCurve, InflationCart, Rule72 } as unknown as Registry;
+const REGISTRY = {
+  CompoundCurve,
+  InflationCart,
+  Rule72,
+  TinVsTae,
+  LoanAmortization,
+} as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */
 export function ExplainerBlock({

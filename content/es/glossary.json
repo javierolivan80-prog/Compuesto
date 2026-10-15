@@ -194,5 +194,123 @@
     ],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "tin",
+    "term": "TIN",
+    "definition": "Tipo de interés nominal anual: el precio anual del dinero antes de tener en cuenta la frecuencia de liquidación de los intereses y las comisiones. Con él se calculan los intereses de cada cuota.",
+    "level": 0,
+    "concepts": [
+      "tin"
+    ],
+    "aliases": [
+      "tipo de interés nominal"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "tae",
+    "term": "TAE",
+    "definition": "Tasa anual equivalente: expresa en una medida anual comparable el coste de un préstamo o la rentabilidad de un depósito, incluyendo la frecuencia de liquidación de los intereses y, en préstamos, ciertas comisiones y gastos.",
+    "level": 0,
+    "concepts": [
+      "tae"
+    ],
+    "aliases": [
+      "tasa anual equivalente"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "cuota",
+    "term": "Cuota",
+    "definition": "Pago periódico (normalmente mensual) con el que se devuelve un préstamo. En el sistema francés es constante y se reparte entre intereses y capital.",
+    "level": 0,
+    "concepts": [
+      "prestamo"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "cuadro-amortizacion",
+    "term": "Cuadro de amortización",
+    "definition": "Tabla que detalla, cuota a cuota, cuánto se paga de intereses, cuánto de capital y cuál es el saldo pendiente.",
+    "level": 0,
+    "concepts": [
+      "cuadro-amortizacion"
+    ],
+    "aliases": [
+      "plan de amortización"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "hipoteca",
+    "term": "Hipoteca",
+    "definition": "Préstamo garantizado con un inmueble: si no se paga, el banco puede ejecutar la garantía. Puede ser a tipo fijo, variable o mixto.",
+    "level": 0,
+    "concepts": [
+      "hipoteca"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "euribor",
+    "term": "Euríbor",
+    "definition": "Tipo de referencia basado en los préstamos entre grandes bancos europeos. Es el índice al que se ligan la mayoría de las hipotecas a tipo variable.",
+    "level": 0,
+    "concepts": [
+      "euribor"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "diferencial",
+    "term": "Diferencial",
+    "definition": "Margen que el banco suma al Euríbor en una hipoteca variable. Tipo aplicado = Euríbor + diferencial.",
+    "level": 0,
+    "concepts": [
+      "euribor"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "coste-oportunidad",
+    "term": "Coste de oportunidad",
+    "definition": "Lo que dejas de ganar por elegir una alternativa en lugar de otra; por ejemplo, la rentabilidad a la que renuncias al inmovilizar dinero en la entrada de una vivienda.",
+    "level": 0,
+    "concepts": [
+      "alquilar-vs-comprar"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

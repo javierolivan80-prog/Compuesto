@@ -13,6 +13,8 @@ export type Ex = {
   steps?: string[];
   categories?: string[];
   items?: { text: string; category: string }[];
+  target?: string;
+  solution?: string;
 };
 
 export const promptOf = (e: Ex) =>
@@ -83,6 +85,9 @@ export async function solve(page: Page, e: Ex, wrong = false) {
           .getByRole('group', { name: it.text, ...exact })
           .getByRole('button', { name: new RegExp(`${it.category}$`) })
           .click();
+      break;
+    case 'spreadsheet':
+      await page.locator(`input[aria-label="Celda ${e.target}"]`).fill(e.solution!);
       break;
     default:
       throw new Error(`Tipo sin solver: ${e.type}`);

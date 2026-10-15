@@ -1,0 +1,182 @@
+{
+  "id": "n0-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 2,
+  "title": "TIN y TAE: dos formas de decir el precio del dinero",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir TIN y TAE",
+    "Calcular la TAE a partir del TIN y la frecuencia de liquidación"
+  ],
+  "concepts": ["tin", "tae", "interes-compuesto"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "TIN",
+      "text": "El TIN (tipo de interés nominal) es el precio anual del dinero, sin contar la frecuencia con que se liquidan los intereses ni las comisiones. Un préstamo al 6 % TIN cobra 6 € de intereses al año por cada 100 € prestados, antes de comisiones."
+    },
+    {
+      "type": "card",
+      "term": "TAE",
+      "text": "La TAE (tasa anual equivalente) resume el coste o la rentabilidad real de un año: incluye la frecuencia de liquidación de los intereses y, en un préstamo, ciertas comisiones y gastos. Suele ser mayor que el TIN y sirve para comparar ofertas."
+    },
+    {
+      "type": "visual",
+      "component": "TinVsTae",
+      "props": {
+        "tin": 6
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u2-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "¿Para qué sirve sobre todo la TAE?",
+      "options": [
+        "Para comparar el coste o la rentabilidad real de ofertas distintas",
+        "Para saber cuánto vale la cuota exacta del primer mes",
+        "Para conocer el tipo que fija el Banco Central Europeo",
+        "Para calcular la inflación del año"
+      ],
+      "answer": 0,
+      "explanation": "La TAE pone en una misma medida anual los intereses, su frecuencia de liquidación y ciertas comisiones, así que permite comparar.",
+      "wrongExplanations": {
+        "1": "La cuota depende del capital, del tipo y del plazo, no se lee directamente de la TAE.",
+        "2": "El BCE fija sus propios tipos oficiales; la TAE la calcula cada oferta de producto.",
+        "3": "La inflación la mide el INE con el IPC; la TAE no tiene relación con ella."
+      }
+    },
+    {
+      "id": "n0-u2-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["tin", "tae"],
+      "statement": "Dos depósitos con el mismo TIN tienen siempre la misma TAE.",
+      "answer": false,
+      "explanation": "Si uno liquida intereses cada mes y otro una vez al año, el primero tiene mayor TAE aunque el TIN sea el mismo."
+    },
+    {
+      "id": "n0-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Un depósito paga un 12 % de TIN y liquida los intereses cada mes. ¿Cuál es su TAE en %? (2 decimales)",
+      "answer": 12.68,
+      "tolerance": 0.1,
+      "formula": "((1 + 0.12 / 12) ^ 12 - 1) * 100",
+      "explanation": "Cada mes se gana 1 % y se capitaliza: 1,01¹² − 1 = 12,68 %. La TAE supera al TIN por el efecto compuesto.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Un depósito paga un 4 % de TIN con liquidación semestral (2 veces al año). ¿Cuál es su TAE en %? (2 decimales)",
+      "answer": 4.04,
+      "tolerance": 0.1,
+      "formula": "((1 + 0.04 / 2) ^ 2 - 1) * 100",
+      "explanation": "Cada semestre se gana un 2 %: 1,02² − 1 = 4,04 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u2-l1-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Para comparar dos ofertas de préstamo conviene mirar la ___ y no solo el TIN.",
+      "answers": [["TAE", "tae"]],
+      "explanation": "La TAE recoge frecuencia de liquidación y ciertas comisiones; el TIN, no."
+    },
+    {
+      "id": "n0-u2-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tin", "tae"],
+      "prompt": "¿TIN o TAE?",
+      "categories": ["TIN", "TAE"],
+      "items": [
+        {
+          "text": "Tipo anual de partida con el que se calculan los intereses",
+          "category": "TIN"
+        },
+        {
+          "text": "Es mayor cuanto más a menudo se liquidan los intereses",
+          "category": "TAE"
+        },
+        {
+          "text": "Sirve para comparar el coste real de dos ofertas",
+          "category": "TAE"
+        },
+        {
+          "text": "El 6 % que figura en un préstamo al 6 % antes de comisiones",
+          "category": "TIN"
+        }
+      ],
+      "explanation": "El TIN es el tipo de partida; la TAE lo convierte en una medida anual comparable."
+    },
+    {
+      "id": "n0-u2-l1-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tae"],
+      "prompt": "Ordena los pasos para comparar dos depósitos.",
+      "steps": [
+        "Anota el TIN y la frecuencia de liquidación de cada uno",
+        "Calcula (o lee) la TAE de cada depósito",
+        "Compara las dos TAE",
+        "Elige el de mayor TAE, porque estás cobrando intereses"
+      ],
+      "explanation": "Primero reúnes los datos, después conviertes cada oferta a TAE, comparas y eliges. En un depósito conviene la TAE más alta."
+    },
+    {
+      "id": "n0-u2-l1-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tin", "tae"],
+      "prompt": "El depósito A paga un 3 % de TIN con una liquidación al año y el B, un 3 % de TIN con liquidación mensual. ¿Cuál rinde más?",
+      "options": ["El A", "El B", "Rinden igual", "No se puede saber"],
+      "answer": 1,
+      "explanation": "El B liquida cada mes y capitaliza antes: su TAE es 3,04 % frente al 3,00 % del A.",
+      "wrongExplanations": {
+        "0": "Con liquidación anual la TAE coincide con el TIN (3,00 %): rinde menos que el B.",
+        "2": "Solo rinden igual si liquidan con la misma frecuencia.",
+        "3": "Con TIN y frecuencia se puede calcular la TAE de cada uno."
+      }
+    }
+  ],
+  "realWorld": "En la publicidad de un depósito o de un préstamo verás siempre el TIN y la TAE. La TAE es la cifra para comparar entre bancos.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

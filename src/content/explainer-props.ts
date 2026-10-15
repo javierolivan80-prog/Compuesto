@@ -19,4 +19,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     /** % anual */
     rate: z.number().min(1).max(30),
   }),
+  TinVsTae: z.object({
+    /** TIN anual en % */
+    tin: z.number().positive().max(30),
+  }),
+  LoanAmortization: z.object({
+    principal: z.number().positive(),
+    /** TIN anual en % */
+    rate: z.number().positive().max(20),
+    years: z.number().int().min(2).max(40),
+  }),
 };

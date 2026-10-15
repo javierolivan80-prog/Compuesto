@@ -1,0 +1,171 @@
+{
+  "id": "n0-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 2,
+  "title": "El préstamo y su cuota",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar de qué depende la cuota de un préstamo",
+    "Calcular la cuota y los intereses totales"
+  ],
+  "concepts": ["prestamo", "tin"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Préstamo",
+      "text": "Un préstamo es dinero que recibes hoy y devuelves en cuotas con intereses. En el sistema francés la cuota mensual es constante y depende del capital, del tipo de interés y del plazo. Alargar el plazo baja la cuota, pero se pagan más intereses en total."
+    },
+    {
+      "type": "example",
+      "text": "Carmen, dueña de Naranjas del Turia, pide 20.000 € al 6 % TIN a 4 años para una furgoneta de reparto. Su cuota es de 469,70 € al mes y en total pagará 2.545,63 € de intereses."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u2-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Si alargas el plazo de un préstamo, ¿qué ocurre normalmente?",
+      "options": [
+        "La cuota baja y los intereses totales suben",
+        "La cuota sube y los intereses totales bajan",
+        "La cuota y los intereses totales bajan",
+        "No cambia nada"
+      ],
+      "answer": 0,
+      "explanation": "Con más meses repartes el capital en cuotas menores, pero el banco cobra intereses durante más tiempo.",
+      "wrongExplanations": {
+        "1": "Eso ocurre al acortar el plazo.",
+        "2": "Con más plazo los intereses totales no bajan: se cobran durante más tiempo.",
+        "3": "El plazo es uno de los tres factores que determinan la cuota."
+      }
+    },
+    {
+      "id": "n0-u2-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "statement": "En el sistema francés la cuota mensual es constante.",
+      "answer": true,
+      "explanation": "La cuota es fija, aunque su composición cambia: al principio pesan más los intereses y luego el capital."
+    },
+    {
+      "id": "n0-u2-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Carmen pide 20.000 € al 6 % TIN a 48 meses. ¿Cuál es la cuota mensual? (2 decimales)",
+      "answer": 469.7,
+      "tolerance": 0.05,
+      "formula": "20000 * (0.06 / 12) / (1 - (1 + 0.06 / 12) ^ -48)",
+      "explanation": "Cuota = capital × i / (1 − (1 + i)^−n), con i = 0,06 / 12 = 0,005 y n = 48: 469,70 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Con esa cuota de 469,70 € durante 48 meses, ¿cuántos euros de intereses paga Carmen en total? (2 decimales)",
+      "answer": 2545.6,
+      "tolerance": 0.05,
+      "formula": "469.7 * 48 - 20000",
+      "explanation": "469,70 × 48 = 22.545,60 €; menos los 20.000 € prestados, son 2.545,60 € de intereses (2.545,63 € con la cuota sin redondear).",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l2-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "La cuota de un préstamo depende del capital, del tipo de interés y del ___.",
+      "answers": [["plazo"]],
+      "explanation": "Capital, tipo y plazo determinan la cuota."
+    },
+    {
+      "id": "n0-u2-l2-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Un préstamo de 12.000 € al 0 % se devuelve en 24 meses. ¿Cuál es la cuota mensual?",
+      "answer": 500,
+      "tolerance": 0,
+      "formula": "12000 / 24",
+      "explanation": "Sin intereses, la cuota es el capital dividido entre el número de cuotas: 12.000 / 24 = 500 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u2-l2-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "Ordena la vida de un préstamo.",
+      "steps": [
+        "El banco te entrega el capital",
+        "Pagas la cuota cada mes",
+        "Cada cuota paga intereses y devuelve parte del capital",
+        "El saldo pendiente baja hasta llegar a cero"
+      ],
+      "explanation": "Recibes el dinero, pagas cuotas que se reparten entre intereses y capital, y el saldo llega a cero al final del plazo."
+    },
+    {
+      "id": "n0-u2-l2-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["prestamo"],
+      "prompt": "¿Plazo corto o plazo largo?",
+      "categories": ["Plazo corto", "Plazo largo"],
+      "items": [
+        {
+          "text": "Cuota mensual más alta",
+          "category": "Plazo corto"
+        },
+        {
+          "text": "Cuota mensual más baja",
+          "category": "Plazo largo"
+        },
+        {
+          "text": "Más intereses pagados en total",
+          "category": "Plazo largo"
+        },
+        {
+          "text": "Menos intereses pagados en total",
+          "category": "Plazo corto"
+        }
+      ],
+      "explanation": "Un plazo corto da cuotas altas pero poco interés total; un plazo largo, lo contrario."
+    }
+  ],
+  "realWorld": "En la oferta de un préstamo (FEIN, ficha europea de información normalizada) aparecen capital, plazo, TIN, TAE y la cuota.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

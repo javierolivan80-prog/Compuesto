@@ -1,62 +1,16 @@
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
-import { expect, test, type Page } from '@playwright/test';
-import { completeOnboarding, currentExercise, solve, type Ex } from './solver';
+import { expect, test } from '@playwright/test';
+import { playLesson, type Lesson } from './play';
+import { completeOnboarding, solve } from './solver';
 
 /* Flujo completo de la Unidad 1 del Nivel 0 contra la build de producción:
    las respuestas salen de los propios JSON de contenido, así el test sigue valiendo si se edita una lección. */
-
-type Lesson = { id: string; title: string; intro: { type: string }[]; exercises: Ex[] };
 
 const lessons: Lesson[] = [1, 2, 3, 4, 5].map((n) =>
   JSON.parse(readFileSync(`content/es/levels/n0/u1/l${n}.json`, 'utf8')),
 );
 const SHOTS = 'docs/capturas/1.4';
-
-async function playLesson(
-  page: Page,
-  lesson: Lesson,
-  opts: { wrongFirst?: string; shots?: string } = {},
-) {
-  const shot = async (name: string) =>
-    opts.shots && (await page.screenshot({ path: `${SHOTS}/${opts.shots}-${name}.png` }));
-  // teoría
-  for (let i = 0; i < lesson.intro.length; i++) {
-    await page.waitForTimeout(500);
-    await shot(`teoria-${i + 1}`);
-    await page
-      .getByRole('button', {
-        name: i === lesson.intro.length - 1 ? 'Empezar los ejercicios' : 'Siguiente',
-        exact: true,
-      })
-      .click();
-  }
-  // ejercicios: los fallos vuelven al final
-  let answered = 0;
-  const failed = new Set<string>();
-  const closing = page.getByRole('heading', { name: 'Lección completada' });
-  const check = page.getByRole('button', { name: 'Comprobar' });
-  for (;;) {
-    // tras Continuar, guardar y pasar al siguiente ejercicio (o al cierre) es asíncrono
-    await expect(check.or(closing)).toBeVisible();
-    if (await closing.count()) break;
-    const e = await currentExercise(page, lesson.exercises);
-    const wrong = e.id === opts.wrongFirst && !failed.has(e.id);
-    await solve(page, e, wrong);
-    await check.click();
-    const status = page.getByRole('status').first();
-    await expect(status).toContainText(wrong ? 'Casi: repásalo' : 'Correcto');
-    if (answered === 0) await shot(wrong ? 'feedback-fallo' : 'feedback-acierto');
-    if (answered === 1) await shot('ejercicio-siguiente');
-    if (wrong) failed.add(e.id);
-    answered++;
-    await page.getByRole('button', { name: 'Continuar' }).click();
-    await expect(status).toBeHidden();
-  }
-  await page.waitForTimeout(800);
-  await shot('cierre');
-  return { answered, failed: failed.size };
-}
 
 test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive a la recarga', async ({
   page,
@@ -74,6 +28,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   const r1 = await playLesson(page, lessons[0]!, {
     wrongFirst: lessons[0]!.exercises[0]!.id,
     shots: 'l1',
+    shotsDir: SHOTS,
   });
   expect(r1.answered).toBe(lessons[0]!.exercises.length + 1); // 8 + el fallo repetido
   await expect(page.getByText('88 %')).toBeVisible(); // 7/8 a la primera
@@ -86,7 +41,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
     // Inicio ofrece siempre la siguiente lección sin completar
     await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
     await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
-    await playLesson(page, l, i === 0 ? { shots: 'l2' } : {});
+    await playLesson(page, l, i === 0 ? { shots: 'l2', shotsDir: SHOTS } : {});
     await page.getByRole('button', { name: 'Continuar' }).click();
   }
 
