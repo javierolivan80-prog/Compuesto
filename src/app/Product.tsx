@@ -43,6 +43,8 @@ const Rivales = lazy(() =>
   import('../features/practicar/Rivales').then((m) => ({ default: m.Rivales })),
 );
 const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
+const ReviewRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ReviewRoute })));
+const ExamRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ExamRoute })));
 const PlacementRoute = lazy(() =>
   import('./LazyRoutes').then((m) => ({ default: m.PlacementRoute })),
 );
@@ -80,7 +82,12 @@ export function Product() {
   const [onboarded, setOnboarded] = useState<boolean | null>(null);
 
   // el SW nunca avisa ni recarga con una lección o un test en curso
-  const busy = route.name === 'leccion' || route.name === 'salto' || route.name === 'saltar-nivel';
+  const busy =
+    route.name === 'leccion' ||
+    route.name === 'salto' ||
+    route.name === 'saltar-nivel' ||
+    route.name === 'repaso' ||
+    route.name === 'examen';
   const pwa = usePwa(busy);
 
   // se pide al navegador que no borre los datos en cuanto hay algo que proteger
@@ -198,6 +205,24 @@ export function Product() {
         );
         break;
       }
+      case 'repaso':
+        fullScreen = true;
+        body = (
+          <ReviewRoute
+            key={`${route.mode}:${route.conceptId ?? ''}`}
+            mode={route.mode}
+            conceptId={route.conceptId}
+            events={data.events}
+            onExit={() => go('#/practicar')}
+          />
+        );
+        break;
+      case 'examen':
+        fullScreen = true;
+        body = (
+          <ExamRoute key={route.unitId} unitId={route.unitId} onExit={() => go('#/practicar')} />
+        );
+        break;
       case 'saltar-nivel':
         fullScreen = true;
         body = (

@@ -1,7 +1,10 @@
 import companiesJson from '../../content/shared/companies.json';
+import conceptsJson from '../../content/shared/concepts.json';
+import type { ExerciseRef } from '../engine/srs';
 import glossaryJson from '../../content/es/glossary.json';
 import {
   companiesSchema,
+  conceptsSchema,
   glossarySchema,
   lessonSchema,
   placementSchema,
@@ -92,6 +95,35 @@ export function findExerciseText(id: string): { prompt: string; where: string } 
         prompt: 'prompt' in e ? e.prompt : e.statement,
         where: `Test de salto · ${p.unitId}`,
       };
+  }
+  return undefined;
+}
+
+/* ---------- Catálogo de ejercicios y grafo de conceptos (repaso espaciado, Fase 2) ---------- */
+
+const conceptsAll = conceptsSchema.parse(conceptsJson);
+
+export const conceptName = (id: string): string => conceptsAll.find((c) => c.id === id)?.name ?? id;
+
+/** concepto → prerrequisitos, para reforzar lo flojo cuando se falla un concepto. */
+export const conceptGraph = (): Record<string, { prerequisites: string[] }> =>
+  Object.fromEntries(conceptsAll.map((c) => [c.id, { prerequisites: c.prerequisites }]));
+
+/** Ejercicios vivos (de lecciones jugables) como referencias para el repaso; los de lecciones retiradas no están aquí y sus tarjetas se archivan. */
+export const exerciseCatalog = (): ExerciseRef[] =>
+  lessons.flatMap((l) =>
+    l.exercises.map((e) => ({
+      id: e.id,
+      lessonId: l.id,
+      unitId: `n${l.level}-u${l.unit}`,
+      concepts: e.concepts,
+    })),
+  );
+
+export function getExerciseById(id: string) {
+  for (const l of lessons) {
+    const exercise = l.exercises.find((e) => e.id === id);
+    if (exercise) return { exercise, lesson: l };
   }
   return undefined;
 }

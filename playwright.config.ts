@@ -39,6 +39,7 @@ export default defineConfig({
         'n1u5.spec.ts',
         'n1u6.spec.ts',
         'hardening.spec.ts',
+        'practicar.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

@@ -36,6 +36,8 @@ export const payloads = {
     correct: z.boolean(),
     timeMs: z.number().int().min(0).max(3_600_000),
     xp,
+    /** 'review' = repaso, práctica o examen: siempre cuenta como un intento nuevo para el repaso espaciado. */
+    source: z.enum(['lesson', 'review']).default('lesson'),
   }),
   lesson_completed: z.object({
     lessonId: id,

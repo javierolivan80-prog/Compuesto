@@ -42,6 +42,7 @@
   "src/features/placement/LevelSkip.tsx",
   "src/features/placement/PlacementScreen.tsx",
   "src/features/practicar/Practicar.tsx",
+  "src/features/practicar/ReviewScreen.tsx",
   "src/features/practicar/Rivales.tsx",
   "src/features/sequences/CommitteeApproved.tsx",
   "src/features/sequences/Elevator.tsx",

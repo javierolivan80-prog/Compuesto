@@ -75,9 +75,7 @@ describe('pantallas principales', () => {
 
   it('Practicar y Rivales: "Próximamente" sin controles falsos; Practicar permite repetir lo completado', async () => {
     await open('#/practicar');
-    expect(
-      await screen.findByRole('heading', { name: 'Repaso espaciado y minijuegos' }),
-    ).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Minijuegos' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Repetir' })).toBeInTheDocument();
   });
 

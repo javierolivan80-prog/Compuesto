@@ -11,7 +11,9 @@ export type Route =
   | { name: 'reportes' }
   | { name: 'leccion'; id: string }
   | { name: 'salto'; unitId: string }
-  | { name: 'saltar-nivel'; level: number };
+  | { name: 'saltar-nivel'; level: number }
+  | { name: 'repaso'; mode: 'due' | 'errores' | 'tema'; conceptId?: string }
+  | { name: 'examen'; unitId: string };
 
 export type TabId = 'home' | 'camino' | 'practicar' | 'rivales' | 'despacho';
 
@@ -42,6 +44,12 @@ export function parseRoute(hash: string): Route {
   if (m) return { name: 'salto', unitId: m[1]! };
   m = /^#\/saltar-nivel\/(\d+)$/.exec(h);
   if (m) return { name: 'saltar-nivel', level: Number(m[1]) };
+  if (h === '#/repaso') return { name: 'repaso', mode: 'due' };
+  if (h === '#/repaso/errores') return { name: 'repaso', mode: 'errores' };
+  m = new RegExp(`^#/repaso/tema/${SLUG}$`).exec(h);
+  if (m) return { name: 'repaso', mode: 'tema', conceptId: m[1]! };
+  m = new RegExp(`^#/examen/${SLUG}$`).exec(h);
+  if (m) return { name: 'examen', unitId: m[1]! };
   return { name: 'home' };
 }
 
