@@ -52,3 +52,6 @@ Las skills de terceros ejecutan con permisos del agente: **pendiente revisión h
 
 Creados a mano en `.claude/skills/` (`crear-unidad`, `nuevo-explicador`, `nuevo-juego`, `revisar-unidad`) y `.claude/agents/revisor-financiero.md`, basados en TEMARIO §8, ANIMACIONES §2 y JUEGOS §2–§5. No se usó el flujo de evals de `skill-creator` (sobredimensionado para instrucciones de proceso de 6 pasos); se pueden afinar con él más adelante.
 Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba en esta sesión se hizo cargando sus instrucciones en un agente de solo lectura (ver informe).
+
+## 2026-10-15 — Tarea 0.2: PRODUCT.md y DESIGN.md manuales
+`/impeccable init` no está disponible (Impeccable no se pudo instalar, ver 0.1), así que `PRODUCT.md` y `DESIGN.md` se escribieron a mano desde CLAUDE.md §1, §2, §5–§8b. UI UX Pro Max sí generó `design-system/compuesto/MASTER.md`; orientado a landing SaaS, se reconcilió al final del propio archivo (lista de propuestas descartadas y motivo).
