@@ -1,8 +1,10 @@
 {
   "id": "n0-u2-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 2,
   "title": "TIN y TAE: dos formas de decir el precio del dinero",

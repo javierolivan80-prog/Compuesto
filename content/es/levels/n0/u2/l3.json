@@ -1,8 +1,10 @@
 {
   "id": "n0-u2-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 2,
   "title": "El cuadro de amortización",

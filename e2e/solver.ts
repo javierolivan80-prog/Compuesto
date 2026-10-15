@@ -83,7 +83,9 @@ export async function solve(page: Page, e: Ex, wrong = false) {
       for (const it of e.items!)
         await page
           .getByRole('group', { name: it.text, ...exact })
-          .getByRole('button', { name: new RegExp(`${it.category}$`) })
+          .getByRole('button', {
+            name: new RegExp(`${it.category.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
+          })
           .click();
       break;
     case 'spreadsheet':

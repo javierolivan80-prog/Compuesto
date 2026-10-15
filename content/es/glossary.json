@@ -206,8 +206,10 @@
     "aliases": [
       "tipo de interés nominal"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -222,8 +224,10 @@
     "aliases": [
       "tasa anual equivalente"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -236,8 +240,10 @@
       "prestamo"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -252,8 +258,10 @@
     "aliases": [
       "plan de amortización"
     ],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -266,8 +274,10 @@
       "hipoteca"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -280,8 +290,10 @@
       "euribor"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -294,8 +306,10 @@
       "euribor"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -308,8 +322,10 @@
       "alquilar-vs-comprar"
     ],
     "aliases": [],
-    "status": "draft",
-    "reviewedBy": [],
+    "status": "reviewed",
+    "reviewedBy": [
+      "subagente"
+    ],
     "verificarAntesDe": null,
     "sources": []
   }
