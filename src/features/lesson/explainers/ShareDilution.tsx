@@ -32,8 +32,8 @@ export function ShareDilution({ shares, newShares, holding, onInteract }: Props)
       text: `Tus ${formatNumber(holding, 0)} acciones pasan a ser el ${pct(after)}: te han diluido.`,
     },
     {
-      title: 'Si acudes con tus derechos',
-      text: `Si suscribes ${formatNumber(subscribed, 0)} acciones nuevas, mantienes el ${pct(kept)}.`,
+      title: 'Si acudes a la ampliación',
+      text: `Si suscribes ${formatNumber(subscribed, 0)} acciones nuevas en proporción a lo que tienes, mantienes el ${pct(kept)}.`,
     },
   ];
   return (

@@ -22,7 +22,7 @@
     {
       "type": "card",
       "term": "OPA",
-      "text": "Una OPA (oferta pública de adquisición) es una oferta dirigida a todos los accionistas para comprarles sus acciones a un precio fijado. La CNMV la autoriza. Es obligatoria cuando alguien alcanza el control, que en España se fija en el 30 % de los derechos de voto, y el precio debe ser equitativo."
+      "text": "Una OPA es una oferta a todos los accionistas para comprarles sus acciones a un precio fijado, en efectivo o en acciones. La CNMV debe autorizarla. Es voluntaria si el oferente la lanza por iniciativa propia, y obligatoria al alcanzar el 30 % de los votos; en esta el precio debe ser equitativo."
     },
     {
       "type": "example",
@@ -149,19 +149,19 @@
       ],
       "items": [
         {
-          "text": "Un inversor decide comprar la empresa sin tener aún el 30 % de los votos",
+          "text": "Quien tiene el 32 % de los votos de una cotizada debe lanzarla",
+          "category": "Obligatoria"
+        },
+        {
+          "text": "Un inversor con el 5 % ofrece comprar todas las acciones",
           "category": "Voluntaria"
         },
         {
-          "text": "Se lanza porque alguien ha alcanzado el 30 % de los votos",
+          "text": "Se lanza al alcanzar el 30 % de los votos",
           "category": "Obligatoria"
         },
         {
-          "text": "Se lanza tras superar el umbral de control",
-          "category": "Obligatoria"
-        },
-        {
-          "text": "El oferente la lanza por iniciativa propia antes del umbral",
+          "text": "La lanza el oferente por iniciativa propia, sin haber llegado al 30 %",
           "category": "Voluntaria"
         }
       ],
@@ -178,16 +178,16 @@
       ],
       "prompt": "Si aceptas una OPA, ¿qué recibes?",
       "options": [
-        "El precio ofrecido por tus acciones",
-        "Acciones nuevas siempre",
+        "La contraprestación ofrecida por tus acciones (efectivo o valores)",
+        "Siempre acciones nuevas de la empresa",
         "Nada",
-        "Un dividendo extraordinario siempre"
+        "Un dividendo extraordinario"
       ],
       "answer": 0,
       "explanation": "Vendes tus acciones al oferente al precio de la oferta.",
       "wrongExplanations": {
-        "1": "La contraprestación puede ser en efectivo o en acciones, según la oferta, pero siempre recibes lo que se ofrece por tus acciones.",
-        "2": "Si aceptas, vendes y cobras.",
+        "1": "La contraprestación puede ser en efectivo o en valores, según la oferta; no siempre son acciones.",
+        "2": "Si aceptas, vendes y cobras la contraprestación.",
         "3": "No es un dividendo."
       }
     }
@@ -195,12 +195,12 @@
   "realWorld": "Cuando se anuncia una OPA en la CNMV verás el precio ofrecido, el plazo de aceptación y las condiciones.",
   "sources": [
     {
-      "title": "BOE: Real Decreto 1066/2007 sobre el régimen de las ofertas públicas de adquisición de valores",
+      "title": "BOE: Real Decreto 1066/2007 sobre ofertas públicas de adquisición, arts. 3-4 (OPA obligatoria y umbral del 30 %) y 9 (precio equitativo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
       "date": "2026-10-15"
     },
     {
-      "title": "CNMV: el inversor y los mercados de valores",
+      "title": "CNMV: ofertas públicas de adquisición de valores",
       "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
       "date": "2026-10-15"
     }

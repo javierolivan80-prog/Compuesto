@@ -1350,7 +1350,7 @@
   {
     "id": "ampliacion-capital",
     "term": "Ampliación de capital",
-    "definition": "Emisión de acciones nuevas por una empresa que ya existe para captar dinero; aumenta el número total de acciones y puede diluir a quien no acude.",
+    "definition": "Emisión de acciones nuevas por una empresa que ya existe, normalmente para captar dinero; aumenta el número total de acciones y puede diluir a quien no acude.",
     "level": 1,
     "concepts": [
       "ampliacion-capital"
@@ -1358,8 +1358,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "derecho-suscripcion",
@@ -1374,8 +1380,14 @@
     ],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "split",
@@ -1404,8 +1416,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "autocartera",
@@ -1418,8 +1436,14 @@
     "aliases": [],
     "status": "draft",
     "reviewedBy": [],
-    "verificarAntesDe": null,
-    "sources": []
+    "verificarAntesDe": "2027-06-30",
+    "sources": [
+      {
+        "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+        "date": "2026-10-15"
+      }
+    ]
   },
   {
     "id": "opa",
@@ -1435,6 +1459,17 @@
     "status": "draft",
     "reviewedBy": [],
     "verificarAntesDe": "2027-06-30",
-    "sources": []
+    "sources": [
+      {
+        "title": "BOE: Real Decreto 1066/2007 sobre ofertas públicas de adquisición, arts. 3-4 (OPA obligatoria y umbral del 30 %) y 9 (precio equitativo)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
+        "date": "2026-10-15"
+      },
+      {
+        "title": "CNMV: ofertas públicas de adquisición de valores",
+        "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+        "date": "2026-10-15"
+      }
+    ]
   }
 ]

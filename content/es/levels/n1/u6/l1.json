@@ -22,7 +22,7 @@
     {
       "type": "card",
       "term": "Emitir acciones nuevas",
-      "text": "Una ampliación de capital es una emisión de acciones nuevas por una empresa que ya existe, para captar dinero. El total de acciones sube: quien no acude ve diluido su porcentaje. Suele hacerse a un precio inferior al de mercado para atraer a los inversores."
+      "text": "Una ampliación de capital es una emisión de acciones nuevas por una empresa que ya existe, normalmente para captar dinero. El total de acciones sube: quien no acude ve diluido su porcentaje. Suele hacerse a un precio inferior al de mercado para atraer a los inversores."
     },
     {
       "type": "visual",
@@ -167,7 +167,7 @@
           "category": "Baja"
         },
         {
-          "text": "El dinero que recibe la empresa",
+          "text": "El dinero que recibe la empresa (ampliación dineraria)",
           "category": "Sube"
         },
         {
@@ -197,11 +197,11 @@
   "realWorld": "Cuando una cotizada anuncia una ampliación, el anuncio indica cuántas acciones nuevas emite, a qué precio y en qué proporción.",
   "sources": [
     {
-      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-06-30",
   "lastReviewed": "2026-10-15"
 }

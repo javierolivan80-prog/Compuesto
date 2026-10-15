@@ -127,7 +127,7 @@
       ],
       "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € amplía capital con una acción nueva por cada 4 antiguas a 8 €. ¿Cuál es el valor teórico de cada derecho, en euros?",
       "answer": 0.4,
-      "tolerance": 0,
+      "tolerance": 0.01,
       "formula": "10 - 9.6",
       "explanation": "10,00 − 9,60 = 0,40 €.",
       "unit": "€"
@@ -187,11 +187,11 @@
   "realWorld": "En el anuncio de una ampliación verás la proporción («1 nueva por cada 4»), el precio de emisión y el calendario de los derechos.",
   "sources": [
     {
-      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-06-30",
   "lastReviewed": "2026-10-15"
 }

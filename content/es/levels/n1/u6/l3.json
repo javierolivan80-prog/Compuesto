@@ -20,7 +20,7 @@
     {
       "type": "card",
       "term": "Split",
-      "text": "En un split cada acción se divide en varias: con un split 4 por 1, cada acción pasa a ser cuatro y el precio se divide entre cuatro. El valor de la empresa y tu parte no cambian; solo cambia el número de piezas. La empresa no recibe dinero."
+      "text": "En un split cada acción se divide en varias: con un split 4 por 1, cada acción pasa a ser cuatro y el precio se divide entre cuatro. El valor de la empresa y tu parte no cambian. La empresa no recibe dinero. El contrasplit hace lo contrario: agrupa acciones y sube el precio."
     },
     {
       "type": "visual",
@@ -188,13 +188,7 @@
     }
   ],
   "realWorld": "Cuando oigas que una empresa «hace un split», solo cambia el número de acciones y su precio, no lo que vale tu inversión.",
-  "sources": [
-    {
-      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
-      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
-      "date": "2026-10-15"
-    }
-  ],
+  "sources": [],
   "verificarAntesDe": null,
   "lastReviewed": "2026-10-15"
 }

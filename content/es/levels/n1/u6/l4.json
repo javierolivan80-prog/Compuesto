@@ -157,14 +157,14 @@
       "options": [
         "Su caja",
         "Sus acciones nuevas",
-        "El capital de los accionistas",
+        "Dinero que pagan los accionistas",
         "Nada"
       ],
       "answer": 0,
       "explanation": "Para comprar acciones propias hay que pagar con caja.",
       "wrongExplanations": {
         "1": "No emite acciones nuevas: las compra.",
-        "2": "No usa directamente el capital de los accionistas.",
+        "2": "La empresa paga con su propia caja, no con aportaciones adicionales de los accionistas.",
         "3": "Sí tiene un coste: el dinero pagado."
       }
     }
@@ -172,11 +172,11 @@
   "realWorld": "Cuando una empresa anuncia un programa de recompra, indica cuánto va a gastar, cuántas acciones y si las amortizará.",
   "sources": [
     {
-      "title": "BOE: Ley de Sociedades de Capital (aumento de capital, derecho de suscripción preferente y autocartera)",
+      "title": "BOE: Ley de Sociedades de Capital, arts. 295 y ss. (aumento de capital), 304-310 (suscripción preferente), 134-148 y 509 (autocartera)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
       "date": "2026-10-15"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-06-30",
   "lastReviewed": "2026-10-15"
 }
