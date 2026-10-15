@@ -1,0 +1,201 @@
+{
+  "id": "n1-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "title": "Mercado secundario: compraventa entre inversores",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué es el mercado secundario",
+    "Ver que la empresa no recibe el dinero de las compraventas"
+  ],
+  "concepts": [
+    "mercado-secundario"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Mercado secundario",
+      "text": "En el mercado secundario los inversores compran y venden entre sí acciones ya emitidas, normalmente en una bolsa. El dinero va del comprador al vendedor, no a la empresa. Además, en él se forma el precio de cotización día a día."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Compras acciones de una empresa cotizada en bolsa a otro inversor. ¿Quién recibe el dinero?",
+      "options": [
+        "El inversor que vende",
+        "La empresa emisora",
+        "La CNMV",
+        "Nadie"
+      ],
+      "answer": 0,
+      "explanation": "En el mercado secundario el comprador paga al vendedor.",
+      "wrongExplanations": {
+        "1": "La empresa solo recibe dinero en las emisiones del mercado primario.",
+        "2": "La CNMV supervisa, no cobra por la compraventa.",
+        "3": "Siempre cobra alguien: el vendedor."
+      }
+    },
+    {
+      "id": "n1-u2-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "statement": "Cuando sube la cotización de una acción en el mercado secundario, la empresa recibe más dinero.",
+      "answer": false,
+      "explanation": "La empresa solo recibe dinero cuando emite acciones; las compraventas entre inversores no la afectan directamente."
+    },
+    {
+      "id": "n1-u2-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Compras 500 acciones a 10,40 € cada una en el mercado secundario. ¿Cuántos euros paga el comprador?",
+      "answer": 5200,
+      "tolerance": 0,
+      "formula": "500 * 10.4",
+      "explanation": "500 × 10,40 = 5.200 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Esa compra de 500 acciones a 10,40 € se hace en el mercado secundario. ¿Cuántos euros recibe la empresa emisora?",
+      "answer": 0,
+      "tolerance": 0,
+      "formula": "500 * 10.4 * 0",
+      "explanation": "El dinero va al vendedor: la empresa recibe 0 € de esta compraventa.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l3-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "El mercado en el que se negocian acciones ya emitidas se llama mercado ___.",
+      "answers": [
+        [
+          "secundario"
+        ]
+      ],
+      "explanation": "Es el mercado secundario."
+    },
+    {
+      "id": "n1-u2-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario",
+        "mercado-secundario"
+      ],
+      "prompt": "¿Mercado primario o secundario?",
+      "categories": [
+        "Primario",
+        "Secundario"
+      ],
+      "items": [
+        {
+          "text": "Una empresa emite acciones nuevas para financiarse",
+          "category": "Primario"
+        },
+        {
+          "text": "Dos inversores se compran y venden acciones ya emitidas",
+          "category": "Secundario"
+        },
+        {
+          "text": "La empresa recibe el dinero",
+          "category": "Primario"
+        },
+        {
+          "text": "El precio de cotización se forma cada día",
+          "category": "Secundario"
+        }
+      ],
+      "explanation": "El primario es la emisión; el secundario, la negociación posterior."
+    },
+    {
+      "id": "n1-u2-l3-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Ordena una compra en el mercado secundario.",
+      "steps": [
+        "Decides comprar acciones de una empresa cotizada",
+        "Tu orden llega al mercado",
+        "Se cruza con la orden de un vendedor",
+        "Tú pagas y el vendedor cobra"
+      ],
+      "explanation": "Decisión, orden, cruce con un vendedor y liquidación del pago."
+    },
+    {
+      "id": "n1-u2-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "¿Por qué es útil el mercado secundario para quien invierte en una emisión?",
+      "options": [
+        "Porque le permite vender sus acciones a otros inversores",
+        "Porque garantiza que el precio nunca baje",
+        "Porque la empresa le devuelve el dinero cuando quiera",
+        "Porque elimina el riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Saber que puedes vender a otros inversores hace más atractivo invertir.",
+      "wrongExplanations": {
+        "1": "Ningún mercado garantiza que el precio no baje.",
+        "2": "La empresa no tiene la obligación de devolver el dinero invertido en acciones.",
+        "3": "El riesgo sigue existiendo."
+      }
+    }
+  ],
+  "realWorld": "Todo lo que ves cotizar en la bolsa cada día es mercado secundario: compraventas entre inversores de acciones ya emitidas.",
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

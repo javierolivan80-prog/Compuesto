@@ -40,4 +40,8 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     /** % de las acciones que cotiza libremente */
     freeFloat: z.number().min(1).max(100),
   }),
+  PrimarySecondary: z.object({
+    newShares: z.number().int().positive(),
+    price: z.number().positive(),
+  }),
 };

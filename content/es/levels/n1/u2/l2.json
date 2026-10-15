@@ -1,0 +1,207 @@
+{
+  "id": "n1-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "title": "Salir a bolsa: OPV y OPS",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir OPV y OPS",
+    "Calcular quién recibe el dinero en una salida a bolsa"
+  ],
+  "concepts": [
+    "opv",
+    "mercado-primario"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "OPV y OPS",
+      "text": "Una salida a bolsa lleva por primera vez las acciones de una empresa a cotizar. En una OPS (oferta pública de suscripción) se emiten acciones nuevas y el dinero llega a la empresa. En una OPV (oferta pública de venta) los accionistas actuales venden las suyas y el dinero va a ellos. Muchas salidas combinan ambas."
+    },
+    {
+      "type": "card",
+      "text": "En España, la CNMV aprueba el folleto que describe la oferta. El precio final suele fijarse dentro de una horquilla (un rango) según la demanda de los inversores."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l2-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En una OPV, ¿quién recibe el dinero?",
+      "options": [
+        "Los accionistas que venden sus acciones",
+        "La empresa emisora",
+        "La CNMV",
+        "Los nuevos accionistas"
+      ],
+      "answer": 0,
+      "explanation": "En una OPV se venden acciones que ya existen, así que cobra quien las vende.",
+      "wrongExplanations": {
+        "1": "Eso ocurre en una OPS, donde se emiten acciones nuevas.",
+        "2": "La CNMV supervisa y aprueba el folleto; no recibe el dinero.",
+        "3": "Los nuevos accionistas pagan, no cobran."
+      }
+    },
+    {
+      "id": "n1-u2-l2-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "statement": "En una OPS, el dinero de la oferta llega a la empresa emisora.",
+      "answer": true,
+      "explanation": "La OPS emite acciones nuevas; la empresa las vende y recibe el dinero."
+    },
+    {
+      "id": "n1-u2-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En una OPV, unos accionistas venden 2.000.000 de acciones a 10 € cada una. ¿Cuántos euros reciben en total?",
+      "answer": 20000000,
+      "tolerance": 0,
+      "formula": "2000000 * 10",
+      "explanation": "2.000.000 × 10 = 20.000.000 €, que van a los vendedores.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En una OPS, una empresa emite 1.500.000 de acciones nuevas a 12 € cada una. ¿Cuántos euros recibe la empresa?",
+      "answer": 18000000,
+      "tolerance": 0,
+      "formula": "1500000 * 12",
+      "explanation": "1.500.000 × 12 = 18.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l2-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En España, el organismo que aprueba el folleto de una salida a bolsa es la ___.",
+      "answers": [
+        [
+          "CNMV",
+          "Comisión Nacional del Mercado de Valores"
+        ]
+      ],
+      "explanation": "La CNMV supervisa los mercados de valores y aprueba los folletos."
+    },
+    {
+      "id": "n1-u2-l2-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "¿OPS u OPV?",
+      "categories": [
+        "OPS",
+        "OPV"
+      ],
+      "items": [
+        {
+          "text": "Se emiten acciones nuevas",
+          "category": "OPS"
+        },
+        {
+          "text": "Los accionistas actuales venden parte de sus acciones",
+          "category": "OPV"
+        },
+        {
+          "text": "El dinero llega a la empresa",
+          "category": "OPS"
+        },
+        {
+          "text": "El dinero va a los antiguos accionistas",
+          "category": "OPV"
+        }
+      ],
+      "explanation": "OPS = suscripción (acciones nuevas, dinero a la empresa); OPV = venta (acciones existentes, dinero a los vendedores)."
+    },
+    {
+      "id": "n1-u2-l2-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "opv",
+        "mercado-primario"
+      ],
+      "prompt": "Una salida a bolsa combina una OPS de 3.000.000 de acciones y una OPV de 2.000.000, todas a 10 €. ¿Cuántos euros recibe la empresa?",
+      "answer": 30000000,
+      "tolerance": 0,
+      "formula": "3000000 * 10",
+      "explanation": "Solo la OPS aporta a la empresa: 3.000.000 × 10 = 30.000.000 €. Los 20.000.000 € de la OPV van a los vendedores.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l2-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "¿Por qué se suele fijar una horquilla de precio antes de una salida a bolsa?",
+      "options": [
+        "Porque el precio final depende de la demanda de los inversores",
+        "Porque la empresa no sabe cuántas acciones tiene",
+        "Porque la ley prohíbe fijar un precio exacto",
+        "Porque así se evita pagar impuestos"
+      ],
+      "answer": 0,
+      "explanation": "Se mide la demanda y el precio final se fija dentro del rango según el interés de los inversores.",
+      "wrongExplanations": {
+        "1": "La empresa conoce cuántas acciones tiene.",
+        "2": "No hay tal prohibición: es una práctica habitual.",
+        "3": "No tiene que ver con impuestos."
+      }
+    }
+  ],
+  "realWorld": "Cuando una empresa anuncie su salida a bolsa, busca en el folleto en la CNMV si es OPS, OPV o ambas.",
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

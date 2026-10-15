@@ -7,5 +7,6 @@ export const EXPLAINER_NAMES = [
   'LoanAmortization',
   'MoneyCreation',
   'MarketCapFloat',
+  'PrimarySecondary',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

@@ -46,4 +46,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/120,0 M/);
     expect(text).toMatch(/48,0 M/);
   });
+  it('PrimarySecondary distingue a quién llega el dinero', () => {
+    render(
+      <ExplainerBlock component="PrimarySecondary" props={{ newShares: 3_000_000, price: 10 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/30\.000\.000/);
+    expect(text).toMatch(/recibe 0/);
+  });
 });

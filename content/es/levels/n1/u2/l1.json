@@ -1,0 +1,205 @@
+{
+  "id": "n1-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "title": "Mercado primario: nacen las acciones",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar quién recibe el dinero en una emisión",
+    "Calcular lo que recauda una emisión"
+  ],
+  "concepts": [
+    "mercado-primario"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Mercado primario",
+      "text": "En el mercado primario una empresa emite acciones nuevas y los inversores le pagan: la empresa recibe el dinero y capta financiación. Si después compras esas acciones a otro inversor, el dinero va al vendedor, no a la empresa. La empresa que emite se llama emisor."
+    },
+    {
+      "type": "visual",
+      "component": "PrimarySecondary",
+      "props": {
+        "newShares": 3000000,
+        "price": 10
+      }
+    },
+    {
+      "type": "example",
+      "text": "Naranjas del Turia, empresa ficticia, emite 3.000.000 de acciones nuevas a 10 € cada una. Los inversores pagan 30.000.000 € y la empresa los recibe para financiar su expansión."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "En una emisión de acciones nuevas, ¿quién recibe el dinero que pagan los inversores?",
+      "options": [
+        "La empresa emisora",
+        "Otro inversor",
+        "La bolsa",
+        "El Estado"
+      ],
+      "answer": 0,
+      "explanation": "En el mercado primario el dinero llega a la empresa que emite.",
+      "wrongExplanations": {
+        "1": "Eso ocurre en el mercado secundario.",
+        "2": "La bolsa es el lugar de negociación, no recibe el importe de la emisión.",
+        "3": "El Estado no recibe el dinero de una emisión privada."
+      }
+    },
+    {
+      "id": "n1-u2-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "statement": "En el mercado primario, la empresa que emite acciones nuevas recibe el dinero de los inversores.",
+      "answer": true,
+      "explanation": "Es la forma de captar financiación nueva."
+    },
+    {
+      "id": "n1-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa emite 3.000.000 de acciones nuevas a 10 € cada una. ¿Cuántos euros recauda?",
+      "answer": 30000000,
+      "tolerance": 0,
+      "formula": "3000000 * 10",
+      "explanation": "3.000.000 × 10 = 30.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa emite 2.500.000 de acciones nuevas a 8 € cada una. ¿Cuántos euros recauda?",
+      "answer": 20000000,
+      "tolerance": 0,
+      "formula": "2500000 * 8",
+      "explanation": "2.500.000 × 8 = 20.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l1-e5",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "La empresa que emite los títulos se llama ___.",
+      "answers": [
+        [
+          "emisor",
+          "emisora"
+        ]
+      ],
+      "explanation": "El emisor es quien emite acciones o bonos."
+    },
+    {
+      "id": "n1-u2-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "¿Quién recibe el dinero?",
+      "categories": [
+        "La empresa",
+        "Otro inversor"
+      ],
+      "items": [
+        {
+          "text": "Suscribes acciones nuevas en una emisión",
+          "category": "La empresa"
+        },
+        {
+          "text": "Compras acciones a otra persona que ya las tenía",
+          "category": "Otro inversor"
+        },
+        {
+          "text": "Los inversores pagan una ampliación de capital",
+          "category": "La empresa"
+        },
+        {
+          "text": "Un inversor vende sus acciones a otro",
+          "category": "Otro inversor"
+        }
+      ],
+      "explanation": "En una emisión paga el inversor a la empresa; en una compraventa entre inversores, paga el comprador al vendedor."
+    },
+    {
+      "id": "n1-u2-l1-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa tiene 12.000.000 de acciones y emite 3.000.000 de acciones nuevas. ¿Qué porcentaje de las acciones totales son nuevas?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "3000000 / (12000000 + 3000000) * 100",
+      "explanation": "3.000.000 / 15.000.000 = 0,20, es decir, el 20 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u2-l1-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa quiere recaudar 40.000.000 € emitiendo acciones a 8 € cada una. ¿Cuántas acciones debe emitir?",
+      "answer": 5000000,
+      "tolerance": 0,
+      "formula": "40000000 / 8",
+      "explanation": "40.000.000 / 8 = 5.000.000 de acciones.",
+      "unit": "acciones"
+    }
+  ],
+  "realWorld": "Cuando una empresa anuncia una emisión de acciones o una ampliación de capital, está acudiendo al mercado primario.",
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

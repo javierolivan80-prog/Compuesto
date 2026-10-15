@@ -6,6 +6,7 @@ import { InflationCart } from './InflationCart';
 import { LoanAmortization } from './LoanAmortization';
 import { MarketCapFloat } from './MarketCapFloat';
 import { MoneyCreation } from './MoneyCreation';
+import { PrimarySecondary } from './PrimarySecondary';
 import { Rule72 } from './Rule72';
 import { TinVsTae } from './TinVsTae';
 
@@ -22,6 +23,7 @@ const REGISTRY = {
   LoanAmortization,
   MoneyCreation,
   MarketCapFloat,
+  PrimarySecondary,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

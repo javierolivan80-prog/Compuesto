@@ -1,0 +1,240 @@
+{
+  "id": "n1-u2-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "title": "Jefe final: mercado primario y secundario",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar emisión, OPS/OPV y mercado secundario"
+  ],
+  "concepts": [
+    "mercado-primario",
+    "opv",
+    "mercado-secundario"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "text": "Repaso: en el mercado primario la empresa emite acciones nuevas y recibe el dinero. En una salida a bolsa, la OPS emite acciones nuevas (dinero a la empresa) y la OPV vende las de los accionistas actuales (dinero a ellos)."
+    },
+    {
+      "type": "card",
+      "text": "En el mercado secundario los inversores se compran y venden acciones ya emitidas: el dinero no llega a la empresa. Emitir acciones nuevas diluye a quien no acude."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa emite 4.000.000 de acciones nuevas a 5 € cada una. ¿Cuántos euros recauda?",
+      "answer": 20000000,
+      "tolerance": 0,
+      "formula": "4000000 * 5",
+      "explanation": "4.000.000 × 5 = 20.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l5-e2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "En una OPV, el dinero va a…",
+      "options": [
+        "Los accionistas que venden",
+        "La empresa emisora",
+        "La CNMV",
+        "Los nuevos accionistas"
+      ],
+      "answer": 0,
+      "explanation": "Se venden acciones ya existentes.",
+      "wrongExplanations": {
+        "1": "Eso es una OPS.",
+        "2": "La CNMV no cobra por la oferta.",
+        "3": "Los nuevos accionistas pagan."
+      }
+    },
+    {
+      "id": "n1-u2-l5-e3",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "statement": "En el mercado secundario, la empresa emisora recibe el dinero de cada compraventa.",
+      "answer": false,
+      "explanation": "El dinero va del comprador al vendedor."
+    },
+    {
+      "id": "n1-u2-l5-e4",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "La oferta en la que se emiten acciones nuevas se llama oferta pública de ___.",
+      "answers": [
+        [
+          "suscripción",
+          "suscripcion"
+        ]
+      ],
+      "explanation": "OPS: oferta pública de suscripción."
+    },
+    {
+      "id": "n1-u2-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "opv"
+      ],
+      "prompt": "¿OPS u OPV?",
+      "categories": [
+        "OPS",
+        "OPV"
+      ],
+      "items": [
+        {
+          "text": "Acciones nuevas; dinero a la empresa",
+          "category": "OPS"
+        },
+        {
+          "text": "Acciones existentes; dinero a los vendedores",
+          "category": "OPV"
+        },
+        {
+          "text": "Aumenta el número de acciones",
+          "category": "OPS"
+        }
+      ],
+      "explanation": "La OPS crea acciones; la OPV las traspasa."
+    },
+    {
+      "id": "n1-u2-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa con 8.000.000 de acciones emite 2.000.000 nuevas. ¿Qué porcentaje del total serán nuevas?",
+      "answer": 20,
+      "tolerance": 0,
+      "formula": "2000000 / (8000000 + 2000000) * 100",
+      "explanation": "2.000.000 / 10.000.000 = 0,20, es decir, el 20 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u2-l5-e7",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-secundario"
+      ],
+      "prompt": "Compras 200 acciones a 15 € en bolsa a otro inversor. ¿Cuánto recibe la empresa emisora?",
+      "answer": 0,
+      "tolerance": 0,
+      "formula": "200 * 15 * 0",
+      "explanation": "Nada: el dinero va al vendedor.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa emite acciones nuevas y un accionista no las suscribe. Su porcentaje…",
+      "options": [
+        "Disminuye",
+        "Aumenta",
+        "Se mantiene",
+        "Se duplica"
+      ],
+      "answer": 0,
+      "explanation": "Mismas acciones sobre un total mayor.",
+      "wrongExplanations": {
+        "1": "No compró más acciones.",
+        "2": "El total creció.",
+        "3": "No hay razón para duplicarse."
+      }
+    },
+    {
+      "id": "n1-u2-l5-e9",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa tiene 10.000.000 de acciones y emite 2.000.000 más. Un accionista con 1.000.000, que no acude, ¿qué porcentaje tendrá después?",
+      "answer": 8.33,
+      "tolerance": 0.1,
+      "formula": "1000000 / 12000000 * 100",
+      "explanation": "1.000.000 / 12.000.000 = 0,0833, es decir, el 8,33 % (antes tenía el 10 %).",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u2-l5-e10",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario",
+        "mercado-secundario"
+      ],
+      "prompt": "¿Qué ocurre en el mercado primario?",
+      "options": [
+        "La empresa emite acciones nuevas",
+        "La empresa recibe el dinero",
+        "Los inversores se venden acciones entre sí",
+        "Se forma el precio de cotización día a día"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "explanation": "En el primario hay emisión y entrada de dinero en la empresa; las compraventas entre inversores y el precio diario son del secundario."
+    }
+  ],
+  "realWorld": "Estas ideas están detrás de cualquier anuncio de salida a bolsa o de ampliación de capital que leas.",
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

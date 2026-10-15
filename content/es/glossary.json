@@ -818,5 +818,93 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "mercado-primario",
+    "term": "Mercado primario",
+    "definition": "Mercado en el que una empresa emite títulos nuevos (acciones, bonos) y recibe el dinero de los inversores.",
+    "level": 1,
+    "concepts": [
+      "mercado-primario"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "mercado-secundario",
+    "term": "Mercado secundario",
+    "definition": "Mercado en el que los inversores compran y venden entre sí títulos ya emitidos; el dinero va del comprador al vendedor, no a la empresa.",
+    "level": 1,
+    "concepts": [
+      "mercado-secundario"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "ops",
+    "term": "OPS",
+    "definition": "Oferta pública de suscripción: se emiten acciones nuevas y el dinero llega a la empresa emisora.",
+    "level": 1,
+    "concepts": [
+      "opv"
+    ],
+    "aliases": [
+      "oferta pública de suscripción"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "opv",
+    "term": "OPV",
+    "definition": "Oferta pública de venta: los accionistas actuales venden sus acciones y el dinero va a ellos, no a la empresa.",
+    "level": 1,
+    "concepts": [
+      "opv"
+    ],
+    "aliases": [
+      "oferta pública de venta"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "dilucion",
+    "term": "Dilución",
+    "definition": "Disminución del porcentaje de propiedad de un accionista cuando la empresa emite acciones nuevas y él no las suscribe.",
+    "level": 1,
+    "concepts": [
+      "mercado-primario"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "emisor",
+    "term": "Emisor",
+    "definition": "Empresa o entidad que emite títulos, como acciones o bonos, para financiarse.",
+    "level": 1,
+    "concepts": [
+      "mercado-primario"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

@@ -1,0 +1,189 @@
+{
+  "id": "n1-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "title": "Qué cambia tras una emisión",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Calcular acciones, porcentaje y capitalización tras una emisión",
+    "Entender la dilución"
+  ],
+  "concepts": [
+    "mercado-primario",
+    "opv",
+    "capitalizacion"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Dilución",
+      "text": "Si una empresa emite acciones nuevas y un accionista no las compra, su porcentaje baja: se diluye. Su número de acciones sigue igual, pero el total ha crecido. Si el precio no cambia, la capitalización sube con las acciones nuevas."
+    },
+    {
+      "type": "example",
+      "text": "Supuesto ilustrativo: Naranjas del Turia tiene 12.000.000 de acciones, Carmen posee 3.600.000 y la empresa emite 3.000.000 de acciones nuevas a 10 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa emite acciones nuevas y un accionista antiguo no suscribe ninguna. ¿Qué pasa con su porcentaje de la empresa?",
+      "options": [
+        "Disminuye",
+        "Aumenta",
+        "No cambia",
+        "Se anula"
+      ],
+      "answer": 0,
+      "explanation": "Tiene las mismas acciones sobre un total mayor, así que su porcentaje baja.",
+      "wrongExplanations": {
+        "1": "Solo aumentaría si comprara acciones nuevas.",
+        "2": "Con más acciones totales, su porcentaje cambia.",
+        "3": "Sigue siendo accionista."
+      }
+    },
+    {
+      "id": "n1-u2-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "statement": "Al emitir acciones nuevas aumenta el número total de acciones de la empresa.",
+      "answer": true,
+      "explanation": "Las acciones nuevas se suman a las existentes."
+    },
+    {
+      "id": "n1-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Una empresa con 12.000.000 de acciones emite 3.000.000 de acciones nuevas. ¿Cuántas acciones tiene después?",
+      "answer": 15000000,
+      "tolerance": 0,
+      "formula": "12000000 + 3000000",
+      "explanation": "12.000.000 + 3.000.000 = 15.000.000.",
+      "unit": "acciones"
+    },
+    {
+      "id": "n1-u2-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Carmen tiene 3.600.000 acciones de 12.000.000 y la empresa emite 3.000.000 nuevas que ella no compra. ¿Qué porcentaje tiene después?",
+      "answer": 24,
+      "tolerance": 0,
+      "formula": "3600000 / 15000000 * 100",
+      "explanation": "3.600.000 / 15.000.000 = 0,24, es decir, el 24 % (antes tenía el 30 %).",
+      "unit": "%"
+    },
+    {
+      "id": "n1-u2-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "capitalizacion"
+      ],
+      "prompt": "Tras la emisión, el precio por acción no cambia. ¿Qué ocurre con la capitalización?",
+      "options": [
+        "Aumenta, porque hay más acciones",
+        "Disminuye",
+        "No cambia",
+        "No se puede calcular"
+      ],
+      "answer": 0,
+      "explanation": "Capitalización = precio × acciones; con el mismo precio y más acciones, aumenta.",
+      "wrongExplanations": {
+        "1": "Habría menos si bajara el precio o las acciones.",
+        "2": "Sí cambia: hay más acciones.",
+        "3": "Se puede calcular con precio y número de acciones."
+      }
+    },
+    {
+      "id": "n1-u2-l4-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "La empresa emite 3.000.000 de acciones nuevas a 10 €. ¿Cuántos euros recauda?",
+      "answer": 30000000,
+      "tolerance": 0,
+      "formula": "3000000 * 10",
+      "explanation": "3.000.000 × 10 = 30.000.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n1-u2-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Cuando las acciones nuevas reducen el porcentaje de los accionistas antiguos se habla de ___.",
+      "answers": [
+        [
+          "dilución",
+          "dilucion"
+        ]
+      ],
+      "explanation": "Es la dilución."
+    },
+    {
+      "id": "n1-u2-l4-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "mercado-primario"
+      ],
+      "prompt": "Para mantener su 30 % de 15.000.000 de acciones, Carmen (con 3.600.000) quiere comprar acciones nuevas. ¿Cuántas más necesita?",
+      "answer": 900000,
+      "tolerance": 0,
+      "formula": "15000000 * 0.30 - 3600000",
+      "explanation": "El 30 % de 15.000.000 son 4.500.000 acciones; tiene 3.600.000, así que necesita 900.000 más.",
+      "unit": "acciones"
+    }
+  ],
+  "realWorld": "Las ampliaciones de capital diluyen a quien no acude: más adelante verás cómo los derechos de suscripción lo evitan.",
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}
