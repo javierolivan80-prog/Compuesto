@@ -293,6 +293,12 @@ function checkLesson(
           `${l.id} intro[${i}]`,
         );
     }
+    if (b.type === 'card' && b.term && b.term.trim().toLowerCase() === l.title.trim().toLowerCase())
+      err(
+        'termino-igual-titulo',
+        `El término de la tarjeta "${b.term}" repite el título de la lección (dos encabezados iguales)`,
+        `${l.id} intro[${i}]`,
+      );
     if (b.type !== 'visual') {
       const words = b.text.trim().split(/\s+/).length;
       if (words > 60)

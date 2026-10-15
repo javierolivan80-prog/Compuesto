@@ -1,8 +1,10 @@
 {
   "id": "n0-u5-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 5,
   "title": "Los tres pilares de la jubilación",
@@ -195,13 +197,13 @@
         "Empezar a ahorrar pronto",
         "Aportar con regularidad",
         "Gastar todo mientras se cobra sueldo",
-        "Esperar a los 60 años para empezar"
+        "No ahorrar nada y confiar solo en la pensión pública"
       ],
       "answers": [
         0,
         1
       ],
-      "explanation": "Empezar pronto y ser constante da más años de capitalización. Gastar todo mientras cobras sueldo no deja nada para ahorrar, y esperar a los 60 años deja poco tiempo para que el interés compuesto actúe."
+      "explanation": "Empezar pronto y ser constante da más años de capitalización. Gastar todo mientras cobras sueldo o no ahorrar nada no complementa la pensión pública."
     }
   ],
   "realWorld": "Si cumples los requisitos de cotización, tendrás derecho a una pensión pública; muchas personas la complementan con planes de empleo o ahorro individual.",

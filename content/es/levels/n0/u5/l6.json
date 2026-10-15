@@ -1,8 +1,10 @@
 {
   "id": "n0-u5-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 5,
   "title": "Jefe final: seguros, pensiones y riesgo",

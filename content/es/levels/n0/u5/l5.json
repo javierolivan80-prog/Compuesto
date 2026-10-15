@@ -1,8 +1,10 @@
 {
   "id": "n0-u5-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": [
+    "subagente"
+  ],
   "level": 0,
   "unit": 5,
   "title": "Riesgo y rentabilidad",
@@ -22,7 +24,7 @@
   "intro": [
     {
       "type": "card",
-      "term": "Riesgo y rentabilidad",
+      "term": "Riesgo",
       "text": "El riesgo es la posibilidad de que el resultado real sea distinto del esperado, incluida la pérdida. Por lo general, a más rentabilidad esperada, más riesgo: nadie asume más incertidumbre gratis. Una inversión muy segura rinde poco; una que promete mucho con seguridad total suele ser una señal de alerta."
     },
     {
@@ -149,7 +151,7 @@
       ],
       "items": [
         {
-          "text": "Cuenta de ahorro cubierta por el FGD (hasta 100.000 €)",
+          "text": "Cuenta de ahorro cubierta por el FGD",
           "category": "Riesgo bajo"
         },
         {
@@ -197,6 +199,11 @@
     {
       "title": "CNMV y Banco de España: advertencia sobre criptoactivos",
       "url": "https://www.cnmv.es/portal/Inversor/Criptoactivos.aspx",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito (FGD)",
+      "url": "https://www.fgd.es/",
       "date": "2026-10-15"
     }
   ],
