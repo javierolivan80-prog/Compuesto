@@ -7,7 +7,9 @@
   "unit": 2,
   "title": "Jefe final: TIN, TAE, préstamos e hipotecas",
   "estimatedMinutes": 5,
-  "objectives": ["Aplicar TIN, TAE, cuota, cuadro de amortización y Euríbor en un mismo caso"],
+  "objectives": [
+    "Aplicar TIN, TAE, cuota, cuadro de amortización y Euríbor en un mismo caso"
+  ],
   "concepts": [
     "tin",
     "tae",
@@ -17,7 +19,7 @@
     "euribor",
     "alquilar-vs-comprar"
   ],
-  "companies": ["naranjas-del-turia"],
+  "companies": [],
   "historical": false,
   "intro": [
     {
@@ -36,7 +38,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["tae"],
+      "concepts": [
+        "tae"
+      ],
       "prompt": "Un depósito paga un 8 % de TIN con liquidación trimestral. ¿Cuál es su TAE en %? (2 decimales)",
       "answer": 8.24,
       "tolerance": 0.1,
@@ -50,9 +54,16 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["tae"],
+      "concepts": [
+        "tae"
+      ],
       "prompt": "Depósito A: 5 % de TIN con liquidación anual. Depósito B: 4,9 % de TIN con liquidación mensual (TAE 5,01 %). ¿Cuál rinde más?",
-      "options": ["El A", "El B", "Rinden igual", "No se puede saber"],
+      "options": [
+        "El A",
+        "El B",
+        "Rinden igual",
+        "No se puede saber"
+      ],
       "answer": 1,
       "explanation": "Con TAE, B rinde 5,01 % y A 5,00 %. Un TIN menor puede dar mayor TAE si se liquida más a menudo.",
       "wrongExplanations": {
@@ -67,7 +78,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Préstamo de 30.000 € al 5 % TIN a 60 meses. ¿Cuál es la cuota mensual? (2 decimales)",
       "answer": 566.14,
       "tolerance": 0.05,
@@ -81,7 +94,9 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "statement": "Alargar el plazo de un préstamo reduce los intereses totales que pagas.",
       "answer": false,
       "explanation": "Alargar el plazo baja la cuota, pero se pagan intereses durante más tiempo y el total sube."
@@ -92,7 +107,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["cuadro-amortizacion"],
+      "concepts": [
+        "cuadro-amortizacion"
+      ],
       "prompt": "En ese préstamo de 30.000 € al 5 %, ¿cuántos euros de intereses tiene la primera cuota?",
       "answer": 125,
       "tolerance": 0,
@@ -106,9 +123,15 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["euribor"],
+      "concepts": [
+        "euribor"
+      ],
       "prompt": "En una hipoteca variable el tipo es Euríbor más el ___.",
-      "answers": [["diferencial"]],
+      "answers": [
+        [
+          "diferencial"
+        ]
+      ],
       "explanation": "El diferencial es el margen que se suma al Euríbor."
     },
     {
@@ -117,9 +140,15 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["hipoteca", "euribor"],
+      "concepts": [
+        "hipoteca",
+        "euribor"
+      ],
       "prompt": "¿Fija o variable?",
-      "categories": ["Fija", "Variable"],
+      "categories": [
+        "Fija",
+        "Variable"
+      ],
       "items": [
         {
           "text": "La cuota puede cambiar en cada revisión",
@@ -142,9 +171,16 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
       "prompt": "¿Qué parte de la cuota de una hipoteca va a tu patrimonio?",
-      "options": ["La del capital amortizado", "La de los intereses", "Toda la cuota", "Ninguna"],
+      "options": [
+        "La del capital amortizado",
+        "La de los intereses",
+        "Toda la cuota",
+        "Ninguna"
+      ],
       "answer": 0,
       "explanation": "El capital amortizado reduce tu deuda y cuenta como patrimonio; los intereses se pagan al banco.",
       "wrongExplanations": {
@@ -159,7 +195,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["cuadro-amortizacion"],
+      "concepts": [
+        "cuadro-amortizacion"
+      ],
       "prompt": "Ordena una fila del cuadro de amortización.",
       "steps": [
         "Calcula los intereses: saldo × TIN / 12",
@@ -175,7 +213,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "¿Qué hace que la cuota de un préstamo sea mayor?",
       "options": [
         "Un capital mayor",
@@ -183,7 +223,11 @@
         "Un plazo más corto",
         "Un plazo más largo"
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "explanation": "Más capital, más tipo y menos plazo suben la cuota; un plazo más largo la baja."
     }
   ],

@@ -11,8 +11,13 @@
     "Explicar de qué depende la cuota de un préstamo",
     "Calcular la cuota y los intereses totales"
   ],
-  "concepts": ["prestamo", "tin"],
-  "companies": ["naranjas-del-turia"],
+  "concepts": [
+    "prestamo",
+    "tin"
+  ],
+  "companies": [
+    "naranjas-del-turia"
+  ],
   "historical": false,
   "intro": [
     {
@@ -22,7 +27,7 @@
     },
     {
       "type": "example",
-      "text": "Carmen, dueña de Naranjas del Turia, pide 20.000 € al 6 % TIN a 4 años para una furgoneta de reparto. Su cuota es de 469,70 € al mes y en total pagará 2.545,63 € de intereses."
+      "text": "Carmen, dueña de Naranjas del Turia, pide 20.000 € al 6 % TIN a 4 años para una furgoneta de reparto. Su cuota es de 469,70 € al mes y en total pagará unos 2.545 € de intereses."
     }
   ],
   "exercises": [
@@ -32,7 +37,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Si alargas el plazo de un préstamo, ¿qué ocurre normalmente?",
       "options": [
         "La cuota baja y los intereses totales suben",
@@ -54,7 +61,9 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "statement": "En el sistema francés la cuota mensual es constante.",
       "answer": true,
       "explanation": "La cuota es fija, aunque su composición cambia: al principio pesan más los intereses y luego el capital."
@@ -65,7 +74,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Carmen pide 20.000 € al 6 % TIN a 48 meses. ¿Cuál es la cuota mensual? (2 decimales)",
       "answer": 469.7,
       "tolerance": 0.05,
@@ -79,12 +90,14 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Con esa cuota de 469,70 € durante 48 meses, ¿cuántos euros de intereses paga Carmen en total? (2 decimales)",
       "answer": 2545.6,
       "tolerance": 0.05,
       "formula": "469.7 * 48 - 20000",
-      "explanation": "469,70 × 48 = 22.545,60 €; menos los 20.000 € prestados, son 2.545,60 € de intereses (2.545,63 € con la cuota sin redondear).",
+      "explanation": "469,70 × 48 = 22.545,60 €; menos los 20.000 € prestados, son 2.545,60 € de intereses (con la cuota sin redondear la diferencia es de unos céntimos).",
       "unit": "€"
     },
     {
@@ -93,9 +106,15 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "La cuota de un préstamo depende del capital, del tipo de interés y del ___.",
-      "answers": [["plazo"]],
+      "answers": [
+        [
+          "plazo"
+        ]
+      ],
       "explanation": "Capital, tipo y plazo determinan la cuota."
     },
     {
@@ -104,7 +123,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Un préstamo de 12.000 € al 0 % se devuelve en 24 meses. ¿Cuál es la cuota mensual?",
       "answer": 500,
       "tolerance": 0,
@@ -118,7 +139,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "Ordena la vida de un préstamo.",
       "steps": [
         "El banco te entrega el capital",
@@ -134,9 +157,14 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["prestamo"],
+      "concepts": [
+        "prestamo"
+      ],
       "prompt": "¿Plazo corto o plazo largo?",
-      "categories": ["Plazo corto", "Plazo largo"],
+      "categories": [
+        "Plazo corto",
+        "Plazo largo"
+      ],
       "items": [
         {
           "text": "Cuota mensual más alta",

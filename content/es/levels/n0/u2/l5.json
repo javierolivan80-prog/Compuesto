@@ -8,11 +8,17 @@
   "title": "Alquilar o comprar",
   "estimatedMinutes": 4,
   "objectives": [
-    "Identificar los costes reales de comprar y de alquilar",
-    "Comparar con el coste de oportunidad de la entrada"
+    "Identificar los costes de comprar y de alquilar",
+    "Comparar con el coste de oportunidad de la entrada, con supuestos declarados"
   ],
-  "concepts": ["alquilar-vs-comprar", "hipoteca", "valor-temporal-dinero"],
-  "companies": ["naranjas-del-turia"],
+  "concepts": [
+    "alquilar-vs-comprar",
+    "hipoteca",
+    "valor-temporal-dinero"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
   "historical": false,
   "intro": [
     {
@@ -23,6 +29,10 @@
     {
       "type": "example",
       "text": "Lucía, becaria de Albufera Partners, compara un piso de 200.000 € con entrada de 40.000 € e hipoteca de 160.000 € al 3 % a 25 años (cuota 758,74 €) con un alquiler de 800 € al mes. Supuestos ficticios: invertir la entrada daría un 4 % anual y el IBI y el mantenimiento costarían 120 € al mes."
+    },
+    {
+      "type": "card",
+      "text": "Son supuestos ficticios, no una previsión: la comparación no incluye gastos de compra, cambios en el precio del piso ni subidas del alquiler."
     }
   ],
   "exercises": [
@@ -32,7 +42,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
       "prompt": "¿Qué es el coste de oportunidad de la entrada de una vivienda?",
       "options": [
         "Lo que ganarías invirtiendo ese dinero en otra cosa",
@@ -54,7 +66,9 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
       "statement": "Comprar siempre sale más barato que alquilar a largo plazo.",
       "answer": false,
       "explanation": "Depende de los precios, los tipos, la rentabilidad alternativa y los años que te quedes: no hay respuesta universal."
@@ -65,11 +79,14 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar", "hipoteca"],
+      "concepts": [
+        "alquilar-vs-comprar",
+        "hipoteca"
+      ],
       "prompt": "¿Es un coste o un ahorro (patrimonio)?",
       "categories": [
         "Coste (dinero que no recuperas)",
-        "Patrimonio (dinero que sigue siendo tuyo)"
+        "Patrimonio (reduce tu deuda)"
       ],
       "items": [
         {
@@ -82,14 +99,14 @@
         },
         {
           "text": "Capital amortizado de la cuota",
-          "category": "Patrimonio (dinero que sigue siendo tuyo)"
+          "category": "Patrimonio (reduce tu deuda)"
         },
         {
           "text": "IBI y mantenimiento",
           "category": "Coste (dinero que no recuperas)"
         }
       ],
-      "explanation": "De una cuota solo la parte de capital va a tu patrimonio; intereses, alquiler, impuestos y mantenimiento no se recuperan."
+      "explanation": "De una cuota solo la parte de capital reduce tu deuda y va a tu patrimonio (siempre que la vivienda conserve su valor); intereses, alquiler, impuestos y mantenimiento no se recuperan."
     },
     {
       "id": "n0-u2-l5-e4",
@@ -97,7 +114,9 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["hipoteca"],
+      "concepts": [
+        "hipoteca"
+      ],
       "prompt": "Primer mes de la hipoteca de Lucía: 160.000 € al 3 %. ¿Cuántos euros de la cuota son intereses?",
       "answer": 400,
       "tolerance": 0,
@@ -111,7 +130,10 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar", "valor-temporal-dinero"],
+      "concepts": [
+        "alquilar-vs-comprar",
+        "valor-temporal-dinero"
+      ],
       "prompt": "Coste de oportunidad mensual de la entrada de 40.000 € si invertida daría un 4 % anual. (2 decimales)",
       "answer": 133.33,
       "tolerance": 0.05,
@@ -125,12 +147,14 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
-      "prompt": "Coste mensual de comprar = intereses (400 €) + coste de oportunidad de la entrada (133,33 €) + IBI y mantenimiento (120 €). ¿Cuánto es? (2 decimales)",
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
+      "prompt": "Coste estimado del primer mes de comprar = intereses (400 €) + coste de oportunidad de la entrada (133,33 €) + IBI y mantenimiento (120 €). ¿Cuánto es? (2 decimales)",
       "answer": 653.33,
       "tolerance": 0.05,
       "formula": "400 + 40000 * 0.04 / 12 + 120",
-      "explanation": "400 + 133,33 + 120 = 653,33 € al mes de coste real, frente a los 800 € del alquiler, con estos supuestos y sin contar la variación del precio del piso.",
+      "explanation": "400 + 133,33 + 120 = 653,33 € de coste estimado del primer mes, frente a los 800 € del alquiler. Ojo: no es una comparación de caja (la cuota 758,74 € + 120 € = 878,74 € al mes es más que el alquiler) y excluye gastos de compra, cambios de precio y subidas del alquiler, así que no demuestra que comprar sea mejor.",
       "unit": "€"
     },
     {
@@ -139,15 +163,21 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
-      "prompt": "¿Qué puede cambiar la conclusión del cálculo anterior?",
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
+      "prompt": "¿Qué puede cambiar la comparación anterior entre comprar y alquilar?",
       "options": [
         "Que el precio de la vivienda suba o baje",
         "Los gastos de compra (notaría, impuestos, registro)",
         "Cuántos años vayas a quedarte en la vivienda",
         "El color de la fachada"
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "explanation": "El precio de la vivienda, los gastos de compra y el tiempo que te quedes cambian el resultado; el color de la fachada no."
     },
     {
@@ -156,9 +186,15 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": ["alquilar-vs-comprar"],
+      "concepts": [
+        "alquilar-vs-comprar"
+      ],
       "prompt": "El dinero de la entrada tiene un coste de ___ porque podrías haberlo invertido en otra cosa.",
-      "answers": [["oportunidad"]],
+      "answers": [
+        [
+          "oportunidad"
+        ]
+      ],
       "explanation": "Ese es el coste de oportunidad."
     }
   ],

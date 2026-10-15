@@ -274,7 +274,7 @@
   {
     "id": "euribor",
     "term": "Euríbor",
-    "definition": "Tipo de referencia basado en los préstamos entre grandes bancos europeos. Es el índice al que se ligan la mayoría de las hipotecas a tipo variable.",
+    "definition": "Tipo de referencia que publica el EMMI a partir de los tipos a los que grandes bancos europeos se financian entre sí. Es el índice al que se ligan la mayoría de las hipotecas a tipo variable.",
     "level": 0,
     "concepts": [
       "euribor"
