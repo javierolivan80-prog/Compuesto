@@ -83,11 +83,9 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   await expect(page.getByTestId('streak')).toHaveText('1 d');
 
   for (const [i, l] of lessons.slice(1).entries()) {
-    await page
-      .getByRole('listitem')
-      .filter({ hasText: l.title })
-      .getByRole('button', { name: 'Empezar' })
-      .click();
+    // Inicio ofrece siempre la siguiente lección sin completar
+    await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
+    await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
     await playLesson(page, l, i === 0 ? { shots: 'l2' } : {});
     await page.getByRole('button', { name: 'Continuar' }).click();
   }
@@ -102,6 +100,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   );
 
   // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB); el onboarding no vuelve
+  await page.goto('/#/');
   await page.reload();
   await expect(page.getByTestId('xp-total')).toHaveText('515');
   await expect(page.getByTestId('streak')).toHaveText('1 d');
