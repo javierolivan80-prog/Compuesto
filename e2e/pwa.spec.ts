@@ -141,8 +141,12 @@ test('versión nueva: aviso fuera de las lecciones, nunca a mitad de una, y solo
   await page.evaluate(() =>
     navigator.serviceWorker.getRegistration().then((r) => r?.update().then(() => undefined)),
   );
+  // espera a que la versión nueva esté instalada y en espera
+  await page.waitForFunction(() =>
+    navigator.serviceWorker.getRegistration().then((r) => !!r?.waiting),
+  );
   // con la lección abierta no aparece ni se recarga
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(500);
   await expect(page.getByText('Nueva versión disponible')).toHaveCount(0);
   expect(await page.evaluate(() => (window as unknown as { __v1?: boolean }).__v1)).toBe(true);
 

@@ -62,6 +62,8 @@ export default defineConfig({
         // el interruptor de emergencia siempre se pide a la red
         navigateFallbackDenylist: [/^\/sw-control\.json/],
         cleanupOutdatedCaches: true,
+        // la primera instalación toma el control enseguida: así los trozos que se piden después ya salen de la caché
+        clientsClaim: true,
       },
       manifest: {
         name: 'Compuesto',
