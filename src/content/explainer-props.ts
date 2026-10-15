@@ -29,4 +29,9 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().positive().max(20),
     years: z.number().int().min(2).max(40),
   }),
+  MoneyCreation: z.object({
+    deposit: z.number().positive(),
+    /** Coeficiente de reservas del modelo, en % */
+    reserveRatio: z.number().min(1).max(50),
+  }),
 };

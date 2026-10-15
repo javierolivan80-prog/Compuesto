@@ -460,5 +460,91 @@
     ],
     "verificarAntesDe": null,
     "sources": []
+  },
+  {
+    "id": "margen-intereses",
+    "term": "Margen de intereses",
+    "definition": "Diferencia entre los intereses que cobra un banco por sus préstamos y los que paga por sus depósitos; es la base de su negocio tradicional.",
+    "level": 0,
+    "concepts": [
+      "banco"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "coeficiente-reservas",
+    "term": "Coeficiente de reservas",
+    "definition": "Porcentaje de los depósitos que un banco debe mantener como reserva. En el modelo escolar del multiplicador, limita los depósitos totales a depósito inicial dividido entre el coeficiente.",
+    "level": 0,
+    "concepts": [
+      "creacion-dinero"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "deposito-plazo",
+    "term": "Depósito a plazo",
+    "definition": "Depósito en el que se inmoviliza el dinero durante un plazo a cambio de un tipo normalmente mayor; retirarlo antes puede tener penalización.",
+    "level": 0,
+    "concepts": [
+      "deposito"
+    ],
+    "aliases": [
+      "imposición a plazo"
+    ],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "fgd",
+    "term": "Fondo de Garantía de Depósitos",
+    "definition": "Fondo que protege los depósitos si una entidad quiebra, hasta 100.000 € por titular y por entidad. No cubre pérdidas de valor de inversiones.",
+    "level": 0,
+    "concepts": [
+      "fgd"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "retencion",
+    "term": "Retención",
+    "definition": "Importe que el pagador (por ejemplo, el banco al abonar intereses) ingresa a Hacienda por cuenta del perceptor, a cuenta del IRPF. Para los intereses es del 19 %.",
+    "level": 0,
+    "concepts": [
+      "irpf-intereses"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "base-ahorro",
+    "term": "Base del ahorro",
+    "definition": "Parte de la renta del IRPF que incluye intereses, dividendos y ganancias patrimoniales por transmisiones; tributa con una escala propia que empieza en el 19 %.",
+    "level": 0,
+    "concepts": [
+      "irpf-intereses"
+    ],
+    "aliases": [],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

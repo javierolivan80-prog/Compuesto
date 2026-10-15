@@ -9,6 +9,8 @@ import {
   monthlyPayment,
   amortizationSchedule,
   totalInterest,
+  depositChain,
+  maxDeposits,
   purchasingPower,
   realReturnPct,
   simpleValue,
@@ -67,5 +69,18 @@ describe('finanzas básicas', () => {
       6,
     );
     expect(totalInterest(10000, 0, 2)).toBeCloseTo(0, 9);
+  });
+  it('cadena de depósitos del modelo escolar', () => {
+    const rows = depositChain(1000, 10, 4);
+    expect(rows.map((r) => r.deposit)).toEqual(
+      [1000, 900, 810, 729].map((x) => expect.closeTo(x, 9)),
+    );
+    expect(rows[0]!.reserve).toBeCloseTo(100, 9);
+    expect(rows[0]!.loan).toBeCloseTo(900, 9);
+    expect(rows[3]!.cumulative).toBeCloseTo(3439, 9);
+    expect(maxDeposits(1000, 10)).toBe(10000);
+    expect(depositChain(1000, 10, 200)[199]!.cumulative).toBeCloseTo(10000, 3);
+    expect(() => depositChain(1000, 0, 3)).toThrow(RangeError);
+    expect(() => maxDeposits(1000, 101)).toThrow(RangeError);
   });
 });

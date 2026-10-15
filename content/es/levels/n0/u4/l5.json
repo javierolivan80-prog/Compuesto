@@ -1,0 +1,195 @@
+{
+  "id": "n0-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 4,
+  "title": "Intereses e IRPF",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Saber cómo tributan los intereses de un depósito en el IRPF",
+    "Calcular la retención y un impuesto por tramos"
+  ],
+  "concepts": [
+    "irpf-intereses",
+    "deposito"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Intereses e IRPF",
+      "text": "Los intereses de cuentas y depósitos son rendimientos del capital mobiliario y se integran en la base del ahorro del IRPF. El banco retiene un 19 % al pagarlos, a cuenta del impuesto final. La escala gradual empieza en el 19 % hasta 6.000 €, 21 % hasta 50.000 € y 23 % hasta 200.000 €; hay tramos superiores."
+    },
+    {
+      "type": "example",
+      "text": "Lucía cobra 1.000 € de intereses brutos. El banco retiene 190 € (19 %) y le abona 810 €. La retención es un pago a cuenta: el impuesto definitivo se calcula en la declaración de la renta."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u4-l5-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "¿En qué parte del IRPF se integran los intereses de un depósito?",
+      "options": [
+        "En la base del ahorro",
+        "En la base general, junto al salario",
+        "No tributan",
+        "Solo en el impuesto de patrimonio"
+      ],
+      "answer": 0,
+      "explanation": "Los intereses de cuentas y depósitos van a la base del ahorro.",
+      "wrongExplanations": {
+        "1": "El salario va a la base general; los intereses, a la del ahorro.",
+        "2": "Los intereses sí tributan.",
+        "3": "Tributan en el IRPF."
+      }
+    },
+    {
+      "id": "n0-u4-l5-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "statement": "La retención del 19 % que practica el banco es siempre el impuesto definitivo.",
+      "answer": false,
+      "explanation": "Es un pago a cuenta: el impuesto final se calcula en la declaración de la renta."
+    },
+    {
+      "id": "n0-u4-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "Cobras 1.000 € de intereses brutos. ¿Cuántos euros retiene el banco al 19 %?",
+      "answer": 190,
+      "tolerance": 0,
+      "formula": "1000 * 0.19",
+      "explanation": "1.000 × 0,19 = 190 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "Con esos 1.000 € brutos y la retención del 19 %, ¿cuántos euros te abona el banco?",
+      "answer": 810,
+      "tolerance": 0,
+      "formula": "1000 - 1000 * 0.19",
+      "explanation": "1.000 − 190 = 810 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "Una persona tiene 8.000 € de rendimientos en su base del ahorro. Con 19 % hasta 6.000 € y 21 % el resto, ¿cuánto impuesto resulta?",
+      "answer": 1560,
+      "tolerance": 0,
+      "formula": "6000 * 0.19 + 2000 * 0.21",
+      "explanation": "6.000 × 0,19 = 1.140 € y 2.000 × 0,21 = 420 €; en total 1.560 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "En ese caso, ¿cuál es el tipo medio sobre los 8.000 €, en %?",
+      "answer": 19.5,
+      "tolerance": 0,
+      "formula": "(6000 * 0.19 + 2000 * 0.21) / 8000 * 100",
+      "explanation": "1.560 / 8.000 = 0,195, es decir, un 19,5 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u4-l5-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "Los intereses de un depósito tributan en la base del ___ del IRPF.",
+      "answers": [
+        [
+          "ahorro"
+        ]
+      ],
+      "explanation": "Es la base del ahorro."
+    },
+    {
+      "id": "n0-u4-l5-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "irpf-intereses"
+      ],
+      "prompt": "¿Base general o base del ahorro?",
+      "categories": [
+        "Base general",
+        "Base del ahorro"
+      ],
+      "items": [
+        {
+          "text": "Intereses de un depósito",
+          "category": "Base del ahorro"
+        },
+        {
+          "text": "Salario",
+          "category": "Base general"
+        },
+        {
+          "text": "Dividendos de acciones",
+          "category": "Base del ahorro"
+        },
+        {
+          "text": "Ganancia por vender acciones",
+          "category": "Base del ahorro"
+        }
+      ],
+      "explanation": "Los rendimientos del capital y las ganancias patrimoniales van a la base del ahorro; el trabajo, a la general."
+    }
+  ],
+  "realWorld": "En el resumen fiscal que te da el banco aparecen los intereses y la retención practicada: esos importes alimentan el borrador de la renta.",
+  "sources": [
+    {
+      "title": "Agencia Tributaria: IRPF, rendimientos del capital mobiliario y base del ahorro",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-15"
+}

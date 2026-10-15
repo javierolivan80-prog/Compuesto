@@ -118,7 +118,7 @@ describe('pantallas principales', () => {
   it('Glosario: busca por término o definición y abre la definición en una hoja', async () => {
     await open('#/despacho/glosario');
     const user = userEvent.setup();
-    expect(await screen.findByText('27 de 27 términos')).toBeInTheDocument();
+    expect(await screen.findByText('33 de 33 términos')).toBeInTheDocument();
     await user.type(screen.getByLabelText('Buscar un término'), 'inflacion'); // sin tilde
     expect(screen.getByRole('list', { name: 'Términos' })).toBeInTheDocument();
     expect(screen.getAllByRole('listitem').length).toBeGreaterThanOrEqual(2);

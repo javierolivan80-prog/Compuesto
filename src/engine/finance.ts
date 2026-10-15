@@ -85,3 +85,38 @@ export function amortizationSchedule(
 export function totalInterest(principal: number, ratePct: number, years: number): number {
   return amortizationSchedule(principal, ratePct, years).reduce((s, r) => s + r.interest, 0);
 }
+
+export interface DepositRound {
+  round: number;
+  deposit: number;
+  reserve: number;
+  loan: number;
+  /** Depósitos acumulados hasta esta ronda (inclusive). */
+  cumulative: number;
+}
+
+/**
+ * Modelo escolar del multiplicador del dinero: cada depósito se queda en reserva en `ratioPct` % y el resto
+ * se presta; ese préstamo vuelve al sistema como nuevo depósito.
+ */
+export function depositChain(deposit: number, ratioPct: number, rounds: number): DepositRound[] {
+  if (ratioPct <= 0 || ratioPct > 100)
+    throw new RangeError('El coeficiente debe estar entre 0 y 100');
+  const r = ratioPct / 100;
+  const out: DepositRound[] = [];
+  let d = deposit;
+  let cumulative = 0;
+  for (let round = 1; round <= rounds; round++) {
+    cumulative += d;
+    out.push({ round, deposit: d, reserve: d * r, loan: d * (1 - r), cumulative });
+    d = d * (1 - r);
+  }
+  return out;
+}
+
+/** Límite del modelo: depósito inicial / coeficiente de reservas. */
+export function maxDeposits(deposit: number, ratioPct: number): number {
+  if (ratioPct <= 0 || ratioPct > 100)
+    throw new RangeError('El coeficiente debe estar entre 0 y 100');
+  return deposit / (ratioPct / 100);
+}

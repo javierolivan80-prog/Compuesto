@@ -1,0 +1,194 @@
+{
+  "id": "n0-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 4,
+  "title": "Qué hace un banco",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar el papel de intermediario del banco",
+    "Calcular el margen de intereses"
+  ],
+  "concepts": [
+    "banco"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Banco",
+      "text": "Un banco es un intermediario: recoge los depósitos de unos clientes y presta ese dinero a otros. Los depósitos son una deuda del banco con sus clientes (pasivo); los préstamos concedidos son derechos de cobro (activo). Gana sobre todo con el margen de intereses: lo que cobra por prestar menos lo que paga por los depósitos."
+    },
+    {
+      "type": "example",
+      "text": "Lucía, becaria de Albufera Partners, estudia un banco ficticio que cobra un 5 % por sus préstamos y paga un 1 % por sus depósitos. Por cada 100.000 € prestados y financiados con depósitos, su margen de intereses es de 4.000 € al año."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u4-l1-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "¿De dónde obtiene un banco comercial la mayor parte de sus ingresos tradicionales?",
+      "options": [
+        "De prestar a un tipo mayor del que paga por los depósitos (margen de intereses)",
+        "De quedarse con los depósitos de los clientes",
+        "De imprimir billetes",
+        "De cobrar solo por guardar el dinero"
+      ],
+      "answer": 0,
+      "explanation": "Su negocio tradicional es el margen entre lo que cobra por los préstamos y lo que paga por los depósitos, además de las comisiones.",
+      "wrongExplanations": {
+        "1": "Los depósitos son una deuda del banco con el cliente: debe devolverlos.",
+        "2": "Los billetes los emite el banco central, no los bancos comerciales.",
+        "3": "Las comisiones existen, pero el grueso es el margen de intereses."
+      }
+    },
+    {
+      "id": "n0-u4-l1-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "statement": "Para un banco, los depósitos de sus clientes son una deuda con ellos.",
+      "answer": true,
+      "explanation": "Los depósitos se contabilizan en el pasivo: el banco debe devolverlos cuando el cliente lo pida o venza el plazo."
+    },
+    {
+      "id": "n0-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "Un banco presta 100.000 € al 5 % y capta 100.000 € en depósitos al 1 %. ¿Cuál es su margen de intereses anual?",
+      "answer": 4000,
+      "tolerance": 0,
+      "formula": "100000 * 0.05 - 100000 * 0.01",
+      "explanation": "Intereses cobrados 5.000 € − intereses pagados 1.000 € = 4.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "Con esos mismos datos, ¿cuál es el margen sobre el dinero prestado, en %?",
+      "answer": 4,
+      "tolerance": 0,
+      "formula": "(100000 * 0.05 - 100000 * 0.01) / 100000 * 100",
+      "explanation": "4.000 / 100.000 = 0,04, es decir, un 4 %: la diferencia entre el 5 % y el 1 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u4-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "Otro banco ficticio tiene 1.000.000 € en préstamos al 4 % y 900.000 € en depósitos al 1 %. ¿Cuál es su margen de intereses anual?",
+      "answer": 31000,
+      "tolerance": 0,
+      "formula": "1000000 * 0.04 - 900000 * 0.01",
+      "explanation": "40.000 € cobrados − 9.000 € pagados = 31.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "Desde el punto de vista del banco, ¿activo o pasivo?",
+      "categories": [
+        "Activo del banco",
+        "Pasivo del banco"
+      ],
+      "items": [
+        {
+          "text": "Préstamos concedidos",
+          "category": "Activo del banco"
+        },
+        {
+          "text": "Depósitos de los clientes",
+          "category": "Pasivo del banco"
+        },
+        {
+          "text": "Efectivo en caja",
+          "category": "Activo del banco"
+        },
+        {
+          "text": "Bonos que el propio banco ha emitido",
+          "category": "Pasivo del banco"
+        }
+      ],
+      "explanation": "Activo es lo que el banco posee o le deben; pasivo, lo que él debe."
+    },
+    {
+      "id": "n0-u4-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "La diferencia entre los intereses que cobra y los que paga un banco se llama margen de ___.",
+      "answers": [
+        [
+          "intereses",
+          "interés",
+          "interes"
+        ]
+      ],
+      "explanation": "Es el margen de intereses."
+    },
+    {
+      "id": "n0-u4-l1-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "banco"
+      ],
+      "prompt": "Ordena el papel de intermediario del banco.",
+      "steps": [
+        "Los ahorradores depositan su dinero",
+        "El banco reúne esos depósitos",
+        "El banco presta a familias y empresas",
+        "Los prestatarios devuelven el préstamo con intereses"
+      ],
+      "explanation": "Depósitos, reunión, préstamos y devolución con intereses."
+    }
+  ],
+  "realWorld": "En las cuentas de cualquier banco cotizado verás «margen de intereses» como primera línea de la cuenta de resultados.",
+  "sources": [],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

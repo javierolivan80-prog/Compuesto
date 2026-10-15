@@ -1,0 +1,205 @@
+{
+  "id": "n0-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 4,
+  "title": "El Fondo de Garantía de Depósitos",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Explicar qué cubre el FGD y hasta cuánto",
+    "Calcular qué parte de unos ahorros queda cubierta"
+  ],
+  "concepts": [
+    "fgd",
+    "deposito"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "FGD",
+      "text": "El Fondo de Garantía de Depósitos protege los depósitos si una entidad quiebra, hasta 100.000 € por titular y por entidad. Cubre cuentas y depósitos, no las pérdidas de valor de inversiones como acciones o fondos. Si tienes más de 100.000 € en una entidad, la parte que excede no está cubierta."
+    },
+    {
+      "type": "example",
+      "text": "Lucía tiene 60.000 € en una cuenta y 70.000 € en un depósito del mismo banco ficticio. Suman 130.000 €: solo 100.000 € están cubiertos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u4-l4-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "¿Qué protege el Fondo de Garantía de Depósitos?",
+      "options": [
+        "Los depósitos hasta 100.000 € por titular y entidad",
+        "Las pérdidas de la bolsa",
+        "Todo el dinero sin límite",
+        "Solo el efectivo en casa"
+      ],
+      "answer": 0,
+      "explanation": "Garantiza los depósitos dinerarios hasta 100.000 € por titular y entidad.",
+      "wrongExplanations": {
+        "1": "No cubre las pérdidas de valor de inversiones.",
+        "2": "Tiene un límite por titular y entidad.",
+        "3": "Protege depósitos en entidades, no el efectivo guardado en casa."
+      }
+    },
+    {
+      "id": "n0-u4-l4-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "statement": "El FGD cubre las pérdidas por una caída del precio de las acciones.",
+      "answer": false,
+      "explanation": "Protege depósitos si la entidad quiebra, no el riesgo de mercado de las inversiones."
+    },
+    {
+      "id": "n0-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "Tienes 60.000 € en una cuenta y 70.000 € en un depósito de la misma entidad. ¿Cuántos euros están cubiertos por el FGD?",
+      "answer": 100000,
+      "tolerance": 0,
+      "formula": "MIN(60000 + 70000, 100000)",
+      "explanation": "Los saldos se suman por titular y entidad: 130.000 €, con un tope de 100.000 €.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "En ese caso, ¿cuántos euros no están cubiertos?",
+      "answer": 30000,
+      "tolerance": 0,
+      "formula": "60000 + 70000 - 100000",
+      "explanation": "130.000 − 100.000 = 30.000 € sin cobertura.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "Tienes 80.000 € en un banco y 80.000 € en otro banco de un grupo distinto. ¿Cuántos euros están cubiertos en total?",
+      "answer": 160000,
+      "tolerance": 0,
+      "formula": "MIN(80000, 100000) + MIN(80000, 100000)",
+      "explanation": "El límite se aplica por entidad: 80.000 € en cada una, ambos importes cubiertos.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l4-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "El FGD cubre hasta 100.000 € por ___ y por entidad.",
+      "answers": [
+        [
+          "titular"
+        ]
+      ],
+      "explanation": "El límite es por titular y por entidad."
+    },
+    {
+      "id": "n0-u4-l4-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "¿Lo cubre el FGD?",
+      "categories": [
+        "Lo cubre",
+        "No lo cubre"
+      ],
+      "items": [
+        {
+          "text": "Saldo de una cuenta corriente",
+          "category": "Lo cubre"
+        },
+        {
+          "text": "Un depósito a plazo fijo",
+          "category": "Lo cubre"
+        },
+        {
+          "text": "La bajada de valor de unas acciones compradas a través del banco",
+          "category": "No lo cubre"
+        },
+        {
+          "text": "La pérdida de valor de un fondo de inversión",
+          "category": "No lo cubre"
+        }
+      ],
+      "explanation": "El FGD protege depósitos; no cubre pérdidas de valor de las inversiones."
+    },
+    {
+      "id": "n0-u4-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "fgd"
+      ],
+      "prompt": "Tienes 150.000 € ahorrados en depósitos. ¿Qué te protege mejor frente a la quiebra de una entidad?",
+      "options": [
+        "Repartirlos entre entidades de grupos distintos",
+        "Dejarlos todos en la misma entidad",
+        "Pedir un préstamo",
+        "Comprar acciones del banco"
+      ],
+      "answer": 0,
+      "explanation": "Al repartir, cada entidad aplica su propio límite de 100.000 €.",
+      "wrongExplanations": {
+        "1": "La parte que excede los 100.000 € quedaría sin cobertura.",
+        "2": "Un préstamo no protege tus depósitos.",
+        "3": "Las acciones del banco no están cubiertas y se pierden si quiebra."
+      }
+    }
+  ],
+  "realWorld": "Cuando abras una cuenta o un depósito, verás en su ficha que está adherido al Fondo de Garantía de Depósitos de Entidades de Crédito.",
+  "sources": [
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito (FGD)",
+      "url": "https://www.fgd.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-10-15",
+  "lastReviewed": "2026-10-15"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "n0-u4-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 0,
+  "unit": 4,
+  "title": "Cuentas y depósitos",
+  "estimatedMinutes": 4,
+  "objectives": [
+    "Distinguir depósito a la vista y a plazo",
+    "Calcular intereses brutos y TAE de un depósito"
+  ],
+  "concepts": [
+    "deposito",
+    "tae",
+    "interes-compuesto"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Depósito",
+      "text": "Un depósito a la vista (cuenta corriente o de ahorro) permite sacar el dinero cuando quieras y suele pagar poco. Un depósito a plazo inmoviliza el dinero un tiempo a cambio de un tipo mayor; si lo retiras antes, puede haber penalización. Antes de contratar, la entidad entrega una ficha informativa con el TIN y la TAE."
+    },
+    {
+      "type": "example",
+      "text": "Lucía compara dos depósitos de 10.000 €: uno a la vista al 0,5 % y otro a un año al 3 % TIN con una liquidación anual. El segundo da 300 € de intereses brutos, a cambio de no tocar el dinero ese año."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n0-u4-l3-e1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "¿Qué ocurre normalmente si retiras un depósito a plazo antes de su vencimiento?",
+      "options": [
+        "Puede haber penalización o no ser posible, según el contrato",
+        "Cobras más intereses",
+        "No pasa nada, es idéntico",
+        "El banco te devuelve el doble"
+      ],
+      "answer": 0,
+      "explanation": "Un depósito a plazo inmoviliza el dinero; las condiciones de cancelación anticipada dependen del contrato.",
+      "wrongExplanations": {
+        "1": "Retirar antes no aumenta los intereses.",
+        "2": "Si fuese idéntico, no pagaría más que uno a la vista.",
+        "3": "No existe tal devolución."
+      }
+    },
+    {
+      "id": "n0-u4-l3-e2",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "deposito"
+      ],
+      "statement": "El depósito con la TAE más alta es siempre el mejor para cualquier persona.",
+      "answer": false,
+      "explanation": "También importan el plazo, la liquidez y la solvencia de la entidad."
+    },
+    {
+      "id": "n0-u4-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "10.000 € a un año con un TIN del 3 % y una liquidación anual. ¿Cuántos euros de intereses brutos se cobran?",
+      "answer": 300,
+      "tolerance": 0,
+      "formula": "10000 * 0.03",
+      "explanation": "10.000 × 0,03 = 300 € brutos, antes de impuestos.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deposito",
+        "interes-compuesto"
+      ],
+      "prompt": "5.000 € a dos años al 2,5 % con interés compuesto anual. ¿Cuánto hay al vencimiento? (2 decimales)",
+      "answer": 5253.13,
+      "tolerance": 0.01,
+      "formula": "5000 * 1.025 ^ 2",
+      "explanation": "5.000 × 1,025² = 5.253,13 € brutos.",
+      "unit": "€"
+    },
+    {
+      "id": "n0-u4-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deposito",
+        "tae"
+      ],
+      "prompt": "Un depósito paga un 2 % de TIN con liquidación trimestral. ¿Cuál es su TAE en %? (2 decimales)",
+      "answer": 2.02,
+      "tolerance": 0.5,
+      "formula": "((1 + 0.02 / 4) ^ 4 - 1) * 100",
+      "explanation": "Cada trimestre se gana un 0,5 %: 1,005⁴ − 1 = 2,015 %, que redondeado es 2,02 %.",
+      "unit": "%"
+    },
+    {
+      "id": "n0-u4-l3-e6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": [
+        "deposito",
+        "tae"
+      ],
+      "prompt": "Al comparar depósitos conviene mirar la ___, el plazo y la liquidez.",
+      "answers": [
+        [
+          "TAE",
+          "tae"
+        ]
+      ],
+      "explanation": "La TAE permite comparar la rentabilidad anual."
+    },
+    {
+      "id": "n0-u4-l3-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "¿Depósito a la vista o a plazo?",
+      "categories": [
+        "A la vista",
+        "A plazo"
+      ],
+      "items": [
+        {
+          "text": "Puedes sacar el dinero cuando quieras",
+          "category": "A la vista"
+        },
+        {
+          "text": "Suele pagar más a cambio de inmovilizar el dinero",
+          "category": "A plazo"
+        },
+        {
+          "text": "Cuenta corriente",
+          "category": "A la vista"
+        },
+        {
+          "text": "Puede tener penalización por cancelar antes",
+          "category": "A plazo"
+        }
+      ],
+      "explanation": "La liquidez se paga con menos tipo; la inmovilización, con más."
+    },
+    {
+      "id": "n0-u4-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "deposito"
+      ],
+      "prompt": "Necesitas poder usar tu dinero en cualquier momento. ¿Qué opción encaja?",
+      "options": [
+        "Un depósito a la vista",
+        "Un depósito a 5 años",
+        "Un depósito con penalización total por salir antes",
+        "Ninguna"
+      ],
+      "answer": 0,
+      "explanation": "La disponibilidad inmediata es la ventaja del depósito a la vista.",
+      "wrongExplanations": {
+        "1": "Inmoviliza el dinero cinco años.",
+        "2": "No podrías usarlo sin perder intereses.",
+        "3": "Sí hay una opción adecuada."
+      }
+    }
+  ],
+  "realWorld": "En España, antes de contratar un depósito la entidad te entrega una ficha informativa: compara siempre la TAE y las condiciones de cancelación.",
+  "sources": [
+    {
+      "title": "Banco de España — Portal del Cliente Bancario: préstamos y TAE",
+      "url": "https://clientebancario.bde.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-15"
+}

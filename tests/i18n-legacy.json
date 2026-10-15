@@ -26,6 +26,7 @@
   "src/features/lesson/explainers/Explainer.tsx",
   "src/features/lesson/explainers/InflationCart.tsx",
   "src/features/lesson/explainers/LoanAmortization.tsx",
+  "src/features/lesson/explainers/MoneyCreation.tsx",
   "src/features/lesson/explainers/Rule72.tsx",
   "src/features/lesson/explainers/TinVsTae.tsx",
   "src/features/lesson/explainers/index.tsx",

@@ -27,4 +27,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     );
     expect(screen.getByRole('alert')).toHaveTextContent(/no válidos/);
   });
+  it('MoneyCreation describe las rondas y el límite del modelo', () => {
+    render(
+      <ExplainerBlock component="MoneyCreation" props={{ deposit: 1000, reserveRatio: 10 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/10\.000/);
+    expect(text).toMatch(/modelo/i);
+  });
 });
