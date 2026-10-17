@@ -1,0 +1,509 @@
+{
+  "id": "naranjas-del-turia-lbo",
+  "version": 1,
+  "status": "draft",
+  "company": "naranjas-del-turia",
+  "type": "lbo",
+  "title": "Naranjas del Turia — LBO de Marjal Capital Partners (OPA de exclusión)",
+  "unit": "miles de € (salvo importes por acción, en €)",
+  "valuationDate": "2025-12-31",
+  "generatedBy": "scripts/build-models.ts (npm run models:build)",
+  "skills": [
+    "modelo-referencia",
+    "financial-services: lbo-model",
+    "financial-services: returns-analysis",
+    "creating-financial-models (sensibilidad)"
+  ],
+  "verificarAntesDe": "2027-04-17",
+  "sources": [
+    {
+      "tipo": "manual",
+      "referencia": "Rosenbaum y Pearl, Investment Banking: Valuation, LBOs, M&A and IPOs, caps. 4 y 5 (LBO)"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "Ley 27/2014, del Impuesto sobre Sociedades, art. 16 (limitación de gastos financieros) y art. 29",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328"
+    }
+  ],
+  "sponsor": {
+    "name": "Marjal Capital Partners",
+    "ficticio": true,
+    "pendienteVerificarCNMV": true
+  },
+  "assumptions": {
+    "offerPricePerShare": 9.375,
+    "unaffectedPricePerShare": 7.5,
+    "shares": 12000000,
+    "exitMultiple": 9,
+    "transactionFeePct": 0.02,
+    "financingFeePct": 0.025,
+    "minCash": 3000,
+    "sweepPct": 1,
+    "interestCapPct": 0.3,
+    "interestCapFloor": 1000,
+    "tranches": [
+      {
+        "id": "senior_a",
+        "name": "Préstamo senior A (amortizable)",
+        "multiple": 2,
+        "cashRate": 0.06,
+        "pikRate": 0,
+        "mandatoryAmortPct": 0.1,
+        "sweepPriority": 1
+      },
+      {
+        "id": "senior_b",
+        "name": "Préstamo senior B (TLB, casi bullet)",
+        "multiple": 1.75,
+        "cashRate": 0.07,
+        "pikRate": 0,
+        "mandatoryAmortPct": 0.01,
+        "sweepPriority": 2
+      },
+      {
+        "id": "mezzanine",
+        "name": "Mezzanine con interés capitalizado (PIK)",
+        "multiple": 0.75,
+        "cashRate": 0,
+        "pikRate": 0.12,
+        "mandatoryAmortPct": 0,
+        "sweepPriority": null
+      }
+    ],
+    "operating": {
+      "revenueGrowth": [
+        0.065,
+        0.06,
+        0.055,
+        0.05,
+        0.045
+      ],
+      "cogsPct": [
+        0.62,
+        0.62,
+        0.62,
+        0.62,
+        0.62
+      ],
+      "opexPct": [
+        0.178,
+        0.175,
+        0.172,
+        0.17,
+        0.17
+      ],
+      "daPctOpeningPPE": 0.08,
+      "capexPct": 0.055,
+      "dso": 60,
+      "dio": 70,
+      "dpo": 50,
+      "costOfDebt": 0.045,
+      "taxRate": 0.25,
+      "payout": 0.45,
+      "debtRepayment": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "rationale": {
+    "offerPricePerShare": "Prima del 25 % sobre la cotización no afectada (7,50 €).",
+    "exitMultiple": "Salida en 2030 a 9,0x, algo por debajo del múltiplo de entrada: no se cuenta con expansión de múltiplo.",
+    "tranches": "Apalancamiento total 4,5x EBITDA: senior A 2,0x, TLB 1,75x y mezzanine PIK 0,75x (hipótesis de mercado de préstamos apalancados).",
+    "interestCap": "Art. 16 LIS: gastos financieros netos deducibles hasta el 30 % del beneficio operativo (aquí se aproxima con el EBITDA), con 1 millón de € deducible en todo caso; el exceso se deduce en ejercicios siguientes.",
+    "operating": "Plan del fondo: gastos operativos del 18,0 % al 17,0 % de los ingresos en 2029.",
+    "minCash": "Caja mínima operativa de 3.000; el resto de la caja de la sociedad financia la compra."
+  },
+  "results": {
+    "entry": {
+      "ltmEbitda": 11776,
+      "equityPurchasePrice": 112500,
+      "premium": 0.25,
+      "enterpriseValue": 109115,
+      "entryMultiple": 9.26588,
+      "netDebtTarget": -3385
+    },
+    "sources": [
+      {
+        "id": "senior_a",
+        "name": "Préstamo senior A (amortizable)",
+        "amount": 23552
+      },
+      {
+        "id": "senior_b",
+        "name": "Préstamo senior B (TLB, casi bullet)",
+        "amount": 20608
+      },
+      {
+        "id": "mezzanine",
+        "name": "Mezzanine con interés capitalizado (PIK)",
+        "amount": 8832
+      },
+      {
+        "id": "caja_sociedad",
+        "name": "Caja de la sociedad (sobre el mínimo)",
+        "amount": 12385
+      },
+      {
+        "id": "capital_fondo",
+        "name": "Capital del fondo (sponsor equity)",
+        "amount": 62630
+      }
+    ],
+    "uses": [
+      {
+        "id": "compra_acciones",
+        "name": "Compra de las acciones",
+        "amount": 112500
+      },
+      {
+        "id": "refinanciacion",
+        "name": "Refinanciación de la deuda existente",
+        "amount": 12000
+      },
+      {
+        "id": "comisiones_operacion",
+        "name": "Comisiones de la operación",
+        "amount": 2182
+      },
+      {
+        "id": "comisiones_financiacion",
+        "name": "Comisiones de financiación",
+        "amount": 1325
+      }
+    ],
+    "totalSources": 128007,
+    "totalUses": 128007,
+    "sponsorEquity": 62630,
+    "years": [
+      {
+        "year": 2026,
+        "ingresos": 62709,
+        "ebitda": 12667,
+        "amortizacion": 1828,
+        "ebit": 10839,
+        "interes_efectivo": 2856,
+        "interes_pik": 1060,
+        "amortizacion_comisiones": 265,
+        "gastos_financieros_netos": 4181,
+        "gasto_financiero_deducible": 3800,
+        "exceso_no_deducido_pendiente": 381,
+        "base_imponible": 7039,
+        "impuestos": 1760,
+        "resultado_neto": 4898,
+        "capex": 3449,
+        "variacion_circulante": 759,
+        "flujo_caja_libre": 3843,
+        "amortizacion_obligatoria": 2561,
+        "barrido": 1282,
+        "caja_inicial": 3000,
+        "caja_final": 3000,
+        "deuda_inicial": {
+          "senior_a": 23552,
+          "senior_b": 20608,
+          "mezzanine": 8832
+        },
+        "deuda_final": {
+          "senior_a": 19915,
+          "senior_b": 20402,
+          "mezzanine": 9892
+        },
+        "deuda_total_final": 50209,
+        "deuda_neta_final": 47209,
+        "deuda_neta_ebitda": 3.7269,
+        "cobertura_intereses": 4.4352
+      },
+      {
+        "year": 2027,
+        "ingresos": 66472,
+        "ebitda": 13626,
+        "amortizacion": 1958,
+        "ebit": 11668,
+        "interes_efectivo": 2623,
+        "interes_pik": 1187,
+        "amortizacion_comisiones": 265,
+        "gastos_financieros_netos": 4075,
+        "gasto_financiero_deducible": 4088,
+        "exceso_no_deducido_pendiente": 368,
+        "base_imponible": 7580,
+        "impuestos": 1895,
+        "resultado_neto": 5698,
+        "capex": 3656,
+        "variacion_circulante": 747,
+        "flujo_caja_libre": 4705,
+        "amortizacion_obligatoria": 2561,
+        "barrido": 2144,
+        "caja_inicial": 3000,
+        "caja_final": 3000,
+        "deuda_inicial": {
+          "senior_a": 19915,
+          "senior_b": 20402,
+          "mezzanine": 9892
+        },
+        "deuda_final": {
+          "senior_a": 15416,
+          "senior_b": 20196,
+          "mezzanine": 11079
+        },
+        "deuda_total_final": 46691,
+        "deuda_neta_final": 43691,
+        "deuda_neta_ebitda": 3.2064,
+        "cobertura_intereses": 5.1948
+      },
+      {
+        "year": 2028,
+        "ingresos": 70128,
+        "ebitda": 14587,
+        "amortizacion": 2093,
+        "ebit": 12494,
+        "interes_efectivo": 2339,
+        "interes_pik": 1329,
+        "amortizacion_comisiones": 265,
+        "gastos_financieros_netos": 3933,
+        "gasto_financiero_deducible": 4301,
+        "exceso_no_deducido_pendiente": 0,
+        "base_imponible": 8193,
+        "impuestos": 2048,
+        "resultado_neto": 6513,
+        "capex": 3857,
+        "variacion_circulante": 725,
+        "flujo_caja_libre": 5618,
+        "amortizacion_obligatoria": 2561,
+        "barrido": 3057,
+        "caja_inicial": 3000,
+        "caja_final": 3000,
+        "deuda_inicial": {
+          "senior_a": 15416,
+          "senior_b": 20196,
+          "mezzanine": 11079
+        },
+        "deuda_final": {
+          "senior_a": 10004,
+          "senior_b": 19990,
+          "mezzanine": 12408
+        },
+        "deuda_total_final": 42402,
+        "deuda_neta_final": 39402,
+        "deuda_neta_ebitda": 2.7012,
+        "cobertura_intereses": 6.2364
+      },
+      {
+        "year": 2029,
+        "ingresos": 73634,
+        "ebitda": 15463,
+        "amortizacion": 2234,
+        "ebit": 13229,
+        "interes_efectivo": 1999,
+        "interes_pik": 1489,
+        "amortizacion_comisiones": 265,
+        "gastos_financieros_netos": 3753,
+        "gasto_financiero_deducible": 3753,
+        "exceso_no_deducido_pendiente": 0,
+        "base_imponible": 9476,
+        "impuestos": 2369,
+        "resultado_neto": 7107,
+        "capex": 4050,
+        "variacion_circulante": 695,
+        "flujo_caja_libre": 6350,
+        "amortizacion_obligatoria": 2561,
+        "barrido": 3789,
+        "caja_inicial": 3000,
+        "caja_final": 3000,
+        "deuda_inicial": {
+          "senior_a": 10004,
+          "senior_b": 19990,
+          "mezzanine": 12408
+        },
+        "deuda_final": {
+          "senior_a": 3860,
+          "senior_b": 19784,
+          "mezzanine": 13897
+        },
+        "deuda_total_final": 37541,
+        "deuda_neta_final": 34541,
+        "deuda_neta_ebitda": 2.2338,
+        "cobertura_intereses": 7.7354
+      },
+      {
+        "year": 2030,
+        "ingresos": 76948,
+        "ebitda": 16159,
+        "amortizacion": 2380,
+        "ebit": 13779,
+        "interes_efectivo": 1617,
+        "interes_pik": 1668,
+        "amortizacion_comisiones": 265,
+        "gastos_financieros_netos": 3550,
+        "gasto_financiero_deducible": 3550,
+        "exceso_no_deducido_pendiente": 0,
+        "base_imponible": 10229,
+        "impuestos": 2557,
+        "resultado_neto": 7672,
+        "capex": 4232,
+        "variacion_circulante": 658,
+        "flujo_caja_libre": 7095,
+        "amortizacion_obligatoria": 2561,
+        "barrido": 4534,
+        "caja_inicial": 3000,
+        "caja_final": 3000,
+        "deuda_inicial": {
+          "senior_a": 3860,
+          "senior_b": 19784,
+          "mezzanine": 13897
+        },
+        "deuda_final": {
+          "senior_a": 0,
+          "senior_b": 16549,
+          "mezzanine": 15565
+        },
+        "deuda_total_final": 32114,
+        "deuda_neta_final": 29114,
+        "deuda_neta_ebitda": 1.8017,
+        "cobertura_intereses": 9.9932
+      }
+    ],
+    "exit": {
+      "year": 2030,
+      "ebitda": 16159,
+      "enterpriseValue": 145431,
+      "netDebt": 29114,
+      "equityValue": 116317
+    },
+    "cashflows": [
+      -62630,
+      0,
+      0,
+      0,
+      0,
+      116317
+    ],
+    "irr": 0.131806,
+    "moic": 1.857209,
+    "bridge": {
+      "ebitdaGrowth": 40612.350968,
+      "multipleChange": -4296.350968,
+      "deleveraging": 20878,
+      "fees": -3507,
+      "total": 53687
+    }
+  },
+  "targetIrr": 0.2,
+  "maxOfferPriceForTargetIrr": 8.0772,
+  "sensitivity": {
+    "irrByEntryAndExitMultiple": {
+      "rows": [
+        8.26588,
+        8.76588,
+        9.26588,
+        9.76588,
+        10.26588
+      ],
+      "cols": [
+        8,
+        8.5,
+        9,
+        9.5,
+        10
+      ],
+      "values": [
+        [
+          0.146237,
+          0.164162,
+          0.181044,
+          0.197014,
+          0.212173
+        ],
+        [
+          0.120819,
+          0.138346,
+          0.154854,
+          0.17047,
+          0.185293
+        ],
+        [
+          0.098451,
+          0.115628,
+          0.131806,
+          0.147111,
+          0.161638
+        ],
+        [
+          0.078516,
+          0.095382,
+          0.111267,
+          0.126294,
+          0.140557
+        ],
+        [
+          0.060573,
+          0.077158,
+          0.092778,
+          0.107555,
+          0.121581
+        ]
+      ]
+    },
+    "irrByLeverageAndExitMultiple": {
+      "rows": [
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5
+      ],
+      "cols": [
+        8,
+        8.5,
+        9,
+        9.5,
+        10
+      ],
+      "values": [
+        [
+          0.092944,
+          0.107816,
+          0.121927,
+          0.135363,
+          0.148191
+        ],
+        [
+          0.095465,
+          0.111407,
+          0.126481,
+          0.140791,
+          0.154416
+        ],
+        [
+          0.098451,
+          0.115628,
+          0.131806,
+          0.147111,
+          0.161638
+        ],
+        [
+          0.101661,
+          0.120304,
+          0.137781,
+          0.154248,
+          0.169823
+        ],
+        [
+          0.104023,
+          0.124515,
+          0.143612,
+          0.161514,
+          0.178374
+        ]
+      ]
+    }
+  },
+  "notes": [
+    "TIR del 13,2 %: por debajo del 20 % que suele exigir un fondo. El precio máximo para ese objetivo (8,08 €) solo da un 7,7 % de prima, poco para que los accionistas acepten una OPA de exclusión: el comité no aprobaría la oferta tal cual. Es el punto de partida del IC memo.",
+    "El fondo de comercio de la sociedad adquirente no afecta a la caja ni a la TIR; se trata en el merger model.",
+    "Art. 16.5 LIS (adquisiciones apalancadas): si la sociedad vehículo se fusiona con la objetivo o consolida fiscalmente, los intereses de la deuda de adquisición solo se deducen contra el beneficio operativo de la vehículo, salvo que la deuda no supere el 70 % del precio y se amortice hasta el 30 % en 8 años. Aquí la deuda es el 47 % del precio, pero el modelo no amortiza hasta el 30 %: se trata como una sola sociedad y queda marcado para verificar."
+  ]
+}

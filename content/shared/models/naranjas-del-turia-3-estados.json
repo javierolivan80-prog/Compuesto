@@ -1,0 +1,485 @@
+{
+  "id": "naranjas-del-turia-3-estados",
+  "version": 1,
+  "status": "draft",
+  "company": "naranjas-del-turia",
+  "type": "3-estados",
+  "title": "Naranjas del Turia — modelo de 3 estados 2026–2030",
+  "unit": "miles de € (salvo importes por acción, en €)",
+  "valuationDate": "2025-12-31",
+  "generatedBy": "scripts/build-models.ts (npm run models:build)",
+  "skills": [
+    "modelo-referencia",
+    "financial-services: 3-statement-model",
+    "knowledge-work finance: financial-statements"
+  ],
+  "verificarAntesDe": "2027-04-17",
+  "sources": [
+    {
+      "tipo": "manual",
+      "referencia": "Rosenbaum y Pearl, Investment Banking: Valuation, LBOs, M&A and IPOs, modelo de 3 estados en el cap. 5 (LBO)"
+    },
+    {
+      "tipo": "manual",
+      "referencia": "Koller, Goedhart y Wessels, Valuation (McKinsey), caps. sobre reorganizar los estados y proyectar"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "Ley 27/2014, del Impuesto sobre Sociedades, art. 29",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328"
+    }
+  ],
+  "assumptions": {
+    "revenueGrowth": [
+      0.065,
+      0.06,
+      0.055,
+      0.05,
+      0.045
+    ],
+    "cogsPct": [
+      0.62,
+      0.62,
+      0.62,
+      0.62,
+      0.62
+    ],
+    "opexPct": [
+      0.18,
+      0.18,
+      0.18,
+      0.18,
+      0.18
+    ],
+    "daPctOpeningPPE": 0.08,
+    "capexPct": 0.055,
+    "dso": 60,
+    "dio": 70,
+    "dpo": 50,
+    "costOfDebt": 0.045,
+    "taxRate": 0.25,
+    "payout": 0.45,
+    "debtRepayment": [
+      1500,
+      1500,
+      1500,
+      1500,
+      1500
+    ]
+  },
+  "rationale": {
+    "revenueGrowth": "Histórico 2021–2025: TACC del 7,2 % (44.520 → 58.882) y +7,0 % en 2025. Se desacelera 0,5 pp al año hacia el crecimiento nominal de una empresa madura.",
+    "cogsPct": "Coste de ventas = 62,0 % de los ingresos en los cinco años reales.",
+    "opexPct": "Gastos operativos (sin amortización) = 18,0 % de los ingresos en los cinco años reales.",
+    "daPctOpeningPPE": "Amortización = 8,0 % del inmovilizado inicial en 2022–2025 (p. ej. 1.682 / 21.030 en 2025).",
+    "capexPct": "Capex medio 2021–2025 = 4,9 % de los ingresos, con 5,9 % en 2023 y 2025; se toma 5,5 % por el plan de nuevas líneas de zumo.",
+    "dso": "Clientes / ingresos = 16,44 % en 2024 y 2025 → 60 días sobre 365.",
+    "dio": "Existencias / coste de ventas = 19,18 % → 70 días.",
+    "dpo": "Proveedores / coste de ventas = 13,70 % → 50 días.",
+    "costOfDebt": "Gastos financieros = 4,5 % de la deuda inicial en 2023–2025. Se calcula sobre la deuda inicial para evitar la circularidad.",
+    "taxRate": "Tipo general del impuesto sobre sociedades: 25 % (art. 29 LIS); coincide con el tipo efectivo histórico.",
+    "payout": "Dividendo = 45 % del resultado neto del ejercicio en los cinco años reales.",
+    "debtRepayment": "Hipótesis: amortización lineal de 1.500 al año del préstamo bancario; sin deuda nueva.",
+    "cash": "La caja es la partida de cierre (sale del estado de flujos). Simplificación: la caja no se remunera."
+  },
+  "historical": [
+    {
+      "year": 2021,
+      "pyg": {
+        "ingresos": 44520,
+        "coste_ventas": 27602,
+        "gastos_operativos": 8014,
+        "amortizacion": 1440,
+        "ebit": 7464,
+        "gastos_financieros": 405,
+        "bai": 7059,
+        "impuestos": 1765,
+        "resultado_neto": 5294
+      },
+      "balance": {
+        "caja": 5152,
+        "clientes": 7318,
+        "existencias": 5294,
+        "inmovilizado": 18760,
+        "total_activo": 36524,
+        "proveedores": 3781,
+        "deuda": 9000,
+        "total_pasivo": 12781,
+        "capital": 6000,
+        "reservas": 17743,
+        "total_patrimonio": 23743
+      },
+      "flujos": {
+        "operativo": 6234,
+        "inversion": -2200,
+        "financiacion": -2382,
+        "variacion_caja": 1652
+      },
+      "dividendos": 2382,
+      "ampliacion_capital": 0
+    },
+    {
+      "year": 2022,
+      "pyg": {
+        "ingresos": 48082,
+        "coste_ventas": 29811,
+        "gastos_operativos": 8655,
+        "amortizacion": 1501,
+        "ebit": 8115,
+        "gastos_financieros": 405,
+        "bai": 7710,
+        "impuestos": 1928,
+        "resultado_neto": 5782
+      },
+      "balance": {
+        "caja": 6927,
+        "clientes": 7904,
+        "existencias": 5717,
+        "inmovilizado": 19459,
+        "total_activo": 40007,
+        "proveedores": 4084,
+        "deuda": 9000,
+        "total_pasivo": 13084,
+        "capital": 6000,
+        "reservas": 20923,
+        "total_patrimonio": 26923
+      },
+      "flujos": {
+        "operativo": 6577,
+        "inversion": -2200,
+        "financiacion": -2602,
+        "variacion_caja": 1775
+      },
+      "dividendos": 2602,
+      "ampliacion_capital": 0
+    },
+    {
+      "year": 2023,
+      "pyg": {
+        "ingresos": 50486,
+        "coste_ventas": 31301,
+        "gastos_operativos": 9087,
+        "amortizacion": 1557,
+        "ebit": 8541,
+        "gastos_financieros": 405,
+        "bai": 8136,
+        "impuestos": 2034,
+        "resultado_neto": 6102
+      },
+      "balance": {
+        "caja": 9863,
+        "clientes": 8299,
+        "existencias": 6003,
+        "inmovilizado": 20902,
+        "total_activo": 45067,
+        "proveedores": 4288,
+        "deuda": 10500,
+        "total_pasivo": 14788,
+        "capital": 6000,
+        "reservas": 24279,
+        "total_patrimonio": 30279
+      },
+      "flujos": {
+        "operativo": 7182,
+        "inversion": -3000,
+        "financiacion": -1246,
+        "variacion_caja": 2936
+      },
+      "dividendos": 2746,
+      "ampliacion_capital": 0
+    },
+    {
+      "year": 2024,
+      "pyg": {
+        "ingresos": 55030,
+        "coste_ventas": 34119,
+        "gastos_operativos": 9905,
+        "amortizacion": 1672,
+        "ebit": 9334,
+        "gastos_financieros": 472,
+        "bai": 8862,
+        "impuestos": 2216,
+        "resultado_neto": 6646
+      },
+      "balance": {
+        "caja": 11989,
+        "clientes": 9046,
+        "existencias": 6543,
+        "inmovilizado": 21030,
+        "total_activo": 48608,
+        "proveedores": 4674,
+        "deuda": 10000,
+        "total_pasivo": 14674,
+        "capital": 6000,
+        "reservas": 27934,
+        "total_patrimonio": 33934
+      },
+      "flujos": {
+        "operativo": 7417,
+        "inversion": -1800,
+        "financiacion": -3491,
+        "variacion_caja": 2126
+      },
+      "dividendos": 2991,
+      "ampliacion_capital": 0
+    },
+    {
+      "year": 2025,
+      "pyg": {
+        "ingresos": 58882,
+        "coste_ventas": 36507,
+        "gastos_operativos": 10599,
+        "amortizacion": 1682,
+        "ebit": 10094,
+        "gastos_financieros": 450,
+        "bai": 9644,
+        "impuestos": 2411,
+        "resultado_neto": 7233
+      },
+      "balance": {
+        "caja": 15385,
+        "clientes": 9679,
+        "existencias": 7001,
+        "inmovilizado": 22848,
+        "total_activo": 54913,
+        "proveedores": 5001,
+        "deuda": 12000,
+        "total_pasivo": 17001,
+        "capital": 6000,
+        "reservas": 31912,
+        "total_patrimonio": 37912
+      },
+      "flujos": {
+        "operativo": 8151,
+        "inversion": -3500,
+        "financiacion": -1255,
+        "variacion_caja": 3396
+      },
+      "dividendos": 3255,
+      "ampliacion_capital": 0
+    }
+  ],
+  "projection": [
+    {
+      "year": 2026,
+      "pyg": {
+        "ingresos": 62709,
+        "coste_ventas": 38880,
+        "gastos_operativos": 11288,
+        "amortizacion": 1828,
+        "ebit": 10713,
+        "gastos_financieros": 540,
+        "bai": 10173,
+        "impuestos": 2543,
+        "resultado_neto": 7630
+      },
+      "balance": {
+        "caja": 15701,
+        "clientes": 10308,
+        "existencias": 7456,
+        "inmovilizado": 24469,
+        "total_activo": 57934,
+        "proveedores": 5326,
+        "deuda": 10500,
+        "total_pasivo": 15826,
+        "capital": 6000,
+        "reservas": 36108,
+        "total_patrimonio": 42108
+      },
+      "flujos": {
+        "operativo": 8699,
+        "inversion": -3449,
+        "financiacion": -4934,
+        "variacion_caja": 316
+      },
+      "dividendos": 3434,
+      "ampliacion_capital": 0,
+      "ebitda": 12541,
+      "capex": 3449,
+      "variacion_circulante": 759
+    },
+    {
+      "year": 2027,
+      "pyg": {
+        "ingresos": 66472,
+        "coste_ventas": 41213,
+        "gastos_operativos": 11965,
+        "amortizacion": 1958,
+        "ebit": 11336,
+        "gastos_financieros": 473,
+        "bai": 10863,
+        "impuestos": 2716,
+        "resultado_neto": 8147
+      },
+      "balance": {
+        "caja": 16237,
+        "clientes": 10927,
+        "existencias": 7904,
+        "inmovilizado": 26167,
+        "total_activo": 61235,
+        "proveedores": 5646,
+        "deuda": 9000,
+        "total_pasivo": 14646,
+        "capital": 6000,
+        "reservas": 40589,
+        "total_patrimonio": 46589
+      },
+      "flujos": {
+        "operativo": 9358,
+        "inversion": -3656,
+        "financiacion": -5166,
+        "variacion_caja": 536
+      },
+      "dividendos": 3666,
+      "ampliacion_capital": 0,
+      "ebitda": 13294,
+      "capex": 3656,
+      "variacion_circulante": 747
+    },
+    {
+      "year": 2028,
+      "pyg": {
+        "ingresos": 70128,
+        "coste_ventas": 43479,
+        "gastos_operativos": 12623,
+        "amortizacion": 2093,
+        "ebit": 11933,
+        "gastos_financieros": 405,
+        "bai": 11528,
+        "impuestos": 2882,
+        "resultado_neto": 8646
+      },
+      "balance": {
+        "caja": 17003,
+        "clientes": 11528,
+        "existencias": 8338,
+        "inmovilizado": 27931,
+        "total_activo": 64800,
+        "proveedores": 5956,
+        "deuda": 7500,
+        "total_pasivo": 13456,
+        "capital": 6000,
+        "reservas": 45344,
+        "total_patrimonio": 51344
+      },
+      "flujos": {
+        "operativo": 10014,
+        "inversion": -3857,
+        "financiacion": -5391,
+        "variacion_caja": 766
+      },
+      "dividendos": 3891,
+      "ampliacion_capital": 0,
+      "ebitda": 14026,
+      "capex": 3857,
+      "variacion_circulante": 725
+    },
+    {
+      "year": 2029,
+      "pyg": {
+        "ingresos": 73634,
+        "coste_ventas": 45653,
+        "gastos_operativos": 13254,
+        "amortizacion": 2234,
+        "ebit": 12493,
+        "gastos_financieros": 338,
+        "bai": 12155,
+        "impuestos": 3039,
+        "resultado_neto": 9116
+      },
+      "balance": {
+        "caja": 18006,
+        "clientes": 12104,
+        "existencias": 8755,
+        "inmovilizado": 29747,
+        "total_activo": 68612,
+        "proveedores": 6254,
+        "deuda": 6000,
+        "total_pasivo": 12254,
+        "capital": 6000,
+        "reservas": 50358,
+        "total_patrimonio": 56358
+      },
+      "flujos": {
+        "operativo": 10655,
+        "inversion": -4050,
+        "financiacion": -5602,
+        "variacion_caja": 1003
+      },
+      "dividendos": 4102,
+      "ampliacion_capital": 0,
+      "ebitda": 14727,
+      "capex": 4050,
+      "variacion_circulante": 695
+    },
+    {
+      "year": 2030,
+      "pyg": {
+        "ingresos": 76948,
+        "coste_ventas": 47708,
+        "gastos_operativos": 13851,
+        "amortizacion": 2380,
+        "ebit": 13009,
+        "gastos_financieros": 270,
+        "bai": 12739,
+        "impuestos": 3185,
+        "resultado_neto": 9554
+      },
+      "balance": {
+        "caja": 19251,
+        "clientes": 12649,
+        "existencias": 9149,
+        "inmovilizado": 31599,
+        "total_activo": 72648,
+        "proveedores": 6535,
+        "deuda": 4500,
+        "total_pasivo": 11035,
+        "capital": 6000,
+        "reservas": 55613,
+        "total_patrimonio": 61613
+      },
+      "flujos": {
+        "operativo": 11276,
+        "inversion": -4232,
+        "financiacion": -5799,
+        "variacion_caja": 1245
+      },
+      "dividendos": 4299,
+      "ampliacion_capital": 0,
+      "ebitda": 15389,
+      "capex": 4232,
+      "variacion_circulante": 658
+    }
+  ],
+  "checks": [
+    {
+      "year": 2026,
+      "balance": 0,
+      "caja": 0
+    },
+    {
+      "year": 2027,
+      "balance": 0,
+      "caja": 0
+    },
+    {
+      "year": 2028,
+      "balance": 0,
+      "caja": 0
+    },
+    {
+      "year": 2029,
+      "balance": 0,
+      "caja": 0
+    },
+    {
+      "year": 2030,
+      "balance": 0,
+      "caja": 0
+    }
+  ],
+  "notes": [
+    "Mismo esquema que companies.json: checkCompany se aplica a 2025 real + 2026–2030 proyectados.",
+    "Intereses sobre la deuda inicial y caja no remunerada: el modelo no tiene circularidad. En la rama Pro se enseña la versión con intereses sobre saldo medio y cálculo iterativo."
+  ]
+}

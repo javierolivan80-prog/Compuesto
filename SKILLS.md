@@ -50,7 +50,7 @@ hesreallyhim/awesome-claude-code (~56k, índice de skills, hooks y comandos) · 
 | `revisar-unidad` | Llama al subagente revisor, comprueba fuentes y aplica cambios |
 | `nuevo-explicador` | Ficha de ANIMACIONES.md §2 → componente con GSAP o Motion, estado final estático y test |
 | `nuevo-juego` | Ficha de JUEGOS.md → juego con el kit de game feel |
-| `modelo-referencia` | **Pendiente de crear.** Usa `3-statement-model`, `dcf-model`, `lbo-model`, `merger-model` o `comps-analysis` sobre una empresa de `companies.json` y guarda el resultado como «respuesta oficial» con la que se generan y comprueban los ejercicios |
+| `modelo-referencia` | Creada el 17/10/2026. Usa `3-statement-model`, `dcf-model`, `lbo-model`, `merger-model` o `comps-analysis` sobre una empresa de `companies.json` y guarda el resultado en `/content/shared/models/` como «respuesta oficial» con tests de cuadre (`npm run models:build`) |
 | `nuevo-cambio` | Spec → construir → revisión adversarial → archivar (ver `DECISIONES.md`) |
 
 ## 6. Cuándo se usa cada una
@@ -67,7 +67,7 @@ hesreallyhim/awesome-claude-code (~56k, índice de skills, hooks y comandos) · 
 
 ## 7. Skills de nicho instaladas (17/10/2026)
 
-Finanzas profesionales, mercados y ciencia del aprendizaje. Se usan **mientras se construye** (coste de API 0 €); ninguna API, clave ni conector de pago configurado. Detalle de revisión, exclusiones y avisos en `DECISIONES.md`.
+Finanzas profesionales, mercados y ciencia del aprendizaje. Se usan **mientras se construye** (coste de API 0 €); ninguna API, clave ni conector de pago configurado. Detalle de revisión, exclusiones y avisos en `DECISIONES.md`. En una sesión en la nube nueva los plugins de usuario y `~/.compuesto-skills-src/` pueden faltar: se reclonan en los commits fijados y se leen sus `SKILL.md` (ver `crear-unidad`).
 
 | Skill(s) | Repo y commit | Tipo | Para qué en Compuesto |
 |---|---|---|---|

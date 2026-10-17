@@ -1,0 +1,317 @@
+{
+  "id": "naranjas-del-turia-dcf",
+  "version": 1,
+  "status": "draft",
+  "company": "naranjas-del-turia",
+  "type": "dcf",
+  "title": "Naranjas del Turia — DCF con sensibilidades y Monte Carlo",
+  "unit": "miles de € (salvo importes por acción, en €)",
+  "valuationDate": "2025-12-31",
+  "generatedBy": "scripts/build-models.ts (npm run models:build)",
+  "skills": [
+    "modelo-referencia",
+    "financial-services: dcf-model",
+    "creating-financial-models (sensibilidad y Monte Carlo)",
+    "company-valuation (himself65)"
+  ],
+  "verificarAntesDe": "2027-04-17",
+  "sources": [
+    {
+      "tipo": "manual",
+      "referencia": "Rosenbaum y Pearl, Investment Banking: Valuation, LBOs, M&A and IPOs, cap. 3 (DCF): convención de mitad de año y valor terminal"
+    },
+    {
+      "tipo": "manual",
+      "referencia": "Koller, Goedhart y Wessels, Valuation (McKinsey), caps. sobre FCF, WACC y valor continuo"
+    },
+    {
+      "tipo": "manual",
+      "referencia": "Berk y DeMarzo, Corporate Finance, caps. sobre coste de capital y valoración"
+    },
+    {
+      "tipo": "datos",
+      "referencia": "Damodaran Online: betas por sector (Europa) y primas de riesgo por país",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datacurrent.html"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "Tesoro Público: rentabilidad de los Bonos y Obligaciones del Estado",
+      "url": "https://www.tesoro.es/"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html"
+    }
+  ],
+  "threeStatementModel": "naranjas-del-turia-3-estados",
+  "assumptions": {
+    "wacc": {
+      "riskFree": 0.0325,
+      "equityRiskPremium": 0.055,
+      "sizePremium": 0.02,
+      "unleveredBeta": 0.65,
+      "targetDebtToCapital": 0.2,
+      "preTaxCostOfDebt": 0.045,
+      "taxRate": 0.25
+    },
+    "terminalGrowth": 0.02,
+    "exitMultiple": 9,
+    "midYearConvention": true,
+    "netDebt": -3385,
+    "sharesOutstanding": 12000000,
+    "unaffectedPrice": 7.5
+  },
+  "rationale": {
+    "riskFree": "Hipótesis: rentabilidad del Bono del Estado a 10 años en torno al 3,25 % a la fecha de valoración. Verificar el dato en el Tesoro Público o el Banco de España antes de publicar.",
+    "equityRiskPremium": "Hipótesis: prima de mercado maduro más prima país de España en el rango que publica Damodaran. Verificar en su página de primas por país.",
+    "sizePremium": "Hipótesis discutida: prima por tamaño y baja liquidez de una cotizada pequeña. Muchos manuales la cuestionan; el ejercicio enseña a defenderla o quitarla.",
+    "unleveredBeta": "Hipótesis: beta desapalancada de procesado de alimentos en Europa (Damodaran, Betas by Sector). Verificar.",
+    "targetDebtToCapital": "Estructura objetivo del sector (hipótesis), no la actual (Naranjas tiene caja neta).",
+    "preTaxCostOfDebt": "Coste histórico de su préstamo (4,5 %).",
+    "terminalGrowth": "Crecimiento nominal a largo plazo ≤ objetivo de inflación del BCE (2 %).",
+    "exitMultiple": "Contraste por múltiplo EV/EBITDA de salida (hipótesis de comparables del sector).",
+    "netDebt": "Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio."
+  },
+  "wacc": {
+    "debtToEquity": 0.25,
+    "leveredBeta": 0.771875,
+    "costOfEquity": 0.094953,
+    "afterTaxCostOfDebt": 0.03375,
+    "wacc": 0.082713
+  },
+  "fcff": [
+    {
+      "year": 2026,
+      "ebit": 10713,
+      "impuestos_operativos": 2678.25,
+      "nopat": 8034.75,
+      "amortizacion": 1828,
+      "capex": 3449,
+      "variacion_circulante": 759,
+      "fcff": 5654.75
+    },
+    {
+      "year": 2027,
+      "ebit": 11336,
+      "impuestos_operativos": 2834,
+      "nopat": 8502,
+      "amortizacion": 1958,
+      "capex": 3656,
+      "variacion_circulante": 747,
+      "fcff": 6057
+    },
+    {
+      "year": 2028,
+      "ebit": 11933,
+      "impuestos_operativos": 2983.25,
+      "nopat": 8949.75,
+      "amortizacion": 2093,
+      "capex": 3857,
+      "variacion_circulante": 725,
+      "fcff": 6460.75
+    },
+    {
+      "year": 2029,
+      "ebit": 12493,
+      "impuestos_operativos": 3123.25,
+      "nopat": 9369.75,
+      "amortizacion": 2234,
+      "capex": 4050,
+      "variacion_circulante": 695,
+      "fcff": 6858.75
+    },
+    {
+      "year": 2030,
+      "ebit": 13009,
+      "impuestos_operativos": 3252.25,
+      "nopat": 9756.75,
+      "amortizacion": 2380,
+      "capex": 4232,
+      "variacion_circulante": 658,
+      "fcff": 7246.75
+    }
+  ],
+  "valuation": {
+    "gordon": {
+      "wacc": 0.082713,
+      "terminalGrowth": 0.02,
+      "discountPeriods": [
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5
+      ],
+      "discountFactors": [
+        0.961044,
+        0.887627,
+        0.819817,
+        0.757188,
+        0.699344
+      ],
+      "pvFcff": [
+        5434.465473,
+        5376.353887,
+        5296.635162,
+        5193.366181,
+        5067.970762
+      ],
+      "sumPvFcff": 26368.791466,
+      "terminalValue": 117866.214869,
+      "pvTerminalValue": 82429.024157,
+      "enterpriseValue": 108797.815623,
+      "equityValue": 112182.815623,
+      "pricePerShare": 9.348568,
+      "terminalValueShareOfEv": 0.757635
+    },
+    "exitMultiple": {
+      "exitMultiple": 9,
+      "terminalValue": 138501,
+      "pvTerminalValue": 93086.597278,
+      "enterpriseValue": 119455.388743,
+      "equityValue": 122840.388743,
+      "pricePerShare": 10.236699,
+      "impliedGrowth": 0.028879
+    },
+    "impliedExitMultipleFromGordon": 7.659121
+  },
+  "sensitivity": {
+    "priceByWaccAndGrowth": {
+      "rows": [
+        0.072713,
+        0.077713,
+        0.082713,
+        0.087713,
+        0.092713
+      ],
+      "cols": [
+        0.01,
+        0.015,
+        0.02,
+        0.025,
+        0.03
+      ],
+      "values": [
+        [
+          9.6222,
+          10.2748,
+          11.0511,
+          11.9901,
+          13.149
+        ],
+        [
+          8.9368,
+          9.484,
+          10.126,
+          10.8898,
+          11.8136
+        ],
+        [
+          8.3457,
+          8.8101,
+          9.3485,
+          9.9802,
+          10.7317
+        ],
+        [
+          7.8309,
+          8.229,
+          8.686,
+          9.2158,
+          9.8373
+        ],
+        [
+          7.3784,
+          7.7229,
+          8.1147,
+          8.5643,
+          9.0857
+        ]
+      ]
+    },
+    "priceByWaccAndExitMultiple": {
+      "rows": [
+        0.072713,
+        0.077713,
+        0.082713,
+        0.087713,
+        0.092713
+      ],
+      "cols": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "values": [
+        [
+          8.8504,
+          9.7532,
+          10.6561,
+          11.5589,
+          12.4618
+        ],
+        [
+          8.6794,
+          9.5615,
+          10.4436,
+          11.3257,
+          12.2078
+        ],
+        [
+          8.5129,
+          9.3748,
+          10.2367,
+          11.0986,
+          11.9605
+        ],
+        [
+          8.3507,
+          9.193,
+          10.0352,
+          10.8775,
+          11.7198
+        ],
+        [
+          8.1927,
+          9.0159,
+          9.8391,
+          10.6623,
+          11.4855
+        ]
+      ]
+    }
+  },
+  "monteCarlo": {
+    "spec": {
+      "seed": 20251231,
+      "iterations": 5000,
+      "growthShiftSd": 0.015,
+      "marginShiftSd": 0.015,
+      "waccSd": 0.0075,
+      "terminalGrowthMin": 0.01,
+      "terminalGrowthMode": 0.02,
+      "terminalGrowthMax": 0.025,
+      "minSpread": 0.02,
+      "referencePrice": 7.5
+    },
+    "result": {
+      "iterations": 5000,
+      "mean": 9.224407,
+      "sd": 1.579937,
+      "p5": 6.914523,
+      "p25": 8.105724,
+      "p50": 9.097905,
+      "p75": 10.188443,
+      "p95": 11.958473,
+      "probAboveReference": 0.872
+    }
+  },
+  "notes": [
+    "El valor terminal pesa 75,8 % del EV (por encima del 75 % que la skill dcf-model marca como dependencia alta): buen ejercicio de crítica.",
+    "Gordon descontado a N − 0,5 con mitad de año; múltiplo de salida a N (Rosenbaum y Pearl).",
+    "Los dos métodos de valor terminal no coinciden: el múltiplo implícito en Gordon y el crecimiento implícito en el múltiplo se guardan para enseñar a reconciliarlos."
+  ]
+}

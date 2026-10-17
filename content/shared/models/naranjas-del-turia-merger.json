@@ -1,0 +1,306 @@
+{
+  "id": "naranjas-del-turia-merger",
+  "version": 1,
+  "status": "draft",
+  "company": "naranjas-del-turia",
+  "type": "merger",
+  "title": "Naranjas del Turia — merger model con Grupo Azahar Calderona",
+  "unit": "miles de € (salvo importes por acción, en €)",
+  "valuationDate": "2025-12-31",
+  "generatedBy": "scripts/build-models.ts (npm run models:build)",
+  "skills": [
+    "modelo-referencia",
+    "financial-services: merger-model"
+  ],
+  "verificarAntesDe": "2027-04-17",
+  "sources": [
+    {
+      "tipo": "manual",
+      "referencia": "Rosenbaum y Pearl, Investment Banking: Valuation, LBOs, M&A and IPOs, cap. 7 (M&A del lado comprador: acreción/dilución)"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "NIIF 3 Combinaciones de negocios (NIIF-UE): método de adquisición y fondo de comercio",
+      "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32023R1803"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "Ley 27/2014, del Impuesto sobre Sociedades, art. 29",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328"
+    }
+  ],
+  "acquirer": {
+    "name": "Grupo Azahar Calderona S.A.",
+    "sharePrice": 21,
+    "sharesThousands": 60000,
+    "netIncome": [
+      90000,
+      95400,
+      100170
+    ],
+    "cash": 80000,
+    "debt": 150000,
+    "taxRate": 0.25,
+    "interestOnCash": 0.02,
+    "costOfNewDebt": 0.05,
+    "ficticia": true,
+    "pendienteVerificarCNMV": true
+  },
+  "target": {
+    "company": "naranjas-del-turia",
+    "netIncome": [
+      7630,
+      8147,
+      8646
+    ],
+    "years": [
+      2026,
+      2027,
+      2028
+    ],
+    "fromModel": "naranjas-del-turia-3-estados"
+  },
+  "deal": {
+    "offerPricePerShare": 10.5,
+    "unaffectedPricePerShare": 7.5,
+    "targetShares": 12000000,
+    "cashPct": 0.5,
+    "cashFromBalancePct": 0.4,
+    "runRateSynergies": 3000,
+    "synergyPhaseIn": [
+      0.5,
+      1,
+      1
+    ],
+    "identifiedIntangibles": 25000,
+    "intangibleLifeYears": 10,
+    "advisoryFeePct": 0.015,
+    "financingFeePct": 0.01,
+    "financingFeeAmortYears": 5
+  },
+  "rationale": {
+    "offerPricePerShare": "Prima del 40 % sobre 7,50 €: el comprador industrial paga más que el fondo gracias a las sinergias.",
+    "runRateSynergies": "Sinergias de costes (logística y compras) de 3.000 al año, al 50 % el primer año.",
+    "identifiedIntangibles": "PPA: marca y relaciones con clientes por 25.000, amortizables en 10 años; generan un pasivo por impuesto diferido al 25 %.",
+    "cashFromBalancePct": "40 % del efectivo sale de la caja de la compradora; el 60 % restante, de deuda nueva al 5 %."
+  },
+  "results": {
+    "purchase": {
+      "equityValue": 126000,
+      "premium": 0.4,
+      "targetNetDebt": -3385,
+      "enterpriseValue": 122615,
+      "evToLtmEbitda": 10.412279,
+      "peNextYear": 16.513761
+    },
+    "consideration": {
+      "cash": 63000,
+      "stock": 63000,
+      "newShares": 3000,
+      "exchangeRatio": 0.25
+    },
+    "sources": [
+      {
+        "id": "caja_compradora",
+        "name": "Caja de la compradora",
+        "amount": 25956
+      },
+      {
+        "id": "deuda_nueva",
+        "name": "Deuda nueva",
+        "amount": 39327.272727
+      },
+      {
+        "id": "acciones_nuevas",
+        "name": "Emisión de acciones nuevas",
+        "amount": 63000
+      }
+    ],
+    "uses": [
+      {
+        "id": "efectivo_accionistas",
+        "name": "Pago en efectivo a los accionistas",
+        "amount": 63000
+      },
+      {
+        "id": "acciones_entregadas",
+        "name": "Acciones nuevas entregadas",
+        "amount": 63000
+      },
+      {
+        "id": "comisiones_asesoramiento",
+        "name": "Comisiones de asesoramiento",
+        "amount": 1890
+      },
+      {
+        "id": "comisiones_financiacion",
+        "name": "Comisiones de financiación",
+        "amount": 393.272727
+      }
+    ],
+    "totalSources": 128283.272727,
+    "totalUses": 128283.272727,
+    "ppa": {
+      "equityPurchasePrice": 126000,
+      "targetBookEquity": 37912,
+      "excessPurchasePrice": 88088,
+      "identifiedIntangibles": 25000,
+      "deferredTaxLiability": 6250,
+      "goodwill": 69338
+    },
+    "years": [
+      {
+        "year": 2026,
+        "acquirerNetIncome": 90000,
+        "targetNetIncome": 7630,
+        "synergiesAfterTax": 1125,
+        "foregoneInterestAfterTax": 389.34,
+        "newDebtInterestAfterTax": 1474.772727,
+        "intangibleAmortAfterTax": 1875,
+        "financingFeeAmortAfterTax": 58.990909,
+        "proFormaNetIncome": 94956.896364,
+        "standaloneShares": 60000,
+        "proFormaShares": 63000,
+        "standaloneEps": 1.5,
+        "proFormaEps": 1.507252,
+        "accretionDilution": 0.004835,
+        "breakevenSynergies": 890.804848
+      },
+      {
+        "year": 2027,
+        "acquirerNetIncome": 95400,
+        "targetNetIncome": 8147,
+        "synergiesAfterTax": 2250,
+        "foregoneInterestAfterTax": 389.34,
+        "newDebtInterestAfterTax": 1474.772727,
+        "intangibleAmortAfterTax": 1875,
+        "financingFeeAmortAfterTax": 58.990909,
+        "proFormaNetIncome": 101998.896364,
+        "standaloneShares": 60000,
+        "proFormaShares": 63000,
+        "standaloneEps": 1.59,
+        "proFormaEps": 1.61903,
+        "accretionDilution": 0.018258,
+        "breakevenSynergies": 561.471515
+      },
+      {
+        "year": 2028,
+        "acquirerNetIncome": 100170,
+        "targetNetIncome": 8646,
+        "synergiesAfterTax": 2250,
+        "foregoneInterestAfterTax": 389.34,
+        "newDebtInterestAfterTax": 1474.772727,
+        "intangibleAmortAfterTax": 1875,
+        "financingFeeAmortAfterTax": 58.990909,
+        "proFormaNetIncome": 107267.896364,
+        "standaloneShares": 60000,
+        "proFormaShares": 63000,
+        "standaloneEps": 1.6695,
+        "proFormaEps": 1.702665,
+        "accretionDilution": 0.019865,
+        "breakevenSynergies": 214.138182
+      }
+    ]
+  },
+  "sensitivity": {
+    "year1AccretionByOfferAndSynergies": {
+      "rows": [
+        9.5,
+        10,
+        10.5,
+        11,
+        11.5
+      ],
+      "cols": [
+        0,
+        1500,
+        3000,
+        4500,
+        6000
+      ],
+      "values": [
+        [
+          -0.000599,
+          0.00538,
+          0.01136,
+          0.017339,
+          0.023319
+        ],
+        [
+          -0.003842,
+          0.002124,
+          0.00809,
+          0.014056,
+          0.020022
+        ],
+        [
+          -0.00707,
+          -0.001117,
+          0.004835,
+          0.010787,
+          0.01674
+        ],
+        [
+          -0.010283,
+          -0.004344,
+          0.001595,
+          0.007534,
+          0.013472
+        ],
+        [
+          -0.013482,
+          -0.007557,
+          -0.001631,
+          0.004295,
+          0.01022
+        ]
+      ]
+    },
+    "accretionByCashMix": {
+      "rows": [
+        1,
+        0.75,
+        0.5,
+        0.25,
+        0
+      ],
+      "cols": [
+        2026,
+        2027,
+        2028
+      ],
+      "values": [
+        [
+          0.034331,
+          0.0496,
+          0.052219
+        ],
+        [
+          0.019223,
+          0.033547,
+          0.035648
+        ],
+        [
+          0.004835,
+          0.018258,
+          0.019865
+        ],
+        [
+          -0.008884,
+          0.00368,
+          0.004817
+        ],
+        [
+          -0.02198,
+          -0.010235,
+          -0.009548
+        ]
+      ]
+    }
+  },
+  "notes": [
+    "BPA contable: incluye la amortización de los intangibles de la PPA. Las comisiones de asesoramiento se pagan al cierre y no entran en el BPA recurrente.",
+    "Fondo de comercio: en cuentas consolidadas NIIF-UE no se amortiza (test de deterioro anual, NIC 36); en cuentas individuales con el PGC se amortiza en 10 años salvo prueba en contrario. El modelo usa NIIF (cotizada que consolida).",
+    "Con P/E de la compradora (14,0x) por debajo del P/E pagado, la parte en acciones diluye; la parte en efectivo acrece si el coste de la deuda después de impuestos es menor que el rendimiento del beneficio de la objetivo."
+  ]
+}
