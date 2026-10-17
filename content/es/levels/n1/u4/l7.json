@@ -1,0 +1,269 @@
+{
+  "id": "n1-u4-l7",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 4,
+  "title": "Juego: la compra grande",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Ver cómo una orden grande a mercado barre el libro (impacto de mercado)",
+    "Elegir entre orden de mercado, limitada y trocear según la liquidez y las noticias"
+  ],
+  "concepts": ["horquilla", "liquidez", "orden-mercado", "orden-limitada"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "block-trade",
+    "seed": 7
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Impacto de mercado",
+      "text": "Pagaste de media {avg} € y el punto medio al empezar era {mid} €. A mercado vas comprando un precio de venta tras otro: cuanto más grande es tu orden frente al libro, más sube tu precio medio. Ese sobrecoste, {impact} € en tu partida, es el impacto de mercado."
+    },
+    {
+      "type": "card",
+      "term": "Liquidez",
+      "text": "Un libro con pocas acciones en cada precio es poco líquido: una orden grande lo barre. Trocear la compra y dejar que el libro se rellene reduce el impacto, a cambio de arriesgarte a que el precio se mueva mientras tanto."
+    },
+    {
+      "type": "card",
+      "term": "Orden limitada",
+      "text": "La limitada fija tu precio máximo: nunca pagas más, pero si nadie vende a ese precio no se ejecuta. Cuando una noticia sube todo el libro, una limitada barata se queda sin comprar."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l7-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-mercado"],
+      "prompt": "Compraste {qty} acciones a un precio medio de {avg} €. ¿Cuánto pagaste en total, sin comisiones? (2 decimales)",
+      "answer": 5700,
+      "unit": "€",
+      "tolerance": 0.01,
+      "formula": "{qty} * {avg}",
+      "params": {
+        "qty": {
+          "value": 600,
+          "min": 100,
+          "max": 1000,
+          "step": 100
+        },
+        "avg": {
+          "value": 9.5,
+          "min": 5,
+          "max": 15,
+          "step": 0.01,
+          "decimals": 4
+        }
+      },
+      "derived": {
+        "total": {
+          "formula": "{qty} * {avg}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Total = acciones × precio medio = {qty} × {avg} € = {total} €. El precio medio ya recoge todos los tramos del libro que barriste.",
+      "hint": "Multiplica el número de acciones por el precio medio."
+    },
+    {
+      "id": "n1-u4-l7-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["ordenes", "liquidez"],
+      "concepts": ["liquidez", "orden-mercado"],
+      "prompt": "Tu precio medio fue {avg} € y el punto medio del libro al empezar era {mid} €. Con {qty} acciones, ¿cuánto te costó comprar por encima del punto medio? (2 decimales)",
+      "answer": 120,
+      "unit": "€",
+      "tolerance": 0.01,
+      "formula": "({avg} - {mid}) * {qty}",
+      "params": {
+        "qty": {
+          "value": 600,
+          "min": 100,
+          "max": 1000,
+          "step": 100
+        },
+        "avg": {
+          "value": 9.6,
+          "min": 9.52,
+          "max": 9.8,
+          "step": 0.01,
+          "decimals": 4
+        },
+        "mid": {
+          "value": 9.4,
+          "min": 9,
+          "max": 9.5,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "por_accion": {
+          "formula": "{avg} - {mid}",
+          "decimals": 2
+        },
+        "coste": {
+          "formula": "({avg} - {mid}) * {qty}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Pagaste {por_accion} € por acción por encima del punto medio; por {qty} acciones son {coste} €. Ese sobrecoste es la media horquilla más el impacto de barrer el libro.",
+      "hint": "Primero la diferencia por acción, luego multiplícala por las acciones."
+    },
+    {
+      "id": "n1-u4-l7-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["horquilla"],
+      "concepts": ["horquilla"],
+      "prompt": "La horquilla era de {spread} €. Si compras al mejor precio de venta, ¿cuántos euros pagas por acción por encima del punto medio? (2 decimales)",
+      "answer": 0.01,
+      "unit": "€",
+      "tolerance": 0,
+      "formula": "{spread} / 2",
+      "params": {
+        "spread": {
+          "value": 0.02,
+          "min": 0.02,
+          "max": 0.1,
+          "step": 0.02,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "media": {
+          "formula": "{spread} / 2",
+          "decimals": 2
+        }
+      },
+      "explanation": "El punto medio está justo en el centro de la horquilla: comprando al mejor precio de venta pagas media horquilla, {media} € por acción, por encima.",
+      "hint": "El punto medio está a mitad de camino entre el mejor precio de compra y el mejor de venta."
+    },
+    {
+      "id": "n1-u4-l7-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["liquidez"],
+      "concepts": ["liquidez", "orden-mercado"],
+      "prompt": "¿Por qué tu precio medio acabó por encima del mejor precio de venta que había al empezar?",
+      "options": [
+        "Porque la orden a mercado se comió varios niveles del libro, cada uno más caro",
+        "Porque la comisión del bróker se suma al precio de cada acción",
+        "Porque la orden limitada siempre sale más cara",
+        "Porque el punto medio sube cuando compras"
+      ],
+      "answer": 0,
+      "explanation": "En cada precio solo hay unas pocas acciones a la venta. Una orden grande a mercado agota el primer nivel y sigue comprando en los siguientes, más caros.",
+      "wrongExplanations": {
+        "1": "La comisión se cobra aparte; no cambia el precio al que compras las acciones.",
+        "2": "La limitada fija un precio máximo: nunca pagas más de lo que pones.",
+        "3": "El punto medio no se mueve por tu compra en el momento; lo que se agota son los precios de venta."
+      }
+    },
+    {
+      "id": "n1-u4-l7-e5",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": ["ordenes"],
+      "concepts": ["orden-limitada"],
+      "statement": "Una orden limitada garantiza que compras todas las acciones que pides.",
+      "answer": false,
+      "explanation": "Garantiza el precio máximo, no la ejecución: si nadie vende a ese precio o menos, la orden se queda pendiente o sin cumplir."
+    },
+    {
+      "id": "n1-u4-l7-e6",
+      "type": "order_steps",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["liquidez", "ordenes"],
+      "concepts": ["liquidez", "orden-mercado"],
+      "prompt": "Con un libro poco profundo y unos resultados buenos a punto de salir, ordena estas formas de comprar el paquete de la más barata a la más cara.",
+      "steps": [
+        "Trocear la compra en varias rondas antes de la noticia",
+        "Comprar todo de golpe a mercado ahora",
+        "Esperar a que salga la noticia y comprar entonces"
+      ],
+      "explanation": "Trocear deja que el libro se rellene entre tramos. Todo de golpe barre niveles caros. Esperar a la noticia es lo peor: todo el libro sube antes de que compres."
+    },
+    {
+      "id": "n1-u4-l7-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["liquidez"],
+      "concepts": ["liquidez", "orden-limitada"],
+      "prompt": "¿Qué reduce el coste de comprar un paquete grande y qué lo encarece?",
+      "categories": ["Lo abarata", "Lo encarece"],
+      "items": [
+        {
+          "text": "Dividir la orden en tramos",
+          "category": "Lo abarata"
+        },
+        {
+          "text": "Dejar que el libro se rellene entre tramos",
+          "category": "Lo abarata"
+        },
+        {
+          "text": "Lanzar todo a mercado en un libro con pocas acciones",
+          "category": "Lo encarece"
+        },
+        {
+          "text": "Esperar a comprar justo después de una buena noticia",
+          "category": "Lo encarece"
+        }
+      ],
+      "explanation": "El impacto depende de cuánto pides frente a lo que hay en el libro. Trocear y dar tiempo lo reduce; las prisas y las noticias lo aumentan."
+    },
+    {
+      "id": "n1-u4-l7-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["ordenes", "liquidez"],
+      "concepts": ["liquidez", "orden-limitada"],
+      "situation": "Tienes que comprar 2.000 acciones de una empresa que negocia muy poco cada día. No hay noticias previstas en semanas.",
+      "prompt": "¿Qué haces?",
+      "options": [
+        "Repartir la compra en varios días con órdenes limitadas cerca del mejor precio de venta",
+        "Comprar las 2.000 de golpe a mercado para acabar cuanto antes",
+        "Poner una limitada muy por debajo del precio y esperar",
+        "Comprar 1.000 ahora a mercado y otras 1.000 dentro de un mes"
+      ],
+      "answer": 0,
+      "explanation": "Sin prisa por noticias, trocear con limitadas cerca del precio controla lo que pagas y no barre un libro tan fino.",
+      "wrongExplanations": {
+        "1": "En un valor poco líquido barrerías muchos niveles y pagarías bastante más de media.",
+        "2": "Muy por debajo del precio probablemente nadie te venda: la orden no se ejecutaría.",
+        "3": "Comprar la mitad de golpe ya genera mucho impacto, y esperar un mes no aporta nada."
+      }
+    }
+  ],
+  "realWorld": "Los gestores de fondos trocean las órdenes grandes en muchos tramos (y usan algoritmos como VWAP o TWAP) precisamente para no mover el precio en su contra.",
+  "sources": [
+    {
+      "title": "BME: Bolsas y Mercados Españoles (funcionamiento del mercado y del libro de órdenes)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-17"
+    },
+    {
+      "title": "CNMV: Guía sobre órdenes de compra y venta de valores",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-17"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-17"
+}
