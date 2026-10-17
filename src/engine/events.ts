@@ -114,6 +114,20 @@ export const payloads = {
     missedConcepts: z.array(id).default([]),
     xp,
   }),
+  /** La Mesa (docs/specs/la-mesa.md): orden a mercado en el día abierto. */
+  mesa_order: z.object({
+    day: z.number().int().min(0),
+    stockId: id,
+    side: z.enum(['buy', 'sell']),
+    qty: z.number().int().min(1),
+    price: z.number().positive(),
+    fee: z.number().min(0),
+  }),
+  /** La Mesa: cierre de un día de mercado. */
+  mesa_day_closed: z.object({
+    day: z.number().int().min(0),
+    xp,
+  }),
 } as const;
 
 export type EventType = keyof typeof payloads;
@@ -142,6 +156,8 @@ export const eventSchema = z.discriminatedUnion('type', [
   ev('session_block_completed'),
   ev('session_completed'),
   ev('game_played'),
+  ev('mesa_order'),
+  ev('mesa_day_closed'),
 ]);
 
 type Base = { id: string; createdAt: string; deviceId: string; schemaVersion: 1; tz: string };

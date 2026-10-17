@@ -1,0 +1,25 @@
+/* La Mesa: cierre escalonado (transform + opacity, entrada ease-out) y punto de «en directo». */
+.mesa-reveal {
+  animation: mesa-in var(--dur-medium) var(--ease-out) both;
+}
+@keyframes mesa-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.mesa-live {
+  background: var(--bull);
+  animation: mesa-pulse 1.6s var(--ease-in-out) infinite;
+}
+@keyframes mesa-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mesa-reveal,
+  .mesa-live {
+    animation: none;
+  }
+}

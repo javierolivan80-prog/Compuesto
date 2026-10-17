@@ -32,7 +32,10 @@ export function normalizeEvents(events: readonly AppEvent[]): AppEvent[] {
 }
 
 const eventXp = (e: AppEvent): number =>
-  e.type === 'exercise_answered' || e.type === 'lesson_completed' || e.type === 'game_played'
+  e.type === 'exercise_answered' ||
+  e.type === 'lesson_completed' ||
+  e.type === 'game_played' ||
+  e.type === 'mesa_day_closed'
     ? e.payload.xp
     : 0;
 

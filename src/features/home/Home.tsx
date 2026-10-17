@@ -4,17 +4,17 @@ import { CompoundRing } from '../../components/CompoundRing';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
 import { allLessonMeta } from '../../content/meta';
-import { useUniverse } from '../../content/useUniverse';
 import { dailyMissions } from '../../engine/missions';
 import { activeSession } from '../../engine/session';
 import { todayKey } from '../../engine/stats';
-import { universeTicker } from '../../engine/ticker';
-import { formatDelta, formatNumber } from '../../lib/format';
+import { firstDay, scoreboard } from '../../engine/live-market';
+import { t } from '../../i18n';
+import { mesaState, STOCKS } from '../mesa/state';
+import { formatDelta, formatEur, formatNumber } from '../../lib/format';
 import type { AppData } from '../../app/hooks';
 
 /** Inicio: ticker del universo ficticio, objetivo del día, racha y la siguiente lección (hasta que exista la sesión, 2.2). */
 export function Home({ data, onStart }: { data: AppData; onStart: (id: string) => void }) {
-  const universe = useUniverse();
   if (data.loading) return <Loading />;
   if (data.error || !data.summary)
     return (
@@ -34,7 +34,16 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
   const missions = dailyMissions(data.events, today, goal.goal);
   const initials = String(summary.settings['tickerInitials'] ?? 'YO');
   const stock = stockFromEvents(data.events, today, initials);
-  const ticker = universe ? universeTicker(universe, todayKey(new Date())) : [];
+  // La cinta y la tarjeta de La Mesa salen del mismo mercado: los precios coinciden en toda la app.
+  const mesa = mesaState(data.events);
+  const day = mesa.market[mesa.portfolio.day]!;
+  const prevDay = mesa.market[mesa.portfolio.day - 1]!;
+  const ticker = STOCKS.map((s) => ({
+    symbol: s.symbol,
+    price: day.quotes[s.id]!.open,
+    changePct: (day.quotes[s.id]!.open / prevDay.quotes[s.id]!.close - 1) * 100,
+  }));
+  const score = scoreboard(mesa.portfolio, mesa.market);
 
   return (
     <div className="grid gap-6">
@@ -56,6 +65,30 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
           ))}
         </ul>
         <p className="text-text-2 text-xs">Cifras ficticias del universo Compuesto.</p>
+      </section>
+
+      <section
+        aria-labelledby="mesa-home-title"
+        className="bg-surface-1 border-line grid gap-3 rounded-[var(--radius-md)] border p-4"
+        data-testid="mesa-home"
+      >
+        <h2 id="mesa-home-title" className="text-2xl">
+          {t('mesa.homeTitle', { n: mesa.portfolio.day - firstDay + 1 })}
+        </h2>
+        <p className="text-lg leading-snug">{day.news?.headline ?? t('mesa.noNews')}</p>
+        <p className="text-text-2 text-sm" data-num>
+          {t('mesa.homeBody', {
+            value: formatEur(score.value),
+            ret: formatDelta(score.portfolioReturn * 100),
+            idx: formatDelta(score.indexReturn * 100),
+          })}
+        </p>
+        <a
+          href="#/mesa"
+          className="bg-brand text-bg inline-flex min-h-12 items-center justify-center rounded-[var(--radius-sm)] px-5 font-medium transition-transform duration-100 ease-[var(--ease-out)] active:scale-[0.97]"
+        >
+          {t('mesa.homeCta')}
+        </a>
       </section>
 
       <section

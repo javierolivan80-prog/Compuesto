@@ -12,6 +12,7 @@ export type Route =
   | { name: 'glosario' }
   | { name: 'reportes' }
   | { name: 'compartir' }
+  | { name: 'mesa' }
   | { name: 'sesion' }
   | { name: 'juego'; id: GameId; daily: boolean }
   | { name: 'leccion'; id: string }
@@ -45,6 +46,7 @@ export function parseRoute(hash: string): Route {
   if (h === '#/despacho/reportes') return { name: 'reportes' };
   if (h === '#/despacho/compartir') return { name: 'compartir' };
   if (h === '#/sesion') return { name: 'sesion' };
+  if (h === '#/mesa') return { name: 'mesa' };
   let m = new RegExp(`^#/leccion/${SLUG}$`).exec(h);
   if (m) return { name: 'leccion', id: m[1]! };
   m = new RegExp(`^#/juego/${SLUG}(/dia)?$`).exec(h);
@@ -67,6 +69,7 @@ export function parseRoute(hash: string): Route {
 export function tabOf(route: Route): TabId | null {
   switch (route.name) {
     case 'home':
+    case 'mesa':
       return 'home';
     case 'camino':
       return 'camino';

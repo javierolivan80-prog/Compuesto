@@ -1,0 +1,142 @@
+[
+  {
+    "id": "resultados-mejor",
+    "scope": "company",
+    "sign": 1,
+    "impactMin": 0.025,
+    "impactMax": 0.06,
+    "headline": "{empresa} gana más de lo que esperaban los analistas",
+    "explanation": "El precio de ayer ya descontaba unas previsiones. Lo que mueve la acción es la sorpresa frente a lo esperado, no que la empresa gane dinero.",
+    "concepts": ["formacion-precios"]
+  },
+  {
+    "id": "resultados-peor",
+    "scope": "company",
+    "sign": -1,
+    "impactMin": 0.03,
+    "impactMax": 0.08,
+    "headline": "{empresa} decepciona: sus beneficios quedan por debajo de lo previsto",
+    "explanation": "Aunque gane dinero, si gana menos de lo que el mercado daba por hecho, el precio baja: el mercado reajusta lo que espera de sus beneficios futuros.",
+    "concepts": ["formacion-precios"]
+  },
+  {
+    "id": "dividendo-sube",
+    "scope": "company",
+    "sign": 1,
+    "impactMin": 0.01,
+    "impactMax": 0.03,
+    "headline": "{empresa} anuncia que subirá su dividendo",
+    "explanation": "Un dividendo más alto suele leerse como señal de confianza en la caja futura. El movimiento es moderado: repartir más no crea valor por sí solo.",
+    "concepts": ["dividendo", "rentabilidad-dividendo"]
+  },
+  {
+    "id": "opa-rumor",
+    "scope": "company",
+    "sign": 1,
+    "impactMin": 0.06,
+    "impactMax": 0.12,
+    "headline": "Se habla de una posible OPA sobre {empresa}",
+    "explanation": "Quien lanza una OPA suele pagar una prima sobre la cotización para conseguir el control. El precio sube anticipando esa prima, aunque el rumor puede no confirmarse.",
+    "concepts": ["opa"]
+  },
+  {
+    "id": "ampliacion",
+    "scope": "company",
+    "sign": -1,
+    "impactMin": 0.02,
+    "impactMax": 0.05,
+    "headline": "{empresa} prepara una ampliación de capital con descuento",
+    "explanation": "Emitir acciones nuevas por debajo del precio reparte el beneficio entre más acciones (dilución) y presiona la cotización a la baja.",
+    "concepts": ["ampliacion-capital"]
+  },
+  {
+    "id": "recompra",
+    "scope": "company",
+    "sign": 1,
+    "impactMin": 0.01,
+    "impactMax": 0.03,
+    "headline": "{empresa} recomprará acciones propias",
+    "explanation": "Con menos acciones en circulación, cada una tiene derecho a una parte mayor del beneficio. Además, la empresa compra en el mercado y empuja el precio.",
+    "concepts": ["recompra-acciones"]
+  },
+  {
+    "id": "directivo-vende",
+    "scope": "company",
+    "sign": -1,
+    "impactMin": 0.01,
+    "impactMax": 0.025,
+    "headline": "El consejero delegado de {empresa} vende un paquete de sus acciones",
+    "explanation": "Puede vender por motivos personales, pero el mercado lo interpreta como una señal de menos confianza de quien mejor conoce la empresa.",
+    "concepts": ["formacion-precios"]
+  },
+  {
+    "id": "contrato",
+    "scope": "company",
+    "sign": 1,
+    "impactMin": 0.02,
+    "impactMax": 0.05,
+    "headline": "{empresa} firma el mayor contrato de su historia",
+    "explanation": "Más ingresos futuros esperados se traducen en más valor hoy. Cuanto menos lo esperaba el mercado, más se mueve el precio.",
+    "concepts": ["formacion-precios"]
+  },
+  {
+    "id": "bce-sube",
+    "scope": "macro",
+    "sign": -1,
+    "impactMin": 0.01,
+    "impactMax": 0.025,
+    "headline": "El BCE sube los tipos de interés más de lo esperado",
+    "explanation": "Con tipos más altos, el dinero rinde más en depósitos y bonos, y los beneficios futuros de las empresas valen menos hoy: la bolsa suele caer.",
+    "concepts": ["bce"]
+  },
+  {
+    "id": "bce-baja",
+    "scope": "macro",
+    "sign": 1,
+    "impactMin": 0.01,
+    "impactMax": 0.025,
+    "headline": "El BCE baja los tipos de interés",
+    "explanation": "Financiarse es más barato y los beneficios futuros valen más hoy. La bolsa suele subir, sobre todo si la bajada no estaba del todo descontada.",
+    "concepts": ["bce"]
+  },
+  {
+    "id": "ipc-alto",
+    "scope": "macro",
+    "sign": -1,
+    "impactMin": 0.008,
+    "impactMax": 0.02,
+    "headline": "La inflación sorprende al alza: los precios suben más de lo previsto",
+    "explanation": "Más inflación hace pensar que el BCE subirá tipos y recorta el poder adquisitivo de los consumidores. Tu cartera tiene que batir esa inflación para ganar de verdad.",
+    "concepts": ["inflacion", "poder-adquisitivo"]
+  },
+  {
+    "id": "pmi-bueno",
+    "scope": "macro",
+    "sign": 1,
+    "impactMin": 0.008,
+    "impactMax": 0.02,
+    "headline": "La actividad económica de la zona euro se acelera",
+    "explanation": "Una economía que crece vende más y gana más. Las empresas cíclicas, como las navieras o la distribución, suelen reaccionar más que el resto.",
+    "concepts": ["formacion-precios"]
+  },
+  {
+    "id": "panico",
+    "scope": "macro",
+    "sign": -1,
+    "impactMin": 0.02,
+    "impactMax": 0.045,
+    "headline": "Jornada de pánico en las bolsas mundiales",
+    "explanation": "En los días de miedo caen casi todos los valores a la vez: la diversificación entre acciones reduce el riesgo de cada empresa, pero no el del mercado entero.",
+    "concepts": ["riesgo-rentabilidad", "fomo-manada"]
+  },
+  {
+    "id": "euforia",
+    "scope": "macro",
+    "sign": 1,
+    "impactMin": 0.015,
+    "impactMax": 0.035,
+    "headline": "Euforia en el mercado: todo el mundo quiere comprar",
+    "explanation": "Comprar porque todos compran es el efecto manada. Los días de euforia suben casi todos los valores, pero entrar tarde suele salir caro.",
+    "concepts": ["fomo-manada"]
+  }
+]

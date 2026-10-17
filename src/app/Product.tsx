@@ -47,6 +47,7 @@ const GameRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.Ga
 const Compartir = lazy(() =>
   import('../features/share/Compartir').then((m) => ({ default: m.Compartir })),
 );
+const Mesa = lazy(() => import('../features/mesa/Mesa').then((m) => ({ default: m.Mesa })));
 const SessionRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.SessionRoute })));
 const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
 const ReviewRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ReviewRoute })));
@@ -226,6 +227,9 @@ export function Product() {
             onExit={() => go('#/practicar')}
           />
         );
+        break;
+      case 'mesa':
+        body = <Mesa />;
         break;
       case 'sesion':
         fullScreen = true;
