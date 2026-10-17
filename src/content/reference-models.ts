@@ -177,6 +177,8 @@ export const LBO_ASSUMPTIONS: LboAssumptions = {
     ...BASE_CASE,
     // Plan de creación de valor del fondo: compras centralizadas y automatización del envasado.
     opexPct: [0.178, 0.175, 0.172, 0.17, 0.17],
+    payout: 0,
+    costOfDebt: 0,
     debtRepayment: [0, 0, 0, 0, 0],
   },
 };
@@ -248,6 +250,29 @@ const SRC = {
     referencia:
       'BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo',
     url: 'https://www.ecb.europa.eu/mopo/strategy/html/index.es.html',
+  },
+  nic36: {
+    tipo: 'oficial',
+    referencia:
+      'NIC 36 Deterioro del valor de los activos (NIIF-UE): test anual del fondo de comercio',
+    url: 'https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32023R1803',
+  },
+  pgc: {
+    tipo: 'oficial',
+    referencia:
+      'Plan General de Contabilidad (RD 1514/2007, modificado por el RD 602/2016) y art. 39.4 del Código de Comercio: amortización del fondo de comercio en 10 años salvo prueba en contrario',
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884',
+  },
+  lsc: {
+    tipo: 'oficial',
+    referencia: 'Ley de Sociedades de Capital (RDL 1/2010), art. 150: asistencia financiera',
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544',
+  },
+  rdl52023: {
+    tipo: 'oficial',
+    referencia:
+      'RDL 5/2023, Libro primero (modificaciones estructurales), art. 42: fusión posterior a una adquisición con endeudamiento',
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2023-15135',
   },
   niif3: {
     tipo: 'oficial',
@@ -325,7 +350,6 @@ export function buildModels(): Record<string, unknown> {
       'modelo-referencia',
       'financial-services: dcf-model',
       'creating-financial-models (sensibilidad y Monte Carlo)',
-      'company-valuation (himself65)',
     ]),
     sources: [
       SRC.rosenbaum('cap. 3 (DCF): convención de mitad de año y valor terminal'),
@@ -347,17 +371,19 @@ export function buildModels(): Record<string, unknown> {
     },
     rationale: {
       ...WACC_RATIONALE,
-      terminalGrowth: 'Crecimiento nominal a largo plazo ≤ objetivo de inflación del BCE (2 %).',
+      terminalGrowth:
+        'g = 2 %, igual al objetivo de inflación del BCE (crecimiento real nulo a perpetuidad): conservador y por debajo del PIB nominal a largo plazo, que es el tope razonable.',
       exitMultiple:
         'Contraste por múltiplo EV/EBITDA de salida (hipótesis de comparables del sector).',
-      netDebt: 'Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio.',
+      netDebt:
+        'Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio. Simplificación: toda la caja se trata como no operativa; en el LBO se retienen 3.000 como caja mínima.',
     },
     wacc: w,
     fcff: fcffRows,
     valuation: {
       gordon,
       exitMultiple: exit,
-      impliedExitMultipleFromGordon: impliedExitMultiple(gordon.terminalValue, lastEbitda),
+      impliedExitMultipleFromGordon: impliedExitMultiple(gordon.terminalValue, lastEbitda, w.wacc),
     },
     sensitivity: {
       priceByWaccAndGrowth: {
@@ -402,6 +428,7 @@ export function buildModels(): Record<string, unknown> {
     })),
   });
   const maxPrice = maxOfferForIrr(last, LBO_ASSUMPTIONS, TARGET_IRR);
+  const acq16 = acquisitionDebtTest(lbo.sources, lbo.entry.equityPurchasePrice, lbo.years);
   const lboModel = {
     ...common('lbo', 'Naranjas del Turia — LBO de Marjal Capital Partners (OPA de exclusión)', [
       'modelo-referencia',
@@ -411,7 +438,9 @@ export function buildModels(): Record<string, unknown> {
     ]),
     sources: [
       SRC.rosenbaum('caps. 4 y 5 (LBO)'),
-      SRC.lis('art. 16 (limitación de gastos financieros) y art. 29'),
+      SRC.lis('art. 16 (limitación de gastos financieros, incluido el 16.5) y art. 29'),
+      SRC.lsc,
+      SRC.rdl52023,
     ],
     sponsor: SPONSOR,
     assumptions: LBO_ASSUMPTIONS,
@@ -422,12 +451,14 @@ export function buildModels(): Record<string, unknown> {
       tranches:
         'Apalancamiento total 4,5x EBITDA: senior A 2,0x, TLB 1,75x y mezzanine PIK 0,75x (hipótesis de mercado de préstamos apalancados).',
       interestCap:
-        'Art. 16 LIS: gastos financieros netos deducibles hasta el 30 % del beneficio operativo (aquí se aproxima con el EBITDA), con 1 millón de € deducible en todo caso; el exceso se deduce en ejercicios siguientes.',
-      operating: 'Plan del fondo: gastos operativos del 18,0 % al 17,0 % de los ingresos en 2029.',
+        'Art. 16 LIS: gastos financieros netos deducibles hasta el 30 % del beneficio operativo, con 1 millón de € deducible en todo caso. El exceso no deducido se deduce en ejercicios siguientes sin límite temporal; si un año los gastos netos no llegan al 30 %, la diferencia se suma al límite de los 5 años siguientes (el modelo no la necesita: no queda exceso pendiente). Beneficio operativo del art. 16.1 ≈ resultado de explotación + amortización ± deterioros y resultados por enajenación del inmovilizado; aquí se aproxima con el EBITDA.',
+      operating:
+        'Plan del fondo: gastos operativos del 18,0 % histórico al 17,8 % en 2026, bajando hasta el 17,0 % en 2029–2030. payout y costOfDebt van a 0 porque no aplican: no hay dividendos y los intereses se calculan por tramos.',
       minCash:
         'Caja mínima operativa de 3.000; el resto de la caja de la sociedad financia la compra.',
     },
     results: lbo,
+    acquisitionDebtTest: acq16,
     targetIrr: TARGET_IRR,
     maxOfferPriceForTargetIrr: rd(maxPrice, 4),
     sensitivity: {
@@ -458,7 +489,8 @@ export function buildModels(): Record<string, unknown> {
     notes: [
       `TIR del ${es(lbo.irr * 100, 1)} %: por debajo del ${TARGET_IRR * 100} % que suele exigir un fondo. El precio máximo para ese objetivo (${es(maxPrice, 2)} €) solo da un ${es((maxPrice / UNAFFECTED_PRICE - 1) * 100, 1)} % de prima, poco para que los accionistas acepten una OPA de exclusión: el comité no aprobaría la oferta tal cual. Es el punto de partida del IC memo.`,
       'El fondo de comercio de la sociedad adquirente no afecta a la caja ni a la TIR; se trata en el merger model.',
-      'Art. 16.5 LIS (adquisiciones apalancadas): si la sociedad vehículo se fusiona con la objetivo o consolida fiscalmente, los intereses de la deuda de adquisición solo se deducen contra el beneficio operativo de la vehículo, salvo que la deuda no supere el 70 % del precio y se amortice hasta el 30 % en 8 años. Aquí la deuda es el 47 % del precio, pero el modelo no amortiza hasta el 30 %: se trata como una sola sociedad y queda marcado para verificar.',
+      `Art. 16.5 LIS: si en los 4 años siguientes la adquirida se fusiona con la adquirente o entra en su grupo fiscal, los gastos financieros de la deuda de adquisición tienen un límite adicional del 30 % del beneficio operativo de la adquirente, sin incluir el de la adquirida. No se aplica si la deuda no supera el 70 % del precio y se reduce de forma proporcional en 8 años hasta el 30 % del precio. Aquí la deuda es el ${es(acq16.initialPct * 100, 1)} % del precio y en ${lbo.exit.year} baja al ${es(acq16.finalPct * 100, 1)} %, por debajo del máximo exigido cada año (ver acquisitionDebtTest): el modelo trata vehículo y objetivo como una sola sociedad y el cumplimiento queda pendiente de verificar con la norma vigente.`,
+      'Simplificación: el modelo trata vehículo y objetivo como una sola sociedad. En España una S.A. no puede dar asistencia financiera para que un tercero compre sus acciones (art. 150 LSC). Por eso, en la realidad la caja de la objetivo no puede pagar el precio en el cierre: se usa después, mediante dividendos o tras la fusión. La deuda del vehículo pasa a la objetivo con una fusión apalancada posterior (RDL 5/2023, art. 42).',
     ],
   };
 
@@ -478,6 +510,8 @@ export function buildModels(): Record<string, unknown> {
     sources: [
       SRC.rosenbaum('cap. 7 (M&A del lado comprador: acreción/dilución)'),
       SRC.niif3,
+      SRC.nic36,
+      SRC.pgc,
       SRC.lis('art. 29'),
     ],
     acquirer: { ...ACQUIRER, ficticia: true, pendienteVerificarCNMV: true },
@@ -496,7 +530,9 @@ export function buildModels(): Record<string, unknown> {
       identifiedIntangibles:
         'PPA: marca y relaciones con clientes por 25.000, amortizables en 10 años; generan un pasivo por impuesto diferido al 25 %.',
       cashFromBalancePct:
-        '40 % del efectivo sale de la caja de la compradora; el 60 % restante, de deuda nueva al 5 %.',
+        'Efectivo necesario = pago en efectivo + comisiones de asesoramiento = 63.000 + 1.890 = 64.890. El 40 % (25.956) sale de la caja; el 60 % con deuda nueva al 5 %, cuyo principal cubre también su comisión del 1 %: 38.934 / 0,99 = 39.327.',
+      consideration:
+        'Por cada acción de Naranjas: 0,25 acciones nuevas de Azahar (5,25 €) + 5,25 € en efectivo. El canje si todo fuera en acciones sería 0,5 (10,50 / 21).',
     },
     results: merger,
     sensitivity: {
@@ -542,6 +578,39 @@ export function buildModels(): Record<string, unknown> {
     'naranjas-del-turia-lbo.json': lboModel,
     'naranjas-del-turia-merger.json': mergerModel,
   });
+}
+
+/**
+ * Excepción del art. 16.5 LIS: deuda de adquisición ≤ 70 % del precio y reducción proporcional en 8 años hasta
+ * el 30 % del precio. Devuelve, año a año, el máximo permitido y la deuda real (con PIK).
+ */
+export function acquisitionDebtTest(
+  sources: { id: string; amount: number }[],
+  price: number,
+  years: { year: number; deuda_total_final: number }[],
+) {
+  const debt = sources
+    .filter((x) => !['caja_sociedad', 'capital_fondo'].includes(x.id))
+    .reduce((acc, x) => acc + x.amount, 0);
+  const floor = 0.3 * price;
+  const rows = years.map((y, i) => {
+    const maxAllowed = debt - ((debt - floor) * (i + 1)) / 8;
+    return {
+      year: y.year,
+      maxAllowed,
+      actual: y.deuda_total_final,
+      ok: y.deuda_total_final <= maxAllowed,
+    };
+  });
+  return {
+    initialDebt: debt,
+    price,
+    initialPct: debt / price,
+    initialOk: debt <= 0.7 * price,
+    finalPct: at(years, -1).deuda_total_final / price,
+    years: rows,
+    allOk: debt <= 0.7 * price && rows.every((r) => r.ok),
+  };
 }
 
 /** Redondea a 6 decimales los números no enteros para que el JSON sea legible y estable. */

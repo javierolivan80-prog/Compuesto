@@ -353,7 +353,11 @@ export interface DcfExitMultiple {
   enterpriseValue: number;
   equityValue: number;
   pricePerShare: number;
-  /** Crecimiento perpetuo que implica el múltiplo de salida: g = (TV × WACC − FCF) / (TV + FCF). */
+  /**
+   * Crecimiento perpetuo que implica el múltiplo de salida. El TV por múltiplo está en N; el de Gordon
+   * con mitad de año se descuenta desde N − 0,5, así que se compara con F' = FCF × (1 + WACC)^0,5:
+   * g = (TV × WACC − F') / (TV + F'). Sin mitad de año, F' = FCF.
+   */
   impliedGrowth: number;
 }
 
@@ -364,6 +368,7 @@ export function dcfExitMultiple(
   exitMultiple: number,
   netDebt: number,
   shares: number,
+  midYear = true,
 ): DcfExitMultiple {
   const n = fcff.length;
   const sumPv = fcff.reduce((s, f, i) => s + f / Math.pow(1 + wacc, i + 0.5), 0);
@@ -371,7 +376,7 @@ export function dcfExitMultiple(
   const pvTerminalValue = terminalValue / Math.pow(1 + wacc, n);
   const enterpriseValue = sumPv + pvTerminalValue;
   const equityValue = enterpriseValue - netDebt;
-  const last = at(fcff, n - 1);
+  const last = at(fcff, n - 1) * (midYear ? Math.sqrt(1 + wacc) : 1);
   return {
     exitMultiple,
     terminalValue,
@@ -383,9 +388,17 @@ export function dcfExitMultiple(
   };
 }
 
-/** Múltiplo EV/EBITDA que implica el valor terminal de Gordon. */
-export function impliedExitMultiple(terminalValue: number, lastEbitda: number): number {
-  return terminalValue / lastEbitda;
+/**
+ * Múltiplo EV/EBITDA que implica el valor terminal de Gordon. Con mitad de año el TV de Gordon se descuenta
+ * desde N − 0,5: llevado a N (donde se mide el múltiplo) vale TV × (1 + WACC)^0,5.
+ */
+export function impliedExitMultiple(
+  terminalValue: number,
+  lastEbitda: number,
+  wacc: number,
+  midYear = true,
+): number {
+  return (terminalValue * (midYear ? Math.sqrt(1 + wacc) : 1)) / lastEbitda;
 }
 
 // ───────────────────────── Monte Carlo ─────────────────────────
@@ -819,7 +832,12 @@ export interface MergerResult {
     cash: number;
     stock: number;
     newShares: number;
-    exchangeRatio: number;
+    /** Acciones nuevas por acción de la objetivo (solo la parte en acciones). */
+    stockExchangeRatioPerTargetShare: number;
+    /** Efectivo por acción de la objetivo. */
+    cashPerTargetShare: number;
+    /** Canje si todo se pagara en acciones: precio de oferta / precio de la compradora. */
+    allStockExchangeRatio: number;
   };
   sources: { id: string; name: string; amount: number }[];
   uses: { id: string; name: string; amount: number }[];
@@ -851,7 +869,10 @@ export function buildMerger(
   const cash = equityValue * d.cashPct;
   const stock = equityValue - cash;
   const newShares = stock / acq.sharePrice;
-  const exchangeRatio = (d.offerPricePerShare * (1 - d.cashPct)) / acq.sharePrice;
+  const stockExchangeRatioPerTargetShare =
+    (d.offerPricePerShare * (1 - d.cashPct)) / acq.sharePrice;
+  const cashPerTargetShare = d.offerPricePerShare * d.cashPct;
+  const allStockExchangeRatio = d.offerPricePerShare / acq.sharePrice;
 
   const advisoryFees = equityValue * d.advisoryFeePct;
   const cashFromBalance = (cash + advisoryFees) * d.cashFromBalancePct;
@@ -927,7 +948,14 @@ export function buildMerger(
       evToLtmEbitda: enterpriseValue / ltmEbitda,
       peNextYear: equityValue / at(target.netIncome, 0),
     },
-    consideration: { cash, stock, newShares, exchangeRatio },
+    consideration: {
+      cash,
+      stock,
+      newShares,
+      stockExchangeRatioPerTargetShare,
+      cashPerTargetShare,
+      allStockExchangeRatio,
+    },
     sources,
     uses,
     totalSources: sum(sources),

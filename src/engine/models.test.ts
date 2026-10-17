@@ -7,6 +7,7 @@ import {
   computeWacc,
   dcfExitMultiple,
   dcfGordon,
+  impliedExitMultiple,
   irr,
   monteCarloDcf,
   npv,
@@ -122,9 +123,21 @@ describe('DCF', () => {
     expect(() => dcfGordon([100], 0.05, 0.05, 0, 1)).toThrow(RangeError);
   });
   it('el crecimiento implícito en un múltiplo devuelve el mismo valor terminal por Gordon', () => {
-    const x = dcfExitMultiple([100, 110], 200, 0.09, 8, 0, 1000);
+    const x = dcfExitMultiple([100, 110], 200, 0.09, 8, 0, 1000, false);
     const g = x.impliedGrowth;
     expect((110 * (1 + g)) / (0.09 - g)).toBeCloseTo(x.terminalValue, 6);
+    // con mitad de año: el Gordon con ese g, descontado a N − 0,5, da el mismo VA que el múltiplo a N
+    const m = dcfExitMultiple([100, 110], 200, 0.09, 8, 0, 1000);
+    const tvG = (110 * (1 + m.impliedGrowth)) / (0.09 - m.impliedGrowth);
+    expect(tvG / 1.09 ** 1.5).toBeCloseTo(m.pvTerminalValue, 6);
+    // y el múltiplo implícito en un Gordon devuelve su mismo VA
+    const gd = dcfGordon([100, 110], 0.09, 0.02, 0, 1000);
+    const mult = impliedExitMultiple(gd.terminalValue, 200, 0.09);
+    expect((mult * 200) / 1.09 ** 2).toBeCloseTo(gd.pvTerminalValue, 6);
+    expect(impliedExitMultiple(gd.terminalValue, 200, 0.09, false)).toBeCloseTo(
+      gd.terminalValue / 200,
+      12,
+    );
   });
   it('Monte Carlo determinista por semilla', () => {
     const spec = {

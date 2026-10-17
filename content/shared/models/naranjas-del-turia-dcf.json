@@ -11,8 +11,7 @@
   "skills": [
     "modelo-referencia",
     "financial-services: dcf-model",
-    "creating-financial-models (sensibilidad y Monte Carlo)",
-    "company-valuation (himself65)"
+    "creating-financial-models (sensibilidad y Monte Carlo)"
   ],
   "verificarAntesDe": "2027-04-17",
   "sources": [
@@ -69,9 +68,9 @@
     "unleveredBeta": "Hipótesis: beta desapalancada de procesado de alimentos en Europa (Damodaran, Betas by Sector). Verificar.",
     "targetDebtToCapital": "Estructura objetivo del sector (hipótesis), no la actual (Naranjas tiene caja neta).",
     "preTaxCostOfDebt": "Coste histórico de su préstamo (4,5 %).",
-    "terminalGrowth": "Crecimiento nominal a largo plazo ≤ objetivo de inflación del BCE (2 %).",
+    "terminalGrowth": "g = 2 %, igual al objetivo de inflación del BCE (crecimiento real nulo a perpetuidad): conservador y por debajo del PIB nominal a largo plazo, que es el tope razonable.",
     "exitMultiple": "Contraste por múltiplo EV/EBITDA de salida (hipótesis de comparables del sector).",
-    "netDebt": "Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio."
+    "netDebt": "Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio. Simplificación: toda la caja se trata como no operativa; en el LBO se retienen 3.000 como caja mínima."
   },
   "wacc": {
     "debtToEquity": 0.25,
@@ -172,9 +171,9 @@
       "enterpriseValue": 119455.388743,
       "equityValue": 122840.388743,
       "pricePerShare": 10.236699,
-      "impliedGrowth": 0.028879
+      "impliedGrowth": 0.026809
     },
-    "impliedExitMultipleFromGordon": 7.659121
+    "impliedExitMultipleFromGordon": 7.969581
   },
   "sensitivity": {
     "priceByWaccAndGrowth": {

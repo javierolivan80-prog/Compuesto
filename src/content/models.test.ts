@@ -150,6 +150,22 @@ describe('DCF', () => {
       }
   });
 
+  it('múltiplo y crecimiento implícitos reconcilian el VA del valor terminal (mitad de año)', () => {
+    const g = dcf.valuation.gordon;
+    const x = dcf.valuation.exitMultiple;
+    const ebitda = ts.projection.at(-1).pyg.ebit + ts.projection.at(-1).pyg.amortizacion;
+    const f = dcf.fcff.at(-1).fcff;
+    // Gordon → múltiplo implícito, descontado a N como el método del múltiplo
+    close(
+      (dcf.valuation.impliedExitMultipleFromGordon * ebitda) / (1 + wacc) ** 5,
+      g.pvTerminalValue,
+      2,
+    );
+    // múltiplo → g implícito, descontado a N − 0,5 como Gordon
+    const ig = x.impliedGrowth;
+    close((f * (1 + ig)) / (wacc - ig) / (1 + wacc) ** 4.5, x.pvTerminalValue, 2);
+  });
+
   it('Monte Carlo: percentiles ordenados y mediana cerca del caso base', () => {
     const m = dcf.monteCarlo.result;
     expect(m.p5).toBeLessThan(m.p25);
@@ -214,6 +230,25 @@ describe('LBO', () => {
     );
   });
 
+  it('art. 16.5 LIS: deuda ≤ 70 % del precio y reducción proporcional a 8 años hacia el 30 %', () => {
+    const t = lbo.acquisitionDebtTest;
+    const debt = sum(
+      r.sources.filter((x: any) => !['caja_sociedad', 'capital_fondo'].includes(x.id)),
+    );
+    expect(t.initialDebt).toBe(debt);
+    expect(debt).toBeLessThanOrEqual(0.7 * r.entry.equityPurchasePrice);
+    r.years.forEach((y: any, i: number) => {
+      const max = debt - ((debt - 0.3 * r.entry.equityPurchasePrice) * (i + 1)) / 8;
+      expect(y.deuda_total_final).toBeLessThanOrEqual(max);
+    });
+    expect(t.allOk).toBe(true);
+  });
+
+  it('hipótesis que no aplican en el LBO van a 0', () => {
+    expect(lbo.assumptions.operating.payout).toBe(0);
+    expect(lbo.assumptions.operating.costOfDebt).toBe(0);
+  });
+
   it('límite de gastos financieros del art. 16 LIS aplicado', () => {
     for (const y of r.years) {
       const cap = Math.max(1000, Math.round(y.ebitda * 0.3));
@@ -240,6 +275,13 @@ describe('Merger model', () => {
     close(sum(r.sources), sum(r.uses), 1e-6);
     close(r.purchase.equityValue, (d.offerPricePerShare * d.targetShares) / 1000, 1e-9);
     close(r.consideration.newShares, r.consideration.stock / a.sharePrice, 1e-9);
+    const c = r.consideration;
+    close(
+      c.stockExchangeRatioPerTargetShare * a.sharePrice + c.cashPerTargetShare,
+      d.offerPricePerShare,
+      1e-9,
+    );
+    close(c.allStockExchangeRatio, d.offerPricePerShare / a.sharePrice, 1e-9);
   });
 
   it('PPA: fondo de comercio = precio − patrimonio contable − intangibles + pasivo por impuesto diferido', () => {

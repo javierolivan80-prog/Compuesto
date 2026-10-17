@@ -109,3 +109,11 @@ Revisor independiente: direcciones de los 12 titulares y tipos de orden correcto
 - **Órdenes:** «precio único que resulte de la subasta» (hay dos subastas al día) y «ahora mismo» en la petición inmediata de venta.
 - **Presupuesto:** «Dinero que llevas a un depósito a plazo» (evita confundir con ingreso), «Dinero que apartas cada mes para el viaje», «tu plan de ahorro», «Seguro del coche (parte mensual)»; el sobrante se llama «Lo que decides apartar este mes» y el ajuste de ingresos recae en la nómina o las clases.
 - Pendiente: revisión de Javier (🛑).
+
+## Modelos de referencia de Naranjas del Turia (`content/shared/models/`, 17/10/2026)
+
+3 estados, DCF, LBO y merger, generados con `npm run models:build`; tests en `src/content/models.test.ts` y `src/engine/models.test.ts` (43 en verde).
+- **Ronda 1 (revisor-financiero):** las cifras cuadran en los cuatro. 2 mayores: (1) el múltiplo y el crecimiento implícitos del DCF no aplicaban la mitad de año (7,66x → **7,97x**; 2,89 % → **2,68 %**); (2) la nota del art. 16.5 LIS contradecía las cifras (la deuda baja al 28,5 % del precio, por debajo del ritmo exigido) y resumía mal la norma. 9 menores aplicados: criterio de g, caja no operativa del DCF frente a caja mínima del LBO, art. 16 completo, asistencia financiera (art. 150 LSC) y fusión apalancada (RDL 5/2023, art. 42), hipótesis del LBO que no aplican a 0, canje desglosado (0,25 acciones + 5,25 € por acción; 0,5 si todo fuera en acciones), explicación de la financiación del merger, fuentes NIC 36 / PGC / Código de Comercio. Nuevo `acquisitionDebtTest` con test.
+- **Ronda 2:** aprobada; 2 retoques de texto aplicados (art. 150 LSC y calendario del plan operativo).
+- Cifras principales sin cambios: 9,35 €/acción, TIR 13,2 %, MOIC 1,86x, acreción +0,48 % el año 1.
+- Estado **`draft`**. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL:** hipótesis de mercado (bono 3,25 %, prima 5,5 %, beta 0,65, prima por tamaño 2 %, cotización 7,50 €) sin verificar, `verificarAntesDe` 2027-04-17. Marjal Capital Partners y Grupo Azahar Calderona: sin alta en `companies.json` ni comprobación en la CNMV.

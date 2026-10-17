@@ -25,6 +25,16 @@
     },
     {
       "tipo": "oficial",
+      "referencia": "NIC 36 Deterioro del valor de los activos (NIIF-UE): test anual del fondo de comercio",
+      "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32023R1803"
+    },
+    {
+      "tipo": "oficial",
+      "referencia": "Plan General de Contabilidad (RD 1514/2007, modificado por el RD 602/2016) y art. 39.4 del Código de Comercio: amortización del fondo de comercio en 10 años salvo prueba en contrario",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884"
+    },
+    {
+      "tipo": "oficial",
       "referencia": "Ley 27/2014, del Impuesto sobre Sociedades, art. 29",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328"
     }
@@ -82,7 +92,8 @@
     "offerPricePerShare": "Prima del 40 % sobre 7,50 €: el comprador industrial paga más que el fondo gracias a las sinergias.",
     "runRateSynergies": "Sinergias de costes (logística y compras) de 3.000 al año, al 50 % el primer año.",
     "identifiedIntangibles": "PPA: marca y relaciones con clientes por 25.000, amortizables en 10 años; generan un pasivo por impuesto diferido al 25 %.",
-    "cashFromBalancePct": "40 % del efectivo sale de la caja de la compradora; el 60 % restante, de deuda nueva al 5 %."
+    "cashFromBalancePct": "Efectivo necesario = pago en efectivo + comisiones de asesoramiento = 63.000 + 1.890 = 64.890. El 40 % (25.956) sale de la caja; el 60 % con deuda nueva al 5 %, cuyo principal cubre también su comisión del 1 %: 38.934 / 0,99 = 39.327.",
+    "consideration": "Por cada acción de Naranjas: 0,25 acciones nuevas de Azahar (5,25 €) + 5,25 € en efectivo. El canje si todo fuera en acciones sería 0,5 (10,50 / 21)."
   },
   "results": {
     "purchase": {
@@ -97,7 +108,9 @@
       "cash": 63000,
       "stock": 63000,
       "newShares": 3000,
-      "exchangeRatio": 0.25
+      "stockExchangeRatioPerTargetShare": 0.25,
+      "cashPerTargetShare": 5.25,
+      "allStockExchangeRatio": 0.5
     },
     "sources": [
       {
