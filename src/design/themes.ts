@@ -9,8 +9,8 @@ export interface ThemeInfo {
 }
 
 export const THEMES: readonly ThemeInfo[] = [
-  { id: 'noche', name: 'Wall Street Noche', unlockRank: null },
-  { id: 'mayfair', name: 'Mayfair', unlockRank: null },
+  { id: 'mayfair', name: 'Mayfair (papel)', unlockRank: null },
+  { id: 'noche', name: 'Noche cálida', unlockRank: null },
   { id: 'salmon', name: 'Salmón', unlockRank: 'Analista' },
   { id: 'ginebra', name: 'Ginebra', unlockRank: 'Asociado' },
   { id: 'montecarlo', name: 'Monte Carlo', unlockRank: 'VP' },
@@ -18,7 +18,7 @@ export const THEMES: readonly ThemeInfo[] = [
   { id: 'platino', name: 'Platino', unlockRank: 'Managing Director' },
 ];
 
-export const DEFAULT_THEME: ThemeId = 'noche';
+export const DEFAULT_THEME: ThemeId = 'mayfair';
 
 export function isThemeId(value: unknown): value is ThemeId {
   return THEMES.some((t) => t.id === value);

@@ -11,8 +11,8 @@ Todo en CSS variables (OKLCH), Tailwind v4 las consume. Neutros siempre **tintad
 ### Color (7 temas; bull/bear con el mismo significado en todos)
 | Tema | Acceso | Notas |
 |---|---|---|
-| Wall Street Noche | por defecto | oscuro, marino tintado, latón |
-| Mayfair | claro | papel crema, verde inglés, acento ocre |
+| Mayfair (papel) | por defecto | papel crema, tinta verde inglés, latón |
+| Noche cálida | oscuro opcional | carbón marrón, ámbar y crema; sin negro ni azul frío |
 | Salmón | rango Analista | estilo prensa financiera (sin copiar marcas) |
 | Ginebra | rango Asociado | marino + plata |
 | Monte Carlo | rango VP | verde carreras + oro |

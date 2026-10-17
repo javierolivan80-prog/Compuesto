@@ -384,3 +384,16 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Evento:** `exercise_answered.payload.params` es opcional. Los eventos antiguos se leen igual y el repaso espaciado no lo usa (la tarjeta sigue siendo por ejercicio).
 - **Listados:** `findExerciseText` (Reportes y «más fallados» en Despacho) muestra la plantilla con las cifras del enunciado. El botón «Reportar error» no guarda las cifras de la variante (siguiente paso).
 - **e2e:** el solver reconoce el enunciado y la variante del día. Para lanzar Playwright en esta sesión hace falta `PLAYWRIGHT_CHROMIUM_PATH=/opt/pw-browsers/chromium`.
+
+## 2026-10-17 — Rumbo nuevo pedido por Javier: juego primero, mercado vivo, directo a mercados y fuera el fondo negro
+- **Qué dijo:** la app es «mucha teoría», la inflación es demasiado básica, faltan juegos y animaciones mejores, el fondo negro es feo y el temario no le sirve. Sus respuestas a las 3 preguntas:
+  - **Colores:** que los elija yo aplicando las skills.
+  - **Cómo aprender:** lecciones-juego y además un mercado vivo persistente.
+  - **Por dónde empezar:** directo a mercados.
+- **Paso 1 hecho (color).** Con emil-design-eng, la dirección de DESIGN.md y el test AA:
+  - El tema por defecto pasa a **Mayfair (papel claro)**, con la paleta reforzada.
+  - **Wall Street Noche** se rehace en cálido y se llama «Noche cálida» (carbón marrón y ámbar).
+  - Los ids de tema no cambian, así que los ajustes guardados siguen valiendo.
+  - Las sombras pasan a tinte cálido. El `theme-color` inicial es `#f9f3e7`.
+  - CLAUDE.md §5 y DESIGN.md actualizados. Contradice la decisión inicial de CLAUDE.md («Wall Street Noche por defecto»): manda la petición de Javier.
+- **Pasos siguientes** (plan en `docs/cambios/rumbo-juego-mercado/proposal.md`): lecciones-juego, mercado vivo y temario empezando en mercados.

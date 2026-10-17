@@ -5,7 +5,7 @@ test('la app abre en producción sin errores y sincroniza theme-color', async ({
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
   await expect(page.getByRole('img', { name: 'Compuesto' })).toBeVisible();
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'noche');
-  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#080e16');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'mayfair');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#f9f3e7');
   expect(errors).toEqual([]);
 });

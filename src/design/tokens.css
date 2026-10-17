@@ -17,9 +17,9 @@
   --radius-full: 999px;
 
   /* sombras suaves semitransparentes */
-  --shadow-sm: 0 1px 2px oklch(0.1 0.02 255 / 0.25);
-  --shadow-md: 0 6px 20px oklch(0.1 0.02 255 / 0.28);
-  --shadow-lg: 0 16px 48px oklch(0.1 0.02 255 / 0.35);
+  --shadow-sm: 0 1px 2px oklch(0.25 0.03 60 / 0.12);
+  --shadow-md: 0 6px 20px oklch(0.25 0.03 60 / 0.14);
+  --shadow-lg: 0 16px 48px oklch(0.25 0.03 60 / 0.2);
 
   /* grano 2–3 % en fondos grandes */
   --grain-opacity: 0.025;

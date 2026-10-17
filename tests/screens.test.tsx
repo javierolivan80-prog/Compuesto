@@ -137,13 +137,13 @@ describe('pantallas principales', () => {
     await open('#/despacho/ajustes');
     const user = userEvent.setup();
     expect(await screen.findByRole('heading', { name: 'Ajustes' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Wall Street Noche' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Mayfair' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Noche cálida' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Mayfair (papel)' })).toBeInTheDocument();
     expect(screen.getByText(/Tokio 3 a\.m\. · se desbloquea como Director/)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Tokio/ })).toBeNull(); // bloqueado: sin control
 
-    await user.click(screen.getByRole('button', { name: 'Mayfair' }));
-    expect(document.documentElement.dataset.theme).toBe('mayfair');
+    await user.click(screen.getByRole('button', { name: 'Noche cálida' }));
+    expect(document.documentElement.dataset.theme).toBe('noche');
 
     await user.click(screen.getByRole('switch', { name: /Vibración/ }));
     await waitFor(async () => expect((await repo.summary()).settings['haptics']).toBe(false));

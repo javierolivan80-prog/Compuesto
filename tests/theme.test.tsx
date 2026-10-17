@@ -10,13 +10,13 @@ beforeEach(() => {
 });
 
 describe('ThemeProvider', () => {
-  it('usa Wall Street Noche por defecto', () => {
+  it('usa Mayfair (papel claro) por defecto', () => {
     render(
       <ThemeProvider>
         <TokensDemo />
       </ThemeProvider>,
     );
-    expect(document.documentElement.dataset.theme).toBe('noche');
+    expect(document.documentElement.dataset.theme).toBe('mayfair');
   });
 
   it('cambia de tema sin recargar y lo persiste', async () => {
@@ -33,13 +33,13 @@ describe('ThemeProvider', () => {
   });
 
   it('recupera el tema guardado y descarta valores inválidos', () => {
-    localStorage.setItem('compuesto.theme', 'mayfair');
+    localStorage.setItem('compuesto.theme', 'noche');
     const { unmount } = render(
       <ThemeProvider>
         <TokensDemo />
       </ThemeProvider>,
     );
-    expect(document.documentElement.dataset.theme).toBe('mayfair');
+    expect(document.documentElement.dataset.theme).toBe('noche');
     unmount();
     localStorage.setItem('compuesto.theme', 'inventado');
     render(
@@ -47,6 +47,6 @@ describe('ThemeProvider', () => {
         <TokensDemo />
       </ThemeProvider>,
     );
-    expect(document.documentElement.dataset.theme).toBe('noche');
+    expect(document.documentElement.dataset.theme).toBe('mayfair');
   });
 });

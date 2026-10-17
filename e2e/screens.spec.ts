@@ -71,7 +71,7 @@ test('en una lección y en un test de salto la barra de pestañas se oculta (pan
   await expect(page.getByRole('navigation', { name: 'Navegación principal' })).toHaveCount(0);
 });
 
-for (const theme of ['Wall Street Noche', 'Mayfair']) {
+for (const theme of ['Noche cálida', 'Mayfair (papel)']) {
   test(`axe sin errores en las 8 pantallas con el tema ${theme}`, async ({ page }) => {
     await ready(page);
     await page.goto('/#/despacho/ajustes');

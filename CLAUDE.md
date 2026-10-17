@@ -147,17 +147,17 @@ Degradados morado-azul/rosa de IA · negro o gris puros (todo neutro tintado) ·
 
 ### Temas (OKLCH, ajustar hasta contraste AA; bull/bear con mismo significado en todos)
 
-**Wall Street Noche (por defecto)**
+**Mayfair — papel claro (por defecto desde el 17/10/2026, a petición de Javier: nada de fondo casi negro)**
 ```css
---bg: oklch(0.16 0.020 255); --surface-1: oklch(0.20 0.022 255); --surface-2: oklch(0.245 0.025 255);
---line: oklch(0.34 0.020 255 / 0.6); --text: oklch(0.95 0.010 85); --text-2: oklch(0.74 0.020 255);
---brand: oklch(0.80 0.120 85); --bull: oklch(0.76 0.170 155); --bear: oklch(0.66 0.200 25); --info: oklch(0.72 0.120 240);
+--bg: oklch(0.965 0.017 85); --surface-1: oklch(0.993 0.007 85); --surface-2: oklch(0.935 0.022 84);
+--line: oklch(0.86 0.022 82); --text: oklch(0.25 0.035 158); --text-2: oklch(0.45 0.03 158);
+--brand: oklch(0.42 0.085 158); --accent: oklch(0.66 0.13 72); --bull: oklch(0.5 0.14 152); --bear: oklch(0.53 0.19 28); --info: oklch(0.49 0.12 245);
 ```
-**Mayfair (claro)**
+**Noche cálida (oscuro opcional: carbón marrón y ámbar, sin negro ni azul frío)**
 ```css
---bg: oklch(0.97 0.015 85); --surface-1: oklch(0.99 0.008 85); --surface-2: oklch(0.94 0.018 85);
---line: oklch(0.85 0.020 85); --text: oklch(0.22 0.030 160); --text-2: oklch(0.45 0.025 160);
---brand: oklch(0.42 0.090 160); --accent: oklch(0.68 0.120 75); --bull: oklch(0.52 0.140 155); --bear: oklch(0.55 0.190 27);
+--bg: oklch(0.205 0.012 65); --surface-1: oklch(0.245 0.014 65); --surface-2: oklch(0.29 0.016 65);
+--line: oklch(0.4 0.018 65 / 0.6); --text: oklch(0.95 0.015 85); --text-2: oklch(0.78 0.02 75);
+--brand: oklch(0.8 0.13 78); --accent: oklch(0.72 0.1 160); --bull: oklch(0.78 0.16 152); --bear: oklch(0.7 0.18 30); --info: oklch(0.76 0.1 235);
 ```
 **Desbloqueables por rango:** Salmón (Analista, papel de prensa financiera, sin copiar marcas) · Ginebra (Asociado, marino + plata) · Monte Carlo (VP, verde carreras + oro) · Tokio 3 a.m. (Director, índigo con cian/magenta contenidos, único con glow sutil) · Platino (Managing Director, grafito + platino). Bloqueados visibles con candado y vista previa.
 
