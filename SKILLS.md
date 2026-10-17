@@ -64,3 +64,23 @@ hesreallyhim/awesome-claude-code (~56k, índice de skills, hooks y comandos) · 
 | Temario y contenido | education-agent-skills (dominios 1, 3, 7, 12), crear-unidad, revisar-unidad, modelo-referencia + financial-services, scientific-skills (estadística) |
 | Datos y sincronización | supabase/agent-skills |
 | Pruebas y cierre | webapp-testing, break-ui, harden, superpowers (verification-before-completion) |
+
+## 7. Skills de nicho instaladas (17/10/2026)
+
+Finanzas profesionales, mercados y ciencia del aprendizaje. Se usan **mientras se construye** (coste de API 0 €); ninguna API, clave ni conector de pago configurado. Detalle de revisión, exclusiones y avisos en `DECISIONES.md`.
+
+| Skill(s) | Repo y commit | Tipo | Para qué en Compuesto |
+|---|---|---|---|
+| `financial-analysis`, `investment-banking`, `equity-research`, `private-equity` | [anthropics/financial-services](https://github.com/anthropics/financial-services) `574ed36` | Plugins (usuario) | Entregables reales de las ramas Pro: DCF, comps, LBO, 3 estados, merger model, CIM, teaser, initiating coverage, IC memo, DD |
+| `creating-financial-models` | [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) `a162e01` | Skill | DCF, sensibilidad, Monte Carlo y escenarios para los modelos de referencia |
+| `finance` | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) `33eeda1` | Plugin (usuario) | Contabilidad de cierre: asientos, conciliaciones, estados financieros, varianzas |
+| `investment-research`, `investment-checklist`, `quality-screen`, `industry-research`, `earnings-review`, `thesis-tracker` | [xbtlin/ai-berkshire](https://github.com/xbtlin/ai-berkshire) `d5ff30d` | Comandos (en chino) | Marco de análisis value (Buffett/Munger) para la rama Equity Research y Buy-side |
+| `financial-analyst`, `stock-analysis` | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) `19392f7` | Skills | Ratios, DCF, presupuesto; análisis fundamental y forense por sector |
+| `company-valuation`, `earnings-preview`, `earnings-recap`, `estimate-analysis`, `options-payoff`, `stock-correlation`, `startup-analysis` | [himself65/finance-skills](https://github.com/himself65/finance-skills) `cedadc4` | Skills | Valoración DCF/múltiplos/SOTP, ciclo de resultados, consenso, payoff de opciones, correlaciones, VC |
+| `time-value-of-money`, `return-calculations`, `statistics-fundamentals`, `fixed-income-corporate`, `fixed-income-sovereign`, `fixed-income-structured`, `asset-allocation`, `rebalancing`, `performance-attribution`, `historical-risk`, `forward-risk` | [JoelLewis/finance_skills](https://github.com/JoelLewis/finance_skills) `5c498ea` | Skills | Base cuantitativa tipo CFA: TVM, rentabilidades, estadística, renta fija, asignación, atribución, VaR |
+| `options-pricing`*, `fixed-income`*, `volatility-modeling`, `portfolio-analytics`, `risk-management`, `correlation-analysis` | [agiprolabs/claude-trading-skills](https://github.com/agiprolabs/claude-trading-skills) `981e1d7` | Skills | Derivados y riesgo de cartera (*marcadas como STUB por su autor; sesgo cripto) |
+| `position-sizer`, `backtest-expert`, `options-strategy-advisor`, `scenario-analyzer` | [tradermonty/claude-trading-skills](https://github.com/tradermonty/claude-trading-skills) `b29c6df` | Skills | Tamaño de posición, backtesting sin sesgos, estrategias con opciones, escenarios macro |
+| `statistical-analysis`, `statsmodels`, `aeon` | [K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills) `a1043ef` | Skills | Contraste de hipótesis, regresión/ARIMA y series temporales bien hechas |
+| 40 skills de los dominios 1, 3, 7 y 12 (p. ej. `retrieval-practice-generator`, `spaced-practice-scheduler`, `interleaving-unit-planner`, `worked-example-fading-designer`, `backwards-design-unit-planner`, `assessment-validity-checker`, `adaptive-hint-sequence-designer`) | [GarethManning/education-agent-skills](https://github.com/GarethManning/education-agent-skills) `6bbbce4` | Skills | Diseño de lecciones y evaluación basado en evidencia (recuperación, espaciado, intercalado, ejemplos resueltos) |
+| `claude-tutor` | [kirilxd/claude-tutor](https://github.com/kirilxd/claude-tutor) `ce19469` | Plugin (usuario) | Tutor personal con repaso espaciado mientras estudias. **No usar `/dashboard`** (lanza Claude sin permisos) |
+| financeskills, claude-finance-skills | [GAJETOso](https://github.com/GAJETOso/financeskills) `b0c6239`, [andreworia](https://github.com/andreworia/claude-finance-skills) `e19bba6` | Solo consulta | Clonados en `~/.compuesto-skills-src/`, nada instalado |
