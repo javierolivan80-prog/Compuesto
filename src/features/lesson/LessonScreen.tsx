@@ -21,9 +21,14 @@ import {
 import type { Summary } from '../../engine/projections';
 import { formatNumber } from '../../lib/format';
 import { ExerciseRunner, isSupported, type ExerciseOutcome } from '../exercises/ExerciseRunner';
+import { levelName } from '../../content/library';
+import { Elevator } from '../sequences/Elevator';
+import { RankUp } from '../sequences/RankUp';
 import { ExplainerBlock } from './explainers';
 
 interface Closing {
+  /** Celebraciones al cerrar: ascensor si sube de planta, subida de rango si cambia de rango. */
+  celebrate: { rank: string | null; from: number; to: number; level: string } | null;
   xp: number;
   accuracy: number;
   summary: Summary;
@@ -48,6 +53,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
   const [closing, setClosing] = useState<Closing | null>(null);
   const [saveError, setSaveError] = useState(false);
   const started = useRef(false);
+  const before = useRef<{ rankIndex: number; floor: number } | null>(null);
   const unitId = `n${lesson.level}-u${lesson.unit}`;
 
   /** Guardar nunca bloquea la lección: si falla se avisa y se sigue (el progreso de esta lección puede perderse). */
@@ -63,6 +69,11 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
   useEffect(() => {
     if (started.current) return; // StrictMode monta dos veces en desarrollo
     started.current = true;
+    // rango y planta de partida, para saber si esta lección los hace subir
+    void repo
+      .summary()
+      .then((s) => (before.current = { rankIndex: s.rank.rankIndex, floor: s.rank.floor }))
+      .catch(() => undefined);
     void save(() =>
       repo.record('lesson_started', { lessonId: lesson.id, unitId, level: lesson.level }),
     );
@@ -101,7 +112,23 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
       await save(async () => {
         summary = await repo.summary();
       });
-      setClosing({ xp: state.xp + bonus, accuracy: acc, summary: summary as unknown as Summary });
+      const after = (summary as unknown as Summary | null)?.rank;
+      const b = before.current;
+      const celebrate =
+        after && b && (after.rankIndex > b.rankIndex || after.floor > b.floor)
+          ? {
+              rank: after.rankIndex > b.rankIndex ? after.rank : null,
+              from: b.floor,
+              to: after.floor > b.floor ? after.floor : b.floor,
+              level: levelName(after.floor),
+            }
+          : null;
+      setClosing({
+        celebrate,
+        xp: state.xp + bonus,
+        accuracy: acc,
+        summary: summary as unknown as Summary,
+      });
       setPhase('closing');
     }
   };
@@ -179,6 +206,20 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         <Bolsin state="celebrando" size={120} />
         <h2 className="text-4xl">Lección completada</h2>
         <p className="text-text-2">{lesson.title}</p>
+        {closing.celebrate && closing.celebrate.to > closing.celebrate.from && (
+          <div className="w-full max-w-sm">
+            <Elevator
+              from={closing.celebrate.from}
+              to={closing.celebrate.to}
+              name={closing.celebrate.level}
+            />
+          </div>
+        )}
+        {closing.celebrate?.rank && (
+          <div className="w-full max-w-sm">
+            <RankUp rank={closing.celebrate.rank} hideContinue />
+          </div>
+        )}
         <dl className="grid w-full max-w-sm grid-cols-2 gap-3 text-left">
           <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
             <dt className="text-text-2 text-sm">XP ganado</dt>

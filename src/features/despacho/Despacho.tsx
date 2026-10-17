@@ -1,4 +1,4 @@
-import { BookOpen, Bug, Settings } from 'lucide-react';
+import { BookOpen, Bug, Settings, Share2 } from 'lucide-react';
 import { toast } from '../../lib/toast';
 import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
@@ -13,6 +13,7 @@ import { formatNumber } from '../../lib/format';
 const LINKS = [
   { href: '#/despacho/glosario', label: 'Glosario', Icon: BookOpen },
   { href: '#/despacho/ajustes', label: 'Ajustes', Icon: Settings },
+  { href: '#/despacho/compartir', label: 'Compartir mi progreso', Icon: Share2 },
   { href: '#/despacho/reportes', label: 'Reportes de errores', Icon: Bug },
 ];
 

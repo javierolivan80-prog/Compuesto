@@ -13,6 +13,7 @@ describe('rutas', () => {
     ['#/despacho/ajustes', { name: 'ajustes' }],
     ['#/despacho/glosario', { name: 'glosario' }],
     ['#/despacho/reportes', { name: 'reportes' }],
+    ['#/despacho/compartir', { name: 'compartir' }],
     ['#/leccion/n0-u1-l1', { name: 'leccion', id: 'n0-u1-l1' }],
     ['#/salto/n1-u4', { name: 'salto', unitId: 'n1-u4' }],
     ['#/saltar-nivel/0', { name: 'saltar-nivel', level: 0 }],

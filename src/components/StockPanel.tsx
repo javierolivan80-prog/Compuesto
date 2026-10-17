@@ -20,7 +20,7 @@ export function StockPanel({
   return (
     <section
       aria-labelledby="stock-title"
-      className="bg-surface-1 border-line grid gap-2 rounded-[var(--radius-md)] border p-4"
+      className="bg-surface-1 border-line grid min-w-0 grid-cols-[minmax(0,1fr)] gap-2 rounded-[var(--radius-md)] border p-4"
       data-testid="my-stock"
     >
       <div className="flex items-baseline justify-between gap-3">
@@ -28,12 +28,12 @@ export function StockPanel({
           {stock.ticker}
         </h2>
         {candles.length > 0 && (
-          <p data-num className="text-right">
-            <span className="text-2xl" data-testid="stock-price">
+          <p data-num className="min-w-0 text-right break-words">
+            <span className="text-xl break-all" data-testid="stock-price">
               {formatNumber(stock.price, 2)}
             </span>{' '}
             <span className={up ? 'text-bull' : 'text-bear'}>
-              {up ? '▲' : '▼'} {formatDelta(stock.dayChangePct)}
+              {formatDelta(stock.dayChangePct)}
             </span>
           </p>
         )}

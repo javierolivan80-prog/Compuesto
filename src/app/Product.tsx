@@ -44,6 +44,9 @@ const Rivales = lazy(() =>
   import('../features/practicar/Rivales').then((m) => ({ default: m.Rivales })),
 );
 const GameRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.GameRoute })));
+const Compartir = lazy(() =>
+  import('../features/share/Compartir').then((m) => ({ default: m.Compartir })),
+);
 const SessionRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.SessionRoute })));
 const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
 const ReviewRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ReviewRoute })));
@@ -284,6 +287,9 @@ export function Product() {
         break;
       case 'reportes':
         body = <Reportes />;
+        break;
+      case 'compartir':
+        body = <Compartir data={data} />;
         break;
       default:
         body = <Home data={data} onStart={(id) => go(`#/leccion/${id}`)} />;

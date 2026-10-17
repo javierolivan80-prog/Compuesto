@@ -90,9 +90,9 @@ export function CandleChart({ candles, label, height = 240 }: Props) {
       : label;
 
   return (
-    <figure className="grid gap-2">
+    <figure className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-2">
       {/* inert: el canvas no entra en el árbol de accesibilidad; el resumen textual de abajo lo describe */}
-      <div ref={ref} inert style={{ height }} />
+      <div ref={ref} inert className="min-w-0" style={{ height }} />
       <figcaption className="text-text-2 text-sm">{summary}</figcaption>
     </figure>
   );

@@ -42,6 +42,11 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
     await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
     await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
     await playLesson(page, l, i === 0 ? { shots: 'l2', shotsDir: SHOTS } : {});
+    // la última lección cruza los 500 XP: sube de rango y el cierre lo celebra
+    if (i === lessons.length - 2)
+      await expect(
+        page.getByRole('region', { name: 'Subida de rango: Analista Junior' }),
+      ).toBeVisible();
     await page.getByRole('button', { name: 'Continuar' }).click();
   }
 

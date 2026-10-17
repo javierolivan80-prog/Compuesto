@@ -33,6 +33,7 @@ import { formatNumber } from '../../lib/format';
 import { GameHost } from '../games/GameHost';
 import { gameData } from '../games/data';
 import { LessonScreen } from '../lesson/LessonScreen';
+import { TicketPrint } from '../sequences/TicketPrint';
 import { ReviewScreen } from '../practicar/ReviewScreen';
 
 interface Props {
@@ -351,6 +352,14 @@ function Closing({
         s + (e.type === 'exercise_answered' || e.type === 'lesson_completed' ? e.payload.xp : 0),
       0,
     );
+  const answered = fresh.events.filter((e) => e.type === 'exercise_answered');
+  const accuracyPct = answered.length
+    ? Math.round(
+        (answered.filter((e) => e.type === 'exercise_answered' && e.payload.correct).length /
+          answered.length) *
+          100,
+      )
+    : 0;
   const weakest = [...conceptMastery(fresh.events).values()]
     .filter((m) => m.struggling)
     .slice(0, 2)
@@ -376,6 +385,21 @@ function Closing({
       {weakest.length > 0 && (
         <p className="text-text-2 text-sm">{t('session.tomorrow', { list: weakest.join(', ') })}</p>
       )}
+      <div className="grid justify-items-start gap-2">
+        <TicketPrint
+          rank={summary.rank.rank}
+          streak={summary.streak.current}
+          accuracy={accuracyPct}
+        />
+        <Button
+          variant="secondary"
+          onClick={() => {
+            window.location.hash = '#/despacho/compartir';
+          }}
+        >
+          {t('session.share')}
+        </Button>
+      </div>
       <ul aria-label={t('session.missions')} className="grid gap-2">
         {missions.map((m) => (
           <li

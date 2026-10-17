@@ -54,6 +54,7 @@ export default defineConfig({
         'practicar.spec.ts',
         'sesion.spec.ts',
         'juegos.spec.ts',
+        'compartir.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

@@ -49,7 +49,8 @@
     "xp": "+{{n}} XP en esta sesión",
     "streakOne": "Racha: {{n}} día",
     "streakMany": "Racha: {{n}} días",
-    "tomorrow": "Mañana conviene repasar: {{list}}."
+    "tomorrow": "Mañana conviene repasar: {{list}}.",
+    "share": "Compartir mi progreso"
   },
   "applied": {
     "argumentHint": "Elige el razonamiento más sólido. Al comprobar verás por qué fallan los demás.",
@@ -190,5 +191,38 @@
     "correction": "Corrección: la racha se enfrió. Un día de estudio la reactiva.",
     "rising": "Cada día de estudio sube tu acción; los días sin actividad la corrigen un 1 %.",
     "label": "Tu acción {{ticker}}"
+  },
+  "share": {
+    "brand": "Compuesto",
+    "streak": "Racha",
+    "day": "día",
+    "days": "días",
+    "accuracy": "Precisión",
+    "xp": "XP",
+    "points": "puntos de tu acción · no es dinero",
+    "rank": "Rango",
+    "floor": "Planta {{n}}",
+    "slogan": "20 minutos al día. Se capitalizan.",
+    "disclaimer": "Contenido educativo, no asesoramiento financiero. Solo XP y progreso.",
+    "title": "Compartir mi progreso",
+    "intro": "Genera una imagen con tu rango, racha, precisión y la cotización de tu acción. Solo lleva XP y progreso: nunca dinero.",
+    "format": "Formato",
+    "style": "Estilo",
+    "formats": {
+      "story": "Historia 1080×1920",
+      "post": "Post 1080×1080"
+    },
+    "styles": {
+      "terminal": "Terminal",
+      "papel": "Papel",
+      "carreras": "Carreras"
+    },
+    "share": "Compartir",
+    "download": "Descargar PNG",
+    "downloaded": "Imagen guardada.",
+    "failed": "No se pudo generar la imagen en este navegador.",
+    "offline": "La imagen se genera en tu dispositivo: no se envía nada a ningún servidor y funciona sin conexión.",
+    "preview": "Vista previa de la tarjeta: {{rank}}, racha de {{streak}} días, {{accuracy}} % de precisión y {{xp}} XP.",
+    "errorLoad": "no se pudo leer tu progreso en este dispositivo."
   }
 }

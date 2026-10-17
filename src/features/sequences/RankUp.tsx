@@ -8,7 +8,16 @@ import { Button } from '../../components/Button';
 const E = ease.out;
 
 /** Subida de rango, 1.800 ms (ANIMACIONES §4). Estado final estático y descripción accesible con reduced-motion. */
-export function RankUp({ rank, onContinue }: { rank: string; onContinue?: () => void }) {
+export function RankUp({
+  rank,
+  onContinue,
+  hideContinue = false,
+}: {
+  rank: string;
+  onContinue?: () => void;
+  /** Dentro de otra pantalla que ya tiene su botón (p. ej. el cierre de lección). */
+  hideContinue?: boolean;
+}) {
   const reduced = useReducedMotion();
   const t = (delay: number, duration: number) =>
     reduced ? { duration: 0.01 } : { delay, duration, ease: E };
@@ -63,7 +72,7 @@ export function RankUp({ rank, onContinue }: { rank: string; onContinue?: () => 
           animate={{ opacity: 1 }}
           transition={t(1.5, 0.3)}
         >
-          <Button onClick={onContinue}>Continuar</Button>
+          {!hideContinue && <Button onClick={onContinue}>Continuar</Button>}
         </m.div>
       </div>
       <DelayMount ms={1500}>
