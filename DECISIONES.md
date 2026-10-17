@@ -364,3 +364,23 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - Un test nuevo comprueba que la caja, la deuda y las acciones de Azahar coinciden con el merger model.
 - **Comprobación de nombres en la CNMV y el Registro Mercantil: la hace Javier.** Hasta entonces, los modelos mantienen `pendienteVerificarCNMV: true`.
 - **docs/revision-modelos.md:** ficha de revisión de los 4 modelos para Javier, en borrador hasta que diga «aprobado». No cambia ningún modelo.
+
+## 2026-10-17 — Tarea 2.9: ejercicios paramétricos
+- **Enfoque:** `instantiate(ejercicio, semilla?)` (`src/engine/params.ts`, puro) devuelve un ejercicio concreto del mismo tipo. Vistas y `grade()` no cambian. Lo usa el `ExerciseRunner` (prop `variantSeed`), así que ningún camino de render muestra marcadores. Descartado: generar variantes en build (multiplica contenido y revisión) y que cada corrector lea parámetros.
+- **Formato de contenido:**
+  - `params` (por dato: `value` del enunciado, `min`, `max`, `step`, `decimals`).
+  - `derived` (cifras calculadas para el texto, con decimales fijos).
+  - `{answer}` solo en explicación y pista.
+  - `answerDecimals` (2 por defecto) y `answerRange` opcional.
+  - En `build_statement`, `formula` por fila; en `spreadsheet`, una celda que es solo `{nombre}` recibe el número.
+  - Los datos se escriben sin ceros sobrantes («5 %») y los derivados con decimales fijos («250,00 €»).
+- **Cuándo se usan cifras nuevas:** solo en `ReviewScreen`, es decir, Due diligence, Mis errores, Por tema, examen y bloque de repaso de la sesión. La semilla es «id#día», fijada al abrir la pantalla. La lección, su reintento final, los tests de salto y el laboratorio usan el enunciado. Si en una variante sale exactamente el enunciado, se vuelve a sortear (hasta 10 veces).
+- **Respuesta:** en una variante se recalcula con la fórmula y se redondea a `answerDecimals`. En la plantilla se mantiene la `answer` declarada, que `content:validate` sigue comprobando.
+- **content:validate:**
+  - Revisa marcadores definidos, `value` en rango y en la rejilla, que al menos un parámetro pueda variar y que todos los parámetros se usen.
+  - Comprueba que la plantilla pasa las comprobaciones de siempre y que 100 variantes (semillas `validate#0…99`) también, incluido el balance de `build_statement` y `answerRange`.
+  - Informa de la primera semilla que falla.
+- **Salvaguarda en ejecución:** si la variante del día no se puede calcular, el ejercicio se juega con el enunciado y el error va a la consola, en lugar de romper la pantalla.
+- **Evento:** `exercise_answered.payload.params` es opcional. Los eventos antiguos se leen igual y el repaso espaciado no lo usa (la tarjeta sigue siendo por ejercicio).
+- **Listados:** `findExerciseText` (Reportes y «más fallados» en Despacho) muestra la plantilla con las cifras del enunciado. El botón «Reportar error» no guarda las cifras de la variante (siguiente paso).
+- **e2e:** el solver reconoce el enunciado y la variante del día. Para lanzar Playwright en esta sesión hace falta `PLAYWRIGHT_CHROMIUM_PATH=/opt/pw-browsers/chromium`.
