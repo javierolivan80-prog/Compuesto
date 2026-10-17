@@ -174,7 +174,7 @@ Regla: cada unidad Pro indica en `sources` la referencia concreta (libro y capí
 
 ## 5. Tests de salto
 
-- Cada unidad tiene un **test de salto** de 8 preguntas (banco propio, etiquetado por concepto, revisado como el resto) con al menos una pregunta por objetivo y ≥50 % de tipo producir. Con 7 u 8 aciertos la unidad queda dominada; con 6 se ofrecen 4 preguntas más y hay que acertar 3. Los conceptos saltados entran en el repaso con una primera comprobación a los 7 días.
+- Cada unidad tiene un **test de salto** de 8 preguntas (sacadas de un banco propio de 12 por unidad, etiquetado por concepto y revisado como el resto, para que la segunda fase tenga preguntas nuevas) con al menos una pregunta por objetivo y ≥50 % de tipo producir. Con 7 u 8 aciertos la unidad queda dominada; con 6 se ofrecen 4 preguntas más y hay que acertar 3. Los conceptos saltados entran en el repaso con una primera comprobación a los 7 días.
 - **Saltar nivel completo:** encadena los tests de salto de todas sus unidades.
 - No hay test de nivel inicial largo: el onboarding lleva a la primera lección en menos de 60 s.
 

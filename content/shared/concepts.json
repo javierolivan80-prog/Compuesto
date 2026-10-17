@@ -510,6 +510,18 @@
     "prerequisites": ["curva-tipos"]
   },
   {
+    "id": "precio-limpio-sucio",
+    "name": "Precio limpio y sucio, cupón corrido y convención de días",
+    "level": 2,
+    "prerequisites": ["precio-bono-tipos"]
+  },
+  {
+    "id": "bootstrapping-forwards",
+    "name": "Bootstrapping de la curva cupón cero y tipos forward",
+    "level": 2,
+    "prerequisites": ["curva-cupon-cero"]
+  },
+  {
     "id": "duracion",
     "name": "Duración",
     "level": 2,
@@ -588,12 +600,6 @@
     "prerequisites": ["mercado-secundario"]
   },
   {
-    "id": "alternativos-intro",
-    "name": "Introducción a alternativos",
-    "level": 2,
-    "prerequisites": ["riesgo-rentabilidad"]
-  },
-  {
     "id": "cripto-mica",
     "name": "Cripto y MiCA",
     "level": 2,
@@ -628,6 +634,12 @@
     "name": "Ilusión de control",
     "level": 2,
     "prerequisites": ["fomo-manada"]
+  },
+  {
+    "id": "etica-estandares",
+    "name": "Ética profesional: Estándares de Conducta de CFA Institute y normativa española",
+    "level": 2,
+    "prerequisites": []
   },
   {
     "id": "fiscalidad-fondos",
@@ -690,10 +702,46 @@
     "prerequisites": ["balance"]
   },
   {
+    "id": "niif15-ingresos",
+    "name": "Reconocimiento de ingresos (NIIF 15)",
+    "level": 3,
+    "prerequisites": ["pgc-niif"]
+  },
+  {
+    "id": "nic12-impuestos-diferidos",
+    "name": "Impuestos diferidos (NIC 12)",
+    "level": 3,
+    "prerequisites": ["impuesto-sociedades", "pgc-niif"]
+  },
+  {
+    "id": "minoritarios-equivalencia",
+    "name": "Minoritarios y puesta en equivalencia",
+    "level": 3,
+    "prerequisites": ["consolidacion"]
+  },
+  {
+    "id": "flujos-metodo-indirecto",
+    "name": "Estado de flujos por el método indirecto desde dos balances",
+    "level": 3,
+    "prerequisites": ["conexion-estados"]
+  },
+  {
     "id": "ratios",
     "name": "Ratios financieros",
     "level": 3,
     "prerequisites": ["balance", "pyg"]
+  },
+  {
+    "id": "dupont-roic",
+    "name": "Árbol DuPont y ROIC frente a WACC",
+    "level": 3,
+    "prerequisites": ["ratios", "wacc"]
+  },
+  {
+    "id": "calidad-beneficio",
+    "name": "Conversión del beneficio en caja (calidad del beneficio)",
+    "level": 3,
+    "prerequisites": ["ratios", "flujos-caja"]
   },
   {
     "id": "ciclo-caja",
@@ -765,19 +813,31 @@
     "id": "dcf",
     "name": "DCF paso a paso",
     "level": 3,
-    "prerequisites": ["van", "flujos-caja"]
+    "prerequisites": ["van", "flujos-caja", "wacc"]
+  },
+  {
+    "id": "coste-deuda",
+    "name": "Coste de la deuda después de impuestos",
+    "level": 3,
+    "prerequisites": ["impuesto-sociedades", "emision-bonos"]
+  },
+  {
+    "id": "beta-apalancada",
+    "name": "Beta apalancada y desapalancada (Hamada)",
+    "level": 3,
+    "prerequisites": ["capm-beta", "estructura-capital"]
   },
   {
     "id": "coste-capital",
-    "name": "Coste del capital",
+    "name": "Coste del capital propio (CAPM)",
     "level": 3,
-    "prerequisites": ["estructura-capital"]
+    "prerequisites": ["estructura-capital", "capm-beta"]
   },
   {
     "id": "wacc",
     "name": "WACC",
     "level": 3,
-    "prerequisites": ["coste-capital"]
+    "prerequisites": ["coste-capital", "coste-deuda", "beta-apalancada"]
   },
   {
     "id": "trampas-contables",
@@ -996,6 +1056,12 @@
     "prerequisites": ["analisis-tecnico"]
   },
   {
+    "id": "eficiencia-mercado",
+    "name": "Eficiencia de mercado (débil, semifuerte, fuerte) y anomalías",
+    "level": 5,
+    "prerequisites": ["formacion-precios", "valor-esperado"]
+  },
+  {
     "id": "stop-tamano",
     "name": "Stop y tamaño de posición",
     "level": 5,
@@ -1006,6 +1072,12 @@
     "name": "Probabilidad y valor esperado",
     "level": 5,
     "prerequisites": ["media-desviacion"]
+  },
+  {
+    "id": "contraste-hipotesis",
+    "name": "Contraste de hipótesis, p-valor e intervalos de confianza",
+    "level": 5,
+    "prerequisites": ["valor-esperado", "distribucion-normal"]
   },
   {
     "id": "exceso-confianza",
@@ -1052,14 +1124,32 @@
   {
     "id": "capm-beta",
     "name": "CAPM y beta",
+    "level": 3,
+    "prerequisites": ["riesgo-rentabilidad"]
+  },
+  {
+    "id": "regresion",
+    "name": "Regresión: coeficientes, t, R² y sus trampas",
     "level": 6,
-    "prerequisites": ["markowitz"]
+    "prerequisites": ["correlacion", "contraste-hipotesis"]
+  },
+  {
+    "id": "capm-avanzado",
+    "name": "CAPM avanzado: estimación por regresión y beta ajustada",
+    "level": 6,
+    "prerequisites": ["capm-beta", "markowitz", "regresion"]
   },
   {
     "id": "sharpe-sortino",
     "name": "Sharpe y Sortino",
     "level": 6,
     "prerequisites": ["volatilidad"]
+  },
+  {
+    "id": "tracking-error-ir",
+    "name": "Tracking error y ratio de información",
+    "level": 6,
+    "prerequisites": ["sharpe-sortino"]
   },
   {
     "id": "drawdown",
@@ -1086,10 +1176,16 @@
     "prerequisites": ["fondos-inversion"]
   },
   {
+    "id": "atribucion-brinson",
+    "name": "Atribución de resultados (Brinson-Fachler)",
+    "level": 6,
+    "prerequisites": ["pasiva-activa"]
+  },
+  {
     "id": "alternativos-inversion",
     "name": "Alternativos como inversión",
     "level": 6,
-    "prerequisites": ["alternativos-intro"]
+    "prerequisites": ["riesgo-rentabilidad", "diversificacion"]
   },
   {
     "id": "esg-sfdr",
@@ -1102,6 +1198,12 @@
     "name": "Asset allocation y rebalanceo",
     "level": 6,
     "prerequisites": ["diversificacion"]
+  },
+  {
+    "id": "black-litterman-paridad",
+    "name": "Black-Litterman y paridad de riesgo (intuición)",
+    "level": 6,
+    "prerequisites": ["asset-allocation", "markowitz"]
   },
   {
     "id": "monte-carlo",
@@ -1146,6 +1248,18 @@
     "prerequisites": ["opciones"]
   },
   {
+    "id": "paridad-put-call",
+    "name": "Paridad put-call",
+    "level": 7,
+    "prerequisites": ["opciones", "payoff"]
+  },
+  {
+    "id": "forward-coste-financiacion",
+    "name": "Precio forward por coste de financiación y base",
+    "level": 7,
+    "prerequisites": ["futuros-forwards", "valor-temporal-dinero"]
+  },
+  {
     "id": "valor-intrinseco-temporal",
     "name": "Valor intrínseco y temporal",
     "level": 7,
@@ -1158,8 +1272,14 @@
     "prerequisites": ["valor-intrinseco-temporal"]
   },
   {
+    "id": "binomial-dos-pasos",
+    "name": "Binomial de dos pasos y probabilidad neutral al riesgo",
+    "level": 7,
+    "prerequisites": ["binomial-un-paso"]
+  },
+  {
     "id": "black-scholes",
-    "name": "Black-Scholes intuitivo",
+    "name": "Black-Scholes con números",
     "level": 7,
     "prerequisites": ["binomial-un-paso", "volatilidad"]
   },
@@ -1389,7 +1509,7 @@
     "id": "etica-conflictos",
     "name": "Ética y conflictos de interés",
     "level": 9,
-    "prerequisites": ["abuso-mercado"]
+    "prerequisites": ["abuso-mercado", "etica-estandares"]
   },
   {
     "id": "productos-activo-pasivo",
@@ -1420,6 +1540,20 @@
     "track": "banca-riesgos"
   },
   {
+    "id": "ifrs9-clasificacion",
+    "name": "IFRS 9: clasificación (modelo de negocio y prueba SPPI)",
+    "level": 4,
+    "prerequisites": ["morosidad-ifrs9"],
+    "track": "banca-riesgos"
+  },
+  {
+    "id": "ifrs9-ecl-escenarios",
+    "name": "IFRS 9: pérdida esperada ponderada por escenarios y matriz de provisiones",
+    "level": 4,
+    "prerequisites": ["ifrs9-fases"],
+    "track": "banca-riesgos"
+  },
+  {
     "id": "alm-tipo-interes",
     "name": "ALM y riesgo de tipo de interés",
     "level": 4,
@@ -1445,6 +1579,34 @@
     "name": "Capital: Pilares 1, 2 y 3",
     "level": 4,
     "prerequisites": ["basilea"],
+    "track": "banca-riesgos"
+  },
+  {
+    "id": "crr3-capital",
+    "name": "Basilea III final (CRR3): APR estándar e IRB, suelo de resultados y ratio de apalancamiento",
+    "level": 4,
+    "prerequisites": ["capital-pilares", "modelos-irb"],
+    "track": "banca-riesgos"
+  },
+  {
+    "id": "colchones-srep-mrel",
+    "name": "Colchones de capital, Pilar 2 (P2R, P2G), SREP y MREL",
+    "level": 4,
+    "prerequisites": ["capital-pilares"],
+    "track": "banca-riesgos"
+  },
+  {
+    "id": "raroc-precio-prestamo",
+    "name": "Precio de un préstamo con RAROC",
+    "level": 4,
+    "prerequisites": ["scoring-rating-interno"],
+    "track": "banca-riesgos"
+  },
+  {
+    "id": "npl-titulizacion-srt",
+    "name": "Gestión de dudosos y titulizaciones con transferencia de riesgo",
+    "level": 4,
+    "prerequisites": ["morosidad-ifrs9", "cedulas-titulizaciones"],
     "track": "banca-riesgos"
   },
   {
@@ -1581,6 +1743,27 @@
     "track": "corporate-valoracion"
   },
   {
+    "id": "dd-calidad-beneficio",
+    "name": "Due diligence financiera: calidad del beneficio, circulante normalizado y deuda financiera neta",
+    "level": 3,
+    "prerequisites": ["calidad-beneficio"],
+    "track": "corporate-valoracion"
+  },
+  {
+    "id": "locked-box-completion",
+    "name": "SPA: locked box frente a completion accounts y earn-out",
+    "level": 3,
+    "prerequisites": ["ma-completo"],
+    "track": "corporate-valoracion"
+  },
+  {
+    "id": "opa-precio-equitativo",
+    "name": "OPAs: precio equitativo, OPA de exclusión y venta y compra forzosas",
+    "level": 3,
+    "prerequisites": ["ma-completo"],
+    "track": "corporate-valoracion"
+  },
+  {
     "id": "lbo-completo",
     "name": "LBO completo",
     "level": 3,
@@ -1588,10 +1771,24 @@
     "track": "corporate-valoracion"
   },
   {
+    "id": "lbo-fiscalidad-espana",
+    "name": "Deuda de adquisición en España: art. 16 LIS y fusión apalancada",
+    "level": 3,
+    "prerequisites": ["lbo-completo", "impuesto-sociedades"],
+    "track": "corporate-valoracion"
+  },
+  {
     "id": "concurso-acreedores",
     "name": "Concurso de acreedores en España",
     "level": 3,
     "prerequisites": ["emision-bonos"],
+    "track": "corporate-valoracion"
+  },
+  {
+    "id": "reestructuracion-clases",
+    "name": "Planes de reestructuración: clases, arrastre entre clases y prioridad absoluta",
+    "level": 3,
+    "prerequisites": ["concurso-acreedores"],
     "track": "corporate-valoracion"
   },
   {
@@ -1676,6 +1873,20 @@
     "name": "Monte Carlo y backtesting rigurosos",
     "level": 6,
     "prerequisites": ["backtesting"],
+    "track": "fintech-cuantitativo"
+  },
+  {
+    "id": "contraste-multiple",
+    "name": "Contraste múltiple y Sharpe deflactado",
+    "level": 6,
+    "prerequisites": ["montecarlo-riguroso", "contraste-hipotesis"],
+    "track": "fintech-cuantitativo"
+  },
+  {
+    "id": "ewma-garch",
+    "name": "Volatilidad EWMA y GARCH",
+    "level": 6,
+    "prerequisites": ["series-temporales"],
     "track": "fintech-cuantitativo"
   }
 ]
