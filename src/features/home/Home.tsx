@@ -1,3 +1,5 @@
+import { StockPanel } from '../../components/StockPanel';
+import { stockFromEvents } from '../../engine/stock';
 import { CompoundRing } from '../../components/CompoundRing';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
@@ -30,6 +32,8 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
   const today = todayKey(new Date());
   const resumable = activeSession(data.events, today);
   const missions = dailyMissions(data.events, today, goal.goal);
+  const initials = String(summary.settings['tickerInitials'] ?? 'YO');
+  const stock = stockFromEvents(data.events, today, initials);
   const ticker = universe ? universeTicker(universe, todayKey(new Date())) : [];
 
   return (
@@ -77,6 +81,8 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
           </p>
         </div>
       </section>
+
+      <StockPanel stock={stock} days={30} height={140} />
 
       <dl className="grid grid-cols-2 gap-3 text-center" aria-label="Tu progreso">
         <div className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-3">

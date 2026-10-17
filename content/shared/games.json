@@ -312,5 +312,24 @@
       "concepts": ["formacion-precios"],
       "explanation": "Si una parte tan grande de las ventas desaparece, las expectativas de beneficio caen y el precio baja."
     }
-  ]
+  ],
+  "impulsivo": {
+    "companies": ["Naranjas del Turia", "Pirineo Energía", "Mediterránea de Navieras"],
+    "hype": [
+      "¡Todo el mundo está comprando {co}! No te quedes fuera.",
+      "Un «experto» en redes asegura que {co} se va a duplicar este mes.",
+      "{co} sube un 4 % en una hora: ¿te lo vas a perder?",
+      "Tu cuñado ya ha comprado más {co} y presume de ello en el grupo.",
+      "Titular: «{co}, la acción de moda». Los foros arden."
+    ],
+    "panic": [
+      "Rumores de caída: ¡vende {co} antes de que sea tarde!",
+      "Un titular alarmista dice que {co} puede hundirse esta semana.",
+      "{co} baja un 3 % en una hora: ¿vas a esperar a perderlo todo?",
+      "Un tuitero asegura que «ya se nota el desplome» de {co}.",
+      "Titular: «Pánico en {co}». Los foros no hablan de otra cosa."
+    ],
+    "concepts": ["comisiones", "fomo-manada"],
+    "learned": "Cada operación cuesta, y las noticias tentadoras casi siempre son ruido: quien opera menos suele quedarse con más."
+  }
 }

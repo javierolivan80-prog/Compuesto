@@ -337,3 +337,87 @@ describe('¿Sube o baja?', () => {
     );
   });
 });
+
+import {
+  COST_RATE,
+  IMPULSIVE_STEPS,
+  START_VALUE,
+  impulsiveMarket,
+  impulsiveScore,
+  playImpulsive,
+  simulate,
+} from './impulsive';
+
+describe('El trader impulsivo', () => {
+  const hold = Array.from({ length: IMPULSIVE_STEPS }, () => false);
+  it('el mercado y las noticias son deterministas', () => {
+    expect(impulsiveMarket(3)).toEqual(impulsiveMarket(3));
+    expect(impulsiveMarket(3).prices).not.toEqual(impulsiveMarket(4).prices);
+    const m = impulsiveMarket(3);
+    expect(m.prices).toHaveLength(IMPULSIVE_STEPS + 1);
+    expect(m.news).toHaveLength(IMPULSIVE_STEPS);
+    expect(m.news.every((n) => !n.text.includes('{'))).toBe(true);
+  });
+  it('sin operar eres idéntico a tu gemelo paciente y no pagas nada', () => {
+    const s = simulate(impulsiveMarket(5), hold);
+    expect(s.mine).toEqual(s.twin);
+    expect(s.costs).toBe(0);
+    expect(s.operations).toBe(0);
+    expect(playImpulsive(5, hold).rating).toBe('AAA');
+  });
+  it('cada operación cuesta el 1 % del valor que mueves', () => {
+    const decisions = hold.map((_, i) => i === 0);
+    const s = simulate(impulsiveMarket(5), decisions);
+    expect(s.operations).toBe(1);
+    expect(s.costs).toBeCloseTo(START_VALUE * COST_RATE, 6);
+    // pasas a efectivo: tu valor ya no sigue al mercado
+    expect(new Set(s.mine.slice(1)).size).toBe(1);
+    expect(s.invested[1]).toBe(false);
+  });
+  it('operar sin parar casi siempre sale peor que el gemelo y da B', () => {
+    let worse = 0;
+    for (let seed = 1; seed <= 200; seed++) {
+      const s = simulate(
+        impulsiveMarket(seed),
+        hold.map(() => true),
+      );
+      expect(s.costs).toBeGreaterThan(START_VALUE * COST_RATE * 20);
+      if (s.finalMine < s.finalTwin) worse++;
+    }
+    // en efectivo a ratos se evita alguna caída, pero los costes pesan: peor en la gran mayoría
+    expect(worse / 200).toBeGreaterThan(0.6);
+    expect(
+      playImpulsive(
+        9,
+        hold.map(() => true),
+      ).rating,
+    ).toBe('B');
+  });
+  it('la puntuación baja con los costes y se acota en [0, 1]', () => {
+    expect(impulsiveScore(0)).toBe(1);
+    expect(impulsiveScore(START_VALUE * 0.05)).toBeCloseTo(0.5, 9);
+    expect(impulsiveScore(START_VALUE)).toBe(0);
+    expect(impulsiveScore(-5)).toBe(1);
+  });
+  it('JUEGOS §5: operando al azar (50 % por paso) sale B', () => {
+    const c: Record<string, number> = { B: 0, other: 0 };
+    for (let s = 1; s <= 1000; s++) {
+      const rnd = mulberry32(s + 17);
+      const r = playImpulsive(
+        s,
+        hold.map(() => rnd() < 0.5),
+      ).rating;
+      c[r === 'B' ? 'B' : 'other']!++;
+    }
+    expect(c['B']! / 1000).toBeGreaterThanOrEqual(0.99);
+  });
+  it('quien opera mucho enlaza con costes y FOMO; quien casi no opera, no', () => {
+    expect(
+      playImpulsive(
+        2,
+        hold.map(() => true),
+      ).missedConcepts,
+    ).toEqual(['comisiones', 'fomo-manada']);
+    expect(playImpulsive(2, hold).missedConcepts).toEqual([]);
+  });
+});

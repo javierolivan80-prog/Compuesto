@@ -16,6 +16,7 @@ import {
 } from '../../engine/games/catalog';
 import { dailySeed, type GameId, type GameResult } from '../../engine/games/common';
 import { playCompound, type CompoundChoice } from '../../engine/games/compound';
+import { playImpulsive } from '../../engine/games/impulsive';
 import { playNews, type NewsAnswer } from '../../engine/games/news';
 import { playOrders, type OrderChoice } from '../../engine/games/orders';
 import { todayKey } from '../../engine/stats';
@@ -25,6 +26,7 @@ import { useUniverse } from '../../content/useUniverse';
 import { BellGame } from './BellGame';
 import { BudgetGame } from './BudgetGame';
 import { CompoundGame } from './CompoundGame';
+import { ImpulsiveGame } from './ImpulsiveGame';
 import { gameData, type GameData } from './data';
 import { GameShell, ResultScreen } from './kit';
 import { NewsGame } from './NewsGame';
@@ -174,6 +176,15 @@ export function GameHost({ gameId, daily, onExit, onFinished, finishLabel }: Pro
             untimed={untimed}
             tutorial={tutorial}
             onFinish={(a: NewsAnswer[]) => void finish(playNews(seed, data.headlines, a))}
+          />
+        );
+      case 'impulsivo':
+        return (
+          <ImpulsiveGame
+            seed={seed}
+            untimed={untimed}
+            tutorial={tutorial}
+            onFinish={(d: boolean[]) => void finish(playImpulsive(seed, d))}
           />
         );
       case 'magia-compuesto':

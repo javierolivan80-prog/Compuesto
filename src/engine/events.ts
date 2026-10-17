@@ -29,7 +29,14 @@ export const blockSpec = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('lesson'), lessonId: id }),
   z.object({
     kind: z.literal('game'),
-    gameId: z.enum(['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto']),
+    gameId: z.enum([
+      'campana',
+      'presupuesto',
+      'mesa-ordenes',
+      'sube-o-baja',
+      'magia-compuesto',
+      'impulsivo',
+    ]),
   }),
   z.object({ kind: z.literal('review'), exercises: z.number().int().min(1).max(15) }),
   z.object({
@@ -89,7 +96,14 @@ export const payloads = {
   session_completed: z.object({ sessionId: id }),
   /** Una partida de un minijuego terminada (JUEGOS.md): puntuación 0–1 corregida por azar y nota AAA–B. */
   game_played: z.object({
-    gameId: z.enum(['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto']),
+    gameId: z.enum([
+      'campana',
+      'presupuesto',
+      'mesa-ordenes',
+      'sube-o-baja',
+      'magia-compuesto',
+      'impulsivo',
+    ]),
     seed: z.number().int().min(0),
     /** ¿Era la partida del día (semilla diaria, para comparar récords)? */
     daily: z.boolean(),

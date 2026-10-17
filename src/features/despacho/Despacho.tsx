@@ -2,6 +2,8 @@ import { BookOpen, Bug, Settings } from 'lucide-react';
 import { toast } from '../../lib/toast';
 import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
+import { StockPanel } from '../../components/StockPanel';
+import { stockFromEvents } from '../../engine/stock';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
 import { findExerciseText } from '../../content/library';
 import { personalStats, statsToCsv, todayKey } from '../../engine/stats';
@@ -27,6 +29,11 @@ export function Despacho({ data }: { data: AppData }) {
   const { summary } = data;
   const stats = personalStats(data.events, summary, todayKey(new Date()));
   const initials = summary.settings['tickerInitials'];
+  const stock = stockFromEvents(
+    data.events,
+    todayKey(new Date()),
+    typeof initials === 'string' ? initials : 'YO',
+  );
 
   const exportCsv = () => {
     const ok = downloadText(
@@ -62,6 +69,8 @@ export function Despacho({ data }: { data: AppData }) {
           {summary.rank.rank}
         </p>
       </header>
+
+      <StockPanel stock={stock} days={90} height={200} />
 
       <section aria-labelledby="stats-title" className="grid gap-3">
         <h2 id="stats-title" className="text-2xl">

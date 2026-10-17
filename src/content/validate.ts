@@ -475,6 +475,7 @@ export function validateContent(b: ContentBundle): {
           .filter((c) => !conceptIds.has(c))
           .forEach((c) => err('concepto-inexistente', where, `El concepto "${c}" no existe`));
       known(g.presupuesto.concepts, 'presupuesto');
+      known(g.impulsivo.concepts, 'impulsivo');
       known([...g.ordenes.concepts, ...g.ordenes.auctionConcepts], 'ordenes');
       const ids = [...g.presupuesto.items.map((i) => i.id), ...g.titulares.map((t) => t.id)];
       for (const id of new Set(ids.filter((x, i) => ids.indexOf(x) !== i)))

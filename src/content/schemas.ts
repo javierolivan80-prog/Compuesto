@@ -507,6 +507,13 @@ export const gamesDataSchema = z.object({
     auctionConcepts: z.array(slug).min(1),
     learned: text,
   }),
+  impulsivo: z.object({
+    companies: z.array(text).min(2),
+    hype: z.array(text).min(3),
+    panic: z.array(text).min(3),
+    concepts: z.array(slug).min(1),
+    learned: text,
+  }),
   titulares: z
     .array(
       z.object({

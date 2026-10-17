@@ -44,6 +44,13 @@ export const GAME_INFO: readonly GameInfo[] = [
     levels: 'Niveles 1–4',
   },
   {
+    id: 'impulsivo',
+    title: 'El trader impulsivo',
+    blurb:
+      'Noticias tentadoras y un botón de operar: ¿cuánto te cuesta no aguantarte? Compara con tu gemelo paciente.',
+    levels: 'Niveles 1 y 5',
+  },
+  {
     id: 'magia-compuesto',
     title: 'La magia del compuesto',
     blurb: 'Elige aportación y años: comisiones e inflación se comen el resultado.',
@@ -102,6 +109,10 @@ export function availability(id: GameId, ctx: GameContext): Availability {
         available: ok,
         missing: ok ? [] : ['formacion-precios', 'liquidez'].filter((c) => !ctx.seen.has(c)),
       };
+    }
+    case 'impulsivo': {
+      const m = need(gamesData.impulsivo.concepts);
+      return { available: m.length === 0, missing: m };
     }
     case 'magia-compuesto': {
       const m = need(['interes-compuesto', 'inflacion']);

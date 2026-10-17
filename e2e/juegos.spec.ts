@@ -14,7 +14,7 @@ import { completeOnboarding } from './solver';
 /* Tarea 2.5: los cinco primeros juegos, de punta a punta y solo con teclado, contra la build de producción. */
 
 const today = dayKey(new Date());
-const LESSON_DIRS = ['n0/u1', 'n0/u2', 'n0/u3', 'n1/u4'];
+const LESSON_DIRS = ['n0/u1', 'n0/u2', 'n0/u3', 'n1/u4', 'n1/u5'];
 
 interface LessonFile {
   id: string;
@@ -98,7 +98,14 @@ test('Practicar: sin progreso los juegos están bloqueados y dicen por qué; con
   await importBackup(page, backupWithProgress());
   await page.goto('/#/practicar');
   await page.reload();
-  for (const id of ['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto'])
+  for (const id of [
+    'campana',
+    'presupuesto',
+    'mesa-ordenes',
+    'sube-o-baja',
+    'impulsivo',
+    'magia-compuesto',
+  ])
     await expect(
       page.getByTestId(`game-${id}`).getByRole('button', { name: /Jugar/ }),
     ).toBeVisible();
@@ -121,7 +128,7 @@ test('Practicar con un usuario nuevo: todo bloqueado con el motivo', async ({ pa
   );
   await page.goto('/#/practicar');
   await page.reload();
-  await expect(page.getByTestId('game-locked')).toHaveCount(5);
+  await expect(page.getByTestId('game-locked')).toHaveCount(6);
   await expect(page.getByTestId('game-presupuesto')).toContainText('Presupuesto personal');
   await expect(page.getByRole('button', { name: /Jugar a/ })).toHaveCount(0);
 });
@@ -210,6 +217,32 @@ test('¿Sube o baja?: dirección y motivo de cada titular → AAA', async ({ pag
   await expectPerfect(page);
 });
 
+test('El trader impulsivo: aguantar 30 días sin operar → igual que el gemelo, AAA', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await importBackup(page, backupWithProgress());
+  await openGame(page, 'impulsivo');
+  for (let i = 0; i < 30; i++) {
+    await expect(page.getByTestId('impulsive-news')).toBeVisible();
+    await expect(page.getByText(`Día ${i + 1} de 30`)).toBeVisible();
+    await page.keyboard.press('m');
+  }
+  await expectPerfect(page);
+  await expect(page.getByText('No operaste ni una vez')).toBeVisible();
+});
+
+test('El trader impulsivo: operar cuesta, se ve en los costes y baja la nota', async ({ page }) => {
+  test.setTimeout(120_000);
+  await importBackup(page, backupWithProgress());
+  await openGame(page, 'impulsivo');
+  await page.keyboard.press('o');
+  await expect(page.getByTestId('impulsive-ops')).toHaveText('Operaciones: 1');
+  await expect(page.getByText(/−\d+ € .*Costes|Costes/).first()).toBeVisible();
+  for (let i = 1; i < 30; i++) await page.keyboard.press('m');
+  await expect(page.getByTestId('rating')).toHaveText('AA');
+});
+
 test('La magia del compuesto: elegir aportación y años con el teclado → AAA', async ({ page }) => {
   await importBackup(page, backupWithProgress());
   test.setTimeout(120_000);
@@ -255,7 +288,14 @@ test('cada juego pasa axe en pantalla de partida a 375 px y no desborda', async 
   await importBackup(page, backupWithProgress());
   test.setTimeout(180_000);
   await page.setViewportSize({ width: 375, height: 812 });
-  for (const id of ['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto']) {
+  for (const id of [
+    'campana',
+    'presupuesto',
+    'mesa-ordenes',
+    'sube-o-baja',
+    'impulsivo',
+    'magia-compuesto',
+  ]) {
     await openGame(page, id);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await page.waitForTimeout(600); // fin de la entrada en modo terminal: axe no debe medir contraste a medio fundido

@@ -21,7 +21,20 @@ const cssVar = (name: string) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
 /** lightweight-charts no entiende OKLCH: se convierte el token del tema a hex. */
-const chartColor = (name: string) => oklchToHex(parseOklch(cssVar(name)));
+const FALLBACK: Record<string, string> = {
+  '--text-2': '#9aa4b2',
+  '--line': '#3a4350',
+  '--bull': '#3fbf7f',
+  '--bear': '#e0524a',
+};
+const chartColor = (name: string) => {
+  try {
+    return oklchToHex(parseOklch(cssVar(name)));
+  } catch {
+    // sin tokens (p. ej. en tests) o color no interpretable: un color neutro antes que romper la pantalla
+    return FALLBACK[name] ?? '#888888';
+  }
+};
 
 /** Velas con lightweight-charts. Descripción textual para lector de pantalla (CLAUDE.md §10). */
 export function CandleChart({ candles, label, height = 240 }: Props) {

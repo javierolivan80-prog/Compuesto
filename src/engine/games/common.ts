@@ -8,6 +8,7 @@ export const GAME_IDS = [
   'mesa-ordenes',
   'sube-o-baja',
   'magia-compuesto',
+  'impulsivo',
 ] as const;
 export type GameId = (typeof GAME_IDS)[number];
 

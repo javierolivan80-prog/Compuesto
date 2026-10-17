@@ -9,13 +9,13 @@ import {
   pickDailyGame,
   seenConcepts,
 } from './catalog';
-import { dailySeed } from './common';
+import { dailySeed, type GameId } from './common';
 
 const ev = (type: EventType, payload: object, at: string): AppEvent =>
   makeEvent(type, payload as never, { deviceId: 'test', now: new Date(at) });
 
 const played = (
-  game: 'campana' | 'presupuesto' | 'mesa-ordenes' | 'sube-o-baja' | 'magia-compuesto',
+  game: GameId,
   score: number,
   rating: 'AAA' | 'AA' | 'A' | 'BBB' | 'BB' | 'B',
   at: string,
@@ -67,7 +67,10 @@ describe('conceptos vistos y disponibilidad', () => {
       ]),
       tfCount: 20,
     };
-    expect(availableGames(all)).toHaveLength(5);
+    expect(availableGames(all)).toHaveLength(5); // el trader impulsivo necesita además «comisiones» y «FOMO»
+    expect(
+      availableGames({ ...all, seen: new Set([...all.seen, 'comisiones', 'fomo-manada']) }),
+    ).toHaveLength(6);
   });
   it('la Campana necesita un mínimo de afirmaciones', () => {
     expect(availability('campana', { seen: new Set(), tfCount: 7 }).available).toBe(false);
