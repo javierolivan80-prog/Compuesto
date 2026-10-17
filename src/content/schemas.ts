@@ -473,6 +473,8 @@ export const companySchema = z.object({
   description: text,
   unit: z.literal('miles de €'),
   sharesOutstanding: z.number().int().positive(),
+  /** Cotiza en bolsa (sale en la cinta); false para gestoras y sociedades no cotizadas. */
+  listed: z.boolean().default(true),
   years: z.array(yearAccountsSchema).min(3),
 });
 export const companiesSchema = z.array(companySchema);

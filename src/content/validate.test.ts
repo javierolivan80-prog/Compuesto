@@ -221,8 +221,8 @@ describe('numeric_input y spreadsheet: la fórmula se evalúa y se compara', () 
 
 describe('companies.json: cuentas coherentes de 5 años', () => {
   const companies = companiesSchema.parse(base.companies);
-  it('hay 5 empresas ficticias, incluida Naranjas del Turia, con 5 años', () => {
-    expect(companies).toHaveLength(5);
+  it('hay 7 empresas ficticias, incluida Naranjas del Turia, con 5 años', () => {
+    expect(companies).toHaveLength(7);
     expect(companies.map((c) => c.id)).toContain('naranjas-del-turia');
     for (const c of companies)
       expect(c.years.map((y) => y.year)).toEqual([2021, 2022, 2023, 2024, 2025]);

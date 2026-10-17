@@ -24,16 +24,18 @@ export const symbolOf = (id: string): string => id.split('-')[0]!.slice(0, 3).to
  */
 export function universeTicker(companies: readonly Company[], day: string): TickerItem[] {
   const dayN = Math.floor(Date.parse(`${day}T00:00:00Z`) / 86_400_000);
-  return companies.map((c) => {
-    const candles = seededCandles(hash(c.id), 40, 40 + (hash(c.id) % 60), '2026-01-01');
-    const i = 1 + (dayN % (candles.length - 1));
-    const prev = candles[i - 1]!.close;
-    const last = candles[i]!.close;
-    return {
-      symbol: symbolOf(c.id),
-      name: c.name,
-      price: last,
-      changePct: ((last - prev) / prev) * 100,
-    };
-  });
+  return companies
+    .filter((c) => c.listed !== false)
+    .map((c) => {
+      const candles = seededCandles(hash(c.id), 40, 40 + (hash(c.id) % 60), '2026-01-01');
+      const i = 1 + (dayN % (candles.length - 1));
+      const prev = candles[i - 1]!.close;
+      const last = candles[i]!.close;
+      return {
+        symbol: symbolOf(c.id),
+        name: c.name,
+        price: last,
+        changePct: ((last - prev) / prev) * 100,
+      };
+    });
 }

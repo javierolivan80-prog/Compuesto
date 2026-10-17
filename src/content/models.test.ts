@@ -271,6 +271,21 @@ describe('Merger model', () => {
   const a = mg.acquirer;
   const d = mg.deal;
 
+  it('la compradora coincide con su ficha de companies.json (caja, deuda y acciones a 2025)', () => {
+    const az = companiesSchema.parse(companiesJson).find((c) => c.name === a.name)!;
+    expect(az.id).toBe('azahar-calderona');
+    const b = az.years.at(-1)!.balance;
+    expect(b.caja).toBe(a.cash);
+    expect(b.deuda).toBe(a.debt);
+    expect(az.sharesOutstanding / 1000).toBe(a.sharesThousands);
+    expect(a.netIncome[0]).toBeGreaterThan(az.years.at(-1)!.pyg.resultado_neto);
+  });
+
+  it('el fondo del LBO pertenece a la gestora ficticia de companies.json', () => {
+    const names = companiesSchema.parse(companiesJson).map((c) => c.name);
+    expect(names.some((n) => n.startsWith(lbo.sponsor.name))).toBe(true);
+  });
+
   it('fuentes = usos y contraprestación coherente', () => {
     close(sum(r.sources), sum(r.uses), 1e-6);
     close(r.purchase.equityValue, (d.offerPricePerShare * d.targetShares) / 1000, 1e-9);

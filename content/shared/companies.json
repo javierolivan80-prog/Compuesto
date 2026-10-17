@@ -933,5 +933,380 @@
         "ampliacion_capital": 0
       }
     ]
+  },
+  {
+    "id": "azahar-calderona",
+    "name": "Grupo Azahar Calderona S.A.",
+    "legalForm": "S.A.",
+    "sector": "Alimentación (zumos, conservas y fruta envasada)",
+    "city": "Castellón de la Plana",
+    "description": "Grupo alimentario ficticio cotizado, comprador industrial en el merger model de Naranjas del Turia (rama Investment Banking). Nombre pendiente de comprobar en la CNMV.",
+    "unit": "miles de €",
+    "sharesOutstanding": 60000000,
+    "years": [
+      {
+        "year": 2021,
+        "pyg": {
+          "ingresos": 1150000,
+          "coste_ventas": 759000,
+          "gastos_operativos": 264500,
+          "amortizacion": 39200,
+          "ebit": 87300,
+          "gastos_financieros": 7875,
+          "bai": 79425,
+          "impuestos": 19856,
+          "resultado_neto": 59569
+        },
+        "balance": {
+          "caja": 47660,
+          "clientes": 141781,
+          "existencias": 124767,
+          "inmovilizado": 569100,
+          "total_activo": 883308,
+          "proveedores": 124767,
+          "deuda": 170000,
+          "total_pasivo": 294767,
+          "capital": 60000,
+          "reservas": 528541,
+          "total_patrimonio": 588541
+        },
+        "flujos": {
+          "operativo": 90744,
+          "inversion": -48300,
+          "financiacion": -34784,
+          "variacion_caja": 7660
+        },
+        "dividendos": 29784,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2022,
+        "pyg": {
+          "ingresos": 1219000,
+          "coste_ventas": 804540,
+          "gastos_operativos": 280370,
+          "amortizacion": 39837,
+          "ebit": 94253,
+          "gastos_financieros": 7650,
+          "bai": 86603,
+          "impuestos": 21651,
+          "resultado_neto": 64952
+        },
+        "balance": {
+          "caja": 55268,
+          "clientes": 150288,
+          "existencias": 132253,
+          "inmovilizado": 580461,
+          "total_activo": 918270,
+          "proveedores": 132253,
+          "deuda": 165000,
+          "total_pasivo": 297253,
+          "capital": 60000,
+          "reservas": 561017,
+          "total_patrimonio": 621017
+        },
+        "flujos": {
+          "operativo": 96282,
+          "inversion": -51198,
+          "financiacion": -37476,
+          "variacion_caja": 7608
+        },
+        "dividendos": 32476,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2023,
+        "pyg": {
+          "ingresos": 1292140,
+          "coste_ventas": 852812,
+          "gastos_operativos": 297192,
+          "amortizacion": 40632,
+          "ebit": 101504,
+          "gastos_financieros": 7425,
+          "bai": 94079,
+          "impuestos": 23520,
+          "resultado_neto": 70559
+        },
+        "balance": {
+          "caja": 62892,
+          "clientes": 159305,
+          "existencias": 140188,
+          "inmovilizado": 594099,
+          "total_activo": 956484,
+          "proveedores": 140188,
+          "deuda": 160000,
+          "total_pasivo": 300188,
+          "capital": 60000,
+          "reservas": 596296,
+          "total_patrimonio": 656296
+        },
+        "flujos": {
+          "operativo": 102174,
+          "inversion": -54270,
+          "financiacion": -40280,
+          "variacion_caja": 7624
+        },
+        "dividendos": 35280,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2024,
+        "pyg": {
+          "ingresos": 1369668,
+          "coste_ventas": 903981,
+          "gastos_operativos": 315024,
+          "amortizacion": 41587,
+          "ebit": 109076,
+          "gastos_financieros": 7200,
+          "bai": 101876,
+          "impuestos": 25469,
+          "resultado_neto": 76407
+        },
+        "balance": {
+          "caja": 70598,
+          "clientes": 168863,
+          "existencias": 148600,
+          "inmovilizado": 610038,
+          "total_activo": 998099,
+          "proveedores": 148600,
+          "deuda": 155000,
+          "total_pasivo": 303600,
+          "capital": 60000,
+          "reservas": 634499,
+          "total_patrimonio": 694499
+        },
+        "flujos": {
+          "operativo": 108436,
+          "inversion": -57526,
+          "financiacion": -43204,
+          "variacion_caja": 7706
+        },
+        "dividendos": 38204,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2025,
+        "pyg": {
+          "ingresos": 1451849,
+          "coste_ventas": 958220,
+          "gastos_operativos": 333925,
+          "amortizacion": 42703,
+          "ebit": 117001,
+          "gastos_financieros": 6975,
+          "bai": 110026,
+          "impuestos": 27506,
+          "resultado_neto": 82520
+        },
+        "balance": {
+          "caja": 80000,
+          "clientes": 178995,
+          "existencias": 157516,
+          "inmovilizado": 628313,
+          "total_activo": 1044824,
+          "proveedores": 157516,
+          "deuda": 150000,
+          "total_pasivo": 307516,
+          "capital": 60000,
+          "reservas": 677308,
+          "total_patrimonio": 737308
+        },
+        "flujos": {
+          "operativo": 115091,
+          "inversion": -60978,
+          "financiacion": -44711,
+          "variacion_caja": 9402
+        },
+        "dividendos": 39711,
+        "ampliacion_capital": 0
+      }
+    ]
+  },
+  {
+    "id": "marjal-capital-partners",
+    "name": "Marjal Capital Partners S.G.E.I.C., S.A.",
+    "legalForm": "S.A.",
+    "sector": "Gestora de capital riesgo (private equity)",
+    "city": "Valencia",
+    "description": "Gestora ficticia de fondos de private equity, no cotizada; sus fondos lanzan el LBO de Naranjas del Turia. Las cuentas son las de la gestora (comisiones), no las de sus fondos. Nombre pendiente de comprobar en la CNMV.",
+    "unit": "miles de €",
+    "sharesOutstanding": 300000,
+    "listed": false,
+    "years": [
+      {
+        "year": 2021,
+        "pyg": {
+          "ingresos": 11200,
+          "coste_ventas": 896,
+          "gastos_operativos": 6160,
+          "amortizacion": 135,
+          "ebit": 4009,
+          "gastos_financieros": 0,
+          "bai": 4009,
+          "impuestos": 1002,
+          "resultado_neto": 3007
+        },
+        "balance": {
+          "caja": 3057,
+          "clientes": 921,
+          "existencias": 0,
+          "inmovilizado": 899,
+          "total_activo": 4877,
+          "proveedores": 226,
+          "deuda": 0,
+          "total_pasivo": 226,
+          "capital": 300,
+          "reservas": 4351,
+          "total_patrimonio": 4651
+        },
+        "flujos": {
+          "operativo": 3097,
+          "inversion": -134,
+          "financiacion": -2406,
+          "variacion_caja": 557
+        },
+        "dividendos": 2406,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2022,
+        "pyg": {
+          "ingresos": 11984,
+          "coste_ventas": 959,
+          "gastos_operativos": 6591,
+          "amortizacion": 135,
+          "ebit": 4299,
+          "gastos_financieros": 0,
+          "bai": 4299,
+          "impuestos": 1075,
+          "resultado_neto": 3224
+        },
+        "balance": {
+          "caja": 3644,
+          "clientes": 985,
+          "existencias": 0,
+          "inmovilizado": 908,
+          "total_activo": 5537,
+          "proveedores": 241,
+          "deuda": 0,
+          "total_pasivo": 241,
+          "capital": 300,
+          "reservas": 4996,
+          "total_patrimonio": 5296
+        },
+        "flujos": {
+          "operativo": 3310,
+          "inversion": -144,
+          "financiacion": -2579,
+          "variacion_caja": 587
+        },
+        "dividendos": 2579,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2023,
+        "pyg": {
+          "ingresos": 12823,
+          "coste_ventas": 1026,
+          "gastos_operativos": 7053,
+          "amortizacion": 136,
+          "ebit": 4608,
+          "gastos_financieros": 0,
+          "bai": 4608,
+          "impuestos": 1152,
+          "resultado_neto": 3456
+        },
+        "balance": {
+          "caja": 4265,
+          "clientes": 1054,
+          "existencias": 0,
+          "inmovilizado": 926,
+          "total_activo": 6245,
+          "proveedores": 258,
+          "deuda": 0,
+          "total_pasivo": 258,
+          "capital": 300,
+          "reservas": 5687,
+          "total_patrimonio": 5987
+        },
+        "flujos": {
+          "operativo": 3540,
+          "inversion": -154,
+          "financiacion": -2765,
+          "variacion_caja": 621
+        },
+        "dividendos": 2765,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2024,
+        "pyg": {
+          "ingresos": 13720,
+          "coste_ventas": 1098,
+          "gastos_operativos": 7546,
+          "amortizacion": 139,
+          "ebit": 4937,
+          "gastos_financieros": 0,
+          "bai": 4937,
+          "impuestos": 1234,
+          "resultado_neto": 3703
+        },
+        "balance": {
+          "caja": 4924,
+          "clientes": 1128,
+          "existencias": 0,
+          "inmovilizado": 952,
+          "total_activo": 7004,
+          "proveedores": 276,
+          "deuda": 0,
+          "total_pasivo": 276,
+          "capital": 300,
+          "reservas": 6428,
+          "total_patrimonio": 6728
+        },
+        "flujos": {
+          "operativo": 3786,
+          "inversion": -165,
+          "financiacion": -2962,
+          "variacion_caja": 659
+        },
+        "dividendos": 2962,
+        "ampliacion_capital": 0
+      },
+      {
+        "year": 2025,
+        "pyg": {
+          "ingresos": 14681,
+          "coste_ventas": 1174,
+          "gastos_operativos": 8075,
+          "amortizacion": 143,
+          "ebit": 5289,
+          "gastos_financieros": 0,
+          "bai": 5289,
+          "impuestos": 1322,
+          "resultado_neto": 3967
+        },
+        "balance": {
+          "caja": 5625,
+          "clientes": 1207,
+          "existencias": 0,
+          "inmovilizado": 985,
+          "total_activo": 7817,
+          "proveedores": 296,
+          "deuda": 0,
+          "total_pasivo": 296,
+          "capital": 300,
+          "reservas": 7221,
+          "total_patrimonio": 7521
+        },
+        "flujos": {
+          "operativo": 4051,
+          "inversion": -176,
+          "financiacion": -3174,
+          "variacion_caja": 701
+        },
+        "dividendos": 3174,
+        "ampliacion_capital": 0
+      }
+    ]
   }
 ]
