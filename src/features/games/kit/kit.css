@@ -153,3 +153,27 @@
     opacity: 1;
   }
 }
+
+/* Mano del tutorial jugable: señala la jugada guiada. */
+@keyframes kit-hand {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-6px, -8px);
+  }
+}
+.kit-hand {
+  animation: kit-hand 1.1s var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-hand {
+    animation: none;
+  }
+}
+
+/* Cuenta atrás: la barra se vacía (transform) de forma lineal. */
+.kit-deadline-bar {
+  transform-origin: left;
+}

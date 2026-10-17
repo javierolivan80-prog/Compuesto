@@ -101,3 +101,11 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 ## 2.3 — Ejercicios nuevos (-e9) en 5 lecciones (17/10/2026)
 
 Revisor independiente: aprobados los 5; sin errores de exactitud. Aplicado: opciones de longitud pareja en `n0-u3-l2-e9` y `n0-u3-l4-e9`; `n0-u1-l3-e9` cambia al 4 % (72/4 = 18 años; exacto 17,7) para no repetir el 9 % de otros ejercicios. `tolerance` de `slider_estimate` es un % de la respuesta. Pendiente: revisión de Javier (🛑) como el resto de la unidad.
+
+## 2.5 — Datos de los juegos (`content/shared/games.json`, 17/10/2026)
+
+Revisor independiente: direcciones de los 12 titulares y tipos de orden correctos; sin errores de cálculo. Cambios aplicados:
+- **Titulares:** distractores sustituidos por falacias reales de nivel 1 (p. ej. «una buena noticia ya estaba en el precio», «recomprar aumenta las acciones en circulación»), longitudes igualadas y sin el patrón «siempre/nunca» que delataba la respuesta; recompra y venta de fondo sin distractores defendibles; cierre de planta «sin costes de cierre relevantes».
+- **Órdenes:** «precio único que resulte de la subasta» (hay dos subastas al día) y «ahora mismo» en la petición inmediata de venta.
+- **Presupuesto:** «Dinero que llevas a un depósito a plazo» (evita confundir con ingreso), «Dinero que apartas cada mes para el viaje», «tu plan de ahorro», «Seguro del coche (parte mensual)»; el sobrante se llama «Lo que decides apartar este mes» y el ajuste de ingresos recae en la nómina o las clases.
+- Pendiente: revisión de Javier (🛑).

@@ -66,7 +66,7 @@
       },
       {
         "id": "seguro",
-        "label": "Seguro del coche",
+        "label": "Seguro del coche (parte mensual)",
         "category": "gasto",
         "min": 35,
         "max": 90
@@ -94,21 +94,21 @@
       },
       {
         "id": "plan",
-        "label": "Aportación mensual a un plan de ahorro",
+        "label": "Aportación mensual a tu plan de ahorro",
         "category": "ahorro",
         "min": 30,
         "max": 150
       },
       {
         "id": "viaje",
-        "label": "Hucha para el viaje del verano",
+        "label": "Dinero que apartas cada mes para el viaje del verano",
         "category": "ahorro",
         "min": 20,
         "max": 90
       },
       {
         "id": "deposito",
-        "label": "Ingreso en un depósito a plazo",
+        "label": "Dinero que llevas a un depósito a plazo",
         "category": "ahorro",
         "min": 100,
         "max": 400
@@ -127,7 +127,7 @@
         },
         {
           "side": "sell",
-          "text": "Necesita vender {q} acciones de {co} hoy y no puede esperar."
+          "text": "Necesita vender {q} acciones de {co} ahora mismo y no puede esperar."
         }
       ],
       "cap": [
@@ -143,11 +143,11 @@
       "auction": [
         {
           "side": "buy",
-          "text": "Prefiere comprar {q} acciones de {co} en la subasta de apertura, al precio único del día."
+          "text": "Prefiere comprar {q} acciones de {co} en la subasta de apertura, al precio único que resulte de la subasta."
         },
         {
           "side": "sell",
-          "text": "Prefiere vender {q} acciones de {co} en la subasta de cierre, al precio único del día."
+          "text": "Prefiere vender {q} acciones de {co} en la subasta de cierre, al precio único que resulte de la subasta."
         }
       ]
     },
@@ -161,9 +161,9 @@
       "text": "Naranjas del Turia gana un 25 % más de lo que esperaba el mercado.",
       "direction": "up",
       "motives": [
-        "Los resultados superan las expectativas y los inversores revalorizan la empresa",
-        "Hay menos acciones en circulación",
-        "La bolsa siempre sube cuando se publican resultados"
+        "Los resultados superan lo que esperaba el mercado y los compradores pagan más por la empresa",
+        "Una buena noticia ya estaba en el precio, así que no puede moverlo y el titular es irrelevante",
+        "El precio solo se mueve cuando cambia el número de accionistas, no por los resultados"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -174,9 +174,9 @@
       "text": "Pirineo Energía rebaja su previsión de beneficios para el año.",
       "direction": "down",
       "motives": [
-        "Los inversores esperan ahora menos beneficios y pagan menos por la acción",
-        "Ha subido el número de accionistas",
-        "Siempre que hay noticias la acción baja"
+        "Los inversores esperan menos beneficios futuros y ofrecen menos por cada acción",
+        "Una previsión más baja reduce el número de acciones y por eso baja el precio",
+        "Rebajar la previsión es buena señal, porque así la empresa podrá cumplirla con facilidad"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -187,9 +187,9 @@
       "text": "Mediterránea de Navieras firma un contrato de cinco años con su mayor cliente.",
       "direction": "up",
       "motives": [
-        "Ingresos más seguros durante años aumentan el valor esperado de la empresa",
-        "La empresa ha cambiado de nombre",
-        "Los contratos largos garantizan que la acción no baje nunca"
+        "Ingresos más seguros durante cinco años aumentan el valor esperado de la empresa",
+        "Un contrato largo garantiza que la acción no pueda bajar durante esos cinco años",
+        "Los contratos solo afectan al precio cuando se firman con empresas que cotizan en bolsa"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -200,9 +200,9 @@
       "text": "Dimite el consejero delegado de Naranjas del Turia por un expediente abierto por la CNMV.",
       "direction": "down",
       "motives": [
-        "La incertidumbre y el riesgo de sanción hacen que los compradores pidan un precio menor",
-        "Los dimisionarios siempre hacen bajar la bolsa",
-        "Hay demasiadas acciones en el mercado"
+        "La incertidumbre y el posible coste de una sanción hacen que se pague menos por la empresa",
+        "Cuando dimite un directivo, los accionistas reciben automáticamente un dividendo menor",
+        "Que dimita un directivo reduce el número de acciones en el mercado y por eso el precio baja"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -214,8 +214,8 @@
       "direction": "down",
       "motives": [
         "Una venta tan grande supera a los compradores disponibles y empuja el precio a la baja",
-        "El fondo sabe un secreto sobre la empresa y lo hace público",
-        "Las ventas de fondos siempre son una buena noticia"
+        "Cuando un fondo vende, el valor real de la empresa baja a la vez en la misma cantidad",
+        "La venta de un fondo aumenta los beneficios de la empresa, y por eso su precio cae"
       ],
       "answer": 0,
       "concepts": ["formacion-precios", "liquidez"],
@@ -227,8 +227,8 @@
       "direction": "down",
       "motives": [
         "Habrá más acciones y se emiten por debajo del precio actual, así que el valor por acción se diluye",
-        "Una ampliación siempre indica que la empresa va muy bien",
-        "Las acciones nuevas hacen que el precio sea más estable"
+        "Más acciones en circulación significan que la empresa vale más y el precio debe subir",
+        "La ampliación aporta caja nueva, así que el precio sube en cuanto se anuncia"
       ],
       "answer": 0,
       "concepts": ["formacion-precios", "ampliacion-capital"],
@@ -239,22 +239,22 @@
       "text": "Albufera Partners anuncia que recomprará el 5 % de sus acciones en el mercado.",
       "direction": "up",
       "motives": [
-        "La propia empresa compra y hay menos acciones en circulación, lo que sostiene el precio",
-        "La empresa está pidiendo dinero prestado a los accionistas",
-        "Recomprar acciones es lo mismo que pagar un dividendo"
+        "La empresa añade un gran comprador y señala que cree que la acción vale más de lo que cotiza",
+        "Recomprar acciones aumenta el número de acciones en circulación y así sube el precio",
+        "Una recompra es una petición de dinero a los accionistas, y eso anima a comprar"
       ],
       "answer": 0,
       "concepts": ["formacion-precios", "recompra-acciones"],
-      "explanation": "Una recompra añade un comprador grande y reduce el número de acciones: tiende a sostener el precio."
+      "explanation": "Una recompra añade demanda y suele leerse como señal de que la directiva ve la acción barata."
     },
     {
       "id": "comprador-institucional",
       "text": "Un gran fondo anuncia que quiere comprar el 6 % de Naranjas del Turia durante la semana.",
       "direction": "up",
       "motives": [
-        "Hay un comprador grande que añade demanda y empuja el precio al alza",
-        "La empresa ha repartido un dividendo extraordinario",
-        "Las compras de fondos no afectan nunca al precio"
+        "Un comprador grande añade demanda durante la semana y empuja el precio al alza",
+        "Las compras de un fondo no cambian la demanda, porque los fondos compran sin afectar al precio",
+        "Un fondo que compra obliga a la empresa a repartir un dividendo extraordinario"
       ],
       "answer": 0,
       "concepts": ["formacion-precios", "liquidez"],
@@ -265,9 +265,9 @@
       "text": "Un temporal obliga a Mediterránea de Navieras a suspender todas sus rutas durante dos semanas.",
       "direction": "down",
       "motives": [
-        "Dos semanas sin ingresos recortan los beneficios que se esperaban",
-        "Los temporales siempre suben el precio de las acciones",
-        "Las rutas suspendidas aumentan el número de accionistas"
+        "Dos semanas sin ingresos recortan los beneficios que se esperaban para el año",
+        "Un temporal es pasajero, así que los compradores lo ignoran y el precio no cambia",
+        "Las rutas suspendidas hacen que haya más accionistas y por eso baja el precio"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -275,12 +275,12 @@
     },
     {
       "id": "cierre-planta",
-      "text": "Pirineo Energía anuncia el cierre de una planta que perdía dinero todos los años.",
+      "text": "Pirineo Energía anuncia el cierre, sin costes de cierre relevantes, de una planta que perdía dinero todos los años.",
       "direction": "up",
       "motives": [
-        "Elimina pérdidas recurrentes y mejora los beneficios esperados",
-        "Cerrar plantas siempre indica que la empresa va a quebrar",
-        "Con menos plantas hay menos acciones en el mercado"
+        "Elimina pérdidas recurrentes y mejora los beneficios que se esperan de la empresa",
+        "Cerrar una planta reduce el tamaño de la empresa y toda reducción de tamaño es mala señal",
+        "Con menos plantas hay menos acciones en circulación y por eso sube el precio"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -291,9 +291,9 @@
       "text": "Dos analistas elevan su precio objetivo de Albufera Partners tras revisar al alza los ingresos que esperan.",
       "direction": "up",
       "motives": [
-        "Los compradores esperan más ingresos futuros y están dispuestos a pagar más",
-        "Los analistas son dueños de la empresa y compran acciones",
-        "Un precio objetivo obliga legalmente a que la acción suba"
+        "Los analistas ven más ingresos futuros y el mercado revisa al alza lo que vale la empresa",
+        "Un precio objetivo obliga a la empresa a que su acción alcance ese nivel en un plazo fijado",
+        "Los analistas compran acciones con su propio dinero y por eso suben el precio"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],
@@ -304,9 +304,9 @@
       "text": "Naranjas del Turia pierde a su cliente principal, que suponía el 40 % de sus ventas.",
       "direction": "down",
       "motives": [
-        "Perder una gran parte de los ingresos recorta los beneficios esperados",
-        "Tener menos clientes reduce el número de acciones",
-        "Perder clientes es siempre una buena señal"
+        "Perder el 40 % de las ventas recorta los beneficios esperados y se paga menos por la empresa",
+        "Con menos clientes la empresa tiene menos costes, así que gana más y el precio sube",
+        "Perder un cliente reduce las acciones en circulación y así baja el precio"
       ],
       "answer": 0,
       "concepts": ["formacion-precios"],

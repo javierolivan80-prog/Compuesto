@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
-import { ComingSoon, EmptyState, ErrorState, Loading } from '../../components/States';
+import { EmptyState, ErrorState, Loading } from '../../components/States';
 import {
   allLessons,
   conceptGraph,
@@ -19,6 +19,8 @@ import {
   projectCards,
   recentMistakes,
 } from '../../engine/srs';
+import { GAME_INFO, availability, dailyBest, gameRecords } from '../../engine/games/catalog';
+import { gameData } from '../games/data';
 import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
 
@@ -45,7 +47,16 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
       .filter((c) => catalog.some((e) => e.id === c.exerciseId) && nextReviewDay(c) > today)
       .map((c) => nextReviewDay(c))
       .sort()[0];
+    const gd = gameData(data.events);
+    const records = gameRecords(data.events);
+    const games = GAME_INFO.map((g) => ({
+      ...g,
+      avail: availability(g.id, gd.context),
+      record: records.get(g.id) ?? null,
+      today: dailyBest(data.events, g.id, today),
+    }));
     return {
+      games,
       dueCount: due.length,
       plannedCount: planned.length,
       reinforcing: planned.filter((p) => p.reason === 'refuerzo').length,
@@ -212,9 +223,58 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
         </p>
       </section>
 
-      <ComingSoon title="Minijuegos">
-        <p>Juegos para entrenar cada concepto llegan en esta misma fase.</p>
-      </ComingSoon>
+      <section aria-labelledby="games-title" className="grid gap-3">
+        <h2 id="games-title" className="text-2xl">
+          Minijuegos
+        </h2>
+        <ul className="grid gap-3">
+          {view.games.map((g) => (
+            <li
+              key={g.id}
+              data-testid={`game-${g.id}`}
+              className="bg-surface-1 border-line grid gap-2 rounded-[var(--radius-md)] border p-4"
+            >
+              <div>
+                <h3 className="text-xl">{g.title}</h3>
+                <p className="text-text-2 text-sm">
+                  {g.levels} · {g.blurb}
+                </p>
+              </div>
+              {g.avail.available ? (
+                <>
+                  <p className="text-text-2 text-sm" data-num>
+                    {g.record
+                      ? `Récord: ${g.record.bestRating} · ${formatNumber(g.record.plays)} ${g.record.plays === 1 ? 'partida' : 'partidas'}`
+                      : 'Aún no has jugado'}
+                    {' · '}
+                    {g.today ? `Partida del día: ${g.today.rating}` : 'Partida del día pendiente'}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Button aria-label={`Jugar a ${g.title}`} onClick={() => go(`#/juego/${g.id}`)}>
+                      Jugar
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      aria-label={`Partida del día de ${g.title}`}
+                      onClick={() => go(`#/juego/${g.id}/dia`)}
+                    >
+                      Partida del día
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <p className="text-text-2 text-sm" data-testid="game-locked">
+                  Se desbloquea al{' '}
+                  {g.avail.missing[0] === '__tf'
+                    ? 'completar lecciones con afirmaciones de verdadero o falso (hacen falta al menos 8)'
+                    : `ver: ${g.avail.missing.map((c) => conceptName(c)).join(', ')}`}
+                  .
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section aria-labelledby="repeat-title" className="grid gap-2">
         <h2 id="repeat-title" className="text-2xl">

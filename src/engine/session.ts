@@ -1,5 +1,6 @@
 import { addDays, dayKey } from './days';
 import type { AppEvent, BlockSpec } from './events';
+import type { GameId } from './games/common';
 import { normalizeEvents } from './projections';
 
 /*
@@ -15,6 +16,8 @@ export const COST = {
   perDueCard: 0.4,
   perReviewExercise: 0.5,
   perRetoExercise: 0.6,
+  /** Una partida de minijuego dura ~2–3 min. */
+  game: 2.5,
 } as const;
 
 /** Tamaño del Encargo del jefe (reto semanal más largo). */
@@ -36,6 +39,8 @@ export interface PlanInput {
   reviewable: number;
   /** ¿Toca el Encargo del jefe esta semana? */
   weeklyBoss: boolean;
+  /** Minijuego de hoy (solo con conceptos vistos); si no hay, el bloque se sustituye por repaso. */
+  gameId?: GameId | null;
 }
 
 export interface SessionPlan {
@@ -54,6 +59,7 @@ export function estimateMinutes(
     else if (b.kind === 'cierre') m += COST.cierre;
     else if (b.kind === 'due') m += b.cards * COST.perDueCard;
     else if (b.kind === 'lesson') m += lessonMinutes(b.lessonId);
+    else if (b.kind === 'game') m += COST.game;
     else if (b.kind === 'review') m += b.exercises * COST.perReviewExercise;
     else m += b.exercises * COST.perRetoExercise;
   }
@@ -61,7 +67,7 @@ export function estimateMinutes(
 }
 
 /**
- * Orden fijo: Briefing, Due diligence, Lección 1, repaso (en lugar del minijuego), Lección 2, Reto del día
+ * Orden fijo: Briefing, Due diligence, Lección 1, minijuego (o repaso si no hay), Lección 2, Reto del día
  * (o Encargo del jefe) y Cierre. Se incluye cada bloque solo si cabe en el tiempo elegido; lo que sobra se
  * reparte en repaso/reto para no dejar huecos, y una sesión nunca queda sin nada sustancial si hay contenido.
  */
@@ -90,9 +96,12 @@ export function planSession(input: PlanInput): SessionPlan {
     usedLessons++;
   }
 
-  // 3) Repaso en lugar del minijuego (se monta con lo que haya en ese momento)
+  // 3) Minijuego de hoy; si no hay ninguno disponible, repaso en su lugar (se monta con lo que haya en ese momento)
   const reviewAvailable = input.reviewable >= 3 || usedLessons > 0;
-  if (reviewAvailable && left >= 1.5) {
+  if (input.gameId && left >= COST.game) {
+    blocks.push({ kind: 'game', gameId: input.gameId });
+    left -= COST.game;
+  } else if (reviewAvailable && left >= 1.5) {
     const n = Math.max(3, Math.min(6, Math.floor(left / COST.perReviewExercise)));
     blocks.push({ kind: 'review', exercises: n });
     left -= n * COST.perReviewExercise;
@@ -129,7 +138,9 @@ export function planSession(input: PlanInput): SessionPlan {
       }
     } else if (left >= 1.5) {
       const n = Math.min(15, Math.max(3, Math.floor(left / COST.perReviewExercise)));
-      blocks.push({ kind: 'review', exercises: n });
+      // el repaso va antes del reto, no después
+      const at = blocks.findIndex((b) => b.kind === 'reto');
+      blocks.splice(at >= 0 ? at : blocks.length, 0, { kind: 'review', exercises: n });
       left -= n * COST.perReviewExercise;
     }
     const ti = blocks.findIndex((b) => b.kind === 'reto' && !b.weekly);

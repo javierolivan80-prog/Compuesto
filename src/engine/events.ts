@@ -27,6 +27,10 @@ export const blockSpec = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('briefing') }),
   z.object({ kind: z.literal('due'), cards: z.number().int().min(1).max(15) }),
   z.object({ kind: z.literal('lesson'), lessonId: id }),
+  z.object({
+    kind: z.literal('game'),
+    gameId: z.enum(['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto']),
+  }),
   z.object({ kind: z.literal('review'), exercises: z.number().int().min(1).max(15) }),
   z.object({
     kind: z.literal('reto'),

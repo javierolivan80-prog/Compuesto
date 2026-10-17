@@ -33,7 +33,12 @@ export function budgetRound(
   const n = BUDGET_ITEMS_PER_ROUND[Math.min(round, BUDGET_ITEMS_PER_ROUND.length - 1)]!;
   const pick = (cat: BudgetCategory, k: number): Template[] => {
     const c = pool.filter((p) => p.category === cat);
-    const order = c.map((_, i) => i).sort(() => rnd() - 0.5);
+    // Fisher–Yates con el PRNG de la semilla: determinista en cualquier motor de JavaScript
+    const order = c.map((_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(rnd() * (i + 1));
+      [order[i], order[j]] = [order[j]!, order[i]!];
+    }
     return order.slice(0, k).map((i) => c[i]!);
   };
   const nIncome = Math.max(1, Math.round(n * 0.3));
@@ -52,15 +57,17 @@ export function budgetRound(
   const out = items.filter((i) => i.category !== 'ingreso').reduce((s, i) => s + i.amount, 0);
   const diff = out - income;
   if (diff > 0) {
-    // faltan ingresos: se suma al mayor
-    const big = items
-      .filter((i) => i.category === 'ingreso')
-      .sort((a, b) => b.amount - a.amount)[0]!;
+    // faltan ingresos: se suma a la nómina (o a las clases) para que no desentone; si no hay, al mayor
+    const incomes = items.filter((i) => i.category === 'ingreso');
+    const big =
+      incomes.find((i) => i.id === 'nomina') ??
+      incomes.find((i) => i.id === 'clases') ??
+      [...incomes].sort((a, b) => b.amount - a.amount)[0]!;
     big.amount += diff;
   } else if (diff < 0) {
     items.push({
       id: 'sobrante',
-      label: 'Lo que sobra a final de mes',
+      label: 'Lo que decides apartar este mes',
       amount: -diff,
       category: 'ahorro',
     });

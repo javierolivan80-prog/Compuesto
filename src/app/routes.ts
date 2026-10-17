@@ -1,5 +1,7 @@
 /* Rutas por hash. Pura y testeada. */
 
+import { GAME_IDS, type GameId } from '../engine/games/common';
+
 export type Route =
   | { name: 'home' }
   | { name: 'camino' }
@@ -10,6 +12,7 @@ export type Route =
   | { name: 'glosario' }
   | { name: 'reportes' }
   | { name: 'sesion' }
+  | { name: 'juego'; id: GameId; daily: boolean }
   | { name: 'leccion'; id: string }
   | { name: 'salto'; unitId: string }
   | { name: 'saltar-nivel'; level: number }
@@ -42,6 +45,9 @@ export function parseRoute(hash: string): Route {
   if (h === '#/sesion') return { name: 'sesion' };
   let m = new RegExp(`^#/leccion/${SLUG}$`).exec(h);
   if (m) return { name: 'leccion', id: m[1]! };
+  m = new RegExp(`^#/juego/${SLUG}(/dia)?$`).exec(h);
+  if (m && (GAME_IDS as readonly string[]).includes(m[1]!))
+    return { name: 'juego', id: m[1] as GameId, daily: !!m[2] };
   m = new RegExp(`^#/salto/${SLUG}$`).exec(h);
   if (m) return { name: 'salto', unitId: m[1]! };
   m = /^#\/saltar-nivel\/(\d+)$/.exec(h);

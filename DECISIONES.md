@@ -252,3 +252,17 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Laboratorio** `/games-lab` (solo desarrollo) y compilación de medición con `VITE_LAB=1` (`npm run e2e:lab`, `dist-lab` ignorado por git/lint/prettier): la medida de fps se hace con el código minificado de producción, porque en desarrollo React dominaba el coste. Lección aprendida: un solo estado en la raíz del laboratorio re-renderizaba todo y daba 10–20 fps; cada sección tiene ahora su estado.
 - **Ticker de fondo y axe:** la cinta (aria-hidden, 30 % de opacidad por diseño) se excluye de la comprobación de contraste de axe: es texto decorativo exento por WCAG 1.4.3.
 - **Provisional:** «controles para forzar reduced-motion» del plan: se prueba con `emulateMedia` en Playwright, no con un conmutador dentro del laboratorio (el CSS depende de la media query del sistema). El criterio de 60 fps se cumple como media ≥ 55 en render por software (medido: 56,4 fps, p95 16,8 ms, un fotograma de 67 ms al crear el `AudioContext`).
+
+## 2.5 — Juegos 1, 2 (versión presupuesto), 3, 4 y 10 (17/10/2026)
+
+- **Puntuación corregida por azar** (`engine/games/common.ts`): cada decisión suma lo obtenido, lo que daría el azar y el máximo; la nota sale de `(obtenido − azar) / (máximo − azar)`. Así «jugar al azar saca ≤ B» es una propiedad del diseño, no de un umbral. Medido en tests (1.000 partidas al azar por juego): ≥ 95–97 % B, ≤ 1 % por encima de BB, nunca AAA ni AA. Para bajar la varianza hay 24 tarjetas (Campana), 12 clientes (Mesa), 8 titulares (¿Sube?), 4 rondas (Compuesto) y 3 presupuestos.
+- **Datos de los juegos en `content/shared/games.json`** (partidas de presupuesto, peticiones de clientes, titulares), con esquema Zod y comprobación en `content:validate` (conceptos existentes, motivos distintos, 3 partidas por categoría). Revisados por el subagente revisor (ver `CONTENIDO-QA.md`).
+- **Semillas deterministas entre motores:** una primera versión barajaba con `sort(() => rnd() - 0.5)` y daba orden distinto en Node y en Chromium; ahora Fisher–Yates con el PRNG y valores de referencia fijados en tests.
+- **Campana de apertura** usa las afirmaciones V/F de lecciones ya completadas (o de unidades saltadas): no hay contenido nuevo que revisar.
+- **Mesa de órdenes:** la subasta solo aparece si «subastas» se ha visto; el libro usa `orderbook.ts` (ya testeado).
+- **¿Sube o baja?:** la vela sale de `marketPath` con deriva a favor del titular (12 pasos, σ pequeña): su dirección coincide siempre con el titular (test con 1.200 casos).
+- **Mano animada y jugada guiada** (tutorial de la primera partida de cada juego): texto + mano que señala la jugada correcta; no es un tutorial interactivo con pasos.
+- **Arrastrar:** la Campana admite deslizar la tarjeta; Cuadra tu presupuesto usa pulsar/teclas 1–3 en vez de arrastrar (alternativa accesible que CLAUDE.md §10 exige de todas formas). **Provisional:** el arrastre de partidas a la balanza no está.
+- **XP:** 5–40 por partida según la nota, solo las 3 primeras del día (`GAME_XP`, `GAME_XP_PLAYS_PER_DAY`). Evento nuevo `game_played`.
+- **Sesión:** el bloque «Minijuego» ya existe (`kind: 'game'`), rota entre los disponibles y no repite el último; si no hay ninguno, sigue siendo repaso.
+- **Provisional / no hecho:** la tarjeta de repaso «ligada al concepto» tras un fallo es el botón «Practicar» del resultado (práctica por tema), no una tarjeta SRS nueva; el criterio «empezar a jugar en ≤ 5 s sin leer» lo comprobará Javier (🛑) y `review-animations`/`/impeccable critique` no se han pasado.

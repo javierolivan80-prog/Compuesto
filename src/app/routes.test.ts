@@ -16,6 +16,9 @@ describe('rutas', () => {
     ['#/leccion/n0-u1-l1', { name: 'leccion', id: 'n0-u1-l1' }],
     ['#/salto/n1-u4', { name: 'salto', unitId: 'n1-u4' }],
     ['#/saltar-nivel/0', { name: 'saltar-nivel', level: 0 }],
+    ['#/sesion', { name: 'sesion' }],
+    ['#/juego/campana', { name: 'juego', id: 'campana', daily: false }],
+    ['#/juego/mesa-ordenes/dia', { name: 'juego', id: 'mesa-ordenes', daily: true }],
   ])('%s', (hash, route) => {
     expect(parseRoute(hash)).toEqual(route);
   });
@@ -26,6 +29,8 @@ describe('rutas', () => {
       '#/leccion/A B',
       '#/saltar-nivel/x',
       '#/despacho/otra',
+      '#/juego/no-existe',
+      '#/juego/campana/otro',
     ])
       expect(parseRoute(h)).toEqual({ name: 'home' });
   });

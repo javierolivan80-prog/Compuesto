@@ -27,8 +27,11 @@ import {
   type ReviewItem,
 } from '../../engine/srs';
 import { dayKey } from '../../engine/days';
+import { availableGames, pickDailyGame } from '../../engine/games/catalog';
 import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
+import { GameHost } from '../games/GameHost';
+import { gameData } from '../games/data';
 import { LessonScreen } from '../lesson/LessonScreen';
 import { ReviewScreen } from '../practicar/ReviewScreen';
 
@@ -138,6 +141,7 @@ export function SessionScreen({ onExit }: Props) {
         nextLessons,
         reviewable,
         weeklyBoss: weeklyBossAvailable(ctx.events, today),
+        gameId: pickDailyGame(ctx.events, today, availableGames(gameData(ctx.events).context)),
       });
       const sessionId = newId();
       await repo.record('session_started', { sessionId, day: today, minutes, blocks: plan.blocks });
@@ -264,7 +268,9 @@ function BlockRunner({
   const skip =
     (block.kind === 'lesson' &&
       (!lesson || ctx.summary.progress.lessons[block.lessonId]?.status === 'completed')) ||
-    (block.kind !== 'lesson' && items.length === 0);
+    (block.kind === 'game' &&
+      !availableGames(gameData(ctx.events).context).includes(block.gameId)) ||
+    (block.kind !== 'lesson' && block.kind !== 'game' && items.length === 0);
   const skipped = useRef(false);
   useEffect(() => {
     if (skip && !skipped.current) {
@@ -274,6 +280,16 @@ function BlockRunner({
   }, [skip, onDone]);
   if (skip) return <Loading />;
 
+  if (block.kind === 'game')
+    return (
+      <GameHost
+        gameId={block.gameId}
+        daily
+        onExit={onExit}
+        onFinished={onDone}
+        finishLabel="Siguiente bloque"
+      />
+    );
   const step = `Paso ${index} de ${total - 1}`;
   if (block.kind === 'lesson' && lesson)
     return (

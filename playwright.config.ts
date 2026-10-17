@@ -53,6 +53,7 @@ export default defineConfig({
         'hardening.spec.ts',
         'practicar.spec.ts',
         'sesion.spec.ts',
+        'juegos.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

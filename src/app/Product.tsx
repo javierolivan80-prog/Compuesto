@@ -43,6 +43,7 @@ const Practicar = lazy(() =>
 const Rivales = lazy(() =>
   import('../features/practicar/Rivales').then((m) => ({ default: m.Rivales })),
 );
+const GameRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.GameRoute })));
 const SessionRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.SessionRoute })));
 const LessonRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.LessonRoute })));
 const ReviewRoute = lazy(() => import('./LazyRoutes').then((m) => ({ default: m.ReviewRoute })));
@@ -86,6 +87,7 @@ export function Product() {
   // el SW nunca avisa ni recarga con una lección o un test en curso
   const busy =
     route.name === 'sesion' ||
+    route.name === 'juego' ||
     route.name === 'leccion' ||
     route.name === 'salto' ||
     route.name === 'saltar-nivel' ||
@@ -211,6 +213,17 @@ export function Product() {
         );
         break;
       }
+      case 'juego':
+        fullScreen = true;
+        body = (
+          <GameRoute
+            key={`${route.id}:${route.daily}`}
+            id={route.id}
+            daily={route.daily}
+            onExit={() => go('#/practicar')}
+          />
+        );
+        break;
       case 'sesion':
         fullScreen = true;
         body = <SessionRoute onExit={() => go('#/')} />;

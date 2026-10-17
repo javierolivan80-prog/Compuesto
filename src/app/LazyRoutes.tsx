@@ -8,6 +8,7 @@ import {
   unitsOfLevel,
 } from '../content/library';
 import type { AppEvent } from '../engine/events';
+import type { GameId } from '../engine/games/common';
 import { seededShuffle } from '../engine/grading';
 import {
   buildReview,
@@ -21,6 +22,7 @@ import {
 import { todayKey } from '../engine/stats';
 import { ReviewScreen } from '../features/practicar/ReviewScreen';
 import { LessonScreen } from '../features/lesson/LessonScreen';
+import { GameHost } from '../features/games/GameHost';
 import { SessionScreen } from '../features/session/SessionScreen';
 import { PlacementScreen } from '../features/placement/PlacementScreen';
 
@@ -103,4 +105,16 @@ export function ExamRoute({ unitId, onExit }: { unitId: string; onExit: () => vo
 
 export function SessionRoute({ onExit }: { onExit: () => void }) {
   return <SessionScreen onExit={onExit} />;
+}
+
+export function GameRoute({
+  id,
+  daily,
+  onExit,
+}: {
+  id: GameId;
+  daily: boolean;
+  onExit: () => void;
+}) {
+  return <GameHost gameId={id} daily={daily} onExit={onExit} />;
 }

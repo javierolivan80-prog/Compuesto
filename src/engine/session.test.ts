@@ -123,6 +123,63 @@ const ev = (type: string, payload: object, at: string): AppEvent =>
     id: `00000000-0000-4000-8000-${String(++n).padStart(12, '0')}`,
   });
 
+describe('minijuego en la sesión', () => {
+  it('con juego disponible ocupa el hueco del repaso, entre las dos lecciones', () => {
+    const p = planSession({ ...base, minutes: 20, gameId: 'campana' });
+    expect(kinds(p.blocks)).toEqual([
+      'briefing',
+      'lesson',
+      'game',
+      'lesson',
+      'review',
+      'reto',
+      'cierre',
+    ]);
+    expect(p.blocks.find((b) => b.kind === 'game')).toEqual({ kind: 'game', gameId: 'campana' });
+  });
+  it('sin juego (o sin tiempo para él) se sigue haciendo repaso', () => {
+    expect(kinds(planSession({ ...base, minutes: 20, gameId: null }).blocks)).toContain('review');
+    // en 5 min no cabe: lección y cierre
+    expect(kinds(planSession({ ...base, minutes: 5, gameId: 'campana' }).blocks)).toEqual([
+      'briefing',
+      'lesson',
+      'cierre',
+    ]);
+  });
+  it('el tiempo estimado sigue cuadrando con juego', () => {
+    for (const minutes of [10, 15, 20]) {
+      const plan = planSession({
+        ...base,
+        minutes,
+        reviewable: 20,
+        dueCount: 5,
+        gameId: 'presupuesto',
+      });
+      const m = minutesOf(plan);
+      expect(m).toBeLessThanOrEqual(minutes + 1);
+      expect(m).toBeGreaterThanOrEqual(minutes - 3);
+    }
+  });
+  it('un juego en el plan se guarda y se reanuda como cualquier bloque', () => {
+    const blocks: BlockSpec[] = [
+      { kind: 'briefing' },
+      { kind: 'game', gameId: 'sube-o-baja' },
+      { kind: 'cierre' },
+    ];
+    const events = [
+      makeEvent(
+        'session_started',
+        { sessionId: 's1', day: '2026-10-17', minutes: 10, blocks },
+        { deviceId: 'test', now: new Date('2026-10-17T08:00:00Z') },
+      ),
+    ];
+    expect(activeSession(events, '2026-10-17')!.blocks[1]).toEqual({
+      kind: 'game',
+      gameId: 'sube-o-baja',
+    });
+  });
+});
+
 describe('estado de la sesión desde eventos', () => {
   const blocks: BlockSpec[] = [
     { kind: 'briefing' },

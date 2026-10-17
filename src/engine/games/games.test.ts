@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mulberry32 } from '../prng';
 import { gamesData } from '../../content/games-data';
 import { RATINGS, ratingAtLeast, type Rating } from '../game-kit';
+import { compoundRounds } from './compound';
 import { BELL_CARDS, bellSequence, fallMs, playBell, type BellCard } from './bell';
 import {
   BUDGET_CATEGORIES,
@@ -43,6 +44,37 @@ function expectRandomIsB(c: Record<Rating, number>, n = 1000) {
   expect(above / n).toBeLessThanOrEqual(0.01);
   expect(c.AAA + c.AA).toBe(0);
 }
+
+describe('determinismo entre dispositivos (valores de referencia fijados)', () => {
+  // Si estos valores cambian, las partidas del día dejan de ser comparables entre dispositivos y versiones.
+  it('presupuesto', () => {
+    expect(budgetRound(1, 0).map((i) => `${i.id}:${i.amount}`)).toEqual([
+      'viaje:25',
+      'luz:55',
+      'alquiler:350',
+      'regalo:60',
+      'beca:370',
+    ]);
+  });
+  it('compuesto', () => {
+    expect(compoundRounds(1).map((r) => r.target)).toEqual([237000, 71000, 64000, 95000]);
+  });
+  it('órdenes', () => {
+    expect(orderRequests(1, 3).map((r) => `${r.intent}:${r.qty}:${r.bids[0]!.price}`)).toEqual([
+      'cap:400:27.3',
+      'cap:150:11.75',
+      'cap:350:11',
+    ]);
+  });
+  it('titulares', () => {
+    const all = availableHeadlines(new Set(gamesData.titulares.flatMap((h) => h.concepts)));
+    expect(
+      newsRounds(1, all)
+        .slice(0, 3)
+        .map((r) => `${r.headline.id}:${r.motiveOrder.join('')}`),
+    ).toEqual(['contrato-largo:021', 'venta-fondo:012', 'cierre-planta:201']);
+  });
+});
 
 describe('comunes', () => {
   it('la semilla del día es estable por juego y día, y distinta entre juegos y días', () => {
