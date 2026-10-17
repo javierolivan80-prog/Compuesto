@@ -2,13 +2,13 @@ import { mulberry32 } from '../prng';
 
 /*
  * «La compra grande» (lección-juego de N1-U4): un cliente te encarga comprar un paquete de acciones en un libro
- * poco profundo antes de que salgan unos resultados que lo encarecerán. Enseña horquilla, liquidez, impacto de
+ * poco profundo antes de que los fondos indexados compren por la entrada de Naranjas en un índice, lo que lo encarecerá. Enseña horquilla, liquidez, impacto de
  * mercado, orden de mercado frente a limitada y trocear una orden. Lógica pura y determinista por semilla.
  */
 
 export const TICK = 0.01;
 export const ROUNDS = 4;
-/** Ronda (0-based) tras la cual se publican los resultados y el libro sube. */
+/** Ronda (0-based) tras la cual compran los fondos indexados y el libro sube. */
 export const NEWS_AFTER_ROUND = 1;
 /** Parte de la liquidez consumida que vuelve al libro en la ronda siguiente. */
 export const REFILL = 0.6;
@@ -28,7 +28,7 @@ export interface BlockTradeSetup {
   target: number;
   /** Punto medio inicial (referencia para medir el impacto). */
   mid: number;
-  /** Subida del libro cuando salen los resultados (en tanto por uno). */
+  /** Subida del libro cuando compran los fondos indexados (en tanto por uno). */
   newsJump: number;
   book: Book;
 }
@@ -121,19 +121,28 @@ function sweep(
 export const bestAsk = (b: Book): number => b.asks[0]?.price ?? Infinity;
 export const remaining = (s: BlockTradeState): number => s.setup.target - s.bought;
 
-/**
- * Entre rondas: vuelve parte de la liquidez consumida (al precio original de cada nivel) y, tras la ronda de la
- * noticia, todo el libro sube `newsJump`.
- */
-function nextBook(before: Book, after: Level[], round: number, setup: BlockTradeSetup): Book {
-  const refilled = setup.book.asks.map((orig) => {
-    const now = after.find((l) => Math.abs(l.price - orig.price) < 1e-9)?.qty ?? 0;
-    return { price: orig.price, qty: Math.round(now + (orig.qty - now) * REFILL) };
-  });
-  const keep = refilled.filter((l) => l.qty > 0);
-  if (round !== NEWS_AFTER_ROUND) return { bids: before.bids, asks: keep };
+/** Libro de referencia de una ronda: el inicial y, después de la entrada de los fondos indexados, el subido. */
+export function referenceBook(setup: BlockTradeSetup, round: number): Book {
+  if (round <= NEWS_AFTER_ROUND) return setup.book;
   const up = (l: Level) => ({ ...l, price: r2(l.price * (1 + setup.newsJump)) });
   return { asks: setup.book.asks.map(up), bids: setup.book.bids.map(up) };
+}
+
+/**
+ * Entre rondas vuelve parte de la liquidez consumida, a los precios del libro de referencia de la ronda siguiente.
+ * Al pasar la ronda del evento, el libro entero sube `newsJump` (fresco y a precios nuevos): nunca vuelve a los
+ * precios de antes ni queda cruzado.
+ */
+function nextBook(after: Level[], round: number, setup: BlockTradeSetup): Book {
+  const ref = referenceBook(setup, round + 1);
+  if (round === NEWS_AFTER_ROUND) return structuredClone(ref);
+  const asks = ref.asks
+    .map((orig) => {
+      const now = after.find((l) => Math.abs(l.price - orig.price) < 1e-9)?.qty ?? 0;
+      return { price: orig.price, qty: Math.round(now + (orig.qty - now) * REFILL) };
+    })
+    .filter((l) => l.qty > 0);
+  return { bids: ref.bids, asks };
 }
 
 export function validQty(s: BlockTradeState, qty: number): boolean {
@@ -184,7 +193,7 @@ export function act(s: BlockTradeState, action: Action): BlockTradeState {
   if (next.bought >= s.setup.target)
     return { ...next, book: { ...s.book, asks }, done: true, resting: null };
   const round = s.round + 1;
-  const book = nextBook(s.book, asks, s.round, s.setup);
+  const book = nextBook(asks, s.round, s.setup);
   next = { ...next, round, book };
   if (round >= ROUNDS) {
     // se acabó el tiempo: el cliente exige el paquete completo, a mercado

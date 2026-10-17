@@ -54,6 +54,8 @@ export const paramSpecSchema = z.object({
   max: z.number(),
   step: z.number().positive(),
   decimals: z.number().int().min(0).max(6).default(0),
+  /** Escribir siempre todos los decimales (precios: «9,50 €» y no «9,5 €»). */
+  fixed: z.boolean().optional(),
 });
 export type ParamSpec = z.infer<typeof paramSpecSchema>;
 /** Cifra calculada a partir de los parámetros, para usarla en el texto ({nombre}). */

@@ -236,6 +236,21 @@ describe('cifras impuestas (lección-juego)', () => {
     expect(e.prompt).toContain('2.000 €');
   });
   it('sin cifras válidas se comporta como la plantilla', () => {
-    expect(instantiate(numeric, undefined, { otra: 1, capital: Number.NaN })).toEqual(instantiate(numeric));
+    expect(instantiate(numeric, undefined, { otra: 1, capital: Number.NaN })).toEqual(
+      instantiate(numeric),
+    );
+  });
+});
+
+describe('decimales fijos', () => {
+  it('un parámetro con fixed escribe todos sus decimales', () => {
+    const t = parse({
+      ...numeric,
+      params: {
+        ...(numeric as { params: object }).params,
+        tipo: { value: 5, min: 2, max: 8, step: 0.5, decimals: 2, fixed: true },
+      },
+    });
+    expect((instantiate(t).exercise as { prompt: string }).prompt).toContain('al 5,00 %');
   });
 });

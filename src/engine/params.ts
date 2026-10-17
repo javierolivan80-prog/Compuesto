@@ -177,7 +177,7 @@ export function instantiate(
   const variant = seed !== undefined || Object.keys(forced).length > 0;
   const scope: Record<string, number> = { ...values };
   const formats: Record<string, Format> = Object.fromEntries(
-    Object.entries(params).map(([k, p]) => [k, [0, p.decimals] as const]),
+    Object.entries(params).map(([k, p]) => [k, [p.fixed ? p.decimals : 0, p.decimals] as const]),
   );
   for (const [k, d] of Object.entries(e.derived ?? {})) {
     scope[k] = evaluateNumber(fillFormula(d.formula, scope));

@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+
+const r2 = (x: number) => Math.round(x * 100) / 100;
 import {
   act,
   benchmarks,
@@ -104,5 +106,42 @@ describe('la compra grande', () => {
   it('todo de golpe puntúa 0,5', () => {
     const r = blockTradeResult(act(startBlockTrade(setup), { type: 'market', qty: 600 }));
     expect(r.score).toBe(0.5);
+  });
+});
+
+describe('el libro después del evento (revisión)', () => {
+  it('en las rondas siguientes nunca vuelve a los precios de antes ni se cruza', () => {
+    for (const seed of [1, 7, 42, 99]) {
+      const st = setupBlockTrade(seed);
+      let s = startBlockTrade(st);
+      for (let i = 0; i < ROUNDS - 1; i++) {
+        if (s.round > NEWS_AFTER_ROUND)
+          expect(bestAsk(s.book)).toBeGreaterThanOrEqual(
+            r2(st.book.asks[0]!.price * (1 + st.newsJump)) - 1e-9,
+          );
+        expect(bestAsk(s.book)).toBeGreaterThan(s.book.bids[0]!.price);
+        s = act(s, { type: i === 0 ? 'market' : 'wait', qty: 100 } as never);
+      }
+    }
+  });
+  it('quedarse sin tiempo sale más caro que todo de golpe con la subida del evento, y puntúa por debajo de 0,5', () => {
+    for (const seed of [1, 7, 42]) {
+      const st = setupBlockTrade(seed);
+      let s = startBlockTrade(st);
+      for (let i = 0; i < ROUNDS; i++) s = act(s, { type: 'wait' });
+      const { allNow } = benchmarks(st);
+      expect(s.cost).toBeGreaterThan(allNow * (1 + st.newsJump) * 0.995);
+      expect(blockTradeResult(s).score).toBeLessThan(0.5);
+    }
+  });
+  it('una limitada barata pendiente no se ejecuta después del evento', () => {
+    const st = setupBlockTrade(7);
+    let s = act(startBlockTrade(st), {
+      type: 'limit',
+      qty: 200,
+      price: st.book.asks[0]!.price - 0.01,
+    });
+    for (let i = 1; i < ROUNDS - 1; i++) s = act(s, { type: 'wait' });
+    expect(s.bought).toBe(0);
   });
 });

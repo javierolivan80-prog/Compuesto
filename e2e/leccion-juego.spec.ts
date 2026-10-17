@@ -24,19 +24,19 @@ test('la compra grande: juego → explicación con tus cifras → ejercicios con
 
   // la primera tarjeta cita tu precio medio real
   await expect(page.getByText(`Pagaste de media ${avg}`)).toBeVisible();
-  await page.screenshot({ path: 'docs/capturas/leccion-juego/explicacion-375.png', fullPage: true });
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/explicacion-375.png',
+    fullPage: true,
+  });
   for (let i = 0; i < 3; i++)
     await page.getByRole('button', { name: /Siguiente|Empezar los ejercicios/ }).click();
 
-  // el primer ejercicio usa tus 600 acciones y tu precio medio
+  // el primer ejercicio usa lo que pagaste en tu partida: el precio medio es la respuesta
   const n = avg.replace(/\s?€/, '').trim();
   await expect(page.getByRole('heading', { level: 3 })).toContainText(
-    `Compraste 600 acciones a un precio medio de ${n} €`,
+    /Pagaste [\d.,]+ € por 600 acciones/,
   );
-  const value = Number(n.replace(/\./g, '').replace(',', '.'));
-  await page
-    .getByRole('textbox', { name: /Tu respuesta/ })
-    .fill((600 * value).toFixed(2).replace('.', ','));
+  await page.getByRole('textbox', { name: /Tu respuesta/ }).fill(n.replace(/\./g, ''));
   await page.getByRole('button', { name: 'Comprobar' }).click();
   await expect(page.getByRole('status')).toContainText('Correcto');
 });
