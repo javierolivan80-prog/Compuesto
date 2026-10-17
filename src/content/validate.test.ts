@@ -346,6 +346,16 @@ describe('Unidad 1 del Nivel 0 (contenido real)', () => {
       'order_steps',
       'numeric_input',
       'categorize',
+      'build_statement',
+      'spreadsheet',
+      'chart_read',
+      'scenario',
+      'spot_the_error',
+      'slider_estimate',
+      'case_step',
+      'document_read',
+      'best_argument',
+      'self_explain',
     ];
     for (const e of lessons.flatMap((l) => l.exercises)) expect(allowed).toContain(e.type);
   });

@@ -1,6 +1,6 @@
 {
   "id": "n0-u1-l2",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": [
     "subagente"
@@ -187,6 +187,25 @@
         3
       ],
       "explanation": "Empezar pronto, reinvertir y esperar más tiempo dan más periodos de capitalización. Retirar los intereses elimina el efecto compuesto."
+    },
+    {
+      "id": "n0-u1-l2-e9",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "interes-compuesto",
+        "interes-simple"
+      ],
+      "prompt": "Carmen calcula cuánto tendrá con interés compuesto. Una línea tiene un error: ¿cuál?",
+      "lines": [
+        "Capital inicial: 1.000 € a un 5 % anual compuesto.",
+        "Año 1: 1.000 × 1,05 = 1.050 €.",
+        "Año 2: 1.050 + 50 = 1.100 €."
+      ],
+      "errorIndex": 2,
+      "explanation": "El segundo año el 5 % se aplica sobre 1.050 €, no sobre el capital inicial: 1.050 × 1,05 = 1.102,50 €. Sumar otra vez 50 € es calcular con interés simple."
     }
   ],
   "realWorld": "En el contrato de un depósito o de un préstamo verás si el interés se capitaliza (se suma al capital) y cada cuánto tiempo.",

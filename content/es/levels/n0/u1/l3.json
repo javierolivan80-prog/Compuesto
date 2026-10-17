@@ -1,6 +1,6 @@
 {
   "id": "n0-u1-l3",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": [
     "subagente"
@@ -195,6 +195,25 @@
         }
       ],
       "explanation": "72 / 9 = 8 años y 72 / 8 = 9 años; en cambio 72 / 4 = 18 y 72 / 3 = 24 años."
+    },
+    {
+      "id": "n0-u1-l3-e9",
+      "type": "slider_estimate",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "regla-del-72",
+        "interes-compuesto"
+      ],
+      "prompt": "A un 4 % anual compuesto, ¿en cuántos años se duplica aproximadamente un capital? Usa la regla del 72.",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "answer": 18,
+      "tolerance": 10,
+      "unit": "años",
+      "explanation": "Regla del 72: 72 / 4 = 18 años. El valor exacto es 17,7 años."
     }
   ],
   "realWorld": "Verás la regla del 72 en simuladores de ahorro y fondos de inversión, y en la conversación de cualquier profesional que haga cuentas rápidas.",

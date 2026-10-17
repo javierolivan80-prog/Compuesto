@@ -15,10 +15,25 @@ export type Ex = {
   items?: { text: string; category: string }[];
   target?: string;
   solution?: string;
+  claim?: string;
+  intro?: string;
+  lines?: string[];
+  errorIndex?: number;
+  questions?: { prompt: string; options: string[]; answer: number }[];
+  modelAnswer?: string;
+  rubric?: string[];
 };
 
 export const promptOf = (e: Ex) =>
-  e.type === 'true_false_swipe' ? 'Verdadero o falso' : (e.prompt ?? '');
+  e.type === 'true_false_swipe'
+    ? 'Verdadero o falso'
+    : e.type === 'best_argument'
+      ? (e.claim ?? '')
+      : e.type === 'case_step'
+        ? (e.intro ?? '')
+        : e.type === 'document_read'
+          ? 'Lee el fragmento y contesta'
+          : (e.prompt ?? '');
 
 export async function currentExercise(page: Page, exercises: Ex[]): Promise<Ex> {
   const heading = (await page.getByRole('heading', { level: 3 }).first().textContent())?.trim();
@@ -32,7 +47,10 @@ export async function currentExercise(page: Page, exercises: Ex[]): Promise<Ex> 
 export async function solve(page: Page, e: Ex, wrong = false) {
   const exact = { exact: true } as const;
   switch (e.type) {
-    case 'multiple_choice': {
+    case 'multiple_choice':
+    case 'scenario':
+    case 'chart_read':
+    case 'best_argument': {
       const idx = wrong ? (e.answer === 0 ? 1 : 0) : (e.answer as number);
       await page.getByRole('radio', { name: e.options![idx]!, ...exact }).click();
       break;
@@ -87,6 +105,33 @@ export async function solve(page: Page, e: Ex, wrong = false) {
             name: new RegExp(`${it.category.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
           })
           .click();
+      break;
+    case 'spot_the_error': {
+      const idx = wrong ? (e.errorIndex === 0 ? 1 : 0) : (e.errorIndex as number);
+      await page.getByRole('radio', { name: e.lines![idx]!, exact: false }).click();
+      break;
+    }
+    case 'slider_estimate': {
+      const a = (e as unknown as { answer: number; min: number }).answer;
+      const v = wrong ? (e as unknown as { max: number }).max : a;
+      await page.locator('input[type="range"]').fill(String(v));
+      break;
+    }
+    case 'document_read':
+      for (const [qi, q] of e.questions!.entries()) {
+        const idx = wrong ? (q.answer === 0 ? 1 : 0) : q.answer;
+        await page
+          .getByRole('radiogroup', { name: q.prompt })
+          .getByRole('radio', { name: q.options[idx]!, ...exact })
+          .click();
+        void qi;
+      }
+      break;
+    case 'self_explain':
+      await page.getByRole('textbox').fill('Mi explicación con mis palabras.');
+      await page.getByRole('button', { name: 'Ver respuesta modelo' }).click();
+      for (const r of e.rubric!.slice(0, wrong ? 0 : 3))
+        await page.getByRole('checkbox', { name: r, ...exact }).click();
       break;
     case 'spreadsheet':
       await page.locator(`input[aria-label="Celda ${e.target}"]`).fill(e.solution!);

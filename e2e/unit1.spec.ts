@@ -45,8 +45,8 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
     await page.getByRole('button', { name: 'Continuar' }).click();
   }
 
-  // 95 + 100 + 100 + 100 + 120
-  await expect(page.getByTestId('xp-total')).toHaveText('515');
+  // 95 + 110 (l2, 9 ejercicios) + 110 (l3, 9) + 100 + 120
+  await expect(page.getByTestId('xp-total')).toHaveText('535');
   await expect(page.getByText('Analista Junior').first()).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/home-final.png` });
   await page.goto('/#/camino');
@@ -57,7 +57,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB); el onboarding no vuelve
   await page.goto('/#/');
   await page.reload();
-  await expect(page.getByTestId('xp-total')).toHaveText('515');
+  await expect(page.getByTestId('xp-total')).toHaveText('535');
   await expect(page.getByTestId('streak')).toHaveText('1 d');
   await page.goto('/#/camino');
   await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(

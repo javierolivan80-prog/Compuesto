@@ -1,6 +1,6 @@
 {
   "id": "n0-u3-l4",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": [
     "subagente"
@@ -203,6 +203,28 @@
         "1": "Si \"sobra algo\" casi nunca sobra: es el propio sesgo.",
         "2": "Mirar el saldo no cambia lo que haces con él.",
         "3": "Esperar a mejor ocasión es posponer: el sesgo mismo."
+      }
+    },
+    {
+      "id": "n0-u3-l4-e9",
+      "type": "best_argument",
+      "difficulty": 3,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "sesgo-presente"
+      ],
+      "claim": "Conviene automatizar el ahorro nada más cobrar.",
+      "options": [
+        "Porque quita la decisión de ahorrar del momento en que el sesgo empuja a gastar",
+        "Porque el dinero ahorrado siempre rinde más que el dinero que se gasta",
+        "Porque todos los asesores financieros lo recomiendan sin excepción"
+      ],
+      "answer": 0,
+      "explanation": "Automatizar elimina la decisión en el momento débil: te pagas primero y el gasto se adapta a lo que queda.",
+      "wrongExplanations": {
+        "1": "Ahorrar no garantiza rentabilidad: el argumento es sobre cómo vencer el sesgo, no sobre cuánto rinde.",
+        "2": "Es un argumento de autoridad: dice quién lo hace, no por qué funciona."
       }
     }
   ],

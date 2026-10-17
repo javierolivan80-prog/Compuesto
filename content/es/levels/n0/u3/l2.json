@@ -1,6 +1,6 @@
 {
   "id": "n0-u3-l2",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": [
     "subagente"
@@ -192,6 +192,31 @@
         "0": "Con 2 meses habría solo 1.600 €.",
         "2": "Para 4 meses necesitarías 3.200 €.",
         "3": "Para 6 meses necesitarías 4.800 €."
+      }
+    },
+    {
+      "id": "n0-u3-l2-e9",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "fondo-emergencia"
+      ],
+      "situation": "Marta tiene 4.000 € ahorrados, gastos esenciales de 1.000 € al mes y ningún fondo de emergencia. Un amigo le dice que una acción «seguro que sube» y que debería invertirlo todo.",
+      "prompt": "¿Qué es lo más prudente?",
+      "options": [
+        "Apartar unos 3.000 € (3 meses de gastos) en algo líquido y seguro",
+        "Invertir los 4.000 € en esa acción, porque su amigo parece muy seguro",
+        "Invertirlo todo y pedir un préstamo si surge un imprevisto",
+        "Gastar parte del dinero ahora para que no pierda valor"
+      ],
+      "answer": 0,
+      "explanation": "Primero la seguridad: 3 meses de gastos esenciales en algo líquido. Lo que sobra (1.000 €) puede decidirse después con un plan, sin depender de promesas.",
+      "wrongExplanations": {
+        "1": "Nadie puede garantizar que una acción suba, y sin fondo un imprevisto obligaría a vender en mal momento.",
+        "2": "Un préstamo para imprevistos sale caro y añade deuda justo cuando más aprieta.",
+        "3": "Gastar no protege el valor del dinero: lo consume."
       }
     }
   ],

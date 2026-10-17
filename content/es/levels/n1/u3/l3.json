@@ -1,6 +1,6 @@
 {
   "id": "n1-u3-l3",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": [
     "subagente"
@@ -195,6 +195,40 @@
         "1": "Pesa más, así que aporta más.",
         "2": "El peso es distinto, por tanto la aportación también.",
         "3": "Cualquier valor del índice lo mueve en proporción a su peso."
+      }
+    },
+    {
+      "id": "n1-u3-l3-e9",
+      "type": "chart_read",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "ibex-35"
+      ],
+      "prompt": "El gráfico muestra un índice ficticio durante 10 sesiones. ¿Cuánto ha variado del primer al último punto?",
+      "chart": {
+        "kind": "line",
+        "seed": 4,
+        "points": 10
+      },
+      "altText": "Gráfico de líneas de un índice ficticio a lo largo de 10 sesiones, con tendencia al alza.",
+      "truth": {
+        "metric": "changePct",
+        "value": 36.4
+      },
+      "options": [
+        "Ha bajado",
+        "Ha subido menos de un 10 %",
+        "Ha subido entre un 30 % y un 40 %",
+        "Ha subido más de un 50 %"
+      ],
+      "answer": 2,
+      "explanation": "Pasa de 49 a 66,86: (66,86 − 49) / 49 ≈ +36,4 %.",
+      "wrongExplanations": {
+        "0": "El último punto está por encima del primero.",
+        "1": "La subida es mucho mayor que un 10 %.",
+        "3": "Para subir más de un 50 % tendría que superar 73,5."
       }
     }
   ],

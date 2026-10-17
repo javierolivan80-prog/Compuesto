@@ -217,3 +217,13 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Misiones diarias**: 3 por día, deterministas por fecha (`missions.ts`), calculadas desde eventos.
 - **Provisional**: duración elegida guardada en el ajuste `sessionMinutes`; el botón de Inicio "Abrir mercado/Continuar" sigue empezando la siguiente lección (lo usan los e2e).
 - Textos nuevos vía `t()` (`session.*` en `es.json`).
+
+## 2.3 — Ejercicios de aplicar y argumentar (17/10/2026)
+
+- Ocho tipos con corrección pura (`grading.ts`), componentes accesibles (`AppliedViews.tsx`) y e2e solo con teclado + axe: `chart_read`, `scenario`, `spot_the_error`, `slider_estimate`, `case_step`, `document_read`, `best_argument`, `self_explain`. `code` queda para la rama Fintech.
+- **Gráficos con semilla** (`engine/charts.ts`): misma semilla → misma serie. `chart_read` lleva `truth` (métrica + valor) y el validador lo recalcula: si el generador cambiara, el contenido falla en vez de quedar mal. Descripción textual = `altText` + resumen generado + tabla de datos.
+- **case_step**: estado puro (`engine/case-step.ts`); se guarda en `localStorage` para reanudar y se descarta si no es válido para esa versión del caso.
+- **self_explain**: hay que escribir, ver el modelo y marcar la rúbrica; con 2 de 3 criterios cuenta como bueno y da **la mitad de XP** (`SELF_EXPLAIN_XP_FACTOR`).
+- **best_argument**: al acertar se muestra por qué fallan los demás.
+- Contenido: 5 ejercicios nuevos (`-e9`) añadidos como ejercicios nuevos, sin cambiar ids existentes, en n0-u1-l2/l3, n0-u3-l2/l4 y n1-u3-l3; cada lección sube a v2, revisada por el subagente (3 observaciones menores aplicadas). El XP de la Unidad 1 en e2e pasa de 515 a 535 por los dos ejercicios nuevos.
+- **Provisional**: sin ejercicios `document_read` en el contenido: requieren un fragmento real de un documento oficial con fuente y fecha, y no puedo verificarlo sin conexión a esas fuentes. Queda para cuando se pueda contrastar.

@@ -97,3 +97,7 @@ Flujo: docs/TEMARIO.md §8. Estados: `draft` → `reviewed` → `published` → 
 - **Ronda 1:** 0 críticos, 3 mayores (riesgo de coma flotante en l2-e6, tarjeta de la OPA jurídicamente incompleta —voluntaria, efectivo/valores, precio equitativo solo en la obligatoria—, glosario sin fuentes), 9 menores. Aceptados.
 - **Ronda 2:** aprobada sin errores.
 - Estado `reviewed`. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL / caduca:** umbral del 30 % y reglas de la OPA, autocartera y suscripción preferente (`verificarAntesDe` 2027-06-30). **Pendiente de producto:** `document_read` (anuncio de una OPA en la CNMV, 📄 del Nivel 1) y fiscalidad de la venta de derechos de suscripción (TEMARIO §2 N1) no incluidos en esta unidad: se harán cuando exista el tipo de ejercicio y con fuente AEAT verificada.
+
+## 2.3 — Ejercicios nuevos (-e9) en 5 lecciones (17/10/2026)
+
+Revisor independiente: aprobados los 5; sin errores de exactitud. Aplicado: opciones de longitud pareja en `n0-u3-l2-e9` y `n0-u3-l4-e9`; `n0-u1-l3-e9` cambia al 4 % (72/4 = 18 años; exacto 17,7) para no repetir el 9 % de otros ejercicios. `tolerance` de `slider_estimate` es un % de la respuesta. Pendiente: revisión de Javier (🛑) como el resto de la unidad.
