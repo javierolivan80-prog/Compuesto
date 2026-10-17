@@ -224,5 +224,36 @@
     "offline": "La imagen se genera en tu dispositivo: no se envía nada a ningún servidor y funciona sin conexión.",
     "preview": "Vista previa de la tarjeta: {{rank}}, racha de {{streak}} días, {{accuracy}} % de precisión y {{xp}} XP.",
     "errorLoad": "no se pudo leer tu progreso en este dispositivo."
+  },
+  "rivals": {
+    "title": "Rivales",
+    "empty": "La liga de becarios de Albufera Partners arranca con tu primer XP. Completa una lección y entrarás en la división Bronce.",
+    "division": "División {{name}}",
+    "weekDay": "Semana en curso · día {{n}} de 7",
+    "explain": "Compites contra becarios ficticios del banco, que ajustan su ritmo al tuyo. Los 3 primeros ascienden; los 3 últimos descienden. Todo ocurre en tu dispositivo.",
+    "standings": "Clasificación de la semana",
+    "you": "Tú",
+    "xp": "{{xp}} XP",
+    "promote": "Ascenso",
+    "relegate": "Descenso",
+    "top": "Cima de la liga: no hay división superior.",
+    "vsTitle": "Tú contra tu yo de la semana pasada",
+    "vsAhead": "Vas {{n}} XP por delante de tu yo de la semana pasada.",
+    "vsBehind": "Vas {{n}} XP por detrás de tu yo de la semana pasada.",
+    "vsEven": "Igualado con tu yo de la semana pasada.",
+    "vsNone": "Tu yo de la semana pasada aparecerá cuando tengas una semana completa de historial.",
+    "closeTitle": "Cierre semanal",
+    "closePromoted": "Ascendes a {{name}}: terminaste {{rank}}.º con {{xp}} XP.",
+    "closeRelegated": "Bajas a {{name}}: terminaste {{rank}}.º con {{xp}} XP.",
+    "closeStayed": "Te mantienes en {{name}}: terminaste {{rank}}.º con {{xp}} XP.",
+    "replay": "Ver el cierre otra vez",
+    "closeNote": "El cierre se hace cada lunes a las 00:00 (hora de tu dispositivo).",
+    "personality": {
+      "constante": "Constante: estudia un poco cada día.",
+      "sprinter": "Sprinter: acelera hacia el fin de semana.",
+      "madrugador": "Madrugador: carga la semana al principio.",
+      "irregular": "Irregular: días de mucho y días de nada."
+    },
+    "tableLabel": "Clasificación de {{division}}, semana del {{week}}"
   }
 }

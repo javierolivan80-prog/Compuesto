@@ -176,8 +176,8 @@ test('estados vacíos: sin fallos, sin reportes y sin lecciones completadas', as
   await expect(page.getByText('Todavía no has completado ninguna lección')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Due diligence' })).toBeVisible();
   await page.goto('/#/rivales');
-  await expect(page.getByText('Próximamente')).toBeVisible();
-  await expect(page.locator('main').getByRole('button')).toHaveCount(0);
+  await expect(page.getByText('arranca con tu primer XP')).toBeVisible();
+  await expect(page.getByTestId('rival-row')).toHaveCount(0);
 });
 
 test('offline: avisa pero la app sigue funcionando y guardando', async ({ page, context }) => {

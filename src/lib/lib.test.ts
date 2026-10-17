@@ -108,6 +108,46 @@ describe('estadísticas personales', () => {
   it('lista los ejercicios más fallados para revisar el contenido', () => {
     expect(stats.mostFailed).toEqual([{ exerciseId: 'e2', fails: 2, attempts: 2 }]);
   });
+  it('sesiones, minutos reales y conceptos flojos (§11)', () => {
+    const evs = [
+      ev(
+        'session_started',
+        { sessionId: 's1', day: '2026-10-14', minutes: 20, blocks: [{ kind: 'briefing' }] },
+        '2026-10-14T10:00:00Z',
+      ),
+      ev('session_completed', { sessionId: 's1' }, '2026-10-14T10:12:00Z'),
+      ev(
+        'session_started',
+        { sessionId: 's2', day: '2026-10-15', minutes: 20, blocks: [{ kind: 'briefing' }] },
+        '2026-10-15T10:00:00Z',
+      ),
+      ev('session_completed', { sessionId: 's2' }, '2026-10-15T10:18:00Z'),
+      ev(
+        'session_started',
+        { sessionId: 's3', day: '2026-10-15', minutes: 20, blocks: [{ kind: 'briefing' }] },
+        '2026-10-15T11:00:00Z',
+      ),
+      ...[true, false, false, true].map((correct, i) =>
+        ev(
+          'exercise_answered',
+          {
+            exerciseId: `x${i}`,
+            lessonId: 'l1',
+            conceptIds: ['c-flojo'],
+            correct,
+            timeMs: 1000,
+            xp: 5,
+          },
+          '2026-10-15T12:00:00Z',
+        ),
+      ),
+    ];
+    const s = personalStats(evs, projectAll(evs, today), today);
+    expect(s.sessionsCompleted).toBe(2); // s3 sin cerrar no cuenta
+    expect(s.avgSessionMinutes).toBe(15);
+    expect(s.weakConcepts).toEqual([{ conceptId: 'c-flojo', accuracy: 0.5, attempts: 4 }]);
+    expect(statsToCsv(s, {})).toContain('sesiones_completadas,2');
+  });
   it('sin datos no inventa nada', () => {
     const s = personalStats([], projectAll([], today), today);
     expect(s).toMatchObject({ accuracy: null, activeDays: 0, mostFailed: [] });

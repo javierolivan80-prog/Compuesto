@@ -73,7 +73,7 @@ describe('pantallas principales', () => {
     expect(screen.getAllByText(/Próximamente/).length).toBeGreaterThan(3);
   });
 
-  it('Practicar y Rivales: "Próximamente" sin controles falsos; Practicar permite repetir lo completado', async () => {
+  it('Practicar: permite repetir lo completado', async () => {
     await open('#/practicar');
     expect(await screen.findByRole('heading', { name: 'Minijuegos' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Repetir' })).toBeInTheDocument();
@@ -81,10 +81,13 @@ describe('pantallas principales', () => {
 
   it('Rivales', async () => {
     await open('#/rivales');
+    expect(await screen.findByRole('heading', { name: 'Rivales', level: 1 })).toBeInTheDocument();
+    // con XP real hay liga: clasificación de 8 rivales + tú, y nada inventado
     expect(
-      await screen.findByRole('heading', { name: 'La liga de becarios de Albufera Partners' }),
+      await screen.findByRole('heading', { name: 'Clasificación de la semana' }),
     ).toBeInTheDocument();
-    expect(screen.queryAllByRole('button')).toHaveLength(0);
+    expect(screen.getAllByTestId('rival-row')).toHaveLength(8);
+    expect(screen.getByTestId('rival-me')).toBeInTheDocument();
   });
 
   it('Despacho: estadísticas reales, ejercicios más fallados y enlaces', async () => {

@@ -274,7 +274,7 @@ export function Product() {
         body = <Practicar data={data} onStart={(id) => go(`#/leccion/${id}`)} />;
         break;
       case 'rivales':
-        body = <Rivales />;
+        body = <Rivales data={data} />;
         break;
       case 'despacho':
         body = <Despacho data={data} />;

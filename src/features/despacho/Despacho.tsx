@@ -5,7 +5,7 @@ import { Button } from '../../components/Button';
 import { StockPanel } from '../../components/StockPanel';
 import { stockFromEvents } from '../../engine/stock';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
-import { findExerciseText } from '../../content/library';
+import { conceptName, findExerciseText } from '../../content/library';
 import { personalStats, statsToCsv, todayKey } from '../../engine/stats';
 import { downloadText } from '../../lib/download';
 import { formatNumber } from '../../lib/format';
@@ -52,6 +52,12 @@ export function Despacho({ data }: { data: AppData }) {
     ['Días activos', formatNumber(stats.activeDays)],
     ['Activos (7 días)', `${formatNumber(stats.activeDaysLast7)} / 7`],
     ['Lecciones completadas', formatNumber(stats.lessonsCompleted)],
+    ['Sesiones completadas', formatNumber(stats.sessionsCompleted)],
+    [
+      'Minutos por sesión',
+      stats.avgSessionMinutes === null ? '—' : formatNumber(stats.avgSessionMinutes, 1),
+    ],
+    ['Lecciones abandonadas', formatNumber(stats.abandonedLessons)],
     ['Ejercicios respondidos', formatNumber(stats.exercisesAnswered)],
     [
       'Precisión',
@@ -90,6 +96,32 @@ export function Despacho({ data }: { data: AppData }) {
         <Button variant="secondary" onClick={exportCsv} className="justify-self-start">
           Exportar estadísticas (CSV)
         </Button>
+      </section>
+
+      <section aria-labelledby="weak-title" className="grid gap-2">
+        <h2 id="weak-title" className="text-2xl">
+          Conceptos por reforzar
+        </h2>
+        {stats.weakConcepts.length === 0 ? (
+          <EmptyState title="Sin conceptos flojos">
+            Aparecerán aquí los conceptos con al menos 3 intentos y fallos.
+          </EmptyState>
+        ) : (
+          <ol className="grid gap-2">
+            {stats.weakConcepts.map((c) => (
+              <li
+                key={c.conceptId}
+                className="bg-surface-1 border-line flex justify-between gap-3 rounded-[var(--radius-md)] border p-3 text-sm"
+              >
+                <span>{conceptName(c.conceptId)}</span>
+                <span className="text-text-2" data-num>
+                  {formatNumber(Math.round(c.accuracy * 100))} % · {formatNumber(c.attempts)}{' '}
+                  intentos
+                </span>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
 
       <section aria-labelledby="failed-title" className="grid gap-2">

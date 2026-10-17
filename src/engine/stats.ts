@@ -21,6 +21,12 @@ export interface PersonalStats {
   mostFailed: { exerciseId: string; fails: number; attempts: number }[];
   /** Lecciones empezadas y nunca completadas */
   abandonedLessons: number;
+  /** Sesiones «Abrir mercado» cerradas */
+  sessionsCompleted: number;
+  /** Minutos reales medios por sesión cerrada (tope de 60 por sesión para ignorar pestañas olvidadas); null si no hay */
+  avgSessionMinutes: number | null;
+  /** Conceptos con más fallos relativos (≥ 3 intentos), de peor a mejor precisión */
+  weakConcepts: { conceptId: string; accuracy: number; attempts: number }[];
 }
 
 export function personalStats(
@@ -32,8 +38,23 @@ export function personalStats(
   let answered = 0;
   let correct = 0;
   const per = new Map<string, { fails: number; attempts: number }>();
+  const perConcept = new Map<string, { ok: number; attempts: number }>();
+  const started = new Map<string, number>();
+  const sessionMs: number[] = [];
   for (const e of norm) {
+    if (e.type === 'session_started') started.set(e.payload.sessionId, Date.parse(e.createdAt));
+    if (e.type === 'session_completed') {
+      const t0 = started.get(e.payload.sessionId);
+      if (t0 !== undefined)
+        sessionMs.push(Math.min(60 * 60_000, Math.max(0, Date.parse(e.createdAt) - t0)));
+    }
     if (e.type !== 'exercise_answered') continue;
+    for (const c of e.payload.conceptIds) {
+      const r = perConcept.get(c) ?? { ok: 0, attempts: 0 };
+      r.attempts++;
+      if (e.payload.correct) r.ok++;
+      perConcept.set(c, r);
+    }
     // los tests de salto (xp 0 y lessonId "salto-…") cuentan como respuestas pero no entran en "más fallados"
     answered++;
     if (e.payload.correct) correct++;
@@ -60,6 +81,15 @@ export function personalStats(
       .sort((a, b) => b.fails - a.fails || a.exerciseId.localeCompare(b.exerciseId))
       .slice(0, 5),
     abandonedLessons: lessons.filter((l) => l.status === 'started').length,
+    sessionsCompleted: sessionMs.length,
+    avgSessionMinutes: sessionMs.length
+      ? Math.round((sessionMs.reduce((a, b) => a + b, 0) / sessionMs.length / 60_000) * 10) / 10
+      : null,
+    weakConcepts: [...perConcept.entries()]
+      .filter(([, v]) => v.attempts >= 3 && v.ok < v.attempts)
+      .map(([conceptId, v]) => ({ conceptId, accuracy: v.ok / v.attempts, attempts: v.attempts }))
+      .sort((a, b) => a.accuracy - b.accuracy || a.conceptId.localeCompare(b.conceptId))
+      .slice(0, 5),
   };
 }
 
@@ -82,6 +112,8 @@ export function statsToCsv(stats: PersonalStats, byDay: Record<string, number>):
     ['ejercicios_respondidos', String(stats.exercisesAnswered)],
     ['precision', stats.accuracy === null ? '' : stats.accuracy.toFixed(4)],
     ['lecciones_abandonadas', String(stats.abandonedLessons)],
+    ['sesiones_completadas', String(stats.sessionsCompleted)],
+    ['minutos_por_sesion', stats.avgSessionMinutes === null ? '' : String(stats.avgSessionMinutes)],
   ];
   return [...summary, [], ...rows].map((r) => r.join(',')).join('\n') + '\n';
 }

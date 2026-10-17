@@ -277,3 +277,11 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Web Share API** con archivo si `navigator.canShare` lo admite; en escritorio, descarga. Sin el botón «Compartir» si no hay Web Share.
 - **Delight sin fricción:** `RankUp` y `Elevator` se muestran dentro del cierre de la lección cuando cambian el rango o la planta (antes solo existían en el styleguide), sin añadir pasos ni botones; el cierre de la sesión imprime el ticket y enlaza a Compartir.
 - **Provisional / no verificado:** Safari y Firefox no están disponibles en este entorno (solo Chromium): la tarjeta no se ha probado en ellos; `/impeccable delight` y `find-animation-opportunities` no se han pasado como skills (se aplicaron sus ideas a mano); el ascensor no tiene e2e (solo se ve en el styleguide y se dispara al subir de planta).
+
+## 2.7 — Rivales simulados y estadísticas personales
+- **Liga derivada de eventos, sin evento propio.** Las divisiones se recalculan jugando las semanas cerradas desde la primera con XP; así sobrevive a la sincronización (unión de eventos) y a importar copias. Coste: si cambian las constantes, el historial de divisiones cambia; las constantes están fijadas por tests y un snapshot.
+- **Tu yo de la semana pasada** va fuera de la clasificación para no alterar ascensos y descensos.
+- **No hay recompensa de XP por ascender** (evitar bucles de XP); el cierre solo se muestra y se puede repetir la animación.
+- **Cierre animado:** la clasificación del jueves se reordena (FLIP de Motion, stagger 40 ms) hasta la final; con reduced-motion se muestra directamente el resultado.
+- Registro de errores y panel de diagnóstico: ya hechos antes (Ajustes → Diagnóstico); no se duplican.
+- No verificado: la animación FLIP no tiene comprobación visual automática (solo el resultado final en e2e).
