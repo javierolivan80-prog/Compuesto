@@ -340,3 +340,27 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Eliminadas** las 7 skills de himself65/finance-skills (`company-valuation`, `earnings-preview`, `earnings-recap`, `estimate-analysis`, `options-payoff`, `stock-correlation`, `startup-analysis`) y sus entradas de `skills-lock.json`. Motivo: sus `SKILL.md` ejecutan `python3` con `yfinance` al cargarse (red y empresas reales sin pedirlo). El nombre `earnings-preview` lo ocupa ahora la de financial-services. `crear-unidad` y `revisar-unidad` actualizadas con los sustitutos.
 - **Temario:** aplicadas las 10 mejoras aprobadas por Javier y el cambio de CLAUDE.md §8 (Pro: reconocer ≤ 20 % y ficha de referencia). Ajuste derivado no pedido literalmente: la tabla de §0 pasa a «Semanas 17–37» y «38–52» para cuadrar con el nuevo calendario.
 - **FASES.md:** tareas 2.9–2.12 (paramétricos, modelRef, Hard en FSRS, test de salto en dos fases) como ampliación de la Fase 2, porque dependen de 2.1 (repaso), y 6.0 con los 5 modelos de referencia pendientes. En 2.12 el banco de cada test de salto pasa de 8 a 12 preguntas: sin eso no hay preguntas nuevas para la segunda fase.
+
+## 2026-10-17 — Aprobaciones de Javier, concepts.json al temario nuevo y dos entidades nuevas del universo
+- **Aprobado por Javier:** banco de 12 preguntas por test de salto (TEMARIO §5 actualizado; el código llega en la tarea 2.12) y los ajustes de semanas de TEMARIO §0.
+- **concepts.json** (253 → 286 conceptos):
+  - `capm-beta` pasa de N6 a N3 (prerrequisito: riesgo y rentabilidad). Nuevos en N3: `coste-deuda` y `beta-apalancada`. `wacc` exige los tres; `dcf` exige `wacc`.
+  - Nuevo `capm-avanzado` en N6 (regresión y beta ajustada), con `regresion`.
+  - Fuera `alternativos-intro`: ningún ejercicio lo usaba. `alternativos-inversion` (N6) pasa a depender de riesgo y rentabilidad y de diversificación.
+  - Conceptos nuevos de las 10 mejoras:
+    - N2: precio limpio/sucio, bootstrapping.
+    - N3: NIIF 15, NIC 12, minoritarios, flujos por el método indirecto, DuPont/ROIC, calidad del beneficio.
+    - N5: eficiencia de mercado, contraste de hipótesis.
+    - N6: tracking error, Brinson, Black-Litterman.
+    - N7: paridad put-call, forward por coste de financiación, binomial de dos pasos.
+    - Rama Banca y riesgos: IFRS 9 (clasificación y escenarios), CRR3, colchones/SREP/MREL, RAROC, dudosos.
+    - Rama Corporate y valoración: due diligence, locked box, precio equitativo, art. 16 LIS, reestructuración.
+    - Rama Fintech: contraste múltiple, EWMA/GARCH.
+  - **Ética:** `etica-estandares` entra en **N2** y no en N0. El test del repositorio exige que todo concepto de N0–N1 tenga descripción y unidad, y las lecciones de N0–N1 ya revisadas no tienen caso de ética. Cuando se añadan a N0–N1, el concepto baja de nivel con su unidad.
+  - `curriculum.json` sigue con 4 ramas (banca-riesgos, mercados-trading, corporate-valoracion, fintech-cuantitativo) frente a las 6 de TEMARIO §3. Los conceptos de IB van a `corporate-valoracion`. Los de Equity Research y Private Equity quedan para cuando el curriculum tenga esas ramas (tarea 6.1).
+- **companies.json:** se añaden `azahar-calderona` (Grupo Azahar Calderona S.A., cotizada; caja 80.000, deuda 150.000 y 60 millones de acciones a 2025, lo mismo que usa el merger model) y `marjal-capital-partners` (Marjal Capital Partners S.G.E.I.C., S.A., gestora no cotizada; las cuentas son las de la gestora, no las de sus fondos). Las cuentas se generaron con un script que impone las identidades, y pasan `checkCompany`.
+  - Campo nuevo `listed` (por defecto `true`). La cinta solo muestra las cotizadas, así que Marjal no sale.
+  - El test de «5 empresas» pasa a 7.
+  - Un test nuevo comprueba que la caja, la deuda y las acciones de Azahar coinciden con el merger model.
+- **Comprobación de nombres en la CNMV y el Registro Mercantil: la hace Javier.** Hasta entonces, los modelos mantienen `pendienteVerificarCNMV: true`.
+- **docs/revision-modelos.md:** ficha de revisión de los 4 modelos para Javier, en borrador hasta que diga «aprobado». No cambia ningún modelo.
