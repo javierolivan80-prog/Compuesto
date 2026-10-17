@@ -2,26 +2,14 @@
   "id": "n1-u6-l6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "title": "Jefe final: operaciones corporativas",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar ampliación, derechos, split, recompra y OPA"
-  ],
-  "concepts": [
-    "ampliacion-capital",
-    "derechos-suscripcion",
-    "split",
-    "recompra-acciones",
-    "opa"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Aplicar ampliación, derechos, split, recompra y OPA"],
+  "concepts": ["ampliacion-capital", "derechos-suscripcion", "split", "recompra-acciones", "opa"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -40,9 +28,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ampliacion-capital"
-      ],
+      "concepts": ["ampliacion-capital"],
       "prompt": "Una empresa emite 2.000.000 de acciones nuevas a 5 €. ¿Cuántos euros recauda?",
       "answer": 10000000,
       "tolerance": 0,
@@ -56,16 +42,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "ampliacion-capital"
-      ],
+      "concepts": ["ampliacion-capital"],
       "prompt": "Un accionista no acude a una ampliación de capital. Su porcentaje…",
-      "options": [
-        "Disminuye",
-        "Aumenta",
-        "No cambia",
-        "Se duplica"
-      ],
+      "options": ["Disminuye", "Aumenta", "No cambia", "Se duplica"],
       "answer": 0,
       "explanation": "Mismas acciones sobre un total mayor.",
       "wrongExplanations": {
@@ -80,9 +59,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Supuesto ilustrativo: acción a 10 €, 12.000.000 de acciones, ampliación de 3.000.000 a 8 €. ¿Cuál es el precio teórico tras la ampliación, en euros?",
       "answer": 9.6,
       "tolerance": 0,
@@ -96,9 +73,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "statement": "En un split cambia el valor total de la empresa.",
       "answer": false,
       "explanation": "Solo cambian el número de acciones y el precio."
@@ -109,9 +84,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Una acción de 60 € se divide en un split 3 por 1. ¿A qué precio queda, en euros?",
       "answer": 20,
       "tolerance": 0,
@@ -125,15 +98,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa que compra sus propias acciones y no las anula las mantiene en ___.",
-      "answers": [
-        [
-          "autocartera"
-        ]
-      ],
+      "answers": [["autocartera"]],
       "explanation": "Autocartera."
     },
     {
@@ -142,9 +109,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa con 10.000.000 de acciones recompra y amortiza 500.000. Un accionista posee 1.000.000. ¿Qué porcentaje tiene después, en %? (2 decimales)",
       "answer": 10.53,
       "tolerance": 0.1,
@@ -157,9 +122,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "type": "multiple_choice",
       "prompt": "Un inversor tiene 3.000.000 de los 12.000.000 de votos de una cotizada y compra 700.000 acciones más. ¿Qué ocurre?",
       "options": [
@@ -182,9 +145,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "Una OPA ofrece 15 € por una acción que cotiza a 12 €. ¿Cuál es el premio, en %?",
       "answer": 25,
       "tolerance": 0,
@@ -198,9 +159,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "¿Qué puedes hacer con tus derechos de suscripción preferente?",
       "options": [
         "Suscribir acciones nuevas",
@@ -208,10 +167,7 @@
         "Votar con ellos en la junta",
         "Cobrar con ellos el dividendo del año"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Se pueden usar para suscribir acciones nuevas o venderlos; no dan voto ni dividendo."
     }
   ],

@@ -3,21 +3,15 @@
   "unitId": "n1-u4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u4-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "formacion-precios"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["formacion-precios"],
       "prompt": "En un mercado, el precio se forma por…",
       "options": [
         "Una decisión del Gobierno",
@@ -38,12 +32,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "horquilla"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["horquilla"],
       "prompt": "La horquilla (bid-ask) es…",
       "options": [
         "El dividendo",
@@ -64,12 +54,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "liquidez"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez"],
       "prompt": "Un valor con mucha liquidez se caracteriza por…",
       "options": [
         "Poder comprarse y venderse con facilidad sin mover mucho el precio",
@@ -90,12 +76,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["orden-mercado"],
       "statement": "Una orden de mercado prioriza la ejecución sobre el precio.",
       "answer": true,
       "explanation": "Se ejecuta al mejor precio disponible en ese momento."
@@ -105,12 +87,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["orden-limitada"],
       "prompt": "Compras con una orden limitada a 10,00 € y la acción cotiza a 10,20 €. ¿Qué ocurre?",
       "options": [
         "Se ejecuta a 10,20 €",
@@ -131,12 +109,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "subastas"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas"],
       "prompt": "La subasta de apertura sirve para…",
       "options": [
         "Repartir dividendos",
@@ -157,12 +131,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["fomo-manada"],
       "statement": "El FOMO es el miedo a perderse una subida, que lleva a comprar porque otros lo hacen.",
       "answer": true,
       "explanation": "Es un sesgo ligado al efecto manada."
@@ -172,12 +142,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "horquilla"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["horquilla"],
       "prompt": "Una horquilla muy ancha suele indicar…",
       "options": [
         "Mayor dividendo",

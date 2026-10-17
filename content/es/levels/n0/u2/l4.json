@@ -2,9 +2,7 @@
   "id": "n0-u2-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 2,
   "title": "Hipoteca: tipo fijo, variable y Euríbor",
@@ -13,11 +11,7 @@
     "Distinguir hipoteca fija, variable y mixta",
     "Entender cómo el Euríbor mueve la cuota"
   ],
-  "concepts": [
-    "hipoteca",
-    "euribor",
-    "tin"
-  ],
+  "concepts": ["hipoteca", "euribor", "tin"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -48,9 +42,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "euribor"
-      ],
+      "concepts": ["euribor"],
       "prompt": "¿Cómo se calcula el tipo de una hipoteca variable?",
       "options": [
         "Euríbor más un diferencial",
@@ -72,9 +64,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "euribor"
-      ],
+      "concepts": ["euribor"],
       "statement": "Si el Euríbor sube, la cuota de una hipoteca variable puede subir tras la revisión.",
       "answer": true,
       "explanation": "El tipo de la hipoteca se recalcula con el nuevo Euríbor al revisarla, y la cuota se ajusta."
@@ -85,9 +75,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "hipoteca"
-      ],
+      "concepts": ["hipoteca"],
       "statement": "En una hipoteca a tipo fijo, la cuota cambia cada año con el Euríbor.",
       "answer": false,
       "explanation": "En tipo fijo el tipo no cambia durante el periodo pactado, así que la cuota tampoco."
@@ -98,9 +86,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "euribor"
-      ],
+      "concepts": ["euribor"],
       "prompt": "Una hipoteca variable tiene un Euríbor del 2,5 % y un diferencial del 0,9 %. ¿Qué tipo se aplica en %?",
       "answer": 3.4,
       "tolerance": 0,
@@ -114,9 +100,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "hipoteca"
-      ],
+      "concepts": ["hipoteca"],
       "prompt": "Hipoteca de 150.000 € al 3 % a 25 años. ¿Cuál es la cuota mensual? (2 decimales)",
       "answer": 711.32,
       "tolerance": 0.05,
@@ -130,10 +114,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "hipoteca",
-        "euribor"
-      ],
+      "concepts": ["hipoteca", "euribor"],
       "prompt": "Con la misma hipoteca (150.000 € a 25 años), ¿cuál sería la cuota si el tipo pasara a ser del 4 %? (2 decimales)",
       "answer": 791.76,
       "tolerance": 0.05,
@@ -147,10 +128,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "hipoteca",
-        "euribor"
-      ],
+      "concepts": ["hipoteca", "euribor"],
       "prompt": "¿Cuántos euros más al mes se pagan con el 4 % que con el 3 %? (2 decimales)",
       "answer": 80.44,
       "tolerance": 0.5,
@@ -164,15 +142,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "hipoteca",
-        "euribor"
-      ],
+      "concepts": ["hipoteca", "euribor"],
       "prompt": "¿Hipoteca fija o variable?",
-      "categories": [
-        "Fija",
-        "Variable"
-      ],
+      "categories": ["Fija", "Variable"],
       "items": [
         {
           "text": "La cuota puede subir si sube el Euríbor",

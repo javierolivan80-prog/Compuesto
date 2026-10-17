@@ -2,9 +2,7 @@
   "id": "n0-u3-l2",
   "version": 2,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 3,
   "title": "El fondo de emergencia",
@@ -13,13 +11,8 @@
     "Definir el fondo de emergencia y dimensionarlo",
     "Calcular cuántos meses de gastos cubre"
   ],
-  "concepts": [
-    "fondo-emergencia",
-    "presupuesto"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "concepts": ["fondo-emergencia", "presupuesto"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "¿Dónde debe estar el fondo de emergencia?",
       "options": [
         "En algo líquido y sin riesgo de perder capital",
@@ -63,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "statement": "El fondo de emergencia debería invertirse en acciones para que rinda más.",
       "answer": false,
       "explanation": "Su función es la seguridad y la liquidez, no la rentabilidad."
@@ -76,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "Gastos esenciales de 1.200 € al mes. ¿Cuánto es un fondo de 6 meses?",
       "answer": 7200,
       "tolerance": 0,
@@ -92,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "Con esos mismos gastos, ¿cuánto es un fondo de 3 meses?",
       "answer": 3600,
       "tolerance": 0,
@@ -108,10 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia",
-        "presupuesto"
-      ],
+      "concepts": ["fondo-emergencia", "presupuesto"],
       "prompt": "Marc ahorra 300 € al mes para su fondo de 7.200 €, sin contar intereses. ¿Cuántos meses tarda en completarlo?",
       "answer": 24,
       "tolerance": 0,
@@ -125,15 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "La facilidad para convertir un activo en efectivo rápido y sin perder valor se llama ___.",
-      "answers": [
-        [
-          "liquidez"
-        ]
-      ],
+      "answers": [["liquidez"]],
       "explanation": "Un fondo de emergencia debe tener liquidez."
     },
     {
@@ -142,14 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "¿Es una emergencia?",
-      "categories": [
-        "Emergencia",
-        "No es una emergencia"
-      ],
+      "categories": ["Emergencia", "No es una emergencia"],
       "items": [
         {
           "text": "Avería del coche que necesitas para trabajar",
@@ -176,16 +147,9 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "Tienes 2.400 € en tu fondo y gastos esenciales de 800 € al mes. ¿Cuántos meses cubres?",
-      "options": [
-        "2",
-        "3",
-        "4",
-        "6"
-      ],
+      "options": ["2", "3", "4", "6"],
       "answer": 1,
       "explanation": "2.400 / 800 = 3 meses.",
       "wrongExplanations": {
@@ -200,9 +164,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "situation": "Marta tiene 4.000 € ahorrados, gastos esenciales de 1.000 € al mes y ningún fondo de emergencia. Un amigo le dice que una acción «seguro que sube» y que debería invertirlo todo.",
       "prompt": "¿Qué es lo más prudente?",
       "options": [

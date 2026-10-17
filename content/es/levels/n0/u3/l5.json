@@ -2,24 +2,14 @@
   "id": "n0-u3-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 3,
   "title": "Primeros pasos con Excel: celdas y SUMA",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Usar referencias de celda y fórmulas sencillas",
-    "Sumar un rango con SUMA"
-  ],
-  "concepts": [
-    "celdas-suma",
-    "presupuesto"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "objectives": ["Usar referencias de celda y fórmulas sencillas", "Sumar un rango con SUMA"],
+  "concepts": ["celdas-suma", "presupuesto"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +29,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "¿Qué hace =SUMA(B2:B5)?",
       "options": [
         "Suma las celdas de B2 a B5",
@@ -63,9 +51,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "statement": "Si escribes B1+B2 sin el signo =, Excel lo trata como texto y no calcula nada.",
       "answer": true,
       "explanation": "Para que Excel calcule, la fórmula debe empezar por =."
@@ -76,10 +62,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "celdas-suma",
-        "presupuesto"
-      ],
+      "concepts": ["celdas-suma", "presupuesto"],
       "prompt": "Escribe en B5 la fórmula del total de gastos fijos: suma de B1 a B4.",
       "cells": {
         "A1": "Alquiler",
@@ -126,10 +109,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "celdas-suma",
-        "presupuesto"
-      ],
+      "concepts": ["celdas-suma", "presupuesto"],
       "prompt": "Escribe en B3 la fórmula del ahorro: ingresos menos gastos.",
       "cells": {
         "A1": "Ingresos",
@@ -168,9 +148,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "Escribe en B3 la fórmula de qué fracción de los ingresos son gastos: gastos entre ingresos.",
       "cells": {
         "A1": "Ingresos",
@@ -209,9 +187,7 @@
       "difficulty": 3,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "A1 vale 10, A2 vale 20, A3 contiene =A1+A2 y A4 contiene =SUMA(A1:A3). ¿Cuánto vale A4?",
       "answer": 60,
       "tolerance": 0,
@@ -224,16 +200,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "La celda de la columna C y la fila 4 se llama ___.",
-      "answers": [
-        [
-          "C4",
-          "c4"
-        ]
-      ],
+      "answers": [["C4", "c4"]],
       "explanation": "Se nombra columna y fila: C4."
     },
     {
@@ -242,9 +211,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "Una fórmula usa B1. Cambias el valor de B1. ¿Qué pasa con el resultado?",
       "options": [
         "Se recalcula solo",

@@ -65,3 +65,10 @@ export function comboStep(s: ComboState, hit: boolean): ComboResult {
 
 /** Puntos de un acierto: base × multiplicador vigente tras el acierto. */
 export const comboPoints = (base: number, s: ComboState): number => base * s.multiplier;
+
+/** XP de una partida según la nota: poco por jugar al azar (B), más por dominar el concepto. */
+export const GAME_XP: Record<Rating, number> = { AAA: 40, AA: 30, A: 25, BBB: 20, BB: 10, B: 5 };
+/** Solo las primeras partidas del día dan XP, para que los juegos no sean una granja. */
+export const GAME_XP_PLAYS_PER_DAY = 3;
+export const gameXp = (rating: Rating, playsToday: number): number =>
+  playsToday < GAME_XP_PLAYS_PER_DAY ? GAME_XP[rating] : 0;

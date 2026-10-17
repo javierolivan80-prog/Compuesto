@@ -2,9 +2,7 @@
   "id": "n0-u4-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 4,
   "title": "Cómo se multiplica el dinero",
@@ -13,10 +11,7 @@
     "Describir el modelo escolar del multiplicador",
     "Calcular el límite de depósitos para un coeficiente dado"
   ],
-  "concepts": [
-    "creacion-dinero",
-    "banco"
-  ],
+  "concepts": ["creacion-dinero", "banco"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -45,9 +40,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "En el modelo escolar, ¿qué ocurre con un préstamo que concede el banco?",
       "options": [
         "El dinero se gasta y vuelve al sistema como un nuevo depósito",
@@ -69,9 +62,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "statement": "En el modelo escolar, cada nuevo depósito de la cadena es mayor que el anterior.",
       "answer": false,
       "explanation": "Cada depósito es menor que el anterior porque una parte se queda en reserva."
@@ -82,9 +73,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "Se deposita 1.000 € con un coeficiente de reservas del 10 %. ¿Cuántos euros se quedan en reserva?",
       "answer": 100,
       "tolerance": 0,
@@ -98,9 +87,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "En esa cadena, el primer préstamo es de 900 € y vuelve como segundo depósito. ¿De cuánto es el tercer depósito?",
       "answer": 810,
       "tolerance": 0,
@@ -114,9 +101,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "Con un depósito inicial de 1.000 € y un coeficiente del 10 %, ¿cuál es el límite de depósitos totales del modelo?",
       "answer": 10000,
       "tolerance": 0,
@@ -130,9 +115,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "Con el mismo depósito y un coeficiente del 20 %, ¿cuál es el límite de depósitos totales?",
       "answer": 5000,
       "tolerance": 0,
@@ -146,16 +129,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "El límite del modelo es el depósito inicial dividido entre el coeficiente de ___.",
-      "answers": [
-        [
-          "reservas",
-          "reserva"
-        ]
-      ],
+      "answers": [["reservas", "reserva"]],
       "explanation": "Es el coeficiente de reservas."
     },
     {
@@ -164,16 +140,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "Si el coeficiente de reservas del modelo baja del 10 % al 5 %, el límite de depósitos…",
-      "options": [
-        "Se duplica",
-        "Se reduce a la mitad",
-        "No cambia",
-        "Se anula"
-      ],
+      "options": ["Se duplica", "Se reduce a la mitad", "No cambia", "Se anula"],
       "answer": 0,
       "explanation": "Con un 5 %, el límite es depósito / 0,05, el doble que con el 10 %.",
       "wrongExplanations": {

@@ -2,9 +2,7 @@
   "id": "n0-u5-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 5,
   "title": "Cómo funciona un seguro",
@@ -13,12 +11,8 @@
     "Definir prima, franquicia y siniestro",
     "Calcular una indemnización y una pérdida esperada"
   ],
-  "concepts": [
-    "seguros-basicos"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "concepts": ["seguros-basicos"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -42,9 +36,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Qué es la prima de un seguro?",
       "options": [
         "El precio que pagas a la aseguradora por la cobertura",
@@ -66,9 +58,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "statement": "La franquicia es la parte del daño que paga el propio asegurado.",
       "answer": true,
       "explanation": "Se descuenta de la indemnización: la aseguradora paga el resto."
@@ -79,9 +69,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Los daños son 1.500 € y la franquicia (absoluta) es de 150 €. ¿Cuántos euros paga la aseguradora?",
       "answer": 1350,
       "tolerance": 0,
@@ -95,9 +83,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "La prima del seguro del piso es de 240 € al año. ¿Cuánto equivale al mes?",
       "answer": 20,
       "tolerance": 0,
@@ -111,15 +97,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "El suceso cubierto por el seguro que da derecho a indemnización se llama ___.",
-      "answers": [
-        [
-          "siniestro"
-        ]
-      ],
+      "answers": [["siniestro"]],
       "explanation": "Siniestro es el hecho cubierto: incendio, robo, daño por agua."
     },
     {
@@ -128,15 +108,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Prima, franquicia o siniestro?",
-      "categories": [
-        "Prima",
-        "Franquicia",
-        "Siniestro"
-      ],
+      "categories": ["Prima", "Franquicia", "Siniestro"],
       "items": [
         {
           "text": "Los 240 € anuales que pagas a la aseguradora",
@@ -163,9 +137,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Un daño de 20.000 € tiene un 1 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
       "answer": 200,
       "tolerance": 0,
@@ -179,9 +151,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Un daño de 20.000 € tiene un 1 % de probabilidad al año (pérdida esperada: 200 €). La prima cuesta 300 €. ¿Por qué alguien podría asegurarse aun así?",
       "options": [
         "Porque un daño de 20.000 € sería muy difícil de asumir de golpe",

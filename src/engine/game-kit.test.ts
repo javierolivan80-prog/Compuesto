@@ -84,3 +84,14 @@ describe('partículas', () => {
     expect(moved.x).toBeCloseTo(ps[0]!.vx * (50 / 16.667), 6);
   });
 });
+
+describe('XP de los juegos', () => {
+  it('da más por mejor nota y solo en las 3 primeras partidas del día', async () => {
+    const { gameXp, GAME_XP } = await import('./game-kit');
+    expect(gameXp('AAA', 0)).toBe(GAME_XP.AAA);
+    expect(gameXp('B', 2)).toBe(GAME_XP.B);
+    expect(gameXp('AAA', 3)).toBe(0);
+    expect(GAME_XP.AAA).toBeGreaterThan(GAME_XP.A);
+    expect(GAME_XP.B).toBeLessThan(GAME_XP.BBB);
+  });
+});

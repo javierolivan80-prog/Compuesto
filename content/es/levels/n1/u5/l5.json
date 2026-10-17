@@ -2,21 +2,13 @@
   "id": "n1-u5-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "Ganancias y dividendos en el IRPF",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Calcular una ganancia patrimonial",
-    "Estimar el impuesto y la retención"
-  ],
-  "concepts": [
-    "irpf-ganancias",
-    "dividendo"
-  ],
+  "objectives": ["Calcular una ganancia patrimonial", "Estimar el impuesto y la retención"],
+  "concepts": ["irpf-ganancias", "dividendo"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -32,12 +24,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "¿En qué base del IRPF tributa la ganancia por vender acciones?",
       "options": [
         "En la base del ahorro",
@@ -58,12 +46,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "statement": "Si vendes acciones por menos de lo que costaron, tienes una ganancia patrimonial positiva.",
       "answer": false,
       "explanation": "Es una pérdida patrimonial."
@@ -73,12 +57,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Compras 1.000 acciones a 10 € y las vendes a 12 €, sin comisiones. ¿Cuál es la ganancia en euros?",
       "answer": 2000,
       "tolerance": 0,
@@ -91,12 +71,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Compras 1.000 acciones a 10 € con 20 € de comisión y las vendes a 12 € con otros 20 € de comisión. ¿Cuál es la ganancia patrimonial en euros?",
       "answer": 1960,
       "tolerance": 0,
@@ -109,12 +85,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Con una ganancia de 1.960 € como único ingreso de la base del ahorro y un tipo del 19 %, ¿cuánto impuesto resulta, en euros?",
       "answer": 372.4,
       "tolerance": 0.05,
@@ -127,13 +99,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias",
-        "dividendo"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias", "dividendo"],
       "prompt": "Cobras 300 € de dividendos brutos. ¿Cuántos euros te retienen al 19 %?",
       "answer": 57,
       "tolerance": 0,
@@ -146,18 +113,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Las ganancias por vender acciones tributan en la base del ___ del IRPF.",
-      "answers": [
-        [
-          "ahorro"
-        ]
-      ],
+      "answers": [["ahorro"]],
       "explanation": "Base del ahorro."
     },
     {
@@ -165,17 +124,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "¿Ganancia patrimonial o rendimiento del capital mobiliario?",
-      "categories": [
-        "Ganancia patrimonial",
-        "Rendimiento del capital mobiliario"
-      ],
+      "categories": ["Ganancia patrimonial", "Rendimiento del capital mobiliario"],
       "items": [
         {
           "text": "Beneficio por vender acciones más caras de lo que costaron",

@@ -2,9 +2,7 @@
   "id": "n1-u5-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "El bróker y sus comisiones",
@@ -13,10 +11,7 @@
     "Explicar qué es un bróker y cómo comprobar que está autorizado",
     "Calcular comisiones con porcentaje y mínimo"
   ],
-  "concepts": [
-    "broker-espana",
-    "comisiones"
-  ],
+  "concepts": ["broker-espana", "comisiones"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -37,12 +32,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "broker-espana"
-      ],
-      "concepts": [
-        "broker-espana"
-      ],
+      "tags": ["broker-espana"],
+      "concepts": ["broker-espana"],
       "prompt": "¿Qué es un bróker?",
       "options": [
         "Un intermediario autorizado que ejecuta tus órdenes de compra y venta",
@@ -63,12 +54,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "broker-espana"
-      ],
-      "concepts": [
-        "broker-espana"
-      ],
+      "tags": ["broker-espana"],
+      "concepts": ["broker-espana"],
       "statement": "Antes de operar conviene comprobar que la entidad está autorizada y registrada en la CNMV.",
       "answer": true,
       "explanation": "Los registros de la CNMV permiten verificarlo."
@@ -78,12 +65,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 2.000 €. ¿Cuál es la comisión en euros?",
       "answer": 6,
       "tolerance": 0,
@@ -96,12 +79,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 20.000 €. ¿Cuál es la comisión en euros?",
       "answer": 20,
       "tolerance": 0,
@@ -114,12 +93,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Compras 1.000 acciones a 5,00 €. ¿Cuánto pagas en total, comisión incluida, en euros?",
       "answer": 5006,
       "tolerance": 0,
@@ -132,12 +107,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Vendes 1.000 acciones a 5,20 €. ¿Cuánto recibes neto, tras la comisión, en euros?",
       "answer": 5194,
       "tolerance": 0,
@@ -150,22 +121,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "La comisión suele ser un porcentaje del ___ de la operación.",
-      "answers": [
-        [
-          "importe",
-          "valor",
-          "efectivo",
-          "volumen",
-          "total"
-        ]
-      ],
+      "answers": [["importe", "valor", "efectivo", "volumen", "total"]],
       "explanation": "Se calcula sobre el importe de la operación."
     },
     {
@@ -173,17 +132,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "¿Coste para ti o ingreso?",
-      "categories": [
-        "Coste",
-        "Ingreso"
-      ],
+      "categories": ["Coste", "Ingreso"],
       "items": [
         {
           "text": "Comisión de compra",

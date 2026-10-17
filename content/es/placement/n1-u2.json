@@ -3,21 +3,15 @@
   "unitId": "n1-u2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u2-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-primario"],
       "prompt": "¿Dónde recibe la empresa el dinero de una emisión de acciones nuevas?",
       "options": [
         "En el mercado secundario",
@@ -38,19 +32,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-secundario"],
       "prompt": "Cuando compras acciones a otro inversor en bolsa, la operación ocurre en el mercado…",
-      "options": [
-        "Primario",
-        "Secundario",
-        "De divisas",
-        "Monetario"
-      ],
+      "options": ["Primario", "Secundario", "De divisas", "Monetario"],
       "answer": 1,
       "explanation": "En el secundario se negocian valores ya emitidos.",
       "wrongExplanations": {
@@ -64,12 +49,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-secundario"],
       "statement": "En el mercado secundario, el dinero de la compra va a la empresa emisora.",
       "answer": false,
       "explanation": "Va al inversor que vende; la empresa no cobra nada."
@@ -79,12 +60,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "opv"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["opv"],
       "prompt": "Una OPV (oferta pública de venta) es…",
       "options": [
         "Una oferta de compra de acciones dirigida a los accionistas",
@@ -105,12 +82,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "opv"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["opv"],
       "prompt": "En una salida a bolsa, ¿qué se busca principalmente?",
       "options": [
         "Fusionar dos bancos",
@@ -131,12 +104,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-primario"],
       "prompt": "¿Cuál es un ejemplo de operación en el mercado primario?",
       "options": [
         "Comprar acciones a otro inversor",
@@ -157,12 +126,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-secundario"],
       "statement": "El mercado secundario da liquidez a los valores emitidos en el primario.",
       "answer": true,
       "explanation": "Permite vender cuando se quiere."
@@ -172,12 +137,8 @@
       "type": "multi_select",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "opv"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["opv"],
       "prompt": "¿Qué rasgos tiene una salida a bolsa?",
       "options": [
         "La empresa pasa a cotizar en un mercado",
@@ -185,10 +146,7 @@
         "La empresa deja de tener accionistas",
         "La empresa deja de dar información"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Sale a un mercado, ofrece acciones y debe informar más, no menos."
     }
   ],

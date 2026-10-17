@@ -2,9 +2,7 @@
   "id": "n0-u1-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 1,
   "title": "Inflación: por qué tu dinero compra menos",
@@ -13,14 +11,8 @@
     "Definir la inflación y el poder adquisitivo",
     "Calcular cuánto sube una cesta con una inflación dada"
   ],
-  "concepts": [
-    "inflacion",
-    "poder-adquisitivo",
-    "porcentajes"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["inflacion", "poder-adquisitivo", "porcentajes"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -49,9 +41,7 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "inflacion"
-      ],
+      "concepts": ["inflacion"],
       "prompt": "¿Qué es la inflación?",
       "options": [
         "La subida generalizada y sostenida de los precios",
@@ -73,9 +63,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "poder-adquisitivo"
-      ],
+      "concepts": ["poder-adquisitivo"],
       "statement": "Con una inflación del 3 %, dentro de un año con 100 € compras lo mismo que hoy.",
       "answer": false,
       "explanation": "Con inflación los precios suben, así que 100 € compran menos: pierden poder adquisitivo."
@@ -86,10 +74,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "inflacion",
-        "porcentajes"
-      ],
+      "concepts": ["inflacion", "porcentajes"],
       "prompt": "Una cesta de la compra cuesta 100 € hoy. Con una inflación del 3 % anual, ¿cuánto costará dentro de 1 año?",
       "answer": 103,
       "tolerance": 0,
@@ -103,10 +88,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "inflacion",
-        "porcentajes"
-      ],
+      "concepts": ["inflacion", "porcentajes"],
       "prompt": "La misma cesta de 100 € sufre una inflación del 3 % cada año durante 2 años. ¿Cuánto costará al final del segundo año?",
       "answer": 106.09,
       "tolerance": 0,
@@ -120,15 +102,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "poder-adquisitivo"
-      ],
+      "concepts": ["poder-adquisitivo"],
       "prompt": "Si los precios suben más que tus ingresos, tu poder ___ baja.",
-      "answers": [
-        [
-          "adquisitivo"
-        ]
-      ],
+      "answers": [["adquisitivo"]],
       "explanation": "El poder adquisitivo es lo que puedes comprar con tu dinero."
     },
     {
@@ -137,14 +113,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "inflacion"
-      ],
+      "concepts": ["inflacion"],
       "prompt": "¿Qué situaciones describen inflación?",
-      "categories": [
-        "Inflación",
-        "No es inflación"
-      ],
+      "categories": ["Inflación", "No es inflación"],
       "items": [
         {
           "text": "Los precios de casi todo suben un 4 % en un año",
@@ -171,10 +142,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "inflacion",
-        "poder-adquisitivo"
-      ],
+      "concepts": ["inflacion", "poder-adquisitivo"],
       "prompt": "Ordena cómo la inflación reduce tu poder adquisitivo.",
       "steps": [
         "Los precios en general suben",
@@ -190,17 +158,9 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "poder-adquisitivo",
-        "porcentajes"
-      ],
+      "concepts": ["poder-adquisitivo", "porcentajes"],
       "prompt": "Tus ingresos suben un 2 % pero los precios suben un 5 %. ¿Qué le pasa a tu poder adquisitivo?",
-      "options": [
-        "Sube",
-        "Baja",
-        "Se mantiene",
-        "No se puede saber"
-      ],
+      "options": ["Sube", "Baja", "Se mantiene", "No se puede saber"],
       "answer": 1,
       "explanation": "Tus ingresos crecen menos que los precios (2 % frente a 5 %), así que con ellos compras menos: tu poder adquisitivo baja.",
       "wrongExplanations": {

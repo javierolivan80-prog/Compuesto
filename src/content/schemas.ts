@@ -477,3 +477,48 @@ export const companySchema = z.object({
 });
 export const companiesSchema = z.array(companySchema);
 export type Company = z.infer<typeof companySchema>;
+
+/* ---------- Datos de los juegos (content/shared/games.json) ---------- */
+
+export const gamesDataSchema = z.object({
+  presupuesto: z.object({
+    items: z
+      .array(
+        z.object({
+          id: slug,
+          label: text,
+          category: z.enum(['ingreso', 'gasto', 'ahorro']),
+          min: z.number().int().positive(),
+          max: z.number().int().positive(),
+        }),
+      )
+      .min(9),
+    concepts: z.array(slug).min(1),
+    learned: text,
+  }),
+  ordenes: z.object({
+    companies: z.array(text).min(2),
+    intents: z.object({
+      immediate: z.array(z.object({ side: z.enum(['buy', 'sell']), text })).min(2),
+      cap: z.array(z.object({ side: z.enum(['buy', 'sell']), text })).min(2),
+      auction: z.array(z.object({ side: z.enum(['buy', 'sell']), text })).min(2),
+    }),
+    concepts: z.array(slug).min(1),
+    auctionConcepts: z.array(slug).min(1),
+    learned: text,
+  }),
+  titulares: z
+    .array(
+      z.object({
+        id: slug,
+        text,
+        direction: z.enum(['up', 'down']),
+        motives: z.array(text).length(3),
+        answer: z.number().int().min(0).max(2),
+        concepts: z.array(slug).min(1),
+        explanation: text,
+      }),
+    )
+    .min(6),
+});
+export type GamesData = z.infer<typeof gamesDataSchema>;

@@ -2,24 +2,14 @@
   "id": "n1-u2-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "title": "Jefe final: mercado primario y secundario",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar emisión, OPS/OPV y mercado secundario"
-  ],
-  "concepts": [
-    "mercado-primario",
-    "opv",
-    "mercado-secundario"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Aplicar emisión, OPS/OPV y mercado secundario"],
+  "concepts": ["mercado-primario", "opv", "mercado-secundario"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -38,9 +28,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa emite 4.000.000 de acciones nuevas a 5 € cada una. ¿Cuántos euros recauda?",
       "answer": 20000000,
       "tolerance": 0,
@@ -54,9 +42,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "En una OPV, el dinero va a…",
       "options": [
         "Los accionistas que venden",
@@ -78,9 +64,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "statement": "En el mercado secundario, la empresa emisora recibe el dinero de cada compraventa.",
       "answer": false,
       "explanation": "El dinero va del comprador al vendedor."
@@ -91,16 +75,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "La oferta en la que se emiten acciones nuevas se llama oferta pública de ___.",
-      "answers": [
-        [
-          "suscripción",
-          "suscripcion"
-        ]
-      ],
+      "answers": [["suscripción", "suscripcion"]],
       "explanation": "OPS: oferta pública de suscripción."
     },
     {
@@ -109,14 +86,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "¿OPS u OPV?",
-      "categories": [
-        "OPS",
-        "OPV"
-      ],
+      "categories": ["OPS", "OPV"],
       "items": [
         {
           "text": "Acciones nuevas; dinero a la empresa",
@@ -143,9 +115,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa con 8.000.000 de acciones emite 2.000.000 nuevas. ¿Qué porcentaje del total serán nuevas?",
       "answer": 20,
       "tolerance": 0,
@@ -159,10 +129,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario",
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-primario", "mercado-secundario"],
       "prompt": "Se venden 200 acciones entre inversores a 15 € y la empresa emite 100 acciones nuevas a 15 €. ¿Cuántos euros recibe la empresa?",
       "answer": 1500,
       "tolerance": 0,
@@ -176,10 +143,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opv",
-        "mercado-primario"
-      ],
+      "concepts": ["opv", "mercado-primario"],
       "prompt": "Una salida a bolsa combina una OPS de 2.000.000 de acciones y una OPV de 1.000.000, todas a 10 €. ¿Cuántos euros recibe la empresa?",
       "answer": 20000000,
       "unit": "€",
@@ -193,9 +157,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa tiene 10.000.000 de acciones y emite 2.000.000 más. Un accionista con 1.000.000, que no acude, ¿qué porcentaje tendrá después? (redondea a dos decimales)",
       "answer": 8.33,
       "tolerance": 0.1,
@@ -209,10 +171,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-primario",
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-primario", "mercado-secundario"],
       "prompt": "¿Qué ocurre en el mercado primario?",
       "options": [
         "La empresa emite acciones nuevas",
@@ -220,10 +179,7 @@
         "Los inversores se venden acciones entre sí",
         "Se forma el precio de cotización día a día"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "En el primario hay emisión y entrada de dinero en la empresa; las compraventas entre inversores y el precio diario son del secundario."
     }
   ],

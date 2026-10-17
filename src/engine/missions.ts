@@ -62,7 +62,12 @@ const POOL: Def[] = [
     progress: (evs) =>
       evs.reduce(
         (s, e) =>
-          s + (e.type === 'exercise_answered' || e.type === 'lesson_completed' ? e.payload.xp : 0),
+          s +
+          (e.type === 'exercise_answered' ||
+          e.type === 'lesson_completed' ||
+          e.type === 'game_played'
+            ? e.payload.xp
+            : 0),
         0,
       ),
   },

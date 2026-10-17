@@ -2,16 +2,12 @@
   "id": "n1-u5-l6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "Jefe final: operar en España",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar comisiones, dividendos, rentabilidad total, scrip e IRPF"
-  ],
+  "objectives": ["Aplicar comisiones, dividendos, rentabilidad total, scrip e IRPF"],
   "concepts": [
     "broker-espana",
     "comisiones",
@@ -39,12 +35,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "Comisión del 0,10 % del importe, con un mínimo de 6 €. Operación de 1.500 €. ¿Cuál es la comisión en euros?",
       "answer": 6,
       "tolerance": 0,
@@ -57,12 +49,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "broker-espana"
-      ],
-      "concepts": [
-        "broker-espana"
-      ],
+      "tags": ["broker-espana"],
+      "concepts": ["broker-espana"],
       "prompt": "Antes de operar con una entidad, ¿qué conviene comprobar?",
       "options": [
         "Que está autorizada y registrada en la CNMV",
@@ -83,12 +71,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-dividendo"
-      ],
-      "concepts": [
-        "rentabilidad-dividendo"
-      ],
+      "tags": ["rentabilidad-dividendo"],
+      "concepts": ["rentabilidad-dividendo"],
       "prompt": "Una acción cotiza a 25 € y paga 1 € de dividendo. ¿Cuál es la rentabilidad por dividendo, en %?",
       "answer": 4,
       "tolerance": 0,
@@ -101,12 +85,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "statement": "La rentabilidad total incluye los dividendos cobrados.",
       "answer": true,
       "explanation": "Suma el cambio de precio y los dividendos."
@@ -116,12 +96,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "Compras a 50 €, cobras 2 € de dividendos y vendes a 52 €. ¿Cuál es la rentabilidad total, en %?",
       "answer": 8,
       "tolerance": 0,
@@ -134,18 +110,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "El dividendo en el que eliges entre efectivo y acciones es el dividendo ___.",
-      "answers": [
-        [
-          "flexible"
-        ]
-      ],
+      "answers": [["flexible"]],
       "explanation": "Scrip dividend o dividendo flexible."
     },
     {
@@ -153,17 +121,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "¿Ganancia patrimonial o rendimiento del capital mobiliario?",
-      "categories": [
-        "Ganancia patrimonial",
-        "Rendimiento del capital mobiliario"
-      ],
+      "categories": ["Ganancia patrimonial", "Rendimiento del capital mobiliario"],
       "items": [
         {
           "text": "Beneficio por vender acciones",
@@ -185,12 +146,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Compras 100 acciones a 30 € y las vendes a 34 €, sin comisiones. ¿Cuál es la ganancia en euros?",
       "answer": 400,
       "tolerance": 0,
@@ -203,13 +160,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "irpf-ganancias"
-      ],
-      "concepts": [
-        "irpf-ganancias",
-        "dividendo"
-      ],
+      "tags": ["irpf-ganancias"],
+      "concepts": ["irpf-ganancias", "dividendo"],
       "prompt": "Cobras 800 € de dividendos brutos. ¿Cuántos euros te retienen al 19 %?",
       "answer": 152,
       "tolerance": 0,
@@ -222,12 +174,8 @@
       "type": "multi_select",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "comisiones"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["comisiones"],
+      "concepts": ["comisiones"],
       "prompt": "¿Qué cuesta dinero al operar en bolsa?",
       "options": [
         "La comisión por operación",
@@ -235,11 +183,7 @@
         "El cambio de divisa, si compras en otra moneda",
         "Los dividendos cobrados"
       ],
-      "answers": [
-        0,
-        1,
-        2
-      ],
+      "answers": [0, 1, 2],
       "explanation": "Comisiones, custodia y cambio de divisa son costes; los dividendos cobrados son un ingreso."
     }
   ],

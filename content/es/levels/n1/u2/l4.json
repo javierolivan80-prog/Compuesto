@@ -2,9 +2,7 @@
   "id": "n1-u2-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "title": "Qué cambia tras una emisión",
@@ -13,13 +11,8 @@
     "Calcular acciones, porcentaje y capitalización tras una emisión",
     "Entender la dilución"
   ],
-  "concepts": [
-    "mercado-primario",
-    "capitalizacion"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["mercado-primario", "capitalizacion"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -39,16 +32,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa emite acciones nuevas y un accionista antiguo no suscribe ninguna. ¿Qué pasa con su porcentaje de la empresa?",
-      "options": [
-        "Disminuye",
-        "Aumenta",
-        "No cambia",
-        "Se anula"
-      ],
+      "options": ["Disminuye", "Aumenta", "No cambia", "Se anula"],
       "answer": 0,
       "explanation": "Tiene las mismas acciones sobre un total mayor, así que su porcentaje baja.",
       "wrongExplanations": {
@@ -63,9 +49,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "statement": "Al emitir acciones nuevas aumenta el número total de acciones de la empresa.",
       "answer": true,
       "explanation": "Las acciones nuevas se suman a las existentes."
@@ -76,9 +60,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa con 12.000.000 de acciones emite 3.000.000 de acciones nuevas. ¿Cuántas acciones tiene después?",
       "answer": 15000000,
       "tolerance": 0,
@@ -92,9 +74,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Carmen tiene 3.600.000 acciones de 12.000.000 y la empresa emite 3.000.000 nuevas que ella no compra. ¿Qué porcentaje tiene después?",
       "answer": 24,
       "tolerance": 0,
@@ -108,9 +88,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Una empresa con 12.000.000 de acciones a 10 € emite 3.000.000 más y el precio sigue en 10 € (supuesto ilustrativo). ¿Qué ocurre con su capitalización?",
       "options": [
         "Aumenta, porque hay más acciones",
@@ -132,9 +110,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Una empresa con 12.000.000 de acciones emite 3.000.000 nuevas a 10 € y el precio de cotización sigue en 10 €. ¿Cuál es su capitalización después, en euros?",
       "answer": 150000000,
       "tolerance": 0,
@@ -148,16 +124,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Cuando las acciones nuevas reducen el porcentaje de los accionistas antiguos se habla de ___.",
-      "answers": [
-        [
-          "dilución",
-          "dilucion"
-        ]
-      ],
+      "answers": [["dilución", "dilucion"]],
       "explanation": "Es la dilución."
     },
     {
@@ -166,9 +135,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Para mantener su 30 % de 15.000.000 de acciones, Carmen (con 3.600.000) quiere comprar acciones, dentro de los 3.000.000 nuevos que se emiten. ¿Cuántas más necesita?",
       "answer": 900000,
       "tolerance": 0,

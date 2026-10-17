@@ -2,23 +2,14 @@
   "id": "n0-u5-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 5,
   "title": "Qué conviene asegurar",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Decidir qué riesgos asegurar y cuáles asumir",
-    "Calcular una pérdida esperada"
-  ],
-  "concepts": [
-    "seguros-basicos"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "objectives": ["Decidir qué riesgos asegurar y cuáles asumir", "Calcular una pérdida esperada"],
+  "concepts": ["seguros-basicos"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -34,9 +25,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Qué riesgos conviene asegurar en primer lugar?",
       "options": [
         "Los de baja probabilidad y alto impacto",
@@ -58,9 +47,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "statement": "En España, el seguro de responsabilidad civil de un vehículo es obligatorio.",
       "answer": true,
       "explanation": "Todo vehículo a motor necesita cubrir su responsabilidad civil frente a terceros."
@@ -71,14 +58,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Asegurar o asumir?",
-      "categories": [
-        "Asegurar",
-        "Asumir"
-      ],
+      "categories": ["Asegurar", "Asumir"],
       "items": [
         {
           "text": "Daños por un incendio en la vivienda",
@@ -105,9 +87,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Un daño de 5.000 € tiene un 2 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
       "answer": 100,
       "tolerance": 0,
@@ -121,9 +101,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Una avería de 150 € tiene un 20 % de probabilidad al año. ¿Cuál es la pérdida esperada anual?",
       "answer": 30,
       "tolerance": 0,
@@ -137,21 +115,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Conviene asegurar los riesgos de baja probabilidad y ___ impacto.",
-      "answers": [
-        [
-          "alto",
-          "gran",
-          "grande",
-          "elevado",
-          "enorme",
-          "severo",
-          "importante"
-        ]
-      ],
+      "answers": [["alto", "gran", "grande", "elevado", "enorme", "severo", "importante"]],
       "explanation": "Alto impacto significa que la pérdida sería difícil de pagar."
     },
     {
@@ -160,9 +126,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Ordena los pasos para decidir si contratar un seguro.",
       "steps": [
         "Identifica los riesgos que te pueden afectar",
@@ -178,16 +142,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "concepts": ["seguros-basicos"],
       "prompt": "Un seguro con una franquicia más alta suele tener una prima…",
-      "options": [
-        "Más baja",
-        "Más alta",
-        "Igual",
-        "Cero"
-      ],
+      "options": ["Más baja", "Más alta", "Igual", "Cero"],
       "answer": 0,
       "explanation": "Si asumes tú más parte del daño, la aseguradora cobra menos.",
       "wrongExplanations": {

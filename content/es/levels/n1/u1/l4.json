@@ -2,24 +2,14 @@
   "id": "n1-u1-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 1,
   "title": "Free float: las acciones que cotizan libremente",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Definir el free float",
-    "Calcular acciones y capitalización del free float"
-  ],
-  "concepts": [
-    "free-float",
-    "capitalizacion"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Definir el free float", "Calcular acciones y capitalización del free float"],
+  "concepts": ["free-float", "capitalizacion"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -48,9 +38,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "¿Qué es el free float?",
       "options": [
         "La parte de las acciones que cotiza libremente",
@@ -72,9 +60,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "statement": "El free float incluye el paquete estable del accionista de control.",
       "answer": false,
       "explanation": "Los paquetes estables se excluyen del free float."
@@ -85,9 +71,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "12.000.000 de acciones con un 40 % de free float. ¿Cuántas acciones cotizan libremente?",
       "answer": 4800000,
       "tolerance": 0,
@@ -101,10 +85,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "free-float",
-        "capitalizacion"
-      ],
+      "concepts": ["free-float", "capitalizacion"],
       "prompt": "Supuesto ilustrativo: 4.800.000 acciones libres cotizan a 10 €. ¿Cuál es la capitalización del free float en euros?",
       "answer": 48000000,
       "tolerance": 0,
@@ -118,9 +99,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "Una empresa tiene 10.000.000 de acciones y 3.000.000 cotizan libremente. ¿Qué porcentaje es free float?",
       "answer": 30,
       "tolerance": 0,
@@ -134,15 +113,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "Las acciones que cotizan libremente forman el free ___.",
-      "answers": [
-        [
-          "float"
-        ]
-      ],
+      "answers": [["float"]],
       "explanation": "Free float (en castellano, capital flotante)."
     },
     {
@@ -151,14 +124,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "¿Forma parte del free float?",
-      "categories": [
-        "Free float",
-        "No es free float"
-      ],
+      "categories": ["Free float", "No es free float"],
       "items": [
         {
           "text": "Acciones que compra y vende el público en bolsa",
@@ -185,9 +153,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "Una empresa tiene muy poco free float. ¿Qué riesgo suele implicar para quien quiera comprar o vender?",
       "options": [
         "Mover el precio con operaciones pequeñas",

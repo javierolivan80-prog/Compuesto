@@ -2,20 +2,13 @@
   "id": "n1-u4-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "FOMO y efecto manada",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Reconocer el FOMO y el efecto manada",
-    "Poner una defensa práctica"
-  ],
-  "concepts": [
-    "fomo-manada"
-  ],
+  "objectives": ["Reconocer el FOMO y el efecto manada", "Poner una defensa práctica"],
+  "concepts": ["fomo-manada"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -32,9 +25,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "¿Qué es el FOMO en inversión?",
       "options": [
         "El miedo a perderse una subida que lleva a comprar sin análisis",
@@ -56,9 +47,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "statement": "Comprar solo porque todo el mundo compra es un ejemplo de efecto manada.",
       "answer": true,
       "explanation": "Se imita a la mayoría en lugar de analizar."
@@ -69,14 +58,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "¿FOMO o decisión con plan?",
-      "categories": [
-        "FOMO",
-        "Decisión con plan"
-      ],
+      "categories": ["FOMO", "Decisión con plan"],
       "items": [
         {
           "text": "Compro porque la acción lleva una semana subiendo y todos hablan de ella",
@@ -103,9 +87,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "Una acción sube de 10 € a 13 € en una semana. ¿Cuánto ha subido, en %?",
       "answer": 30,
       "tolerance": 0,
@@ -119,9 +101,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "Una acción ha subido de 10 € a 13 € en una semana. Alguien compra a 13 € y después baja a 11,70 €. ¿Cuál es la variación desde su precio de compra, en %?",
       "answer": -10,
       "tolerance": 0,
@@ -135,16 +115,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "El miedo a perderse una subida se conoce por sus siglas inglesas ___.",
-      "answers": [
-        [
-          "FOMO",
-          "fomo"
-        ]
-      ],
+      "answers": [["FOMO", "fomo"]],
       "explanation": "FOMO: fear of missing out."
     },
     {
@@ -153,9 +126,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "Ordena una defensa contra el FOMO.",
       "steps": [
         "Defines antes qué quieres comprar y por qué",
@@ -171,10 +142,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fomo-manada",
-        "orden-limitada"
-      ],
+      "concepts": ["fomo-manada", "orden-limitada"],
       "prompt": "¿Qué herramienta de este tema ayuda a no perseguir el precio?",
       "options": [
         "La orden limitada",

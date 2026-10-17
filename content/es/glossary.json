@@ -4,14 +4,10 @@
     "term": "Inflación",
     "definition": "Subida generalizada y sostenida de los precios. Con inflación, la misma cantidad de euros compra menos cosas con el tiempo.",
     "level": 0,
-    "concepts": [
-      "inflacion"
-    ],
+    "concepts": ["inflacion"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -20,16 +16,10 @@
     "term": "Poder adquisitivo",
     "definition": "Cantidad de bienes y servicios que se pueden comprar con una cantidad de dinero o con unos ingresos. Baja cuando los precios suben más que tus ingresos.",
     "level": 0,
-    "concepts": [
-      "poder-adquisitivo"
-    ],
-    "aliases": [
-      "poder de compra"
-    ],
+    "concepts": ["poder-adquisitivo"],
+    "aliases": ["poder de compra"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -38,14 +28,10 @@
     "term": "Interés simple",
     "definition": "Interés que se calcula siempre sobre el capital inicial: cada periodo se gana lo mismo. Valor final = capital × (1 + i × n).",
     "level": 0,
-    "concepts": [
-      "interes-simple"
-    ],
+    "concepts": ["interes-simple"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -54,19 +40,10 @@
     "term": "Interés compuesto",
     "definition": "Interés calculado sobre el capital más los intereses ya acumulados. Valor final = capital × (1 + i)^n, con i = tipo de interés por periodo (en tanto por uno) y n = número de periodos.",
     "level": 0,
-    "concepts": [
-      "interes-compuesto"
-    ],
-    "aliases": [
-      "compuesto",
-      "capitalizan",
-      "capitaliza",
-      "capitalización"
-    ],
+    "concepts": ["interes-compuesto"],
+    "aliases": ["compuesto", "capitalizan", "capitaliza", "capitalización"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -75,15 +52,10 @@
     "term": "Capital",
     "definition": "Cantidad de dinero que se invierte o se presta al principio; sobre ella se calculan los intereses.",
     "level": 0,
-    "concepts": [
-      "interes-simple",
-      "interes-compuesto"
-    ],
+    "concepts": ["interes-simple", "interes-compuesto"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -92,17 +64,10 @@
     "term": "Tipo de interés",
     "definition": "Porcentaje que se paga o se cobra por el uso del dinero durante un periodo, normalmente un año. También se le llama tasa.",
     "level": 0,
-    "concepts": [
-      "interes-simple",
-      "interes-compuesto"
-    ],
-    "aliases": [
-      "tipo de interés anual"
-    ],
+    "concepts": ["interes-simple", "interes-compuesto"],
+    "aliases": ["tipo de interés anual"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -111,14 +76,10 @@
     "term": "Regla del 72",
     "definition": "Atajo para estimar en cuántos años se duplica un capital: se divide 72 entre el tipo de interés anual en %. Es aproximada; funciona bien con tipos habituales (del 5 % al 10 % aprox.).",
     "level": 0,
-    "concepts": [
-      "regla-del-72"
-    ],
+    "concepts": ["regla-del-72"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -127,16 +88,10 @@
     "term": "Rentabilidad nominal",
     "definition": "Rentabilidad que figura en el contrato o el anuncio, sin descontar la inflación.",
     "level": 0,
-    "concepts": [
-      "tipo-real-nominal"
-    ],
-    "aliases": [
-      "tipo nominal"
-    ],
+    "concepts": ["tipo-real-nominal"],
+    "aliases": ["tipo nominal"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -145,16 +100,10 @@
     "term": "Rentabilidad real",
     "definition": "Rentabilidad una vez descontada la inflación: (1 + nominal) / (1 + inflación) − 1, con las tasas en tanto por uno (2 % = 0,02). Aproximadamente, nominal − inflación. Si es negativa, pierdes poder adquisitivo aunque tu saldo suba.",
     "level": 0,
-    "concepts": [
-      "tipo-real-nominal"
-    ],
-    "aliases": [
-      "tipo real"
-    ],
+    "concepts": ["tipo-real-nominal"],
+    "aliases": ["tipo real"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -163,16 +112,10 @@
     "term": "Valor actual",
     "definition": "Lo que vale hoy una cantidad que se recibirá en el futuro: valor futuro / (1 + i)^n, con i = tasa de descuento por periodo (en tanto por uno) y n = número de periodos.",
     "level": 0,
-    "concepts": [
-      "valor-temporal-dinero"
-    ],
-    "aliases": [
-      "valor presente"
-    ],
+    "concepts": ["valor-temporal-dinero"],
+    "aliases": ["valor presente"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -181,17 +124,10 @@
     "term": "Valor temporal del dinero",
     "definition": "Idea de que un euro hoy vale más que un euro futuro, porque se puede invertir y porque la inflación erosiona el futuro.",
     "level": 0,
-    "concepts": [
-      "valor-temporal-dinero"
-    ],
-    "aliases": [
-      "valor temporal",
-      "valor del dinero en el tiempo"
-    ],
+    "concepts": ["valor-temporal-dinero"],
+    "aliases": ["valor temporal", "valor del dinero en el tiempo"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -200,16 +136,10 @@
     "term": "TIN",
     "definition": "Tipo de interés nominal anual: el precio anual del dinero antes de tener en cuenta la frecuencia de liquidación de los intereses y las comisiones. Con él se calculan los intereses de cada cuota.",
     "level": 0,
-    "concepts": [
-      "tin"
-    ],
-    "aliases": [
-      "tipo de interés nominal"
-    ],
+    "concepts": ["tin"],
+    "aliases": ["tipo de interés nominal"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -218,16 +148,10 @@
     "term": "TAE",
     "definition": "Tasa anual equivalente: expresa en una medida anual comparable el coste de un préstamo o la rentabilidad de un depósito, incluyendo la frecuencia de liquidación de los intereses y, en préstamos, ciertas comisiones y gastos.",
     "level": 0,
-    "concepts": [
-      "tae"
-    ],
-    "aliases": [
-      "tasa anual equivalente"
-    ],
+    "concepts": ["tae"],
+    "aliases": ["tasa anual equivalente"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -236,14 +160,10 @@
     "term": "Cuota",
     "definition": "Pago periódico (normalmente mensual) con el que se devuelve un préstamo. En el sistema francés es constante y se reparte entre intereses y capital.",
     "level": 0,
-    "concepts": [
-      "prestamo"
-    ],
+    "concepts": ["prestamo"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -252,16 +172,10 @@
     "term": "Cuadro de amortización",
     "definition": "Tabla que detalla, cuota a cuota, cuánto se paga de intereses, cuánto de capital y cuál es el saldo pendiente.",
     "level": 0,
-    "concepts": [
-      "cuadro-amortizacion"
-    ],
-    "aliases": [
-      "plan de amortización"
-    ],
+    "concepts": ["cuadro-amortizacion"],
+    "aliases": ["plan de amortización"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -270,14 +184,10 @@
     "term": "Hipoteca",
     "definition": "Préstamo garantizado con un inmueble: si no se paga, el banco puede ejecutar la garantía. Puede ser a tipo fijo, variable o mixto.",
     "level": 0,
-    "concepts": [
-      "hipoteca"
-    ],
+    "concepts": ["hipoteca"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -286,14 +196,10 @@
     "term": "Euríbor",
     "definition": "Tipo de referencia que publica el EMMI a partir de los tipos a los que grandes bancos europeos se financian entre sí. Es el índice al que se ligan la mayoría de las hipotecas a tipo variable.",
     "level": 0,
-    "concepts": [
-      "euribor"
-    ],
+    "concepts": ["euribor"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -302,14 +208,10 @@
     "term": "Diferencial",
     "definition": "Margen que el banco suma al Euríbor en una hipoteca variable. Tipo aplicado = Euríbor + diferencial.",
     "level": 0,
-    "concepts": [
-      "euribor"
-    ],
+    "concepts": ["euribor"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -318,14 +220,10 @@
     "term": "Coste de oportunidad",
     "definition": "Lo que dejas de ganar por elegir una alternativa en lugar de otra; por ejemplo, la rentabilidad a la que renuncias al inmovilizar dinero en la entrada de una vivienda.",
     "level": 0,
-    "concepts": [
-      "alquilar-vs-comprar"
-    ],
+    "concepts": ["alquilar-vs-comprar"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -334,14 +232,10 @@
     "term": "Presupuesto",
     "definition": "Plan de ingresos y gastos para un periodo, normalmente un mes, que sirve para decidir cuánto se gasta y cuánto se ahorra.",
     "level": 0,
-    "concepts": [
-      "presupuesto"
-    ],
+    "concepts": ["presupuesto"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -350,16 +244,10 @@
     "term": "Regla 50/30/20",
     "definition": "Pauta popular para repartir ingresos netos: 50 % necesidades (incluidas las cuotas obligatorias de deuda), 30 % deseos y 20 % ahorro y amortización extra de deudas. Es una orientación, no una norma.",
     "level": 0,
-    "concepts": [
-      "presupuesto"
-    ],
-    "aliases": [
-      "50/30/20"
-    ],
+    "concepts": ["presupuesto"],
+    "aliases": ["50/30/20"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -368,14 +256,10 @@
     "term": "Fondo de emergencia",
     "definition": "Dinero líquido y seguro reservado para imprevistos. Una pauta habitual es que cubra entre 3 y 6 meses de gastos esenciales.",
     "level": 0,
-    "concepts": [
-      "fondo-emergencia"
-    ],
+    "concepts": ["fondo-emergencia"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -384,14 +268,10 @@
     "term": "Liquidez",
     "definition": "Facilidad para convertir un activo en efectivo rápidamente y sin perder valor.",
     "level": 0,
-    "concepts": [
-      "fondo-emergencia"
-    ],
+    "concepts": ["fondo-emergencia"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -400,14 +280,10 @@
     "term": "Sesgo del presente",
     "definition": "Tendencia a preferir una recompensa inmediata aunque otra mayor llegue más adelante; dificulta ahorrar.",
     "level": 0,
-    "concepts": [
-      "sesgo-presente"
-    ],
+    "concepts": ["sesgo-presente"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -416,16 +292,10 @@
     "term": "Referencia de celda",
     "definition": "Nombre de una celda de una hoja de cálculo según su columna y su fila, como B2. Permite que las fórmulas se recalculen al cambiar los datos.",
     "level": 0,
-    "concepts": [
-      "celdas-suma"
-    ],
-    "aliases": [
-      "celda"
-    ],
+    "concepts": ["celdas-suma"],
+    "aliases": ["celda"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -434,14 +304,10 @@
     "term": "Rango",
     "definition": "Conjunto de celdas contiguas de una hoja de cálculo, como B1:B4. SUMA(B1:B4) suma todas las del rango.",
     "level": 0,
-    "concepts": [
-      "celdas-suma"
-    ],
+    "concepts": ["celdas-suma"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -450,14 +316,10 @@
     "term": "Déficit",
     "definition": "Situación en la que los gastos de un periodo superan a los ingresos; la diferencia es el déficit.",
     "level": 0,
-    "concepts": [
-      "presupuesto"
-    ],
+    "concepts": ["presupuesto"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -466,14 +328,10 @@
     "term": "Margen de intereses",
     "definition": "Diferencia entre los intereses que cobra un banco por sus préstamos y los que paga por sus depósitos; es la base de su negocio tradicional.",
     "level": 0,
-    "concepts": [
-      "banco"
-    ],
+    "concepts": ["banco"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -482,14 +340,10 @@
     "term": "Coeficiente de reservas",
     "definition": "Porcentaje de los depósitos que un banco debe mantener como reserva. En el modelo escolar del multiplicador, limita los depósitos totales a depósito inicial dividido entre el coeficiente.",
     "level": 0,
-    "concepts": [
-      "creacion-dinero"
-    ],
+    "concepts": ["creacion-dinero"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-10-15",
     "sources": [
       {
@@ -504,16 +358,10 @@
     "term": "Depósito a plazo",
     "definition": "Depósito en el que se inmoviliza el dinero durante un plazo a cambio de un tipo normalmente mayor; retirarlo antes puede tener penalización.",
     "level": 0,
-    "concepts": [
-      "deposito"
-    ],
-    "aliases": [
-      "imposición a plazo"
-    ],
+    "concepts": ["deposito"],
+    "aliases": ["imposición a plazo"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -522,14 +370,10 @@
     "term": "Fondo de Garantía de Depósitos",
     "definition": "Fondo que protege los depósitos si una entidad quiebra, hasta 100.000 € por titular y por entidad. No cubre pérdidas de valor de inversiones.",
     "level": 0,
-    "concepts": [
-      "fgd"
-    ],
+    "concepts": ["fgd"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-10-15",
     "sources": [
       {
@@ -544,14 +388,10 @@
     "term": "Retención",
     "definition": "Importe que el pagador (por ejemplo, el banco al abonar intereses) ingresa a Hacienda por cuenta del perceptor, a cuenta del IRPF. Para los intereses es del 19 %.",
     "level": 0,
-    "concepts": [
-      "irpf-intereses"
-    ],
+    "concepts": ["irpf-intereses"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-03-31",
     "sources": [
       {
@@ -571,14 +411,10 @@
     "term": "Base del ahorro",
     "definition": "Parte de la renta del IRPF que incluye intereses, dividendos y ganancias patrimoniales por transmisiones; tributa con una escala propia que empieza en el 19 %.",
     "level": 0,
-    "concepts": [
-      "irpf-intereses"
-    ],
+    "concepts": ["irpf-intereses"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-03-31",
     "sources": [
       {
@@ -598,14 +434,10 @@
     "term": "Prima",
     "definition": "Precio que se paga a la aseguradora por la cobertura de un seguro.",
     "level": 0,
-    "concepts": [
-      "seguros-basicos"
-    ],
+    "concepts": ["seguros-basicos"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -614,14 +446,10 @@
     "term": "Franquicia",
     "definition": "Parte del daño que corre a cargo del asegurado; la aseguradora indemniza el resto.",
     "level": 0,
-    "concepts": [
-      "seguros-basicos"
-    ],
+    "concepts": ["seguros-basicos"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -630,14 +458,10 @@
     "term": "Siniestro",
     "definition": "Suceso cubierto por el seguro que da derecho a indemnización.",
     "level": 0,
-    "concepts": [
-      "seguros-basicos"
-    ],
+    "concepts": ["seguros-basicos"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -646,16 +470,10 @@
     "term": "Sistema de reparto",
     "definition": "Sistema de pensiones en el que las cotizaciones actuales financian las pensiones actuales.",
     "level": 0,
-    "concepts": [
-      "pensiones-publicas"
-    ],
-    "aliases": [
-      "reparto"
-    ],
+    "concepts": ["pensiones-publicas"],
+    "aliases": ["reparto"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -664,16 +482,10 @@
     "term": "Tres pilares",
     "definition": "Esquema de la jubilación: pensión pública, planes de empleo y ahorro individual.",
     "level": 0,
-    "concepts": [
-      "tres-pilares"
-    ],
-    "aliases": [
-      "pilares de la jubilación"
-    ],
+    "concepts": ["tres-pilares"],
+    "aliases": ["pilares de la jubilación"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -682,14 +494,10 @@
     "term": "Riesgo",
     "definition": "Posibilidad de que el resultado real sea distinto del esperado, incluida la pérdida. A más rentabilidad esperada, suele haber más riesgo.",
     "level": 0,
-    "concepts": [
-      "riesgo-rentabilidad"
-    ],
+    "concepts": ["riesgo-rentabilidad"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -698,14 +506,10 @@
     "term": "Pérdida esperada",
     "definition": "Probabilidad de un suceso multiplicada por el daño que causaría; mide el coste medio anual de un riesgo.",
     "level": 0,
-    "concepts": [
-      "seguros-basicos"
-    ],
+    "concepts": ["seguros-basicos"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -714,14 +518,10 @@
     "term": "Sociedad anónima",
     "definition": "Sociedad cuyo capital está dividido en acciones y en la que los socios responden solo con lo aportado (responsabilidad limitada).",
     "level": 1,
-    "concepts": [
-      "empresa"
-    ],
+    "concepts": ["empresa"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -736,14 +536,10 @@
     "term": "Acción",
     "definition": "Parte alícuota del capital de una sociedad. Da derechos económicos (dividendo, cuota de liquidación) y políticos (voto en la junta, información).",
     "level": 1,
-    "concepts": [
-      "accion"
-    ],
+    "concepts": ["accion"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -758,14 +554,10 @@
     "term": "Capitalización bursátil",
     "definition": "Precio de una acción multiplicado por el número de acciones emitidas (admitidas a cotización); el valor que el mercado asigna a la empresa en ese momento.",
     "level": 1,
-    "concepts": [
-      "capitalizacion"
-    ],
+    "concepts": ["capitalizacion"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -780,14 +572,10 @@
     "term": "Free float",
     "definition": "Parte de las acciones de una empresa que cotiza libremente, excluyendo paquetes estables y autocartera. Cada proveedor de índices fija sus propios criterios y umbrales.",
     "level": 1,
-    "concepts": [
-      "free-float"
-    ],
+    "concepts": ["free-float"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -802,14 +590,10 @@
     "term": "Dividendo",
     "definition": "Parte del beneficio que una sociedad reparte entre sus accionistas por acuerdo de la junta general. No está garantizado.",
     "level": 1,
-    "concepts": [
-      "accion"
-    ],
+    "concepts": ["accion"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -824,14 +608,10 @@
     "term": "Mercado primario",
     "definition": "Mercado en el que una empresa emite títulos nuevos (por ahora, acciones) y recibe el dinero de los inversores.",
     "level": 1,
-    "concepts": [
-      "mercado-primario"
-    ],
+    "concepts": ["mercado-primario"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -846,14 +626,10 @@
     "term": "Mercado secundario",
     "definition": "Mercado en el que los inversores compran y venden entre sí títulos ya emitidos; el dinero va del comprador al vendedor, no a la empresa.",
     "level": 1,
-    "concepts": [
-      "mercado-secundario"
-    ],
+    "concepts": ["mercado-secundario"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -868,16 +644,10 @@
     "term": "OPS",
     "definition": "Oferta pública de suscripción: se emiten acciones nuevas y el dinero llega a la empresa emisora.",
     "level": 1,
-    "concepts": [
-      "opv"
-    ],
-    "aliases": [
-      "oferta pública de suscripción"
-    ],
+    "concepts": ["opv"],
+    "aliases": ["oferta pública de suscripción"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -892,16 +662,10 @@
     "term": "OPV",
     "definition": "Oferta pública de venta: los accionistas actuales venden sus acciones y el dinero va a ellos, no a la empresa.",
     "level": 1,
-    "concepts": [
-      "opv"
-    ],
-    "aliases": [
-      "oferta pública de venta"
-    ],
+    "concepts": ["opv"],
+    "aliases": ["oferta pública de venta"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -916,14 +680,10 @@
     "term": "Dilución",
     "definition": "Disminución del porcentaje de propiedad de un accionista cuando la empresa emite acciones nuevas y él no las suscribe.",
     "level": 1,
-    "concepts": [
-      "mercado-primario"
-    ],
+    "concepts": ["mercado-primario"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -938,14 +698,10 @@
     "term": "Emisor",
     "definition": "Empresa o entidad que emite títulos, como las acciones, para financiarse.",
     "level": 1,
-    "concepts": [
-      "mercado-primario"
-    ],
+    "concepts": ["mercado-primario"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -960,16 +716,10 @@
     "term": "BME",
     "definition": "Bolsas y Mercados Españoles: operador de las bolsas de Madrid, Barcelona, Bilbao y Valencia y de sus sistemas de negociación.",
     "level": 1,
-    "concepts": [
-      "bme"
-    ],
-    "aliases": [
-      "Bolsas y Mercados Españoles"
-    ],
+    "concepts": ["bme"],
+    "aliases": ["Bolsas y Mercados Españoles"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -989,14 +739,10 @@
     "term": "Mercado continuo",
     "definition": "Sistema electrónico de BME en el que las acciones más negociadas se casan de forma continua durante la sesión.",
     "level": 1,
-    "concepts": [
-      "bme"
-    ],
+    "concepts": ["bme"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1016,14 +762,10 @@
     "term": "IBEX 35",
     "definition": "Índice de referencia de la bolsa española: 35 de las empresas más grandes y negociadas del mercado continuo, ponderadas por capitalización ajustada por free float con un tope del 20 % por valor; se revisa dos veces al año.",
     "level": 1,
-    "concepts": [
-      "ibex-35"
-    ],
+    "concepts": ["ibex-35"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1038,16 +780,10 @@
     "term": "Índice bursátil",
     "definition": "Medida que resume cómo se mueve un conjunto de acciones; no es el precio de ninguna.",
     "level": 1,
-    "concepts": [
-      "ibex-35"
-    ],
-    "aliases": [
-      "índice"
-    ],
+    "concepts": ["ibex-35"],
+    "aliases": ["índice"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -1062,14 +798,10 @@
     "term": "BME Growth",
     "definition": "Mercado de BME para pymes en expansión (antes Mercado Alternativo Bursátil, MAB), con requisitos más ligeros que el mercado principal.",
     "level": 1,
-    "concepts": [
-      "bme-growth"
-    ],
+    "concepts": ["bme-growth"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1084,16 +816,10 @@
     "term": "OTC",
     "definition": "Operación pactada directamente entre dos partes, fuera de un mercado organizado (over the counter). Suele tener menos transparencia de precios.",
     "level": 1,
-    "concepts": [
-      "otc"
-    ],
-    "aliases": [
-      "over the counter"
-    ],
+    "concepts": ["otc"],
+    "aliases": ["over the counter"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -1108,14 +834,10 @@
     "term": "Formación de precios",
     "definition": "Proceso por el que el precio de una acción surge de la oferta y la demanda: cada operación se cierra donde coinciden comprador y vendedor.",
     "level": 1,
-    "concepts": [
-      "formacion-precios"
-    ],
+    "concepts": ["formacion-precios"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1124,16 +846,10 @@
     "term": "Horquilla",
     "definition": "Diferencia entre el mejor precio de venta (ask) y el mejor precio de compra (bid) en el libro de órdenes; también llamada spread.",
     "level": 1,
-    "concepts": [
-      "horquilla"
-    ],
-    "aliases": [
-      "spread"
-    ],
+    "concepts": ["horquilla"],
+    "aliases": ["spread"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1142,14 +858,10 @@
     "term": "Liquidez de mercado",
     "definition": "Facilidad para comprar o vender un activo en el mercado rápidamente sin mover mucho su precio; se nota en una horquilla estrecha y un libro con muchas órdenes. No confundir con la liquidez personal de un fondo de emergencia.",
     "level": 1,
-    "concepts": [
-      "liquidez"
-    ],
+    "concepts": ["liquidez"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1158,16 +870,10 @@
     "term": "Orden de mercado",
     "definition": "Orden que se ejecuta ya al mejor precio disponible; asegura la ejecución, no el precio.",
     "level": 1,
-    "concepts": [
-      "orden-mercado"
-    ],
-    "aliases": [
-      "orden a mercado"
-    ],
+    "concepts": ["orden-mercado"],
+    "aliases": ["orden a mercado"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1176,14 +882,10 @@
     "term": "Orden limitada",
     "definition": "Orden que fija el precio máximo de compra o mínimo de venta; asegura el precio, no la ejecución.",
     "level": 1,
-    "concepts": [
-      "orden-limitada"
-    ],
+    "concepts": ["orden-limitada"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1192,16 +894,10 @@
     "term": "Subasta",
     "definition": "Fase en la que se acumulan órdenes sin cruzarlas y se casan a un único precio, el que permite negociar el mayor volumen. Fija el precio de apertura y de cierre.",
     "level": 1,
-    "concepts": [
-      "subastas"
-    ],
-    "aliases": [
-      "subastas"
-    ],
+    "concepts": ["subastas"],
+    "aliases": ["subastas"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1216,16 +912,10 @@
     "term": "FOMO",
     "definition": "Miedo a perderse una subida (fear of missing out) que lleva a comprar por impulso, a menudo imitando a la mayoría (efecto manada).",
     "level": 1,
-    "concepts": [
-      "fomo-manada"
-    ],
-    "aliases": [
-      "efecto manada"
-    ],
+    "concepts": ["fomo-manada"],
+    "aliases": ["efecto manada"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1234,14 +924,10 @@
     "term": "Bróker",
     "definition": "Intermediario autorizado que transmite tus órdenes de compra y venta de valores al mercado. Las entidades autorizadas figuran en los registros de la CNMV.",
     "level": 1,
-    "concepts": [
-      "broker-espana"
-    ],
+    "concepts": ["broker-espana"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -1256,16 +942,10 @@
     "term": "Comisión",
     "definition": "Importe que cobra el bróker por operar (normalmente un porcentaje del importe, a veces con un mínimo), por custodia o por cambio de divisa.",
     "level": 1,
-    "concepts": [
-      "comisiones"
-    ],
-    "aliases": [
-      "comisiones"
-    ],
+    "concepts": ["comisiones"],
+    "aliases": ["comisiones"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1274,14 +954,10 @@
     "term": "Rentabilidad por dividendo",
     "definition": "Dividendo por acción dividido entre el precio de la acción, en %.",
     "level": 1,
-    "concepts": [
-      "rentabilidad-dividendo"
-    ],
+    "concepts": ["rentabilidad-dividendo"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1290,14 +966,10 @@
     "term": "Rentabilidad total",
     "definition": "Variación del precio más los dividendos cobrados, dividida entre el precio inicial.",
     "level": 1,
-    "concepts": [
-      "rentabilidad-total"
-    ],
+    "concepts": ["rentabilidad-total"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1306,16 +978,10 @@
     "term": "Scrip dividend",
     "definition": "Dividendo flexible: el accionista elige entre cobrar en efectivo o recibir acciones nuevas, mediante derechos de asignación gratuita.",
     "level": 1,
-    "concepts": [
-      "scrip-dividend"
-    ],
-    "aliases": [
-      "dividendo flexible"
-    ],
+    "concepts": ["scrip-dividend"],
+    "aliases": ["dividendo flexible"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": [
       {
@@ -1330,14 +996,10 @@
     "term": "Ganancia patrimonial",
     "definition": "Diferencia positiva entre el valor de venta y el de compra de un activo; en el IRPF, las derivadas de vender acciones tributan en la base del ahorro.",
     "level": 1,
-    "concepts": [
-      "irpf-ganancias"
-    ],
+    "concepts": ["irpf-ganancias"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-03-31",
     "sources": [
       {
@@ -1352,14 +1014,10 @@
     "term": "Ampliación de capital",
     "definition": "Emisión de acciones nuevas por una empresa que ya existe, normalmente para captar dinero; aumenta el número total de acciones y puede diluir a quien no acude.",
     "level": 1,
-    "concepts": [
-      "ampliacion-capital"
-    ],
+    "concepts": ["ampliacion-capital"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1374,16 +1032,10 @@
     "term": "Derecho de suscripción preferente",
     "definition": "Derecho de los accionistas a suscribir acciones nuevas en una ampliación, en proporción a su participación, antes que otros inversores; puede venderse en el mercado.",
     "level": 1,
-    "concepts": [
-      "derechos-suscripcion"
-    ],
-    "aliases": [
-      "derechos de suscripción"
-    ],
+    "concepts": ["derechos-suscripcion"],
+    "aliases": ["derechos de suscripción"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1398,16 +1050,10 @@
     "term": "Split",
     "definition": "División de cada acción en varias (por ejemplo, 4 por 1): aumenta el número de acciones y baja su precio, sin cambiar el valor de la empresa ni tu participación.",
     "level": 1,
-    "concepts": [
-      "split"
-    ],
-    "aliases": [
-      "desdoblamiento"
-    ],
+    "concepts": ["split"],
+    "aliases": ["desdoblamiento"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": null,
     "sources": []
   },
@@ -1416,14 +1062,10 @@
     "term": "Recompra de acciones",
     "definition": "Compra por una empresa de sus propias acciones, normalmente para amortizarlas; reduce el número de acciones y aumenta el porcentaje de quien no vende.",
     "level": 1,
-    "concepts": [
-      "recompra-acciones"
-    ],
+    "concepts": ["recompra-acciones"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1438,14 +1080,10 @@
     "term": "Autocartera",
     "definition": "Acciones propias que una empresa mantiene tras recomprarlas; la ley limita su volumen.",
     "level": 1,
-    "concepts": [
-      "recompra-acciones"
-    ],
+    "concepts": ["recompra-acciones"],
     "aliases": [],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {
@@ -1460,16 +1098,10 @@
     "term": "OPA",
     "definition": "Oferta pública de adquisición: oferta dirigida a todos los accionistas para comprarles sus acciones a un precio fijado. Es obligatoria al alcanzar el 30 % de los derechos de voto.",
     "level": 1,
-    "concepts": [
-      "opa"
-    ],
-    "aliases": [
-      "oferta pública de adquisición"
-    ],
+    "concepts": ["opa"],
+    "aliases": ["oferta pública de adquisición"],
     "status": "reviewed",
-    "reviewedBy": [
-      "subagente"
-    ],
+    "reviewedBy": ["subagente"],
     "verificarAntesDe": "2027-06-30",
     "sources": [
       {

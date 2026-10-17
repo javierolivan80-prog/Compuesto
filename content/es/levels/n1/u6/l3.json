@@ -2,20 +2,13 @@
   "id": "n1-u6-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "title": "El split de acciones",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Explicar qué es un split",
-    "Calcular acciones y precio tras un split"
-  ],
-  "concepts": [
-    "split"
-  ],
+  "objectives": ["Explicar qué es un split", "Calcular acciones y precio tras un split"],
+  "concepts": ["split"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -41,9 +34,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "¿Qué ocurre con el valor total de la empresa en un split?",
       "options": [
         "No cambia",
@@ -65,9 +56,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "statement": "Un split hace que la empresa reciba dinero nuevo.",
       "answer": false,
       "explanation": "No se emiten acciones para captar dinero: se divide lo que ya existe."
@@ -78,9 +67,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Una empresa con 3.000.000 de acciones hace un split 4 por 1. ¿Cuántas acciones tiene después?",
       "answer": 12000000,
       "tolerance": 0,
@@ -94,9 +81,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Una acción cotiza a 40 € y se hace un split 4 por 1. ¿A qué precio queda, en euros?",
       "answer": 10,
       "tolerance": 0,
@@ -110,9 +95,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Tienes 100 acciones y se hace un split 4 por 1. ¿Cuántas acciones tienes después?",
       "answer": 400,
       "tolerance": 0,
@@ -126,9 +109,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Tras un split 4 por 1, la empresa tiene 12.000.000 de acciones a 10 €. ¿Cuál es su capitalización en euros?",
       "answer": 120000000,
       "tolerance": 0,
@@ -142,16 +123,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "En un split 2 por 1, cada acción se convierte en ___ acciones.",
-      "answers": [
-        [
-          "dos",
-          "2"
-        ]
-      ],
+      "answers": [["dos", "2"]],
       "explanation": "Dos acciones, cada una con la mitad de precio."
     },
     {
@@ -160,14 +134,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "split"
-      ],
+      "concepts": ["split"],
       "prompt": "Tras un split, ¿cambia o no?",
-      "categories": [
-        "Cambia",
-        "No cambia"
-      ],
+      "categories": ["Cambia", "No cambia"],
       "items": [
         {
           "text": "El número de acciones",

@@ -2,9 +2,7 @@
   "id": "n1-u2-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "title": "Mercado primario: nacen las acciones",
@@ -13,12 +11,8 @@
     "Explicar quién recibe el dinero en una emisión",
     "Calcular lo que recauda una emisión"
   ],
-  "concepts": [
-    "mercado-primario"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["mercado-primario"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -46,16 +40,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "En una emisión de acciones nuevas, ¿quién recibe el dinero que pagan los inversores?",
-      "options": [
-        "La empresa emisora",
-        "Otro inversor",
-        "La bolsa",
-        "El Estado"
-      ],
+      "options": ["La empresa emisora", "Otro inversor", "La bolsa", "El Estado"],
       "answer": 0,
       "explanation": "En el mercado primario el dinero llega a la empresa que emite.",
       "wrongExplanations": {
@@ -70,9 +57,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "statement": "En el mercado primario, la empresa que emite acciones nuevas recibe el dinero de los inversores.",
       "answer": true,
       "explanation": "Es la forma de captar financiación nueva."
@@ -83,9 +68,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa emite 3.000.000 de acciones nuevas a 10 € cada una. ¿Cuántos euros recauda?",
       "answer": 30000000,
       "tolerance": 0,
@@ -99,9 +82,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa emite 2.500.000 de acciones nuevas a 8 € cada una. ¿Cuántos euros recauda?",
       "answer": 20000000,
       "tolerance": 0,
@@ -115,16 +96,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "La empresa que emite los títulos se llama ___.",
-      "answers": [
-        [
-          "emisor",
-          "emisora"
-        ]
-      ],
+      "answers": [["emisor", "emisora"]],
       "explanation": "El emisor es quien emite títulos, como las acciones."
     },
     {
@@ -133,14 +107,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "¿Quién recibe el dinero?",
-      "categories": [
-        "La empresa",
-        "Otro inversor"
-      ],
+      "categories": ["La empresa", "Otro inversor"],
       "items": [
         {
           "text": "Compras acciones nuevas que emite la empresa",
@@ -167,9 +136,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa tiene 12.000.000 de acciones y emite 3.000.000 de acciones nuevas. ¿Qué porcentaje de las acciones totales son nuevas?",
       "answer": 20,
       "tolerance": 0,
@@ -183,9 +150,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-primario"
-      ],
+      "concepts": ["mercado-primario"],
       "prompt": "Una empresa quiere recaudar 40.000.000 € emitiendo acciones a 8 € cada una. ¿Cuántas acciones debe emitir?",
       "answer": 5000000,
       "tolerance": 0,

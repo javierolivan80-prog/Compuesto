@@ -2,9 +2,7 @@
   "id": "n0-u1-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 1,
   "title": "Rentabilidad real y valor del dinero en el tiempo",
@@ -13,14 +11,8 @@
     "Calcular la rentabilidad real descontando la inflación",
     "Traer una cantidad futura a valor actual"
   ],
-  "concepts": [
-    "tipo-real-nominal",
-    "valor-temporal-dinero",
-    "inflacion"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["tipo-real-nominal", "valor-temporal-dinero", "inflacion"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -45,16 +37,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tipo-real-nominal"
-      ],
+      "concepts": ["tipo-real-nominal"],
       "prompt": "Tu depósito rinde un 2 % y la inflación es del 3 %. Tu rentabilidad real es…",
-      "options": [
-        "Positiva",
-        "Negativa",
-        "Cero",
-        "Imposible de saber"
-      ],
+      "options": ["Positiva", "Negativa", "Cero", "Imposible de saber"],
       "answer": 1,
       "explanation": "La rentabilidad real es aproximadamente 2 % − 3 % = −1 %: el saldo sube, pero compras menos.",
       "wrongExplanations": {
@@ -69,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "valor-temporal-dinero"
-      ],
+      "concepts": ["valor-temporal-dinero"],
       "statement": "Un euro hoy vale lo mismo que un euro dentro de 10 años.",
       "answer": false,
       "explanation": "Hoy puedes invertirlo y ganar intereses, y con inflación comprará menos en el futuro. Por eso vale más hoy."
@@ -82,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tipo-real-nominal"
-      ],
+      "concepts": ["tipo-real-nominal"],
       "prompt": "Depósito al 2 % con inflación del 3 %. Rentabilidad real aproximada = nominal − inflación. ¿Cuántos puntos porcentuales es?",
       "answer": -1,
       "tolerance": 0,
@@ -98,9 +79,7 @@
       "difficulty": 4,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tipo-real-nominal"
-      ],
+      "concepts": ["tipo-real-nominal"],
       "prompt": "Calcula la rentabilidad real exacta: (1,02 / 1,03 − 1) × 100, en % y con 2 decimales.",
       "answer": -0.97,
       "tolerance": 0.1,
@@ -114,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "valor-temporal-dinero"
-      ],
+      "concepts": ["valor-temporal-dinero"],
       "prompt": "Recibirás 1.102,50 € dentro de 2 años. Con una tasa del 5 % anual, ¿cuánto vale ese dinero hoy?",
       "answer": 1000,
       "tolerance": 0,
@@ -130,16 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "valor-temporal-dinero"
-      ],
+      "concepts": ["valor-temporal-dinero"],
       "prompt": "Traer una cantidad futura al presente se llama calcular su valor ___.",
-      "answers": [
-        [
-          "actual",
-          "presente"
-        ]
-      ],
+      "answers": [["actual", "presente"]],
       "explanation": "El valor actual es lo que vale hoy una cantidad que recibirás en el futuro."
     },
     {
@@ -148,10 +118,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tipo-real-nominal",
-        "inflacion"
-      ],
+      "concepts": ["tipo-real-nominal", "inflacion"],
       "prompt": "Carmen guarda 10.000 € en un depósito al 1 % con inflación del 3 %. ¿Qué pasa con su poder adquisitivo en un año?",
       "options": [
         "Aumenta aproximadamente un 2 %",
@@ -173,9 +140,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tipo-real-nominal"
-      ],
+      "concepts": ["tipo-real-nominal"],
       "prompt": "Ordena los pasos para saber si has ganado dinero de verdad.",
       "steps": [
         "Reúne la rentabilidad nominal y la inflación del mismo periodo",

@@ -2,9 +2,7 @@
   "id": "n0-u2-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 2,
   "title": "El cuadro de amortización",
@@ -13,10 +11,7 @@
     "Repartir una cuota entre intereses y capital",
     "Calcular el saldo tras una cuota"
   ],
-  "concepts": [
-    "cuadro-amortizacion",
-    "prestamo"
-  ],
+  "concepts": ["cuadro-amortizacion", "prestamo"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -46,16 +41,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "En un préstamo francés, ¿qué ocurre con la parte de capital de cada cuota a lo largo del tiempo?",
-      "options": [
-        "Aumenta",
-        "Disminuye",
-        "Se mantiene constante",
-        "Desaparece"
-      ],
+      "options": ["Aumenta", "Disminuye", "Se mantiene constante", "Desaparece"],
       "answer": 0,
       "explanation": "Al bajar el saldo bajan los intereses, y como la cuota es constante, la parte de capital aumenta.",
       "wrongExplanations": {
@@ -70,9 +58,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "statement": "Los intereses de cada cuota se calculan sobre el capital inicial prestado.",
       "answer": false,
       "explanation": "Se calculan sobre el saldo pendiente, que baja con cada cuota."
@@ -83,9 +69,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "Escribe en B3 la fórmula de los intereses del mes: saldo × TIN / 12.",
       "cells": {
         "A1": "Saldo (€)",
@@ -124,9 +108,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "Un préstamo tiene un saldo de 80.000 € y un TIN del 3,6 %. ¿Cuántos euros de intereses tiene la cuota del mes?",
       "answer": 240,
       "tolerance": 0,
@@ -140,9 +122,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "La cuota de un préstamo de 100.000 € al 3 % es de 554,60 € y los intereses de la primera cuota son 250 €. ¿Cuánto capital se amortiza en la primera cuota?",
       "answer": 304.6,
       "tolerance": 0.05,
@@ -156,9 +136,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "Tras la primera cuota, el saldo es 100.000 − 304,60 = 99.695,40 €. ¿Cuántos euros de intereses tiene la segunda cuota? (2 decimales)",
       "answer": 249.24,
       "tolerance": 0.05,
@@ -172,18 +150,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "Los intereses de cada cuota se calculan sobre el ___ pendiente.",
-      "answers": [
-        [
-          "saldo",
-          "capital",
-          "saldo pendiente",
-          "capital pendiente"
-        ]
-      ],
+      "answers": [["saldo", "capital", "saldo pendiente", "capital pendiente"]],
       "explanation": "El interés de cada mes se calcula sobre lo que aún debes."
     },
     {
@@ -192,9 +161,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "Ordena los pasos para calcular una fila del cuadro de amortización.",
       "steps": [
         "Calcula los intereses: saldo × TIN / 12",

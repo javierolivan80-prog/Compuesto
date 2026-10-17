@@ -2,9 +2,7 @@
   "id": "n0-u2-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 2,
   "title": "Alquilar o comprar",
@@ -13,14 +11,8 @@
     "Identificar los costes de comprar y de alquilar",
     "Comparar con el coste de oportunidad de la entrada, con supuestos declarados"
   ],
-  "concepts": [
-    "alquilar-vs-comprar",
-    "hipoteca",
-    "valor-temporal-dinero"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "concepts": ["alquilar-vs-comprar", "hipoteca", "valor-temporal-dinero"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -44,9 +36,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "concepts": ["alquilar-vs-comprar"],
       "prompt": "¿Qué es el coste de oportunidad de la entrada de una vivienda?",
       "options": [
         "Lo que ganarías invirtiendo ese dinero en otra cosa",
@@ -68,9 +58,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "concepts": ["alquilar-vs-comprar"],
       "statement": "Comprar siempre sale más barato que alquilar a largo plazo.",
       "answer": false,
       "explanation": "Depende de los precios, los tipos, la rentabilidad alternativa y los años que te quedes: no hay respuesta universal."
@@ -81,15 +69,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar",
-        "hipoteca"
-      ],
+      "concepts": ["alquilar-vs-comprar", "hipoteca"],
       "prompt": "¿Es un coste o un ahorro (patrimonio)?",
-      "categories": [
-        "Coste (dinero que no recuperas)",
-        "Patrimonio (reduce tu deuda)"
-      ],
+      "categories": ["Coste (dinero que no recuperas)", "Patrimonio (reduce tu deuda)"],
       "items": [
         {
           "text": "Intereses de la hipoteca",
@@ -116,9 +98,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "hipoteca"
-      ],
+      "concepts": ["hipoteca"],
       "prompt": "Primer mes de la hipoteca de Lucía: 160.000 € al 3 %. ¿Cuántos euros de la cuota son intereses?",
       "answer": 400,
       "tolerance": 0,
@@ -132,10 +112,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar",
-        "valor-temporal-dinero"
-      ],
+      "concepts": ["alquilar-vs-comprar", "valor-temporal-dinero"],
       "prompt": "Coste de oportunidad mensual de la entrada de 40.000 € si invertida daría un 4 % anual. (2 decimales)",
       "answer": 133.33,
       "tolerance": 0.05,
@@ -149,9 +126,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "concepts": ["alquilar-vs-comprar"],
       "prompt": "Coste estimado del primer mes de comprar = intereses (400 €) + coste de oportunidad de la entrada (133,33 €) + IBI y mantenimiento (120 €). ¿Cuánto es? (2 decimales)",
       "answer": 653.33,
       "tolerance": 0.05,
@@ -165,9 +140,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "concepts": ["alquilar-vs-comprar"],
       "prompt": "¿Qué puede cambiar la comparación anterior entre comprar y alquilar?",
       "options": [
         "Que el precio de la vivienda suba o baje",
@@ -175,11 +148,7 @@
         "Cuántos años vayas a quedarte en la vivienda",
         "El color de la fachada"
       ],
-      "answers": [
-        0,
-        1,
-        2
-      ],
+      "answers": [0, 1, 2],
       "explanation": "El precio de la vivienda, los gastos de compra y el tiempo que te quedes cambian el resultado; el color de la fachada no."
     },
     {
@@ -188,15 +157,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "concepts": ["alquilar-vs-comprar"],
       "prompt": "El dinero de la entrada tiene un coste de ___ porque podrías haberlo invertido en otra cosa.",
-      "answers": [
-        [
-          "oportunidad"
-        ]
-      ],
+      "answers": [["oportunidad"]],
       "explanation": "Ese es el coste de oportunidad."
     }
   ],

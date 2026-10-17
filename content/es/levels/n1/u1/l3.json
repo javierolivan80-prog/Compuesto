@@ -2,9 +2,7 @@
   "id": "n1-u1-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 1,
   "title": "Capitalización bursátil",
@@ -13,13 +11,8 @@
     "Calcular la capitalización bursátil",
     "Distinguir precio por acción y tamaño de la empresa"
   ],
-  "concepts": [
-    "capitalizacion",
-    "accion"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["capitalizacion", "accion"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "¿Qué es la capitalización bursátil?",
       "options": [
         "Precio por acción × número de acciones",
@@ -63,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "statement": "La capitalización bursátil no cambia aunque suba el precio de la acción.",
       "answer": false,
       "explanation": "Si el precio sube y las acciones no cambian, la capitalización sube."
@@ -76,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Supuesto ilustrativo: precio de 10 € y 12.000.000 de acciones. ¿Cuál es la capitalización en euros?",
       "answer": 120000000,
       "tolerance": 0,
@@ -92,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Una empresa con 12.000.000 de acciones ve subir su precio de 10 € a 12 €. ¿Cuál es ahora su capitalización en euros?",
       "answer": 144000000,
       "tolerance": 0,
@@ -108,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Una empresa tiene una capitalización de 150.000.000 € y 12.000.000 de acciones. ¿A qué precio cotiza cada acción?",
       "answer": 12.5,
       "tolerance": 0,
@@ -124,16 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Capitalización = precio por ___ × número de acciones.",
-      "answers": [
-        [
-          "acción",
-          "accion"
-        ]
-      ],
+      "answers": [["acción", "accion"]],
       "explanation": "Precio por acción por número de acciones."
     },
     {
@@ -142,15 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Con el mismo número de acciones, ¿qué le pasa a la capitalización?",
-      "categories": [
-        "Sube",
-        "Baja",
-        "No cambia"
-      ],
+      "categories": ["Sube", "Baja", "No cambia"],
       "items": [
         {
           "text": "El precio pasa de 10 a 11 €",
@@ -177,16 +147,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "La empresa A cotiza a 100 € con 1.000.000 de acciones; la B, a 10 € con 20.000.000. ¿Cuál tiene mayor capitalización bursátil?",
-      "options": [
-        "La B",
-        "La A",
-        "Son iguales",
-        "No se puede saber"
-      ],
+      "options": ["La B", "La A", "Son iguales", "No se puede saber"],
       "answer": 0,
       "explanation": "A: 100 M€; B: 200 M€. El precio por acción no mide el tamaño.",
       "wrongExplanations": {

@@ -3,21 +3,15 @@
   "unitId": "n1-u6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u6-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "ampliacion-capital"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["ampliacion-capital"],
       "prompt": "En una ampliación de capital con aportaciones, la empresa…",
       "options": [
         "Recompra sus acciones",
@@ -38,12 +32,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Los derechos de suscripción permiten a los accionistas…",
       "options": [
         "Cobrar un dividendo extra",
@@ -64,12 +54,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["derechos-suscripcion"],
       "statement": "Los derechos de suscripción pueden venderse en el mercado.",
       "answer": true,
       "explanation": "Si no quieres suscribir, puedes venderlos."
@@ -79,12 +65,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "split"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["split"],
       "prompt": "En un split 2 por 1, un accionista con 100 acciones a 40 € pasa a tener…",
       "options": [
         "100 acciones a 20 €",
@@ -105,12 +87,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "split"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["split"],
       "statement": "Un split cambia el valor total de la empresa.",
       "answer": false,
       "explanation": "Solo cambia el número de acciones y su precio."
@@ -120,12 +98,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["recompra-acciones"],
       "prompt": "Si una empresa recompra sus propias acciones para amortizarlas…",
       "options": [
         "Aumenta su capital social",
@@ -146,12 +120,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "opa"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["opa"],
       "prompt": "Una OPA es…",
       "options": [
         "Una oferta pública dirigida a los accionistas para comprar sus acciones",
@@ -172,12 +142,8 @@
       "type": "multi_select",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "opa"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["opa"],
       "prompt": "¿Qué características tiene una OPA?",
       "options": [
         "La lanza un oferente",
@@ -185,10 +151,7 @@
         "Se pacta el precio solo con un accionista",
         "Solo puede pagarse en efectivo"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Se dirige al público accionista y puede pagarse en efectivo o en valores."
     }
   ],

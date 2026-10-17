@@ -2,24 +2,14 @@
   "id": "n1-u2-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "title": "Salir a bolsa: OPV y OPS",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Distinguir OPV y OPS",
-    "Calcular quién recibe el dinero en una salida a bolsa"
-  ],
-  "concepts": [
-    "opv",
-    "mercado-primario"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Distinguir OPV y OPS", "Calcular quién recibe el dinero en una salida a bolsa"],
+  "concepts": ["opv", "mercado-primario"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +29,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "En una OPV, ¿quién recibe el dinero?",
       "options": [
         "Los accionistas que venden sus acciones",
@@ -63,9 +51,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "statement": "En una OPS, el dinero de la oferta llega a la empresa emisora.",
       "answer": true,
       "explanation": "La OPS emite acciones nuevas; la empresa las vende y recibe el dinero."
@@ -76,9 +62,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "En una OPV, unos accionistas venden 2.000.000 de acciones a 10 € cada una. ¿Cuántos euros reciben en total?",
       "answer": 20000000,
       "tolerance": 0,
@@ -92,9 +76,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "En una OPS, una empresa emite 1.500.000 de acciones nuevas a 12 € cada una. ¿Cuántos euros recibe la empresa?",
       "answer": 18000000,
       "tolerance": 0,
@@ -108,16 +90,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "En España, el organismo que aprueba el folleto de una salida a bolsa es la ___.",
-      "answers": [
-        [
-          "CNMV",
-          "Comisión Nacional del Mercado de Valores"
-        ]
-      ],
+      "answers": [["CNMV", "Comisión Nacional del Mercado de Valores"]],
       "explanation": "La CNMV supervisa los mercados de valores y aprueba los folletos."
     },
     {
@@ -126,14 +101,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "¿OPS u OPV?",
-      "categories": [
-        "OPS",
-        "OPV"
-      ],
+      "categories": ["OPS", "OPV"],
       "items": [
         {
           "text": "Se emiten acciones nuevas",
@@ -160,10 +130,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opv",
-        "mercado-primario"
-      ],
+      "concepts": ["opv", "mercado-primario"],
       "prompt": "Una salida a bolsa combina una OPS de 3.000.000 de acciones y una OPV de 2.000.000, todas a 10 €. ¿Cuántos euros recibe la empresa?",
       "answer": 30000000,
       "tolerance": 0,
@@ -177,9 +144,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opv"
-      ],
+      "concepts": ["opv"],
       "prompt": "¿Por qué se suele fijar un rango indicativo de precio antes de una salida a bolsa?",
       "options": [
         "Porque el precio final depende de la demanda de los inversores",

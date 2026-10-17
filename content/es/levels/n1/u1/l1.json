@@ -2,9 +2,7 @@
   "id": "n1-u1-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 1,
   "title": "La empresa y sus propietarios",
@@ -13,12 +11,8 @@
     "Explicar qué es una sociedad anónima y la responsabilidad limitada",
     "Calcular el valor nominal y el porcentaje de propiedad"
   ],
-  "concepts": [
-    "empresa"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["empresa"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -42,9 +36,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "¿Qué significa que la responsabilidad de los accionistas de una S.A. sea limitada?",
       "options": [
         "Solo pueden perder lo que han invertido en sus acciones",
@@ -66,9 +58,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "statement": "Los accionistas de una S.A. responden de las deudas de la empresa con todo su patrimonio personal.",
       "answer": false,
       "explanation": "Su responsabilidad se limita a lo invertido en sus acciones."
@@ -79,9 +69,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Capital social de 6.000.000 € dividido en 12.000.000 de acciones. ¿Cuál es el valor nominal de cada acción?",
       "answer": 0.5,
       "tolerance": 0,
@@ -95,9 +83,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Carmen posee 3.600.000 de las 12.000.000 de acciones. ¿Qué porcentaje de la empresa es suyo?",
       "answer": 30,
       "tolerance": 0,
@@ -111,9 +97,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Un socio quiere el 25 % de las 12.000.000 de acciones. ¿Cuántas acciones necesita?",
       "answer": 3000000,
       "tolerance": 0,
@@ -127,16 +111,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "En una sociedad ___ (S.A.), el capital está dividido en acciones y los socios tienen responsabilidad limitada.",
-      "answers": [
-        [
-          "anónima",
-          "anonima"
-        ]
-      ],
+      "answers": [["anónima", "anonima"]],
       "explanation": "Sociedad anónima (S.A.)."
     },
     {
@@ -145,14 +122,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "¿Accionista o acreedor?",
-      "categories": [
-        "Accionista",
-        "Acreedor"
-      ],
+      "categories": ["Accionista", "Acreedor"],
       "items": [
         {
           "text": "Aporta capital y es propietario de una parte de la empresa",
@@ -179,9 +151,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Ordena los pasos básicos de una empresa nueva financiada solo por sus socios.",
       "steps": [
         "Los socios aportan el capital",

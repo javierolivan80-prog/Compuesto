@@ -2,9 +2,7 @@
   "id": "n0-u4-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 4,
   "title": "Intereses e IRPF",
@@ -13,10 +11,7 @@
     "Saber cómo tributan los intereses de un depósito en el IRPF",
     "Calcular la retención y un impuesto por tramos"
   ],
-  "concepts": [
-    "irpf-intereses",
-    "deposito"
-  ],
+  "concepts": ["irpf-intereses", "deposito"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -37,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "¿En qué parte del IRPF se integran los intereses de un depósito?",
       "options": [
         "En la base del ahorro",
@@ -61,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "statement": "La retención del 19 % que practica el banco es siempre el impuesto definitivo.",
       "answer": false,
       "explanation": "Es un pago a cuenta: el impuesto final se calcula en la declaración de la renta."
@@ -74,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "Cobras 1.000 € de intereses brutos. ¿Cuántos euros retiene el banco al 19 %?",
       "answer": 190,
       "tolerance": 0,
@@ -90,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "Con esos 1.000 € brutos y la retención del 19 %, ¿cuántos euros te abona el banco?",
       "answer": 810,
       "tolerance": 0,
@@ -106,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "Una persona tiene 8.000 € de rendimientos en su base del ahorro. Con 19 % hasta 6.000 € y 21 % el resto, ¿cuánto impuesto resulta?",
       "answer": 1560,
       "tolerance": 0,
@@ -122,9 +107,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "En ese caso, ¿cuál es el tipo medio sobre los 8.000 €, en %?",
       "answer": 19.5,
       "tolerance": 0,
@@ -138,15 +121,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "Los intereses de un depósito tributan en la base del ___ del IRPF.",
-      "answers": [
-        [
-          "ahorro"
-        ]
-      ],
+      "answers": [["ahorro"]],
       "explanation": "Es la base del ahorro."
     },
     {
@@ -155,14 +132,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "¿Base general o base del ahorro?",
-      "categories": [
-        "Base general",
-        "Base del ahorro"
-      ],
+      "categories": ["Base general", "Base del ahorro"],
       "items": [
         {
           "text": "Intereses de un depósito",

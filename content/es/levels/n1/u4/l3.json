@@ -2,9 +2,7 @@
   "id": "n1-u4-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "La orden limitada",
@@ -13,10 +11,7 @@
     "Distinguir orden limitada y de mercado",
     "Calcular cuánto se ejecuta con un límite"
   ],
-  "concepts": [
-    "orden-limitada",
-    "orden-mercado"
-  ],
+  "concepts": ["orden-limitada", "orden-mercado"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -37,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "¿Qué garantiza una orden limitada de compra?",
       "options": [
         "Que no pagarás más que el límite, aunque puede no ejecutarse",
@@ -61,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "statement": "Una orden limitada de compra a 10,00 € puede ejecutarse a 10,05 €.",
       "answer": false,
       "explanation": "No pagará más que su límite de 10,00 €."
@@ -74,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Dejas una orden de compra limitada de 400 acciones con límite de 10,20 €. ¿Cuántas acciones se ejecutan?",
       "answer": 400,
       "tolerance": 0,
@@ -90,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Dejas una orden de compra limitada de 1.000 acciones con límite de 10,20 €. ¿Cuántas acciones se ejecutan?",
       "answer": 500,
       "tolerance": 0,
@@ -106,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "Dejas una orden de compra limitada de 400 acciones con límite de 10,20 €. ¿Cuál es el importe máximo que podrías pagar, en euros?",
       "answer": 4080,
       "tolerance": 0,
@@ -122,15 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "Una orden que fija el precio máximo de compra es una orden ___.",
-      "answers": [
-        [
-          "limitada"
-        ]
-      ],
+      "answers": [["limitada"]],
       "explanation": "Orden limitada."
     },
     {
@@ -139,15 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "orden-limitada",
-        "orden-mercado"
-      ],
+      "concepts": ["orden-limitada", "orden-mercado"],
       "prompt": "¿Orden de mercado o limitada?",
-      "categories": [
-        "De mercado",
-        "Limitada"
-      ],
+      "categories": ["De mercado", "Limitada"],
       "items": [
         {
           "text": "Se ejecuta ya al mejor precio disponible",
@@ -174,9 +147,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Necesitas comprar ya y la ejecución inmediata importa más que unos céntimos. ¿Qué orden encaja mejor?",
       "options": [
         "De mercado",

@@ -2,26 +2,14 @@
   "id": "n0-u4-l6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 4,
   "title": "Jefe final: bancos y depósitos",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar margen de intereses, multiplicador, depósitos, FGD e IRPF"
-  ],
-  "concepts": [
-    "banco",
-    "creacion-dinero",
-    "deposito",
-    "fgd",
-    "irpf-intereses"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "objectives": ["Aplicar margen de intereses, multiplicador, depósitos, FGD e IRPF"],
+  "concepts": ["banco", "creacion-dinero", "deposito", "fgd", "irpf-intereses"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -40,9 +28,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Un banco presta 200.000 € al 5 % y capta 200.000 € en depósitos al 1 %. ¿Cuál es su margen de intereses anual?",
       "answer": 8000,
       "tolerance": 0,
@@ -56,16 +42,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Para el banco, un depósito de un cliente es…",
-      "options": [
-        "Un pasivo",
-        "Un activo",
-        "Capital propio",
-        "Un ingreso"
-      ],
+      "options": ["Un pasivo", "Un activo", "Capital propio", "Un ingreso"],
       "answer": 0,
       "explanation": "Es una deuda del banco con el cliente: pasivo.",
       "wrongExplanations": {
@@ -80,9 +59,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "prompt": "Depósito inicial de 2.000 € y coeficiente de reservas del 5 %. ¿Cuál es el límite de depósitos del modelo?",
       "answer": 40000,
       "tolerance": 0,
@@ -96,9 +73,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "creacion-dinero"
-      ],
+      "concepts": ["creacion-dinero"],
       "statement": "En el modelo escolar, cada ronda de la cadena de depósitos es menor que la anterior.",
       "answer": true,
       "explanation": "Una parte de cada depósito queda en reserva, así que el siguiente es menor."
@@ -109,9 +84,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "deposito"
-      ],
+      "concepts": ["deposito"],
       "prompt": "20.000 € a un año con un TIN del 2 % y liquidación anual. ¿Cuántos euros de intereses brutos se cobran?",
       "answer": 400,
       "tolerance": 0,
@@ -125,9 +98,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "irpf-intereses"
-      ],
+      "concepts": ["irpf-intereses"],
       "prompt": "De esos 400 € de intereses, ¿cuántos euros retiene el banco al 19 %?",
       "answer": 76,
       "tolerance": 0,
@@ -141,15 +112,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "El FGD cubre hasta 100.000 € por titular y por ___.",
-      "answers": [
-        [
-          "entidad"
-        ]
-      ],
+      "answers": [["entidad"]],
       "explanation": "El límite se aplica por titular y por entidad."
     },
     {
@@ -158,14 +123,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "¿Lo cubre el FGD?",
-      "categories": [
-        "Lo cubre",
-        "No lo cubre"
-      ],
+      "categories": ["Lo cubre", "No lo cubre"],
       "items": [
         {
           "text": "Saldo de una cuenta de ahorro",
@@ -188,9 +148,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "Tienes 150.000 € en depósitos. ¿Qué mejora tu protección?",
       "options": [
         "Repartirlos entre entidades distintas",
@@ -212,9 +170,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "deposito"
-      ],
+      "concepts": ["deposito"],
       "prompt": "¿Qué conviene mirar antes de contratar un depósito?",
       "options": [
         "La TAE",
@@ -222,11 +178,7 @@
         "Si está cubierto por el FGD",
         "El color del logo de la entidad"
       ],
-      "answers": [
-        0,
-        1,
-        2
-      ],
+      "answers": [0, 1, 2],
       "explanation": "La TAE, el plazo y la cobertura del FGD importan; el color del logo, no."
     }
   ],

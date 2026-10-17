@@ -2,9 +2,7 @@
   "id": "n1-u3-l3",
   "version": 2,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 3,
   "title": "Cómo se mueve un índice",
@@ -13,10 +11,7 @@
     "Calcular el peso y la aportación de cada valor",
     "Obtener la rentabilidad de un índice ponderado"
   ],
-  "concepts": [
-    "ibex-35",
-    "capitalizacion"
-  ],
+  "concepts": ["ibex-35", "capitalizacion"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -60,9 +55,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "En un índice ponderado por capitalización, ¿qué empresas mueven más el índice?",
       "options": [
         "Las de mayor capitalización",
@@ -84,9 +77,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "statement": "En un índice ponderado por capitalización, todas las empresas pesan lo mismo.",
       "answer": false,
       "explanation": "El peso depende de la capitalización de cada una."
@@ -97,9 +88,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). ¿Qué peso tiene la empresa A en el índice, en %?",
       "answer": 50,
       "tolerance": 0,
@@ -113,9 +102,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). A sube un 10 %. ¿Cuántos puntos porcentuales aporta al índice?",
       "answer": 5,
       "tolerance": 0,
@@ -129,9 +116,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). B (peso 25 %) baja un 10 %. ¿Cuántos puntos porcentuales aporta al índice?",
       "answer": -2.5,
       "tolerance": 0,
@@ -145,9 +130,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Supuesto ilustrativo: tres empresas ficticias con capitalizaciones de 100, 50 y 50 millones de euros (A, B y C). A sube un 10 %, B baja un 10 % y C no cambia. ¿Cuál es la rentabilidad del índice, en %?",
       "answer": 2.5,
       "tolerance": 0,
@@ -161,16 +144,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Un índice ponderado por ___ da más peso a las empresas más grandes.",
-      "answers": [
-        [
-          "capitalización",
-          "capitalizacion"
-        ]
-      ],
+      "answers": [["capitalización", "capitalizacion"]],
       "explanation": "Capitalización."
     },
     {
@@ -179,16 +155,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Solo sube la empresa más grande del índice. ¿Qué efecto tiene sobre el índice comparado con la misma subida porcentual de una empresa pequeña?",
-      "options": [
-        "Lo mueve más",
-        "Lo mueve menos",
-        "Lo mueve igual",
-        "No lo mueve"
-      ],
+      "options": ["Lo mueve más", "Lo mueve menos", "Lo mueve igual", "No lo mueve"],
       "answer": 0,
       "explanation": "Su mayor peso hace que aporte más.",
       "wrongExplanations": {
@@ -203,9 +172,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "El gráfico muestra un índice ficticio durante 10 sesiones. ¿Cuánto ha variado del primer al último punto?",
       "chart": {
         "kind": "line",

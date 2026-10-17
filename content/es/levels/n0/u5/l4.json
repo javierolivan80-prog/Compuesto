@@ -2,21 +2,13 @@
   "id": "n0-u5-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 5,
   "title": "Los tres pilares de la jubilación",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Distinguir los tres pilares",
-    "Ver el efecto de empezar a ahorrar antes"
-  ],
-  "concepts": [
-    "tres-pilares",
-    "interes-compuesto"
-  ],
+  "objectives": ["Distinguir los tres pilares", "Ver el efecto de empezar a ahorrar antes"],
+  "concepts": ["tres-pilares", "interes-compuesto"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -46,16 +38,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "concepts": ["tres-pilares"],
       "prompt": "¿Qué pilar es el ahorro individual para la jubilación?",
-      "options": [
-        "El tercero",
-        "El primero",
-        "El segundo",
-        "Ninguno"
-      ],
+      "options": ["El tercero", "El primero", "El segundo", "Ninguno"],
       "answer": 0,
       "explanation": "El tercer pilar es el ahorro que haces por tu cuenta.",
       "wrongExplanations": {
@@ -70,9 +55,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "concepts": ["tres-pilares"],
       "statement": "Un plan de pensiones contratado por ti con un banco pertenece al primer pilar.",
       "answer": false,
       "explanation": "Es ahorro individual: tercer pilar."
@@ -83,9 +66,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "concepts": ["tres-pilares"],
       "prompt": "¿A qué pilar pertenece?",
       "categories": [
         "Primer pilar (público)",
@@ -118,10 +99,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tres-pilares",
-        "interes-compuesto"
-      ],
+      "concepts": ["tres-pilares", "interes-compuesto"],
       "prompt": "3.000 € a un 4 % anual compuesto durante 35 años. ¿Cuánto tienes al final? (2 decimales)",
       "answer": 11838.27,
       "tolerance": 0.01,
@@ -135,10 +113,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tres-pilares",
-        "interes-compuesto"
-      ],
+      "concepts": ["tres-pilares", "interes-compuesto"],
       "prompt": "Los mismos 3.000 € a un 4 % durante solo 25 años. ¿Cuánto tienes? (2 decimales)",
       "answer": 7997.51,
       "tolerance": 0.01,
@@ -152,19 +127,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "concepts": ["tres-pilares"],
       "prompt": "El sistema público de la Seguridad Social es el ___ pilar.",
-      "answers": [
-        [
-          "primer",
-          "primero",
-          "1.º",
-          "1º",
-          "1"
-        ]
-      ],
+      "answers": [["primer", "primero", "1.º", "1º", "1"]],
       "explanation": "Primer pilar: pensión pública."
     },
     {
@@ -173,9 +138,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "prompt": "¿Cuántos euros más obtienes por empezar 10 años antes (35 frente a 25 años)? (2 decimales)",
       "answer": 3840.76,
       "tolerance": 0.05,
@@ -189,9 +152,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "concepts": ["tres-pilares"],
       "prompt": "¿Qué ayuda a complementar la pensión pública?",
       "options": [
         "Empezar a ahorrar pronto",
@@ -199,10 +160,7 @@
         "Gastar todo mientras se cobra sueldo",
         "No ahorrar nada y confiar solo en la pensión pública"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Empezar pronto y ser constante da más años de capitalización. Gastar todo mientras cobras sueldo o no ahorrar nada no complementa la pensión pública."
     }
   ],

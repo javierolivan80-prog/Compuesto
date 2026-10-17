@@ -2,16 +2,12 @@
   "id": "n0-u3-l6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 3,
   "title": "Jefe final: presupuesto, deuda y Excel",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar presupuesto, fondo de emergencia, deuda, sesgo del presente y Excel"
-  ],
+  "objectives": ["Aplicar presupuesto, fondo de emergencia, deuda, sesgo del presente y Excel"],
   "concepts": [
     "presupuesto",
     "fondo-emergencia",
@@ -19,9 +15,7 @@
     "sesgo-presente",
     "celdas-suma"
   ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -40,9 +34,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Con 2.400 € netos al mes, ¿cuántos euros van a ahorro y deudas según la regla 50/30/20?",
       "answer": 480,
       "tolerance": 0,
@@ -56,16 +48,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "¿Qué característica es esencial en un fondo de emergencia?",
-      "options": [
-        "Liquidez y seguridad",
-        "Máxima rentabilidad",
-        "Riesgo alto",
-        "Plazo largo"
-      ],
+      "options": ["Liquidez y seguridad", "Máxima rentabilidad", "Riesgo alto", "Plazo largo"],
       "answer": 0,
       "explanation": "Debe estar disponible rápido y sin pérdidas.",
       "wrongExplanations": {
@@ -80,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "concepts": ["fondo-emergencia"],
       "prompt": "Gastos esenciales de 900 € al mes. ¿Cuánto es un fondo de 6 meses?",
       "answer": 5400,
       "tolerance": 0,
@@ -96,9 +79,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "deuda-buena-mala"
-      ],
+      "concepts": ["deuda-buena-mala"],
       "statement": "Aplazar compras de consumo con una TAE muy alta (por ejemplo, del 24 %) suele considerarse mala deuda.",
       "answer": true,
       "explanation": "Financia consumo con un coste alto y no genera rendimiento."
@@ -109,9 +90,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "deuda-buena-mala"
-      ],
+      "concepts": ["deuda-buena-mala"],
       "prompt": "Una deuda cuesta 600 € de intereses al año y financia algo que aporta 1.500 € al año. ¿Cuántos euros de beneficio neto quedan?",
       "answer": 900,
       "tolerance": 0,
@@ -125,15 +104,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "sesgo-presente"
-      ],
+      "concepts": ["sesgo-presente"],
       "prompt": "Preferir la recompensa inmediata a otra mayor futura es el sesgo del ___.",
-      "answers": [
-        [
-          "presente"
-        ]
-      ],
+      "answers": [["presente"]],
       "explanation": "Es el sesgo del presente."
     },
     {
@@ -142,15 +115,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Clasifica según la regla 50/30/20.",
-      "categories": [
-        "Necesidades",
-        "Deseos",
-        "Ahorro"
-      ],
+      "categories": ["Necesidades", "Deseos", "Ahorro"],
       "items": [
         {
           "text": "Comida básica del mes",
@@ -173,9 +140,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "concepts": ["celdas-suma"],
       "prompt": "Escribe en B4 la fórmula del total de las tres partidas: suma de B1 a B3.",
       "cells": {
         "A1": "Alquiler",
@@ -218,15 +183,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "sesgo-presente"
-      ],
+      "concepts": ["sesgo-presente"],
       "prompt": "Para pagarte primero, la transferencia automática al ahorro se hace ___ de gastar.",
-      "answers": [
-        [
-          "antes"
-        ]
-      ],
+      "answers": [["antes"]],
       "explanation": "Primero se aparta el ahorro y después se gasta lo que queda."
     },
     {
@@ -235,9 +194,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "sesgo-presente"
-      ],
+      "concepts": ["sesgo-presente"],
       "prompt": "¿Qué ayuda a ahorrar a pesar del sesgo del presente?",
       "options": [
         "Automatizar la transferencia al cobrar",
@@ -245,10 +202,7 @@
         "Esperar a ver si sobra algo a final de mes",
         "Apartar solo lo que no sepas en qué gastar"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Automatizar y fijar reglas de antemano funcionan; esperar a que sobre algo casi nunca da ahorro. Esperar a que sobre algo casi nunca da ahorro, y apartar solo lo que no sabes en qué gastar convierte el ahorro en un residuo."
     }
   ],

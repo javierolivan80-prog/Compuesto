@@ -2,24 +2,14 @@
   "id": "n1-u5-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "Dividendos y rentabilidad por dividendo",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Calcular la rentabilidad por dividendo",
-    "Entender la fecha ex-dividendo"
-  ],
-  "concepts": [
-    "dividendo",
-    "rentabilidad-dividendo"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Calcular la rentabilidad por dividendo", "Entender la fecha ex-dividendo"],
+  "concepts": ["dividendo", "rentabilidad-dividendo"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -46,12 +36,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "rentabilidad-dividendo"
-      ],
-      "concepts": [
-        "rentabilidad-dividendo"
-      ],
+      "tags": ["rentabilidad-dividendo"],
+      "concepts": ["rentabilidad-dividendo"],
       "prompt": "¿Qué mide la rentabilidad por dividendo?",
       "options": [
         "El dividendo por acción dividido entre el precio de la acción",
@@ -72,12 +58,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "statement": "Una empresa está obligada a pagar dividendo todos los años.",
       "answer": false,
       "explanation": "El dividendo depende de los beneficios y del acuerdo de la junta."
@@ -87,12 +69,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "prompt": "Una empresa reparte 2.400.000 € entre 12.000.000 de acciones. ¿Cuántos euros de dividendo corresponden a cada acción?",
       "answer": 0.2,
       "tolerance": 0,
@@ -105,12 +83,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-dividendo"
-      ],
-      "concepts": [
-        "rentabilidad-dividendo"
-      ],
+      "tags": ["rentabilidad-dividendo"],
+      "concepts": ["rentabilidad-dividendo"],
       "prompt": "Una acción cotiza a 10 € y paga 0,20 € de dividendo. ¿Cuál es la rentabilidad por dividendo, en %?",
       "answer": 2,
       "tolerance": 0,
@@ -123,12 +97,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "prompt": "Tienes 500 acciones y la empresa paga 0,20 € por acción. ¿Cuánto cobras en euros, antes de impuestos?",
       "answer": 100,
       "tolerance": 0,
@@ -141,12 +111,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "prompt": "Una acción cotiza a 10 € y paga un dividendo de 0,20 €. Si el precio baja exactamente el importe del dividendo en la fecha ex-dividendo, ¿a qué precio queda, en euros?",
       "answer": 9.8,
       "tolerance": 0,
@@ -159,18 +125,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "prompt": "Quien compra una acción después de la fecha ___-dividendo no cobra ese dividendo.",
-      "answers": [
-        [
-          "ex"
-        ]
-      ],
+      "answers": [["ex"]],
       "explanation": "Fecha ex-dividendo."
     },
     {
@@ -178,12 +136,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "dividendo"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["dividendo"],
+      "concepts": ["dividendo"],
       "prompt": "¿Por qué suele bajar el precio en la fecha ex-dividendo?",
       "options": [
         "Porque la empresa entrega valor a sus accionistas",

@@ -32,7 +32,9 @@ export function normalizeEvents(events: readonly AppEvent[]): AppEvent[] {
 }
 
 const eventXp = (e: AppEvent): number =>
-  e.type === 'exercise_answered' || e.type === 'lesson_completed' ? e.payload.xp : 0;
+  e.type === 'exercise_answered' || e.type === 'lesson_completed' || e.type === 'game_played'
+    ? e.payload.xp
+    : 0;
 
 export interface XpProjection {
   total: number;

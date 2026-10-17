@@ -2,9 +2,7 @@
   "id": "n1-u3-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 3,
   "title": "BME y el mercado continuo",
@@ -13,9 +11,7 @@
     "Explicar qué es BME y el mercado continuo",
     "Calcular el importe de una operación"
   ],
-  "concepts": [
-    "bme"
-  ],
+  "concepts": ["bme"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -32,9 +28,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "¿Qué es el mercado continuo?",
       "options": [
         "Un sistema electrónico que casa órdenes de compra y venta durante la sesión",
@@ -56,9 +50,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "statement": "Las bolsas de Madrid, Barcelona, Bilbao y Valencia están gestionadas por BME.",
       "answer": true,
       "explanation": "BME es el operador de las bolsas españolas."
@@ -69,15 +61,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "El sistema de BME que casa órdenes sin interrupción durante la negociación se llama mercado ___.",
-      "answers": [
-        [
-          "continuo"
-        ]
-      ],
+      "answers": [["continuo"]],
       "explanation": "Continuo, porque las órdenes se cruzan de forma ininterrumpida mientras dura la negociación."
     },
     {
@@ -86,9 +72,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "La negociación en continuo va de 9:00 a 17:30. ¿Cuántas horas dura?",
       "answer": 8.5,
       "tolerance": 0,
@@ -102,9 +86,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "Ordena el recorrido de una orden de compra en el mercado continuo.",
       "steps": [
         "Envías la orden a tu intermediario (tu bróker)",
@@ -120,9 +102,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "Compras 300 acciones a 4,20 € cada una, sin comisiones. ¿Cuál es el importe de la operación?",
       "answer": 1260,
       "tolerance": 0,
@@ -136,15 +116,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "¿Quién hace qué?",
-      "categories": [
-        "BME",
-        "CNMV",
-        "Intermediario (bróker)"
-      ],
+      "categories": ["BME", "CNMV", "Intermediario (bróker)"],
       "items": [
         {
           "text": "Gestiona las bolsas y el mercado continuo",
@@ -171,9 +145,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "bme"
-      ],
+      "concepts": ["bme"],
       "prompt": "¿Qué ventaja tiene negociar en un sistema electrónico continuo?",
       "options": [
         "Los precios se actualizan durante toda la sesión",

@@ -2,9 +2,7 @@
   "id": "n1-u4-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "Las subastas de apertura y cierre",
@@ -13,10 +11,7 @@
     "Explicar cómo se fija el precio de una subasta",
     "Calcular el precio de casación"
   ],
-  "concepts": [
-    "subastas",
-    "formacion-precios"
-  ],
+  "concepts": ["subastas", "formacion-precios"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -37,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "¿Qué precio se fija en una subasta?",
       "options": [
         "El que permite negociar el mayor volumen",
@@ -61,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "statement": "En una subasta las órdenes se casan a medida que llegan, cada una a su precio.",
       "answer": false,
       "explanation": "Se acumulan y se casan todas a un único precio al final."
@@ -74,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. ¿A qué precio se casa la subasta, en euros?",
       "answer": 10.1,
       "tolerance": 0,
@@ -90,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. El precio que maximiza el volumen es 10,10 €. ¿Cuántas acciones se casan?",
       "answer": 400,
       "tolerance": 0,
@@ -106,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "Compras: 100 acciones con límite 10,30 €, 200 con 10,20 € y 300 con 10,10 €. Ventas: 150 acciones con límite 10,00 €, 250 con 10,10 € y 400 con 10,30 €. ¿Cuántas acciones se casarían si el precio fuese 10,20 €?",
       "answer": 300,
       "tolerance": 0,
@@ -122,15 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "En una subasta las órdenes se casan a un único ___.",
-      "answers": [
-        [
-          "precio"
-        ]
-      ],
+      "answers": [["precio"]],
       "explanation": "Un único precio para todas."
     },
     {
@@ -139,14 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "¿Subasta o negociación continua?",
-      "categories": [
-        "Subasta",
-        "Negociación continua"
-      ],
+      "categories": ["Subasta", "Negociación continua"],
       "items": [
         {
           "text": "Se acumulan órdenes y se casan a un único precio",
@@ -173,9 +147,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "Dos precios permiten casar el mismo volumen en una subasta. ¿Cuál se elige primero según la regla?",
       "options": [
         "El de menor desequilibrio entre compra y venta",

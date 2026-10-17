@@ -2,9 +2,7 @@
   "id": "n0-u2-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 2,
   "title": "TIN y TAE: dos formas de decir el precio del dinero",
@@ -13,11 +11,7 @@
     "Distinguir TIN y TAE",
     "Calcular la TAE a partir del TIN y la frecuencia de liquidación"
   ],
-  "concepts": [
-    "tin",
-    "tae",
-    "interes-compuesto"
-  ],
+  "concepts": ["tin", "tae", "interes-compuesto"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -46,9 +40,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tae"
-      ],
+      "concepts": ["tae"],
       "prompt": "¿Para qué sirve sobre todo la TAE?",
       "options": [
         "Para comparar el coste o la rentabilidad real de ofertas distintas",
@@ -70,10 +62,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "tin",
-        "tae"
-      ],
+      "concepts": ["tin", "tae"],
       "statement": "Dos depósitos con el mismo TIN tienen siempre la misma TAE.",
       "answer": false,
       "explanation": "Si uno liquida intereses cada mes y otro una vez al año, el primero tiene mayor TAE aunque el TIN sea el mismo."
@@ -84,9 +73,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tae"
-      ],
+      "concepts": ["tae"],
       "prompt": "Un depósito paga un 12 % de TIN y liquida los intereses cada mes. ¿Cuál es su TAE en %? (2 decimales)",
       "answer": 12.68,
       "tolerance": 0.1,
@@ -100,9 +87,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tae"
-      ],
+      "concepts": ["tae"],
       "prompt": "Un depósito paga un 4 % de TIN con liquidación semestral (2 veces al año). ¿Cuál es su TAE en %? (2 decimales)",
       "answer": 4.04,
       "tolerance": 0.1,
@@ -116,16 +101,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "tae"
-      ],
+      "concepts": ["tae"],
       "prompt": "Para comparar dos ofertas de préstamo conviene mirar la ___ y no solo el TIN.",
-      "answers": [
-        [
-          "TAE",
-          "tae"
-        ]
-      ],
+      "answers": [["TAE", "tae"]],
       "explanation": "La TAE recoge frecuencia de liquidación y ciertas comisiones; el TIN, no."
     },
     {
@@ -134,15 +112,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tin",
-        "tae"
-      ],
+      "concepts": ["tin", "tae"],
       "prompt": "¿TIN o TAE?",
-      "categories": [
-        "TIN",
-        "TAE"
-      ],
+      "categories": ["TIN", "TAE"],
       "items": [
         {
           "text": "Tipo anual de partida con el que se calculan los intereses",
@@ -169,9 +141,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "tae"
-      ],
+      "concepts": ["tae"],
       "prompt": "Ordena los pasos para comparar dos depósitos.",
       "steps": [
         "Anota el TIN y la frecuencia de liquidación de cada uno",
@@ -187,17 +157,9 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "tin",
-        "tae"
-      ],
+      "concepts": ["tin", "tae"],
       "prompt": "El depósito A paga un 3 % de TIN con una liquidación al año y el B, un 3 % de TIN con liquidación mensual. ¿Cuál rinde más?",
-      "options": [
-        "El A",
-        "El B",
-        "Rinden igual",
-        "No se puede saber"
-      ],
+      "options": ["El A", "El B", "Rinden igual", "No se puede saber"],
       "answer": 1,
       "explanation": "El B liquida cada mes y capitaliza antes: su TAE es 3,04 % frente al 3,00 % del A.",
       "wrongExplanations": {

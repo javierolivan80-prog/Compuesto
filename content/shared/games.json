@@ -1,0 +1,316 @@
+{
+  "presupuesto": {
+    "items": [
+      {
+        "id": "nomina",
+        "label": "Nómina del mes",
+        "category": "ingreso",
+        "min": 1100,
+        "max": 2200
+      },
+      {
+        "id": "beca",
+        "label": "Beca de estudios",
+        "category": "ingreso",
+        "min": 200,
+        "max": 450
+      },
+      {
+        "id": "clases",
+        "label": "Clases particulares",
+        "category": "ingreso",
+        "min": 80,
+        "max": 240
+      },
+      {
+        "id": "regalo",
+        "label": "Dinero que te regalan tus abuelos",
+        "category": "ingreso",
+        "min": 30,
+        "max": 100
+      },
+      {
+        "id": "alquiler",
+        "label": "Alquiler de la habitación",
+        "category": "gasto",
+        "min": 300,
+        "max": 600
+      },
+      {
+        "id": "super",
+        "label": "Compra del supermercado",
+        "category": "gasto",
+        "min": 120,
+        "max": 280
+      },
+      {
+        "id": "transporte",
+        "label": "Abono de transporte",
+        "category": "gasto",
+        "min": 20,
+        "max": 60
+      },
+      {
+        "id": "movil",
+        "label": "Tarifa del móvil",
+        "category": "gasto",
+        "min": 10,
+        "max": 30
+      },
+      {
+        "id": "luz",
+        "label": "Factura de la luz",
+        "category": "gasto",
+        "min": 30,
+        "max": 80
+      },
+      {
+        "id": "seguro",
+        "label": "Seguro del coche",
+        "category": "gasto",
+        "min": 35,
+        "max": 90
+      },
+      {
+        "id": "ocio",
+        "label": "Cenas y planes con amigos",
+        "category": "gasto",
+        "min": 40,
+        "max": 120
+      },
+      {
+        "id": "streaming",
+        "label": "Suscripción de streaming",
+        "category": "gasto",
+        "min": 8,
+        "max": 16
+      },
+      {
+        "id": "fondo",
+        "label": "Transferencia al fondo de emergencia",
+        "category": "ahorro",
+        "min": 50,
+        "max": 250
+      },
+      {
+        "id": "plan",
+        "label": "Aportación mensual a un plan de ahorro",
+        "category": "ahorro",
+        "min": 30,
+        "max": 150
+      },
+      {
+        "id": "viaje",
+        "label": "Hucha para el viaje del verano",
+        "category": "ahorro",
+        "min": 20,
+        "max": 90
+      },
+      {
+        "id": "deposito",
+        "label": "Ingreso en un depósito a plazo",
+        "category": "ahorro",
+        "min": 100,
+        "max": 400
+      }
+    ],
+    "concepts": ["presupuesto"],
+    "learned": "Un presupuesto cuadra cuando lo que entra es igual a lo que gastas más lo que ahorras: ahorrar es una decisión, no lo que sobra."
+  },
+  "ordenes": {
+    "companies": ["Naranjas del Turia", "Pirineo Energía", "Mediterránea de Navieras"],
+    "intents": {
+      "immediate": [
+        {
+          "side": "buy",
+          "text": "Quiere comprar {q} acciones de {co} ahora mismo, al precio que haya."
+        },
+        {
+          "side": "sell",
+          "text": "Necesita vender {q} acciones de {co} hoy y no puede esperar."
+        }
+      ],
+      "cap": [
+        {
+          "side": "buy",
+          "text": "Quiere comprar {q} acciones de {co}, pero no pagará más de {p} €."
+        },
+        {
+          "side": "sell",
+          "text": "Quiere vender {q} acciones de {co}, pero solo si consigue al menos {p} €."
+        }
+      ],
+      "auction": [
+        {
+          "side": "buy",
+          "text": "Prefiere comprar {q} acciones de {co} en la subasta de apertura, al precio único del día."
+        },
+        {
+          "side": "sell",
+          "text": "Prefiere vender {q} acciones de {co} en la subasta de cierre, al precio único del día."
+        }
+      ]
+    },
+    "concepts": ["orden-mercado", "orden-limitada"],
+    "auctionConcepts": ["subastas"],
+    "learned": "La orden de mercado garantiza la ejecución pero no el precio; la limitada garantiza el precio pero no la ejecución; la subasta casa todo a un único precio."
+  },
+  "titulares": [
+    {
+      "id": "beneficio-sorpresa",
+      "text": "Naranjas del Turia gana un 25 % más de lo que esperaba el mercado.",
+      "direction": "up",
+      "motives": [
+        "Los resultados superan las expectativas y los inversores revalorizan la empresa",
+        "Hay menos acciones en circulación",
+        "La bolsa siempre sube cuando se publican resultados"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "El precio sube cuando la información nueva mejora lo que esperaban los compradores: aquí, un beneficio mejor de lo previsto."
+    },
+    {
+      "id": "prevision-rebajada",
+      "text": "Pirineo Energía rebaja su previsión de beneficios para el año.",
+      "direction": "down",
+      "motives": [
+        "Los inversores esperan ahora menos beneficios y pagan menos por la acción",
+        "Ha subido el número de accionistas",
+        "Siempre que hay noticias la acción baja"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Si los beneficios futuros esperados bajan, los compradores ofrecen menos y el precio se ajusta a la baja."
+    },
+    {
+      "id": "contrato-largo",
+      "text": "Mediterránea de Navieras firma un contrato de cinco años con su mayor cliente.",
+      "direction": "up",
+      "motives": [
+        "Ingresos más seguros durante años aumentan el valor esperado de la empresa",
+        "La empresa ha cambiado de nombre",
+        "Los contratos largos garantizan que la acción no baje nunca"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Un contrato largo mejora la visibilidad de ingresos; no garantiza nada, pero los compradores valoran más la empresa."
+    },
+    {
+      "id": "expediente-cnmv",
+      "text": "Dimite el consejero delegado de Naranjas del Turia por un expediente abierto por la CNMV.",
+      "direction": "down",
+      "motives": [
+        "La incertidumbre y el riesgo de sanción hacen que los compradores pidan un precio menor",
+        "Los dimisionarios siempre hacen bajar la bolsa",
+        "Hay demasiadas acciones en el mercado"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Un expediente añade incertidumbre y posibles costes: se paga menos por el mismo negocio."
+    },
+    {
+      "id": "venta-fondo",
+      "text": "Un fondo grande vende de golpe el 8 % de Pirineo Energía en una sola sesión.",
+      "direction": "down",
+      "motives": [
+        "Una venta tan grande supera a los compradores disponibles y empuja el precio a la baja",
+        "El fondo sabe un secreto sobre la empresa y lo hace público",
+        "Las ventas de fondos siempre son una buena noticia"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios", "liquidez"],
+      "explanation": "Cuando hay más vendedores que compradores a un precio, el precio baja hasta equilibrar la oferta y la demanda."
+    },
+    {
+      "id": "ampliacion-descuento",
+      "text": "Mediterránea de Navieras anuncia una ampliación de capital con descuento sobre el precio de mercado.",
+      "direction": "down",
+      "motives": [
+        "Habrá más acciones y se emiten por debajo del precio actual, así que el valor por acción se diluye",
+        "Una ampliación siempre indica que la empresa va muy bien",
+        "Las acciones nuevas hacen que el precio sea más estable"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios", "ampliacion-capital"],
+      "explanation": "Con más acciones y un precio de emisión menor, el precio teórico por acción se ajusta a la baja."
+    },
+    {
+      "id": "recompra-acciones",
+      "text": "Albufera Partners anuncia que recomprará el 5 % de sus acciones en el mercado.",
+      "direction": "up",
+      "motives": [
+        "La propia empresa compra y hay menos acciones en circulación, lo que sostiene el precio",
+        "La empresa está pidiendo dinero prestado a los accionistas",
+        "Recomprar acciones es lo mismo que pagar un dividendo"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios", "recompra-acciones"],
+      "explanation": "Una recompra añade un comprador grande y reduce el número de acciones: tiende a sostener el precio."
+    },
+    {
+      "id": "comprador-institucional",
+      "text": "Un gran fondo anuncia que quiere comprar el 6 % de Naranjas del Turia durante la semana.",
+      "direction": "up",
+      "motives": [
+        "Hay un comprador grande que añade demanda y empuja el precio al alza",
+        "La empresa ha repartido un dividendo extraordinario",
+        "Las compras de fondos no afectan nunca al precio"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios", "liquidez"],
+      "explanation": "Más demanda frente a la misma oferta hace subir el precio hasta que aparecen vendedores."
+    },
+    {
+      "id": "temporal-rutas",
+      "text": "Un temporal obliga a Mediterránea de Navieras a suspender todas sus rutas durante dos semanas.",
+      "direction": "down",
+      "motives": [
+        "Dos semanas sin ingresos recortan los beneficios que se esperaban",
+        "Los temporales siempre suben el precio de las acciones",
+        "Las rutas suspendidas aumentan el número de accionistas"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Si los ingresos esperados bajan, aunque sea de forma temporal, los compradores pagan algo menos por la empresa."
+    },
+    {
+      "id": "cierre-planta",
+      "text": "Pirineo Energía anuncia el cierre de una planta que perdía dinero todos los años.",
+      "direction": "up",
+      "motives": [
+        "Elimina pérdidas recurrentes y mejora los beneficios esperados",
+        "Cerrar plantas siempre indica que la empresa va a quebrar",
+        "Con menos plantas hay menos acciones en el mercado"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Quitar un negocio que resta beneficios mejora lo que los compradores esperan ganar."
+    },
+    {
+      "id": "precio-objetivo",
+      "text": "Dos analistas elevan su precio objetivo de Albufera Partners tras revisar al alza los ingresos que esperan.",
+      "direction": "up",
+      "motives": [
+        "Los compradores esperan más ingresos futuros y están dispuestos a pagar más",
+        "Los analistas son dueños de la empresa y compran acciones",
+        "Un precio objetivo obliga legalmente a que la acción suba"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Cuando mejoran las expectativas de ingresos, sube lo que los compradores están dispuestos a pagar."
+    },
+    {
+      "id": "pierde-cliente",
+      "text": "Naranjas del Turia pierde a su cliente principal, que suponía el 40 % de sus ventas.",
+      "direction": "down",
+      "motives": [
+        "Perder una gran parte de los ingresos recorta los beneficios esperados",
+        "Tener menos clientes reduce el número de acciones",
+        "Perder clientes es siempre una buena señal"
+      ],
+      "answer": 0,
+      "concepts": ["formacion-precios"],
+      "explanation": "Si una parte tan grande de las ventas desaparece, las expectativas de beneficio caen y el precio baja."
+    }
+  ]
+}

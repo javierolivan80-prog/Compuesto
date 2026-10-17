@@ -2,9 +2,7 @@
   "id": "n1-u2-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "title": "Mercado secundario: compraventa entre inversores",
@@ -13,9 +11,7 @@
     "Explicar qué es el mercado secundario",
     "Ver que la empresa no recibe el dinero de las compraventas"
   ],
-  "concepts": [
-    "mercado-secundario"
-  ],
+  "concepts": ["mercado-secundario"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -32,16 +28,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "Compras acciones de una empresa cotizada en bolsa a otro inversor. ¿Quién recibe el dinero?",
-      "options": [
-        "El inversor que vende",
-        "La empresa emisora",
-        "La CNMV",
-        "Nadie"
-      ],
+      "options": ["El inversor que vende", "La empresa emisora", "La CNMV", "Nadie"],
       "answer": 0,
       "explanation": "En el mercado secundario el comprador paga al vendedor.",
       "wrongExplanations": {
@@ -56,9 +45,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "statement": "Cuando sube la cotización de una acción en el mercado secundario, la empresa recibe más dinero.",
       "answer": false,
       "explanation": "La empresa solo recibe dinero cuando emite acciones; las compraventas entre inversores no la afectan directamente."
@@ -69,9 +56,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "Compras 500 acciones a 10,40 € cada una en bolsa, sin comisiones. ¿Cuántos euros pagas?",
       "answer": 5200,
       "tolerance": 0,
@@ -85,9 +70,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "Un inversor vende 300 acciones a 12,50 € cada una a otro inversor en bolsa (sin comisiones). ¿Cuántos euros cobra el vendedor?",
       "answer": 3750,
       "tolerance": 0,
@@ -101,15 +84,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "El mercado en el que se negocian acciones ya emitidas se llama mercado ___.",
-      "answers": [
-        [
-          "secundario"
-        ]
-      ],
+      "answers": [["secundario"]],
       "explanation": "Es el mercado secundario."
     },
     {
@@ -118,15 +95,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-primario",
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-primario", "mercado-secundario"],
       "prompt": "¿Mercado primario o secundario?",
-      "categories": [
-        "Primario",
-        "Secundario"
-      ],
+      "categories": ["Primario", "Secundario"],
       "items": [
         {
           "text": "Una empresa emite acciones nuevas para financiarse",
@@ -153,9 +124,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "Ordena una compra en el mercado secundario.",
       "steps": [
         "Decides comprar acciones de una empresa cotizada",
@@ -171,9 +140,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "mercado-secundario"
-      ],
+      "concepts": ["mercado-secundario"],
       "prompt": "¿Por qué es útil el mercado secundario para quien invierte en una emisión?",
       "options": [
         "Porque le permite vender sus acciones a otros inversores",

@@ -3,21 +3,15 @@
   "unitId": "n0-u5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n0-u5-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Qué cubre, en general, un seguro de hogar?",
       "options": [
         "Los pagos de la hipoteca",
@@ -38,12 +32,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["seguros-basicos"],
       "statement": "Un seguro transfiere a la aseguradora el riesgo de un gasto grande e improbable a cambio de una prima.",
       "answer": true,
       "explanation": "La prima es el precio de transferir ese riesgo."
@@ -53,12 +43,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["pensiones-publicas"],
       "prompt": "El sistema público de pensiones español es, principalmente, de…",
       "options": [
         "Reparto: las cotizaciones actuales financian las pensiones actuales",
@@ -79,12 +65,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["tres-pilares"],
       "prompt": "¿Cuáles son los tres pilares de la jubilación?",
       "options": [
         "Hipoteca, seguro y depósito",
@@ -105,12 +87,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "tres-pilares"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["tres-pilares"],
       "prompt": "Un plan de pensiones individual que contratas tú pertenece al pilar…",
       "options": [
         "Primero (público)",
@@ -131,12 +109,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "En general, una inversión con mayor rentabilidad esperada…",
       "options": [
         "Es siempre más segura",
@@ -157,12 +131,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["riesgo-rentabilidad"],
       "statement": "Una rentabilidad alta, garantizada y sin riesgo es una señal de alerta de posible fraude.",
       "answer": true,
       "explanation": "Si suena demasiado bueno para ser verdad, suele serlo."
@@ -172,12 +142,8 @@
       "type": "multi_select",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "seguros-basicos"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["seguros-basicos"],
       "prompt": "¿Qué riesgos se pueden transferir a una aseguradora a cambio de una prima?",
       "options": [
         "Un incendio en tu vivienda",
@@ -185,11 +151,7 @@
         "Una hospitalización",
         "Que tu inversión rinda menos de lo esperado"
       ],
-      "answers": [
-        0,
-        1,
-        2
-      ],
+      "answers": [0, 1, 2],
       "explanation": "Se aseguran sucesos de daño o responsabilidad; el riesgo de mercado de una inversión no es asegurable así."
     }
   ],

@@ -3,21 +3,15 @@
   "unitId": "n0-u3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n0-u3-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "presupuesto"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["presupuesto"],
       "prompt": "En un presupuesto personal, los gastos fijos son…",
       "options": [
         "Los que ocurren de vez en cuando",
@@ -38,12 +32,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "presupuesto"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["presupuesto"],
       "statement": "La capacidad de ahorro mensual es lo que queda de los ingresos después de restar los gastos.",
       "answer": true,
       "explanation": "Ahorro = ingresos − gastos."
@@ -53,12 +43,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "fondo-emergencia"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["fondo-emergencia"],
       "prompt": "¿Para qué sirve un fondo de emergencia?",
       "options": [
         "Para cubrir imprevistos sin endeudarte",
@@ -79,12 +65,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "analizar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "deuda-buena-mala"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["deuda-buena-mala"],
       "prompt": "Una deuda para formarte que puede aumentar tus ingresos futuros suele considerarse…",
       "options": [
         "Siempre una mala deuda",
@@ -105,12 +87,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "deuda-buena-mala"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["deuda-buena-mala"],
       "prompt": "¿Cuál de estas deudas suele ser la más cara?",
       "options": [
         "Una hipoteca",
@@ -131,12 +109,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "sesgo-presente"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["sesgo-presente"],
       "statement": "El sesgo del presente lleva a preferir una recompensa inmediata aunque sea menor que una futura.",
       "answer": true,
       "explanation": "Es la tendencia a sobrevalorar lo inmediato."
@@ -146,12 +120,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["celdas-suma"],
       "prompt": "En una hoja de cálculo, ¿qué hace =SUMA(A1:A3)?",
       "options": [
         "Suma los valores de A1, A2 y A3",
@@ -172,19 +142,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "celdas-suma"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["celdas-suma"],
       "prompt": "En B1 escribes =A1*2. Si cambias el valor de A1, ¿qué le pasa a B1?",
-      "options": [
-        "Se queda igual",
-        "Da error",
-        "Se borra",
-        "Se recalcula automáticamente"
-      ],
+      "options": ["Se queda igual", "Da error", "Se borra", "Se recalcula automáticamente"],
       "answer": 3,
       "explanation": "Las fórmulas se actualizan al cambiar sus referencias.",
       "wrongExplanations": {

@@ -2,9 +2,7 @@
   "id": "n0-u5-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 5,
   "title": "La pensión pública: un sistema de reparto",
@@ -13,9 +11,7 @@
     "Explicar el sistema de reparto",
     "Aplicar los requisitos básicos de la jubilación contributiva"
   ],
-  "concepts": [
-    "pensiones-publicas"
-  ],
+  "concepts": ["pensiones-publicas"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -36,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "¿Qué significa que el sistema sea de reparto?",
       "options": [
         "Las cotizaciones actuales financian las pensiones actuales",
@@ -60,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "statement": "En un sistema de reparto, tus cotizaciones se guardan en una cuenta a tu nombre hasta tu jubilación.",
       "answer": false,
       "explanation": "Se usan para pagar las pensiones actuales; tu derecho futuro depende de lo cotizado."
@@ -73,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "Una persona ha cotizado 12 años y necesita un mínimo de 15 para la jubilación contributiva. ¿Cuántos años más necesita?",
       "answer": 3,
       "tolerance": 0,
@@ -89,15 +79,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "El sistema público español de pensiones es un sistema de ___.",
-      "answers": [
-        [
-          "reparto"
-        ]
-      ],
+      "answers": [["reparto"]],
       "explanation": "Reparto: cotizaciones actuales, pensiones actuales."
     },
     {
@@ -106,14 +90,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "¿Reparto o capitalización?",
-      "categories": [
-        "Reparto",
-        "Capitalización"
-      ],
+      "categories": ["Reparto", "Capitalización"],
       "items": [
         {
           "text": "Las cotizaciones de hoy pagan las pensiones de hoy",
@@ -140,9 +119,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "En un país ficticio hay 2.000.000 de cotizantes y 1.000.000 de pensionistas. ¿Cuántos cotizantes hay por pensionista?",
       "answer": 2,
       "tolerance": 0,
@@ -156,9 +133,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "¿Por qué el envejecimiento de la población presiona un sistema de reparto?",
       "options": [
         "Hay menos cotizantes por cada pensionista",
@@ -180,15 +155,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "pensiones-publicas"
-      ],
+      "concepts": ["pensiones-publicas"],
       "prompt": "La edad ordinaria de jubilación sube gradualmente hasta los ___ años en 2027.",
-      "answers": [
-        [
-          "67"
-        ]
-      ],
+      "answers": [["67"]],
       "explanation": "Son 67 años, o 65 con carrera de 38 años y 6 meses cotizados."
     }
   ],

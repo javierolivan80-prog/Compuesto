@@ -3,21 +3,15 @@
   "unitId": "n0-u2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n0-u2-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "tin"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["tin"],
       "prompt": "El TIN es…",
       "options": [
         "El coste total anual incluyendo comisiones",
@@ -38,19 +32,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "tae"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["tae"],
       "prompt": "¿Qué indicador permite comparar mejor dos préstamos con comisiones distintas?",
-      "options": [
-        "El TIN",
-        "La TAE",
-        "El plazo",
-        "El importe"
-      ],
+      "options": ["El TIN", "La TAE", "El plazo", "El importe"],
       "answer": 1,
       "explanation": "La TAE incluye intereses y comisiones, por eso permite comparar.",
       "wrongExplanations": {
@@ -64,12 +49,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "tae"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["tae"],
       "statement": "La TAE incluye las comisiones del préstamo; el TIN no.",
       "answer": true,
       "explanation": "La TAE suma comisiones y capitalización al tipo nominal."
@@ -79,12 +60,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "prestamo"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["prestamo"],
       "prompt": "En un préstamo, la cuota es…",
       "options": [
         "Solo los intereses",
@@ -105,19 +82,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "cuadro-amortizacion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["cuadro-amortizacion"],
       "prompt": "En un préstamo con cuota constante (sistema francés), la parte de cada cuota que va a intereses a lo largo del tiempo…",
-      "options": [
-        "Aumenta",
-        "Se mantiene",
-        "Disminuye",
-        "Desaparece en el primer año"
-      ],
+      "options": ["Aumenta", "Se mantiene", "Disminuye", "Desaparece en el primer año"],
       "answer": 2,
       "explanation": "Cada cuota amortiza algo de capital: el saldo baja y los intereses también.",
       "wrongExplanations": {
@@ -131,12 +99,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "hipoteca"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["hipoteca"],
       "prompt": "¿Qué es una hipoteca?",
       "options": [
         "Un seguro para la vivienda",
@@ -157,19 +121,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "euribor"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["euribor"],
       "prompt": "Si el Euríbor sube y tu hipoteca es a tipo variable referenciada a él, tu cuota…",
-      "options": [
-        "Tiende a subir en la próxima revisión",
-        "Baja",
-        "No cambia nunca",
-        "Se cancela"
-      ],
+      "options": ["Tiende a subir en la próxima revisión", "Baja", "No cambia nunca", "Se cancela"],
       "answer": 0,
       "explanation": "En una hipoteca variable el interés es Euríbor + diferencial.",
       "wrongExplanations": {
@@ -183,12 +138,8 @@
       "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "analizar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "alquilar-vs-comprar"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["alquilar-vs-comprar"],
       "prompt": "¿Qué debe incluir una comparación honesta entre alquilar y comprar una vivienda?",
       "options": [
         "Solo la cuota hipotecaria y el IBI",

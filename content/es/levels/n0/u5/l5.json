@@ -2,24 +2,14 @@
   "id": "n0-u5-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 5,
   "title": "Riesgo y rentabilidad",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Relacionar riesgo y rentabilidad esperada",
-    "Calcular rentabilidades sencillas"
-  ],
-  "concepts": [
-    "riesgo-rentabilidad"
-  ],
-  "companies": [
-    "albufera-partners",
-    "pirineo-energia"
-  ],
+  "objectives": ["Relacionar riesgo y rentabilidad esperada", "Calcular rentabilidades sencillas"],
+  "concepts": ["riesgo-rentabilidad"],
+  "companies": ["albufera-partners", "pirineo-energia"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +29,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "¿Qué relación suele haber entre riesgo y rentabilidad esperada?",
       "options": [
         "A más rentabilidad esperada, más riesgo",
@@ -63,9 +51,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "statement": "Una inversión que promete una rentabilidad alta garantizada y sin riesgo es una señal de alerta.",
       "answer": true,
       "explanation": "Si fuese real, todos querrían comprarla y el precio cambiaría: puede ser un fraude o una estafa."
@@ -76,9 +62,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "Compras una acción a 80 € y vale 92 €. ¿Qué rentabilidad es, en %?",
       "answer": 15,
       "tolerance": 0,
@@ -92,9 +76,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "Rentabilidades de tres años: +20 %, −10 % y +15 %. ¿Cuál es su media aritmética, en %? (2 decimales)",
       "answer": 8.33,
       "tolerance": 0.1,
@@ -108,9 +90,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "Entre el mejor año (+20 %) y el peor (−10 %) hay una distancia de… (puntos porcentuales)",
       "answer": 30,
       "tolerance": 0,
@@ -124,15 +104,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "A más rentabilidad esperada, más ___.",
-      "answers": [
-        [
-          "riesgo"
-        ]
-      ],
+      "answers": [["riesgo"]],
       "explanation": "Riesgo y rentabilidad esperada suelen ir de la mano."
     },
     {
@@ -141,14 +115,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "¿Riesgo bajo o alto?",
-      "categories": [
-        "Riesgo bajo",
-        "Riesgo alto"
-      ],
+      "categories": ["Riesgo bajo", "Riesgo alto"],
       "items": [
         {
           "text": "Cuenta de ahorro cubierta por el FGD",
@@ -175,9 +144,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "riesgo-rentabilidad"
-      ],
+      "concepts": ["riesgo-rentabilidad"],
       "prompt": "Tienes que pagar una matrícula en 6 meses. ¿Dónde conviene tener ese dinero?",
       "options": [
         "En algo de bajo riesgo y disponible",

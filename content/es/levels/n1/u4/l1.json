@@ -2,21 +2,13 @@
   "id": "n1-u4-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "Cómo se forma el precio y qué es la horquilla",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Explicar cómo se forma el precio",
-    "Calcular la horquilla y su coste"
-  ],
-  "concepts": [
-    "formacion-precios",
-    "horquilla"
-  ],
+  "objectives": ["Explicar cómo se forma el precio", "Calcular la horquilla y su coste"],
+  "concepts": ["formacion-precios", "horquilla"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -42,9 +34,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "formacion-precios"
-      ],
+      "concepts": ["formacion-precios"],
       "prompt": "¿Cómo se forma el precio de una acción en bolsa?",
       "options": [
         "Por la oferta y la demanda de compradores y vendedores",
@@ -66,9 +56,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "formacion-precios"
-      ],
+      "concepts": ["formacion-precios"],
       "statement": "Si a un precio hay más compradores que vendedores, el precio tiende a subir.",
       "answer": true,
       "explanation": "La demanda supera a la oferta y empuja el precio al alza."
@@ -79,9 +67,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "El mejor precio de compra es 10,00 € y el mejor de venta, 10,10 €. ¿Cuánto vale la horquilla en euros?",
       "answer": 0.1,
       "tolerance": 0,
@@ -95,9 +81,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "Con un mejor precio de compra de 10,00 € y de venta de 10,10 €, ¿qué porcentaje del precio de venta supone la horquilla? (2 decimales)",
       "answer": 0.99,
       "tolerance": 0.1,
@@ -111,9 +95,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "Compras 100 acciones a mercado al precio de venta de 10,10 € y las vendes enseguida a mercado al precio de compra de 10,00 €, sin comisiones y sin que cambie el libro. ¿Cuántos euros pierdes?",
       "answer": 10,
       "tolerance": 0,
@@ -127,16 +109,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "La diferencia entre el mejor precio de venta y el mejor precio de compra se llama ___.",
-      "answers": [
-        [
-          "horquilla",
-          "spread"
-        ]
-      ],
+      "answers": [["horquilla", "spread"]],
       "explanation": "Horquilla, o spread en inglés."
     },
     {
@@ -145,14 +120,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "¿Bid o ask?",
-      "categories": [
-        "Mejor precio de compra (bid)",
-        "Mejor precio de venta (ask)"
-      ],
+      "categories": ["Mejor precio de compra (bid)", "Mejor precio de venta (ask)"],
       "items": [
         {
           "text": "El precio que recibes si vendes a mercado",
@@ -179,16 +149,9 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "La acción A tiene una horquilla de 0,01 € sobre 10 € y la B, de 0,50 € sobre 10 €. ¿Cuál es más barata de operar por este concepto?",
-      "options": [
-        "La A",
-        "La B",
-        "Igual",
-        "No se puede saber"
-      ],
+      "options": ["La A", "La B", "Igual", "No se puede saber"],
       "answer": 0,
       "explanation": "Una horquilla menor significa un coste de entrada y salida menor.",
       "wrongExplanations": {

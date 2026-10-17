@@ -2,21 +2,13 @@
   "id": "n1-u5-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "El scrip dividend",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Explicar el dividendo flexible",
-    "Calcular acciones nuevas y efectivo"
-  ],
-  "concepts": [
-    "scrip-dividend",
-    "dividendo"
-  ],
+  "objectives": ["Explicar el dividendo flexible", "Calcular acciones nuevas y efectivo"],
+  "concepts": ["scrip-dividend", "dividendo"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -36,12 +28,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "¿Qué es un scrip dividend?",
       "options": [
         "Un dividendo en el que eliges entre efectivo y acciones nuevas",
@@ -62,12 +50,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "statement": "En un scrip dividend puedes elegir entre cobrar en efectivo y recibir acciones nuevas.",
       "answer": true,
       "explanation": "Esa es su característica principal."
@@ -77,12 +61,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "Tienes 1.000 acciones y por cada una recibes un derecho. Hacen falta 50 derechos para una acción nueva. ¿Cuántas acciones nuevas recibes?",
       "answer": 20,
       "tolerance": 0,
@@ -95,12 +75,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "Tienes 1.000 derechos y la empresa los compra a 0,20 € cada uno. ¿Cuántos euros cobras en efectivo, antes de impuestos?",
       "answer": 200,
       "tolerance": 0,
@@ -113,12 +89,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "Tienes 1.000 acciones y eliges recibir 20 acciones nuevas. ¿Cuántas acciones tienes después?",
       "answer": 1020,
       "tolerance": 0,
@@ -131,18 +103,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "El scrip dividend se conoce también como dividendo ___.",
-      "answers": [
-        [
-          "flexible"
-        ]
-      ],
+      "answers": [["flexible"]],
       "explanation": "Dividendo flexible."
     },
     {
@@ -150,17 +114,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "¿Qué opción describe cada frase?",
-      "categories": [
-        "Efectivo",
-        "Acciones nuevas"
-      ],
+      "categories": ["Efectivo", "Acciones nuevas"],
       "items": [
         {
           "text": "Recibes dinero",
@@ -186,19 +143,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "scrip-dividend"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["scrip-dividend"],
+      "concepts": ["scrip-dividend"],
       "prompt": "¿Qué ocurre con tu porcentaje en la empresa si eliges acciones nuevas y otros accionistas eligen efectivo?",
-      "options": [
-        "Puede aumentar",
-        "Siempre disminuye",
-        "Siempre se mantiene igual",
-        "Se anula"
-      ],
+      "options": ["Puede aumentar", "Siempre disminuye", "Siempre se mantiene igual", "Se anula"],
       "answer": 0,
       "explanation": "Tienes más acciones; si otros cobran en efectivo y no reciben acciones, tu parte del total crece.",
       "wrongExplanations": {

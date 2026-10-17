@@ -2,9 +2,7 @@
   "id": "n1-u1-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 1,
   "title": "La acción y sus derechos",
@@ -13,12 +11,8 @@
     "Distinguir los derechos económicos y políticos de un accionista",
     "Calcular un dividendo total"
   ],
-  "concepts": [
-    "accion"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["accion"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -38,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "¿Cuál de estos es un derecho político de un accionista?",
       "options": [
         "Votar en la junta general",
@@ -62,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "statement": "Una acción da derecho a cobrar siempre un dividendo fijo cada año.",
       "answer": false,
       "explanation": "El dividendo depende de que haya beneficios y de que la junta lo acuerde."
@@ -75,14 +65,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "¿Derecho económico o político?",
-      "categories": [
-        "Económico",
-        "Político"
-      ],
+      "categories": ["Económico", "Político"],
       "items": [
         {
           "text": "Cobrar el dividendo acordado",
@@ -109,9 +94,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "Tienes 1.000 acciones y la junta acuerda 0,20 € por acción. ¿Cuánto cobras?",
       "answer": 200,
       "tolerance": 0,
@@ -125,9 +108,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "La sociedad reparte 0,20 € por acción entre 12.000.000 de acciones. ¿Cuál es el dividendo total?",
       "answer": 2400000,
       "tolerance": 0,
@@ -141,15 +122,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "El órgano en el que votan los accionistas se llama junta ___ de accionistas.",
-      "answers": [
-        [
-          "general"
-        ]
-      ],
+      "answers": [["general"]],
       "explanation": "Junta general de accionistas."
     },
     {
@@ -158,9 +133,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "Si una sociedad se liquida, ¿cuándo cobran los accionistas?",
       "options": [
         "Después de pagar a los acreedores, con lo que quede",
@@ -182,9 +155,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "Cobras 150 € de dividendo a 0,30 € por acción. ¿Cuántas acciones tienes?",
       "answer": 500,
       "tolerance": 0,

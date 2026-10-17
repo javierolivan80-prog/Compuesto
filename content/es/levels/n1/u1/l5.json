@@ -2,25 +2,14 @@
   "id": "n1-u1-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 1,
   "title": "Jefe final: la empresa y la acción",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar propiedad, derechos, capitalización y free float"
-  ],
-  "concepts": [
-    "empresa",
-    "accion",
-    "capitalizacion",
-    "free-float"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Aplicar propiedad, derechos, capitalización y free float"],
+  "concepts": ["empresa", "accion", "capitalizacion", "free-float"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +28,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Capital social de 3.000.000 € y 6.000.000 de acciones. ¿Cuál es el valor nominal por acción?",
       "answer": 0.5,
       "tolerance": 0,
@@ -55,9 +42,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "empresa"
-      ],
+      "concepts": ["empresa"],
       "prompt": "Un accionista de una S.A. puede perder como máximo…",
       "options": [
         "Lo que ha invertido en sus acciones",
@@ -79,9 +64,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "Precio de 8 € y 5.000.000 de acciones. ¿Cuál es la capitalización en euros?",
       "answer": 40000000,
       "tolerance": 0,
@@ -95,9 +78,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "statement": "Una acción ordinaria da derecho a votar en la junta general.",
       "answer": true,
       "explanation": "Es un derecho político básico."
@@ -108,15 +89,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "La parte de las acciones que cotiza libremente se llama free ___.",
-      "answers": [
-        [
-          "float"
-        ]
-      ],
+      "answers": [["float"]],
       "explanation": "Free float."
     },
     {
@@ -125,14 +100,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "¿Derecho económico o político?",
-      "categories": [
-        "Económico",
-        "Político"
-      ],
+      "categories": ["Económico", "Político"],
       "items": [
         {
           "text": "Cobrar un dividendo",
@@ -155,9 +125,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "5.000.000 de acciones con un 30 % de free float. ¿Cuántas cotizan libremente?",
       "answer": 1500000,
       "tolerance": 0,
@@ -171,9 +139,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "concepts": ["capitalizacion"],
       "prompt": "¿Qué mide mejor el tamaño de una empresa cotizada?",
       "options": [
         "La capitalización bursátil",
@@ -195,9 +161,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "accion"
-      ],
+      "concepts": ["accion"],
       "prompt": "Dividendo de 0,10 € por acción y 2.000 acciones. ¿Cuánto cobras?",
       "answer": 200,
       "tolerance": 0,
@@ -211,9 +175,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "free-float"
-      ],
+      "concepts": ["free-float"],
       "prompt": "¿Qué queda fuera del free float?",
       "options": [
         "El paquete estable de un accionista de control",
@@ -221,10 +183,7 @@
         "Las acciones de pequeños inversores",
         "Las acciones en manos de inversores que pueden venderlas libremente"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Los paquetes estables y la autocartera no circulan libremente. Las acciones de minoristas y las de inversores que pueden venderlas libremente sí forman parte del free float."
     }
   ],

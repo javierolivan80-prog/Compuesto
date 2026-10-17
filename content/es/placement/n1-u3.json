@@ -3,21 +3,15 @@
   "unitId": "n1-u3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u3-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "bme"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["bme"],
       "prompt": "BME es…",
       "options": [
         "Un índice bursátil",
@@ -38,12 +32,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "ibex-35"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["ibex-35"],
       "prompt": "El IBEX 35 es…",
       "options": [
         "La bolsa española",
@@ -64,12 +54,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "ibex-35"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["ibex-35"],
       "statement": "Un índice bursátil mide la evolución conjunta de un grupo de acciones.",
       "answer": true,
       "explanation": "Resume cómo se comporta un mercado."
@@ -79,12 +65,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "bme-growth"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["bme-growth"],
       "prompt": "BME Growth es…",
       "options": [
         "Un fondo de inversión",
@@ -105,19 +87,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "bme-growth"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["bme-growth"],
       "prompt": "En comparación con el mercado continuo, BME Growth tiene normalmente requisitos…",
-      "options": [
-        "Más estrictos",
-        "Idénticos",
-        "Más flexibles para la empresa",
-        "Inexistentes"
-      ],
+      "options": ["Más estrictos", "Idénticos", "Más flexibles para la empresa", "Inexistentes"],
       "answer": 2,
       "explanation": "Está adaptado a empresas de menor tamaño.",
       "wrongExplanations": {
@@ -131,19 +104,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "indices-mundiales"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["indices-mundiales"],
       "prompt": "¿Cuál es un índice de grandes empresas de Estados Unidos?",
-      "options": [
-        "IBEX 35",
-        "S&P 500",
-        "Nikkei 225",
-        "Euro Stoxx 50"
-      ],
+      "options": ["IBEX 35", "S&P 500", "Nikkei 225", "Euro Stoxx 50"],
       "answer": 1,
       "explanation": "El S&P 500 agrupa 500 grandes empresas estadounidenses.",
       "wrongExplanations": {
@@ -157,12 +121,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "otc"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["otc"],
       "prompt": "Un mercado OTC es aquel en el que las operaciones se cierran…",
       "options": [
         "Directamente entre las partes, fuera de un mercado organizado",
@@ -183,12 +143,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "indices-mundiales"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["indices-mundiales"],
       "statement": "El Euro Stoxx 50 agrupa grandes empresas de la zona euro.",
       "answer": true,
       "explanation": "Es un índice de referencia europeo."

@@ -2,9 +2,7 @@
   "id": "n1-u6-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "title": "Recompra de acciones",
@@ -13,12 +11,8 @@
     "Explicar la recompra de acciones y la amortización",
     "Calcular el efecto en el porcentaje"
   ],
-  "concepts": [
-    "recompra-acciones"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["recompra-acciones"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -34,16 +28,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa recompra acciones propias y las amortiza. ¿Qué pasa con el porcentaje de un accionista que no vende?",
-      "options": [
-        "Aumenta",
-        "Disminuye",
-        "No cambia",
-        "Se anula"
-      ],
+      "options": ["Aumenta", "Disminuye", "No cambia", "Se anula"],
       "answer": 0,
       "explanation": "Hay menos acciones en total y él conserva las suyas.",
       "wrongExplanations": {
@@ -58,9 +45,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "statement": "Si una empresa amortiza las acciones que recompra, el número de acciones en circulación disminuye.",
       "answer": true,
       "explanation": "Las acciones amortizadas se anulan."
@@ -71,9 +56,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa con 12.000.000 de acciones recompra y amortiza 600.000. ¿Cuántas acciones tiene después?",
       "answer": 11400000,
       "tolerance": 0,
@@ -87,9 +70,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa tiene 11.400.000 acciones tras una amortización. Un accionista posee 3.600.000. ¿Qué porcentaje tiene, en %? (2 decimales)",
       "answer": 31.58,
       "tolerance": 0.1,
@@ -103,9 +84,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa recompra 600.000 acciones a 10 € cada una. ¿Cuántos euros gasta?",
       "answer": 6000000,
       "tolerance": 0,
@@ -119,9 +98,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Una empresa con 12.000.000 de acciones recompra 600.000. ¿Qué porcentaje del total recompra, en %?",
       "answer": 5,
       "tolerance": 0,
@@ -135,15 +112,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "Las acciones propias que mantiene una empresa se llaman ___.",
-      "answers": [
-        [
-          "autocartera"
-        ]
-      ],
+      "answers": [["autocartera"]],
       "explanation": "Autocartera."
     },
     {
@@ -152,16 +123,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "recompra-acciones"
-      ],
+      "concepts": ["recompra-acciones"],
       "prompt": "¿Qué gasta la empresa en una recompra?",
-      "options": [
-        "Su caja",
-        "Sus acciones nuevas",
-        "Dinero que pagan los accionistas",
-        "Nada"
-      ],
+      "options": ["Su caja", "Sus acciones nuevas", "Dinero que pagan los accionistas", "Nada"],
       "answer": 0,
       "explanation": "Para comprar acciones propias hay que pagar con caja.",
       "wrongExplanations": {

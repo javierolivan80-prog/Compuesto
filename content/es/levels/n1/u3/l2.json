@@ -2,22 +2,13 @@
   "id": "n1-u3-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 3,
   "title": "El IBEX 35",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Describir cómo se forma el IBEX 35",
-    "Calcular pesos y variaciones de un índice"
-  ],
-  "concepts": [
-    "ibex-35",
-    "capitalizacion",
-    "free-float"
-  ],
+  "objectives": ["Describir cómo se forma el IBEX 35", "Calcular pesos y variaciones de un índice"],
+  "concepts": ["ibex-35", "capitalizacion", "free-float"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -34,16 +25,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "¿Cuántas empresas agrupa el IBEX 35?",
-      "options": [
-        "35",
-        "50",
-        "100",
-        "500"
-      ],
+      "options": ["35", "50", "100", "500"],
       "answer": 0,
       "explanation": "El nombre lo dice: 35 valores.",
       "wrongExplanations": {
@@ -58,9 +42,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "statement": "El IBEX 35 incluye todas las empresas que cotizan en el mercado continuo.",
       "answer": false,
       "explanation": "Solo incluye 35 de las más grandes y negociadas."
@@ -71,17 +53,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35",
-        "free-float"
-      ],
+      "concepts": ["ibex-35", "free-float"],
       "prompt": "El IBEX 35 pondera cada empresa por su capitalización ajustada por ___.",
-      "answers": [
-        [
-          "free float",
-          "float"
-        ]
-      ],
+      "answers": [["free float", "float"]],
       "explanation": "Se usa la capitalización del free float."
     },
     {
@@ -90,10 +64,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35",
-        "capitalizacion"
-      ],
+      "concepts": ["ibex-35", "capitalizacion"],
       "prompt": "Supuesto ilustrativo: una empresa tiene una capitalización ajustada por free float de 12.000 millones y el total de las 35 empresas es de 120.000 millones. ¿Qué peso tiene en el índice, en %?",
       "answer": 10,
       "tolerance": 0,
@@ -107,10 +78,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35",
-        "free-float"
-      ],
+      "concepts": ["ibex-35", "free-float"],
       "prompt": "Supuesto ilustrativo: una empresa vale 40.000 millones en bolsa y el 25 % de sus acciones es free float. ¿Cuál es su capitalización ajustada por free float, en millones?",
       "answer": 10000,
       "tolerance": 0,
@@ -124,10 +92,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "ibex-35",
-        "free-float"
-      ],
+      "concepts": ["ibex-35", "free-float"],
       "prompt": "¿Por qué se pondera por la capitalización del free float y no por la total?",
       "options": [
         "Porque refleja las acciones que realmente se pueden negociar",
@@ -149,9 +114,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "Un índice pasa de 10.000 a 10.250 puntos. ¿Cuánto ha subido, en %?",
       "answer": 2.5,
       "tolerance": 0,
@@ -165,16 +128,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "ibex-35"
-      ],
+      "concepts": ["ibex-35"],
       "prompt": "El IBEX 35 se revisa ___ veces al año.",
-      "answers": [
-        [
-          "dos",
-          "2"
-        ]
-      ],
+      "answers": [["dos", "2"]],
       "explanation": "La composición se revisa dos veces al año."
     }
   ],

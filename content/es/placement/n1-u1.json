@@ -3,28 +3,17 @@
   "unitId": "n1-u1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u1-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "empresa"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["empresa"],
       "prompt": "Una sociedad anónima (S.A.) es una empresa cuyo capital se divide en…",
-      "options": [
-        "Bonos",
-        "Depósitos",
-        "Acciones",
-        "Letras"
-      ],
+      "options": ["Bonos", "Depósitos", "Acciones", "Letras"],
       "answer": 2,
       "explanation": "El capital de una S.A. está dividido en acciones.",
       "wrongExplanations": {
@@ -38,12 +27,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "accion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["accion"],
       "prompt": "Comprar una acción de una empresa te convierte en…",
       "options": [
         "Acreedor de la empresa",
@@ -64,12 +49,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "accion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["accion"],
       "statement": "Si compras acciones al contado y la empresa quiebra, puedes perder todo lo invertido, pero no más.",
       "answer": true,
       "explanation": "La responsabilidad del accionista está limitada al capital aportado."
@@ -79,12 +60,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["capitalizacion"],
       "prompt": "Una empresa tiene 10 millones de acciones a 5 € cada una. Su capitalización bursátil es…",
       "options": [
         "15 millones de euros",
@@ -105,19 +82,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "capitalizacion"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["capitalizacion"],
       "prompt": "Si el precio de la acción sube y el número de acciones no cambia, la capitalización…",
-      "options": [
-        "Baja",
-        "No cambia",
-        "Sube",
-        "Se anula"
-      ],
+      "options": ["Baja", "No cambia", "Sube", "Se anula"],
       "answer": 2,
       "explanation": "Capitalización = precio × número de acciones.",
       "wrongExplanations": {
@@ -131,12 +99,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "free-float"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["free-float"],
       "prompt": "El free float es…",
       "options": [
         "El dividendo anual",
@@ -157,12 +121,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "free-float"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["free-float"],
       "statement": "Si un único socio estable posee el 60 % de las acciones, el free float no puede superar el 40 %.",
       "answer": true,
       "explanation": "Ese 60 % no se negocia libremente: queda como máximo el 40 %."
@@ -172,12 +132,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "empresa"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["empresa"],
       "prompt": "¿Qué diferencia a una empresa cotizada de una no cotizada?",
       "options": [
         "Que gana más dinero",

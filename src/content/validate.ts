@@ -10,6 +10,7 @@ import {
   conceptsSchema,
   curriculumSchema,
   glossarySchema,
+  gamesDataSchema,
   lessonSchema,
   placementSchema,
   type Concept,
@@ -38,6 +39,8 @@ export interface ContentBundle {
   curriculum?: unknown;
   lessons: RawFile[];
   placements?: RawFile[];
+  /** content/shared/games.json */
+  games?: unknown;
   /** Nombres de empresas reales que no pueden aparecer fuera de document_read y lecciones históricas. */
   realCompanies?: string[];
   /** id → estado de lo ya publicado (ids-lock.json). */
@@ -459,6 +462,34 @@ export function validateContent(b: ContentBundle): {
       where: 'concepts.json',
       message: `Ciclo de prerrequisitos: ${cycle.join(' → ')}`,
     });
+
+  if (b.games !== undefined) {
+    const gp = gamesDataSchema.safeParse(b.games);
+    if (!gp.success) issues.push(...zodIssues('games.json', gp.error));
+    else {
+      const g = gp.data;
+      const err = (code: string, where: string, message: string) =>
+        issues.push({ severity: 'error', code, where: `games.json/${where}`, message });
+      const known = (ids: string[], where: string) =>
+        ids
+          .filter((c) => !conceptIds.has(c))
+          .forEach((c) => err('concepto-inexistente', where, `El concepto "${c}" no existe`));
+      known(g.presupuesto.concepts, 'presupuesto');
+      known([...g.ordenes.concepts, ...g.ordenes.auctionConcepts], 'ordenes');
+      const ids = [...g.presupuesto.items.map((i) => i.id), ...g.titulares.map((t) => t.id)];
+      for (const id of new Set(ids.filter((x, i) => ids.indexOf(x) !== i)))
+        err('id-duplicado', id, 'id repetido');
+      for (const i of g.presupuesto.items) if (i.min > i.max) err('rango', i.id, 'min > max');
+      for (const cat of ['ingreso', 'gasto', 'ahorro'] as const)
+        if (g.presupuesto.items.filter((i) => i.category === cat).length < 3)
+          err('presupuesto', cat, `hacen falta al menos 3 partidas de ${cat}`);
+      for (const t of g.titulares) {
+        known(t.concepts, t.id);
+        if (new Set(t.motives).size !== 3)
+          err('motivos', t.id, 'los 3 motivos deben ser distintos');
+      }
+    }
+  }
 
   const co = companiesSchema.safeParse(b.companies);
   if (!co.success) issues.push(...zodIssues('companies.json', co.error));

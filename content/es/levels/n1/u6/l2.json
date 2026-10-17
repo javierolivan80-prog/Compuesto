@@ -2,9 +2,7 @@
   "id": "n1-u6-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "title": "Derechos de suscripción",
@@ -13,13 +11,8 @@
     "Entender los derechos de suscripción preferente",
     "Calcular el precio teórico y el valor del derecho"
   ],
-  "concepts": [
-    "derechos-suscripcion",
-    "ampliacion-capital"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["derechos-suscripcion", "ampliacion-capital"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "¿Qué da un derecho de suscripción preferente?",
       "options": [
         "La posibilidad de suscribir acciones nuevas antes que otros inversores, en proporción a tu participación",
@@ -63,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "statement": "Los derechos de suscripción pueden venderse en el mercado.",
       "answer": true,
       "explanation": "Si no quieres suscribir, puedes venderlos."
@@ -76,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € amplía capital con una acción nueva por cada 4 antiguas a 8 €. Con 3.600.000 acciones antiguas, ¿cuántas acciones nuevas puedes suscribir?",
       "answer": 900000,
       "tolerance": 0,
@@ -92,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € amplía capital con una acción nueva por cada 4 antiguas a 8 €. Para suscribir 900.000 acciones nuevas, ¿cuántos euros pagas?",
       "answer": 7200000,
       "tolerance": 0,
@@ -108,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € amplía capital con una acción nueva por cada 4 antiguas a 8 €. ¿Cuál es el precio teórico de la acción tras la ampliación, en euros?",
       "answer": 9.6,
       "tolerance": 0,
@@ -124,9 +107,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "Supuesto ilustrativo: una empresa con 12.000.000 de acciones cotizadas a 10 € amplía capital con una acción nueva por cada 4 antiguas a 8 €. ¿Cuál es el valor teórico de cada derecho, en euros?",
       "answer": 0.4,
       "tolerance": 0.01,
@@ -140,14 +121,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "¿Suscribir o vender los derechos?",
-      "categories": [
-        "Suscribir",
-        "Vender los derechos"
-      ],
+      "categories": ["Suscribir", "Vender los derechos"],
       "items": [
         {
           "text": "Mantienes tu porcentaje en la empresa",
@@ -174,15 +150,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "derechos-suscripcion"
-      ],
+      "concepts": ["derechos-suscripcion"],
       "prompt": "El derecho de suscripción ___ permite suscribir antes que otros inversores.",
-      "answers": [
-        [
-          "preferente"
-        ]
-      ],
+      "answers": [["preferente"]],
       "explanation": "Derecho de suscripción preferente."
     }
   ],

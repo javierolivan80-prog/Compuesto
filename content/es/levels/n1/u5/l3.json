@@ -2,21 +2,13 @@
   "id": "n1-u5-l3",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "title": "Rentabilidad total",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Sumar precio y dividendos en la rentabilidad total",
-    "Comparar dos inversiones"
-  ],
-  "concepts": [
-    "rentabilidad-total",
-    "rentabilidad-dividendo"
-  ],
+  "objectives": ["Sumar precio y dividendos en la rentabilidad total", "Comparar dos inversiones"],
+  "concepts": ["rentabilidad-total", "rentabilidad-dividendo"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -36,12 +28,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "¿Qué incluye la rentabilidad total de una acción?",
       "options": [
         "La variación del precio y los dividendos cobrados",
@@ -62,12 +50,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "statement": "Para medir lo que has ganado con una acción basta con mirar la variación del precio.",
       "answer": false,
       "explanation": "Hay que sumar los dividendos cobrados."
@@ -77,12 +61,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "Compras a 10 €, cobras 0,20 € de dividendo y vendes a 10,50 €. ¿Cuál es la rentabilidad total, en %?",
       "answer": 7,
       "tolerance": 0,
@@ -95,17 +75,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "¿Entra en la rentabilidad total?",
-      "categories": [
-        "Sí entra",
-        "No entra"
-      ],
+      "categories": ["Sí entra", "No entra"],
       "items": [
         {
           "text": "La variación del precio entre la compra y la venta",
@@ -131,12 +104,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "Compras a 20 €, cobras 1,50 € de dividendos y vendes a 19 €. ¿Cuál es la rentabilidad total, en %?",
       "answer": 2.5,
       "tolerance": 0,
@@ -149,12 +118,8 @@
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "Una acción sube un 3 % de precio y paga un dividendo del 4 % sobre el precio de compra. ¿Cuál es su rentabilidad total, en %?",
       "answer": 7,
       "tolerance": 0,
@@ -167,18 +132,10 @@
       "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "La rentabilidad ___ suma la variación del precio y los dividendos.",
-      "answers": [
-        [
-          "total"
-        ]
-      ],
+      "answers": [["total"]],
       "explanation": "Rentabilidad total."
     },
     {
@@ -186,19 +143,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "rentabilidad-total"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["rentabilidad-total"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "La acción A sube un 2 % de precio y paga un 5 % de dividendo; la B sube un 6 % y no paga dividendo. ¿Cuál tiene mayor rentabilidad total?",
-      "options": [
-        "La A",
-        "La B",
-        "Igual",
-        "No se puede saber"
-      ],
+      "options": ["La A", "La B", "Igual", "No se puede saber"],
       "answer": 0,
       "explanation": "A: 2 % + 5 % = 7 %; B: 6 %.",
       "wrongExplanations": {

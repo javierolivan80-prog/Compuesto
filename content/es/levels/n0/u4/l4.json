@@ -2,9 +2,7 @@
   "id": "n0-u4-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 4,
   "title": "El Fondo de Garantía de Depósitos",
@@ -13,13 +11,8 @@
     "Explicar qué cubre el FGD y hasta cuánto",
     "Calcular qué parte de unos ahorros queda cubierta"
   ],
-  "concepts": [
-    "fgd",
-    "deposito"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "concepts": ["fgd", "deposito"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -39,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "¿Qué protege el Fondo de Garantía de Depósitos?",
       "options": [
         "Los depósitos hasta 100.000 € por titular y entidad",
@@ -63,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "statement": "El FGD cubre las pérdidas por una caída del precio de las acciones.",
       "answer": false,
       "explanation": "Protege depósitos si la entidad quiebra, no el riesgo de mercado de las inversiones."
@@ -76,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "Tienes 60.000 € en una cuenta y 70.000 € en un depósito de la misma entidad. ¿Cuántos euros están cubiertos por el FGD?",
       "answer": 100000,
       "tolerance": 0,
@@ -92,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "En ese caso, ¿cuántos euros no están cubiertos?",
       "answer": 30000,
       "tolerance": 0,
@@ -108,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "Tienes 80.000 € en una entidad y 80.000 € en otra entidad distinta. ¿Cuántos euros están cubiertos en total?",
       "answer": 160000,
       "tolerance": 0,
@@ -124,15 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "El FGD cubre hasta 100.000 € por ___ y por entidad.",
-      "answers": [
-        [
-          "titular"
-        ]
-      ],
+      "answers": [["titular"]],
       "explanation": "El límite es por titular y por entidad."
     },
     {
@@ -141,14 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "¿Lo cubre el FGD?",
-      "categories": [
-        "Lo cubre",
-        "No lo cubre"
-      ],
+      "categories": ["Lo cubre", "No lo cubre"],
       "items": [
         {
           "text": "Saldo de una cuenta corriente",
@@ -175,9 +147,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "fgd"
-      ],
+      "concepts": ["fgd"],
       "prompt": "Tienes 150.000 € ahorrados en depósitos. ¿Qué te protege mejor frente a la quiebra de una entidad?",
       "options": [
         "Repartirlos entre entidades distintas",

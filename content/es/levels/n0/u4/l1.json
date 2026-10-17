@@ -2,23 +2,14 @@
   "id": "n0-u4-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 4,
   "title": "Qué hace un banco",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Explicar el papel de intermediario del banco",
-    "Calcular el margen de intereses"
-  ],
-  "concepts": [
-    "banco"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "objectives": ["Explicar el papel de intermediario del banco", "Calcular el margen de intereses"],
+  "concepts": ["banco"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -38,9 +29,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "¿De dónde obtiene un banco comercial la mayor parte de sus ingresos tradicionales?",
       "options": [
         "De prestar a un tipo mayor del que paga por los depósitos (margen de intereses)",
@@ -62,9 +51,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "statement": "Para un banco, los depósitos de sus clientes son una deuda con ellos.",
       "answer": true,
       "explanation": "Los depósitos se contabilizan en el pasivo: el banco debe devolverlos cuando el cliente lo pida o venza el plazo."
@@ -75,9 +62,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Un banco presta 100.000 € al 5 % y capta 100.000 € en depósitos al 1 %. ¿Cuál es su margen de intereses anual?",
       "answer": 4000,
       "tolerance": 0,
@@ -91,9 +76,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Con esos mismos datos, ¿cuál es el margen sobre el dinero prestado, en %?",
       "answer": 4,
       "tolerance": 0,
@@ -107,9 +90,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Otro banco ficticio tiene 1.000.000 € en préstamos al 4 % y 900.000 € en depósitos al 1 %. ¿Cuál es su margen de intereses anual?",
       "answer": 31000,
       "tolerance": 0,
@@ -123,14 +104,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Desde el punto de vista del banco, ¿activo o pasivo?",
-      "categories": [
-        "Activo del banco",
-        "Pasivo del banco"
-      ],
+      "categories": ["Activo del banco", "Pasivo del banco"],
       "items": [
         {
           "text": "Préstamos concedidos",
@@ -157,17 +133,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "La diferencia entre los intereses que cobra y los que paga un banco se llama margen de ___.",
-      "answers": [
-        [
-          "intereses",
-          "interés",
-          "interes"
-        ]
-      ],
+      "answers": [["intereses", "interés", "interes"]],
       "explanation": "Es el margen de intereses."
     },
     {
@@ -176,9 +144,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "banco"
-      ],
+      "concepts": ["banco"],
       "prompt": "Ordena el papel de intermediario del banco.",
       "steps": [
         "Los ahorradores depositan su dinero",

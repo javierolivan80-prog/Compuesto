@@ -2,23 +2,14 @@
   "id": "n0-u3-l1",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 3,
   "title": "El presupuesto: a dónde va tu dinero",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Explicar qué es un presupuesto",
-    "Repartir unos ingresos con la regla 50/30/20"
-  ],
-  "concepts": [
-    "presupuesto"
-  ],
-  "companies": [
-    "albufera-partners"
-  ],
+  "objectives": ["Explicar qué es un presupuesto", "Repartir unos ingresos con la regla 50/30/20"],
+  "concepts": ["presupuesto"],
+  "companies": ["albufera-partners"],
   "historical": false,
   "intro": [
     {
@@ -38,9 +29,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "¿Qué es un presupuesto?",
       "options": [
         "Un plan de ingresos y gastos para un periodo",
@@ -62,9 +51,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "statement": "En la regla 50/30/20, el 20 % se destina al ahorro y a amortizar deuda de forma extra.",
       "answer": true,
       "explanation": "Es la parte que no se gasta en necesidades (que ya incluyen las cuotas obligatorias) ni en deseos."
@@ -75,9 +62,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Con 1.500 € netos al mes, ¿cuántos euros van a necesidades según la regla 50/30/20?",
       "answer": 750,
       "tolerance": 0,
@@ -91,9 +76,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Con 1.500 € netos al mes, ¿cuántos euros van a ahorro y amortización extra según la regla 50/30/20?",
       "answer": 300,
       "tolerance": 0,
@@ -107,15 +90,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Clasifica cada gasto según la regla 50/30/20.",
-      "categories": [
-        "Necesidades",
-        "Deseos",
-        "Ahorro"
-      ],
+      "categories": ["Necesidades", "Deseos", "Ahorro"],
       "items": [
         {
           "text": "Alquiler",
@@ -146,9 +123,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Un mes ingresas 1.800 € y gastas 1.950 €. El déficit es lo que gastas de más. ¿Cuántos euros de déficit tienes?",
       "answer": 150,
       "tolerance": 0,
@@ -162,9 +137,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Si apartas 300 € cada mes, ¿cuánto ahorras en un año (sin contar intereses)?",
       "answer": 3600,
       "tolerance": 0,
@@ -178,9 +151,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "presupuesto"
-      ],
+      "concepts": ["presupuesto"],
       "prompt": "Ordena los pasos para hacer un presupuesto, empezando por los ingresos.",
       "steps": [
         "Calcula tus ingresos netos mensuales",

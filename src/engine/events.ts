@@ -83,6 +83,17 @@ export const payloads = {
   }),
   session_block_completed: z.object({ sessionId: id, index: z.number().int().min(0).max(11) }),
   session_completed: z.object({ sessionId: id }),
+  /** Una partida de un minijuego terminada (JUEGOS.md): puntuación 0–1 corregida por azar y nota AAA–B. */
+  game_played: z.object({
+    gameId: z.enum(['campana', 'presupuesto', 'mesa-ordenes', 'sube-o-baja', 'magia-compuesto']),
+    seed: z.number().int().min(0),
+    /** ¿Era la partida del día (semilla diaria, para comparar récords)? */
+    daily: z.boolean(),
+    score: z.number().min(0).max(1),
+    rating: z.enum(['AAA', 'AA', 'A', 'BBB', 'BB', 'B']),
+    missedConcepts: z.array(id).default([]),
+    xp,
+  }),
 } as const;
 
 export type EventType = keyof typeof payloads;
@@ -110,6 +121,7 @@ export const eventSchema = z.discriminatedUnion('type', [
   ev('session_started'),
   ev('session_block_completed'),
   ev('session_completed'),
+  ev('game_played'),
 ]);
 
 type Base = { id: string; createdAt: string; deviceId: string; schemaVersion: 1; tz: string };

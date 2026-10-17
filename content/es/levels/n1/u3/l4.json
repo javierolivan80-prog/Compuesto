@@ -2,21 +2,13 @@
   "id": "n1-u3-l4",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 3,
   "title": "BME Growth, índices del mundo y OTC",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Reconocer BME Growth, los grandes índices y los mercados OTC"
-  ],
-  "concepts": [
-    "bme-growth",
-    "indices-mundiales",
-    "otc"
-  ],
+  "objectives": ["Reconocer BME Growth, los grandes índices y los mercados OTC"],
+  "concepts": ["bme-growth", "indices-mundiales", "otc"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -38,9 +30,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "bme-growth"
-      ],
+      "concepts": ["bme-growth"],
       "prompt": "¿Para qué empresas está pensado BME Growth?",
       "options": [
         "Pymes en expansión",
@@ -62,9 +52,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "bme-growth"
-      ],
+      "concepts": ["bme-growth"],
       "statement": "BME Growth es el mercado principal de las empresas del IBEX 35.",
       "answer": false,
       "explanation": "Está pensado para pymes en expansión, con requisitos más ligeros."
@@ -75,16 +63,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "indices-mundiales"
-      ],
+      "concepts": ["indices-mundiales"],
       "prompt": "¿De qué país o zona es cada índice?",
-      "categories": [
-        "EE. UU.",
-        "Varios países de la eurozona",
-        "Japón",
-        "Alemania"
-      ],
+      "categories": ["EE. UU.", "Varios países de la eurozona", "Japón", "Alemania"],
       "items": [
         {
           "text": "S&P 500",
@@ -111,9 +92,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "otc"
-      ],
+      "concepts": ["otc"],
       "prompt": "¿Qué es una operación OTC?",
       "options": [
         "Una operación pactada directamente entre dos partes fuera de un mercado organizado",
@@ -135,16 +114,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "otc"
-      ],
+      "concepts": ["otc"],
       "prompt": "Una operación pactada directamente entre dos partes, fuera de un mercado organizado, es una operación ___.",
-      "answers": [
-        [
-          "OTC",
-          "otc"
-        ]
-      ],
+      "answers": [["OTC", "otc"]],
       "explanation": "OTC: over the counter."
     },
     {
@@ -153,14 +125,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "otc"
-      ],
+      "concepts": ["otc"],
       "prompt": "¿Mercado organizado u OTC?",
-      "categories": [
-        "Mercado organizado",
-        "OTC"
-      ],
+      "categories": ["Mercado organizado", "OTC"],
       "items": [
         {
           "text": "Órdenes que se casan en un sistema central con reglas comunes",
@@ -187,9 +154,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "indices-mundiales"
-      ],
+      "concepts": ["indices-mundiales"],
       "prompt": "El S&P 500 agrupa unas 500 empresas y el Euro Stoxx 50 agrupa 50. ¿Cuántas veces mayor es el número de empresas del S&P 500 que el del Euro Stoxx 50?",
       "answer": 10,
       "tolerance": 0,
@@ -203,19 +168,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "indices-mundiales"
-      ],
+      "concepts": ["indices-mundiales"],
       "prompt": "El índice ___ 50 agrupa 50 grandes empresas de la eurozona.",
-      "answers": [
-        [
-          "Euro Stoxx",
-          "EuroStoxx",
-          "Eurostoxx",
-          "Euro Stoxx 50",
-          "EuroStoxx 50"
-        ]
-      ],
+      "answers": [["Euro Stoxx", "EuroStoxx", "Eurostoxx", "Euro Stoxx 50", "EuroStoxx 50"]],
       "explanation": "Euro Stoxx 50."
     }
   ],

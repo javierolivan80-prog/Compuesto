@@ -2,16 +2,12 @@
   "id": "n1-u4-l6",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "Jefe final: precios, órdenes y subastas",
   "estimatedMinutes": 5,
-  "objectives": [
-    "Aplicar horquilla, liquidez, órdenes, subastas y FOMO"
-  ],
+  "objectives": ["Aplicar horquilla, liquidez, órdenes, subastas y FOMO"],
   "concepts": [
     "formacion-precios",
     "horquilla",
@@ -40,9 +36,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "Mejor precio de compra 24,90 € y mejor precio de venta 25,00 €. ¿Cuánto vale la horquilla en euros?",
       "answer": 0.1,
       "tolerance": 0,
@@ -56,16 +50,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "liquidez"
-      ],
+      "concepts": ["liquidez"],
       "prompt": "Una acción con horquilla ancha y pocas órdenes en el libro es…",
-      "options": [
-        "Poco líquida",
-        "Muy líquida",
-        "Más barata",
-        "Más segura"
-      ],
+      "options": ["Poco líquida", "Muy líquida", "Más barata", "Más segura"],
       "answer": 0,
       "explanation": "La horquilla ancha y el libro vacío son señales de poca liquidez.",
       "wrongExplanations": {
@@ -80,9 +67,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Libro de ventas: 100 acciones a 5,00 € y 300 a 5,20 €. Compras 200 acciones a mercado. ¿Cuál es el precio medio en euros?",
       "answer": 5.1,
       "tolerance": 0,
@@ -96,9 +81,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "statement": "Una orden limitada garantiza que se ejecutará.",
       "answer": false,
       "explanation": "Garantiza el precio máximo o mínimo, no la ejecución."
@@ -109,16 +92,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "horquilla"
-      ],
+      "concepts": ["horquilla"],
       "prompt": "El precio al que puedes comprar a mercado es el precio de ___ (ask).",
-      "answers": [
-        [
-          "venta",
-          "oferta"
-        ]
-      ],
+      "answers": [["venta", "oferta"]],
       "explanation": "El ask es el mejor precio de venta."
     },
     {
@@ -127,15 +103,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "orden-mercado",
-        "orden-limitada"
-      ],
+      "concepts": ["orden-mercado", "orden-limitada"],
       "prompt": "¿Orden de mercado o limitada?",
-      "categories": [
-        "De mercado",
-        "Limitada"
-      ],
+      "categories": ["De mercado", "Limitada"],
       "items": [
         {
           "text": "Prioriza ejecutarse al mejor precio disponible",
@@ -162,9 +132,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-limitada"
-      ],
+      "concepts": ["orden-limitada"],
       "prompt": "Libro de ventas: 100 acciones a 5,00 €, 300 a 5,20 € y 500 a 5,50 €. Dejas una orden de compra limitada de 1.000 acciones con límite de 5,20 €. ¿Cuántas se ejecutan?",
       "answer": 400,
       "tolerance": 0,
@@ -178,9 +146,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "En una subasta, ¿a qué precio se casan las órdenes ejecutadas?",
       "options": [
         "A un único precio",
@@ -202,9 +168,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "subastas"
-      ],
+      "concepts": ["subastas"],
       "prompt": "Compras: 200 acciones con límite 5,10 €, 300 con 5,00 € y 100 con 4,90 €. Ventas: 100 acciones con límite 4,90 €, 200 con 5,00 € y 300 con 5,10 €. ¿A qué precio se casa la subasta, en euros?",
       "answer": 5,
       "tolerance": 0,
@@ -218,9 +182,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "fomo-manada"
-      ],
+      "concepts": ["fomo-manada"],
       "prompt": "¿Qué ayuda contra el FOMO?",
       "options": [
         "Decidir antes con un plan",
@@ -228,10 +190,7 @@
         "Comprar porque todo el mundo compra",
         "Perseguir el precio cuando sube"
       ],
-      "answers": [
-        0,
-        1
-      ],
+      "answers": [0, 1],
       "explanation": "Un plan y un precio máximo evitan decidir por impulso. Comprar porque todo el mundo compra es el efecto manada, y perseguir el precio cuando sube es justo lo que alimenta el FOMO."
     }
   ],

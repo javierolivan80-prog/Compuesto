@@ -30,6 +30,7 @@ export function loadContent(root = 'content'): ContentBundle {
   return {
     concepts: readJson(join(root, 'shared/concepts.json')),
     companies: readJson(join(root, 'shared/companies.json')),
+    games: readJson(join(root, 'shared/games.json')),
     realCompanies: readJson(join(root, 'shared/real-companies-blocklist.json')) as string[],
     idsLock: readJson(join(root, 'shared/ids-lock.json')) as Record<string, string>,
     glossary: readJson(join(root, 'es/glossary.json')),

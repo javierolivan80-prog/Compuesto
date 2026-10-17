@@ -2,21 +2,13 @@
   "id": "n1-u4-l2",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
   "title": "Liquidez y orden de mercado",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Definir la liquidez",
-    "Calcular el precio medio de una orden a mercado"
-  ],
-  "concepts": [
-    "liquidez",
-    "orden-mercado"
-  ],
+  "objectives": ["Definir la liquidez", "Calcular el precio medio de una orden a mercado"],
+  "concepts": ["liquidez", "orden-mercado"],
   "companies": [],
   "historical": false,
   "intro": [
@@ -69,9 +61,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "liquidez"
-      ],
+      "concepts": ["liquidez"],
       "prompt": "¿Qué es la liquidez de una acción?",
       "options": [
         "La facilidad para comprarla o venderla rápido sin mover mucho el precio",
@@ -93,9 +83,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "statement": "Una orden a mercado garantiza el precio al que se ejecutará.",
       "answer": false,
       "explanation": "Garantiza (casi siempre) la ejecución, pero no el precio."
@@ -106,9 +94,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿Cuál es el precio medio de ejecución en euros?",
       "answer": 10.15,
       "tolerance": 0,
@@ -122,9 +108,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 400 acciones a mercado. ¿Cuántos euros pagas en total?",
       "answer": 4060,
       "tolerance": 0,
@@ -138,9 +122,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Libro de ventas: 200 acciones a 10,10 €, 300 a 10,20 € y 500 a 10,40 €. Compras 200 acciones a mercado. ¿Cuál es el precio medio de ejecución en euros?",
       "answer": 10.1,
       "tolerance": 0,
@@ -154,9 +136,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Libro de compras: 300 acciones a 10,00 € y 400 a 9,90 €. Vendes 500 acciones a mercado. ¿Cuántos euros recibes?",
       "answer": 4980,
       "tolerance": 0,
@@ -170,15 +150,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "orden-mercado"
-      ],
+      "concepts": ["orden-mercado"],
       "prompt": "Una orden que se ejecuta ya al mejor precio disponible es una orden a ___.",
-      "answers": [
-        [
-          "mercado"
-        ]
-      ],
+      "answers": [["mercado"]],
       "explanation": "Orden a mercado."
     },
     {
@@ -187,14 +161,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "liquidez"
-      ],
+      "concepts": ["liquidez"],
       "prompt": "¿Acción líquida o poco líquida?",
-      "categories": [
-        "Líquida",
-        "Poco líquida"
-      ],
+      "categories": ["Líquida", "Poco líquida"],
       "items": [
         {
           "text": "Horquilla de un céntimo y muchas órdenes en el libro",

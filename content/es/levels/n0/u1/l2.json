@@ -2,25 +2,14 @@
   "id": "n0-u1-l2",
   "version": 2,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 0,
   "unit": 1,
   "title": "Interés simple e interés compuesto",
   "estimatedMinutes": 4,
-  "objectives": [
-    "Distinguir interés simple y compuesto",
-    "Calcular el valor final con cada uno"
-  ],
-  "concepts": [
-    "interes-simple",
-    "interes-compuesto",
-    "porcentajes"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "objectives": ["Distinguir interés simple y compuesto", "Calcular el valor final con cada uno"],
+  "concepts": ["interes-simple", "interes-compuesto", "porcentajes"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -49,9 +38,7 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "interes-simple"
-      ],
+      "concepts": ["interes-simple"],
       "prompt": "¿Sobre qué se calcula el interés simple?",
       "options": [
         "Siempre sobre el capital inicial",
@@ -73,9 +60,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "statement": "En el interés compuesto, los intereses generan a su vez nuevos intereses.",
       "answer": true,
       "explanation": "Esa es la clave: los intereses se acumulan al capital y cuentan para el cálculo siguiente."
@@ -86,9 +71,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "interes-simple"
-      ],
+      "concepts": ["interes-simple"],
       "prompt": "Depositas 1.000 € al 5 % anual de interés simple durante 3 años. ¿Cuánto tienes al final?",
       "answer": 1150,
       "tolerance": 0,
@@ -102,9 +85,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "prompt": "Depositas 1.000 € al 5 % anual de interés compuesto durante 3 años. ¿Cuánto tienes al final? (2 decimales)",
       "answer": 1157.63,
       "tolerance": 0.01,
@@ -118,16 +99,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "prompt": "En la fórmula capital × (1 + i)^n, la letra n representa el número de ___.",
-      "answers": [
-        [
-          "periodos",
-          "períodos"
-        ]
-      ],
+      "answers": [["periodos", "períodos"]],
       "explanation": "El exponente n es el número de periodos: cada periodo multiplica el capital por (1 + i)."
     },
     {
@@ -136,10 +110,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "interes-simple",
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-simple", "interes-compuesto"],
       "prompt": "¿Cuántos euros más ganas con interés compuesto que con simple al invertir 1.000 € al 5 % durante 3 años? (2 decimales)",
       "answer": 7.63,
       "tolerance": 0.1,
@@ -153,9 +124,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "prompt": "Ordena cómo crece un capital con interés compuesto.",
       "steps": [
         "Primer año: ganas intereses sobre el capital inicial",
@@ -171,9 +140,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "interes-compuesto"
-      ],
+      "concepts": ["interes-compuesto"],
       "prompt": "¿Qué ayuda a que el interés compuesto trabaje a tu favor?",
       "options": [
         "Empezar pronto",
@@ -181,11 +148,7 @@
         "Retirar los intereses cada año",
         "Dejar pasar más años"
       ],
-      "answers": [
-        0,
-        1,
-        3
-      ],
+      "answers": [0, 1, 3],
       "explanation": "Empezar pronto, reinvertir y esperar más tiempo dan más periodos de capitalización. Retirar los intereses elimina el efecto compuesto."
     },
     {
@@ -194,10 +157,7 @@
       "difficulty": 3,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "interes-compuesto",
-        "interes-simple"
-      ],
+      "concepts": ["interes-compuesto", "interes-simple"],
       "prompt": "Carmen calcula cuánto tendrá con interés compuesto. Una línea tiene un error: ¿cuál?",
       "lines": [
         "Capital inicial: 1.000 € a un 5 % anual compuesto.",

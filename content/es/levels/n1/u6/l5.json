@@ -2,9 +2,7 @@
   "id": "n1-u6-l5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "title": "Las OPA",
@@ -13,12 +11,8 @@
     "Explicar qué es una OPA y cuándo es obligatoria",
     "Calcular el premio y el coste de una OPA"
   ],
-  "concepts": [
-    "opa"
-  ],
-  "companies": [
-    "naranjas-del-turia"
-  ],
+  "concepts": ["opa"],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [
     {
@@ -38,9 +32,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "¿Qué es una OPA?",
       "options": [
         "Una oferta a todos los accionistas para comprarles sus acciones a un precio fijado",
@@ -62,9 +54,7 @@
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "statement": "En España, alcanzar el 30 % de los derechos de voto de una cotizada obliga a lanzar una OPA.",
       "answer": true,
       "explanation": "Ese es el umbral de control que da lugar a la OPA obligatoria."
@@ -75,9 +65,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "Una acción cotiza a 10 € y se ofrece 12 € por ella en una OPA. ¿Cuál es el premio sobre el precio de cotización, en %?",
       "answer": 20,
       "tolerance": 0,
@@ -91,9 +79,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "Una OPA ofrece 12 € por acción por el 100 % de una empresa con 12.000.000 de acciones. ¿Cuántos euros costaría comprarla entera?",
       "answer": 144000000,
       "tolerance": 0,
@@ -107,9 +93,7 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "Una empresa tiene 12.000.000 de acciones con derecho de voto y un inversor posee 2.500.000. ¿Cuántas acciones más necesita para alcanzar el 30 %?",
       "answer": 1100000,
       "tolerance": 0,
@@ -123,16 +107,9 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "OPA significa oferta pública de ___.",
-      "answers": [
-        [
-          "adquisición",
-          "adquisicion"
-        ]
-      ],
+      "answers": [["adquisición", "adquisicion"]],
       "explanation": "Oferta pública de adquisición."
     },
     {
@@ -141,14 +118,9 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "¿OPA voluntaria u obligatoria?",
-      "categories": [
-        "Voluntaria",
-        "Obligatoria"
-      ],
+      "categories": ["Voluntaria", "Obligatoria"],
       "items": [
         {
           "text": "Quien tiene el 32 % de los votos de una cotizada debe lanzarla",
@@ -175,9 +147,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": [
-        "opa"
-      ],
+      "concepts": ["opa"],
       "prompt": "Si aceptas una OPA, ¿qué recibes?",
       "options": [
         "La contraprestación ofrecida por tus acciones (efectivo o valores)",

@@ -3,28 +3,17 @@
   "unitId": "n1-u5",
   "version": 1,
   "status": "reviewed",
-  "reviewedBy": [
-    "subagente"
-  ],
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n1-u5-q1",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["comisiones"],
       "prompt": "Compras 100 acciones a 10 € con una comisión del 0,2 %. ¿Cuánto pagas de comisión?",
-      "options": [
-        "20 €",
-        "0,2 €",
-        "2 €",
-        "0,02 €"
-      ],
+      "options": ["20 €", "0,2 €", "2 €", "0,02 €"],
       "answer": 2,
       "explanation": "1.000 € × 0,2 % = 2 €.",
       "wrongExplanations": {
@@ -38,12 +27,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "broker-espana"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["broker-espana"],
       "prompt": "Antes de elegir un bróker en España, conviene comprobar que…",
       "options": [
         "Promete una rentabilidad fija",
@@ -64,12 +49,8 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "dividendo"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["dividendo"],
       "prompt": "Un dividendo es…",
       "options": [
         "La parte del beneficio que la empresa reparte entre sus accionistas",
@@ -90,19 +71,10 @@
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "rentabilidad-dividendo"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-dividendo"],
       "prompt": "Una acción cotiza a 20 € y paga 1 € de dividendo anual. Su rentabilidad por dividendo es…",
-      "options": [
-        "20 %",
-        "1 %",
-        "0,05 %",
-        "5 %"
-      ],
+      "options": ["20 %", "1 %", "0,05 %", "5 %"],
       "answer": 3,
       "explanation": "1 / 20 = 0,05 = 5 %.",
       "wrongExplanations": {
@@ -116,19 +88,10 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "rentabilidad-total"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-total"],
       "prompt": "Compras a 50 €, vendes a 55 € y cobras 2 € de dividendo. La rentabilidad total es…",
-      "options": [
-        "10 %",
-        "4 %",
-        "14 %",
-        "7 %"
-      ],
+      "options": ["10 %", "4 %", "14 %", "7 %"],
       "answer": 2,
       "explanation": "(5 + 2) / 50 = 14 %.",
       "wrongExplanations": {
@@ -142,12 +105,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "scrip-dividend"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["scrip-dividend"],
       "statement": "Con un scrip dividend puedes elegir entre cobrar en efectivo o recibir acciones nuevas.",
       "answer": true,
       "explanation": "Es el mecanismo del dividendo flexible."
@@ -157,12 +116,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "irpf-ganancias"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["irpf-ganancias"],
       "prompt": "Si vendes acciones con beneficio, en el IRPF esa ganancia se considera…",
       "options": [
         "Ganancia patrimonial",
@@ -183,12 +138,8 @@
       "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "comisiones"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["comisiones"],
       "statement": "Los costes de operar en bolsa incluyen la comisión, el canon de bolsa y la horquilla.",
       "answer": true,
       "explanation": "Son costes explícitos e implícitos."
