@@ -424,6 +424,58 @@ Aceptación: build de producción desplegada; Lighthouse ≥ 90 en móvil; e2e c
 Parar si: necesitas acceso a mi cuenta de Cloudflare: dame los pasos para hacerlo yo.
 ```
 
+### Ampliación de la Fase 2 — mejoras del temario aprobadas el 17/10/2026
+
+> Salen de las mejoras 2, 3 y 9 de `docs/TEMARIO.md` (§3, §4, §5, §6). Son de código: se pueden hacer tras 2.8 y antes o durante la prueba personal; 2.11 y 2.12 conviene tenerlas antes de que la prueba genere muchos datos de repaso.
+
+### 2.9 — Ejercicios paramétricos (`params`)
+```
+Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 2.9.
+
+Objetivo: que el repaso de un cálculo exija reconstruir el método, no recordar el número.
+Consulta: TEMARIO §6 (Ejercicios paramétricos), §7; CLAUDE.md §3b (IDs inmutables).
+Depende de: 1.5, 2.1.
+
+Incluye: campo opcional `params` en `numeric_input`, `spreadsheet` y `build_statement` de cálculo (por dato: `min`, `max`, `step`; opcional `decimals`); generador puro en /src/engine (PRNG con semilla = id del ejercicio + día) que sustituye los marcadores del enunciado y evalúa `formula` con el evaluador propio; la primera aparición en la lección usa las cifras del enunciado y los repasos usan cifras nuevas; los datos generados se guardan en el payload de `exercise_answered` para que reconstruir desde eventos dé lo mismo; esquema Zod y `content:validate` actualizados.
+Aceptación: tests del generador (misma semilla → mismas cifras; cifras siempre dentro de rango y paso); `content:validate` evalúa la fórmula de cada ejercicio paramétrico con 100 semillas y falla si sale NaN, infinito o una respuesta fuera de un rango declarado; un ejercicio existente sin `params` se comporta igual que antes (test de regresión); e2e: repasar un ejercicio paramétrico muestra cifras distintas a las de la lección y corrige bien.
+```
+
+### 2.10 — `modelRef` con validación contra los modelos de referencia
+```
+Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 2.10.
+
+Objetivo: que ninguna cifra de un ejercicio Pro se separe del modelo de referencia.
+Consulta: TEMARIO §3 (Modelo por piezas), skill `modelo-referencia`.
+Depende de: 1.2 y los modelos de /content/shared/models (ya existen 4 de Naranjas del Turia).
+
+Incluye: campo opcional `modelRef` en ejercicios (`{ model, path, tolerance? }`, p. ej. `{ "model": "naranjas-del-turia-dcf", "path": "valuation.gordon.pricePerShare" }`); esquema Zod de los JSON de modelos (id, version, status, sources, assumptions, results); `content:validate` comprueba que el modelo existe, que la ruta resuelve a un número y que la respuesta del ejercicio coincide dentro de la tolerancia; un ejercicio `published` no puede apuntar a un modelo en `draft`; si un modelo sube de `version`, `content:check` lista los ejercicios que lo citan.
+Aceptación: fixtures con modelRef correcto, ruta inexistente, cifra desviada y modelo en draft (cada uno con su error); `npm run models:build` + `content:validate` en verde; los tests de src/content/models.test.ts siguen pasando.
+```
+
+### 2.11 — Calificación Hard en FSRS y variantes por concepto
+```
+Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 2.11.
+
+Objetivo: que el repaso distinga el acierto limpio del acierto costoso y no repita siempre el mismo ítem.
+Consulta: TEMARIO §4; DECISIONES.md (tarea 2.1).
+Depende de: 2.1, 2.9.
+
+Incluye: `exercise_answered` gana `hintUsed` (opcional, por defecto false, compatible con copias antiguas); en `projectCards`: fallo → Again, acierto con pista o con más del doble del tiempo mediano de ese ejercicio (mediana de tus intentos; si hay menos de 3, de los intentos del mismo tipo) → Hard, resto → Good; Easy nunca automático; al vencer una tarjeta, si su concepto tiene otro ejercicio vivo del mismo tipo de categoría o el ejercicio es paramétrico, la sesión muestra la variante y califica la tarjeta original; entrada en DECISIONES.md con los umbrales.
+Aceptación: tests con reloj simulado (Hard programa antes que Good y después que Again; un evento antiguo sin `hintUsed` da el mismo resultado que hoy); reconstruir desde eventos da las mismas tarjetas en cualquier orden; test de que la variante se elige de forma determinista y no repite el ítem del último repaso.
+```
+
+### 2.12 — Test de salto en dos fases
+```
+Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 2.12.
+
+Objetivo: que saltar una unidad sea una decisión fiable y se compruebe después.
+Consulta: TEMARIO §5, §8 (validez); skill `assessment-validity-checker`.
+Depende de: 1.6, 2.1.
+
+Incluye: en `placement.ts`, 7–8 aciertos de 8 domina la unidad; 6 abre una segunda fase de 4 preguntas (del banco de la unidad, sin repetir) en la que hacen falta 3; menos de 6, o menos de 3 en la segunda fase, empieza la unidad; el banco de cada test de salto pasa a 12 preguntas y `content:validate` exige al menos una por objetivo de la unidad y ≥ 50 % de tipo producir; los conceptos saltados entran en el repaso con una comprobación a los 7 días (tarjetas iniciales de los ejercicios del test, vencidas a +7 días); el encadenado «saltar nivel» usa la misma regla.
+Aceptación: tests de todas las ramas (8, 7, 6+3, 6+2, 5 aciertos) y del encadenado; test de que las tarjetas de una unidad saltada vencen a los 7 días; bancos de test de salto existentes ampliados o marcados como pendientes en el informe si `content:validate` los rechaza; e2e del camino 6 + segunda fase.
+```
+
 # 🧪 PRUEBA PERSONAL
 
 ### P.1 — Cuatro semanas de uso real (tú)
@@ -546,6 +598,21 @@ Aceptación: CI en verde; el job de content:check abre un issue de prueba.
 # FASE 6 — Itinerario Pro
 
 > Orden por tu objetivo: **Investment Banking → Equity Research y Buy-side → Private Equity y VC → Banca y riesgos → Mercados → Fintech**. Cada rama puede empezarse en cuanto su nivel de desbloqueo esté publicado (Investment Banking y Equity Research se abren con N3, así que pueden empezar antes de terminar el troncal).
+
+### 6.0 — Modelos de referencia pendientes (bucle por modelo) 🛑
+```
+Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 6.0 — Modelo [nombre].
+Objetivo: tener la «respuesta oficial» antes de escribir la unidad Pro que la usa.
+Consulta: TEMARIO §3 (Modelo por piezas), skill `modelo-referencia`.
+Depende de: 2.10 (modelRef). Hechos (draft, 17/10/2026): 3 estados, DCF, LBO y merger de Naranjas del Turia.
+Pendientes, en este orden:
+1. Comps y precedentes: 5 cotizadas ficticias del sector alimentario en companies.json (5 años que cuadran, acciones, cotización supuesta) y tabla de comparables LTM/forward con outliers; precedentes ficticios con prima de control. Antes de IB 2–3.
+2. Modelo de resultados trimestral de Naranjas del Turia (guidance, consenso ficticio, sorpresa, revisión de estimaciones). Antes de ER 2 y 5.
+3. Banco ficticio del universo: balance y cuenta de resultados de un banco comercial, cartera por fases IFRS 9 con pérdida esperada por escenarios, APR, CET1, apalancamiento, LCR/NSFR y valoración por P/VTC y ROTE. Antes de N4 (banca) y de la rama Banca y riesgos.
+4. Cascada de un fondo de PE (2/20, hurdle, catch-up, carry, cascada europea frente a americana, TVPI/DPI/TIR, curva J) usando el LBO de Naranjas como una de sus participadas. Antes de PE 1 y 6.
+5. Cap table de una startup ficticia: rondas, pre/post-money, option pool, preferencias de liquidación, antidilución, SAFE/nota convertible y unit economics. Antes de PE 7.
+Aceptación: por modelo, JSON en /content/shared/models con tests de cuadre en src/content/models.test.ts, revisor-financiero aprobado y estado draft hasta la revisión de Javier (🛑).
+```
 
 ### 6.1 — Infraestructura de ramas
 ```
