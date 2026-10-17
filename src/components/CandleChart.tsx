@@ -15,6 +15,10 @@ interface Props {
   candles: Candle[];
   label: string;
   height?: number;
+  /** Cómo se leen los precios en la descripción textual (por defecto, euros). */
+  formatValue?: (n: number) => string;
+  /** Nota final de la descripción; por defecto avisa de que son datos de ejemplo. Cadena vacía para omitirla. */
+  note?: string;
 }
 
 const cssVar = (name: string) =>
@@ -37,7 +41,13 @@ const chartColor = (name: string) => {
 };
 
 /** Velas con lightweight-charts. Descripción textual para lector de pantalla (CLAUDE.md §10). */
-export function CandleChart({ candles, label, height = 240 }: Props) {
+export function CandleChart({
+  candles,
+  label,
+  height = 240,
+  formatValue = formatEur,
+  note = 'Datos de ejemplo.',
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const { theme } = useTheme();
@@ -86,7 +96,7 @@ export function CandleChart({ candles, label, height = 240 }: Props) {
   const pct = first && last ? ((last.close - first.open) / first.open) * 100 : 0;
   const summary =
     first && last
-      ? `${label}: ${candles.length} velas diarias, de ${formatEur(first.open)} a ${formatEur(last.close)} (${formatDelta(pct)}). Datos de ejemplo.`
+      ? `${label}: ${candles.length} velas diarias, de ${formatValue(first.open)} a ${formatValue(last.close)} (${formatDelta(pct)}).${note ? ` ${note}` : ''}`
       : label;
 
   return (

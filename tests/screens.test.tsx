@@ -99,7 +99,7 @@ describe('pantallas principales', () => {
     expect(screen.getByText('Precisión').nextSibling).toHaveTextContent('50 %');
     expect(screen.getByText('$JAV ·', { exact: false })).toBeInTheDocument();
     const failed = screen.getByRole('heading', { name: 'Ejercicios más fallados' }).parentElement!;
-    expect(failed).toHaveTextContent('1 fallo(s) en 1 intento(s)');
+    expect(failed).toHaveTextContent('1 fallo en 1 intento');
     expect(screen.getByRole('link', { name: 'Glosario' })).toHaveAttribute(
       'href',
       '#/despacho/glosario',

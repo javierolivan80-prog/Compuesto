@@ -89,7 +89,7 @@ export function Compartir({ data }: { data: AppData }) {
       <h1 className="text-3xl">{t('share.title')}</h1>
       <p className="text-text-2 text-sm">{t('share.intro')}</p>
 
-      <fieldset className="grid gap-2">
+      <fieldset className="grid min-w-0 gap-2">
         <legend className="mb-1 text-lg">{t('share.format')}</legend>
         <div role="radiogroup" aria-label={t('share.format')} className="flex flex-wrap gap-2">
           {CARD_FORMATS.map((f) => (
@@ -105,7 +105,7 @@ export function Compartir({ data }: { data: AppData }) {
           ))}
         </div>
       </fieldset>
-      <fieldset className="grid gap-2">
+      <fieldset className="grid min-w-0 gap-2">
         <legend className="mb-1 text-lg">{t('share.style')}</legend>
         <div role="radiogroup" aria-label={t('share.style')} className="flex flex-wrap gap-2">
           {CARD_STYLES.map((s) => (
@@ -122,7 +122,7 @@ export function Compartir({ data }: { data: AppData }) {
         </div>
       </fieldset>
 
-      <div ref={box} className="w-full max-w-sm justify-self-center">
+      <div ref={box} className="w-full max-w-sm min-w-0 justify-self-center">
         <div
           role="img"
           aria-label={summary}

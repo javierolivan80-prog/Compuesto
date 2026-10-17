@@ -292,3 +292,13 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Rendimiento Lighthouse móvil 79–83 (< 90):** criterio de aceptación **no cumplido**; es la deuda de la Fase 1 (arranque ≈215 KB gz). Medir en el despliegue real antes de decidir si merece la pena la palanca (zod/mini, i18n propio…).
 - **Pasos de cuenta Cloudflare:** en `docs/DESPLIEGUE.md`; la checklist (copia, instalación en móvil, .ics) la marca Javier en su dispositivo.
 - Pendiente de la revisión de cierre de fase (skills `review-animations`, `animation-performance`, `break-ui`, `/impeccable harden`): ver informe.
+
+## 2.8 — break-ui de las pantallas nuevas de la Fase 2
+Peor caso realista importado como copia (frontera de datos real, no el componente): 400 días con 380 XP/día, iniciales anchas de 6 letras (`WMWMWM`), conceptos de nombre largo fallados, sesiones de 60 min. Regresión fija en `e2e/peor-caso.spec.ts` a 320 px; capturas en `docs/capturas/2.8/`.
+- **Arreglado (Broken):** Compartir desbordaba 24 px a 320 px (el contenedor de la vista previa medía su propio contenido: `min-width: auto` en un hijo de grid) → `min-w-0`.
+- **Arreglado (Broken, nada falso en pantalla):** la descripción textual de tu acción decía «46.345,04 € … Datos de ejemplo»: euros y «ejemplo» eran falsos. `CandleChart` acepta formato y nota; tu acción se describe en «puntos» con «Puntos de estudio, no dinero».
+- **Arreglado (Ugly):** el precio de la acción se partía por la mitad (`259.449,` / `98`) → la fila pasa a dos líneas y el precio nunca se corta.
+- **Arreglado (Ugly):** «fallo(s)… intento(s)» → plurales reales. Personalidad de los rivales truncada sin forma de leerla → se ajusta a dos líneas.
+- **Aguantó:** clasificación con XP de 4 cifras, «Tú» destacado, ▲▼ con texto, tarjeta 1080×1920 con Leyenda, racha 400 y XP de 6 cifras (revisada a ojo), estadísticas con nombres de concepto de 47 caracteres.
+- **Decisión para Javier:** con un ritmo alto pero **constante** la liga te estabiliza en Oro/Platino (los rivales siguen tu media): la liga premia mejorar respecto a ti, no el volumen absoluto. Si prefieres que un ritmo alto sostenido lleve a Wall Street, el cambio es fijar la media con un techo (p. ej. 700 XP/semana).
+- No hecho: el interruptor visual «Demo / Peor caso» que propone la skill; se sustituye por la copia de peor caso en e2e (misma frontera de datos, y queda como test de regresión).

@@ -23,13 +23,13 @@ export function StockPanel({
       className="bg-surface-1 border-line grid min-w-0 grid-cols-[minmax(0,1fr)] gap-2 rounded-[var(--radius-md)] border p-4"
       data-testid="my-stock"
     >
-      <div className="flex items-baseline justify-between gap-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <h2 id="stock-title" className="text-xl" style={{ fontFamily: 'var(--font-mono)' }}>
           {stock.ticker}
         </h2>
         {candles.length > 0 && (
-          <p data-num className="min-w-0 text-right break-words">
-            <span className="text-xl break-all" data-testid="stock-price">
+          <p data-num className="ml-auto text-right whitespace-nowrap">
+            <span className="text-xl" data-testid="stock-price">
               {formatNumber(stock.price, 2)}
             </span>{' '}
             <span className={up ? 'text-bull' : 'text-bear'}>
@@ -46,6 +46,8 @@ export function StockPanel({
             <CandleChart
               candles={candles}
               label={t('stock.label', { ticker: stock.ticker })}
+              formatValue={(n) => t('stock.points', { n: formatNumber(n, 2) })}
+              note={t('stock.note')}
               height={height}
             />
           </Suspense>

@@ -190,7 +190,9 @@
     "empty": "Tu acción empezará a cotizar cuando completes tu primera lección.",
     "correction": "Corrección: la racha se enfrió. Un día de estudio la reactiva.",
     "rising": "Cada día de estudio sube tu acción; los días sin actividad la corrigen un 1 %.",
-    "label": "Tu acción {{ticker}}"
+    "label": "Tu acción {{ticker}}",
+    "points": "{{n}} puntos",
+    "note": "Puntos de estudio, no dinero."
   },
   "share": {
     "brand": "Compuesto",

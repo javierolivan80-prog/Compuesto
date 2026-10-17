@@ -144,7 +144,8 @@ export function Despacho({ data }: { data: AppData }) {
                   <p>{info?.prompt ?? f.exerciseId}</p>
                   <p className="text-text-2" data-num>
                     {info?.where ? `${info.where} · ` : ''}
-                    {f.fails} fallo(s) en {f.attempts} intento(s)
+                    {f.fails} {f.fails === 1 ? 'fallo' : 'fallos'} en {f.attempts}{' '}
+                    {f.attempts === 1 ? 'intento' : 'intentos'}
                   </p>
                 </li>
               );

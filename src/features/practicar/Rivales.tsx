@@ -43,7 +43,7 @@ function Row({ row, index, animate }: { row: StandingRow; index: number; animate
       </span>
       <span className="grid min-w-0 flex-1">
         <span className={row.me ? 'font-semibold' : ''}>{row.me ? t('rivals.you') : row.name}</span>
-        {p && <span className="text-text-2 truncate text-xs">{t(`rivals.personality.${p}`)}</span>}
+        {p && <span className="text-text-2 text-xs">{t(`rivals.personality.${p}`)}</span>}
       </span>
       <span className="grid justify-items-end text-sm">
         <span data-num>{t('rivals.xp', { xp: formatNumber(row.xp) })}</span>
