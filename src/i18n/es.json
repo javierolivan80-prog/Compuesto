@@ -69,5 +69,14 @@
     "showModel": "Ver respuesta modelo",
     "model": "Respuesta modelo",
     "rubric": "Compara y marca lo que tu explicación sí incluía (con {{pass}} de 3 se da por buena; vale la mitad de XP)"
+  },
+  "games": {
+    "untimed": "Sin tiempo",
+    "exit": "Salir",
+    "ratingTitle": "Calificación de tu partida",
+    "again": "Otra",
+    "newRecord": "Nuevo récord: {{best}}",
+    "record": "Tu récord: {{best}}",
+    "ratingLabel": "Nota {{rating}}"
   }
 }

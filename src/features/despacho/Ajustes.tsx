@@ -21,6 +21,7 @@ import { RANKS } from '../../engine/projections';
 import { clearErrors, getErrors, type ErrorEntry } from '../../lib/error-log';
 import { downloadText } from '../../lib/download';
 import { setHapticsEnabled } from '../../lib/haptics';
+import { setSoundEnabled } from '../../lib/sound';
 import { buildIcs, isValidTime } from '../../lib/ics';
 import { dayKey } from '../../engine/days';
 import { InstallGuide, OfflineStatus } from '../../pwa/InstallGuide';
@@ -61,6 +62,7 @@ export function Ajustes({ data }: { data: AppData }) {
   const { summary } = data;
   const currentRank = summary.rank.rankIndex;
   const haptics = summary.settings['haptics'] !== false;
+  const sound = summary.settings['sound'] !== false;
   const minutes = (summary.settings['dailyMinutes'] as Minutes | undefined) ?? 20;
 
   const setSetting = async (key: string, value: string | number | boolean | null) => {
@@ -212,7 +214,19 @@ export function Ajustes({ data }: { data: AppData }) {
             className="accent-[var(--brand)] size-6"
           />
         </label>
-        <p className="text-text-2 text-sm">Sonido: próximamente.</p>
+        <label className="flex min-h-12 items-center justify-between gap-3">
+          <span>Sonido en los juegos (campana, aciertos, fallos)</span>
+          <input
+            type="checkbox"
+            role="switch"
+            checked={sound}
+            onChange={(e) => {
+              setSoundEnabled(e.target.checked);
+              void setSetting('sound', e.target.checked);
+            }}
+            className="accent-[var(--brand)] size-6"
+          />
+        </label>
       </section>
 
       <section aria-labelledby="s-recordatorio" className="grid gap-3">

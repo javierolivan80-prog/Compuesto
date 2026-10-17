@@ -14,6 +14,7 @@ import { toast } from '../lib/toast';
 import { BackupReminderBanner, UpdateBanner } from '../pwa/PwaBanners';
 import { usePwa } from '../pwa/usePwa';
 import { setHapticsEnabled } from '../lib/haptics';
+import { setSoundEnabled } from '../lib/sound';
 import { useAppData, useOnline } from './hooks';
 import { parseRoute, tabOf } from './routes';
 
@@ -137,7 +138,10 @@ export function Product() {
 
   // el ajuste de háptica se aplica al arrancar
   useEffect(() => {
-    if (data.summary) setHapticsEnabled(data.summary.settings['haptics'] !== false);
+    if (data.summary) {
+      setHapticsEnabled(data.summary.settings['haptics'] !== false);
+      setSoundEnabled(data.summary.settings['sound'] !== false);
+    }
   }, [data.summary]);
 
   useEffect(() => {

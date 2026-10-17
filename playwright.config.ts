@@ -18,6 +18,18 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
       timeout: 60_000,
     },
+    // Laboratorios con el código de producción (minificado) para medir rendimiento: solo con LAB=1
+    ...(process.env.LAB
+      ? [
+          {
+            command:
+              'VITE_LAB=1 npx vite build --outDir dist-lab --emptyOutDir && npx vite preview --outDir dist-lab --port 4180 --strictPort',
+            url: 'http://localhost:4180',
+            reuseExistingServer: !process.env.CI,
+            timeout: 180_000,
+          },
+        ]
+      : []),
   ],
   projects: [
     {
@@ -45,8 +57,13 @@ export default defineConfig({
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },
     {
+      name: 'lab',
+      testMatch: ['games-lab-perf.spec.ts'],
+      use: { baseURL: 'http://localhost:4180', launchOptions },
+    },
+    {
       name: 'dev',
-      testMatch: ['styleguide.spec.ts', 'db.spec.ts', 'exercises.spec.ts'],
+      testMatch: ['styleguide.spec.ts', 'db.spec.ts', 'exercises.spec.ts', 'games-lab.spec.ts'],
       use: { baseURL: 'http://localhost:5174', launchOptions },
     },
   ],

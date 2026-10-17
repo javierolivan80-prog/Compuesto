@@ -16,7 +16,8 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "content:validate": "tsx scripts/content-validate.ts",
-    "content:check": "tsx scripts/content-check.ts"
+    "content:check": "tsx scripts/content-check.ts",
+    "e2e:lab": "LAB=1 playwright test --project=lab"
   },
   "dependencies": {
     "@fontsource/geist-mono": "5.3.0",

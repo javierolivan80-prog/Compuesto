@@ -1,5 +1,6 @@
 [
   "src/app/ExercisesLab.tsx",
+  "src/app/GamesLab.tsx",
   "src/app/Product.tsx",
   "src/app/Styleguide.tsx",
   "src/brand/BrandDemo.tsx",

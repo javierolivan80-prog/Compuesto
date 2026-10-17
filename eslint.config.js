@@ -5,7 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-config-prettier';
 
 export default tseslint.config(
-  { ignores: ['dist', 'coverage', 'playwright-report', 'test-results', 'dev-dist', '.claude'] },
+  { ignores: ['dist', 'dist-lab', 'coverage', 'playwright-report', 'test-results', 'dev-dist', '.claude'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   reactHooks.configs.flat.recommended,

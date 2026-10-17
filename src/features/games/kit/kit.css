@@ -1,0 +1,155 @@
+/* Kit de game feel (docs/JUEGOS.md §2). Solo transform y opacity. */
+
+@keyframes kit-pop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+}
+.kit-pop {
+  animation: kit-pop 600ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
+}
+
+@keyframes kit-combo-pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.kit-combo-pulse {
+  animation: kit-combo-pulse 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.kit-combo-fill {
+  transform-origin: left;
+  transition: transform 250ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+/* Brillo de acierto: el borde se ilumina en bull y se apaga en 300 ms (un pseudo-elemento: solo opacity). */
+@keyframes kit-glow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.kit-glow {
+  position: relative;
+}
+.kit-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--bull);
+  opacity: 0;
+  pointer-events: none;
+}
+.kit-glow[data-glow='on']::after {
+  animation: kit-glow 300ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+/* Nota de la pantalla de resultado: se estampa con escala 1,4 → 1. */
+@keyframes kit-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.kit-stamp {
+  animation: kit-stamp 380ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+/* Cinta de fondo: transform lento, al 30 % de opacidad. */
+@keyframes kit-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.kit-ticker-track {
+  animation: kit-ticker 40s linear infinite;
+  will-change: transform;
+}
+.kit-ticker[data-paused='true'] .kit-ticker-track {
+  animation-play-state: paused;
+}
+
+/* Entrada en modo terminal (400 ms): la UI se oscurece y aparece la rejilla. */
+@keyframes kit-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.kit-enter {
+  animation: kit-enter 400ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kit-pop {
+    animation: kit-fade 200ms linear forwards;
+    transform: none;
+  }
+  .kit-combo-pulse,
+  .kit-stamp {
+    animation: none;
+  }
+  .kit-combo-fill {
+    transition: none;
+  }
+  .kit-glow[data-glow='on']::after {
+    animation: kit-fade-out 300ms linear;
+  }
+  .kit-ticker-track {
+    animation: none;
+  }
+  .kit-enter {
+    animation: kit-fade-in 150ms linear both;
+  }
+}
+@keyframes kit-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes kit-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes kit-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
