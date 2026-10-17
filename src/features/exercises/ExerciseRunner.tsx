@@ -6,11 +6,20 @@ import {
   feedbackText,
   grade,
   isEmptyAnswer,
+  xpFactor,
   type Answer,
   type GradeResult,
 } from '../../engine/grading';
 import { parseNumber } from '../../engine/number-parse';
 import { BuildStatementView, SpreadsheetView } from './AdvancedViews';
+import {
+  CaseStepView,
+  ChoiceView,
+  DocumentReadView,
+  SelfExplainView,
+  SliderView,
+  SpotErrorView,
+} from './AppliedViews';
 import {
   CategorizeView,
   FillBlankView,
@@ -34,6 +43,14 @@ export const SUPPORTED_TYPES = [
   'categorize',
   'build_statement',
   'spreadsheet',
+  'chart_read',
+  'scenario',
+  'spot_the_error',
+  'slider_estimate',
+  'case_step',
+  'document_read',
+  'best_argument',
+  'self_explain',
 ] as const;
 
 export function isSupported(e: Exercise): boolean {
@@ -42,6 +59,9 @@ export function isSupported(e: Exercise): boolean {
 
 export function promptOf(e: Exercise): string {
   if (e.type === 'true_false_swipe') return 'Verdadero o falso';
+  if (e.type === 'best_argument') return e.claim;
+  if (e.type === 'case_step') return e.intro;
+  if (e.type === 'document_read') return 'Lee el fragmento y contesta';
   return 'prompt' in e ? e.prompt : '';
 }
 
@@ -67,6 +87,20 @@ export function emptyAnswer(e: Exercise): Answer {
       return { type: 'build_statement', values: {}, locale: 'es' };
     case 'spreadsheet':
       return { type: 'spreadsheet', cells: {} };
+    case 'chart_read':
+    case 'scenario':
+    case 'best_argument':
+      return { type: e.type, choice: null };
+    case 'spot_the_error':
+      return { type: 'spot_the_error', index: null };
+    case 'slider_estimate':
+      return { type: 'slider_estimate', value: null };
+    case 'case_step':
+      return { type: 'case_step', choices: [] };
+    case 'document_read':
+      return { type: 'document_read', choices: e.questions.map(() => null) };
+    case 'self_explain':
+      return { type: 'self_explain', text: '', revealed: false, rubric: [false, false, false] };
     default:
       throw new Error(`Tipo sin componente todavía: ${e.type}`);
   }
@@ -77,6 +111,8 @@ export interface ExerciseOutcome {
   answer: Answer;
   grade: GradeResult;
   timeMs: number;
+  /** Fracción del XP que corresponde (self_explain da la mitad). */
+  xpFactor: number;
 }
 
 interface Props {
@@ -124,6 +160,7 @@ export function ExerciseRunner({
         answer,
         grade: graded,
         timeMs: Date.now() - startedAt,
+        xpFactor: xpFactor(exercise),
       });
       return;
     }
@@ -165,6 +202,22 @@ export function ExerciseRunner({
         );
       case 'spreadsheet':
         return <SpreadsheetView {...(common as object as Parameters<typeof SpreadsheetView>[0])} />;
+      case 'chart_read':
+      case 'scenario':
+      case 'best_argument':
+        return <ChoiceView {...(common as object as Parameters<typeof ChoiceView>[0])} />;
+      case 'spot_the_error':
+        return <SpotErrorView {...(common as object as Parameters<typeof SpotErrorView>[0])} />;
+      case 'slider_estimate':
+        return <SliderView {...(common as object as Parameters<typeof SliderView>[0])} />;
+      case 'case_step':
+        return <CaseStepView {...(common as object as Parameters<typeof CaseStepView>[0])} />;
+      case 'document_read':
+        return (
+          <DocumentReadView {...(common as object as Parameters<typeof DocumentReadView>[0])} />
+        );
+      case 'self_explain':
+        return <SelfExplainView {...(common as object as Parameters<typeof SelfExplainView>[0])} />;
       default:
         return <p>Tipo de ejercicio no disponible todavía: {exercise.type}</p>;
     }
@@ -184,7 +237,7 @@ export function ExerciseRunner({
       {result ? (
         <FeedbackSheet
           result={result.correct ? 'correct' : 'incorrect'}
-          xp={xp}
+          xp={Math.round(xp * xpFactor(exercise))}
           explanation={feedbackText(exercise, result)}
           onContinue={() =>
             onComplete({
@@ -192,6 +245,7 @@ export function ExerciseRunner({
               answer,
               grade: result,
               timeMs: Date.now() - startedAt,
+              xpFactor: xpFactor(exercise),
             })
           }
         />

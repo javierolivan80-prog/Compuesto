@@ -26,8 +26,8 @@ export const currentId = (s: SessionState): string | undefined => s.queue[0];
 export const isDone = (s: SessionState): boolean => s.queue.length === 0;
 
 /** XP de una respuesta: 10 al acertar a la primera, 5 al acertar tras un fallo, 0 al fallar. */
-export function xpForAnswer(correct: boolean, isRetry: boolean): number {
-  return correct ? (isRetry ? XP_RETRY : XP_FIRST_TRY) : 0;
+export function xpForAnswer(correct: boolean, isRetry: boolean, factor = 1): number {
+  return correct ? Math.round((isRetry ? XP_RETRY : XP_FIRST_TRY) * factor) : 0;
 }
 
 /**
@@ -37,11 +37,12 @@ export function xpForAnswer(correct: boolean, isRetry: boolean): number {
 export function answer(
   s: SessionState,
   correct: boolean,
+  factor = 1,
 ): { state: SessionState; xp: number; isRetry: boolean } {
   const id = currentId(s);
   if (id === undefined) throw new Error('La lección ya terminó');
   const isRetry = s.failedOnce.includes(id);
-  const xp = xpForAnswer(correct, isRetry);
+  const xp = xpForAnswer(correct, isRetry, factor);
   const rest = s.queue.slice(1);
   if (correct || isRetry) {
     return {

@@ -73,7 +73,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
 
   const onComplete = async (outcome: ExerciseOutcome) => {
     if (!exercise) return;
-    const { state, xp } = answer(session, outcome.correct);
+    const { state, xp } = answer(session, outcome.correct, outcome.xpFactor);
     await save(() =>
       repo.record('exercise_answered', {
         exerciseId: exercise.id,

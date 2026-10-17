@@ -170,6 +170,11 @@ const cr = z.object({
   answer: idx,
   /** Descripción textual del gráfico para lectores de pantalla. */
   altText: text,
+  /** Hecho del gráfico en que se apoya la respuesta; un test lo recalcula con la semilla (si el generador cambia, falla). */
+  truth: z.object({
+    metric: z.enum(['changePct', 'maxIndex', 'minIndex']),
+    value: z.number(),
+  }),
   wrongExplanations: wrong,
 });
 const sc = z.object({

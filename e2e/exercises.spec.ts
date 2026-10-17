@@ -106,6 +106,54 @@ const FLOWS: Record<string, (page: Page) => Promise<void>> = {
     await p.keyboard.type('=B1*(1+B2)');
     await expect(p.getByText('Resultado de B3: 1.050')).toBeVisible();
   },
+  chart_read: async (p) => {
+    await tabTo(p, '[role="radio"]', 'Normal: a más plazo');
+    await p.keyboard.press('Space');
+  },
+  scenario: async (p) => {
+    await tabTo(p, '[role="radio"]', 'Reservar un colchón');
+    await p.keyboard.press('Space');
+  },
+  best_argument: async (p) => {
+    await tabTo(p, '[role="radio"]', 'reduce el riesgo específico');
+    await p.keyboard.press('Space');
+  },
+  spot_the_error: async (p) => {
+    await tabTo(p, '[role="radio"]', '1.100 + 100');
+    await p.keyboard.press('Space');
+  },
+  slider_estimate: async (p) => {
+    await tabTo(p, 'input[type="range"]');
+    // parte del punto medio (16); las flechas lo bajan hasta 10
+    for (let i = 0; i < 6; i++) await p.keyboard.press('ArrowLeft');
+    await expect(p.locator('input[type="range"]')).toHaveValue('10');
+  },
+  case_step: async (p) => {
+    await tabTo(p, '[role="radio"]', 'Su deuda y su caja');
+    await p.keyboard.press('Space');
+    await tabTo(p, 'button', 'Comprobar paso');
+    await p.keyboard.press('Enter');
+    await tabTo(p, 'button', 'Siguiente paso');
+    await p.keyboard.press('Enter');
+    await tabTo(p, '[role="radio"]', 'Ampliar capital');
+    await p.keyboard.press('Space');
+    await tabTo(p, 'button', 'Comprobar paso');
+    await p.keyboard.press('Enter');
+  },
+  document_read: async (p) => {
+    await tabTo(p, '[role="radio"]', 'Puede subir o bajar');
+    await p.keyboard.press('Space');
+  },
+  self_explain: async (p) => {
+    await tabTo(p, 'textarea');
+    await p.keyboard.type('Los intereses se reinvierten y generan más intereses.');
+    await tabTo(p, 'button', 'Ver respuesta modelo');
+    await p.keyboard.press('Enter');
+    await tabTo(p, 'input[type="checkbox"]');
+    await p.keyboard.press('Space');
+    await p.keyboard.press('Tab');
+    await p.keyboard.press('Space');
+  },
   categorize: async (p) => {
     for (const [item, cat] of [
       ['Caja', 'Activo'],

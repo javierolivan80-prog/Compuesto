@@ -50,5 +50,24 @@
     "streakOne": "Racha: {{n}} día",
     "streakMany": "Racha: {{n}} días",
     "tomorrow": "Mañana conviene repasar: {{list}}."
+  },
+  "applied": {
+    "argumentHint": "Elige el razonamiento más sólido. Al comprobar verás por qué fallan los demás.",
+    "chartTable": "Ver los datos en tabla",
+    "point": "Punto",
+    "value": "Valor",
+    "spotHint": "Toca la línea que contiene el error.",
+    "estimate": "Tu estimación",
+    "sliderRight": "Valor aproximado correcto: {{value}}",
+    "right": "Correcta: {{option}}",
+    "step": "Paso {{n}} de {{total}}",
+    "checkStep": "Comprobar paso",
+    "nextStep": "Siguiente paso",
+    "source": "Fuente:",
+    "docDate": "· Documento de {{date}}",
+    "explain": "Explícalo con tus palabras",
+    "showModel": "Ver respuesta modelo",
+    "model": "Respuesta modelo",
+    "rubric": "Compara y marca lo que tu explicación sí incluía (con {{pass}} de 3 se da por buena; vale la mitad de XP)"
   }
 }

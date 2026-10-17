@@ -53,7 +53,25 @@ export type Answer =
   /** Contenido escrito en las celdas editables (valor o fórmula) */
   | { type: 'spreadsheet'; cells: Record<string, string> }
   /** Huecos del estado financiero: clave "sección.fila" → texto escrito */
-  | { type: 'build_statement'; values: Record<string, string>; locale?: NumberLocale };
+  | { type: 'build_statement'; values: Record<string, string>; locale?: NumberLocale }
+  | { type: 'chart_read'; choice: number | null }
+  | { type: 'scenario'; choice: number | null }
+  | { type: 'best_argument'; choice: number | null }
+  | { type: 'spot_the_error'; index: number | null }
+  /** null hasta que la persona mueve el control: no hay valor inicial que sugiera la respuesta. */
+  | { type: 'slider_estimate'; value: number | null }
+  /** Una elección por paso; solo se puede comprobar con todos los pasos contestados. */
+  | { type: 'case_step'; choices: (number | null)[] }
+  | { type: 'document_read'; choices: (number | null)[] }
+  /** Texto propio, si ya se ha visto la respuesta modelo y la autoevaluación con la rúbrica (3 criterios). */
+  | { type: 'self_explain'; text: string; revealed: boolean; rubric: [boolean, boolean, boolean] };
+
+/** Mínimo de criterios de la rúbrica que hay que marcar para dar el ejercicio por bueno. */
+export const SELF_EXPLAIN_PASS = 2;
+/** Autoevaluarse no debe premiar igual que un acierto corregido: la mitad del XP. */
+export const SELF_EXPLAIN_XP_FACTOR = 0.5;
+export const xpFactor = (e: Pick<Exercise, 'type'>): number =>
+  e.type === 'self_explain' ? SELF_EXPLAIN_XP_FACTOR : 1;
 
 export interface GradeResult {
   correct: boolean;
@@ -113,6 +131,19 @@ export function isEmptyAnswer(a: Answer): boolean {
       return Object.values(a.cells).every((v) => v.trim() === '');
     case 'build_statement':
       return Object.values(a.values).every((v) => v.trim() === '');
+    case 'chart_read':
+    case 'scenario':
+    case 'best_argument':
+      return a.choice === null;
+    case 'spot_the_error':
+      return a.index === null;
+    case 'slider_estimate':
+      return a.value === null;
+    case 'case_step':
+    case 'document_read':
+      return a.choices.length === 0 || a.choices.some((c) => c === null);
+    case 'self_explain':
+      return a.text.trim() === '' || !a.revealed;
   }
 }
 
@@ -196,6 +227,45 @@ export function grade(exercise: Exercise, answer: Answer): GradeResult {
       );
       return wrongItems.length ? ko({ wrongItems }) : ok();
     }
+    case 'chart_read':
+    case 'scenario':
+    case 'best_argument': {
+      const a = answer as Extract<Answer, { type: 'chart_read' | 'scenario' | 'best_argument' }>;
+      return a.choice === exercise.answer ? ok() : ko({ wrongChoice: a.choice ?? undefined });
+    }
+    case 'spot_the_error': {
+      const a = answer as Extract<Answer, { type: 'spot_the_error' }>;
+      return a.index === exercise.errorIndex ? ok() : ko({ wrongItems: [String(a.index)] });
+    }
+    case 'slider_estimate': {
+      const a = answer as Extract<Answer, { type: 'slider_estimate' }>;
+      const allowed = Math.max(
+        (Math.abs(exercise.answer) * exercise.tolerance) / 100,
+        Math.abs(exercise.answer) * 1e-6,
+        1e-9,
+      );
+      return Math.abs((a.value ?? NaN) - exercise.answer) <= allowed
+        ? ok({ parsed: a.value })
+        : ko({ parsed: a.value });
+    }
+    case 'case_step': {
+      const a = answer as Extract<Answer, { type: 'case_step' }>;
+      const wrongItems = exercise.steps
+        .map((st, i) => (a.choices[i] === st.answer ? null : String(i)))
+        .filter((x): x is string => x !== null);
+      return wrongItems.length ? ko({ wrongItems }) : ok();
+    }
+    case 'document_read': {
+      const a = answer as Extract<Answer, { type: 'document_read' }>;
+      const wrongItems = exercise.questions
+        .map((q, i) => (a.choices[i] === q.answer ? null : String(i)))
+        .filter((x): x is string => x !== null);
+      return wrongItems.length ? ko({ wrongItems }) : ok();
+    }
+    case 'self_explain': {
+      const a = answer as Extract<Answer, { type: 'self_explain' }>;
+      return a.rubric.filter(Boolean).length >= SELF_EXPLAIN_PASS ? ok() : ko();
+    }
     default:
       throw new Error(`Tipo de ejercicio sin corrector todavía: ${(exercise as Exercise).type}`);
   }
@@ -204,6 +274,12 @@ export function grade(exercise: Exercise, answer: Answer): GradeResult {
 /** Explicación a mostrar: la específica de la opción elegida (si hay) + la general. */
 export function feedbackText(exercise: Exercise, result: GradeResult): string {
   const w = 'wrongExplanations' in exercise ? exercise.wrongExplanations : undefined;
+  if (exercise.type === 'best_argument' && result.correct) {
+    const others = Object.entries(exercise.wrongExplanations)
+      .map(([i, why]) => `«${exercise.options[Number(i)]}»: ${why}`)
+      .join(' ');
+    return `${exercise.explanation} Por qué fallan los demás. ${others}`;
+  }
   const specific = result.wrongChoice !== undefined ? w?.[String(result.wrongChoice)] : undefined;
   return specific ? `${specific} ${exercise.explanation}` : exercise.explanation;
 }

@@ -1,3 +1,4 @@
+import { chartFacts, chartSeries } from '../engine/charts';
 import { evaluateNumber } from '../engine/expr';
 import { evaluateSheet, numericValue } from '../engine/sheet';
 import { checkCompany } from './accounting';
@@ -114,6 +115,15 @@ export function checkExercise(e: Exercise, strict: boolean): Issue[] {
     for (const k of Object.keys(w ?? {}))
       if (Number(k) >= n) err('indice', `wrongExplanations["${k}"] fuera de rango`);
   };
+
+  if (e.type === 'chart_read') {
+    const facts = chartFacts(chartSeries(e.chart));
+    if (facts[e.truth.metric] !== e.truth.value)
+      err(
+        'grafico',
+        `El gráfico con semilla ${e.chart.seed} da ${e.truth.metric} = ${facts[e.truth.metric]}, no ${e.truth.value}`,
+      );
+  }
 
   switch (e.type) {
     case 'multiple_choice':

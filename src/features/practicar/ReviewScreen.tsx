@@ -77,7 +77,7 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
     const current = playable[index];
     if (!current?.found) return;
     const { exercise, lesson } = current.found;
-    const gained = outcome.correct ? REVIEW_XP : 0;
+    const gained = outcome.correct ? Math.round(REVIEW_XP * outcome.xpFactor) : 0;
     setAnswered((n) => n + 1);
     if (outcome.correct) {
       setCorrect((c) => c + 1);

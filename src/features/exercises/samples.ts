@@ -151,6 +151,140 @@ export const SAMPLE_EXERCISES = {
     explanation:
       'Final = capital × (1 + tipo) = 1.000 × 1,05 = 1.050. La fórmula usa las celdas, así que sigue valiendo si cambian los datos.',
   },
+  chart_read: {
+    id: 'lab-cr',
+    type: 'chart_read',
+    ...c,
+    prompt: '¿Qué forma tiene esta curva de tipos?',
+    chart: { kind: 'yield_curve', seed: 7, points: 10 },
+    altText: 'Curva de tipos de interés por vencimiento, de 3 meses a 20 años.',
+    truth: { metric: 'maxIndex', value: 9 },
+    options: ['Normal: a más plazo, más tipo', 'Invertida: a más plazo, menos tipo', 'Plana'],
+    answer: 0,
+    explanation: 'El tipo más alto es el del vencimiento más largo: es una curva normal.',
+    wrongExplanations: {
+      '1': 'En una curva invertida los plazos cortos pagan más; aquí ocurre lo contrario.',
+      '2': 'Una curva plana apenas cambia con el plazo; aquí sube más de dos puntos.',
+    },
+  },
+  scenario: {
+    id: 'lab-sc',
+    type: 'scenario',
+    ...c,
+    situation:
+      'Tienes 5.000 € ahorrados, ningún fondo de emergencia y un gasto imprevisto probable este año.',
+    prompt: '¿Qué conviene hacer primero?',
+    options: [
+      'Invertirlo todo en renta variable',
+      'Reservar un colchón de liquidez antes de invertir',
+      'Pedir un préstamo para invertir más',
+    ],
+    answer: 1,
+    explanation: 'Sin colchón, un imprevisto te obligaría a vender en mal momento.',
+    wrongExplanations: {
+      '0': 'Si necesitas el dinero con el mercado a la baja, conviertes la pérdida en real.',
+      '2': 'Apalancarte sin colchón multiplica el riesgo.',
+    },
+  },
+  spot_the_error: {
+    id: 'lab-se',
+    type: 'spot_the_error',
+    ...c,
+    prompt: 'Este cálculo tiene un error. ¿En qué línea está?',
+    lines: [
+      'Capital inicial: 1.000 € al 10 % anual.',
+      'Después de 1 año: 1.000 × 1,10 = 1.100 €.',
+      'Después de 2 años: 1.100 + 100 = 1.200 €.',
+      'Con interés compuesto, el año 2 debería sumar 10 % sobre 1.100 €.',
+    ],
+    errorIndex: 2,
+    explanation: 'El segundo año se calcula sobre 1.100 €: 1.100 × 1,10 = 1.210 €, no 1.200 €.',
+  },
+  slider_estimate: {
+    id: 'lab-sl',
+    type: 'slider_estimate',
+    ...c,
+    prompt: '¿Cuántos años tarda en duplicarse un capital al 7 % anual compuesto? (regla del 72)',
+    min: 1,
+    max: 30,
+    step: 1,
+    answer: 10,
+    tolerance: 10,
+    unit: 'años',
+    explanation: 'Regla del 72: 72 / 7 ≈ 10,3 años; el valor exacto es 10,2.',
+  },
+  case_step: {
+    id: 'lab-cs',
+    type: 'case_step',
+    ...c,
+    caseId: 'naranjas-lab',
+    intro: 'Naranjas del Turia quiere financiar una nueva planta de envasado.',
+    steps: [
+      {
+        prompt: '¿Qué dato miras primero?',
+        options: ['El color del logo', 'Su deuda y su caja', 'El nombre del director'],
+        answer: 1,
+        explanation:
+          'La capacidad de pagar la deuda depende de su caja y su nivel de endeudamiento.',
+      },
+      {
+        prompt: 'Si la deuda ya es alta, ¿qué opción reduce el riesgo?',
+        options: ['Ampliar capital', 'Más deuda a corto plazo', 'Retrasar pagos a proveedores'],
+        answer: 0,
+        explanation: 'Una ampliación de capital aporta fondos sin aumentar la deuda.',
+      },
+    ],
+    explanation: 'En un caso real se encadenan decisiones: cada paso condiciona el siguiente.',
+  },
+  document_read: {
+    id: 'lab-dr',
+    type: 'document_read',
+    ...c,
+    excerpt:
+      'Los fondos de inversión están sujetos a riesgo de mercado: el valor liquidativo puede subir o bajar y el partícipe puede perder parte o la totalidad de lo invertido.',
+    source: 'https://www.cnmv.es/',
+    documentDate: '2025-01-15',
+    questions: [
+      {
+        prompt: 'Según el fragmento, ¿qué puede pasar con el valor liquidativo?',
+        options: ['Solo puede subir', 'Puede subir o bajar', 'Está garantizado'],
+        answer: 1,
+      },
+    ],
+    explanation: 'El texto advierte de que el valor puede subir o bajar, sin garantía.',
+  },
+  best_argument: {
+    id: 'lab-ba',
+    type: 'best_argument',
+    ...c,
+    claim: 'Conviene diversificar la cartera.',
+    options: [
+      'Porque así nunca se pierde dinero',
+      'Porque reduce el riesgo específico de cada activo sin renunciar por completo a la rentabilidad',
+      'Porque los expertos lo recomiendan siempre',
+    ],
+    answer: 1,
+    explanation:
+      'La diversificación reduce el riesgo propio de cada activo; no elimina el de mercado.',
+    wrongExplanations: {
+      '0': 'Diversificar no elimina las pérdidas: el riesgo de mercado sigue ahí.',
+      '2': 'Es un argumento de autoridad: no explica el mecanismo.',
+    },
+  },
+  self_explain: {
+    id: 'lab-sx',
+    type: 'self_explain',
+    ...c,
+    prompt: 'Explica con tus palabras por qué el interés compuesto crece más rápido que el simple.',
+    modelAnswer:
+      'En el compuesto los intereses ganados se suman al capital y generan nuevos intereses; en el simple solo se calcula sobre el capital inicial. Con el tiempo, la diferencia se agranda.',
+    rubric: [
+      'Dice que los intereses se reinvierten en el capital',
+      'Dice que se generan intereses sobre intereses',
+      'Menciona que el efecto crece con el tiempo',
+    ],
+    explanation: 'La clave es reinvertir los intereses: base creciente cada periodo.',
+  },
 } as const;
 
 export type SampleType = keyof typeof SAMPLE_EXERCISES;

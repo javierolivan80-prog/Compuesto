@@ -81,7 +81,8 @@ const SAMPLES: Record<string, object> = {
     chart: { kind: 'price', seed: 7, points: 60 },
     options: opts,
     answer: 0,
-    altText: 'Gráfico de precio con tendencia alcista.',
+    altText: 'Gráfico de precio con tendencia bajista.',
+    truth: { metric: 'minIndex', value: 59 },
     wrongExplanations: { '1': 'No: x.', '2': 'No: y.' },
   },
   scenario: {

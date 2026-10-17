@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { ExerciseRunner, type ExerciseOutcome } from '../src/features/exercises/ExerciseRunner';
@@ -270,6 +270,113 @@ describe('build_statement y spreadsheet con teclado', () => {
   });
 });
 
-it('hay un ejemplo de los 10 tipos con componente', () => {
-  expect(SAMPLE_TYPES).toHaveLength(10);
+it('hay un ejemplo de los 18 tipos con componente', () => {
+  expect(SAMPLE_TYPES).toHaveLength(18);
+});
+
+describe('tipos de aplicar y argumentar, solo con teclado', () => {
+  const finish = async (
+    user: ReturnType<typeof userEvent.setup>,
+    onComplete: ReturnType<typeof vi.fn>,
+    correct = true,
+  ) => {
+    await pressKey(user, check());
+    await pressKey(user, screen.getByRole('button', { name: 'Continuar' }));
+    expect(onComplete.mock.calls[0]![0].correct).toBe(correct);
+  };
+
+  it.each([
+    ['chart_read', /Normal: a más plazo/],
+    ['scenario', /Reservar un colchón/],
+    ['best_argument', /reduce el riesgo específico/],
+  ] as [SampleType, RegExp][])('%s: elegir la opción y comprobar', async (type, option) => {
+    const { user, onComplete } = setup(type);
+    expect(check()).toBeDisabled();
+    await pressKey(user, screen.getByRole('radio', { name: option }), ' ');
+    await finish(user, onComplete);
+  });
+
+  it('chart_read: el gráfico tiene descripción textual y tabla de datos', () => {
+    setup('chart_read');
+    const img = screen.getByRole('img');
+    expect(img.getAttribute('aria-label')).toMatch(/Curva de tipos/);
+    expect(img.getAttribute('aria-label')).toMatch(/Máximo/);
+    expect(screen.getByText('Ver los datos en tabla')).toBeInTheDocument();
+  });
+
+  it('best_argument: al acertar explica por qué fallan los demás', async () => {
+    const { user } = setup('best_argument');
+    await pressKey(user, screen.getByRole('radio', { name: /reduce el riesgo específico/ }), ' ');
+    await pressKey(user, check());
+    expect(screen.getByRole('status')).toHaveTextContent('Por qué fallan los demás');
+    expect(screen.getByRole('status')).toHaveTextContent('argumento de autoridad');
+  });
+
+  it('spot_the_error: señalar la línea', async () => {
+    const { user, onComplete } = setup('spot_the_error');
+    await pressKey(user, screen.getByRole('radio', { name: /1\.100 \+ 100/ }), ' ');
+    await finish(user, onComplete);
+  });
+
+  it('slider_estimate: sin valor inicial no se puede comprobar; al moverlo ya se puede comprobar', async () => {
+    const { user, onComplete } = setup('slider_estimate');
+    expect(check()).toBeDisabled();
+    const slider = screen.getByRole('slider');
+    await tabTo(user, slider);
+    // jsdom no mueve un range con las flechas: el teclado real se prueba en e2e/exercises.spec.ts
+    fireEvent.change(slider, { target: { value: '10' } });
+    expect(slider).toHaveValue('10');
+    await finish(user, onComplete);
+  });
+
+  it('case_step: avanza por pasos y solo se comprueba al terminar', async () => {
+    const { user, onComplete } = setup('case_step');
+    expect(check()).toBeDisabled();
+    await pressKey(user, screen.getByRole('radio', { name: 'Su deuda y su caja' }), ' ');
+    await pressKey(user, screen.getByRole('button', { name: 'Comprobar paso' }));
+    expect(screen.getByRole('status')).toHaveTextContent('capacidad de pagar');
+    await pressKey(user, screen.getByRole('button', { name: 'Siguiente paso' }));
+    expect(check()).toBeDisabled();
+    await pressKey(user, screen.getByRole('radio', { name: 'Ampliar capital' }), ' ');
+    await pressKey(user, screen.getByRole('button', { name: 'Comprobar paso' }));
+    await finish(user, onComplete);
+  });
+
+  it('case_step: reanuda desde el paso guardado', async () => {
+    localStorage.setItem(
+      'compuesto:case:lab-cs',
+      JSON.stringify({ choices: [1, null], step: 1, revealed: false }),
+    );
+    setup('case_step');
+    expect(screen.getByText(/Paso 2 de 2/)).toBeInTheDocument();
+    localStorage.removeItem('compuesto:case:lab-cs');
+  });
+
+  it('document_read: muestra fuente y fecha, y contesta', async () => {
+    const { user, onComplete } = setup('document_read');
+    expect(screen.getByRole('link', { name: 'www.cnmv.es' })).toHaveAttribute(
+      'href',
+      'https://www.cnmv.es/',
+    );
+    expect(screen.getByText(/15 de enero de 2025/)).toBeInTheDocument();
+    await pressKey(user, screen.getByRole('radio', { name: 'Puede subir o bajar' }), ' ');
+    await finish(user, onComplete);
+  });
+
+  it('self_explain: hay que escribir, ver el modelo y autoevaluarse; da la mitad de XP', async () => {
+    const { user, onComplete } = setup('self_explain');
+    expect(check()).toBeDisabled();
+    const reveal = screen.getByRole('button', { name: 'Ver respuesta modelo' });
+    expect(reveal).toBeDisabled();
+    await tabTo(user, screen.getByRole('textbox', { name: /Explícalo/ }));
+    await user.keyboard('Los intereses se reinvierten y generan más intereses.');
+    await pressKey(user, reveal);
+    expect(check()).toBeEnabled();
+    for (const name of [/reinvierten/, /intereses sobre intereses/])
+      await pressKey(user, screen.getByRole('checkbox', { name }), ' ');
+    await pressKey(user, check());
+    expect(screen.getByRole('status')).toHaveTextContent('+5 XP');
+    await pressKey(user, screen.getByRole('button', { name: 'Continuar' }));
+    expect(onComplete.mock.calls[0]![0]).toMatchObject({ correct: true, xpFactor: 0.5 });
+  });
 });
