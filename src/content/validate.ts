@@ -1,5 +1,16 @@
 import { chartFacts, chartSeries } from '../engine/charts';
 import { evaluateNumber } from '../engine/expr';
+import {
+  ANSWER_MARKER,
+  fillFormula,
+  gridSize,
+  instantiate,
+  isParametric,
+  markersOf,
+  onGrid,
+  templateStrings,
+  type ParametricExercise,
+} from '../engine/params';
 import { evaluateSheet, numericValue } from '../engine/sheet';
 import { checkCompany } from './accounting';
 import { EXPLAINER_NAMES, type ExplainerName } from './explainer-names';
@@ -93,7 +104,100 @@ export function conceptCycles(concepts: Concept[]): string[][] {
 }
 
 /** Comprobaciones semánticas de un ejercicio (más allá de la forma del JSON). */
+/** Semillas que prueba content:validate en cada ejercicio paramétrico (TEMARIO §6). */
+export const PARAM_SEEDS = 100;
+
+/** Comprobaciones de un ejercicio: las de siempre y, si tiene `params`, las de la plantilla y 100 variantes. */
 export function checkExercise(e: Exercise, strict: boolean): Issue[] {
+  return isParametric(e) ? checkParametric(e, strict) : checkConcrete(e, strict);
+}
+
+function checkParametric(e: ParametricExercise, strict: boolean): Issue[] {
+  const out: Issue[] = [];
+  const err = (message: string) =>
+    out.push({ severity: 'error', code: 'params', where: e.id, message });
+  const params = e.params ?? {};
+  const derived = Object.keys(e.derived ?? {});
+  for (const [name, p] of Object.entries(params)) {
+    if (!(p.min < p.max)) err(`Parámetro ${name}: min debe ser menor que max`);
+    else if (!onGrid(p, p.value))
+      err(
+        `Parámetro ${name}: value ${p.value} fuera de [${p.min}, ${p.max}] o de la rejilla de paso ${p.step}`,
+      );
+    if (derived.includes(name)) err(`"${name}" es a la vez parámetro y derivado`);
+  }
+  if (Object.values(params).every((p) => gridSize(p) === 0))
+    err('Ningún parámetro admite otra cifra: el repaso repetiría el enunciado');
+  const { texts, formulas } = templateStrings(e);
+  const known = new Set([...Object.keys(params), ...derived]);
+  for (const s of texts)
+    for (const m of markersOf(s))
+      if (!known.has(m) && !(m === ANSWER_MARKER && e.type === 'numeric_input' && s !== e.prompt))
+        err(`Marcador sin definir en el texto: {${m}}`);
+  for (const s of formulas)
+    for (const m of markersOf(s))
+      if (!known.has(m)) err(`Marcador sin definir en una fórmula: {${m}}`);
+  const used = new Set([...texts, ...formulas].flatMap(markersOf));
+  for (const name of Object.keys(params))
+    if (!used.has(name)) err(`El parámetro ${name} no se usa en ningún texto ni fórmula`);
+  if (out.length) return out;
+
+  // La plantilla con las cifras del enunciado pasa las comprobaciones de siempre.
+  let base: Exercise;
+  try {
+    base = instantiate(e).exercise;
+  } catch (x) {
+    err(`Con las cifras del enunciado: ${(x as Error).message}`);
+    return out;
+  }
+  out.push(...checkConcrete(base, strict));
+  if (e.type === 'build_statement') {
+    const scope = Object.fromEntries(Object.entries(params).map(([k, p]) => [k, p.value]));
+    for (const s of e.sections)
+      for (const r of s.rows)
+        if (r.formula !== undefined) {
+          try {
+            const v = evaluateNumber(fillFormula(r.formula, scope));
+            if (Math.abs(v - r.value) > 0.005)
+              err(`Fila "${r.label}": la fórmula da ${Number(v.toPrecision(12))}, no ${r.value}`);
+          } catch (x) {
+            err(`Fila "${r.label}": ${(x as Error).message}`);
+          }
+        }
+  }
+
+  // 100 variantes: deben evaluarse, cuadrar y (si se declara) caer en answerRange. Se informa la primera que falla.
+  for (let i = 0; i < PARAM_SEEDS; i++) {
+    const seed = `validate#${i}`;
+    try {
+      const v = instantiate(e, seed);
+      const problems = checkConcrete(v.exercise, strict).filter((x) => x.severity === 'error');
+      if (problems.length) {
+        err(`Semilla "${seed}" (${JSON.stringify(v.values)}): ${problems[0]!.message}`);
+        break;
+      }
+      const x = v.exercise;
+      if (x.type === 'numeric_input' && e.type === 'numeric_input' && e.answerRange) {
+        if (
+          !Number.isFinite(x.answer) ||
+          x.answer < e.answerRange.min ||
+          x.answer > e.answerRange.max
+        ) {
+          err(
+            `Semilla "${seed}" (${JSON.stringify(v.values)}): la respuesta ${x.answer} sale de answerRange [${e.answerRange.min}, ${e.answerRange.max}]`,
+          );
+          break;
+        }
+      }
+    } catch (x) {
+      err(`Semilla "${seed}": ${(x as Error).message}`);
+      break;
+    }
+  }
+  return out;
+}
+
+function checkConcrete(e: Exercise, strict: boolean): Issue[] {
   const out: Issue[] = [];
   const err = (code: string, message: string) =>
     out.push({ severity: 'error', code, where: e.id, message });

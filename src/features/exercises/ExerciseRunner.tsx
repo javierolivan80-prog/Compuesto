@@ -1,4 +1,4 @@
-import { useId, useState, type FormEvent } from 'react';
+import { useId, useMemo, useState, type FormEvent } from 'react';
 import { Button } from '../../components/Button';
 import { FeedbackSheet } from '../../components/FeedbackSheet';
 import type { Exercise } from '../../content/schemas';
@@ -11,6 +11,7 @@ import {
   type GradeResult,
 } from '../../engine/grading';
 import { parseNumber } from '../../engine/number-parse';
+import { instantiate } from '../../engine/params';
 import { BuildStatementView, SpreadsheetView } from './AdvancedViews';
 import {
   CaseStepView,
@@ -57,7 +58,9 @@ export function isSupported(e: Exercise): boolean {
   return (SUPPORTED_TYPES as readonly string[]).includes(e.type);
 }
 
-export function promptOf(e: Exercise): string {
+/** Enunciado para listas (Mis errores, resúmenes); con semilla, el de esa variante. */
+export function promptOf(raw: Exercise, variantSeed?: string): string {
+  const e = instantiate(raw, variantSeed).exercise;
   if (e.type === 'true_false_swipe') return 'Verdadero o falso';
   if (e.type === 'best_argument') return e.claim;
   if (e.type === 'case_step') return e.intro;
@@ -113,6 +116,8 @@ export interface ExerciseOutcome {
   timeMs: number;
   /** Fracción del XP que corresponde (self_explain da la mitad). */
   xpFactor: number;
+  /** Cifras de la variante, si el ejercicio es paramétrico y se jugó con semilla (tarea 2.9). */
+  params?: Record<string, number>;
 }
 
 interface Props {
@@ -124,16 +129,30 @@ interface Props {
   showFeedback?: boolean;
   /** Texto del botón de comprobar (por defecto "Comprobar"). */
   checkLabel?: string;
+  /** Ejercicios paramétricos: con semilla se juega una variante con cifras nuevas; sin ella, el enunciado. */
+  variantSeed?: string;
 }
 
 /** Ejercicio completo: respuesta → Comprobar → hoja de feedback → Continuar. Enter comprueba. */
 export function ExerciseRunner({
-  exercise,
+  exercise: template,
   onComplete,
   xp = 10,
   showFeedback = true,
   checkLabel = 'Comprobar',
+  variantSeed,
 }: Props) {
+  const resolved = useMemo(() => {
+    try {
+      return instantiate(template, variantSeed);
+    } catch (e) {
+      // content:validate prueba 100 semillas, pero no todas: si la del día falla, se juega con el enunciado
+      console.error(`Variante no válida de ${template.id} (${variantSeed})`, e);
+      return instantiate(template);
+    }
+  }, [template, variantSeed]);
+  const exercise = resolved.exercise;
+  const params = variantSeed !== undefined && resolved.values ? resolved.values : undefined;
   const titleId = useId();
   const [answer, setAnswer] = useState<Answer>(() => emptyAnswer(exercise));
   const [result, setResult] = useState<GradeResult | null>(null);
@@ -161,6 +180,7 @@ export function ExerciseRunner({
         grade: graded,
         timeMs: Date.now() - startedAt,
         xpFactor: xpFactor(exercise),
+        params,
       });
       return;
     }
@@ -246,6 +266,7 @@ export function ExerciseRunner({
               grade: result,
               timeMs: Date.now() - startedAt,
               xpFactor: xpFactor(exercise),
+              params,
             })
           }
         />

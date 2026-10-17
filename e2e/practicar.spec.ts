@@ -2,7 +2,10 @@ import { randomUUID } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { playLesson, type Lesson } from './play';
-import { completeOnboarding, currentExercise, solve, type Ex } from './solver';
+import { exerciseSchema } from '../src/content/schemas';
+import { instantiate, variantSeedFor } from '../src/engine/params';
+import { todayKey } from '../src/engine/stats';
+import { completeOnboarding, currentExercise, promptOf, solve, type Ex } from './solver';
 
 /* Tarea 2.1: Practicar (repaso espaciado, mis errores, por tema y examen) contra la build de producción. */
 
@@ -159,4 +162,50 @@ test('examen cronometrado: 10 preguntas, temporizador y resultado al final', asy
   await answerAll(page, true);
   await expect(page.getByRole('heading', { name: 'Examen terminado' })).toBeVisible();
   await expect(page.getByTestId('review-score')).toHaveText('10 de 10 aciertos');
+});
+
+test('un ejercicio paramétrico se repasa con cifras nuevas y se corrige con su fórmula (tarea 2.9)', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await completeOnboarding(page);
+  const id = 'n0-u1-l2-e4';
+  const template = exerciseSchema.parse(lesson(2).exercises.find((e) => e.id === id));
+  const inLesson = instantiate(template).exercise;
+  const today = instantiate(template, variantSeedFor(id, todayKey(new Date())));
+  const variant = today.exercise as Extract<typeof today.exercise, { type: 'numeric_input' }>;
+  expect(promptOf(variant as unknown as Ex)).not.toBe(promptOf(inLesson as unknown as Ex));
+
+  await importBackup(page, backupWithPastMistakes([id], 3));
+  await page.goto('/#/practicar');
+  await page.reload();
+  await page.getByRole('button', { name: 'Empezar repaso' }).click();
+  // cifras de hoy, no las de la lección
+  await expect(page.getByRole('heading', { level: 3, name: variant.prompt })).toBeVisible();
+  await expect(page.getByText(promptOf(inLesson as unknown as Ex))).toHaveCount(0);
+  // la respuesta del enunciado original ya no vale…
+  const lessonAnswer = (inLesson as { answer: number }).answer;
+  if (Math.abs(lessonAnswer - variant.answer) > variant.answer * 0.0001) {
+    await page
+      .getByRole('textbox', { name: /Tu respuesta/ })
+      .fill(String(lessonAnswer).replace('.', ','));
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await expect(page.getByRole('status')).not.toHaveText(/Correcto/);
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByTestId('review-score')).toHaveText('0 de 1 aciertos');
+  }
+});
+
+test('…y la respuesta calculada con las cifras de hoy es correcta', async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await completeOnboarding(page);
+  const id = 'n0-u1-l2-e4';
+  await importBackup(page, backupWithPastMistakes([id], 3));
+  await page.goto('/#/practicar');
+  await page.reload();
+  await page.getByRole('button', { name: 'Empezar repaso' }).click();
+  await answerAll(page, false);
+  await expect(page.getByTestId('review-score')).toHaveText('1 de 1 aciertos');
 });

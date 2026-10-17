@@ -2,9 +2,10 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { checkCompany } from './accounting';
 import { loadContent } from './node-loader';
-import { companiesSchema, EXERCISE_TYPES, lessonSchema } from './schemas';
+import { companiesSchema, EXERCISE_TYPES, exerciseSchema, lessonSchema } from './schemas';
 import {
   buildIdsLock,
+  checkExercise,
   conceptCycles,
   findExpiring,
   validateContent,
@@ -434,5 +435,143 @@ describe('tests de salto (validación)', () => {
     expect(
       placementCodes(withPlacement((p) => ((p.sources = []), (p.verificarAntesDe = '2027-01-01')))),
     ).toEqual(['caducidad-sin-fuente']);
+  });
+});
+
+describe('ejercicios paramétricos (tarea 2.9)', () => {
+  const good = {
+    id: 'pv-num',
+    type: 'numeric_input',
+    difficulty: 2,
+    bloom: 'aplicar',
+    concepts: ['interes-compuesto'],
+    prompt: 'Depositas {capital} € al {tipo} % durante un año. ¿Cuánto tendrás?',
+    answer: 1050,
+    tolerance: 0,
+    formula: '{capital} * (1 + {tipo}/100)',
+    params: {
+      capital: { value: 1000, min: 500, max: 5000, step: 500 },
+      tipo: { value: 5, min: 1, max: 9, step: 1 },
+    },
+    explanation: 'Tendrás {answer} €.',
+  };
+  const check = (x: unknown) =>
+    checkExercise(exerciseSchema.parse(x), true).filter((i) => i.severity === 'error');
+  const messages = (x: unknown) => check(x).map((i) => `${i.code}: ${i.message}`);
+
+  it('un ejercicio paramétrico correcto pasa (plantilla y 100 variantes)', () => {
+    expect(check(good)).toEqual([]);
+  });
+  it('la plantilla sigue comprobando la respuesta del enunciado', () => {
+    expect(messages({ ...good, answer: 1051 }).join()).toMatch(/formula/);
+  });
+  it('marcador sin definir en texto o fórmula', () => {
+    expect(messages({ ...good, prompt: 'Depositas {capitall} € al {tipo} %.' }).join()).toMatch(
+      /params: Marcador sin definir en el texto: \{capitall\}/,
+    );
+    expect(messages({ ...good, formula: '{capital}*(1+{tasa}/100)' }).join()).toMatch(
+      /Marcador sin definir en una fórmula: \{tasa\}/,
+    );
+  });
+  it('{answer} no vale en el enunciado (lo revelaría), sí en la explicación', () => {
+    expect(messages({ ...good, prompt: `${good.prompt} ({answer})` }).join()).toMatch(/\{answer\}/);
+  });
+  it('value fuera de la rejilla, min ≥ max y parámetro sin usar', () => {
+    expect(
+      messages({
+        ...good,
+        params: { ...good.params, tipo: { value: 5.5, min: 1, max: 9, step: 1 } },
+      }).join(),
+    ).toMatch(/rejilla/);
+    expect(
+      messages({
+        ...good,
+        params: { ...good.params, tipo: { value: 5, min: 9, max: 1, step: 1 } },
+      }).join(),
+    ).toMatch(/min debe ser menor/);
+    expect(
+      messages({
+        ...good,
+        params: { ...good.params, extra: { value: 1, min: 1, max: 2, step: 1 } },
+      }).join(),
+    ).toMatch(/extra no se usa/);
+  });
+  it('ningún parámetro puede variar → error', () => {
+    expect(
+      messages({
+        ...good,
+        params: {
+          capital: { value: 1000, min: 1000, max: 1000.5, step: 1 },
+          tipo: { value: 5, min: 5, max: 5.5, step: 1 },
+        },
+      }).join(),
+    ).toMatch(/Ningún parámetro admite otra cifra/);
+  });
+  it('fórmula que se rompe con alguna cifra del rango (división por cero) → error con la semilla', () => {
+    expect(
+      messages({
+        ...good,
+        answer: 1000 / 5,
+        formula: '{capital} / ({tipo} - 3)',
+        params: { ...good.params, tipo: { value: 8, min: 1, max: 9, step: 1 } },
+        answerRange: undefined,
+      }).join(),
+    ).toMatch(/Semilla "validate#\d+"/);
+  });
+  it('answerRange: alguna variante fuera → error', () => {
+    expect(messages({ ...good, answerRange: { min: 0, max: 2000 } }).join()).toMatch(/answerRange/);
+    expect(check({ ...good, answerRange: { min: 0, max: 100000 } })).toEqual([]);
+  });
+  it('build_statement: la fórmula de cada fila debe dar su value; las variantes deben cuadrar', () => {
+    const bs = {
+      id: 'pv-bs',
+      type: 'build_statement',
+      difficulty: 2,
+      bloom: 'aplicar',
+      concepts: ['balance'],
+      statement: 'balance',
+      prompt: 'Caja de {caja}.',
+      params: { caja: { value: 100, min: 50, max: 200, step: 10 } },
+      sections: [
+        {
+          name: 'Activo',
+          side: 'activo',
+          rows: [{ label: 'Caja', value: 100, formula: '{caja}' }],
+        },
+        {
+          name: 'Patrimonio',
+          side: 'patrimonio',
+          rows: [{ label: 'Capital', value: 100, blank: true, formula: '{caja}' }],
+        },
+      ],
+      explanation: 'Cuadra.',
+    };
+    expect(check(bs)).toEqual([]);
+    const wrongRow = structuredClone(bs);
+    wrongRow.sections[1]!.rows[0]!.formula = '{caja} + 1';
+    expect(messages(wrongRow).join()).toMatch(/Fila "Capital": la fórmula da 101/);
+    const unbalanced = structuredClone(bs);
+    unbalanced.sections[1]!.rows[0]!.formula = '{caja} * 0 + 100';
+    expect(messages(unbalanced).join()).toMatch(/Semilla .*balance no cuadra/);
+  });
+  it('spreadsheet: la solución se evalúa en las variantes', () => {
+    const ss = {
+      id: 'pv-ss',
+      type: 'spreadsheet',
+      difficulty: 2,
+      bloom: 'aplicar',
+      concepts: ['porcentajes'],
+      prompt: 'IVA de {precio} €.',
+      cells: { B1: '{precio}' },
+      target: 'B2',
+      solution: '=B1*1.21',
+      expected: 121,
+      params: { precio: { value: 100, min: 50, max: 300, step: 10 } },
+      explanation: 'Precio × 1,21.',
+    };
+    expect(check(ss)).toEqual([]);
+    expect(messages({ ...ss, solution: '=B1/(B1-150)', expected: 100 / -50 }).join()).toMatch(
+      /Semilla/,
+    );
   });
 });

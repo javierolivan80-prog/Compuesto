@@ -5,7 +5,9 @@ import { ReportErrorButton } from '../../components/ReportErrorButton';
 import { EmptyState } from '../../components/States';
 import { getExerciseById } from '../../content/library';
 import { useRepo } from '../../db/RepoProvider';
+import { variantSeedFor } from '../../engine/params';
 import type { ReviewItem } from '../../engine/srs';
+import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
 import {
   promptOf,
@@ -54,6 +56,8 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
   const [secondsLeft, setSecondsLeft] = useState(exam ? exam.minutes * 60 : 0);
   const [timeUp, setTimeUp] = useState(false);
   const [answered, setAnswered] = useState(0);
+  // Los repasos usan cifras nuevas en los ejercicios paramétricos; el día se fija al abrir la pantalla.
+  const [today] = useState(() => todayKey(new Date()));
 
   useEffect(() => {
     if (!exam) return;
@@ -83,7 +87,10 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
       setCorrect((c) => c + 1);
       setXp((x) => x + gained);
     } else {
-      setMissed((m) => [...m, { prompt: promptOf(exercise), lesson: lesson.title }]);
+      setMissed((m) => [
+        ...m,
+        { prompt: promptOf(exercise, variantSeedFor(exercise.id, today)), lesson: lesson.title },
+      ]);
     }
     try {
       await repo.record('exercise_answered', {
@@ -94,6 +101,7 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
         timeMs: Math.min(outcome.timeMs, 3_600_000),
         xp: gained,
         source: 'review',
+        ...(outcome.params ? { params: outcome.params } : {}),
       });
     } catch (e) {
       console.error('No se pudo guardar el repaso', e);
@@ -185,6 +193,7 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
       <ExerciseRunner
         key={exercise.id}
         exercise={exercise}
+        variantSeed={variantSeedFor(exercise.id, today)}
         xp={REVIEW_XP}
         showFeedback={!exam}
         checkLabel={exam ? 'Responder' : 'Comprobar'}

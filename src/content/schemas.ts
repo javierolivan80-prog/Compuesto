@@ -41,6 +41,32 @@ const exerciseBase = {
   hint: text.optional(),
 };
 
+/* ---------- Ejercicios paramétricos (TEMARIO §6, tarea 2.9) ---------- */
+
+export const paramName = z
+  .string()
+  .regex(/^[a-z][a-z0-9_]*$/, 'nombre de parámetro en minúsculas (a-z, 0-9, _)');
+/** Un dato del enunciado que cambia en cada repaso: `value` es la cifra de la primera aparición. */
+export const paramSpecSchema = z.object({
+  value: z.number(),
+  min: z.number(),
+  max: z.number(),
+  step: z.number().positive(),
+  decimals: z.number().int().min(0).max(6).default(0),
+});
+export type ParamSpec = z.infer<typeof paramSpecSchema>;
+/** Cifra calculada a partir de los parámetros, para usarla en el texto ({nombre}). */
+export const derivedSpecSchema = z.object({
+  formula: text,
+  decimals: z.number().int().min(0).max(6).default(2),
+});
+const parametric = {
+  /** Datos variables; textos y fórmulas los citan como {nombre}. */
+  params: z.record(paramName, paramSpecSchema).optional(),
+  /** Cifras derivadas para el texto (p. ej. el coste total en la explicación), en orden. */
+  derived: z.record(paramName, derivedSpecSchema).optional(),
+};
+
 /** Explicación específica por opción incorrecta (CLAUDE.md §8): clave = índice de la opción. */
 const wrong = z.record(z.string().regex(/^\d+$/), text).optional();
 const options = z.array(text).min(2).max(6);
@@ -103,6 +129,11 @@ const ni = z.object({
   tolerance: z.number().min(0).max(100),
   /** Obligatoria: un test la recalcula y la compara con `answer`. */
   formula: text,
+  ...parametric,
+  /** En las variantes, la respuesta se redondea a estos decimales (2 si no se indica). */
+  answerDecimals: z.number().int().min(0).max(6).optional(),
+  /** Rango razonable de la respuesta: content:validate lo exige en las 100 variantes. */
+  answerRange: z.object({ min: z.number(), max: z.number() }).optional(),
 });
 const cat = z.object({
   ...exerciseBase,
@@ -131,11 +162,20 @@ const bs = z.object({
           'financiacion',
         ]),
         rows: z
-          .array(z.object({ label: text, value: z.number(), blank: z.boolean().default(false) }))
+          .array(
+            z.object({
+              label: text,
+              value: z.number(),
+              blank: z.boolean().default(false),
+              /** Con `params`: cómo se calcula la fila ({nombre}); en la plantilla debe dar `value`. */
+              formula: text.optional(),
+            }),
+          )
           .min(1),
       }),
     )
     .min(2),
+  ...parametric,
 });
 const ss = z.object({
   ...exerciseBase,
@@ -161,6 +201,7 @@ const ss = z.object({
       }),
     )
     .default([]),
+  ...parametric,
 });
 const code = z.object({
   ...exerciseBase,

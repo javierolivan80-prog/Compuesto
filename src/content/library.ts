@@ -1,4 +1,5 @@
 import companiesJson from '../../content/shared/companies.json';
+import { instantiate } from '../engine/params';
 import conceptsJson from '../../content/shared/concepts.json';
 import type { ExerciseRef } from '../engine/srs';
 import glossaryJson from '../../content/es/glossary.json';
@@ -81,7 +82,9 @@ export const companies = () => companiesAll;
 /** Texto de un ejercicio (de una lección o de un test de salto) a partir de su id, para listados como "más fallados". */
 export function findExerciseText(id: string): { prompt: string; where: string } | undefined {
   for (const l of lessons) {
-    const e = l.exercises.find((x) => x.id === id);
+    const raw = l.exercises.find((x) => x.id === id);
+    // los paramétricos se listan con las cifras del enunciado, nunca con marcadores {nombre}
+    const e = raw && instantiate(raw).exercise;
     if (e)
       return {
         prompt: 'prompt' in e ? e.prompt : 'statement' in e ? e.statement : id,

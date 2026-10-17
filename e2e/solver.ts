@@ -1,4 +1,7 @@
 import { expect, type Page } from '@playwright/test';
+import { exerciseSchema } from '../src/content/schemas';
+import { instantiate, variantSeedFor } from '../src/engine/params';
+import { todayKey } from '../src/engine/stats';
 
 /* Resuelve ejercicios por la interfaz a partir de su JSON (respuesta correcta o a propósito incorrecta). */
 
@@ -37,7 +40,18 @@ export const promptOf = (e: Ex) =>
 
 export async function currentExercise(page: Page, exercises: Ex[]): Promise<Ex> {
   const heading = (await page.getByRole('heading', { level: 3 }).first().textContent())?.trim();
-  const candidates = exercises.filter((e) => promptOf(e) === heading);
+  // Paramétricos (tarea 2.9): en la lección salen con las cifras del enunciado; en el repaso, con las de hoy.
+  const today = todayKey(new Date());
+  const candidates = exercises
+    .flatMap((raw) => {
+      const e = exerciseSchema.parse(raw);
+      const base = instantiate(e).exercise as unknown as Ex;
+      const variant = instantiate(e, variantSeedFor(e.id, today)).exercise as unknown as Ex;
+      return variant === base ? [base] : [base, variant];
+    })
+    .filter((e) => promptOf(e) === heading)
+    // misma plantilla con el mismo enunciado (p. ej. una hoja sin cifras en el texto): vale cualquiera
+    .filter((e, i, all) => all.findIndex((x) => x.id === e.id) === i);
   if (candidates.length === 1) return candidates[0]!;
   for (const e of candidates)
     if (e.statement && (await page.getByText(e.statement, { exact: true }).count())) return e;

@@ -12,4 +12,4 @@ Formato de cada requisito:
 - Entonces <resultado observable>
 ```
 
-Specs actuales: `sesion.md`, `ejercicios-aplicados.md`. Cambios en curso o archivados: `docs/cambios/`.
+Specs actuales: `sesion.md`, `ejercicios-aplicados.md`, `ejercicios-parametricos.md` (entre otras de esta carpeta). Cambios en curso o archivados: `docs/cambios/`.

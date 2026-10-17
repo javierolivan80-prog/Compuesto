@@ -3,6 +3,9 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { ExerciseRunner, type ExerciseOutcome } from '../src/features/exercises/ExerciseRunner';
 import { SAMPLE_TYPES, sampleExercise, type SampleType } from '../src/features/exercises/samples';
+import { exerciseSchema } from '../src/content/schemas';
+import { makeEvent, parseEvent } from '../src/engine/events';
+import { instantiate, variantSeedFor } from '../src/engine/params';
 
 /** Completa un ejercicio SOLO con teclado: Tab, Enter, Espacio y flechas. */
 function setup(type: SampleType) {
@@ -378,5 +381,102 @@ describe('tipos de aplicar y argumentar, solo con teclado', () => {
     expect(screen.getByRole('status')).toHaveTextContent('+5 XP');
     await pressKey(user, screen.getByRole('button', { name: 'Continuar' }));
     expect(onComplete.mock.calls[0]![0]).toMatchObject({ correct: true, xpFactor: 0.5 });
+  });
+});
+
+describe('ejercicios paramétricos en el ExerciseRunner (tarea 2.9)', () => {
+  const template = exerciseSchema.parse({
+    id: 'p-run',
+    type: 'numeric_input',
+    difficulty: 2,
+    bloom: 'aplicar',
+    concepts: ['interes-compuesto'],
+    prompt: 'Depositas {capital} € al {tipo} % durante un año. ¿Cuánto tendrás?',
+    answer: 1050,
+    unit: '€',
+    tolerance: 0,
+    formula: '{capital} * (1 + {tipo}/100)',
+    params: {
+      capital: { value: 1000, min: 500, max: 5000, step: 500 },
+      tipo: { value: 5, min: 1, max: 9, step: 1 },
+    },
+    explanation: 'Tendrás {answer} €.',
+  });
+
+  it('sin semilla (lección): enseña las cifras del enunciado y no guarda params', async () => {
+    const onComplete = vi.fn<(o: ExerciseOutcome) => void>();
+    const user = userEvent.setup();
+    render(<ExerciseRunner exercise={template} onComplete={onComplete} />);
+    expect(screen.getByText(/Depositas 1\.000 € al 5 %/)).toBeInTheDocument();
+    expect(screen.queryByText(/\{capital\}/)).toBeNull();
+    await user.type(screen.getByRole('textbox', { name: /Tu respuesta/ }), '1050');
+    await user.click(check());
+    await user.click(screen.getByRole('button', { name: 'Continuar' }));
+    expect(onComplete.mock.calls[0]![0].correct).toBe(true);
+    expect(onComplete.mock.calls[0]![0].params).toBeUndefined();
+  });
+
+  it('con semilla (repaso): cifras nuevas, corrige con la fórmula y devuelve las cifras', async () => {
+    const seed = variantSeedFor('p-run', '2026-10-17');
+    const { exercise, values } = instantiate(template, seed);
+    const answer = (exercise as Extract<typeof exercise, { type: 'numeric_input' }>).answer;
+    const onComplete = vi.fn<(o: ExerciseOutcome) => void>();
+    const user = userEvent.setup();
+    render(<ExerciseRunner exercise={template} onComplete={onComplete} variantSeed={seed} />);
+    expect(screen.queryByText(/Depositas 1\.000 € al 5 %/)).toBeNull();
+    await user.type(
+      screen.getByRole('textbox', { name: /Tu respuesta/ }),
+      String(answer).replace('.', ','),
+    );
+    await user.click(check());
+    await user.click(screen.getByRole('button', { name: 'Continuar' }));
+    const outcome = onComplete.mock.calls[0]![0];
+    expect(outcome.correct).toBe(true);
+    expect(outcome.params).toEqual(values);
+  });
+
+  it('el evento exercise_answered admite params y sigue aceptando los antiguos sin ellos', () => {
+    const base = {
+      exerciseId: 'p-run',
+      lessonId: 'l-1',
+      conceptIds: ['interes-compuesto'],
+      correct: true,
+      timeMs: 1000,
+      xp: 5,
+      source: 'review' as const,
+    };
+    const ctx = { deviceId: 'd1', now: new Date('2026-10-17T10:00:00Z') };
+    const old = parseEvent(makeEvent('exercise_answered', base, ctx));
+    expect('params' in old.payload ? old.payload.params : undefined).toBeUndefined();
+    const withParams = parseEvent(
+      makeEvent('exercise_answered', { ...base, params: { capital: 2000, tipo: 3 } }, ctx),
+    );
+    expect(withParams.type === 'exercise_answered' && withParams.payload.params).toEqual({
+      capital: 2000,
+      tipo: 3,
+    });
+  });
+});
+
+describe('variante que falla en ejecución', () => {
+  it('cae a las cifras del enunciado sin romper la pantalla', () => {
+    const bad = exerciseSchema.parse({
+      id: 'p-bad',
+      type: 'numeric_input',
+      difficulty: 1,
+      bloom: 'aplicar',
+      concepts: ['porcentajes'],
+      prompt: 'Divide 100 entre ({x} − 5).',
+      answer: 100,
+      tolerance: 0,
+      formula: '100 / ({x} - 5)',
+      params: { x: { value: 6, min: 5, max: 5.5, step: 1 } },
+      explanation: 'Así.',
+    });
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    render(<ExerciseRunner exercise={bad} onComplete={() => {}} variantSeed="s" />);
+    expect(screen.getByText('Divide 100 entre (6 − 5).')).toBeInTheDocument();
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
   });
 });

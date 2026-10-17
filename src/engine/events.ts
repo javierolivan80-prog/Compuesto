@@ -65,6 +65,8 @@ export const payloads = {
     xp,
     /** 'review' = repaso, práctica o examen: siempre cuenta como un intento nuevo para el repaso espaciado. */
     source: z.enum(['lesson', 'review']).default('lesson'),
+    /** Ejercicios paramétricos (tarea 2.9): cifras de la variante contestada. Ausente en los demás. */
+    params: z.record(z.string(), z.number()).optional(),
   }),
   lesson_completed: z.object({
     lessonId: id,
