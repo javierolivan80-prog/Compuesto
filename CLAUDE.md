@@ -196,14 +196,14 @@ Espaciado base 4 px · radios 10 / 16 / 999 px · sombras suaves semitransparent
 
 ## 8. Pedagogía
 
-- **Práctica de recuperación:** máx. 60 palabras de teoría por tarjeta, máx. 3 tarjetas antes de la primera pregunta.
+- **Práctica de recuperación:** máx. 60 palabras de teoría por tarjeta, máx. 3 tarjetas antes de la primera pregunta. En el itinerario Pro, cada lección puede enlazar una **ficha de referencia** consultable (fórmulas, convenciones, plantilla del entregable) que no cuenta para ese límite.
 - **Explicadores visuales interactivos:** cada unidad usa al menos uno del catálogo de `docs/ANIMACIONES.md §2` (SVG + Motion o Canvas, sin vídeo ni API). El usuario los manipula (slider o arrastre), no solo los mira.
 - **Repaso espaciado** (FSRS vía `ts-fsrs`, local) + **intercalado** de temas.
 - **Dominio por concepto:** mapa de conceptos con prerrequisitos (TEMARIO §4); fallar un concepto refuerza también sus prerrequisitos débiles.
 - **Argumentar sin IA:** ejercicios `best_argument` y `self_explain` con rúbrica (TEMARIO §6).
 - **Documentos reales:** al menos una lección por nivel con un fragmento de documento público oficial (`document_read`).
 - **Cálculo:** ejemplo resuelto → guiado (con pasos) → libre.
-- **Mezcla obligatoria por lección:** máx. 40 % ejercicios de reconocer (tipo test, verdadero/falso, emparejar); mín. 40 % de producir (numérico, rellenar estados, hoja de cálculo, ordenar, categorizar); el resto, aplicar (escenarios, casos).
+- **Mezcla obligatoria por lección:** máx. 40 % ejercicios de reconocer (tipo test, verdadero/falso, emparejar); mín. 40 % de producir (numérico, rellenar estados, hoja de cálculo, ordenar, categorizar); el resto, aplicar (escenarios, casos). **En el itinerario Pro:** máx. 20 % de reconocer.
 - **Lección:** 3–5 min, 6–10 ejercicios. Nunca más.
 - **Dominio:** unidad cerrada con ≥80 % en el Jefe final.
 - **Bloom por nivel:** niveles 0–2 con ≥50 % recordar/entender; niveles 3–6 con ≥50 % aplicar/analizar; niveles 7–9 con ≥30 % evaluar (trade-offs, decisiones con información incompleta).
