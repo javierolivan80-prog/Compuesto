@@ -117,3 +117,9 @@ Revisor independiente: direcciones de los 12 titulares y tipos de orden correcto
 - **Ronda 2:** aprobada; 2 retoques de texto aplicados (art. 150 LSC y calendario del plan operativo).
 - Cifras principales sin cambios: 9,35 €/acción, TIR 13,2 %, MOIC 1,86x, acreción +0,48 % el año 1.
 - Estado **`draft`**. **🛑 Pendiente: revisión de Javier.** **PROVISIONAL:** hipótesis de mercado (bono 3,25 %, prima 5,5 %, beta 0,65, prima por tamaño 2 %, cotización 7,50 €) sin verificar, `verificarAntesDe` 2027-04-17. Marjal Capital Partners y Grupo Azahar Calderona: sin alta en `companies.json` ni comprobación en la CNMV.
+
+## 2.9 — Ejercicios paramétricos de muestra (17/10/2026)
+
+`n0-u1-l2-e4` (interés compuesto, `numeric_input`; lección `n0-u1-l2` v3) y `n0-u2-l3-e3` (intereses del mes en hoja de cálculo; lección `n0-u2-l3` v2) pasan a tener cifras variables en el repaso.
+- **Ronda 1 (revisor-financiero):** sin errores de cálculo en todo el rango; la tolerancia no impide acertar. 1 mayor aplicado: el derivado de 3 decimales detrás de un «=» podía contradecir el redondeo → se usa el factor `1 + tipo/100` (2 decimales) y la respuesta redondeada al céntimo. Menores aplicados: `tipo.max` 9 → 6 (realismo de un depósito); el segundo caso oculto de la hoja usa TIN 0,0425 (fuera de la rejilla) para que una fórmula sin referencia a B2 no pase; etiqueta «TIN (tanto por uno)» y equivalente en % en la explicación. Aceptado sin cambio: «250,00 €» en la explicación frente a «250 €» en la intro.
+- **Ronda 2:** lanzada y **cortada por el límite de uso** antes de terminar. 🛑 Pendiente de repetir y de la revisión de Javier. Estado de las lecciones: `reviewed` (sin cambio).

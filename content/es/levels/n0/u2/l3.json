@@ -1,6 +1,6 @@
 {
   "id": "n0-u2-l3",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": ["subagente"],
   "level": 0,
@@ -73,9 +73,9 @@
       "prompt": "Escribe en B3 la fórmula de los intereses del mes: saldo × TIN / 12.",
       "cells": {
         "A1": "Saldo (€)",
-        "B1": 100000,
-        "A2": "TIN",
-        "B2": 0.03,
+        "B1": "{saldo}",
+        "A2": "TIN (tanto por uno)",
+        "B2": "{tin}",
         "A3": "Intereses del mes"
       },
       "target": "B3",
@@ -95,12 +95,37 @@
         {
           "set": {
             "B1": 120000,
-            "B2": 0.06
+            "B2": 0.0425
           },
-          "expected": 600
+          "expected": 425
         }
       ],
-      "explanation": "Intereses = saldo × TIN / 12 = 100.000 × 0,03 / 12 = 250 €. Al usar referencias, la fórmula sirve con cualquier saldo y tipo."
+      "explanation": "Intereses = saldo × TIN / 12 = {saldo} × {tin} / 12 = {intereses} € (un TIN de {tin} en tanto por uno es el {tin_pct} %). Al usar referencias, la fórmula sirve con cualquier saldo y tipo.",
+      "params": {
+        "saldo": {
+          "value": 100000,
+          "min": 20000,
+          "max": 300000,
+          "step": 10000
+        },
+        "tin": {
+          "value": 0.03,
+          "min": 0.01,
+          "max": 0.08,
+          "step": 0.005,
+          "decimals": 3
+        }
+      },
+      "derived": {
+        "intereses": {
+          "formula": "{saldo} * {tin} / 12",
+          "decimals": 2
+        },
+        "tin_pct": {
+          "formula": "{tin} * 100",
+          "decimals": 1
+        }
+      }
     },
     {
       "id": "n0-u2-l3-e4",

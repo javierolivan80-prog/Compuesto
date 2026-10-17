@@ -1,6 +1,6 @@
 {
   "id": "n0-u1-l2",
-  "version": 2,
+  "version": 3,
   "status": "reviewed",
   "reviewedBy": ["subagente"],
   "level": 0,
@@ -86,12 +86,43 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["interes-compuesto"],
-      "prompt": "Depositas 1.000 € al 5 % anual de interés compuesto durante 3 años. ¿Cuánto tienes al final? (2 decimales)",
+      "prompt": "Depositas {capital} € al {tipo} % anual de interés compuesto durante {anos} años. ¿Cuánto tienes al final? (2 decimales)",
       "answer": 1157.63,
       "tolerance": 0.01,
-      "formula": "1000 * (1 + 0.05) ^ 3",
-      "explanation": "1.000 × 1,05³ = 1.157,625 €, que redondeado son 1.157,63 €.",
-      "unit": "€"
+      "formula": "{capital} * (1 + {tipo} / 100) ^ {anos}",
+      "explanation": "{capital} × {factor} elevado a {anos} da {answer} € (redondeado al céntimo): cada año los intereses se suman al capital y también generan intereses.",
+      "unit": "€",
+      "params": {
+        "capital": {
+          "value": 1000,
+          "min": 500,
+          "max": 10000,
+          "step": 500
+        },
+        "tipo": {
+          "value": 5,
+          "min": 1,
+          "max": 6,
+          "step": 1
+        },
+        "anos": {
+          "value": 3,
+          "min": 2,
+          "max": 10,
+          "step": 1
+        }
+      },
+      "derived": {
+        "factor": {
+          "formula": "1 + {tipo} / 100",
+          "decimals": 2
+        }
+      },
+      "answerDecimals": 2,
+      "answerRange": {
+        "min": 500,
+        "max": 30000
+      }
     },
     {
       "id": "n0-u1-l2-e5",
