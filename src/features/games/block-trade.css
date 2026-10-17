@@ -1,0 +1,39 @@
+/* La compra grande: libro con barras que se vacían (scaleX, origen izquierda) y sacudida al salir la noticia. */
+.bt-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.bt-level {
+  border-radius: 6px;
+  overflow: hidden;
+}
+.bt-bar {
+  transform-origin: left center;
+  transition: transform var(--dur-short) var(--ease-out);
+  border-radius: 6px;
+}
+.bt-bar-ask {
+  background: color-mix(in oklch, var(--bear) 14%, transparent);
+}
+.bt-bar-bid {
+  background: color-mix(in oklch, var(--bull) 14%, transparent);
+}
+.bt-shake {
+  animation: bt-shake 180ms var(--ease-out);
+}
+@keyframes bt-shake {
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bt-bar {
+    transition: none;
+  }
+  .bt-shake {
+    animation: none;
+  }
+}

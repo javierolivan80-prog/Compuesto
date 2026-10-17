@@ -397,3 +397,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - Las sombras pasan a tinte cálido. El `theme-color` inicial es `#f9f3e7`.
   - CLAUDE.md §5 y DESIGN.md actualizados. Contradice la decisión inicial de CLAUDE.md («Wall Street Noche por defecto»): manda la petición de Javier.
 - **Pasos siguientes** (plan en `docs/cambios/rumbo-juego-mercado/proposal.md`): lecciones-juego, mercado vivo y temario empezando en mercados.
+- **Paso 2 hecho: La Mesa (mercado vivo)** (`src/engine/live-market.ts`, `src/features/mesa/`, spec `docs/specs/la-mesa.md`).
+  - Cartera ficticia de 10.000 € sobre las 6 cotizadas del universo. Precio inicial = BPA de 2025 × 15. Beta y volatilidad por negocio, como hipótesis didácticas.
+  - Velas por día con semilla propia, para que alargar el mercado no cambie el pasado.
+  - Teletipo de 14 tipos de noticia (`content/shared/market-news.json`, con concepto enlazado). El 60 % del impacto se descuenta en la apertura.
+  - Cada movimiento se descompone en mercado + empresa + noticia, y la mesa lo explica al cerrar.
+  - Órdenes a mercado a la apertura ± 0,05 %, con comisión del 0,1 % (mínimo 1 €). Sin cortos. Tope de 5 días de mercado por día real.
+  - XP por proceso: 5 por cerrar el día y +5 si la cartera está diversificada (≥ 3 valores y ninguno > 40 %).
+  - Eventos nuevos `mesa_order` y `mesa_day_closed` (opcionales, compatibles). La cartera es una proyección de los eventos.
+  - Inicio: la cinta sale ahora de La Mesa, para que los precios coincidan en toda la app. La tarjeta de La Mesa es la primera de Inicio.
+- **Paso 3 en curso: lección-juego.**
+  - Las lecciones admiten `game: { kind, seed }`. Se juega primero; la explicación y los ejercicios paramétricos usan las cifras de la partida (`instantiate` acepta cifras impuestas).
+  - `content:validate` comprueba los marcadores contra lo que devuelve el juego y prueba cada ejercicio con 4 partidas de referencia.
+  - Primer juego: **La compra grande** (`src/engine/games/block-trade.ts`): 600 acciones en un libro poco profundo antes de unos resultados. El precio medio se muestra con 4 decimales para que media × acciones − punto medio × acciones dé el impacto que se enseña.
+  - Lección `n1-u4-l7` en `draft`, pendiente del revisor.

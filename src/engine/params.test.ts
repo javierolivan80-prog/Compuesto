@@ -226,3 +226,16 @@ describe('instantiate', () => {
     expect(templateStrings(statement as never).texts).toContain('Caja');
   });
 });
+
+describe('cifras impuestas (lección-juego)', () => {
+  it('usa las cifras de la partida para los parámetros declarados y recalcula la respuesta', () => {
+    const r = instantiate(numeric, undefined, { capital: 2000, tipo: 3, otra: 99 });
+    const e = r.exercise as Extract<Exercise, { type: 'numeric_input' }>;
+    expect(r.values).toEqual({ capital: 2000, tipo: 3, anos: 2 });
+    expect(e.answer).toBe(Math.round(2000 * 1.03 ** 2 * 100) / 100);
+    expect(e.prompt).toContain('2.000 €');
+  });
+  it('sin cifras válidas se comporta como la plantilla', () => {
+    expect(instantiate(numeric, undefined, { otra: 1, capital: Number.NaN })).toEqual(instantiate(numeric));
+  });
+});

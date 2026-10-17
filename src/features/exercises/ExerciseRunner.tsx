@@ -131,6 +131,8 @@ interface Props {
   checkLabel?: string;
   /** Ejercicios paramétricos: con semilla se juega una variante con cifras nuevas; sin ella, el enunciado. */
   variantSeed?: string;
+  /** Lección-juego: cifras de la partida que sustituyen a las del enunciado. */
+  values?: Record<string, number>;
 }
 
 /** Ejercicio completo: respuesta → Comprobar → hoja de feedback → Continuar. Enter comprueba. */
@@ -141,18 +143,22 @@ export function ExerciseRunner({
   showFeedback = true,
   checkLabel = 'Comprobar',
   variantSeed,
+  values,
 }: Props) {
   const resolved = useMemo(() => {
     try {
-      return instantiate(template, variantSeed);
+      return instantiate(template, variantSeed, values);
     } catch (e) {
       // content:validate prueba 100 semillas, pero no todas: si la del día falla, se juega con el enunciado
       console.error(`Variante no válida de ${template.id} (${variantSeed})`, e);
       return instantiate(template);
     }
-  }, [template, variantSeed]);
+  }, [template, variantSeed, values]);
   const exercise = resolved.exercise;
-  const params = variantSeed !== undefined && resolved.values ? resolved.values : undefined;
+  const params =
+    (variantSeed !== undefined || values !== undefined) && resolved.values
+      ? resolved.values
+      : undefined;
   const titleId = useId();
   const [answer, setAnswer] = useState<Answer>(() => emptyAnswer(exercise));
   const [result, setResult] = useState<GradeResult | null>(null);

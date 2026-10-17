@@ -25,6 +25,9 @@ import { levelName } from '../../content/library';
 import { Elevator } from '../sequences/Elevator';
 import { RankUp } from '../sequences/RankUp';
 import { ExplainerBlock } from './explainers';
+import { BlockTradeGame } from '../games/BlockTradeGame';
+import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
+import { fillText } from '../../engine/params';
 
 interface Closing {
   /** Celebraciones al cerrar: ascensor si sube de planta, subida de rango si cambia de rango. */
@@ -45,9 +48,16 @@ interface Props {
 /** Lección completa: teoría (≤3 tarjetas) → ejercicios (fallos al final) → Cierre con XP y racha reales. */
 export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props) {
   const repo = useRepo();
-  const [phase, setPhase] = useState<'intro' | 'exercises' | 'closing'>(
-    lesson.intro.length ? 'intro' : 'exercises',
+  const afterGame = lesson.intro.length ? 'intro' : 'exercises';
+  const [phase, setPhase] = useState<'game' | 'intro' | 'exercises' | 'closing'>(
+    lesson.game ? 'game' : afterGame,
   );
+  /** Cifras de tu partida (lección-juego): rellenan la explicación y los ejercicios. */
+  const [gameValues, setGameValues] = useState<Record<string, number> | null>(null);
+  const fill = (text: string) =>
+    lesson.game && gameValues
+      ? fillText(text, gameValues, LESSON_GAME_FORMATS[lesson.game.kind])
+      : text;
   const [introIdx, setIntroIdx] = useState(0);
   const [session, setSession] = useState(() => startSession(lesson.exercises.map((e) => e.id)));
   const [closing, setClosing] = useState<Closing | null>(null);
@@ -93,6 +103,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         correct: outcome.correct,
         timeMs: Math.min(outcome.timeMs, 3_600_000),
         xp,
+        ...(outcome.params ? { params: outcome.params } : {}),
       }),
     );
     setSession(state);
@@ -151,6 +162,22 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
     </p>
   );
 
+  if (phase === 'game' && lesson.game) {
+    return (
+      <section aria-label={`Lección: ${lesson.title}`} className="grid gap-5">
+        {header}
+        {errorBanner}
+        <BlockTradeGame
+          seed={lesson.game.seed}
+          onDone={(v) => {
+            setGameValues(v);
+            setPhase(afterGame);
+          }}
+        />
+      </section>
+    );
+  }
+
   if (phase === 'intro') {
     const block = lesson.intro[introIdx]!;
     const last = introIdx === lesson.intro.length - 1;
@@ -163,13 +190,13 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         <div key={introIdx} className="grid gap-4">
           {block.type === 'card' && (
             <TheoryCard term={block.term ?? 'Idea clave'}>
-              <GlossaryText text={block.text} />
+              <GlossaryText text={fill(block.text)} />
             </TheoryCard>
           )}
           {block.type === 'example' && (
             <aside className="bg-surface-1 border-line rounded-[var(--radius-md)] border p-4">
               <p className="text-text-2 mb-1 text-sm">Ejemplo</p>
-              <p>{block.text}</p>
+              <p>{fill(block.text)}</p>
             </aside>
           )}
           {block.type === 'visual' && (
@@ -275,6 +302,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             <ExerciseRunner
               key={`${exercise.id}#${session.failedOnce.includes(exercise.id) ? 2 : 1}`}
               exercise={exercise}
+              values={gameValues ?? undefined}
               xp={xpForAnswer(true, session.failedOnce.includes(exercise.id))}
               onComplete={(o) => void onComplete(o)}
             />

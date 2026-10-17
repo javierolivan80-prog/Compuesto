@@ -161,11 +161,20 @@ export interface Resolved {
  * Ejercicio concreto. Sin semilla: las cifras del enunciado y las respuestas declaradas. Con semilla: cifras
  * nuevas y respuestas recalculadas con `formula`/`solution`/la fórmula de cada fila. Sin `params`: el mismo objeto.
  */
-export function instantiate(e: Exercise, seed?: string): Resolved {
+export function instantiate(
+  e: Exercise,
+  seed?: string,
+  /** Cifras impuestas (p. ej. las de tu partida en una lección-juego); solo se usan las de parámetros declarados. */
+  overrides?: Record<string, number>,
+): Resolved {
   if (!isParametric(e)) return { exercise: e, values: null };
   const params = e.params!;
-  const values = seed === undefined ? baseValues(params) : generateValues(params, seed);
-  const variant = seed !== undefined;
+  const generated = seed === undefined ? baseValues(params) : generateValues(params, seed);
+  const forced = Object.fromEntries(
+    Object.entries(overrides ?? {}).filter(([k, v]) => k in params && Number.isFinite(v)),
+  );
+  const values = { ...generated, ...forced };
+  const variant = seed !== undefined || Object.keys(forced).length > 0;
   const scope: Record<string, number> = { ...values };
   const formats: Record<string, Format> = Object.fromEntries(
     Object.entries(params).map(([k, p]) => [k, [0, p.decimals] as const]),

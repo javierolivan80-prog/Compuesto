@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { LESSON_GAMES } from '../engine/games/lesson-games';
 
 /* Esquemas de contenido (docs/TEMARIO.md §4–§7, CLAUDE.md §9). Fuente única: la app y content:validate usan estos mismos. */
 
@@ -383,6 +384,8 @@ export const lessonSchema = z.object({
   companies: z.array(slug).default([]),
   /** Lección histórica: permite nombrar empresas reales. */
   historical: z.boolean().default(false),
+  /** Lección-juego: se juega antes de la teoría y sus cifras ({avg}, {impact}…) rellenan la explicación y los ejercicios. */
+  game: z.object({ kind: z.enum(LESSON_GAMES), seed: z.number().int().min(0) }).optional(),
   intro: z.array(introBlock).default([]),
   exercises: z.array(exerciseSchema).min(1),
   realWorld: text.optional(),

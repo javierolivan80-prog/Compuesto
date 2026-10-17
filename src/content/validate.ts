@@ -1,5 +1,6 @@
 import { chartFacts, chartSeries } from '../engine/charts';
 import { evaluateNumber } from '../engine/expr';
+import { LESSON_GAME_FORMATS, referenceValues } from '../engine/games/lesson-games';
 import {
   ANSWER_MARKER,
   fillFormula,
@@ -486,6 +487,39 @@ function checkLesson(
     if (!e.id.startsWith(`${l.id}-`))
       err('id-formato', `El id debería empezar por "${l.id}-"`, e.id);
     out.push(...checkExercise(e, strict));
+  }
+  if (l.game) out.push(...checkLessonGame(l));
+  return out;
+}
+
+/**
+ * Lección-juego: la explicación solo puede citar cifras que devuelve el juego, y cada ejercicio paramétrico tiene
+ * que funcionar con las cifras de varias partidas de referencia (todo de golpe, trocear, esperar…).
+ */
+function checkLessonGame(l: Lesson): Issue[] {
+  const out: Issue[] = [];
+  const game = l.game!;
+  const keys = new Set(Object.keys(LESSON_GAME_FORMATS[game.kind]));
+  const bad = (where: string, message: string) =>
+    out.push({ severity: 'error', code: 'juego-leccion', where, message });
+  for (const b of l.intro)
+    if (b.type !== 'visual')
+      for (const m of markersOf(b.text))
+        if (!keys.has(m))
+          bad(l.id, `La explicación cita {${m}}, que el juego ${game.kind} no devuelve`);
+  const runs = referenceValues(game.kind, game.seed);
+  for (const e of l.exercises) {
+    if (!isParametric(e)) continue;
+    runs.forEach((values, i) => {
+      try {
+        const concrete = instantiate(e, undefined, values).exercise;
+        const problems = checkConcrete(concrete, true).filter((x) => x.severity === 'error');
+        if (problems.length)
+          bad(e.id, `Con la partida de referencia ${i + 1}: ${problems[0]!.message}`);
+      } catch (x) {
+        bad(e.id, `Con la partida de referencia ${i + 1}: ${(x as Error).message}`);
+      }
+    });
   }
   return out;
 }
