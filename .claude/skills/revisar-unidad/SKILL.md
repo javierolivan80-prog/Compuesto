@@ -21,11 +21,11 @@ Las skills sirven para saber **qué mirar**; la corrección se decide con la bib
 |---|---|---|
 | Cualquier unidad con modelo (3 estados, DCF, LBO, merger) | Cada cifra coincide con el JSON de `/content/shared/models/` y su test pasa | `modelo-referencia` |
 | Contabilidad | Asientos que cuadran; criterio PGC vs NIIF explícito cuando difieren (fondo de comercio, arrendamientos, gastos de I+D) | knowledge-work `finance`, `3-statement-model` (Core Linkages) |
-| Valoración | FCFF vs FCFE coherentes con la tasa; mitad de año; g < WACC; caja neta con signo correcto; dilución (treasury stock method) | `dcf-model`, `comps-analysis`, `company-valuation` |
+| Valoración | FCFF vs FCFE coherentes con la tasa; mitad de año; g < WACC; caja neta con signo correcto; dilución (treasury stock method) | `dcf-model`, `comps-analysis` |
 | LBO / PE | Fuentes = usos; interés sobre saldo inicial; barrido con prioridad; TIR y MOIC con signos correctos; art. 16 LIS | `lbo-model`, `returns-analysis` |
 | M&A | Acreción con BPA, no con beneficio; acciones nuevas al precio de la compradora; PPA e impuesto diferido | `merger-model`, andreworia `accretion-dilution-tester` (consulta) |
 | Renta fija | Convención de días y frecuencia; duración modificada vs Macaulay; signo de la convexidad | `fixed-income-sovereign`, `fixed-income-corporate` |
-| Derivados | Paridad put-call; payoff neto de prima; unidades de las griegas | `options-payoff`, `options-strategy-advisor` |
+| Derivados | Paridad put-call; payoff neto de prima; unidades de las griegas | `options-strategy-advisor`; Hull para paridad put-call |
 | Carteras, riesgo, estadística | n − 1 en varianza muestral; anualización (√252 vs √12); VaR con horizonte y nivel; sesgo de supervivencia y look-ahead | `statistics-fundamentals`, `historical-risk`, `forward-risk`, `backtest-expert` |
 | Banca | Fases IFRS 9 y pérdida esperada 12 meses vs vida; colchones de capital y requisitos vigentes con fecha | GAJETOso `ecl-computation`, `banking-compliance` (consulta) |
 | Buy-side | Tesis con percepción diferencial, catalizador y qué la invalidaría; no es recomendación sobre empresas reales | ai-berkshire `/investment-checklist`, `/thesis-tracker` (marco) |

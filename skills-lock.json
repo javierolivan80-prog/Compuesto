@@ -289,12 +289,6 @@
       "skillPath": "skills/06-by-emotional-outcome/comfort-safety/SKILL.md",
       "computedHash": "af44dcb7d8fa651798efec341e5f8c30377541f1299e23ca00e8a1359c67b082"
     },
-    "company-valuation": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/company-valuation/SKILL.md",
-      "computedHash": "b5637cc7b6231d057d6544314dec0dacfa0ee0466d5e161c2c8a16dc89e4a71b"
-    },
     "continuous-infinite": {
       "source": "dylantarre/animation-principles",
       "sourceType": "github",
@@ -367,18 +361,6 @@
       "skillPath": "skills/08-by-industry/e-commerce-retail/SKILL.md",
       "computedHash": "dd791e2661b4444aee4e4dcb118a590af46ae44c20dbd2e33e30a45d02120c32"
     },
-    "earnings-preview": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/earnings-preview/SKILL.md",
-      "computedHash": "fa8fae0f1738c8b7c58fb05961870f74a63e6496f8fef729e9122f05ba4546bc"
-    },
-    "earnings-recap": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/earnings-recap/SKILL.md",
-      "computedHash": "6b989b2efc76d7fb9cadb21ebe6051b026097e470acb33efdddc3b11ea751368"
-    },
     "education-learning": {
       "source": "dylantarre/animation-principles",
       "sourceType": "github",
@@ -426,12 +408,6 @@
       "sourceType": "github",
       "skillPath": "skills/05-by-animation-type/entrance-animations/SKILL.md",
       "computedHash": "273d6f42e16b98d45ada32d336e4cd38f137915ef53dce19b3220e3f98287f1f"
-    },
-    "estimate-analysis": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/estimate-analysis/SKILL.md",
-      "computedHash": "72c6f9a1386a5a1bb58315755a1a17333c6d51c54d4990188a09f2698bc8eae1"
     },
     "exaggerated-clarity": {
       "source": "dylantarre/animation-principles",
@@ -733,12 +709,6 @@
       "skillPath": "skills/07-by-ui-element/notifications-toasts/SKILL.md",
       "computedHash": "91fdc218713a330d39cf8d0eeaa1a5e41afb55f2735058e0877c435440c63491"
     },
-    "options-payoff": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/options-payoff/SKILL.md",
-      "computedHash": "ff8500753380945312e21d31bc1cb72e5a8846d45e481c128d1ba31e0e76e3e4"
-    },
     "orchestrated-sequences": {
       "source": "dylantarre/animation-principles",
       "sourceType": "github",
@@ -937,23 +907,11 @@
       "skillPath": "skills/11-by-principle-focus/staging-mastery/SKILL.md",
       "computedHash": "006a64aa509eda441d019d35dde9213262cf0a2223671ad34f95b81e272f2f23"
     },
-    "startup-analysis": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/startup-tools/skills/startup-analysis/SKILL.md",
-      "computedHash": "78a1948fb94ba0930ae801c01bf56a70f22e3a58d3c87b55a997693ce323bc5a"
-    },
     "state-changes": {
       "source": "dylantarre/animation-principles",
       "sourceType": "github",
       "skillPath": "skills/05-by-animation-type/state-changes/SKILL.md",
       "computedHash": "14465c147bcb76983ab2b6d7b69a9c5755634e4115ee1f5cf666b537e76726e9"
-    },
-    "stock-correlation": {
-      "source": "himself65/finance-skills",
-      "sourceType": "github",
-      "skillPath": "plugins/market-analysis/skills/stock-correlation/SKILL.md",
-      "computedHash": "042cdfaffaed94b342b968254a96839861dcea21fa0b57679c5672d1534444e5"
     },
     "straight-ahead-pose-mastery": {
       "source": "dylantarre/animation-principles",
