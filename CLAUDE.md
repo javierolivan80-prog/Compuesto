@@ -14,11 +14,11 @@
 
 **Compuesto** es una app web **de uso personal** (PWA instalable) que enseña bolsa, inversión, contabilidad, macro, derivados y finanzas profesionales **como Duolingo**: lecciones de 3–5 min, minijuegos, rachas, rivales simulados y repaso espaciado.
 
-- **Para quién:** un único usuario, Javier: va a empezar Finanzas y Contabilidad y su objetivo es la banca. **No es un producto público ni comercial:** no hay usuarios externos, ingresos, marketing ni lanzamiento. Toda decisión se toma pensando en que la use bien una sola persona durante años.
+- **Para quién:** un único usuario, Javier: va a empezar Finanzas y Contabilidad y su objetivo es la banca de inversión y las finanzas de inversores (buy-side), y **volverse experto en el mercado**. **No es un producto público ni comercial:** no hay usuarios externos, ingresos, marketing ni lanzamiento. Toda decisión se toma pensando en que la use bien una sola persona durante años.
 - **Concepto del nombre:** el interés compuesto. Poco cada día se multiplica.
 - **Promesa (ES):** *20 minutos al día. Se capitalizan.* Subtítulo: *Llega a la carrera sabiendo lo que otros aprenden en cuarto.*
-- **Itinerario:** año troncal de 10 niveles (de cero a la amplitud del CFA Nivel I a nivel intuitivo, más lo específico de España) + 4 ramas de especialización (Banca y riesgos, Mercados y trading, Corporate y valoración, Fintech y cuantitativo) que llevan a **nivel de conocimientos de analista junior**.
-- **Honestidad de la promesa:** Compuesto da conocimientos, vocabulario profesional, intuición y práctica guiada. No promete sustituir un título, un máster ni experiencia profesional; nunca se afirma eso en la app.
+- **Itinerario:** año troncal de 10 niveles (de cero a la amplitud del CFA Nivel I a nivel intuitivo, más lo específico de España) + **itinerario Pro de 6 ramas** (Investment Banking, Equity Research y Buy-side, Private Equity y VC, Banca y riesgos, Mercados, Fintech y cuantitativo) que lleva a **nivel técnico de entrevista y de primer año de analista**: construir los modelos y entregables reales (comps, DCF, LBO, merger model, CIM, informe de research, IC memo), no solo conocer los conceptos. Detalle en `docs/TEMARIO.md` §3.
+- **Honestidad de la promesa:** Compuesto da conocimientos, vocabulario profesional, intuición y práctica técnica guiada a nivel de analista junior. No promete sustituir un título, un máster, el CFA ni experiencia profesional; nunca se afirma eso en la app.
 - **Punto de partida:** nivel de entrada de primero de carrera; los tests de salto por unidad permiten saltarse lo que ya domine.
 - **Diferencial:** lo que la carrera no enseña: fiscalidad práctica española, psicología y sesgos, leer cuentas reales en la CNMV, microestructura, fraudes, crisis históricas jugables, Excel financiero, entrevistas de banca.
 - **Idioma y mercado:** español de España, contexto español (IBEX 35, CNMV, BME, Banco de España, BCE, Hacienda). El contenido en inglés queda **fuera de alcance**; la interfaz usa i18n desde el principio (todos los textos en archivos de idioma) para que añadirlo después no obligue a rehacer nada.
@@ -46,7 +46,7 @@
 
 - React 19 + Vite + TypeScript `strict` + Tailwind CSS v4 (tokens en CSS variables) + Radix/shadcn restyleado al 100 %.
 - **Versiones fijadas con número exacto en `package.json`** tras comprobar compatibilidad en la tarea 0.1 (ver `DECISIONES.md`). Comprobado el 13/10/2026: `typescript@latest` es la 7.x, pero `typescript-eslint` solo admite TypeScript < 6.1 → usar **TypeScript 6.0.x** hasta que el lint soporte la 7. Vite 8 exige Node ≥ 20.19 o ≥ 22.12.
-- Motion (ex Framer Motion), Sonner (toasts), Vaul (bottom sheets). Confirmar con la skill `pick-ui-library`.
+- Motion (ex Framer Motion) para la UI; **GSAP** (gratuito, con DrawSVG y MorphSVG) para los explicadores arrastrables, porque una línea de tiempo se controla directamente con un slider (se incorpora al construir el primer explicador que lo necesite y se anota en `DECISIONES.md`, comprobando su licencia vigente). Sonner (toasts), Vaul (bottom sheets). Confirmar con la skill `pick-ui-library`.
 - Zustand, Dexie (+ `dexie-react-hooks`), Zod, **ts-fsrs** (FSRS mantenido; no se reimplementa el algoritmo). `lightweight-charts` (velas) + visx o Recharts. Tableros de juego en Canvas 2D (PixiJS solo si un benchmark lo justifica, ver JUEGOS.md §2). Pyodide (Python en el navegador, carga perezosa) solo para la rama Fintech. `html-to-image` (tarjetas compartibles). i18next (solo `es`; estructura lista para más idiomas). vite-plugin-pwa. Lucide o Phosphor (**nunca emojis como iconos**).
 - Supabase (Fase 3, opcional): un único usuario con email y contraseña (sin email mágico: el correo por defecto de Supabase solo envía 2 mensajes por hora a miembros del proyecto, y no hace falta más), alta pública desactivada, RLS igualmente activo.
 - Vitest + Testing Library; Playwright (flujos clave + capturas a 375/768/1440 px).
@@ -89,6 +89,8 @@ PRODUCT.md  DESIGN.md  DECISIONES.md  CONTENIDO-QA.md
 ---
 
 ## 4. Skills (uso obligatorio)
+
+> La lista curada, con instalación y motivo, está en `SKILLS.md` (versión del 17/10/2026). Las skills de terceros se revisan antes de instalar; `EXECUTION.md` manda sobre el flujo de trabajo de cualquier skill.
 
 Todas se instalan y se **verifican en el entorno real en la tarea 0.1**. Si alguna falla, se anota en `DECISIONES.md`, se aplican sus principios con estos documentos y se sigue: ninguna bloquea el proyecto. Las de terceros se revisan antes de instalar (son instrucciones que Claude seguirá). Desactivar la telemetría de Impeccable con `npx impeccable telemetry off`.
 

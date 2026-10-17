@@ -9,6 +9,19 @@ export const STATUSES = ['draft', 'reviewed', 'published', 'retired'] as const;
 export const BLOOM = ['recordar', 'entender', 'aplicar', 'analizar', 'evaluar', 'crear'] as const;
 export const CHARACTERS = ['mentora', 'rival', 'jefe', 'compliance'] as const;
 export const REVIEWERS = ['subagente', 'humano'] as const;
+/** Bloques del temario CFA Nivel I (docs/TEMARIO.md §3b). */
+export const CFA_BLOCKS = [
+  'ethics',
+  'quantitative-methods',
+  'economics',
+  'financial-statement-analysis',
+  'corporate-issuers',
+  'equity',
+  'fixed-income',
+  'derivatives',
+  'alternative-investments',
+  'portfolio-management',
+] as const;
 
 const isoDay = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'fecha yyyy-mm-dd');
 const text = z.string().trim().min(1);
@@ -22,6 +35,8 @@ const exerciseBase = {
   tags: z.array(text).default([]),
   concepts: z.array(slug).min(1, 'cada ejercicio evalúa al menos un concepto'),
   character: z.enum(CHARACTERS).optional(),
+  /** Apta como pregunta de entrevista para el juego Superday (ramas Pro). */
+  interview: z.boolean().optional(),
   explanation: text,
   hint: text.optional(),
 };
@@ -318,6 +333,8 @@ export const lessonSchema = z.object({
   track: slug.optional(),
   unit: z.number().int().min(1),
   title: text,
+  /** Bloque CFA al que pertenece (informe de cobertura en content:check). */
+  cfa: z.enum(CFA_BLOCKS).optional(),
   estimatedMinutes: z.number().int().min(1).max(10),
   objectives: z.array(text).min(1),
   concepts: z.array(slug).min(1),

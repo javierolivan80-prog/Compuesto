@@ -543,9 +543,9 @@ Aceptación: CI en verde; el job de content:check abre un issue de prueba.
 
 ---
 
-# FASE 6 — Ramas de especialización
+# FASE 6 — Itinerario Pro
 
-> Se construyen cuando el troncal esté avanzado. Orden por tu objetivo (banca): **Banca y riesgos → Corporate y valoración → Mercados y trading → Fintech y cuantitativo**. Cada rama puede empezarse en cuanto se apruebe su nivel de desbloqueo.
+> Orden por tu objetivo: **Investment Banking → Equity Research y Buy-side → Private Equity y VC → Banca y riesgos → Mercados → Fintech**. Cada rama puede empezarse en cuanto su nivel de desbloqueo esté publicado (Investment Banking y Equity Research se abren con N3, así que pueden empezar antes de terminar el troncal).
 
 ### 6.1 — Infraestructura de ramas
 ```
@@ -560,13 +560,14 @@ Aceptación: una rama vacía de prueba se desbloquea y se recorre; Pyodide no au
 ### 6.2 — Contenido de una rama (bucle por unidad) 🛑
 ```
 Lee CLAUDE.md, EXECUTION.md y docs/TEMARIO.md. Tarea 6.2 — Rama [nombre], unidad [X].
-Igual que 1.9, con el temario de TEMARIO §3, el caso hilo propio de la rama y conceptos nuevos añadidos a concepts.json con sus prerrequisitos del troncal. Una unidad por conversación.
+Igual que 1.9, con el temario de TEMARIO §3 y §3b, el caso hilo propio de la rama y conceptos nuevos añadidos a concepts.json con sus prerrequisitos del troncal. Una unidad por conversación.
+Además: (1) antes de escribir ejercicios, generar con `modelo-referencia` y la skill de financial-services del entregable de la unidad el **modelo de referencia** sobre una empresa ficticia, y comprobar sus cifras con tests; (2) usar los formatos Pro (modelo por piezas, deal room, pitch al comité); (3) marcar con `interview: true` las preguntas aptas para Superday; (4) campo `cfa` y referencia bibliográfica concreta en `sources`.
 🛑 Revisión de Javier (contrastando con fuentes y apuntes) antes de published.
 ```
 
 ### 6.3 — Juegos de ramas
 ```
-Lee CLAUDE.md, EXECUTION.md y docs/JUEGOS.md. Tarea 6.3 — Juego [Comité de riesgos | Market maker | Sala de M&A | La trampa del backtest].
+Lee CLAUDE.md, EXECUTION.md y docs/JUEGOS.md. Tarea 6.3 — Juego [Superday | Subasta de venta | Sala de M&A | Comité de riesgos | Market maker | La trampa del backtest].
 Depende de: 6.1 y la rama correspondiente con al menos 2 unidades publicadas.
 Incluye: el juego según su ficha de JUEGOS.md §4, integrado en la sesión cuando el usuario está en esa rama.
 Aceptación: criterios de JUEGOS.md §5 y tests de su lógica financiera.

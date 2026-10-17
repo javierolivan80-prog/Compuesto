@@ -1,19 +1,21 @@
 # docs/TEMARIO.md — Contenido de Compuesto
 
-> Colócalo en `docs/TEMARIO.md`. Define el itinerario completo (año troncal + 4 ramas), el mapa de conceptos, los tipos de ejercicio, el test de nivel, el esquema JSON y el control de calidad. Los minijuegos se diseñan en `docs/JUEGOS.md`.
+> Colócalo en `docs/TEMARIO.md`. Define el itinerario completo (año troncal + itinerario Pro de 6 ramas), el mapa de conceptos, los tipos de ejercicio, el test de nivel, el esquema JSON y el control de calidad. Los minijuegos se diseñan en `docs/JUEGOS.md`.
 
 ---
 
 ## 0. A dónde lleva
 
-| Tramo | Duración | Nivel de conocimientos al terminar |
+| Tramo | Duración | Nivel al terminar |
 |---|---|---|
-| Niveles 0–2 | Semanas 1–16 | Finanzas personales sólidas + bases de bachillerato y 1.º de carrera |
-| Niveles 3–5 | Semanas 17–36 | Contenidos de 2.º–4.º de ADE/Finanzas: contabilidad española, valoración, macro, banca, mercados |
-| Niveles 6–9 | Semanas 37–52 | Amplitud equivalente al **CFA Nivel I** a nivel intuitivo + lo específico de España |
-| Ramas | 8 semanas cada una | Profundidad de **analista junior** en el área; prioridad: Banca y riesgos |
+| Troncal N0–N2 | Semanas 1–16 (menos con tests de salto) | Finanzas personales, mercados y productos: lo que la carrera da por sabido |
+| Troncal N3–N5 | Semanas 17–36 | Contabilidad española e IFRS, valoración, macro, banca y mercados de 2.º–4.º de carrera |
+| Troncal N6–N9 | Semanas 37–52 | Amplitud del **CFA Nivel I** (los 10 bloques) + lo específico de España |
+| **Itinerario Pro** (6 ramas) | 8–12 semanas cada una | **Nivel técnico de entrevista y de primer año** de analista en investment banking, equity research, private equity, mercados o riesgos: hacer los modelos y entregables reales, no solo conocer los conceptos |
 
-Promesa honesta: de cero a **nivel de conocimientos de analista junior** (vocabulario, conceptos, cálculo e intuición). No sustituye la experiencia profesional ni un título oficial.
+**Lo que diferencia el nivel Pro:** no basta con saber qué es un LBO; hay que **construirlo** (fuentes y usos, calendario de deuda, cash sweep, TIR y MOIC), defenderlo ante un comité y responder preguntas técnicas de entrevista con presión de tiempo. Cada rama Pro se organiza alrededor de los **entregables que hace un analista real** (ver §3).
+
+Promesa honesta: conocimientos y práctica técnica a nivel de analista junior. No sustituye la experiencia, un título oficial ni el CFA.
 
 ---
 
@@ -21,12 +23,12 @@ Promesa honesta: de cero a **nivel de conocimientos de analista junior** (vocabu
 
 Nivel (= rango = planta de Albufera Partners) → Unidad → Lección → Ejercicios.
 - **Año troncal:** 10 niveles, 52 semanas, ~700 lecciones.
-- **Ramas:** 4 especializaciones de ~8 semanas (~110 lecciones cada una). Se desbloquean al aprobar el nivel indicado y se pueden hacer en paralelo al troncal (a costa de avanzar más despacio) o al terminarlo.
+- **Itinerario Pro:** 6 ramas de 8–12 semanas. Se desbloquean al aprobar el nivel indicado y se pueden hacer en paralelo al troncal (a costa de avanzar más despacio) o al terminarlo. **Vía rápida:** si ya dominas N0–N2 (por la carrera), los tests de salto te llevan a N3 en pocos días y la primera rama Pro (Investment Banking) se abre al aprobar N3.
 - 4–8 unidades por nivel · 4–6 lecciones por unidad · **6–10 ejercicios por lección (3–5 min)**.
 - Cada unidad termina con **Jefe final** (≥80 %) y una tarjeta **"Dónde verás esto"**.
 - Una vez por semana, **Encargo del jefe** sobre el caso hilo (8–10 min, varios pasos).
 - Cada nivel y cada rama terminan con **Comité de inversión** + diploma PDF local para tu Despacho.
-- **Orden de producción:** primero Niveles 0 y 1 completos (prueba personal de 4 semanas). Después, el resto del troncal, adelantando lo que coincida con la carrera en cada cuatrimestre. Las ramas, empezando por Banca y riesgos, cuando su nivel de desbloqueo esté publicado (ver `FASES.md`).
+- **Orden de producción:** primero Niveles 0 y 1 completos (prueba personal de 4 semanas). Después, el resto del troncal, adelantando lo que coincida con la carrera en cada cuatrimestre. Las ramas Pro, empezando por Investment Banking y Equity Research/Buy-side, en cuanto su nivel de desbloqueo esté publicado (ver `FASES.md`).
 - **Presupuesto realista:** apuntar en `CONTENIDO-QA.md` las horas reales de revisión por unidad para ajustar el ritmo; es preferible un temario más corto y correcto que uno completo con errores.
 
 ### Hilos transversales (en todos los niveles)
@@ -82,21 +84,79 @@ Burbujas y crisis: tulipanes, 1929, puntocom, 2008, **burbuja inmobiliaria espa�
 
 ---
 
-## 3. Ramas de especialización
+## 3. Itinerario Pro
 
-Cada rama: 8 semanas, Comité final, certificado, un juego propio (JUEGOS.md §4) y su propio caso hilo dentro de Albufera Partners.
+Cada rama: Comité final, diploma, juego propio (JUEGOS.md §4), caso hilo propio dentro de Albufera Partners y un **banco de preguntas de entrevista** (técnicas y de comportamiento) que alimenta el juego **Superday**.
 
-**🏦 Banca y riesgos** — desbloquea al aprobar el Nivel 4
-Productos de activo y pasivo para particulares y empresas · riesgo de crédito avanzado: scoring, rating interno, modelos IRB (intuición) · IFRS 9: fases y pérdida esperada · gestión de activos y pasivos (ALM) y riesgo de tipo de interés · liquidez y financiación · riesgo de mercado y operacional · capital: Pilares 1, 2 y 3 · test de estrés · banca privada y asesoramiento bajo MiFID · prevención del blanqueo avanzada · caso: un año en el comité de riesgos.
+**Formatos exclusivos del nivel Pro**
+- **Modelo por piezas:** un modelo completo (3 estados, DCF, LBO, fusión) se construye a lo largo de 5–8 lecciones con `spreadsheet` y `build_statement`; cada lección parte del estado que dejó la anterior y el resultado final se compara con el **modelo de referencia** (skill `modelo-referencia`).
+- **Deal room:** `case_step` de varios días que simula un proceso real (p. ej. venta de una empresa: teaser → NDA → CIM → ofertas no vinculantes → due diligence → oferta vinculante → firma).
+- **Pitch al comité:** defender una tesis (compra/venta/pasa) con `best_argument` + `self_explain` y rúbrica: tesis, valoración, catalizadores, riesgos, qué te haría cambiar de opinión.
+- **Superday:** rondas cronometradas de preguntas técnicas tipo entrevista ("walk me through a DCF", "¿qué pasa con los tres estados si la depreciación sube 10?", "¿por qué un LBO funciona?").
+- **Leer como un profesional:** fragmentos de folletos de OPV, informes de fairness, notas de research y comunicados de OPA reales de la CNMV con `document_read`.
 
-**📈 Mercados y trading** — desbloquea al aprobar el Nivel 5
-Renta fija avanzada: inmunización, carry y roll-down, posicionamiento en curva · derivados avanzados: griegas de una cartera, volatilidad implícita y sonrisa, introducción a exóticos · divisas y materias primas · cómo funciona una mesa (ventas, trading, research) · ejecución algorítmica · riesgo de mesa: VaR, límites, P&L · caso: un trimestre como trader junior.
+**🏛 Investment Banking** — desbloquea al aprobar N3 · 12 semanas
+1. **Contabilidad para banqueros:** ajustes no recurrentes, EBITDA ajustado, del equity value al enterprise value (EV bridge: deuda neta, minoritarios, asociadas, preferentes, arrendamientos IFRS 16), dilución por opciones (treasury stock method).
+2. **Comparables cotizados:** selección del grupo, calendarización de ejercicios, múltiplos LTM y forward, outliers. *Entregable:* tabla de comps.
+3. **Transacciones precedentes:** prima de control, sinergias implícitas. *Entregable:* tabla de precedentes.
+4. **DCF de banco de inversión:** FCFF, convención de mitad de año, periodos stub, valor terminal por Gordon y por múltiplo (y cómo se contradicen), WACC con beta desapalancada y reapalancada. *Entregable:* DCF + football field.
+5. **Modelo de 3 estados completo** con calendarios (circulante, activo fijo, deuda, patrimonio) y su comprobación.
+6. **M&A:** estructura de la operación, contraprestación en efectivo/acciones, acreción/dilución, asignación del precio de compra (PPA) y fondo de comercio, sinergias, fairness opinion. *Entregable:* merger model.
+7. **LBO:** fuentes y usos, tramos de deuda (senior, TLB, high yield, mezzanine), calendario de deuda, cash sweep, covenants, TIR y MOIC, recapitalización por dividendo. *Entregable:* LBO completo.
+8. **Proceso de venta y compra:** teaser, CIM, lista de compradores, process letter, IOI y LOI, data room, SPA, W&I. *Entregables:* teaser, buyer list, process letter.
+9. **ECM:** OPV (bookbuilding, greenshoe, lock-up, estabilización), colocaciones aceleradas, ampliaciones con derechos en España, OPAs y su regulación (CNMV).
+10. **DCM y financiación apalancada:** emisiones de bonos, ratings, covenants, high yield, préstamos sindicados, TLB, CLOs.
+11. **Reestructuraciones:** cascada de prelación, quitas y esperas, canje de deuda por capital, **planes de reestructuración del TRLC (reforma 2022)**.
+12. **El oficio:** pitch book, estructura de un equipo, horarios, cómo se revisa un modelo (`audit-xls`), errores típicos de analista. *Skills de referencia (financial-services):* `comps-analysis`, `dcf-model`, `3-statement-model`, `merger-model`, `lbo-model`, `teaser`, `cim-builder`, `buyer-list`, `process-letter`, `strip-profile`, `pitch-deck`, `audit-xls`.
 
-**🏢 Corporate y valoración** — desbloquea al aprobar el Nivel 3
-Modelo de 3 estados completo · DCF avanzado · comparables y transacciones precedentes · suma de partes · valorar sectores especiales: bancos, aseguradoras, inmobiliarias · M&A completo (acreción/dilución, due diligence) · LBO completo · reestructuraciones y **concurso de acreedores en España** · private equity y venture capital desde dentro · cómo se hace un pitch book · caso: la venta de Naranjas del Turia.
+**📊 Equity Research y Buy-side (inversión en renta variable)** — desbloquea al aprobar N3 · 10 semanas
+1. **Cómo piensa un inversor profesional:** tesis, percepción diferencial (variant perception), catalizadores, margen de seguridad, horizonte.
+2. **Modelo de resultados:** del guidance al modelo, consenso, sorpresas, revisiones de estimaciones. *Entregable:* earnings model.
+3. **Valoración avanzada:** FCFF vs FCFE, renta residual, suma de partes, valoración por sectores (bancos con P/VTC y ROTE, aseguradoras, utilities reguladas, inmobiliarias con NAV, tecnológicas con unit economics).
+4. **Calidad del beneficio:** conversión a caja, ajustes agresivos, señales de alerta contable (casos Wirecard, Enron, Pescanova).
+5. **Análisis de resultados en vivo:** qué mirar el día de resultados. *Entregables:* earnings preview y earnings update.
+6. **Initiating coverage:** estructura de un informe completo y recomendación. *Entregable:* informe de inicio de cobertura.
+7. **Análisis sectorial y cadena de valor.** *Entregable:* sector overview.
+8. **Del análisis a la cartera:** tamaño de posición, convicción, seguimiento de tesis, cuándo vender, catalyst calendar. *Entregables:* thesis tracker y calendario de catalizadores.
+9. **Estrategias de hedge funds:** long/short, event-driven y merger arbitrage, activismo, macro, crédito, cuantitativas; atribución de resultados (Brinson) y exposición a factores.
+10. **Ventas en corto como inversor:** tesis bajista, coste del préstamo, short squeeze, informes de short sellers. *Skills de referencia:* `earnings-analysis`, `earnings-preview`, `initiating-coverage`, `model-update`, `morning-note`, `sector-overview`, `thesis-tracker`, `catalyst-calendar`, `idea-generation`.
 
-**⚙️ Fintech y cuantitativo** — desbloquea al aprobar el Nivel 6
-Medios de pago y su infraestructura · open banking (PSD2/PSD3) · euro digital · cripto, DeFi y tokenización bajo MiCA · regtech · IA en finanzas: usos y sesgos · **Python para finanzas** en el navegador (Pyodide, sin servidor) · series temporales · modelos de factores · Monte Carlo y backtesting rigurosos · caso: lanzar un producto fintech en Albufera Partners.
+**💼 Private Equity y Venture Capital** — desbloquea al terminar la unidad de LBO de Investment Banking · 8 semanas
+1. Cómo funciona un fondo: GP/LP, comisiones (2/20), carry, waterfall, hurdle, vintage, J-curve, TVPI/DPI/IRR.
+2. Originación y screening de operaciones. *Entregables:* deal sourcing y deal screening.
+3. Due diligence comercial, financiera y legal. *Entregable:* checklist de DD.
+4. Memo para el comité de inversión. *Entregable:* IC memo.
+5. Plan de creación de valor y seguimiento de KPIs de la participada. *Entregables:* value creation plan y portfolio monitoring.
+6. Salidas: venta a industrial, secundario, OPV; análisis de retornos. *Entregable:* returns analysis.
+7. Venture capital: rondas, valoración pre/post-money, cap table, preferencias de liquidación, antidilución, SAFE y notas convertibles; unit economics (CAC, LTV, payback, cohortes). *Entregable:* unit economics.
+8. Private credit y secundarios. *Skills de referencia:* `deal-sourcing`, `deal-screening`, `dd-checklist`, `ic-memo`, `value-creation-plan`, `portfolio-monitoring`, `returns-analysis`, `unit-economics`.
+
+**🏦 Banca y riesgos** — desbloquea al aprobar N4 · 8 semanas
+Productos de activo y pasivo para particulares y empresas · riesgo de crédito avanzado (scoring, rating interno, modelos IRB a nivel intuitivo) · IFRS 9: fases y pérdida esperada · ALM y riesgo de tipo de interés (IRRBB) · liquidez y financiación · riesgo de mercado y operacional · capital: Pilares 1, 2 y 3 · test de estrés · banca privada y asesoramiento bajo MiFID · prevención del blanqueo avanzada · caso: un año en el comité de riesgos.
+
+**📈 Mercados, Sales & Trading** — desbloquea al aprobar N5 · 10 semanas
+Renta fija avanzada (inmunización, carry y roll-down, posicionamiento en curva, crédito y CDS, swaps y curva swap) · derivados avanzados (griegas de cartera, volatilidad implícita, sonrisa y superficie, estructurados y exóticos básicos) · divisas y materias primas · market making e inventario · ejecución y algoritmos (VWAP, TWAP, implementation shortfall) · cómo funciona una mesa (sales, trading, structuring, research) · riesgo de mesa (VaR, límites, P&L explain) · caso: un trimestre como trader junior.
+
+**⚙️ Fintech y cuantitativo** — desbloquea al aprobar N6 · 8 semanas
+Medios de pago y su infraestructura · open banking (PSD2/PSD3) · euro digital · cripto, DeFi y tokenización bajo MiCA · regtech · IA en finanzas · **Python para finanzas** en el navegador (Pyodide) · series temporales · modelos de factores · Monte Carlo y backtesting rigurosos · caso: lanzar un producto fintech en Albufera Partners.
+
+**Orden por defecto:** Investment Banking → Equity Research y Buy-side → Private Equity y VC → Banca y riesgos → Mercados → Fintech. Se puede cambiar en Ajustes.
+
+---
+
+## 3b. Cobertura CFA y bibliografía de referencia
+
+**Mapa CFA.** Cada lección lleva el campo `cfa` con el bloque al que pertenece (Ethics, Quantitative Methods, Economics, Financial Statement Analysis, Corporate Issuers, Equity, Fixed Income, Derivatives, Alternative Investments, Portfolio Management). `content:check` genera un informe de cobertura por bloque. Objetivo: el troncal cubre los 10 bloques del Nivel I; las ramas Pro profundizan hasta partes del Nivel II (valoración de renta variable con FCFF/FCFE y renta residual, análisis de crédito, valoración de derivados, inversiones intersocietarias) y del III (construcción de carteras). Los bloques se verifican contra el temario publicado por CFA Institute en la fecha de producción.
+
+**Bibliografía base** (para generar y verificar contenido; se cita, no se copia):
+- Valoración y banca de inversión: Rosenbaum y Pearl, *Investment Banking: Valuation, LBOs, M&A and IPOs*; Koller, Goedhart y Wessels (McKinsey), *Valuation*; Damodaran, *Investment Valuation* y sus datos públicos (betas, primas de riesgo por país).
+- Finanzas corporativas e inversiones: Berk y DeMarzo, *Corporate Finance*; Bodie, Kane y Marcus, *Investments*.
+- Análisis de estados financieros: Penman, *Financial Statement Analysis and Security Valuation*; PGC y NIIF-UE (BOE, EFRAG).
+- Renta fija y derivados: Fabozzi, *Bond Markets, Analysis and Strategies*; Hull, *Options, Futures and Other Derivatives*.
+- Inversión: Graham, *The Intelligent Investor*; Greenwald, *Value Investing*; memorandos de Howard Marks.
+- España: CNMV (folletos, OPAs, guías), Banco de España (Memoria de Supervisión, Informe de Estabilidad Financiera), TRLC, AEAT.
+
+Regla: cada unidad Pro indica en `sources` la referencia concreta (libro y capítulo o documento oficial) que respalda cada concepto no trivial.
 
 ---
 
@@ -131,7 +191,7 @@ Medios de pago y su infraestructura · open banking (PSD2/PSD3) · euro digital 
 **Aplicar y argumentar**
 12. `chart_read` (gráfico con semilla) · 13. `scenario` · 14. `spot_the_error` · 15. `slider_estimate` · 16. `case_step` (caso en varios pasos) · 17. `document_read` (fragmento de documento público real con preguntas; fuente y fecha obligatorias) · 18. `best_argument` (elige el mejor razonamiento y por qué fallan los demás) · 19. `self_explain` (escribe tu explicación, compárala con una respuesta modelo y autoevalúate con una rúbrica de 3 criterios; XP reducido)
 
-Campos comunes: `explanation`, `wrongExplanations` por opción, `hint`, `difficulty` (1–5), `bloom`, `tags`, `concepts`, `character` (opcional).
+Campos comunes: `explanation`, `wrongExplanations` por opción, `hint`, `difficulty` (1–5), `bloom`, `tags`, `concepts`, `cfa` (bloque CFA, a nivel de lección), `character` (opcional), `interview` (true si sirve como pregunta de entrevista para Superday).
 
 ---
 

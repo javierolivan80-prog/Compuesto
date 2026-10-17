@@ -122,7 +122,7 @@ Cada juego indica: concepto que enseña · núcleo jugable · cómo se ve · mom
 
 ### Ramas
 
-**15. Comité de riesgos** (Banca) — riesgo de crédito
+**15. Comité de riesgos** (Banca y riesgos) — riesgo de crédito
 - Núcleo: llegan solicitudes de préstamo con datos; apruebas, rechazas o pides garantías; meses después ves quién paga y quién entra en mora.
 - Visual: expedientes que se deslizan por la mesa; tu cartera de préstamos como mosaico que se tiñe según la morosidad.
 - Juice: el mosaico se actualiza trimestre a trimestre con un barrido; provisiones y beneficio en contadores grandes.
@@ -132,7 +132,7 @@ Cada juego indica: concepto que enseña · núcleo jugable · cómo se ve · mom
 - Visual: libro de órdenes en vivo con tu precio destacado; medidor de inventario.
 - Juice: cada operación hace "tic"; inventario peligroso → el medidor vibra.
 
-**17. Sala de M&A** (Corporate) — acreción/dilución y sinergias
+**17. Sala de M&A** (Investment Banking) — acreción/dilución y sinergias
 - Núcleo: negocias la compra de una empresa ficticia: precio, mezcla de deuda y acciones; el BPA del comprador se recalcula en vivo.
 - Visual: mesa de negociación con dos carpetas; barras de BPA antes y después.
 - Juice: cerrar el acuerdo → apretón de manos animado de forma sobria y "tombstone" conmemorativo para el Despacho.
@@ -141,6 +141,16 @@ Cada juego indica: concepto que enseña · núcleo jugable · cómo se ve · mom
 - Núcleo: ajustas una estrategia hasta que el histórico es perfecto; luego llega el periodo fuera de muestra.
 - Visual: gráfico de la estrategia que se ve perfecto en gris y se desmorona en color al pasar al futuro.
 - Juice: el momento de la revelación con hit-stop y zoom; lección: "lo que funciona en el pasado por casualidad, falla en el futuro".
+
+**19. Superday** (todas las ramas Pro) — preguntas técnicas de entrevista
+- Núcleo: 4 rondas de 3 minutos con entrevistadores ficticios distintos (contabilidad, valoración, LBO/M&A, mercados y "por qué banca"); preguntas de las lecciones marcadas `interview: true`, mezcla de tipo test, numéricas rápidas y `best_argument`.
+- Visual: sala de reuniones de Albufera Partners vista desde la mesa; reloj analógico que corre; cara del entrevistador que reacciona (gesto neutro, asiente, frunce el ceño).
+- Juice: respuesta perfecta → el entrevistador apunta algo con trazo dorado; al final, "oferta" o "rechazo" en una carta con membrete y la lista de preguntas que fallaste convertidas en tarjetas de repaso.
+
+**20. Subasta de venta** (Investment Banking) — proceso de venta
+- Núcleo: vendes una empresa ficticia; eliges a quién invitar (industriales y fondos), gestionas rondas de ofertas, das acceso al data room y negocias; tensión entre precio, certeza de cierre y plazos.
+- Visual: tablero tipo pizarra de deal con los compradores como fichas; ofertas que aparecen como sobres sellados que se abren.
+- Juice: subir el precio en la última ronda dispara anticipación + revelado; firma final con pluma estilográfica y "tombstone" para el Despacho.
 
 ## 5. Criterios de aceptación de cualquier juego
 

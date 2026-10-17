@@ -234,3 +234,11 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Adoptado de OpenSpec:** specs vivas por capacidad con escenarios comprobables (`docs/specs/`) y carpeta por cambio con propuesta, diseño y tareas, archivada al terminar (`docs/cambios/`).
 - **Adoptado de BMAD:** roles en orden (producto, arquitectura, UX, desarrollo, QA) y una revisión adversarial antes de dar algo por terminado.
 - Todo reunido en la skill propia `.claude/skills/nuevo-cambio`. Specs retroactivas escritas para 2.2 y 2.3. Si más adelante se quisiera la herramienta real, se revisarían primero los archivos que genera.
+
+## Sincronización con el plan completo del 17/10/2026 (PDF «Compuesto · Plan completo»)
+
+- El PDF es la versión vigente del plan; el repo tenía la anterior (4 ramas, «analista junior»). Objetivo recordado y aplicado: **volverse experto en el mercado**, con salida a banca de inversión y buy-side, a **nivel técnico de entrevista y de primer año** (no solo conceptos).
+- Actualizados: `CLAUDE.md` §1 (itinerario Pro, promesa, GSAP para explicadores) y §4 (remite a `SKILLS.md`); `docs/TEMARIO.md` (§0, §1, §3 Itinerario Pro con 6 ramas y entregables, §3b cobertura CFA y bibliografía, campos `cfa` e `interview`); `FASES.md` (Fase 6 con el orden Investment Banking → Equity Research y Buy-side → Private Equity y VC → Banca y riesgos → Mercados → Fintech, modelo de referencia, formatos Pro); `docs/JUEGOS.md` (+ Superday y Subasta de venta); nuevo `SKILLS.md`.
+- Esquema de contenido: añadidos `cfa` (lección) e `interview` (ejercicio), ambos opcionales: no altera el contenido existente.
+- **Pendiente:** informe de cobertura CFA en `content:check`; crear la skill `modelo-referencia`; revisar e instalar `financial-services` antes de la rama de Investment Banking (se abre con N3); GSAP se incorpora con el primer explicador que lo necesite, comprobando su licencia. El PDF también trae el anexo de auditorías (pp. 53–67), que ya estaba superado por las decisiones de uso personal; no se ha aplicado.
+- El PDF menciona textos en `es` y `en` en la definición de terminado de `EXECUTION.md`; `CLAUDE.md` §1 mantiene el inglés fuera de alcance. Manda `CLAUDE.md`: solo español.
