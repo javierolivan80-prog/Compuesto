@@ -9,6 +9,7 @@
 1. **Mira el estado real del repositorio:** `git status`, últimos commits, estructura, `package.json`, `DECISIONES.md` y el último informe de tarea. No supongas que algo existe porque un documento lo mencione.
 2. **Confirma las dependencias de la tarea** (campo "Depende de" en `FASES.md`). Si alguna no está cumplida, para y dilo.
 3. **Escribe un plan breve** (5–10 líneas): qué harás, qué módulos tocarás, cómo lo comprobarás. Si la tarea no cabe en una sesión, divídela en hitos y anúncialos.
+4. **Para tareas no triviales, usa la skill `nuevo-cambio`:** propuesta, spec con escenarios en `docs/specs/`, tareas y revisión adversarial antes de dar la tarea por terminada.
 
 ## 2. Mientras trabajas
 

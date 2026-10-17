@@ -227,3 +227,10 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **best_argument**: al acertar se muestra por qué fallan los demás.
 - Contenido: 5 ejercicios nuevos (`-e9`) añadidos como ejercicios nuevos, sin cambiar ids existentes, en n0-u1-l2/l3, n0-u3-l2/l4 y n1-u3-l3; cada lección sube a v2, revisada por el subagente (3 observaciones menores aplicadas). El XP de la Unidad 1 en e2e pasa de 515 a 535 por los dos ejercicios nuevos.
 - **Provisional**: sin ejercicios `document_read` en el contenido: requieren un fragmento real de un documento oficial con fuente y fecha, y no puedo verificarlo sin conexión a esas fuentes. Queda para cuando se pueda contrastar.
+
+## OpenSpec y BMAD-METHOD (17/10/2026)
+
+- Revisados los README de `Fission-AI/OpenSpec` (MIT) y `bmad-code-org/BMAD-METHOD` (MIT). **No se han instalado** (`openspec init`, `npx bmad-method install`): no documentan qué archivos o scripts añaden, `CLAUDE.md` §4 exige revisar las skills de terceros antes de instalar, y traerían un segundo flujo (comandos propios, carpetas propias) que choca con `FASES.md`/`EXECUTION.md`.
+- **Adoptado de OpenSpec:** specs vivas por capacidad con escenarios comprobables (`docs/specs/`) y carpeta por cambio con propuesta, diseño y tareas, archivada al terminar (`docs/cambios/`).
+- **Adoptado de BMAD:** roles en orden (producto, arquitectura, UX, desarrollo, QA) y una revisión adversarial antes de dar algo por terminado.
+- Todo reunido en la skill propia `.claude/skills/nuevo-cambio`. Specs retroactivas escritas para 2.2 y 2.3. Si más adelante se quisiera la herramienta real, se revisarían primero los archivos que genera.
