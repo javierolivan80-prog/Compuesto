@@ -56,6 +56,7 @@ export default defineConfig({
         'juegos.spec.ts',
         'compartir.spec.ts',
         'rivales.spec.ts',
+        'despliegue.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

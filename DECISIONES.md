@@ -285,3 +285,10 @@ Un subagente nuevo solo se registra al reiniciar Claude Code, así que la prueba
 - **Cierre animado:** la clasificación del jueves se reordena (FLIP de Motion, stagger 40 ms) hasta la final; con reduced-motion se muestra directamente el resultado.
 - Registro de errores y panel de diagnóstico: ya hechos antes (Ajustes → Diagnóstico); no se duplican.
 - No verificado: la animación FLIP no tiene comprobación visual automática (solo el resultado final en e2e).
+
+## 2.8 — Despliegue (preparado; lo ejecuta Javier)
+- **Cloudflare Pages** con `public/_headers` (CSP estricta sin `unsafe-eval`; `wasm-unsafe-eval` por Pyodide futuro; `style-src 'unsafe-inline'` por los estilos en línea de Motion y la tarjeta). Si en Fase 3 se añade Supabase, hay que ampliar `connect-src`.
+- **No indexada:** `robots.txt` `Disallow: /`, meta `robots` y `X-Robots-Tag`. Consecuencia buscada: Lighthouse SEO baja a 63 (`is-crawlable`); no es un defecto.
+- **Rendimiento Lighthouse móvil 79–83 (< 90):** criterio de aceptación **no cumplido**; es la deuda de la Fase 1 (arranque ≈215 KB gz). Medir en el despliegue real antes de decidir si merece la pena la palanca (zod/mini, i18n propio…).
+- **Pasos de cuenta Cloudflare:** en `docs/DESPLIEGUE.md`; la checklist (copia, instalación en móvil, .ics) la marca Javier en su dispositivo.
+- Pendiente de la revisión de cierre de fase (skills `review-animations`, `animation-performance`, `break-ui`, `/impeccable harden`): ver informe.
