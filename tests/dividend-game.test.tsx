@@ -21,7 +21,7 @@ describe('El primer dividendo (interfaz)', () => {
     expect(await screen.findByRole('status')).toHaveTextContent('✓');
     expect(screen.getByTestId('dv-ex')).toHaveTextContent('11,72');
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
-    expect(screen.getByText(/Retención del IRPF \(19 %\)/)).toBeInTheDocument();
+    expect(screen.getByText(/Retención del IRPF \(19\s%\)/)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Pasar un mes y vender' }));
     expect(screen.getByTestId('dv-done')).toBeInTheDocument();
     expect(screen.getByTestId('dv-total')).toHaveTextContent('▲ +5,77 %');

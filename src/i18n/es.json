@@ -536,7 +536,7 @@
     "captureResult": "Tus {{n}} acciones de más: el dividendo bruto compensa justo la bajada del precio, pero pagaste {{loss}} en comisiones al comprar y vender. Y del dividendo te retienen {{retained}} a cuenta del IRPF: cobras el neto, aunque el precio ha bajado el bruto.",
     "payIntro": "Llega el dividendo de tus {{n}} acciones: {{div}} por acción.",
     "gross": "Dividendo bruto",
-    "retention": "Retención del IRPF ({{pct}} %)",
+    "retention": "Retención del IRPF ({{pct}} %)",
     "net": "Llega a tu cuenta",
     "retentionNote": "La retención es un pago a cuenta del IRPF: en la declaración, los dividendos tributan en la base del ahorro y se ajusta lo que ya te retuvieron.",
     "sell": "Pasar un mes y vender",
