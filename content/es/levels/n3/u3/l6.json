@@ -1,8 +1,8 @@
 {
   "id": "n3-u3-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 3,
   "title": "Jefe final: el informe de ratios de Tramuntana",
@@ -38,7 +38,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "Resultado de explotación 10.215 y amortización 3.680. ¿Margen EBITDA? (en %, 2 decimales)",
+      "prompt": "Ventas 163.472, resultado de explotación 10.215 y amortización 3.680. ¿Margen EBITDA? (en %, 2 decimales)",
       "answer": 8.5,
       "unit": "%",
       "tolerance": 0.5,
@@ -74,7 +74,7 @@
       "tolerance": 1,
       "answerDecimals": 3,
       "formula": "(23000 - 21908) / 13895",
-      "explanation": "Deuda neta 1.092 / 13.895 = 0,08: casi no tiene deuda neta."
+      "explanation": "Deuda neta 1.092 / 13.895 = 0,079 (unas 0,08 veces): casi no tiene deuda neta."
     },
     {
       "id": "n3-u3-l6-e5",
@@ -119,7 +119,7 @@
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "10279 / 6905",
-      "explanation": "10.279 / 6.905 = 1,49: su beneficio llega con creces a la caja (amortización alta y proveedores que la financian)."
+      "explanation": "10.279 / 6.905 = 1,49: su beneficio llega con creces a la caja, sobre todo por la amortización (3.680); el aumento de proveedores compensa casi todo el de existencias."
     },
     {
       "id": "n3-u3-l6-e8",
@@ -128,12 +128,16 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "¿Qué ratio de Tramuntana delata cada rasgo de su negocio?",
-      "categories": ["Venta en tienda", "Poco margen, mucho volumen", "Proveedores que financian"],
+      "prompt": "¿Qué rasgo del negocio de Tramuntana delata cada dato?",
+      "categories": [
+        "Cobro al contado (venta al consumidor)",
+        "Poco margen, mucho volumen",
+        "Proveedores que financian"
+      ],
       "items": [
         {
           "text": "12 días de cobro",
-          "category": "Venta en tienda"
+          "category": "Cobro al contado (venta al consumidor)"
         },
         {
           "text": "Margen neto del 4,2 %",
@@ -170,7 +174,7 @@
       "explanation": "Resume lo que dicen los ratios juntos, no uno suelto.",
       "wrongExplanations": {
         "1": "El margen bajo es su modelo de negocio; su ROE es del 15 %.",
-        "2": "Su deuda casi la cubre su caja: deuda neta / EBITDA de 0,08.",
+        "2": "Su deuda casi la cubre su caja: deuda neta / EBITDA de 0,079.",
         "3": "Una prueba ácida de 1,42 es holgada para una cadena de tiendas."
       }
     },
@@ -198,6 +202,11 @@
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (ratios de rentabilidad, liquidez y solvencia; descomposición DuPont)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-18"
     }
   ],

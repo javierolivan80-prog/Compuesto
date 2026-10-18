@@ -28,6 +28,14 @@ import {
 } from './balance-builder';
 import { bestPlan, cashValues, planResult, setupCash } from './cash-cycle';
 import { detectiveResult, detectiveValues, setupDetective } from './ratio-detective';
+import {
+  cheapResult,
+  cheapValues,
+  meanOf,
+  medianOf,
+  rightVerdict,
+  setupCheap,
+} from './cheap-or-dear';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -61,6 +69,7 @@ export const LESSON_GAMES = [
   'balance-builder',
   'cash-cycle',
   'ratio-detective',
+  'cheap-or-dear',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -218,6 +227,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     tra_leverage: [2, 2],
     tra_roe: [2, 2],
   },
+  'cheap-or-dear': {
+    eps: [2, 2],
+    ebitda: [0, 0],
+    net_debt: [0, 0],
+    shares_m: [0, 0],
+    price: [2, 2],
+    pe_median: [1, 1],
+    pe_mean: [1, 1],
+    pe_now: [1, 1],
+    ev_median: [1, 1],
+    value_pe: [2, 2],
+    value_ev: [2, 2],
+    gap: [1, 1],
+    median_hits: [0, 0],
+    verdict_hits: [0, 0],
+  },
 };
 
 /**
@@ -327,6 +352,22 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         detectiveValues(setup, detectiveResult(setup, setup.cards, 0)),
         detectiveValues(setup, detectiveResult(setup, [...setup.cards].reverse(), 5)),
+      ];
+    }
+    case 'cheap-or-dear': {
+      // las cifras de Naranjas no dependen de lo que elijas: todo bien, y con la media y el veredicto al revés
+      const setup = setupCheap(seed);
+      const right = setup.cases.map((c) => ({
+        pe: medianOf(c.peers.map((p) => p.pe)),
+        verdict: rightVerdict(c),
+      }));
+      const wrong = setup.cases.map((c) => ({
+        pe: meanOf(c.peers.map((p) => p.pe)),
+        verdict: rightVerdict(c) === 'cheap' ? ('dear' as const) : ('cheap' as const),
+      }));
+      return [
+        cheapValues(setup, cheapResult(setup, right)),
+        cheapValues(setup, cheapResult(setup, wrong)),
       ];
     }
   }

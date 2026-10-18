@@ -51,7 +51,7 @@ export function Leverage({ goodRoa, badRoa, rate, onInteract }: Props) {
       onInteract={onInteract}
       render={(time) => {
         const s = stepAt(time, 3);
-        const scale = 52 / max;
+        const scale = 40 / max;
         return (
           <svg viewBox="0 0 320 140" className="h-auto w-full" role="presentation">
             <line x1="10" x2="310" y1="70" y2="70" stroke="var(--line)" />
@@ -71,7 +71,31 @@ export function Leverage({ goodRoa, badRoa, rate, onInteract }: Props) {
                     rx="3"
                     fill="var(--bear)"
                   />
-                  <text x={x + 31} y="134" textAnchor="middle" fill="var(--text-2)" fontSize="10">
+                  <text
+                    x={x + 14}
+                    y={70 - gh - 4}
+                    textAnchor="middle"
+                    fill="var(--text)"
+                    fontSize="9"
+                  >
+                    {pct(r.good)}
+                  </text>
+                  <text
+                    x={x + 48}
+                    y={r.bad >= 0 ? 70 - bh - 4 : 70 + bh + 11}
+                    textAnchor="middle"
+                    fill="var(--text)"
+                    fontSize="9"
+                  >
+                    {pct(r.bad)}
+                  </text>
+                  <text x={x + 14} y="127" textAnchor="middle" fill="var(--text-2)" fontSize="8">
+                    {'▲ bueno'}
+                  </text>
+                  <text x={x + 48} y="127" textAnchor="middle" fill="var(--text-2)" fontSize="8">
+                    {'▼ malo'}
+                  </text>
+                  <text x={x + 31} y="139" textAnchor="middle" fill="var(--text-2)" fontSize="10">
                     {`${formatNumber(r.d * 100)} % deuda`}
                   </text>
                 </g>

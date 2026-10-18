@@ -245,3 +245,21 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** un mayor (l5-e7 daba por buena una media de pago de 60 días, imposible con la fruta a 30) y seis menores. Aplicados.
 - **Ronda 3:** aprobada. Estado: `reviewed`.
 - 🛑 Pendiente: comprobar en el BOE consolidado el artículo de la Ley 12/2013 que se cita (art. 14 bis, tras la Ley 16/2021) y la frase «desde la entrega». Además, la revisión de Javier.
+
+## n3-u3 — Ratios y calidad del beneficio y lección-juego «¿Quién es quién?» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Cálculos y pistas del juego correctos en 2021–2025.
+  - Crítico aplicado: la q6 del test de salto admitía dos respuestas con el ROA de la unidad (resultado ÷ activo). Ahora compara con la rentabilidad que tendría el activo sin deuda.
+  - Mayores aplicados:
+    - la tarjeta de ROA y ROE mezclaba dos ROA;
+    - a l6-e2 le faltaban las ventas.
+  - Menores aplicados (11):
+    - enunciados genéricos en el repaso;
+    - «unas tres cuartas partes, o más» en la pista de Pirineo;
+    - un numérico nuevo de deuda neta / EBITDA (Pirineo 2021: 1,56);
+    - 0,079 en l6;
+    - la conversión en caja atribuida a la amortización;
+    - el explicador Leverage con valores y etiquetas, para no depender solo del color;
+    - fuente del CFA Institute añadida.
+- **Ronda 2:** aprobada, con tres menores aplicados: dos explicaciones con cifras del repaso y los metadatos de `companies`. Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier.

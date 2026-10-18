@@ -1,8 +1,8 @@
 {
   "id": "n3-u3-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 3,
   "title": "El árbol DuPont y el apalancamiento",
@@ -13,7 +13,7 @@
     "Explicar cómo la deuda amplifica el ROE hacia arriba y hacia abajo"
   ],
   "concepts": ["ratios"],
-  "companies": ["naranjas-del-turia"],
+  "companies": ["naranjas-del-turia", "tramuntana-retail"],
   "historical": false,
   "intro": [
     {
@@ -153,7 +153,7 @@
       "concepts": ["ratios"],
       "statement": "Endeudarse sube el ROE siempre que el activo rinda más que el coste de la deuda.",
       "answer": true,
-      "explanation": "Verdadero (en un año bueno). Si el activo rinde menos que el coste de la deuda, el efecto se invierte y el ROE cae."
+      "explanation": "Verdadero: lo que el activo gana con el dinero prestado supera a los intereses y el excedente va a los accionistas. Si rindiera menos que el coste de la deuda, el efecto se invertiría."
     },
     {
       "id": "n3-u3-l4-e8",
@@ -179,6 +179,11 @@
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (ratios de rentabilidad, liquidez y solvencia; descomposición DuPont)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-18"
     }
   ],

@@ -1,8 +1,8 @@
 {
   "id": "n3-u3-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 3,
   "title": "Rentabilidad: márgenes, ROA y ROE",
@@ -13,7 +13,7 @@
     "Calcular e interpretar el ROA y el ROE"
   ],
   "concepts": ["ratios"],
-  "companies": ["naranjas-del-turia"],
+  "companies": ["naranjas-del-turia", "tramuntana-retail"],
   "historical": false,
   "intro": [
     {
@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "ROA y ROE",
-      "text": "El ROA mide lo que gana el activo: resultado ÷ activo total. El ROE, lo que gana el patrimonio neto: resultado ÷ patrimonio neto. Si la empresa tiene deuda, el ROE es mayor que el ROA en los años buenos y menor en los malos."
+      "text": "El ROA mide lo que gana el activo: resultado ÷ activo total. El ROE, lo que gana el patrimonio neto: resultado ÷ patrimonio neto. Como el activo es mayor que el patrimonio neto (hay deuda y proveedores), con beneficio el ROE supera al ROA. Si la deuda ayuda o perjudica, se ve en la lección 4."
     },
     {
       "type": "example",
@@ -167,6 +167,11 @@
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (ratios de rentabilidad, liquidez y solvencia; descomposición DuPont)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-18"
     }
   ],

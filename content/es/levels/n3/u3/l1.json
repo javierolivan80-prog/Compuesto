@@ -1,8 +1,8 @@
 {
   "id": "n3-u3-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 3,
   "order": 0,
@@ -30,7 +30,7 @@
     {
       "type": "card",
       "term": "Los ratios cuentan el negocio",
-      "text": "Un ratio divide dos cifras de las cuentas para comparar empresas de tamaños distintos. La eléctrica casi no tiene existencias y su activo son centrales; la cadena de tiendas cobra casi al contado y vende mucho con poco margen. Has acertado {hits} de 5 pidiendo {reveals} ratios de más."
+      "text": "Un ratio divide dos cifras de las cuentas para comparar empresas de tamaños distintos. La eléctrica no tiene existencias y su activo son sobre todo centrales; la cadena de tiendas cobra casi al contado y vende mucho con poco margen. Has acertado {hits} de 5, con {reveals} ratios pedidos de más."
     },
     {
       "type": "card",
@@ -51,20 +51,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "En {year}, Naranjas ganó {nar_net} con un patrimonio neto de {nar_equity}. ¿Cuál fue su ROE? (en %, 2 decimales)",
+      "prompt": "Una empresa gana {nar_net} mil € con un patrimonio neto de {nar_equity} mil €. ¿Cuál es su ROE? (en %, 2 decimales)",
       "answer": 19.08,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "{nar_net} / {nar_equity} * 100",
       "params": {
-        "year": {
-          "value": 2025,
-          "min": 2021,
-          "max": 2025,
-          "step": 1,
-          "fixed": true
-        },
         "nar_net": {
           "value": 7233,
           "min": 4000,
@@ -94,7 +87,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "Tramuntana vendió {tra_sales} y ganó {tra_net}. ¿Cuál fue su margen neto? (en %, 2 decimales)",
+      "prompt": "Una cadena de tiendas vende {tra_sales} mil € y gana {tra_net} mil €. ¿Cuál es su margen neto? (en %, 2 decimales)",
       "answer": 4.22,
       "unit": "%",
       "tolerance": 0.5,
@@ -120,7 +113,7 @@
           "decimals": 2
         }
       },
-      "explanation": "Margen neto = resultado del ejercicio ÷ ventas = {tra_net} / {tra_sales} = {m} %: de cada 100 € que vende, gana unos 4.",
+      "explanation": "Margen neto = resultado del ejercicio ÷ ventas = {tra_net} / {tra_sales} = {m} %: de cada 100 € que vende, gana {m} €.",
       "hint": "Beneficio entre ventas."
     },
     {
@@ -130,7 +123,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "Tramuntana vendió {tra_sales} con un activo de {tra_assets}. ¿Cuántas veces rota su activo? (2 decimales)",
+      "prompt": "Una cadena de tiendas vende {tra_sales} mil € con un activo de {tra_assets} mil €. ¿Cuántas veces rota su activo? (2 decimales)",
       "answer": 1.86,
       "unit": "veces",
       "tolerance": 0.5,
@@ -201,7 +194,7 @@
           "decimals": 2
         }
       },
-      "explanation": "{nar_margin} % × {nar_turnover} × {nar_leverage} = {dupont} %. Sale casi el mismo ROE que dividiendo beneficio entre patrimonio neto; la pequeña diferencia viene de redondear los tres factores.",
+      "explanation": "{nar_margin} % × {nar_turnover} × {nar_leverage} = {dupont} %. Margen × rotación × apalancamiento = resultado ÷ patrimonio neto: las ventas y el activo se cancelan.",
       "hint": "Multiplica los tres factores."
     },
     {
@@ -220,7 +213,7 @@
       ],
       "items": [
         {
-          "text": "Sin existencias y tres cuartas partes del activo en centrales",
+          "text": "Sin existencias y unas tres cuartas partes del activo, o más, en centrales",
           "category": "Eléctrica renovable"
         },
         {
@@ -301,6 +294,11 @@
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (ratios de rentabilidad, liquidez y solvencia; descomposición DuPont)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-18"
     }
   ],

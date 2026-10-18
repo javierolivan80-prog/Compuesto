@@ -1,0 +1,12 @@
+/* ¿Cara o barata?: cotización y tabla de comparables. */
+.cd-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.cd-quote {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.cd-row:nth-child(odd) {
+  background: color-mix(in oklch, var(--surface-2) 70%, transparent);
+}

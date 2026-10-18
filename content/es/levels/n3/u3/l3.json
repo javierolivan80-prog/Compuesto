@@ -1,8 +1,8 @@
 {
   "id": "n3-u3-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 3,
   "title": "Liquidez y solvencia",
@@ -13,7 +13,7 @@
     "Calcular la deuda neta sobre EBITDA y la cobertura de intereses"
   ],
   "concepts": ["ratios"],
-  "companies": ["naranjas-del-turia"],
+  "companies": ["naranjas-del-turia", "pirineo-energia"],
   "historical": false,
   "intro": [
     {
@@ -81,6 +81,22 @@
     {
       "id": "n3-u3-l3-e4",
       "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Pirineo Energía en 2021: deuda con bancos 95.000, caja 19.920, resultado de explotación 34.502 y amortización 13.650. ¿Deuda financiera neta / EBITDA? (2 decimales)",
+      "answer": 1.56,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(95000 - 19920) / (34502 + 13650)",
+      "explanation": "Deuda neta 75.080 / EBITDA 48.152 = 1,56: con su EBITDA de un año y medio pagaría toda su deuda neta. Es moderado para una eléctrica, con ingresos estables.",
+      "hint": "Primero la deuda neta (deuda − caja) y el EBITDA (explotación + amortización)."
+    },
+    {
+      "id": "n3-u3-l3-e5",
+      "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
@@ -94,7 +110,7 @@
       "explanation": "10.094 / 450 = 22,43: los intereses son una parte pequeñísima de lo que gana."
     },
     {
-      "id": "n3-u3-l3-e5",
+      "id": "n3-u3-l3-e6",
       "type": "categorize",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -131,7 +147,7 @@
       "explanation": "Liquidez: si puede pagar lo que vence pronto. Solvencia: si su deuda es sostenible. Rentabilidad: cuánto gana."
     },
     {
-      "id": "n3-u3-l3-e6",
+      "id": "n3-u3-l3-e7",
       "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "analizar",
@@ -153,7 +169,7 @@
       }
     },
     {
-      "id": "n3-u3-l3-e7",
+      "id": "n3-u3-l3-e8",
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
@@ -161,10 +177,10 @@
       "concepts": ["ratios"],
       "statement": "Una liquidez corriente muy alta siempre es buena señal.",
       "answer": false,
-      "explanation": "Falso. Puede indicar caja ociosa o existencias que no se venden. Lo sano depende del sector: un supermercado opera con liquidez por debajo de 1."
+      "explanation": "Falso. Puede indicar caja ociosa o existencias que no se venden. Lo sano depende del sector: muchos supermercados operan con liquidez por debajo de 1."
     },
     {
-      "id": "n3-u3-l3-e8",
+      "id": "n3-u3-l3-e9",
       "type": "scenario",
       "difficulty": 3,
       "bloom": "analizar",
@@ -193,6 +209,11 @@
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (ratios de rentabilidad, liquidez y solvencia; descomposición DuPont)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-18"
     }
   ],

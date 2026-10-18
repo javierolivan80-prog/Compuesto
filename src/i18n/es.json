@@ -822,7 +822,7 @@
       "pirineo-energia": {
         "name": "Pirineo Energía",
         "what": "centrales hidráulicas y parques eólicos",
-        "clue": "el margen más alto y la rotación más baja: casi todo su activo son centrales, y no tiene existencias."
+        "clue": "el margen más alto y la rotación más baja: unas tres cuartas partes de su activo, o más, son centrales, y no tiene existencias."
       },
       "mediterranea-de-navieras": {
         "name": "Mediterránea de Navieras",
@@ -873,5 +873,57 @@
   },
   "leverage": {
     "title": "Apalancamiento: el mismo negocio, con más o menos deuda"
+  },
+  "cheapGame": {
+    "title": "¿Cara o barata?",
+    "stepOf": "Empresa {{n}} de {{total}}",
+    "brief": "El comité de inversión quiere saber si tres empresas del universo están caras o baratas. Para cada una tienes su precio de hoy (ficticio), su beneficio por acción de 2025 y los múltiplos de cinco comparables anónimos de su sector. Elige el PER de referencia, mira qué precio implica y da tu veredicto.",
+    "company": {
+      "naranjas-del-turia": "Naranjas del Turia",
+      "tramuntana-retail": "Tramuntana Retail",
+      "pirineo-energia": "Pirineo Energía"
+    },
+    "quote": "Precio de hoy · beneficio por acción de 2025: {{eps}} · PER al precio de hoy: {{pe}}",
+    "peers": "Múltiplos de los comparables",
+    "peer": "Comparable",
+    "peerN": "Comparable {{n}}",
+    "pe": "PER",
+    "evEbitda": "EV/EBITDA",
+    "askPe": "¿Qué PER usas de referencia?",
+    "pick": {
+      "mean": "La media: {{v}}",
+      "median": "La mediana: {{v}}",
+      "low": "El más bajo: {{v}}",
+      "high": "El más alto: {{v}}"
+    },
+    "medianOk": "La mediana ({{v}}) no se deja arrastrar por el comparable raro.",
+    "pickWhy": {
+      "mean": "La media ({{mean}}) la infla el comparable con un PER disparatado, seguramente porque su beneficio se ha hundido un año. La referencia buena es la mediana: {{median}}.",
+      "low": "El más bajo es un solo comparable: puede tener un problema propio. La referencia buena es la mediana: {{median}}.",
+      "high": "El más alto es el comparable raro, con un beneficio hundido. La referencia buena es la mediana: {{median}}."
+    },
+    "byPe": "Valor por acción con el PER de {{pe}}",
+    "byEv": "Con un EV/EBITDA de {{ev}} (contraste)",
+    "askVerdict": "¿Cómo está la acción?",
+    "verdict": {
+      "cheap": "Barata",
+      "fair": "En precio",
+      "dear": "Cara"
+    },
+    "why": {
+      "cheap": "Cotiza a {{price}} y los comparables dicen {{value}}: {{gap}} %. Más de un 10 % por debajo: barata, salvo que el mercado sepa algo que tú no.",
+      "fair": "Cotiza a {{price}} y los comparables dicen {{value}}: {{gap}} %. Dentro de un 10 % arriba o abajo: en precio.",
+      "dear": "Cotiza a {{price}} y los comparables dicen {{value}}: {{gap}} %. Más de un 10 % por encima: cara, salvo que crezca más que sus comparables."
+    },
+    "debtNote": "El EV/EBITDA da menos que el PER porque Pirineo tiene mucha deuda: el valor de empresa es de accionistas y acreedores, y hay que restarle la deuda neta.",
+    "next": "Siguiente empresa",
+    "summary": "Ver el resumen",
+    "hit": "¡Bien visto!",
+    "doneTitle": "Informe para el comité",
+    "hitsValue": "Mediana elegida en {{median}} de {{n}} empresas y veredicto acertado en {{verdict}} de {{n}}.",
+    "great": "Perfecto: referencia bien elegida y veredicto acertado en las tres. El comité toma nota.",
+    "ok": "Bien, aunque has fallado algo: repasa por qué la mediana y no la media.",
+    "bad": "Repasa cómo se elige el múltiplo de referencia y cuándo una acción está cara o barata.",
+    "debrief": "Ver qué ha pasado"
   }
 }
