@@ -1,0 +1,10 @@
+/* El rumor de OPA: panel y bocadillos de los personajes. */
+.tk-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.tk-bubble {
+  background: var(--surface-2);
+  border-color: var(--line);
+  margin: 0;
+}

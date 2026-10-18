@@ -472,6 +472,14 @@
     "description": "Oferta pública de adquisición dirigida a todos los accionistas."
   },
   {
+    "id": "informacion-privilegiada",
+    "name": "Información privilegiada (introducción)",
+    "level": 1,
+    "prerequisites": ["opa"],
+    "unit": "n1-u6",
+    "description": "Información concreta que no es pública y movería el precio, como una OPA que aún no se ha anunciado: quien la tiene no puede operar, recomendar ni comunicarla, y debe avisar a cumplimiento normativo."
+  },
+  {
     "id": "fomo-manada",
     "name": "FOMO y efecto manada",
     "level": 1,
@@ -1479,7 +1487,7 @@
     "id": "abuso-mercado",
     "name": "Abuso de mercado",
     "level": 9,
-    "prerequisites": ["regulacion-cnmv-esma"]
+    "prerequisites": ["regulacion-cnmv-esma", "informacion-privilegiada"]
   },
   {
     "id": "blanqueo-kyc",

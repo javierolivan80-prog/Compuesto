@@ -26,6 +26,15 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'takeover-rumor') {
+    // referencia 0: no comprar por el rumor, no operar con la confidencia y acudir a la OPA
+    await expect(page.getByRole('heading', { name: 'El rumor de OPA' })).toBeVisible();
+    await page.getByRole('button', { name: /^No hacer nada/ }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('button', { name: /^No operar, no contárselo/ }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('button', { name: /^Esperar y acudir a la OPA/ }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'ipo-book') {
     // referencia 0: el primer precio que se cubre, de abajo arriba (9,00 €)
     await expect(page.getByRole('heading', { name: 'La salida a bolsa' })).toBeVisible();

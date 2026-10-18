@@ -19,6 +19,7 @@ import {
 } from './first-shares';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
+import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
 import {
   guessIndex,
   indexResult,
@@ -45,6 +46,7 @@ export const LESSON_GAMES = [
   'index-mover',
   'dividend-day',
   'ipo-book',
+  'takeover-rumor',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -125,6 +127,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     shares_after: [0, 0],
     family: [0, 0],
   },
+  'takeover-rumor': {
+    p0: [2, 2],
+    p_rumor: [2, 2],
+    offer: [2, 2],
+    p_after: [2, 2],
+    p_false: [2, 2],
+    shares: [0, 0],
+    target_shares: [0, 0],
+    premium: [2, 2],
+    premium_rumor: [2, 2],
+    spread: [2, 2],
+    deal_size: [0, 0],
+    gain_accept: [2, 2],
+    gain_sell: [2, 2],
+    false_loss: [2, 2],
+  },
 };
 
 /**
@@ -199,6 +217,15 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return PRICES.filter((p) => outcomeAt(setup, p) !== 'failed').map((p) =>
         ipoValues(ipoResult(setup, p)),
       );
+    }
+    case 'takeover-rumor': {
+      // las cifras no dependen de lo que decidas
+      const setup = setupTakeover(seed);
+      return [
+        takeoverValues(
+          takeoverResult(setup, { buyOnRumor: false, reportInsider: true, final: 'accept' }),
+        ),
+      ];
     }
   }
 }

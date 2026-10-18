@@ -1,0 +1,282 @@
+{
+  "id": "n1-u6-l7",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 6,
+  "order": 0,
+  "title": "Juego: el rumor de OPA",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el premio de una OPA y el diferencial hasta el precio de la oferta",
+    "Distinguir un rumor público de la información privilegiada, con la que no se opera ni se comunica"
+  ],
+  "concepts": ["opa", "informacion-privilegiada"],
+  "companies": ["mediterranea-de-navieras"],
+  "historical": false,
+  "game": {
+    "kind": "takeover-rumor",
+    "seed": 2
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Premio de una OPA",
+      "text": "Ebro ofreció {offer} € por acción: un {premium} % más que antes del rumor ({p0} €). Ese premio es lo que paga quien quiere el control de la empresa. Medido desde el precio del día del rumor, {p_rumor} €, parecía menor: el rumor ya había adelantado parte."
+    },
+    {
+      "type": "card",
+      "term": "Diferencial",
+      "text": "Tras el anuncio la acción cotizó a {p_after} €, un {spread} % por debajo de la oferta. Quien compra ahí y acude cobra esa diferencia a cambio de esperar y de asumir que la OPA puede no salir. Vender en bolsa o acudir a la oferta son opciones válidas."
+    },
+    {
+      "type": "card",
+      "term": "Información privilegiada",
+      "text": "Lo que te contó Hugo era información concreta, no pública y capaz de mover el precio. Con ella no se opera, ni se recomienda, ni se comunica: se avisa a cumplimiento normativo. Un rumor publicado en prensa sí es público, aunque no sea fiable."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u6-l7-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["opa"],
+      "concepts": ["opa"],
+      "prompt": "Antes de que se hablara de la OPA, la acción cotizaba a {p0} €. Ebro ofrece {offer} € por acción. ¿Qué premio ofrece, en %? (2 decimales)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({offer} / {p0} - 1) * 100",
+      "params": {
+        "p0": {
+          "value": 6.3,
+          "min": 5.5,
+          "max": 6.8,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "offer": {
+          "value": 7.56,
+          "min": 7,
+          "max": 10,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "prima": {
+          "formula": "({offer} / {p0} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Premio = (precio de la oferta ÷ precio antes del rumor − 1) × 100 = ({offer} ÷ {p0} − 1) × 100 = {prima} %. Se mide desde el precio no afectado por el rumor.",
+      "hint": "Compara el precio de la oferta con el de antes del rumor."
+    },
+    {
+      "id": "n1-u6-l7-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["opa"],
+      "concepts": ["opa", "capitalizacion"],
+      "prompt": "La OPA ofrece {offer} € por cada una de las {target_shares} acciones de la empresa. ¿Cuánto costaría comprar el 100 %? (en euros, sin decimales)",
+      "answer": 189000000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{offer} * {target_shares}",
+      "params": {
+        "offer": {
+          "value": 7.56,
+          "min": 5,
+          "max": 15,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "target_shares": {
+          "value": 25000000,
+          "min": 5000000,
+          "max": 50000000,
+          "step": 1000000
+        }
+      },
+      "derived": {
+        "total": {
+          "formula": "{offer} * {target_shares}",
+          "decimals": 0
+        }
+      },
+      "explanation": "Precio de la oferta × acciones = {offer} € × {target_shares} = {total} €: lo que pagaría Ebro si acudieran todos los accionistas.",
+      "hint": "Multiplica el precio ofrecido por el número de acciones."
+    },
+    {
+      "id": "n1-u6-l7-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["opa"],
+      "concepts": ["opa"],
+      "prompt": "Tras anunciarse una OPA a {offer} €, la acción cotiza a {p_after} €. Si compras hoy y acudes a la oferta, ¿qué ganas, en %? (2 decimales)",
+      "answer": 1.48,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({offer} / {p_after} - 1) * 100",
+      "params": {
+        "p_after": {
+          "value": 7.45,
+          "min": 7,
+          "max": 7.45,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "offer": {
+          "value": 7.56,
+          "min": 7.56,
+          "max": 8,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "dif": {
+          "formula": "({offer} / {p_after} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Diferencial = (precio de la oferta ÷ cotización − 1) × 100 = ({offer} ÷ {p_after} − 1) × 100 = {dif} %. Es lo que cobra quien espera y asume que la OPA puede no salir.",
+      "hint": "Compara lo que cobrarías en la OPA con lo que pagas hoy."
+    },
+    {
+      "id": "n1-u6-l7-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["etica"],
+      "concepts": ["informacion-privilegiada"],
+      "statement": "Si un compañero que trabaja en una OPA te cuenta que mañana se anuncia, puedes comprar acciones porque no eres tú quien prepara la operación.",
+      "answer": false,
+      "explanation": "Es información privilegiada aunque te llegue de otro: no puedes operar con ella, ni recomendar operar, ni comunicarla. Lo correcto es avisar a cumplimiento normativo."
+    },
+    {
+      "id": "n1-u6-l7-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["etica"],
+      "concepts": ["informacion-privilegiada"],
+      "prompt": "Antes del anuncio, un compañero te cuenta que su cliente lanzará una OPA sobre una cotizada. ¿Qué debes hacer?",
+      "options": [
+        "No operar, no contárselo a nadie y avisar a cumplimiento normativo",
+        "Comprar pocas acciones para que nadie note nada raro",
+        "Contárselo solo a tu familia, que no trabaja en el sector",
+        "Vender las acciones que ya tengas para evitar cualquier conflicto"
+      ],
+      "answer": 0,
+      "explanation": "Con información privilegiada no se opera en ningún sentido, no se recomienda y no se comunica. Avisar a cumplimiento protege a todos.",
+      "wrongExplanations": {
+        "1": "Da igual el tamaño: operar con información privilegiada, aunque sea poco, es abuso de mercado.",
+        "2": "Comunicarla a otros también está prohibido, sean familia o no.",
+        "3": "Vender por esa información también es operar con ella; lo correcto es no tocar nada y avisar."
+      }
+    },
+    {
+      "id": "n1-u6-l7-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["etica"],
+      "concepts": ["informacion-privilegiada"],
+      "prompt": "¿Puedes operar con esta información?",
+      "categories": ["Sí: es pública", "No: es privilegiada"],
+      "items": [
+        {
+          "text": "Un rumor publicado en la prensa económica",
+          "category": "Sí: es pública"
+        },
+        {
+          "text": "El anuncio de la OPA en la web de la CNMV",
+          "category": "Sí: es pública"
+        },
+        {
+          "text": "Lo que te cuenta, antes del anuncio, un compañero del equipo de la operación",
+          "category": "No: es privilegiada"
+        },
+        {
+          "text": "Un borrador de la oferta que ves en la impresora de la oficina",
+          "category": "No: es privilegiada"
+        }
+      ],
+      "explanation": "Lo publicado está al alcance de todos, aunque un rumor no sea fiable. Lo que sabes por tu trabajo y aún no es público, y movería el precio, es información privilegiada."
+    },
+    {
+      "id": "n1-u6-l7-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["opa"],
+      "concepts": ["opa"],
+      "prompt": "Ordena una OPA, de lo primero a lo último.",
+      "steps": [
+        "El oferente anuncia su decisión de lanzar la OPA",
+        "Pide la autorización de la CNMV y presenta el folleto",
+        "La CNMV autoriza la oferta y se abre el plazo de aceptación",
+        "Los accionistas deciden si acuden a la oferta",
+        "Se publica el resultado y se paga a quienes acudieron"
+      ],
+      "explanation": "Primero el anuncio; después, la autorización de la CNMV con el folleto; con ella se abre el plazo en que cada accionista decide, y al final se publica el resultado y se liquida."
+    },
+    {
+      "id": "n1-u6-l7-e8",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["opa"],
+      "concepts": ["opa"],
+      "situation": "Se ha anunciado una OPA a 12 € por acción y la acción cotiza a 11,85 €. Tienes acciones y necesitas el dinero esta misma semana.",
+      "prompt": "¿Qué haces?",
+      "options": [
+        "Vender en bolsa a 11,85 €: cobras ya, aunque algo menos que la oferta",
+        "Acudir a la OPA: cobrarás 12 € esta misma semana",
+        "Comprar más a 11,85 € para cobrar luego la diferencia",
+        "Esperar a que la acción supere los 12 € y vender entonces"
+      ],
+      "answer": 0,
+      "explanation": "Acudir a la OPA paga más, pero solo cuando termina el plazo de aceptación, que suele ser de semanas. Si necesitas el dinero ya, vender en bolsa es lo que encaja.",
+      "wrongExplanations": {
+        "1": "El pago de la OPA llega al final del plazo de aceptación, normalmente semanas después.",
+        "2": "Eso aumenta tu inversión y tu espera, justo lo contrario de lo que necesitas.",
+        "3": "Con una oferta a 12 €, lo normal es que cotice algo por debajo; esperar no te da el dinero esta semana."
+      }
+    }
+  ],
+  "realWorld": "Las OPA se anuncian en la web de la CNMV, donde también se publican su folleto y su resultado. Los bancos tienen un departamento de cumplimiento normativo que controla quién conoce cada operación y vigila las operaciones de sus empleados.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1066/2007 sobre ofertas públicas de adquisición (anuncio, autorización de la CNMV, plazo de aceptación y venta forzosa)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "Reglamento (UE) 596/2014 sobre abuso de mercado (información privilegiada, arts. 7, 8, 10 y 14)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2014/596/oj",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Código Penal, art. 285 (abuso de información privilegiada)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-18"
+}

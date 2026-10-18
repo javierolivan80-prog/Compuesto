@@ -84,7 +84,9 @@ describe('lección de ejemplo válida y lecciones inválidas', () => {
     );
     expect(msg).toContain('published exige reviewedBy con "humano"');
     expect(msg).toContain('"100 * 10 * (1 + 0.001)" da 1001, no 1000');
-    expect(msg).toContain('El concepto "dcf" es del nivel 3 y se usa en el nivel 1');
+    expect(msg).toContain(
+      'El concepto "dcf" es del nivel 3 (planta posterior) y se usa en el nivel 1',
+    );
     expect(msg).toContain('Aparece la empresa real "Inditex"');
     expect(msg).toContain('2 hueco(s) (___) y 1 respuesta(s)');
     expect(msg).toContain('answer 5 fuera de las 3 opciones');

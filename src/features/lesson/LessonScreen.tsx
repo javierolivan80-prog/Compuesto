@@ -32,6 +32,7 @@ import { AuctionGame } from '../games/AuctionGame';
 import { IndexGame } from '../games/IndexGame';
 import { DividendGame } from '../games/DividendGame';
 import { IpoGame } from '../games/IpoGame';
+import { TakeoverGame } from '../games/TakeoverGame';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -181,6 +182,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'index-mover': IndexGame,
             'dividend-day': DividendGame,
             'ipo-book': IpoGame,
+            'takeover-rumor': TakeoverGame,
           }[lesson.game.kind];
           return (
             <Game

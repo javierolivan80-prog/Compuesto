@@ -442,10 +442,10 @@ function checkLesson(
     const c = ctx.conceptIds.get(id);
     if (!c) {
       err('concepto-inexistente', `El concepto "${id}" no existe en concepts.json`);
-    } else if (c.level > l.level && !(l.track && c.track === l.track)) {
+    } else if (levelOrder(c.level) > levelOrder(l.level) && !(l.track && c.track === l.track)) {
       err(
         'concepto-adelantado',
-        `El concepto "${id}" es del nivel ${c.level} y se usa en el nivel ${l.level}`,
+        `El concepto "${id}" es del nivel ${c.level} (planta posterior) y se usa en el nivel ${l.level}`,
       );
     }
   }

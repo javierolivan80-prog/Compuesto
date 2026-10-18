@@ -596,5 +596,53 @@
     },
     "debrief": "Ver qué ha pasado",
     "debutNote": "Supuesto del juego: el cierre depende de lo que el mercado cree que vale la acción y de la demanda que sobró. En la realidad influyen muchas más cosas."
+  },
+  "takeover": {
+    "title": "El rumor de OPA",
+    "day": {
+      "rumor": "Lunes: el rumor",
+      "insider": "Martes: una confidencia",
+      "offer": "Miércoles: el anuncio"
+    },
+    "brief": "Tienes {{n}} acciones de Mediterránea de Navieras, que el viernes cerró a {{price}}.",
+    "paper": "Prensa económica",
+    "rumor": "Se rumorea que Ebro Capital prepara una OPA sobre Mediterránea de Navieras. Ninguna de las dos empresas lo confirma.",
+    "buyRumor": "Comprar {{n}} acciones más por si es verdad",
+    "waitRumor": "No hacer nada: un rumor no es un anuncio",
+    "rumorBought": "Compras {{n}} más a {{rumor}}. Es legal, pero un rumor no es un anuncio: si fuera falso, la acción volvería a unos {{price}} y perderías {{loss}}.",
+    "rumorWaited": "Prudente: un rumor no es un anuncio. Si fuera falso, la acción volvería a unos {{price}}.",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "tip": "Oye, que no salga de aquí: estoy en el equipo que asesora a Ebro y mañana anuncian la OPA. Compra ya, que nadie se va a enterar.",
+    "buyTip": "Comprar {{n}} acciones más antes del anuncio",
+    "report": "No operar, no contárselo a nadie y avisar a cumplimiento normativo",
+    "complianceOk": "Has hecho lo correcto. Eso es información privilegiada: no puedes operar, ni recomendar, ni contarla. Lo dejo registrado y hablaré con el equipo de la operación.",
+    "complianceKo": "Para. Eso es información privilegiada: operar con ella es abuso de mercado, aunque no seas tú quien prepara la operación. La orden no sale y tengo que dejarlo registrado.",
+    "insiderRight": "Con información privilegiada no se opera, no se recomienda y no se comunica: se avisa a cumplimiento normativo.",
+    "insiderWrong": "Operar con información privilegiada es abuso de mercado: lo sanciona la CNMV y, en los casos más graves, es delito.",
+    "official": "Anuncio en la CNMV",
+    "announce": "Ebro Capital anuncia una OPA sobre el 100 % de Mediterránea de Navieras a {{price}} por acción, en efectivo, sujeta a la autorización de la CNMV.",
+    "spreadNote": "La acción cotiza a {{after}}, un poco por debajo de los {{offer}} de la oferta: ese {{spread}} % de diferencia paga la espera hasta cobrar y el riesgo de que la OPA no salga adelante.",
+    "finalGroup": "Qué haces con tus acciones",
+    "final": {
+      "sell": "Vender hoy en bolsa a {{after}}",
+      "accept": "Esperar y acudir a la OPA a {{offer}}",
+      "reject": "No acudir y quedarme las acciones"
+    },
+    "finalWhy": {
+      "sell": "Cobras ya, algo menos que la oferta: le dejas a otro la espera y el riesgo de que no salga.",
+      "accept": "Cobrarás el precio de la oferta cuando acabe el plazo de aceptación, si la OPA sale adelante.",
+      "reject": "Es tu derecho, pero si Ebro se queda con casi toda la empresa, la acción tendrá muy poca liquidez, podría dejar de cotizar e incluso podrían obligarte a vender si se superan ciertos umbrales."
+    },
+    "summary": "Ver el resumen",
+    "doneTitle": "Fin de la OPA",
+    "before": "Antes del rumor",
+    "offerPrice": "Precio de la OPA",
+    "premium": "Premio sobre el precio antes del rumor",
+    "yourGain": "Ganancia de tus {{n}} acciones",
+    "great": "Muy bien: no tocaste la información privilegiada y elegiste con criterio entre vender y acudir.",
+    "okReject": "Bien en lo importante. No acudir es legal, pero te deja en una empresa casi sin liquidez.",
+    "bad": "Lo grave fue la información privilegiada: con ella no se opera ni se comunica, se avisa a cumplimiento.",
+    "debrief": "Ver qué ha pasado"
   }
 }
