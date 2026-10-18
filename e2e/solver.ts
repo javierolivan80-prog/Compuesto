@@ -25,6 +25,7 @@ export type Ex = {
   questions?: { prompt: string; options: string[]; answer: number }[];
   modelAnswer?: string;
   rubric?: string[];
+  sections?: { rows: { value: number; blank?: boolean }[] }[];
 };
 
 export const promptOf = (e: Ex) =>
@@ -150,6 +151,16 @@ export async function solve(page: Page, e: Ex, wrong = false) {
     case 'spreadsheet':
       await page.locator(`input[aria-label="Celda ${e.target}"]`).fill(e.solution!);
       break;
+    case 'build_statement': {
+      // los huecos salen en el orden de las secciones y sus filas
+      const blanks = e.sections!.flatMap((s) => s.rows).filter((r) => r.blank);
+      const inputs = page.locator('input[inputmode="decimal"]');
+      for (const [i, r] of blanks.entries())
+        await inputs
+          .nth(i)
+          .fill(String(wrong && i === 0 ? r.value + 1 : r.value).replace('.', ','));
+      break;
+    }
     default:
       throw new Error(`Tipo sin solver: ${e.type}`);
   }

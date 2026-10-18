@@ -92,6 +92,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/horquilla 0,02/);
     expect(text).toMatch(/precio medio 10,03/);
   });
+  it('ThreeStatements: el beneficio se apunta al vender y la caja entra al cobrar', () => {
+    render(<ExplainerBlock component="ThreeStatements" props={{ sale: 3000, cost: 1860 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/beneficio de 1\.140/);
+    expect(text).toMatch(/Flujo de explotación: 0/);
+    expect(text).toMatch(/\+3\.000/);
+  });
   it('ExDividend explica la caída aproximada del precio y el dividendo cobrado', () => {
     render(<ExplainerBlock component="ExDividend" props={{ price: 10, dividend: 0.2 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

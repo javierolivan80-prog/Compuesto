@@ -1,0 +1,270 @@
+{
+  "id": "n3-u1-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "title": "Jefe final: los tres estados de Naranjas",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 7,
+  "objectives": [
+    "Construir y conectar el balance, la cuenta de resultados y el estado de flujos de Naranjas de 2023"
+  ],
+  "concepts": ["balance", "pyg", "flujos-caja", "conexion-estados"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u1-l6-e1",
+      "type": "build_statement",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "statement": "balance",
+      "prompt": "Completa el balance de Naranjas a 31/12/2023. El total del activo es 45.067.",
+      "sections": [
+        {
+          "name": "Activo",
+          "side": "activo",
+          "rows": [
+            {
+              "label": "Inmovilizado",
+              "value": 20902
+            },
+            {
+              "label": "Existencias",
+              "value": 6003,
+              "blank": true
+            },
+            {
+              "label": "Clientes",
+              "value": 8299
+            },
+            {
+              "label": "Caja y bancos",
+              "value": 9863
+            }
+          ]
+        },
+        {
+          "name": "Patrimonio neto",
+          "side": "patrimonio",
+          "rows": [
+            {
+              "label": "Capital",
+              "value": 6000
+            },
+            {
+              "label": "Reservas",
+              "value": 24279
+            }
+          ]
+        },
+        {
+          "name": "Pasivo",
+          "side": "pasivo",
+          "rows": [
+            {
+              "label": "Deudas con bancos",
+              "value": 10500,
+              "blank": true
+            },
+            {
+              "label": "Proveedores",
+              "value": 4288
+            }
+          ]
+        }
+      ],
+      "explanation": "Existencias = 45.067 − 20.902 − 8.299 − 9.863 = 6.003. Deudas con bancos = 45.067 − 6.000 − 24.279 − 4.288 = 10.500.",
+      "hint": "Cada lado tiene un hueco: usa el total del activo en los dos."
+    },
+    {
+      "id": "n3-u1-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "En 2023 Naranjas ingresó 50.486, con un coste de ventas de 31.301, otros gastos de explotación de 9.087 y una amortización de 1.557. ¿Cuál fue su resultado de explotación? (miles de €)",
+      "answer": 8541,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "50486 - 31301 - 9087 - 1557",
+      "explanation": "50.486 − 31.301 − 9.087 − 1.557 = 8.541."
+    },
+    {
+      "id": "n3-u1-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "Su resultado antes de impuestos de 2023 fue 8.136 y el impuesto sobre beneficios, del 25 %. ¿Cuál fue el resultado del ejercicio? (miles de €)",
+      "answer": 6102,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "8136 * (1 - 0.25)",
+      "explanation": "8.136 × 0,75 = 6.102 (impuesto de 2.034)."
+    },
+    {
+      "id": "n3-u1-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 4,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "En 2023 Naranjas ganó 6.102 con una amortización de 1.557. Clientes subió 395, existencias subió 286 y proveedores subió 204. ¿Cuál fue su flujo de explotación? (miles de €)",
+      "answer": 7182,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "6102 + 1557 - 395 - 286 + 204",
+      "explanation": "6.102 + 1.557 − 395 − 286 + 204 = 7.182. Los aumentos de clientes y existencias restan; el de proveedores suma.",
+      "hint": "Beneficio + amortización − aumentos de activo corriente + aumento de proveedores."
+    },
+    {
+      "id": "n3-u1-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Las reservas de Naranjas eran 20.923 a finales de 2022. En 2023 ganó 6.102 y pagó 2.746 de dividendos. ¿Cuánto suman a finales de 2023? (miles de €)",
+      "answer": 24279,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "20923 + 6102 - 2746",
+      "explanation": "20.923 + 6.102 − 2.746 = 24.279, las reservas del balance de 2023: la cuenta de resultados y el balance casan."
+    },
+    {
+      "id": "n3-u1-l6-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "¿En qué estado aparece cada partida?",
+      "categories": ["Balance", "Cuenta de resultados", "Estado de flujos"],
+      "items": [
+        {
+          "text": "Clientes pendientes de cobro a 31 de diciembre",
+          "category": "Balance"
+        },
+        {
+          "text": "Capital",
+          "category": "Balance"
+        },
+        {
+          "text": "Ingresos por ventas del año",
+          "category": "Cuenta de resultados"
+        },
+        {
+          "text": "Coste de ventas del año",
+          "category": "Cuenta de resultados"
+        },
+        {
+          "text": "Dividendos pagados en el año",
+          "category": "Estado de flujos"
+        },
+        {
+          "text": "Pagos por compras de inmovilizado del año",
+          "category": "Estado de flujos"
+        }
+      ],
+      "explanation": "El balance muestra saldos a una fecha; la cuenta de resultados, ingresos y gastos del año; el estado de flujos, cobros y pagos del año."
+    },
+    {
+      "id": "n3-u1-l6-e7",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "¿Qué operación sube el beneficio del año, pero no la caja?",
+      "options": [
+        "Una venta a crédito que se cobrará el año que viene",
+        "Un préstamo recibido del banco",
+        "El cobro de una venta del año pasado",
+        "Una ampliación de capital"
+      ],
+      "answer": 0,
+      "explanation": "La venta a crédito da ingreso y beneficio al vender; el dinero llegará al cobrar.",
+      "wrongExplanations": {
+        "1": "Entra caja, pero no es ingreso: es deuda.",
+        "2": "Entra caja, pero el ingreso ya se apuntó el año pasado.",
+        "3": "Entra caja y sube el patrimonio neto, pero no es beneficio."
+      }
+    },
+    {
+      "id": "n3-u1-l6-e8",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pyg", "conexion-estados"],
+      "character": "rival",
+      "prompt": "Hugo apunta una compra en los tres estados. ¿Dónde se equivoca?",
+      "lines": [
+        "Naranjas compra una máquina de 3.000 al contado.",
+        "En el balance: inmovilizado +3.000 y caja −3.000.",
+        "En el estado de flujos: −3.000 en inversión.",
+        "En la cuenta de resultados: un gasto de 3.000 este año.",
+        "Cada año se apuntará una parte como amortización."
+      ],
+      "errorIndex": 3,
+      "explanation": "Comprar la máquina no es un gasto de este año: se amortiza a lo largo de su vida útil. Apuntarlo todo hoy como gasto hundiría el beneficio de un año y lo inflaría los siguientes."
+    },
+    {
+      "id": "n3-u1-l6-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["flujos-caja", "conexion-estados"],
+      "character": "mentora",
+      "situation": "Dos empresas ficticias ganan 5.000 este año. Una ha generado 5.800 de flujo de explotación. La otra, solo 1.200, porque sus clientes tardan cada vez más en pagar.",
+      "prompt": "¿Cuál te preocupa más como analista y por qué?",
+      "options": [
+        "La segunda: su beneficio no se convierte en caja, y si sus clientes no pagan tendrá que endeudarse o tendrá pérdidas",
+        "La primera: genera más caja que beneficio, y eso indica que maquilla sus cuentas",
+        "Las dos igual: lo que importa es el beneficio",
+        "Ninguna: el flujo de explotación no dice nada del negocio"
+      ],
+      "answer": 0,
+      "explanation": "Un beneficio que no llega a la caja es una señal de alerta: puede haber clientes que no pagarán o ventas apuntadas demasiado pronto.",
+      "wrongExplanations": {
+        "1": "Generar algo más de caja que beneficio es normal si hay amortización: no es señal de maquillaje.",
+        "2": "El beneficio solo no basta: hay que mirar si se convierte en caja.",
+        "3": "El flujo de explotación es justo lo que muestra si el negocio genera dinero."
+      }
+    },
+    {
+      "id": "n3-u1-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["balance"],
+      "statement": "Activo = patrimonio neto + pasivo se cumple en cualquier balance, también en el de una empresa con pérdidas.",
+      "answer": true,
+      "explanation": "Verdadero. Las pérdidas bajan el patrimonio neto (incluso por debajo de cero), pero el balance siempre cuadra."
+    }
+  ],
+  "realWorld": "Con estas tres comprobaciones (balance que cuadra, resultado que llega al patrimonio neto y flujos que explican la caja) puedes revisar las cuentas de cualquier empresa del IBEX en la web de la CNMV.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

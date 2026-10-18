@@ -33,6 +33,7 @@ import { IndexGame } from '../games/IndexGame';
 import { DividendGame } from '../games/DividendGame';
 import { IpoGame } from '../games/IpoGame';
 import { TakeoverGame } from '../games/TakeoverGame';
+import { BalanceGame } from '../games/BalanceGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -189,6 +190,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'dividend-day': DividendGame,
             'ipo-book': IpoGame,
             'takeover-rumor': TakeoverGame,
+            'balance-builder': BalanceGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

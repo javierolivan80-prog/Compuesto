@@ -13,6 +13,7 @@ import { PrimarySecondary } from './PrimarySecondary';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
+import { ThreeStatements } from './ThreeStatements';
 import { TinVsTae } from './TinVsTae';
 
 type Registry = {
@@ -34,6 +35,7 @@ const REGISTRY = {
   ExDividend,
   StockSplit,
   ShareDilution,
+  ThreeStatements,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

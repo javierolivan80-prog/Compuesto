@@ -67,6 +67,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       .max(5),
     buySize: z.number().int().positive(),
   }),
+  ThreeStatements: z.object({
+    sale: z.number().positive(),
+    cost: z.number().positive(),
+  }),
   ExDividend: z.object({
     price: z.number().positive(),
     dividend: z.number().positive(),

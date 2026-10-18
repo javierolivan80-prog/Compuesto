@@ -646,5 +646,81 @@
     "debrief": "Ver qué ha pasado",
     "rumorBet": "Tu apuesta por el rumor ({{n}} acciones)",
     "rumorBetFalse": "(si hubiera sido falso: −{{loss}})"
+  },
+  "balanceGame": {
+    "title": "Cuadra el balance",
+    "stepClassify": "Paso {{n}} de {{total}} · 31 de diciembre de 2024: coloca cada partida",
+    "stepOps": "Operación {{n}} de {{total}} · enero de 2025",
+    "brief": "La mentora te pasa el balance de Naranjas del Turia a 31 de diciembre de 2024, desordenado. Coloca cada partida en su sitio: lo que la empresa tiene (activo), lo que debe a terceros (pasivo) o lo que es de sus accionistas (patrimonio neto). Al final, el activo tiene que ser igual al pasivo más el patrimonio neto.",
+    "units": "Cifras en miles de euros.",
+    "sheet": "Balance de Naranjas del Turia",
+    "activo": "Activo",
+    "pasivoPn": "Patrimonio neto y pasivo",
+    "total": "Total",
+    "balanced": "Cuadra: activo = patrimonio neto + pasivo = {{total}}",
+    "pending": "Aún no cuadra: faltan {{diff}}",
+    "where": "¿Dónde va esta partida?",
+    "side": {
+      "activo": "Activo",
+      "pasivo": "Pasivo",
+      "patrimonio": "Patrimonio neto"
+    },
+    "item": {
+      "caja": "Caja y bancos",
+      "clientes": "Clientes",
+      "existencias": "Existencias",
+      "inmovilizado": "Inmovilizado",
+      "proveedores": "Proveedores",
+      "deuda": "Deudas con bancos",
+      "capital": "Capital",
+      "reservas": "Reservas",
+      "resultado": "Resultado del ejercicio"
+    },
+    "why": {
+      "caja": "Caja y bancos va en el activo: es el dinero que la empresa tiene en la cuenta.",
+      "clientes": "Clientes va en el activo: es lo que te deben los clientes por ventas que aún no han pagado.",
+      "existencias": "Existencias va en el activo: naranjas, zumo y envases que están en el almacén.",
+      "inmovilizado": "Inmovilizado va en el activo: fincas, naves y máquinas que la empresa usa durante años.",
+      "proveedores": "Proveedores va en el pasivo: es lo que Naranjas debe a quien le vende envases y fruta.",
+      "deuda": "Deudas con bancos va en el pasivo: son préstamos que hay que devolver.",
+      "capital": "Capital va en el patrimonio neto: es lo que aportaron los accionistas.",
+      "reservas": "Reservas va en el patrimonio neto: son beneficios de años anteriores que no se repartieron."
+    },
+    "classified": "El balance cuadra: activo = patrimonio neto + pasivo = {{total}}. Ahora llegan las operaciones de enero: elige el apunte que recoge cada una.",
+    "january": "Enero de 2025",
+    "op": {
+      "loan": "Naranjas firma un préstamo con el banco por {{amount}} y recibe el dinero en su cuenta.",
+      "machine": "Compra una línea de envasado nueva por {{amount}} y la paga al contado.",
+      "sale": "Vende zumo a una cadena de supermercados por {{amount}}, que le pagará dentro de 60 días. Ese zumo le había costado {{cost}}.",
+      "suppliers": "Paga {{amount}} que debía a sus proveedores de envases.",
+      "dividend": "Paga a los accionistas un dividendo de {{amount}} con cargo a reservas, como aprobó la junta."
+    },
+    "whichEntry": "¿Qué apunte recoge la operación?",
+    "opWhy": {
+      "loan": "Entra dinero (activo) y nace una deuda con el banco (pasivo) por lo mismo. No es un ingreso: hay que devolverlo.",
+      "machine": "Cambias un activo por otro: baja la caja y sube el inmovilizado. No es un gasto ese día: la máquina se irá gastando año a año con la amortización.",
+      "sale": "Nace un derecho de cobro (clientes), sale el zumo del almacén y la diferencia, {{margin}}, es beneficio: sube el resultado del ejercicio, dentro del patrimonio neto. Todavía no ha entrado dinero en la caja.",
+      "suppliers": "Baja la caja y baja la deuda con proveedores por lo mismo. Pagar lo que debes no es un gasto: el gasto se apuntó cuando compraste.",
+      "dividend": "Sale dinero hacia los accionistas y baja el patrimonio neto (reservas). Un dividendo no es un gasto: es repartir beneficio ya ganado."
+    },
+    "unbalanced": "Ese apunte descuadra el balance: toda operación toca al menos dos partidas.",
+    "wrongButBalanced": "Ese apunte cuadra, pero no recoge lo que ha pasado.",
+    "rightEntry": "El apunte correcto: {{entry}}.",
+    "next": "Siguiente operación",
+    "summary": "Ver el balance final",
+    "hit": "¡Cuadra!",
+    "doneTitle": "Balance de enero de 2025",
+    "totalFromTo": "Total del balance",
+    "equity": "Patrimonio neto",
+    "hits": "Aciertos",
+    "hitsValue": "{{a}} de {{na}} partidas y {{b}} de {{nb}} apuntes",
+    "great": "Perfecto: has colocado cada partida y has apuntado cada operación sin descuadrar. La mentora firma tu balance.",
+    "ok": "Bien: el balance cuadra. Repasa los apuntes que fallaste: cuadrar no basta, hay que acertar qué partidas cambian.",
+    "bad": "El balance cuadra porque lo corrigió la mentora. Repasa qué es activo, pasivo y patrimonio neto y vuelve a intentarlo.",
+    "debrief": "Ver qué ha pasado",
+    "placing": "Partidas colocadas: {{n}} de {{total}}. El balance se comprueba al final."
+  },
+  "threeStatements": {
+    "title": "Una venta a crédito en los tres estados"
   }
 }

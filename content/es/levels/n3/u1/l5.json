@@ -1,0 +1,195 @@
+{
+  "id": "n3-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "title": "Cómo se conectan los tres estados",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Seguir una operación por la cuenta de resultados, el balance y el estado de flujos",
+    "Explicar por qué beneficio y caja no coinciden"
+  ],
+  "concepts": ["conexion-estados"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cómo se conectan",
+      "text": "El resultado del ejercicio de la cuenta de resultados pasa al patrimonio neto del balance. El estado de flujos explica por qué la caja de un balance es distinta de la del anterior. Si los tres no casan, hay un error: es la primera comprobación de cualquier analista."
+    },
+    {
+      "type": "visual",
+      "component": "ThreeStatements",
+      "props": {
+        "sale": 3000,
+        "cost": 1860
+      }
+    },
+    {
+      "type": "card",
+      "term": "Beneficio no es caja",
+      "text": "Una venta se apunta como ingreso al vender, aunque se cobre más tarde. Una máquina se paga hoy, pero se apunta como gasto poco a poco, con la amortización. Por eso una empresa puede ganar dinero y quedarse sin caja, o al revés."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "El patrimonio neto de Naranjas era 33.934 a finales de 2024. En 2025 ganó 7.233, repartió 3.255 en dividendos y no amplió capital. ¿Cuál es su patrimonio neto a finales de 2025? (miles de €)",
+      "answer": 37912,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "33934 + 7233 - 3255",
+      "explanation": "33.934 + 7.233 − 3.255 = 37.912: el mismo patrimonio neto que muestra el balance de 2025. Así se comprueba que la cuenta de resultados y el balance casan.",
+      "hint": "El resultado del año entra en el patrimonio neto y el dividendo sale."
+    },
+    {
+      "id": "n3-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Naranjas tenía 11.989 en caja a finales de 2024 y su estado de flujos de 2025 suma +3.396. ¿Cuánta caja debe mostrar el balance de 2025? (miles de €)",
+      "answer": 15385,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "11989 + 3396",
+      "explanation": "11.989 + 3.396 = 15.385, justo la caja del balance de 2025: el estado de flujos explica el cambio de caja entre dos balances.",
+      "hint": "Caja inicial + variación de caja."
+    },
+    {
+      "id": "n3-u1-l5-e3",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Ordena lo que pasa con una venta a crédito de 3.000.",
+      "steps": [
+        "Naranjas entrega el zumo y emite la factura",
+        "Se apunta el ingreso en la cuenta de resultados y clientes sube en el balance",
+        "El cliente paga 60 días después",
+        "Sube la caja, baja clientes y el cobro aparece en el flujo de explotación"
+      ],
+      "explanation": "El ingreso se apunta al vender; el dinero, al cobrar. Entre una cosa y otra, el derecho de cobro está en clientes."
+    },
+    {
+      "id": "n3-u1-l5-e4",
+      "type": "match_pairs",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Une cada partida con lo que conecta.",
+      "pairs": [
+        {
+          "left": "Resultado del ejercicio",
+          "right": "Une la cuenta de resultados con el patrimonio neto"
+        },
+        {
+          "left": "Variación de caja",
+          "right": "Explica la diferencia entre la caja de dos balances"
+        },
+        {
+          "left": "Amortización",
+          "right": "Gasto en resultados que se vuelve a sumar en los flujos"
+        },
+        {
+          "left": "Compra de inmovilizado",
+          "right": "Sube el activo no corriente y sale en el flujo de inversión"
+        }
+      ],
+      "explanation": "Cada estado mira lo mismo desde otro ángulo: el resultado alimenta el patrimonio neto y los flujos explican la caja."
+    },
+    {
+      "id": "n3-u1-l5-e5",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "character": "rival",
+      "prompt": "Hugo revisa las cuentas de Naranjas de 2025. ¿Dónde está el fallo?",
+      "lines": [
+        "Naranjas ganó 7.233 en 2025.",
+        "Pagó 3.255 de dividendos.",
+        "Por tanto, su caja tuvo que subir 7.233 − 3.255 = 3.978.",
+        "La caja subió 3.396, así que alguien ha calculado mal."
+      ],
+      "errorIndex": 2,
+      "explanation": "Beneficio no es caja: hay que sumar la amortización (1.682), restar lo que absorbió el circulante (764), la inversión (3.500) y sumar la deuda nueva (2.000). 7.233 + 1.682 − 764 − 3.500 + 2.000 − 3.255 = 3.396: las cuentas cuadran."
+    },
+    {
+      "id": "n3-u1-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "character": "jefe",
+      "situation": "El jefe de la mesa pregunta por qué Naranjas ganó 7.233 en 2025 pero generó 8.151 de flujo de explotación.",
+      "prompt": "¿Cuál es la respuesta correcta?",
+      "options": [
+        "La amortización (1.682) bajó el beneficio sin sacar dinero, y el circulante absorbió 764: 7.233 + 1.682 − 764 = 8.151",
+        "Los dividendos cobrados se suman en explotación",
+        "La deuda nueva con los bancos cuenta como flujo de explotación",
+        "Los impuestos no se pagan hasta el año siguiente, así que no cuentan"
+      ],
+      "answer": 0,
+      "explanation": "El método indirecto parte del beneficio, devuelve la amortización y descuenta lo que se quedó en clientes y existencias, neto de lo que se debe a proveedores.",
+      "wrongExplanations": {
+        "1": "Naranjas paga dividendos, no los cobra; y los que paga son financiación.",
+        "2": "La deuda es financiación, no explotación.",
+        "3": "El impuesto ya está restado en el beneficio y, en este ejemplo, se pagó en el año."
+      }
+    },
+    {
+      "id": "n3-u1-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "statement": "Una empresa con beneficios puede quedarse sin caja.",
+      "answer": true,
+      "explanation": "Verdadero. Si sus clientes pagan tarde, acumula existencias o invierte mucho, puede ganar dinero sobre el papel y no tenerlo en el banco. Es una de las causas más típicas de quiebra de empresas que crecen."
+    },
+    {
+      "id": "n3-u1-l5-e8",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Naranjas vende a crédito por 3.000 un zumo que costó 1.860 y aún no ha cobrado. ¿Cuánto cambia por esta venta su flujo de explotación del año? (miles de €)",
+      "answer": 0,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "(3000 - 1860) + 1860 - 3000",
+      "explanation": "El beneficio sube 1.140, pero se resta el aumento de clientes (3.000) y se suma la bajada de existencias (1.860): 1.140 + 1.860 − 3.000 = 0. No ha entrado dinero.",
+      "hint": "Beneficio de la venta, más lo que bajan las existencias, menos lo que suben los clientes."
+    }
+  ],
+  "realWorld": "Cuando abras unas cuentas anuales, haz la comprobación del analista: el resultado del ejercicio de la cuenta de resultados aparece en el patrimonio neto y la variación de caja del estado de flujos explica la caja de los dos balances.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

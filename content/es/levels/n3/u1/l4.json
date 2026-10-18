@@ -1,0 +1,249 @@
+{
+  "id": "n3-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "title": "El estado de flujos de efectivo",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Clasificar los cobros y pagos en explotación, inversión y financiación",
+    "Calcular el flujo de explotación desde el beneficio por el método indirecto y la variación de caja"
+  ],
+  "concepts": ["flujos-caja"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Estado de flujos de efectivo",
+      "text": "Cuenta de dónde vino y adónde fue el dinero del año, en tres bloques: explotación (cobros y pagos del negocio), inversión (comprar o vender inmovilizado) y financiación (deuda, ampliaciones de capital y dividendos). Su suma es lo que cambió la caja."
+    },
+    {
+      "type": "card",
+      "term": "Método indirecto",
+      "text": "Parte del beneficio y corrige lo que no es dinero: suma la amortización, un gasto sin salida de caja; resta lo que aumentan clientes y existencias, dinero que aún no ha entrado o sigue en el almacén; y suma lo que aumentan los proveedores, pagos que aún no se han hecho."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas en 2025 (miles de €): explotación +8.151 (beneficio 7.233 + amortización 1.682 − 633 de clientes − 458 de existencias + 327 de proveedores); inversión −3.500; financiación −1.255 (+2.000 de deuda nueva − 3.255 de dividendos). La caja subió 3.396. El modelo del PGC parte del resultado antes de impuestos; aquí, para simplificar, del resultado del ejercicio."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u1-l4-e1",
+      "type": "build_statement",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "statement": "flujos",
+      "prompt": "Completa el estado de flujos de Naranjas de 2025. Clientes pasó de 9.046 a 9.679 y la caja subió 3.396 en el año. Escribe las salidas y los aumentos de activo con signo menos.",
+      "sections": [
+        {
+          "name": "Explotación",
+          "side": "operativo",
+          "rows": [
+            {
+              "label": "Resultado del ejercicio",
+              "value": 7233
+            },
+            {
+              "label": "Amortización",
+              "value": 1682
+            },
+            {
+              "label": "Aumento de clientes",
+              "value": -633,
+              "blank": true
+            },
+            {
+              "label": "Aumento de existencias",
+              "value": -458
+            },
+            {
+              "label": "Aumento de proveedores",
+              "value": 327
+            }
+          ]
+        },
+        {
+          "name": "Inversión",
+          "side": "inversion",
+          "rows": [
+            {
+              "label": "Compra de inmovilizado",
+              "value": -3500
+            }
+          ]
+        },
+        {
+          "name": "Financiación",
+          "side": "financiacion",
+          "rows": [
+            {
+              "label": "Deuda nueva con bancos",
+              "value": 2000
+            },
+            {
+              "label": "Dividendos pagados",
+              "value": -3255,
+              "blank": true
+            }
+          ]
+        }
+      ],
+      "explanation": "Clientes subió 9.679 − 9.046 = 633: es dinero que aún no ha entrado, así que resta (−633). Con eso la explotación da 8.151; 8.151 − 3.500 + 2.000 + dividendos = 3.396, así que los dividendos son −3.255.",
+      "hint": "Un aumento de clientes resta. Para los dividendos, usa la variación de caja."
+    },
+    {
+      "id": "n3-u1-l4-e2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "¿En qué bloque del estado de flujos va cada movimiento de dinero?",
+      "categories": ["Explotación", "Inversión", "Financiación"],
+      "items": [
+        {
+          "text": "Cobro de ventas a clientes",
+          "category": "Explotación"
+        },
+        {
+          "text": "Pago de las nóminas",
+          "category": "Explotación"
+        },
+        {
+          "text": "Compra de una finca",
+          "category": "Inversión"
+        },
+        {
+          "text": "Venta de una nave antigua",
+          "category": "Inversión"
+        },
+        {
+          "text": "Préstamo recibido del banco",
+          "category": "Financiación"
+        },
+        {
+          "text": "Pago de dividendos",
+          "category": "Financiación"
+        }
+      ],
+      "explanation": "Explotación: el día a día del negocio. Inversión: comprar o vender lo que se usa durante años. Financiación: el dinero de bancos y accionistas, entrando o saliendo."
+    },
+    {
+      "id": "n3-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "Naranjas ganó 7.233 en 2025, con una amortización de 1.682. Entre clientes, existencias y proveedores, el circulante absorbió 764. ¿Cuál fue su flujo de explotación? (miles de €)",
+      "answer": 8151,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "7233 + 1682 - 764",
+      "explanation": "7.233 + 1.682 − 764 = 8.151. La amortización se suma porque no fue salida de dinero; el circulante resta porque quedó dinero pendiente de cobro y en el almacén.",
+      "hint": "Beneficio + amortización − lo que absorbió el circulante."
+    },
+    {
+      "id": "n3-u1-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "El flujo de explotación de Naranjas en 2025 fue +8.151, el de inversión −3.500 y el de financiación −1.255. ¿Cuánto varió su caja? (miles de €)",
+      "answer": 3396,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "8151 - 3500 - 1255",
+      "explanation": "8.151 − 3.500 − 1.255 = 3.396: la caja pasó de 11.989 a 15.385.",
+      "hint": "Suma los tres bloques con su signo."
+    },
+    {
+      "id": "n3-u1-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "Una empresa gana 5.000 en el año, pero su caja baja. ¿Cuál puede ser la razón?",
+      "options": [
+        "Sus clientes le pagan más tarde y ha comprado una fábrica nueva",
+        "Su amortización ha sido muy alta",
+        "Ha hecho una ampliación de capital",
+        "Sus proveedores le han dado más plazo para pagar"
+      ],
+      "answer": 0,
+      "explanation": "Si los clientes tardan más en pagar, parte del beneficio no ha entrado; si además compra una fábrica, sale mucho dinero en inversión.",
+      "wrongExplanations": {
+        "1": "La amortización baja el beneficio, pero no saca dinero: se suma de nuevo en el flujo de explotación.",
+        "2": "Una ampliación de capital mete dinero, no lo saca.",
+        "3": "Pagar más tarde deja más dinero en la caja, no menos."
+      }
+    },
+    {
+      "id": "n3-u1-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "statement": "En el método indirecto, la amortización se resta del beneficio porque es un gasto.",
+      "answer": false,
+      "explanation": "Falso: se suma. Ya se restó como gasto para llegar al beneficio, pero no salió dinero por ella, así que se devuelve."
+    },
+    {
+      "id": "n3-u1-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "character": "mentora",
+      "situation": "Naranjas va a comprar una línea de envasado de 3.500 al contado y la financiará en parte con un préstamo nuevo de 2.000.",
+      "prompt": "¿Cómo aparecerá en su estado de flujos?",
+      "options": [
+        "Inversión −3.500 y financiación +2.000: la caja baja 1.500 por estas dos operaciones",
+        "Explotación −3.500 y financiación +2.000",
+        "Inversión +3.500 y financiación −2.000",
+        "Solo inversión −1.500, la diferencia"
+      ],
+      "answer": 0,
+      "explanation": "Comprar inmovilizado es inversión (sale dinero) y el préstamo es financiación (entra). Se muestran por separado, sin compensar.",
+      "wrongExplanations": {
+        "1": "Una máquina que dura años es inversión, no explotación.",
+        "2": "Los signos van al revés: la compra saca dinero y el préstamo lo mete.",
+        "3": "Cada flujo va en su bloque y por su importe completo; no se compensan entre sí."
+      }
+    },
+    {
+      "id": "n3-u1-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["flujos-caja"],
+      "prompt": "Pagar dividendos a los accionistas es un flujo de ___.",
+      "answers": [["financiación", "financiacion"]],
+      "explanation": "Los dividendos, la deuda y las ampliaciones de capital son flujos de financiación."
+    }
+  ],
+  "realWorld": "En las cuentas anuales del PGC el estado se llama «Estado de flujos de efectivo» y tiene los tres bloques: explotación, inversión y financiación. No es obligatorio para las empresas que pueden hacer balance, estado de cambios en el patrimonio neto y memoria abreviados, pero las cotizadas siempre lo publican.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

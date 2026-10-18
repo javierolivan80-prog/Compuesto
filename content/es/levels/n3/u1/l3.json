@@ -1,0 +1,219 @@
+{
+  "id": "n3-u1-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "title": "La cuenta de pérdidas y ganancias",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el resultado de explotación, el resultado antes de impuestos y el del ejercicio",
+    "Distinguir un gasto de una salida de dinero (amortización)"
+  ],
+  "concepts": ["pyg"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cuenta de pérdidas y ganancias",
+      "text": "Es la película del año: lo que la empresa ingresó por sus ventas y lo que gastó para conseguirlas. Ingresos menos gastos de explotación da el resultado de explotación; tras los gastos financieros, el resultado antes de impuestos; y tras el impuesto sobre beneficios, el resultado del ejercicio."
+    },
+    {
+      "type": "card",
+      "term": "Amortización",
+      "text": "Una línea de envasado se usa diez años: su coste no se apunta como gasto el día de la compra, sino repartido en esos años. Esa parte de cada año es la amortización: un gasto de la cuenta de resultados que no supone salida de dinero ese año."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas en 2025, en miles de €: ingresos 58.882; coste de ventas 36.507; otros gastos de explotación 10.599; amortización 1.682; resultado de explotación 10.094; gastos financieros 450; resultado antes de impuestos 9.644; impuesto sobre beneficios 2.411; resultado del ejercicio 7.233."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u1-l3-e1",
+      "type": "build_statement",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "statement": "pyg",
+      "prompt": "Naranjas cerró 2025 con un resultado de explotación de 10.094 y un resultado del ejercicio de 7.233. Rellena la amortización y el impuesto sobre beneficios.",
+      "sections": [
+        {
+          "name": "Ingresos",
+          "side": "ingresos",
+          "rows": [
+            {
+              "label": "Ventas",
+              "value": 58882
+            }
+          ]
+        },
+        {
+          "name": "Gastos",
+          "side": "gastos",
+          "rows": [
+            {
+              "label": "Coste de ventas",
+              "value": 36507
+            },
+            {
+              "label": "Otros gastos de explotación",
+              "value": 10599
+            },
+            {
+              "label": "Amortización",
+              "value": 1682,
+              "blank": true
+            },
+            {
+              "label": "Gastos financieros",
+              "value": 450
+            },
+            {
+              "label": "Impuesto sobre beneficios",
+              "value": 2411,
+              "blank": true
+            }
+          ]
+        }
+      ],
+      "explanation": "Amortización = 58.882 − 36.507 − 10.599 − 10.094 = 1.682. Impuesto = 10.094 − 450 − 7.233 = 2.411.",
+      "hint": "Usa el resultado de explotación para la amortización y el resultado del ejercicio para el impuesto."
+    },
+    {
+      "id": "n3-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "Naranjas ingresó 58.882 en 2025. El coste de ventas fue 36.507, los otros gastos de explotación 10.599 y la amortización 1.682. ¿Cuál fue su resultado de explotación? (miles de €)",
+      "answer": 10094,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "58882 - 36507 - 10599 - 1682",
+      "explanation": "58.882 − 36.507 − 10.599 − 1.682 = 10.094. Es lo que gana el negocio antes de intereses e impuestos (en inglés, EBIT).",
+      "hint": "Resta a los ingresos todos los gastos de explotación, amortización incluida."
+    },
+    {
+      "id": "n3-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "El resultado antes de impuestos de Naranjas fue 9.644 y pagó un impuesto sobre beneficios de 2.411. ¿Qué tipo efectivo pagó? (en %, 1 decimal)",
+      "answer": 25.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2411 / 9644 * 100",
+      "explanation": "2.411 / 9.644 = 0,25: un 25,0 %, el tipo general del impuesto sobre sociedades en España.",
+      "hint": "Divide el impuesto entre el resultado antes de impuestos."
+    },
+    {
+      "id": "n3-u1-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "Si Naranjas hubiera tenido 200 más de gastos financieros en 2025, con el mismo tipo del 25 %, ¿cuánto habría bajado su resultado del ejercicio? (miles de €)",
+      "answer": 150,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "200 * (1 - 0.25)",
+      "explanation": "200 más de gasto bajan el resultado antes de impuestos en 200, pero el impuesto baja 50 (el 25 %): el resultado del ejercicio cae 200 × 0,75 = 150.",
+      "hint": "El gasto también reduce el impuesto."
+    },
+    {
+      "id": "n3-u1-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "¿Cuál de estas operaciones es un gasto en la cuenta de pérdidas y ganancias de 2025?",
+      "options": [
+        "La amortización de 2025 de las máquinas",
+        "La compra de una nave nueva",
+        "La devolución de una parte del préstamo",
+        "El pago del dividendo"
+      ],
+      "answer": 0,
+      "explanation": "La amortización reparte el coste de las máquinas entre los años que se usan: es gasto de 2025.",
+      "wrongExplanations": {
+        "1": "Comprar una nave cambia caja por inmovilizado: no es gasto ese año.",
+        "2": "Devolver un préstamo baja la caja y la deuda; solo los intereses son gasto.",
+        "3": "El dividendo reparte beneficio: baja el patrimonio neto, no es un gasto."
+      }
+    },
+    {
+      "id": "n3-u1-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pyg"],
+      "statement": "La amortización es un gasto, pero ese año no sale dinero de la empresa por ella.",
+      "answer": true,
+      "explanation": "Verdadero. El dinero salió cuando se pagó la máquina; la amortización solo reparte ese coste entre los años de uso."
+    },
+    {
+      "id": "n3-u1-l3-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "prompt": "Ordena la cuenta de pérdidas y ganancias de arriba abajo.",
+      "steps": [
+        "Ingresos",
+        "Resultado de explotación",
+        "Resultado antes de impuestos",
+        "Resultado del ejercicio"
+      ],
+      "explanation": "Ingresos − gastos de explotación = resultado de explotación; − gastos financieros = resultado antes de impuestos; − impuesto = resultado del ejercicio."
+    },
+    {
+      "id": "n3-u1-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pyg"],
+      "character": "mentora",
+      "situation": "La mentora te enseña que en 2025 los ingresos de Naranjas subieron un 7 % y su resultado de explotación un 8,1 %.",
+      "prompt": "¿Qué te dice eso?",
+      "options": [
+        "Que los gastos de explotación crecieron algo menos que los ingresos: el negocio gana un poco más por cada euro vendido",
+        "Que Naranjas pagó menos impuestos",
+        "Que su caja subió un 8,1 %",
+        "Que redujo su deuda con los bancos"
+      ],
+      "answer": 0,
+      "explanation": "Si el resultado de explotación crece más que los ingresos, el margen sube: cada euro vendido deja algo más de beneficio.",
+      "wrongExplanations": {
+        "1": "El impuesto va después del resultado de explotación: no le afecta.",
+        "2": "El beneficio no es caja: la caja depende también de cobros, inversiones y deuda.",
+        "3": "La deuda está en el balance; el resultado de explotación no la mide."
+      }
+    }
+  ],
+  "realWorld": "En las cuentas anuales del PGC busca la línea «Resultado de explotación» y la línea final, «Resultado del ejercicio». En la web de la CNMV, los informes financieros semestrales de las cotizadas traen las dos.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

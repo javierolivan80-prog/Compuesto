@@ -17,6 +17,15 @@ import {
   startFirstShares,
   type Move,
 } from './first-shares';
+import {
+  balanceResult,
+  balanceValues,
+  classify,
+  post,
+  setupBalance,
+  SIDE_OF,
+  startBalance,
+} from './balance-builder';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -47,6 +56,7 @@ export const LESSON_GAMES = [
   'dividend-day',
   'ipo-book',
   'takeover-rumor',
+  'balance-builder',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -143,6 +153,24 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     gain_sell: [2, 2],
     false_loss: [2, 2],
   },
+  'balance-builder': {
+    total_start: [0, 0],
+    equity_start: [0, 0],
+    loan: [0, 0],
+    machine: [0, 0],
+    sale: [0, 0],
+    cost: [0, 0],
+    margin: [0, 0],
+    suppliers: [0, 0],
+    dividend: [0, 0],
+    cash_end: [0, 0],
+    debt_end: [0, 0],
+    equity_end: [0, 0],
+    total_end: [0, 0],
+    result: [0, 0],
+    classify_hits: [0, 0],
+    post_hits: [0, 0],
+  },
 };
 
 /**
@@ -226,6 +254,14 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           takeoverResult(setup, { buyOnRumor: false, reportInsider: true, final: 'accept' }),
         ),
       ];
+    }
+    case 'balance-builder': {
+      // el balance avanza siempre con el apunte correcto: las cifras no dependen de lo que elijas
+      const setup = setupBalance(seed);
+      let s = startBalance(setup);
+      for (const id of setup.order) s = classify(s, SIDE_OF[id]);
+      for (const op of setup.ops) s = post(s, op.right);
+      return [balanceValues(balanceResult(s))];
     }
   }
 }

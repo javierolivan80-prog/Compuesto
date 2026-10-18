@@ -1,0 +1,288 @@
+{
+  "id": "n3-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: cuadra el balance",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Colocar cada partida del balance en el activo, el pasivo o el patrimonio neto",
+    "Apuntar operaciones sencillas en el balance sabiendo que siempre toca al menos dos partidas y que sigue cuadrando"
+  ],
+  "concepts": ["balance", "conexion-estados"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "balance-builder",
+    "seed": 1
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Balance",
+      "text": "El balance es una foto a una fecha: lo que la empresa tiene (activo) frente a de dónde salió el dinero para tenerlo, de terceros (pasivo) o de sus accionistas (patrimonio neto). Por eso siempre cuadra: el de Naranjas sumaba {total_start} mil € a cada lado el 31 de diciembre de 2024."
+    },
+    {
+      "type": "card",
+      "term": "Toda operación toca dos partidas",
+      "text": "El préstamo de {loan} subió la caja y la deuda; la máquina de {machine} cambió caja por inmovilizado. Si una partida cambia, otra cambia también, y el balance sigue cuadrando: tras enero, {total_end} mil € a cada lado. Ojo: cuadrar no basta, hay que acertar qué partidas cambian."
+    },
+    {
+      "type": "card",
+      "term": "El beneficio es de los accionistas",
+      "text": "Vender por {sale} un zumo que costó {cost} dio un beneficio de {margin}: subió el resultado del ejercicio, dentro del patrimonio neto, aunque aún no se había cobrado. El dividendo de {dividend} lo bajó. Patrimonio neto: de {equity_start} a {equity_end} mil €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u1-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Naranjas empezó enero con 11.989 mil € en caja. Recibió un préstamo de {loan}, pagó una máquina de {machine}, pagó {suppliers} a proveedores y {dividend} de dividendo. ¿Cuánta caja le queda? (miles de €)",
+      "answer": 7539,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "11989 + {loan} - {machine} - {suppliers} - {dividend}",
+      "params": {
+        "loan": {
+          "value": 2500,
+          "min": 1000,
+          "max": 3000,
+          "step": 500
+        },
+        "machine": {
+          "value": 2250,
+          "min": 1500,
+          "max": 3500,
+          "step": 250
+        },
+        "suppliers": {
+          "value": 1700,
+          "min": 1000,
+          "max": 2500,
+          "step": 100
+        },
+        "dividend": {
+          "value": 3000,
+          "min": 2500,
+          "max": 3500,
+          "step": 100
+        }
+      },
+      "derived": {
+        "cash": {
+          "formula": "11989 + {loan} - {machine} - {suppliers} - {dividend}",
+          "decimals": 0
+        }
+      },
+      "explanation": "11.989 + {loan} − {machine} − {suppliers} − {dividend} = {cash}. La venta a crédito no cuenta: el cliente todavía no ha pagado.",
+      "hint": "Suma lo que entra en la cuenta y resta lo que sale. ¿Entró dinero con la venta?"
+    },
+    {
+      "id": "n3-u1-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "prompt": "Naranjas vendió por {sale} un zumo que le había costado {cost}. ¿Cuánto beneficio le da la venta? (miles de €)",
+      "answer": 1520,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{sale} - {cost}",
+      "params": {
+        "sale": {
+          "value": 4000,
+          "min": 3000,
+          "max": 4000,
+          "step": 100
+        },
+        "cost": {
+          "value": 2480,
+          "min": 1500,
+          "max": 2480,
+          "step": 1
+        }
+      },
+      "derived": {
+        "margin": {
+          "formula": "{sale} - {cost}",
+          "decimals": 0
+        }
+      },
+      "explanation": "Precio de venta menos lo que costó la mercancía: {sale} − {cost} = {margin}. Ese beneficio sube el resultado del ejercicio, en el patrimonio neto.",
+      "hint": "Beneficio de una venta = lo que cobras (o cobrarás) − lo que te costó lo vendido."
+    },
+    {
+      "id": "n3-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance", "conexion-estados"],
+      "prompt": "El patrimonio neto de Naranjas era de {equity_start}. En enero ganó {margin} con la venta y pagó {dividend} de dividendo. ¿Cuál es su patrimonio neto ahora? (miles de €)",
+      "answer": 32454,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{equity_start} + {margin} - {dividend}",
+      "params": {
+        "equity_start": {
+          "value": 33934,
+          "min": 30000,
+          "max": 40000,
+          "step": 1,
+          "fixed": true
+        },
+        "margin": {
+          "value": 1520,
+          "min": 500,
+          "max": 1600,
+          "step": 10
+        },
+        "dividend": {
+          "value": 3000,
+          "min": 2500,
+          "max": 3500,
+          "step": 100
+        }
+      },
+      "derived": {
+        "equity": {
+          "formula": "{equity_start} + {margin} - {dividend}",
+          "decimals": 0
+        }
+      },
+      "explanation": "{equity_start} + {margin} − {dividend} = {equity}. El beneficio sube el patrimonio neto; el dividendo lo reparte y lo baja. El préstamo, la máquina y el pago a proveedores no lo tocan.",
+      "hint": "¿Cuáles de las operaciones cambian lo que es de los accionistas?"
+    },
+    {
+      "id": "n3-u1-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "¿Dónde va cada partida en el balance de Naranjas?",
+      "categories": ["Activo", "Pasivo", "Patrimonio neto"],
+      "items": [
+        {
+          "text": "Fincas de naranjos",
+          "category": "Activo"
+        },
+        {
+          "text": "Camiones de reparto",
+          "category": "Activo"
+        },
+        {
+          "text": "Zumo envasado en el almacén",
+          "category": "Activo"
+        },
+        {
+          "text": "Facturas de luz pendientes de pagar",
+          "category": "Pasivo"
+        },
+        {
+          "text": "Préstamo hipotecario de la nave",
+          "category": "Pasivo"
+        },
+        {
+          "text": "Dinero que aportaron los accionistas al fundar la empresa",
+          "category": "Patrimonio neto"
+        },
+        {
+          "text": "Beneficios de años anteriores sin repartir",
+          "category": "Patrimonio neto"
+        }
+      ],
+      "explanation": "Lo que la empresa tiene y le dará dinero es activo; lo que debe a terceros, pasivo; lo que aportaron y ganaron sus accionistas, patrimonio neto (capital y reservas)."
+    },
+    {
+      "id": "n3-u1-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Naranjas compra una máquina de 2.000 y acuerda pagarla al fabricante dentro de 90 días. ¿Qué apunte recoge la operación?",
+      "options": [
+        "Inmovilizado +2.000 · Deuda con el fabricante (pasivo) +2.000",
+        "Inmovilizado +2.000 · Caja −2.000",
+        "Inmovilizado +2.000 · Resultado del ejercicio −2.000",
+        "Inmovilizado +2.000"
+      ],
+      "answer": 0,
+      "explanation": "Entra un activo (la máquina) y nace una deuda con el fabricante por lo mismo. La caja no se mueve hasta que pague.",
+      "wrongExplanations": {
+        "1": "La caja todavía no ha bajado: pagará dentro de 90 días.",
+        "2": "Comprar una máquina no es un gasto ese día: se irá gastando con la amortización.",
+        "3": "Solo cambia una partida: el balance descuadraría."
+      }
+    },
+    {
+      "id": "n3-u1-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["balance"],
+      "statement": "Si el balance cuadra después de un apunte, el apunte es correcto.",
+      "answer": false,
+      "explanation": "Falso. Apuntar una venta a crédito en caja en lugar de en clientes también cuadra, pero dice que entró un dinero que aún no ha llegado. Cuadrar es necesario, no suficiente."
+    },
+    {
+      "id": "n3-u1-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["conexion-estados"],
+      "character": "rival",
+      "situation": "Hugo Ferrer, el otro becario, mira tu balance de enero: «Naranjas ha ganado {margin} con la venta del zumo, así que tiene {margin} más en la caja».",
+      "prompt": "¿Qué le contestas?",
+      "options": [
+        "Que no: la venta fue a crédito, así que sube clientes en {sale}; la caja no se mueve hasta que el cliente pague",
+        "Que sí: todo beneficio entra en la caja el mismo día",
+        "Que la caja sube {sale}, el precio completo de la venta",
+        "Que el beneficio baja la caja, porque hay que pagar el zumo"
+      ],
+      "answer": 0,
+      "explanation": "El beneficio se apunta al vender; el dinero llega al cobrar. Hasta entonces el derecho de cobro está en clientes.",
+      "wrongExplanations": {
+        "1": "Beneficio y caja no van al mismo ritmo: una venta a crédito da beneficio sin dinero.",
+        "2": "Eso sería si el cliente hubiera pagado al contado.",
+        "3": "El zumo ya estaba en el almacén y pagado: lo que baja son las existencias."
+      }
+    },
+    {
+      "id": "n3-u1-l1-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Activo = patrimonio neto + ___",
+      "answers": [["pasivo", "el pasivo"]],
+      "explanation": "Todo lo que la empresa tiene se financió con dinero de sus accionistas (patrimonio neto) o de terceros (pasivo)."
+    }
+  ],
+  "realWorld": "Las cuentas anuales de cualquier sociedad cotizada española están en la web de la CNMV, en sus informes financieros anuales: el primer estado que verás es el balance, con el activo a un lado y el patrimonio neto y el pasivo al otro.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

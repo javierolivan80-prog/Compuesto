@@ -1,0 +1,250 @@
+{
+  "id": "n3-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 1,
+  "title": "El balance: lo que tienes y cómo lo pagaste",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir activo corriente y no corriente, patrimonio neto y pasivo",
+    "Completar un balance que cuadra y calcular qué parte financian los accionistas"
+  ],
+  "concepts": ["balance"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Activo",
+      "text": "Es lo que la empresa controla y le dará dinero en el futuro. El no corriente se queda más de un año: el inmovilizado (fincas, naves, máquinas). El corriente se convierte en dinero antes de un año: existencias, clientes y caja."
+    },
+    {
+      "type": "card",
+      "term": "Patrimonio neto y pasivo",
+      "text": "Es de dónde salió el dinero para pagar el activo. El patrimonio neto es de los accionistas: capital aportado, reservas y resultado del ejercicio. El pasivo es lo que se debe a terceros: no corriente si vence en más de un año y corriente si vence antes, como los proveedores."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas del Turia a 31/12/2025, en miles de €: activo 54.913 (inmovilizado 22.848, existencias 7.001, clientes 9.679, caja 15.385); patrimonio neto 37.912 (capital 6.000 y reservas 31.912) y pasivo 17.001 (deudas con bancos 12.000 y proveedores 5.001)."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u1-l2-e1",
+      "type": "build_statement",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "statement": "balance",
+      "prompt": "Completa el balance de Naranjas a 31/12/2025. El total del activo es 54.913.",
+      "sections": [
+        {
+          "name": "Activo no corriente",
+          "side": "activo",
+          "rows": [
+            {
+              "label": "Inmovilizado",
+              "value": 22848
+            }
+          ]
+        },
+        {
+          "name": "Activo corriente",
+          "side": "activo",
+          "rows": [
+            {
+              "label": "Existencias",
+              "value": 7001
+            },
+            {
+              "label": "Clientes",
+              "value": 9679
+            },
+            {
+              "label": "Caja y bancos",
+              "value": 15385,
+              "blank": true
+            }
+          ]
+        },
+        {
+          "name": "Patrimonio neto",
+          "side": "patrimonio",
+          "rows": [
+            {
+              "label": "Capital",
+              "value": 6000
+            },
+            {
+              "label": "Reservas",
+              "value": 31912,
+              "blank": true
+            }
+          ]
+        },
+        {
+          "name": "Pasivo",
+          "side": "pasivo",
+          "rows": [
+            {
+              "label": "Deudas con bancos",
+              "value": 12000
+            },
+            {
+              "label": "Proveedores",
+              "value": 5001
+            }
+          ]
+        }
+      ],
+      "explanation": "Caja = 54.913 − 22.848 − 7.001 − 9.679 = 15.385. Reservas = 54.913 − 12.000 − 5.001 − 6.000 = 31.912. Los dos lados suman 54.913.",
+      "hint": "Empieza por el lado que tiene un solo hueco y usa el total del activo para los dos."
+    },
+    {
+      "id": "n3-u1-l2-e2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "¿Activo corriente o no corriente?",
+      "categories": ["Activo corriente", "Activo no corriente"],
+      "items": [
+        {
+          "text": "Nave de envasado",
+          "category": "Activo no corriente"
+        },
+        {
+          "text": "Fincas de cultivo",
+          "category": "Activo no corriente"
+        },
+        {
+          "text": "Programa informático comprado para usarlo diez años",
+          "category": "Activo no corriente"
+        },
+        {
+          "text": "Zumo en el almacén",
+          "category": "Activo corriente"
+        },
+        {
+          "text": "Facturas que los clientes pagarán en 60 días",
+          "category": "Activo corriente"
+        },
+        {
+          "text": "Dinero en la cuenta del banco",
+          "category": "Activo corriente"
+        }
+      ],
+      "explanation": "No corriente: lo que se usa durante más de un año (también lo intangible, como un programa). Corriente: lo que se convierte en dinero antes de un año."
+    },
+    {
+      "id": "n3-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Naranjas tiene un activo de 54.913 y un patrimonio neto de 37.912. ¿Qué porcentaje del activo financian sus accionistas? (en %, 2 decimales)",
+      "answer": 69.04,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "37912 / 54913 * 100",
+      "explanation": "37.912 / 54.913 = 0,6904: el 69,04 % lo financian los accionistas y el 30,96 % restante, terceros (bancos y proveedores).",
+      "hint": "Divide el patrimonio neto entre el total del activo."
+    },
+    {
+      "id": "n3-u1-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Las reservas de Naranjas eran 27.934 a finales de 2024. En 2025 ganó 7.233 y repartió 3.255 en dividendos. ¿Cuánto suman sus reservas a finales de 2025? (miles de €)",
+      "answer": 31912,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "27934 + 7233 - 3255",
+      "explanation": "27.934 + 7.233 − 3.255 = 31.912. Lo que se gana y no se reparte se queda en la empresa como reservas (aquí, por simplificar, el resultado de 2025 ya aparece dentro de las reservas).",
+      "hint": "Las reservas crecen con lo que se gana y no se reparte."
+    },
+    {
+      "id": "n3-u1-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "¿Qué es el patrimonio neto?",
+      "options": [
+        "Lo que quedaría para los accionistas si los activos valieran lo que dice el balance y se pagaran todas las deudas",
+        "El dinero que la empresa tiene en el banco",
+        "Lo que vale la empresa en bolsa",
+        "Lo que la empresa debe a Hacienda"
+      ],
+      "answer": 0,
+      "explanation": "Patrimonio neto = activo − pasivo, a valor contable. Es la parte de los accionistas.",
+      "wrongExplanations": {
+        "1": "Eso es la caja, una partida del activo.",
+        "2": "Es la capitalización: depende de lo que el mercado espera, no del balance.",
+        "3": "Una deuda con Hacienda es pasivo."
+      }
+    },
+    {
+      "id": "n3-u1-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["balance"],
+      "statement": "El balance cuenta lo que ha pasado durante todo el año, como una película.",
+      "answer": false,
+      "explanation": "Falso. El balance es una foto a una fecha (31 de diciembre). La película del año es la cuenta de pérdidas y ganancias."
+    },
+    {
+      "id": "n3-u1-l2-e7",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["balance"],
+      "character": "rival",
+      "prompt": "Hugo explica el balance de Naranjas. ¿Dónde se equivoca?",
+      "lines": [
+        "El activo de Naranjas suma 54.913.",
+        "Lo que debe a terceros, el pasivo, suma 17.001.",
+        "El patrimonio neto es la diferencia: 54.913 − 17.001 = 37.912.",
+        "Como el patrimonio neto es de los accionistas, Naranjas tiene 37.912 en el banco para repartirles.",
+        "Su caja, de hecho, es de 15.385."
+      ],
+      "errorIndex": 3,
+      "explanation": "El patrimonio neto no es dinero en el banco: es la parte del activo (máquinas, fincas, zumo, clientes y caja) que pertenece a los accionistas. La caja es solo 15.385."
+    },
+    {
+      "id": "n3-u1-l2-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["balance"],
+      "prompt": "Lo que se convertirá en dinero en menos de un año es activo ___.",
+      "answers": [["corriente"]],
+      "explanation": "Activo corriente: existencias, clientes y caja. Lo que dura más de un año es no corriente."
+    }
+  ],
+  "realWorld": "En las cuentas anuales del PGC el balance tiene este orden: activo no corriente y corriente; después patrimonio neto, pasivo no corriente y pasivo corriente. Búscalo en el informe financiero anual de una cotizada en la web de la CNMV.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

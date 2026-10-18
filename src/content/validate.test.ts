@@ -41,13 +41,21 @@ describe('contenido real del repositorio', () => {
     expect(new Set(concepts.filter((c) => c.track).map((c) => c.track)).size).toBe(4);
     expect(conceptCycles(concepts)).toEqual([]);
   });
-  it('N0–N1 llevan el detalle completo (descripción y unidad); el resto, esqueleto', () => {
+  it('N0–N1 llevan el detalle completo (descripción y unidad); del resto, solo los de unidades ya escritas', () => {
     const { concepts } = validateContent(base);
     for (const c of concepts.filter((c) => c.level <= 1 && !c.track)) {
       expect(c.description, c.id).toBeTruthy();
       expect(c.unit, c.id).toMatch(/^n[01]-u\d$/);
     }
-    expect(concepts.filter((c) => c.level >= 2).every((c) => !c.description)).toBe(true);
+    const units = new Set(
+      (base.curriculum as { levels: { units: { id: string; concepts: string[] }[] }[] }).levels
+        .flatMap((l) => l.units)
+        .flatMap((u) => u.concepts),
+    );
+    for (const c of concepts.filter((c) => c.level >= 2)) {
+      if (units.has(c.id)) expect(c.description && c.unit, c.id).toBeTruthy();
+      else expect(c.description, c.id).toBeFalsy();
+    }
   });
   it('el curriculum de N0 y N1 enlaza con conceptos existentes', () => {
     const cur = base.curriculum as { levels: { level: number; units: { concepts: string[] }[] }[] };

@@ -12,6 +12,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'dividend-day': 167, // la orden más grande: 9.992 €
   'ipo-book': 4, // demanda de 20.000.000 de acciones a 9 €
   'takeover-rumor': 104, // la oferta más alta: 8,32 €
+  'balance-builder': 203, // los importes de enero más altos (15.900 mil € entre las cinco operaciones)
 };
 
 export const worstCaseOn = (): boolean =>

@@ -1,6 +1,9 @@
 import { expect, type Page } from '@playwright/test';
 import type { Exercise } from '../src/content/schemas';
+import { readFileSync } from 'node:fs';
+import { setupBalance, SIDE_OF, type ItemId } from '../src/engine/games/balance-builder';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
+import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
 import { outcomeAt, PRICES, setupIpo } from '../src/engine/games/ipo-book';
 import { playSessions, setupIndex } from '../src/engine/games/index-mover';
@@ -8,6 +11,10 @@ import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson
 import { instantiate, isParametric } from '../src/engine/params';
 import { playLesson, type Lesson } from './play';
 import type { Ex } from './solver';
+
+const es = JSON.parse(readFileSync('src/i18n/es.json', 'utf8')) as {
+  balanceGame: { side: Record<string, string>; item: Record<string, string> };
+};
 
 export type GameLesson = Lesson & { game: { kind: LessonGameKind; seed: number } };
 
@@ -26,6 +33,27 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'balance-builder') {
+    // referencia 0: colocar bien las ocho partidas y elegir el apunte correcto de las cinco operaciones
+    await expect(page.getByRole('heading', { name: 'Cuadra el balance' })).toBeVisible();
+    const setup = setupBalance(seed);
+    const side = es.balanceGame.side;
+    for (const id of setup.order)
+      await page.getByRole('button', { name: side[SIDE_OF[id]], exact: true }).click();
+    for (const [i, op] of setup.ops.entries()) {
+      const entry = Object.entries(op.options[op.right]!) as [ItemId, number][];
+      const label = entry
+        .map(
+          ([k, v]) => `${es.balanceGame.item[k]} ${v >= 0 ? '+' : '−'}${formatNumber(Math.abs(v))}`,
+        )
+        .join(' · ');
+      await page.getByRole('button', { name: label, exact: true }).click();
+      await page
+        .getByRole('button', {
+          name: i === setup.ops.length - 1 ? 'Ver el balance final' : 'Siguiente operación',
+        })
+        .click();
+    }
   } else if (kind === 'takeover-rumor') {
     // referencia 0: no comprar por el rumor, no operar con la confidencia y acudir a la OPA
     await expect(page.getByRole('heading', { name: 'El rumor de OPA' })).toBeVisible();

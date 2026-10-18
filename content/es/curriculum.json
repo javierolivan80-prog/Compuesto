@@ -67,7 +67,13 @@
       "rank": "Analista Junior",
       "floor": 1,
       "weeks": "Semanas 7–16",
-      "units": []
+      "units": [
+        {
+          "id": "n3-u1",
+          "name": "Los tres estados financieros",
+          "concepts": ["balance", "pyg", "flujos-caja", "conexion-estados"]
+        }
+      ]
     },
     {
       "level": 2,

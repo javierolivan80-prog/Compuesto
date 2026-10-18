@@ -1,0 +1,55 @@
+/* Cuadra el balance: las dos columnas del balance, sus barras (scaleX) y el destello de la partida que cambia. */
+.bb-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.bb-col,
+.bb-card {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.bb-row {
+  position: relative;
+}
+.bb-flash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: color-mix(in oklch, var(--accent) 28%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  animation: bb-flash 900ms var(--ease-out) both;
+}
+@keyframes bb-flash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.bb-track {
+  display: block;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--line) 60%, transparent);
+}
+.bb-bar {
+  transform-origin: left center;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.bb-bar-a {
+  background: var(--brand);
+}
+.bb-bar-p {
+  background: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bb-bar {
+    transition: none;
+  }
+  .bb-flash::after {
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+  }
+}

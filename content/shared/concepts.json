@@ -659,25 +659,33 @@
     "id": "balance",
     "name": "Balance",
     "level": 3,
-    "prerequisites": ["empresa"]
+    "prerequisites": ["empresa"],
+    "unit": "n3-u1",
+    "description": "Foto de la empresa a una fecha: lo que tiene (activo) frente a cómo lo financió, con dinero de sus accionistas (patrimonio neto) o de terceros (pasivo). Siempre cuadra."
   },
   {
     "id": "pyg",
     "name": "Cuenta de pérdidas y ganancias",
     "level": 3,
-    "prerequisites": ["empresa"]
+    "prerequisites": ["empresa"],
+    "unit": "n3-u1",
+    "description": "Ingresos y gastos de un periodo: del resultado de explotación al resultado del ejercicio, pasando por los gastos financieros y el impuesto sobre beneficios."
   },
   {
     "id": "flujos-caja",
     "name": "Estado de flujos de caja",
     "level": 3,
-    "prerequisites": ["balance", "pyg"]
+    "prerequisites": ["balance", "pyg"],
+    "unit": "n3-u1",
+    "description": "Cobros y pagos de un periodo en tres bloques (explotación, inversión y financiación); su suma es la variación de la caja."
   },
   {
     "id": "conexion-estados",
     "name": "Conexión entre los tres estados",
     "level": 3,
-    "prerequisites": ["balance", "pyg", "flujos-caja"]
+    "prerequisites": ["balance", "pyg", "flujos-caja"],
+    "unit": "n3-u1",
+    "description": "El resultado del ejercicio pasa al patrimonio neto y el estado de flujos explica la caja entre dos balances: beneficio y caja no coinciden."
   },
   {
     "id": "pgc-niif",
