@@ -67,6 +67,12 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       .max(5),
     buySize: z.number().int().positive(),
   }),
+  EvBridge: z.object({
+    cap: z.number().positive(),
+    debt: z.number().min(0),
+    cash: z.number().min(0),
+    ebitda: z.number().positive(),
+  }),
   Leverage: z.object({
     goodRoa: z.number(),
     badRoa: z.number(),

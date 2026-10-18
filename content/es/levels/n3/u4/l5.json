@@ -1,0 +1,214 @@
+{
+  "id": "n3-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 4,
+  "title": "Jefe final: múltiplos de Tramuntana y Pirineo",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Valorar con PER y EV/EBITDA y decidir si una acción está cara o barata frente a sus comparables"
+  ],
+  "concepts": ["multiplos", "anclaje"],
+  "companies": ["tramuntana-retail", "pirineo-energia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u4-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Tramuntana cotiza a 3,99 € con 18.000.000 de acciones. ¿Capitalización? (miles de €)",
+      "answer": 71820,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "3.99 * 18000",
+      "explanation": "3,99 × 18.000.000 = 71.820 mil €. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación."
+    },
+    {
+      "id": "n3-u4-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Ganó 6.905 mil €. ¿PER? (2 decimales)",
+      "answer": 10.4,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "71820 / 6905",
+      "explanation": "71.820 / 6.905 = 10,40."
+    },
+    {
+      "id": "n3-u4-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Deuda 23.000 y caja 21.908 (miles de €). ¿Valor de empresa? (miles de €)",
+      "answer": 72912,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "71820 + 23000 - 21908",
+      "explanation": "71.820 + 23.000 − 21.908 = 72.912."
+    },
+    {
+      "id": "n3-u4-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "EBITDA de 13.895. ¿EV/EBITDA? (2 decimales)",
+      "answer": 5.25,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "72912 / 13895",
+      "explanation": "72.912 / 13.895 = 5,25."
+    },
+    {
+      "id": "n3-u4-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Los PER de sus comparables son 15,0 · 44,0 · 11,6 · 16,1 · 13,3. Con la mediana y un BPA de 0,38 €, ¿cuánto valdría la acción? (€, 2 decimales)",
+      "answer": 5.7,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.38 * 15",
+      "explanation": "Ordenados: 11,6 · 13,3 · 15,0 · 16,1 · 44,0. Mediana 15,0 × 0,38 = 5,70 €.",
+      "hint": "Primero la mediana; luego por el BPA."
+    },
+    {
+      "id": "n3-u4-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Cotiza a 3,99 € y los comparables dicen 5,70 €. ¿Cuánto cotiza por debajo, en %? (1 decimal)",
+      "answer": 30.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(1 - 3.99 / 5.7) * 100",
+      "explanation": "1 − 3,99 / 5,70 = 30,0 % por debajo."
+    },
+    {
+      "id": "n3-u4-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Con el PER, Tramuntana cotiza un 30 % por debajo de sus comparables, y con el EV/EBITDA también sale barata. ¿Qué haces antes de concluir que está barata?",
+      "options": [
+        "Buscar por qué el mercado la paga menos: si crece menos o tiene más riesgo que sus comparables",
+        "Nada: dos múltiplos coinciden",
+        "Ver a qué precio la compró la mentora",
+        "Comprobar su máximo del año"
+      ],
+      "answer": 0,
+      "explanation": "Un descuento tiene que explicarse; si no encuentras motivo, quizá sea una oportunidad que estudiar más a fondo. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Coincidir no explica el porqué del descuento.",
+        "2": "Es un ancla: no cambia lo que vale.",
+        "3": "Otra ancla."
+      }
+    },
+    {
+      "id": "n3-u4-l5-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Qué usa cada múltiplo?",
+      "categories": ["PER", "EV/EBITDA"],
+      "items": [
+        {
+          "text": "Capitalización",
+          "category": "PER"
+        },
+        {
+          "text": "Resultado del ejercicio",
+          "category": "PER"
+        },
+        {
+          "text": "Deuda financiera neta",
+          "category": "EV/EBITDA"
+        },
+        {
+          "text": "Resultado de explotación + amortización",
+          "category": "EV/EBITDA"
+        }
+      ],
+      "explanation": "El PER mira a los accionistas (capitalización y beneficio); el EV/EBITDA, al negocio entero (valor de empresa y EBITDA)."
+    },
+    {
+      "id": "n3-u4-l5-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["anclaje"],
+      "character": "jefe",
+      "situation": "En el comité alguien dice: «Pirineo cotizaba a 14 € hace un año; a 9,50 € tiene que estar barata».",
+      "prompt": "¿Qué objeción haces?",
+      "options": [
+        "Que el precio de hace un año es un ancla: lo que importa es si a 9,50 € está por debajo de lo que dicen sus comparables y su beneficio",
+        "Ninguna: si ha caído, está barata",
+        "Que hay que esperar a que vuelva a 14 €",
+        "Que el PER no se puede calcular con precios pasados"
+      ],
+      "answer": 0,
+      "explanation": "La caída desde 14 € no dice nada por sí sola; los múltiplos frente a comparables, sí.",
+      "wrongExplanations": {
+        "1": "Puede haber caído porque vale menos.",
+        "2": "Esperar a un precio pasado es anclarse.",
+        "3": "Se puede, pero no es la objeción importante."
+      }
+    },
+    {
+      "id": "n3-u4-l5-e10",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "character": "rival",
+      "prompt": "Hugo valora Pirineo con el EV/EBITDA. ¿Dónde se equivoca?",
+      "lines": [
+        "El EBITDA de Pirineo es 58.167 mil €.",
+        "Con un EV/EBITDA de referencia de 10,2, su valor de empresa sería 593.303.",
+        "Como son 40.000.000 de acciones, cada una vale 593.303 / 40.000 = 14,83 €.",
+        "Cotiza a 9,50 €: un 36 % por debajo."
+      ],
+      "errorIndex": 2,
+      "explanation": "Se ha saltado restar la deuda financiera neta (47.697): el valor de las acciones es 545.606 y cada una vale 13,64 €, no 14,83 €."
+    }
+  ],
+  "realWorld": "Con PER y EV/EBITDA frente a comparables bien elegidos tienes la primera opinión de valor de cualquier cotizada. El siguiente paso, en la próxima unidad, es el DCF. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "n3-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 4,
+  "order": 0,
+  "title": "Juego: ¿cara o barata?",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Valorar una acción con el PER de sus comparables y contrastarlo con el EV/EBITDA",
+    "Elegir la mediana como referencia y decidir si una acción está cara, barata o en precio"
+  ],
+  "concepts": ["multiplos"],
+  "companies": ["naranjas-del-turia", "tramuntana-retail", "pirineo-energia"],
+  "historical": false,
+  "game": {
+    "kind": "cheap-or-dear",
+    "seed": 2
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "PER",
+      "text": "El PER divide el precio de la acción entre su beneficio por acción: cuántos años del beneficio de hoy pagas. Naranjas cotiza a {price} € con un beneficio por acción de {eps} €: un PER de {pe_now}. Sus comparables cotizan, en mediana, a un PER de {pe_median}."
+    },
+    {
+      "type": "card",
+      "term": "Mediana, no media",
+      "text": "Un comparable con el beneficio hundido tenía un PER disparatado y arrastraba la media hasta {pe_mean}. La mediana, {pe_median}, no se deja arrastrar. Con ella, Naranjas valdría {eps} × {pe_median} = {value_pe} € por acción: hoy cotiza un {gap} % por encima. Está cara frente a sus comparables."
+    },
+    {
+      "type": "card",
+      "term": "EV/EBITDA",
+      "text": "El valor de empresa (EV) suma a la capitalización la deuda financiera neta: lo que costaría comprar el negocio entero. Dividido entre el EBITDA, compara empresas con distinta deuda. Con el EV/EBITDA mediano de sus comparables ({ev_median}), Naranjas valdría {value_ev} € por acción."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u4-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Una acción cotiza a {price} € y su beneficio por acción es {eps} €. ¿Cuál es su PER? (2 decimales)",
+      "answer": 18.48,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{price} / {eps}",
+      "params": {
+        "price": {
+          "value": 11.09,
+          "min": 5,
+          "max": 15,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "eps": {
+          "value": 0.6,
+          "min": 0.4,
+          "max": 0.8,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "per": {
+          "formula": "{price} / {eps}",
+          "decimals": 2
+        }
+      },
+      "explanation": "PER = precio ÷ beneficio por acción = {price} / {eps} = {per}: pagas {per} veces el beneficio de un año.",
+      "hint": "Divide el precio entre lo que gana cada acción en un año."
+    },
+    {
+      "id": "n3-u4-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Con un beneficio por acción de {eps} € y un PER de referencia de {pe_median}, ¿cuánto valdría la acción? (€, 2 decimales)",
+      "answer": 9.24,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{eps} * {pe_median}",
+      "params": {
+        "eps": {
+          "value": 0.6,
+          "min": 0.4,
+          "max": 0.8,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "pe_median": {
+          "value": 15.4,
+          "min": 10,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{eps} * {pe_median}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Valor = beneficio por acción × PER de referencia = {eps} × {pe_median} = {v} €.",
+      "hint": "Multiplica el beneficio por acción por el PER."
+    },
+    {
+      "id": "n3-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Los PER de cinco comparables son 17,1 · 13,2 · 58,1 · 14,0 · 15,4. ¿Cuál es la mediana?",
+      "answer": 15.4,
+      "unit": "veces",
+      "tolerance": 0,
+      "answerDecimals": 1,
+      "formula": "15.4",
+      "explanation": "Ordenados: 13,2 · 14,0 · 15,4 · 17,1 · 58,1. La mediana es el del medio: 15,4.",
+      "hint": "Ordénalos de menor a mayor y quédate con el central."
+    },
+    {
+      "id": "n3-u4-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Y la media de esos cinco PER (17,1 · 13,2 · 58,1 · 14,0 · 15,4)? (2 decimales)",
+      "answer": 23.56,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(17.1 + 13.2 + 58.1 + 14 + 15.4) / 5",
+      "explanation": "117,8 / 5 = 23,56: el comparable de 58,1 tira de la media muy por encima de lo normal en el sector."
+    },
+    {
+      "id": "n3-u4-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Naranjas tiene 12.000.000 de acciones a 11,09 € y una deuda financiera neta de −3.385 mil € (caja neta). ¿Cuál es su valor de empresa? (miles de €)",
+      "answer": 129695,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "11.09 * 12000 - 3385",
+      "explanation": "Capitalización: 11,09 × 12.000.000 = 133.080 mil €. Más la deuda neta, que es negativa: 133.080 − 3.385 = 129.695.",
+      "hint": "Capitalización + deuda financiera neta (aquí resta, porque tiene más caja que deuda)."
+    },
+    {
+      "id": "n3-u4-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Con un valor de empresa de 129.695 y un EBITDA de 11.776 (miles de €), ¿cuál es su EV/EBITDA? (2 decimales)",
+      "answer": 11.01,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "129695 / 11776",
+      "explanation": "129.695 / 11.776 = 11,01, frente a un 8,2 de mediana en sus comparables: también cara con este múltiplo."
+    },
+    {
+      "id": "n3-u4-l1-e7",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Por qué conviene contrastar el PER con el EV/EBITDA cuando una empresa tiene mucha deuda, como Pirineo Energía?",
+      "options": [
+        "Porque el EV/EBITDA no depende de cuánta deuda tenga: mira el negocio entero, antes de intereses",
+        "Porque el PER no se puede calcular si hay deuda",
+        "Porque el EV/EBITDA siempre da un valor más alto",
+        "Porque el EBITDA incluye los dividendos"
+      ],
+      "answer": 0,
+      "explanation": "El PER usa el beneficio después de intereses, así que dos empresas iguales con distinta deuda tienen PER distintos. El EV y el EBITDA son de accionistas y acreedores a la vez.",
+      "wrongExplanations": {
+        "1": "Se puede calcular; lo que pasa es que la deuda lo distorsiona.",
+        "2": "Con Pirineo da menos, precisamente porque hay que restar su deuda.",
+        "3": "El EBITDA es un resultado de explotación; los dividendos no entran."
+      }
+    },
+    {
+      "id": "n3-u4-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "statement": "Si una acción tiene un PER más alto que sus comparables, siempre está cara.",
+      "answer": false,
+      "explanation": "Falso. Puede crecer más, tener menos riesgo o mejor rentabilidad. El múltiplo es un punto de partida: hay que explicar por qué es distinto."
+    }
+  ],
+  "realWorld": "Los informes de análisis y las noticias de resultados citan el PER y el EV/EBITDA de las cotizadas españolas. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

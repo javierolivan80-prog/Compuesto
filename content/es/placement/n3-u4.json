@@ -1,0 +1,152 @@
+{
+  "id": "salto-n3-u4",
+  "unitId": "n3-u4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n3-u4-q1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "Una acción cotiza a 9 € y su beneficio por acción es 0,60 €. ¿PER?",
+      "options": ["15", "5,4", "0,07", "9,6"],
+      "answer": 0,
+      "explanation": "9 / 0,60 = 15.",
+      "wrongExplanations": {
+        "1": "Has multiplicado.",
+        "2": "Has dividido al revés.",
+        "3": "Has sumado."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "PER de cinco comparables: 12 · 14 · 15 · 16 · 60. ¿Mediana?",
+      "options": ["15", "23,4", "14", "60"],
+      "answer": 0,
+      "explanation": "El del medio, ordenados: 15.",
+      "wrongExplanations": {
+        "1": "Esa es la media, arrastrada por el 60.",
+        "2": "No es el central.",
+        "3": "Es el valor raro."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "Capitalización 200.000, deuda 50.000 y caja 20.000 (miles de €). ¿Valor de empresa?",
+      "options": ["230.000", "270.000", "170.000", "200.000"],
+      "answer": 0,
+      "explanation": "200.000 + 50.000 − 20.000 = 230.000.",
+      "wrongExplanations": {
+        "1": "La caja resta.",
+        "2": "La deuda suma.",
+        "3": "Falta la deuda neta."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q4",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "EBITDA 30.000, EV/EBITDA de referencia 8, deuda neta 40.000 y 10.000.000 de acciones (cifras en miles de €). ¿Valor por acción?",
+      "options": ["20 €", "24 €", "16 €", "28 €"],
+      "answer": 0,
+      "explanation": "EV 240.000 − 40.000 = 200.000 mil € / 10 millones = 20 €.",
+      "wrongExplanations": {
+        "1": "Falta restar la deuda neta.",
+        "2": "Has restado la deuda dos veces.",
+        "3": "La deuda neta resta, no suma."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "¿Qué múltiplo compara mejor dos empresas iguales con deuda muy distinta?",
+      "options": ["EV/EBITDA", "PER", "Precio por acción", "Dividendo por acción"],
+      "answer": 0,
+      "explanation": "El EV/EBITDA mira el negocio entero, antes de cómo se financia.",
+      "wrongExplanations": {
+        "1": "El PER cambia con los intereses.",
+        "2": "No compara nada.",
+        "3": "Depende de la política de dividendos."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "statement": "Un PER más alto que el de sus comparables puede estar justificado si la empresa crece más o tiene menos riesgo.",
+      "answer": true,
+      "explanation": "Verdadero: el mercado paga más por más crecimiento y menos riesgo."
+    },
+    {
+      "id": "salto-n3-u4-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["anclaje"],
+      "prompt": "«Compré a 12 € y no vendo hasta recuperarlos.» ¿Qué sesgo es?",
+      "options": ["Anclaje", "FOMO", "Exceso de confianza", "Efecto manada"],
+      "answer": 0,
+      "explanation": "El precio de compra es un ancla que no cambia lo que vale la acción.",
+      "wrongExplanations": {
+        "1": "El FOMO es miedo a perderse una subida.",
+        "2": "Es otro sesgo: sobrevalorar lo que sabes.",
+        "3": "Es seguir a la mayoría."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "Una empresa tiene pérdidas este año. ¿Qué múltiplo usarías?",
+      "options": [
+        "EV/EBITDA o EV/ventas",
+        "PER",
+        "Rentabilidad por dividendo",
+        "Ninguno: no se puede valorar"
+      ],
+      "answer": 0,
+      "explanation": "Con pérdidas el PER no tiene sentido; el EBITDA o las ventas siguen siendo positivos.",
+      "wrongExplanations": {
+        "1": "Con beneficio negativo, el PER no sirve.",
+        "2": "Puede no pagar dividendo.",
+        "3": "Se puede, con otros múltiplos o con un DCF."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null
+}

@@ -82,6 +82,11 @@
           "id": "n3-u3",
           "name": "Ratios y calidad del beneficio",
           "concepts": ["ratios", "calidad-beneficio"]
+        },
+        {
+          "id": "n3-u4",
+          "name": "Múltiplos: ¿cara o barata?",
+          "concepts": ["multiplos", "anclaje"]
         }
       ]
     },

@@ -53,6 +53,7 @@ export default defineConfig({
         'n3u1.spec.ts',
         'n3u2.spec.ts',
         'n3u3.spec.ts',
+        'n3u4.spec.ts',
         'hardening.spec.ts',
         'practicar.spec.ts',
         'sesion.spec.ts',

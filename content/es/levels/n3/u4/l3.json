@@ -1,0 +1,185 @@
+{
+  "id": "n3-u4-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 4,
+  "title": "Valor de empresa y EV/EBITDA",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el valor de empresa desde la capitalización y la deuda financiera neta",
+    "Calcular el EV/EBITDA y pasar de un valor de empresa a un precio por acción"
+  ],
+  "concepts": ["multiplos"],
+  "companies": ["pirineo-energia", "naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Valor de empresa",
+      "text": "Valor de empresa (EV) = capitalización + deuda financiera − caja. Es lo que costaría comprar el negocio entero: las acciones y, con ellas, su deuda y su caja. Así se comparan empresas con estructuras de financiación distintas."
+    },
+    {
+      "type": "visual",
+      "component": "EvBridge",
+      "props": {
+        "cap": 380000,
+        "debt": 102000,
+        "cash": 54303,
+        "ebitda": 58167
+      }
+    },
+    {
+      "type": "card",
+      "term": "Del EV al precio por acción",
+      "text": "Con un EV/EBITDA de referencia, EV = EBITDA × múltiplo. Para llegar a lo que vale cada acción se hace el camino de vuelta: se resta la deuda financiera neta y se divide entre el número de acciones."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u4-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Pirineo Energía tiene 40.000.000 de acciones a 9,50 €. ¿Cuál es su capitalización? (miles de €)",
+      "answer": 380000,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "9.5 * 40000",
+      "explanation": "9,50 × 40.000.000 = 380.000.000 € = 380.000 mil €. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación."
+    },
+    {
+      "id": "n3-u4-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Debe 102.000 mil € y tiene 54.303 mil € de caja. ¿Cuál es su valor de empresa? (miles de €)",
+      "answer": 427697,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "380000 + 102000 - 54303",
+      "explanation": "380.000 + 102.000 − 54.303 = 427.697."
+    },
+    {
+      "id": "n3-u4-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Su EBITDA de 2025 fue 58.167 mil €. ¿EV/EBITDA? (2 decimales)",
+      "answer": 7.35,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "427697 / 58167",
+      "explanation": "427.697 / 58.167 = 7,35."
+    },
+    {
+      "id": "n3-u4-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 4,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Si sus comparables cotizan a un EV/EBITDA de 10,2, ¿cuánto valdría cada acción de Pirineo? (€, 2 decimales; deuda neta 47.697 mil €, 40.000.000 de acciones)",
+      "answer": 13.64,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(58167 * 10.2 - 47697) / 40000",
+      "explanation": "EV = 58.167 × 10,2 = 593.303. Menos la deuda neta: 545.606 mil €. Entre 40 millones de acciones: 13,64 €.",
+      "hint": "EBITDA × múltiplo; resta la deuda neta; divide entre las acciones (en miles)."
+    },
+    {
+      "id": "n3-u4-l3-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Ordena los pasos para pasar de un EV/EBITDA de referencia a un precio por acción.",
+      "steps": [
+        "Multiplicar el EBITDA por el múltiplo de referencia",
+        "Restar la deuda financiera neta",
+        "Dividir entre el número de acciones"
+      ],
+      "explanation": "EV → valor de las acciones (restando la deuda neta) → valor por acción."
+    },
+    {
+      "id": "n3-u4-l3-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Dos empresas idénticas, salvo que A no tiene deuda y B debe mucho. ¿Qué múltiplo las compara mejor?",
+      "options": [
+        "EV/EBITDA: mira el negocio antes de cómo se financia",
+        "PER: el beneficio después de intereses lo dice todo",
+        "Precio / valor contable",
+        "El precio por acción"
+      ],
+      "answer": 0,
+      "explanation": "Con la misma explotación, el EV/EBITDA es parecido; el PER de B queda distorsionado por los intereses que paga.",
+      "wrongExplanations": {
+        "1": "El PER cambia con la deuda aunque el negocio sea el mismo.",
+        "2": "Depende del patrimonio neto, que también cambia con la deuda.",
+        "3": "Depende del número de acciones: no compara nada por sí solo."
+      }
+    },
+    {
+      "id": "n3-u4-l3-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "statement": "Una empresa con caja neta (más caja que deuda) tiene un valor de empresa menor que su capitalización.",
+      "answer": true,
+      "explanation": "Verdadero: la deuda financiera neta es negativa y resta. Le pasa a Naranjas: 133.080 de capitalización y 129.695 de valor de empresa."
+    },
+    {
+      "id": "n3-u4-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "character": "mentora",
+      "situation": "Con el PER de sus comparables, Pirineo valdría unos 13,6 €; con el EV/EBITDA, también unos 13,6 €. Cotiza a 9,50 €.",
+      "prompt": "¿Qué concluyes?",
+      "options": [
+        "Que los dos múltiplos coinciden en que cotiza bastante por debajo de sus comparables; hay que averiguar si el mercado sabe algo que justifique el descuento",
+        "Que hay que comprar ya",
+        "Que los múltiplos no sirven",
+        "Que está cara"
+      ],
+      "answer": 0,
+      "explanation": "Un descuento grande frente a comparables es una pregunta, no una respuesta: puede ser una oportunidad o un riesgo que aún no ves. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Compuesto enseña a analizar, no recomienda; además, falta entender el porqué del descuento.",
+        "2": "Son útiles, y aquí además coinciden.",
+        "3": "Cotiza por debajo de lo que dicen sus comparables."
+      }
+    }
+  ],
+  "realWorld": "En los informes de las cotizadas españolas verás la «deuda financiera neta» explicada: es la pieza que une la capitalización con el valor de empresa.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

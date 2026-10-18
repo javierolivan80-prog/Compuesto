@@ -831,7 +831,9 @@
     "id": "multiplos",
     "name": "Múltiplos de valoración",
     "level": 3,
-    "prerequisites": ["ratios"]
+    "prerequisites": ["ratios"],
+    "unit": "n3-u4",
+    "description": "Valorar por comparación: PER (precio ÷ beneficio por acción) y EV/EBITDA (valor de empresa = capitalización + deuda financiera neta), con la mediana de comparables bien elegidos como referencia."
   },
   {
     "id": "dcf",
@@ -879,7 +881,9 @@
     "id": "anclaje",
     "name": "Sesgo de anclaje",
     "level": 3,
-    "prerequisites": ["fomo-manada"]
+    "prerequisites": ["fomo-manada"],
+    "unit": "n3-u4",
+    "description": "Quedarse pegado a una cifra que no importa para el valor, como el precio de compra o el máximo del año."
   },
   {
     "id": "pib",

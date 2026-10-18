@@ -885,10 +885,7 @@
     },
     "quote": "Precio de hoy · beneficio por acción de 2025: {{eps}} · PER al precio de hoy: {{pe}}",
     "peers": "Múltiplos de los comparables",
-    "peer": "Comparable",
     "peerN": "Comparable {{n}}",
-    "pe": "PER",
-    "evEbitda": "EV/EBITDA",
     "askPe": "¿Qué PER usas de referencia?",
     "pick": {
       "mean": "La media: {{v}}",
@@ -924,6 +921,11 @@
     "great": "Perfecto: referencia bien elegida y veredicto acertado en las tres. El comité toma nota.",
     "ok": "Bien, aunque has fallado algo: repasa por qué la mediana y no la media.",
     "bad": "Repasa cómo se elige el múltiplo de referencia y cuándo una acción está cara o barata.",
-    "debrief": "Ver qué ha pasado"
+    "debrief": "Ver qué ha pasado",
+    "peLine": "PER {{v}}",
+    "evLine": "EV/EBITDA {{v}}"
+  },
+  "evBridge": {
+    "title": "Del valor de las acciones al valor de empresa"
   }
 }

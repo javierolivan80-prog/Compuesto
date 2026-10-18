@@ -3,6 +3,7 @@ import { EXPLAINER_PROPS } from '../../../content/explainer-props';
 import type { ExplainerName } from '../../../content/explainer-names';
 import { CashCycle } from './CashCycle';
 import { CompoundCurve } from './CompoundCurve';
+import { EvBridge } from './EvBridge';
 import { ExDividend } from './ExDividend';
 import { IndexWeights } from './IndexWeights';
 import { InflationCart } from './InflationCart';
@@ -40,6 +41,7 @@ const REGISTRY = {
   ThreeStatements,
   CashCycle,
   Leverage,
+  EvBridge,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

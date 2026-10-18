@@ -83,6 +83,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `CashFlowPipes` | Flujos de caja | Tuberías de explotación, inversión y financiación que llenan o vacían el depósito de caja | Grifos de cada flujo |
 | `CashCycle` | Ciclo de caja | Circuito dinero → stock → ventas → cobros con un reloj de días | Días de cobro, pago y stock |
 | `DcfTimeTravel` | Descuento de flujos | Los flujos futuros viajan hacia hoy y **encogen** según el WACC; se suman en el valor actual | WACC y crecimiento |
+| `EvBridge` | Valor de empresa | Barras en cascada: capitalización + deuda financiera − caja = valor de empresa; entre el EBITDA, el múltiplo | Paso a paso |
 | `WaccMix` | WACC | Barras de coste de deuda y de capital que se mezclan según su peso | Peso de la deuda |
 | `Leverage` | Apalancamiento financiero | Mismo beneficio operativo; más deuda amplifica el ROE hacia arriba y hacia abajo | Deuda |
 

@@ -1,0 +1,201 @@
+{
+  "id": "n3-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 4,
+  "title": "Comparables y el sesgo de anclaje",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Elegir comparables y el múltiplo de referencia",
+    "Reconocer el sesgo de anclaje al valorar"
+  ],
+  "concepts": ["multiplos", "anclaje"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Elegir comparables",
+      "text": "Un comparable debe parecerse en negocio, tamaño, crecimiento y riesgo. Con varios, se usa la mediana o un rango, no un único número: un comparable con un año raro distorsiona la media. Y se explica por qué la empresa merece más o menos que la mediana."
+    },
+    {
+      "type": "card",
+      "term": "Sesgo de anclaje",
+      "text": "Es quedarse pegado a una cifra que no importa: el precio al que compraste, el máximo del año o el PER que tenía hace cinco años. El mercado no sabe a cuánto compraste: lo que vale la acción hoy depende de lo que la empresa ganará."
+    },
+    {
+      "type": "example",
+      "text": "Hugo compró acciones a 12 € y hoy cotizan a 9 €. «No vendo hasta recuperar los 12», dice. Los 12 € son su ancla: la pregunta útil es si hoy, a 9 €, compraría esas acciones."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u4-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "PER de seis comparables: 12,4 · 13,1 · 14,0 · 15,2 · 16,0 · 41,0. ¿Mediana? (1 decimal)",
+      "answer": 14.6,
+      "unit": "veces",
+      "tolerance": 0,
+      "answerDecimals": 1,
+      "formula": "(14 + 15.2) / 2",
+      "explanation": "Con un número par, la mediana es la media de los dos centrales: (14,0 + 15,2) / 2 = 14,6.",
+      "hint": "Con seis datos, hay dos en el centro."
+    },
+    {
+      "id": "n3-u4-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Y la media de esos seis? (2 decimales)",
+      "answer": 18.62,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(12.4 + 13.1 + 14 + 15.2 + 16 + 41) / 6",
+      "explanation": "111,7 / 6 = 18,62: el 41,0 la arrastra cuatro puntos por encima de la mediana."
+    },
+    {
+      "id": "n3-u4-l4-e3",
+      "type": "multi_select",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Cuáles serían buenos comparables para una productora española de zumos?",
+      "options": [
+        "Otra productora europea de zumos y conservas de tamaño parecido",
+        "Una envasadora de fruta que cotiza en otro mercado europeo",
+        "Una eléctrica renovable",
+        "Una cadena de supermercados",
+        "Un banco"
+      ],
+      "answers": [0, 1],
+      "explanation": "Mismo negocio y riesgo parecido. Una cadena de supermercados vende zumo, pero su negocio (distribución, márgenes, rotación) es otro.",
+      "wrongExplanations": {
+        "2": "Otro sector, otros márgenes y otra rotación.",
+        "3": "Es cliente, no comparable: su negocio es distribuir.",
+        "4": "Un banco se valora de forma distinta."
+      }
+    },
+    {
+      "id": "n3-u4-l4-e4",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["anclaje"],
+      "character": "rival",
+      "situation": "Hugo compró acciones a 12 € y hoy cotizan a 9 €. «No vendo hasta recuperar los 12», dice.",
+      "prompt": "¿Qué sesgo tiene y qué pregunta debería hacerse?",
+      "options": [
+        "Anclaje al precio de compra: debería preguntarse si hoy, a 9 €, compraría esas acciones",
+        "Exceso de confianza: debería comprar más",
+        "Ninguno: vender con pérdidas siempre es un error",
+        "FOMO: debería esperar a que suban todas"
+      ],
+      "answer": 0,
+      "explanation": "Su precio de compra no cambia lo que vale la empresa. La decisión correcta mira hacia delante.",
+      "wrongExplanations": {
+        "1": "El problema es el ancla de los 12 €, no la confianza.",
+        "2": "A veces vender con pérdidas es lo correcto: lo pasado no vuelve.",
+        "3": "El FOMO es miedo a quedarse fuera de una subida, no aferrarse a un precio."
+      }
+    },
+    {
+      "id": "n3-u4-l4-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["anclaje"],
+      "statement": "Que una acción haya caído desde su máximo del año la hace barata.",
+      "answer": false,
+      "explanation": "Falso. El máximo es solo un ancla: puede haber bajado porque la empresa ganará menos. Barata o cara se decide frente a lo que vale, no frente a lo que costó."
+    },
+    {
+      "id": "n3-u4-l4-e6",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["anclaje", "multiplos"],
+      "prompt": "¿Ancla o dato útil para valorar?",
+      "categories": ["Ancla (no importa para el valor)", "Dato útil"],
+      "items": [
+        {
+          "text": "El precio al que compraste",
+          "category": "Ancla (no importa para el valor)"
+        },
+        {
+          "text": "El máximo histórico de la acción",
+          "category": "Ancla (no importa para el valor)"
+        },
+        {
+          "text": "El PER mediano de comparables de hoy",
+          "category": "Dato útil"
+        },
+        {
+          "text": "El crecimiento esperado del beneficio",
+          "category": "Dato útil"
+        },
+        {
+          "text": "La deuda financiera neta",
+          "category": "Dato útil"
+        }
+      ],
+      "explanation": "El valor depende de lo que la empresa ganará y de su riesgo; los precios pasados no cambian nada de eso."
+    },
+    {
+      "id": "n3-u4-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Naranjas crece más que sus comparables y tiene caja neta. ¿Qué PER le pondrías frente a la mediana del sector?",
+      "options": [
+        "Algo por encima de la mediana, explicando por qué",
+        "Exactamente la mediana: es la regla",
+        "El más bajo del grupo, por prudencia",
+        "El más alto del grupo, porque es la mejor"
+      ],
+      "answer": 0,
+      "explanation": "La mediana es el punto de partida; las diferencias de crecimiento y riesgo justifican desviarse, siempre con argumentos.",
+      "wrongExplanations": {
+        "1": "La mediana es una referencia, no una regla rígida.",
+        "2": "Ser prudente no es elegir un extremo sin motivo.",
+        "3": "El más alto puede ser el comparable raro."
+      }
+    },
+    {
+      "id": "n3-u4-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Con comparables que incluyen uno raro, la referencia buena es la ___, no la media.",
+      "answers": [["mediana"]],
+      "explanation": "La mediana no se deja arrastrar por un valor extremo."
+    }
+  ],
+  "realWorld": "En los informes de análisis verás tablas de comparables con la media y la mediana de cada múltiplo. Y si alguna vez te descubres diciendo «cuando vuelva a X, vendo», estás anclado.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

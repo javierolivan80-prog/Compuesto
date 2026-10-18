@@ -1,0 +1,196 @@
+{
+  "id": "n3-u4-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 4,
+  "title": "El PER y el beneficio por acción",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el beneficio por acción, el PER y la rentabilidad por beneficio",
+    "Explicar por qué unas empresas cotizan a más PER que otras"
+  ],
+  "concepts": ["multiplos"],
+  "companies": ["naranjas-del-turia", "tramuntana-retail"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Beneficio por acción",
+      "text": "El beneficio por acción (BPA) reparte el resultado del ejercicio entre las acciones. El PER es precio ÷ BPA, o lo que es lo mismo, capitalización ÷ beneficio: cuántas veces el beneficio de un año paga el mercado por la empresa."
+    },
+    {
+      "type": "card",
+      "term": "Por qué un PER es alto o bajo",
+      "text": "El mercado paga más PER por las empresas que espera que crezcan más, con un beneficio más estable o que necesitan invertir menos para crecer. Su inverso, el beneficio ÷ precio, es la rentabilidad por beneficio."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas en 2025: resultado del ejercicio 7.233 mil € y 12.000.000 de acciones, un BPA de 0,60 €. A 11,09 € por acción, su capitalización es 133.080 mil € y su PER, 18,4. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u4-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Naranjas ganó 7.233 mil € en 2025 y tiene 12.000.000 de acciones. ¿Beneficio por acción? (€, 4 decimales)",
+      "answer": 0.6028,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 4,
+      "formula": "7233000 / 12000000",
+      "explanation": "7.233.000 / 12.000.000 = 0,6028 €."
+    },
+    {
+      "id": "n3-u4-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Tramuntana ganó 6.905 mil € con 18.000.000 de acciones. ¿Beneficio por acción? (€, 4 decimales)",
+      "answer": 0.3836,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 4,
+      "formula": "6905000 / 18000000",
+      "explanation": "6.905.000 / 18.000.000 = 0,3836 €."
+    },
+    {
+      "id": "n3-u4-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "La capitalización de Naranjas es 133.080 mil € y su beneficio, 7.233 mil €. ¿PER? (2 decimales)",
+      "answer": 18.4,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "133080 / 7233",
+      "explanation": "133.080 / 7.233 = 18,40. Sale lo mismo que precio ÷ BPA con el BPA sin redondear (11,09 / 0,6028); con 0,60 saldría 18,48."
+    },
+    {
+      "id": "n3-u4-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Con un PER de 18,4, ¿cuál es la rentabilidad por beneficio? (en %, 2 decimales)",
+      "answer": 5.43,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "1 / 18.4 * 100",
+      "explanation": "1 / 18,4 = 5,43 %: por cada 100 € pagados, la empresa gana 5,43 € al año."
+    },
+    {
+      "id": "n3-u4-l2-e5",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "¿Qué empuja el PER al alza y qué a la baja, si todo lo demás no cambia?",
+      "categories": ["Sube el PER", "Baja el PER"],
+      "items": [
+        {
+          "text": "Se espera que el beneficio crezca más deprisa",
+          "category": "Sube el PER"
+        },
+        {
+          "text": "El beneficio es más estable y predecible",
+          "category": "Sube el PER"
+        },
+        {
+          "text": "Necesita invertir menos para crecer",
+          "category": "Sube el PER"
+        },
+        {
+          "text": "Más riesgo de que el beneficio caiga",
+          "category": "Baja el PER"
+        },
+        {
+          "text": "Suben los tipos de interés",
+          "category": "Baja el PER"
+        }
+      ],
+      "explanation": "El PER es lo que el mercado paga por el beneficio futuro: más crecimiento y menos riesgo valen más; tipos más altos hacen que el futuro valga menos hoy."
+    },
+    {
+      "id": "n3-u4-l2-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "prompt": "Una empresa tuvo un año malo: su beneficio cayó a la décima parte y su precio, solo un 20 %. ¿Qué le pasa a su PER?",
+      "options": [
+        "Se dispara (unas 8 veces más alto): con un beneficio hundido, el PER deja de ser útil",
+        "Baja, porque el precio ha caído",
+        "No cambia",
+        "Se vuelve negativo"
+      ],
+      "answer": 0,
+      "explanation": "Precio × 0,8 entre beneficio × 0,1: el PER se multiplica por 8. Es el «comparable raro» del juego: por eso se usa la mediana.",
+      "wrongExplanations": {
+        "1": "El beneficio cae mucho más que el precio.",
+        "2": "Cambian el precio y el beneficio, en proporciones distintas.",
+        "3": "Solo es negativo si hay pérdidas."
+      }
+    },
+    {
+      "id": "n3-u4-l2-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "statement": "Con pérdidas, el PER no tiene sentido como múltiplo de valoración.",
+      "answer": true,
+      "explanation": "Verdadero. Con beneficio negativo, el PER sale negativo y no sirve para comparar: se usan múltiplos de EBITDA o de ventas."
+    },
+    {
+      "id": "n3-u4-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["multiplos"],
+      "character": "jefe",
+      "situation": "Tramuntana cotiza a un PER de 10 y Naranjas a uno de 18.",
+      "prompt": "Un cliente pregunta si eso hace a Tramuntana «el doble de barata». ¿Qué le respondes?",
+      "options": [
+        "Que no se pueden comparar así: son negocios distintos y hay que compararlas con empresas de su sector",
+        "Que sí: un PER más bajo siempre es mejor",
+        "Que Naranjas es mejor porque su PER es más alto",
+        "Que el PER no sirve para nada"
+      ],
+      "answer": 0,
+      "explanation": "Un PER solo dice algo frente a comparables de verdad: mismo sector, tamaño y crecimiento parecidos. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Un PER bajo puede esconder un negocio con menos crecimiento o más riesgo.",
+        "2": "Un PER alto puede ser simplemente caro.",
+        "3": "Es muy útil, entre empresas comparables."
+      }
+    }
+  ],
+  "realWorld": "En las noticias de resultados verás el BPA de cada trimestre. Para el PER se suele usar el beneficio de los últimos doce meses o el esperado para el año siguiente; conviene saber cuál se está usando.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation (múltiplos de precio y de valor de empresa)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

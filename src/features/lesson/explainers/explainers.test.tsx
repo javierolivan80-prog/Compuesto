@@ -92,6 +92,17 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/horquilla 0,02/);
     expect(text).toMatch(/precio medio 10,03/);
   });
+  it('EvBridge: capitalización + deuda − caja = valor de empresa', () => {
+    render(
+      <ExplainerBlock
+        component="EvBridge"
+        props={{ cap: 380000, debt: 102000, cash: 54303, ebitda: 58167 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/427\.697/);
+    expect(text).toMatch(/7,4/);
+  });
   it('Leverage: la deuda amplifica el ROE arriba y abajo', () => {
     render(<ExplainerBlock component="Leverage" props={{ goodRoa: 12, badRoa: 2, rate: 5 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

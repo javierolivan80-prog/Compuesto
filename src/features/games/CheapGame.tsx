@@ -140,32 +140,25 @@ export function CheapGame({ seed, onDone }: Props) {
         </p>
       </article>
 
-      <div role="table" aria-label={t('cheapGame.peers')} className="grid gap-1 text-sm" data-num>
-        <div role="row" className="text-text-2 grid grid-cols-[minmax(0,1fr)_5rem_6rem] gap-2">
-          <span role="columnheader">{t('cheapGame.peer')}</span>
-          <span role="columnheader" className="text-right">
-            {t('cheapGame.pe')}
-          </span>
-          <span role="columnheader" className="text-right">
-            {t('cheapGame.evEbitda')}
-          </span>
-        </div>
-        {c.peers.map((p, k) => (
-          <div
-            key={k}
-            role="row"
-            className="cd-row grid grid-cols-[minmax(0,1fr)_5rem_6rem] gap-2 rounded-[6px] px-1"
-          >
-            <span role="cell">{t('cheapGame.peerN', { n: k + 1 })}</span>
-            <span role="cell" className="text-right">
-              {x1(p.pe)}
-            </span>
-            <span role="cell" className="text-right">
-              {x1(p.evEbitda)}
-            </span>
-          </div>
-        ))}
-      </div>
+      <section aria-label={t('cheapGame.peers')} className="grid gap-1">
+        <h3 className="text-lg">{t('cheapGame.peers')}</h3>
+        <ul className="grid gap-1 text-sm">
+          {c.peers.map((p, k) => (
+            <li
+              key={k}
+              className="cd-row flex flex-wrap items-baseline justify-between gap-x-3 rounded-[6px] px-1"
+            >
+              <span>{t('cheapGame.peerN', { n: k + 1 })}</span>
+              <span className="flex flex-wrap gap-x-3" data-num>
+                <span className="whitespace-nowrap">{t('cheapGame.peLine', { v: x1(p.pe) })}</span>
+                <span className="whitespace-nowrap">
+                  {t('cheapGame.evLine', { v: x1(p.evEbitda) })}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {pick === null ? (
         <div className="grid gap-2">

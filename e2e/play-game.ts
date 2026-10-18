@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { setupBalance, SIDE_OF, type ItemId } from '../src/engine/games/balance-builder';
 import { bestPlan, setupCash } from '../src/engine/games/cash-cycle';
 import { setupDetective } from '../src/engine/games/ratio-detective';
+import { rightVerdict, setupCheap } from '../src/engine/games/cheap-or-dear';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -36,6 +37,20 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'cheap-or-dear') {
+    // referencia 0: la mediana y el veredicto correcto en las tres empresas
+    await expect(page.getByRole('heading', { name: '¿Cara o barata?' })).toBeVisible();
+    const setup = setupCheap(seed);
+    const label = { cheap: 'Barata', fair: 'En precio', dear: 'Cara' } as const;
+    for (const [i, c] of setup.cases.entries()) {
+      await page.getByRole('radio', { name: /^La mediana/ }).click();
+      await page.getByRole('radio', { name: label[rightVerdict(c)], exact: true }).click();
+      await page
+        .getByRole('button', {
+          name: i === setup.cases.length - 1 ? 'Ver el resumen' : 'Siguiente empresa',
+        })
+        .click();
+    }
   } else if (kind === 'ratio-detective') {
     // referencia 0: acertar las cinco sin pedir ratios
     await expect(page.getByRole('heading', { name: '¿Quién es quién?' })).toBeVisible();

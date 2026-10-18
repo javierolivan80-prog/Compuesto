@@ -577,3 +577,15 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
     - un `<select>` que estiraba la columna de «¿Quién es quién?»;
     - la fila del deslizador de «¿Quién mueve el índice?» a 320 px.
   - Todos los paneles de juego usan ahora `grid-cols-[minmax(0,1fr)]`.
+
+## 2026-10-18 — Unidad `n3-u4` «Múltiplos: ¿cara o barata?»
+
+- **Decisión:** cinco lecciones:
+  - el juego «¿Cara o barata?» (`n3-u4-l1`, semilla 2: Naranjas a 11,09 €, un 20 % por encima de su valor por PER, así que «cara»);
+  - PER y BPA;
+  - valor de empresa y EV/EBITDA, con el explicador nuevo `EvBridge`, añadido al catálogo de ANIMACIONES;
+  - comparables y sesgo de anclaje;
+  - el Jefe final con Tramuntana y Pirineo.
+- **Conceptos:** `multiplos` y `anclaje` (el 🧠 de la planta 1).
+- **Precios de hoy y comparables:** son ficticios y anónimos. `companies.json` no tiene cotizaciones; la cinta de la home usa precios inventados sin relación con las cuentas. Las lecciones lo recuerdan y no recomiendan.
+- **Simplificaciones:** valor de empresa = capitalización + deuda financiera − caja, sin minoritarios, arrendamientos ni otros ajustes; PER con el beneficio del último año.

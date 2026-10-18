@@ -20,6 +20,7 @@ const LESSONS = [
   'n3/u1/l1',
   'n3/u2/l1',
   'n3/u3/l1',
+  'n3/u4/l1',
 ] as const;
 
 async function watchOverflow(page: Page, textZoom: boolean) {
