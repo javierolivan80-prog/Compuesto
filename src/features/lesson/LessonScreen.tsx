@@ -35,6 +35,7 @@ import { IpoGame } from '../games/IpoGame';
 import { TakeoverGame } from '../games/TakeoverGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
+import { TapGuard } from '../games/kit/TapGuard';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -190,13 +191,15 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'takeover-rumor': TakeoverGame,
           }[lesson.game.kind];
           return (
-            <Game
-              seed={worstCaseOn() ? WORST_SEEDS[lesson.game.kind] : lesson.game.seed}
-              onDone={(v) => {
-                setGameValues(v);
-                setPhase(afterGame);
-              }}
-            />
+            <TapGuard>
+              <Game
+                seed={worstCaseOn() ? WORST_SEEDS[lesson.game.kind] : lesson.game.seed}
+                onDone={(v) => {
+                  setGameValues(v);
+                  setPhase(afterGame);
+                }}
+              />
+            </TapGuard>
           );
         })()}
         <DevDataToggle />

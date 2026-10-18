@@ -488,3 +488,25 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Validación:** la comprobación de conceptos «adelantados» compara ahora el orden de las plantas (`levelOrder`), no el número de nivel, igual que los prerrequisitos.
 - 🛑 «Ebro Capital» (ficticio, ya usado en `n1-u6-l5`) queda pendiente de comprobar en el registro de la CNMV, como el resto de los nombres.
 - **Planta 0 completa:** las seis unidades empiezan con una lección-juego.
+
+## 2026-10-18 — Cierre de fase de la planta 0: casos extremos, rendimiento y blindaje
+
+- **Casos extremos (`break-ui`):**
+  - Las siete lecciones-juego se prueban a 320 px y a 640 px con el texto al 200 %, con la semilla de cifras más extremas de cada juego (`src/features/games/worst-seeds.ts`), y también solo con teclado (`e2e/peor-caso-juegos.spec.ts`).
+  - Interruptor «Demo / Peor caso» solo en desarrollo (`?datos=peor`).
+  - Arreglos:
+    - la cabecera de la lección ya no se estira con contenido ancho;
+    - los resúmenes usan rejillas que pasan a una columna;
+    - la tabla de la subasta se desplaza en horizontal dentro de su caja, que es lo admitido para tablas de datos en el criterio de reajuste de WCAG;
+    - el rango del folleto puede partirse.
+  - Capturas en `docs/capturas/peor-caso/`.
+- **Rendimiento (`animation-performance`):**
+  - Todo lo que se anima en los juegos usa `transform` y `opacity` (CSS o WAAPI). La vela se dibuja en canvas.
+  - Único hallazgo: `AnimatedNumber` hacía un `setState` en cada fotograma. Ahora escribe los fotogramas intermedios directamente en el nodo, y React solo pinta el valor de partida y el final.
+  - Comprobado en el código y con la prueba de 60 fps con la CPU ralentizada 4×. Falta la grabación en un móvil real.
+- **Blindaje:** `/impeccable harden` sigue sin estar disponible (Impeccable no se instala), así que se hizo a mano.
+  - Hallazgo real: un doble toque en «La compra grande» compraba dos rondas, de la 1 a la 3 (reproducido con un e2e que falla sin el arreglo).
+  - Arreglo: `TapGuard` envuelve los juegos de lección. Ignora el segundo clic de un doble clic y, en táctil, un toque muy cercano en tiempo y posición al anterior. Los botones −/+ del índice llevan `data-repeat` para poder pulsarse a ráfagas.
+  - Ya cubierto antes: almacenamiento lleno durante una lección-juego (la primera lección tras el onboarding es un juego) y lección sin conexión.
+- **Frágil, anotado:** las tarjetas y los ejercicios de cada lección-juego se escribieron con la semilla fija; si se cambia una semilla, hay que volver a revisar sus textos.
+- `/review-animations` no puede lanzarla el modelo: queda para que la ejecute Javier.

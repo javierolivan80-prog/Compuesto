@@ -10,3 +10,4 @@ export { PopLayer, usePops } from './Pops';
 export { ResultScreen } from './ResultScreen';
 export { Deadline } from './Deadline';
 export { HandPointer } from './HandPointer';
+export { TapGuard } from './TapGuard';

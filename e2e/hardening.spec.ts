@@ -171,3 +171,24 @@ test('texto largo en inglés en un reporte y en el buscador del glosario no desb
   await page.getByLabel('Buscar un término').fill('x'.repeat(200));
   await noHorizontalScroll(page, 'Glosario con búsqueda larga');
 });
+
+test('doble toque en una lección-juego: decide una sola vez y no salta pasos', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await completeOnboarding(page);
+
+  // «El rumor de OPA»: un doble toque en «Siguiente» no cae sobre la primera opción del paso nuevo
+  await page.goto('/#/leccion/n1-u6-l7');
+  await page.getByRole('button', { name: /^No hacer nada/ }).click();
+  await page.getByRole('button', { name: 'Siguiente' }).dblclick();
+  await expect(page.getByTestId('tk-step')).toHaveText('Martes: una confidencia');
+  await expect(page.getByRole('button', { name: /antes del anuncio$/ })).toBeVisible();
+
+  // «La compra grande»: un doble toque en «Comprar … a mercado» compra una sola ronda
+  await page.goto('/#/leccion/n1-u4-l7');
+  await expect(page.getByTestId('bt-round')).toContainText('Ronda 1 de');
+  await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).dblclick();
+  await expect(page.getByTestId('bt-round')).toContainText('Ronda 2 de');
+  expect(errors).toEqual([]);
+});

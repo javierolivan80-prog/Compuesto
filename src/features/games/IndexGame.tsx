@@ -178,6 +178,7 @@ export function IndexGame({ seed, onDone }: Props) {
             <Button
               variant="secondary"
               aria-label={t('indexMover.less')}
+              data-repeat
               onClick={() =>
                 setGuess((g) => Math.max(GUESS_MIN, Math.round((g - GUESS_STEP) * 10) / 10))
               }
@@ -198,6 +199,7 @@ export function IndexGame({ seed, onDone }: Props) {
             <Button
               variant="secondary"
               aria-label={t('indexMover.more')}
+              data-repeat
               onClick={() =>
                 setGuess((g) => Math.min(GUESS_MAX, Math.round((g + GUESS_STEP) * 10) / 10))
               }
