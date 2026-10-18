@@ -27,6 +27,7 @@ import {
   startBalance,
 } from './balance-builder';
 import { bestPlan, cashValues, planResult, setupCash } from './cash-cycle';
+import { detectiveResult, detectiveValues, setupDetective } from './ratio-detective';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -59,6 +60,7 @@ export const LESSON_GAMES = [
   'takeover-rumor',
   'balance-builder',
   'cash-cycle',
+  'ratio-detective',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -194,6 +196,28 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     best_margin: [0, 0],
     factoring: [0, 0],
   },
+  'ratio-detective': {
+    year: [0, 0],
+    hits: [0, 0],
+    reveals: [0, 0],
+    nar_sales: [0, 0],
+    nar_net: [0, 0],
+    nar_assets: [0, 0],
+    nar_equity: [0, 0],
+    nar_margin: [2, 2],
+    nar_turnover: [2, 2],
+    nar_leverage: [2, 2],
+    nar_roe: [2, 2],
+    nar_conversion: [2, 2],
+    tra_sales: [0, 0],
+    tra_net: [0, 0],
+    tra_assets: [0, 0],
+    tra_equity: [0, 0],
+    tra_margin: [2, 2],
+    tra_turnover: [2, 2],
+    tra_leverage: [2, 2],
+    tra_roe: [2, 2],
+  },
 };
 
 /**
@@ -287,15 +311,23 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [balanceValues(balanceResult(s))];
     }
     case 'cash-cycle': {
-      // el mejor plan, el plan «de siempre» (60/60/60) con póliza y con factoring, y uno de cobrar y pagar pronto
+      // el mejor plan, el plan «de siempre» (60/60/50) con póliza y con factoring, y uno de cobrar y pagar pronto
       const setup = setupCash(seed);
-      const base = { dso: 60, dio: 60, dpo: 60 } as const;
+      const base = { dso: 60, dio: 60, dpo: 50 } as const;
       return [
         bestPlan(setup),
         planResult(setup, { ...base, funding: 'poliza' }),
         planResult(setup, { ...base, funding: 'factoring' }),
         planResult(setup, { dso: 30, dio: 45, dpo: 30, funding: 'poliza' }),
       ].map((r) => cashValues(setup, r));
+    }
+    case 'ratio-detective': {
+      // las cifras de las empresas no dependen de lo que adivines: acertarlo todo sin pedir ratios y fallarlo todo
+      const setup = setupDetective(seed);
+      return [
+        detectiveValues(setup, detectiveResult(setup, setup.cards, 0)),
+        detectiveValues(setup, detectiveResult(setup, [...setup.cards].reverse(), 5)),
+      ];
     }
   }
 }

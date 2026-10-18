@@ -1,8 +1,8 @@
 {
   "id": "n3-u2-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 2,
   "title": "Financiar el circulante: póliza, factoring y confirming",
@@ -54,7 +54,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["factoring-confirming"],
-      "prompt": "Durante todo el año, adelanta con factoring 3.000 de facturas que se cobran a 60 días, con una comisión del 2 % por factura. ¿Cuánto le cuesta al año? (miles de €)",
+      "prompt": "Durante todo el año mantiene adelantados 3.000 con factoring: cada vez que se cobra una factura a 60 días, adelanta otra igual. La comisión es del 2 % por factura. ¿Cuánto le cuesta al año? (miles de €)",
       "answer": 365,
       "unit": "mil €",
       "tolerance": 0.5,
@@ -135,7 +135,7 @@
       "answer": 0,
       "explanation": "Lo barato primero, hasta su límite, y lo caro solo para lo que falta: unos 180 de intereses más unos 365 de factoring, frente a unos 730 si todo fuera factoring.",
       "wrongExplanations": {
-        "1": "Funciona, pero cuesta el doble que usar primero la póliza.",
+        "1": "Funciona, pero cuesta unos 730 frente a unos 545: pagas unos 185 de más por no usar antes la póliza.",
         "2": "La póliza no llega: el hueco que supera su límite dejaría a Naranjas sin caja.",
         "3": "Es ilegal: el plazo máximo entre empresas es de 60 días."
       }
@@ -188,7 +188,7 @@
       "date": "2026-10-18"
     },
     {
-      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria, reformada por la Ley 16/2021 (art. 14 bis: prohibición de aplazar el pago más de 30 días desde la entrega en productos frescos y perecederos y 60 en el resto; texto consolidado)",
       "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
       "date": "2026-10-18"
     }

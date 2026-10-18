@@ -3,16 +3,17 @@ import { mulberry32 } from '../prng';
 /*
  * «Ciclo de caja» (lección-juego de la planta 1, unidad «De la cuenta de resultados a la caja»): preparas el plan de
  * circulante de Naranjas del Turia para 2026. Eliges el plazo de cobro a la cadena de supermercados, los días de
- * existencias y el plazo de pago a los proveedores de envases; de ahí salen las necesidades operativas de fondos
+ * existencias y el plazo medio de pago a los proveedores; de ahí salen las necesidades operativas de fondos
  * (NOF = clientes + existencias − proveedores). Lo que no cubre la caja disponible se financia con una póliza de
  * crédito (barata, con límite) o con factoring (más caro, sin más límite que las facturas). Si te pasas del límite de
- * la póliza, te quedas sin caja aunque el plan gane dinero. Plazos dentro de los 60 días de la Ley 3/2004.
+ * la póliza, te quedas sin caja aunque el plan gane dinero. Plazos dentro de los 60 días de la Ley 3/2004 y
+ * la Ley 12/2013.
  * Cifras en miles de euros. Lógica pura y determinista por semilla.
  */
 
 export const DSO_OPTIONS = [30, 45, 60] as const;
 export const DIO_OPTIONS = [45, 60, 75] as const;
-export const DPO_OPTIONS = [30, 45, 60] as const;
+export const DPO_OPTIONS = [30, 40, 50] as const;
 export type Dso = (typeof DSO_OPTIONS)[number];
 export type Dio = (typeof DIO_OPTIONS)[number];
 export type Dpo = (typeof DPO_OPTIONS)[number];
@@ -26,8 +27,11 @@ const SALES_BY_DSO: Record<Dso, number> = { 30: 0.97, 45: 0.99, 60: 1 };
 /** Pocas existencias: roturas de stock que hacen perder ventas. Muchas: compras en campaña, algo más baratas. */
 const SALES_BY_DIO: Record<Dio, number> = { 45: 0.97, 60: 1, 75: 1 };
 const COST_BY_DIO: Record<Dio, number> = { 45: 1, 60: 1, 75: 0.99 };
-/** Descuento por pronto pago de los proveedores de envases. */
-const COST_BY_DPO: Record<Dpo, number> = { 30: 0.98, 45: 0.99, 60: 1 };
+/**
+ * Días de pago medios: la fruta fresca se paga como mucho a 30 días (Ley 12/2013) y los envases y demás compras hasta
+ * a 60 (Ley 3/2004), así que la media máxima es de unos 50. Pagar todo antes da descuento por pronto pago.
+ */
+const COST_BY_DPO: Record<Dpo, number> = { 30: 0.98, 40: 0.99, 50: 1 };
 
 export interface CashSetup {
   seed: number;

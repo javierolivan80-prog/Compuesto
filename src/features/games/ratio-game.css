@@ -1,0 +1,15 @@
+/* ¿Quién es quién?: tarjetas de ratios; al comprobar, filete verde o rojo (además del ✓/✗ del texto). */
+.rg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.rg-card {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.rg-ok {
+  border-color: var(--bull);
+}
+.rg-ko {
+  border-color: var(--bear);
+}

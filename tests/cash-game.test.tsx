@@ -34,7 +34,7 @@ describe('Ciclo de caja (interfaz)', () => {
     for (const re of [
       /^60 días: lo que pide/,
       /^60 días: lo habitual/,
-      /^60 días: sin descuento/,
+      /^50 días de media/,
     ]) {
       await user.click(pick(re));
       await user.click(screen.getByRole('button', { name: 'Siguiente' }));

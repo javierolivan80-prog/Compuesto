@@ -733,13 +733,13 @@
       "funding": "cómo financias el hueco",
       "outcome": "el año, mes a mes"
     },
-    "brief": "El jefe te pide el plan de circulante de Naranjas para 2026. Con los plazos de siempre venderá unos {{sales}}. Para financiar el circulante tiene {{available}} de caja y una póliza de crédito de hasta {{limit}} al {{rate}} % anual. Si lo que necesitas supera las dos cosas, Naranjas se queda sin caja aunque gane dinero.",
+    "brief": "El jefe te pide el plan de circulante de Naranjas para 2026. Con los plazos de siempre (cobro a 60 días, 60 días de almacén y pago medio a 50) venderá unos {{sales}}. Para financiar el circulante tiene {{available}} de caja y una póliza de crédito de hasta {{limit}} al {{rate}} % anual. Si lo que necesitas supera las dos cosas, Naranjas se queda sin caja aunque gane dinero.",
     "units": "Cifras en miles de euros.",
-    "law": "La Ley 3/2004 de morosidad limita los plazos de pago entre empresas a 60 días: no se puede pactar más.",
+    "law": "La Ley 3/2004 de morosidad limita los plazos de pago entre empresas a 60 días, sin que se pueda pactar más; en alimentación, la Ley 12/2013 deja en 30 días el pago de productos frescos y perecederos.",
     "ask": {
       "dso": "¿A cuántos días cobras a la cadena de supermercados?",
       "dio": "¿Cuántos días de existencias tienes en el almacén?",
-      "dpo": "¿A cuántos días pagas a los proveedores de envases?",
+      "dpo": "¿A cuántos días de media pagas a tus proveedores?",
       "funding": "¿Cómo financias el hueco?"
     },
     "opt": {
@@ -754,9 +754,9 @@
         "75": "75 días: compras en campaña, un 1 % más baratas"
       },
       "dpo": {
-        "30": "30 días: el proveedor te hace un 2 % de descuento por pronto pago",
-        "45": "45 días: un 1 % de descuento",
-        "60": "60 días: sin descuento, el máximo legal"
+        "30": "30 días: lo pagas todo a 30 días y los proveedores te hacen un 2 % de descuento",
+        "40": "40 días de media: un 1 % de descuento",
+        "50": "50 días de media: la fruta a 30 días y los envases a 60, sin descuento"
       },
       "funding": {
         "poliza": "Póliza de crédito al {{rate}} % anual (hasta el límite)",
@@ -803,9 +803,75 @@
     "ok": "Buen plan: no te quedas sin caja, aunque se podía ganar algo más.",
     "bad": "Has acabado el año, pero lejos del mejor plan. Mira cuántos días financias y cuánto te cuesta.",
     "debrief": "Ver qué ha pasado",
-    "provisional": "Plan provisional con los plazos de siempre (60 días). Cifras en miles de euros."
+    "provisional": "Plan provisional con los plazos de siempre. Cifras en miles de euros."
   },
   "cashCycle": {
     "title": "El ciclo de caja, día a día"
+  },
+  "ratioGame": {
+    "title": "¿Quién es quién?",
+    "stepPlay": "Cuentas de {{year}} · identifica cada empresa",
+    "stepChecked": "Cuentas de {{year}} · resultado",
+    "brief": "La mentora tapa los nombres de cinco empresas del universo y te deja sus ratios de {{year}}. Di quién es cada una. Empiezas con tres ratios; puedes pedir más, pero cada uno resta nota. Las cinco son:",
+    "company": {
+      "naranjas-del-turia": {
+        "name": "Naranjas del Turia",
+        "what": "cultiva y envasa cítricos y zumos",
+        "clue": "70 días de existencias (fruta, zumo y envases) y cobro a 60 días a las cadenas; margen medio."
+      },
+      "pirineo-energia": {
+        "name": "Pirineo Energía",
+        "what": "centrales hidráulicas y parques eólicos",
+        "clue": "el margen más alto y la rotación más baja: casi todo su activo son centrales, y no tiene existencias."
+      },
+      "mediterranea-de-navieras": {
+        "name": "Mediterránea de Navieras",
+        "what": "barcos de carga",
+        "clue": "activo pesado (barcos) y rotación baja como la eléctrica, pero con menos margen y algo de existencias (combustible y repuestos)."
+      },
+      "albufera-partners": {
+        "name": "Albufera Partners",
+        "what": "boutique de banca de inversión (tu banco)",
+        "clue": "sin existencias, poco activo fijo y casi sin deuda: vende el trabajo de su gente, y su rentabilidad sobre fondos propios es la más alta."
+      },
+      "tramuntana-retail": {
+        "name": "Tramuntana Retail",
+        "what": "cadena de tiendas y venta online",
+        "clue": "margen muy bajo, rotación alta y cobro casi al contado (12 días): vende mucho con poco margen."
+      }
+    },
+    "ratio": {
+      "ebitMargin": "Margen de explotación",
+      "assetTurnover": "Rotación del activo",
+      "stockDays": "Días de existencias",
+      "collectionDays": "Días de cobro",
+      "debtToEquity": "Deuda / patrimonio neto",
+      "fixedShare": "Inmovilizado / activo",
+      "cashConversion": "Flujo de explotación / beneficio",
+      "roe": "ROE"
+    },
+    "times": "{{v}} veces",
+    "days": "{{v}} días",
+    "card": "Empresa {{letter}}",
+    "who": "¿Quién es?",
+    "choose": "Elige…",
+    "repeated": "Has puesto la misma empresa en dos tarjetas: cada una va en una sola.",
+    "reveal": "Pedir otro ratio: {{ratio}}",
+    "allShown": "Ya ves todos los ratios",
+    "check": "Comprobar",
+    "result": "Has acertado {{hits}} de {{total}}.",
+    "summary": "Ver el resumen",
+    "hit": "¡Las cinco!",
+    "doneTitle": "Informe para la mentora",
+    "hitsValue": "{{hits}} de {{total}} empresas, con {{reveals}} ratios pedidos de más.",
+    "dupontIntro": "Dos formas de ganar dinero en {{year}}: el árbol DuPont descompone la rentabilidad sobre fondos propios (ROE) en margen neto × rotación del activo × apalancamiento.",
+    "dupontLine": "{{margin}} % × {{turnover}} × {{leverage}} = ROE del {{roe}} %",
+    "great": "Perfecto: has leído cada negocio en sus ratios. Así trabaja un analista.",
+    "ok": "Bien: has acertado la mayoría. Fíjate en los ratios que delatan cada negocio.",
+    "bad": "Los ratios cuentan cómo es el negocio: repasa qué delata a cada empresa y vuelve a intentarlo.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "leverage": {
+    "title": "Apalancamiento: el mismo negocio, con más o menos deuda"
   }
 }

@@ -541,7 +541,7 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 ## 2026-10-18 — Unidad `n3-u2` «De la cuenta de resultados a la caja» y juego «Ciclo de caja»
 
 - **Decisión:** cinco lecciones:
-  - el juego «Ciclo de caja» (`n3-u2-l1`, semilla 2: el plan de siempre, 60/60/60 con póliza, deja a Naranjas sin caja; el mejor plan cobra a 30 días);
+  - el juego «Ciclo de caja» (`n3-u2-l1`, semilla 2: el plan de siempre, 60/60/50 con póliza, deja a Naranjas sin caja; el mejor plan cobra a 30 días);
   - NOF y fondo de maniobra;
   - días de cobro, existencias y pago, con el explicador nuevo `CashCycle`;
   - financiar el circulante: póliza, factoring y confirming, y los plazos legales;
@@ -554,4 +554,5 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - días de pago sobre el coste de ventas, en lugar de sobre las compras;
   - fondo de maniobra con la deuda con bancos a largo plazo, porque `companies.json` no la separa.
 - **Juego:** el factoring se paga por factura; su coste anual se modela como comisión × 365 / días de cobro, más caro que la póliza pero sin su límite. Peor caso: semilla 120.
+- **Días de pago medios:** como la fruta fresca se paga a 30 días como mucho, el juego ofrece pagos medios de 30, 40 o 50 días; 50 es la fruta a 30 y los envases a 60. Lo pidió la revisión.
 - **Herramientas:** el solver de e2e resuelve ahora `match_pairs`.

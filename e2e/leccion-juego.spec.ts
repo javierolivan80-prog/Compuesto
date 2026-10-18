@@ -393,7 +393,7 @@ test('ciclo de caja: captura y axe a 375 px en cada paso y lección completa con
   await scan('cobro');
   await page.screenshot({ path: 'docs/capturas/leccion-juego/caja-plan-375.png', fullPage: true });
   // el plan de siempre con póliza: sin caja
-  for (const re of [/^60 días: lo que pide/, /^60 días: lo habitual/, /^60 días: sin descuento/]) {
+  for (const re of [/^60 días: lo que pide/, /^60 días: lo habitual/, /^50 días de media/]) {
     await page.getByRole('radio', { name: re }).click();
     await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
   }

@@ -6,6 +6,7 @@ import { CompoundCurve } from './CompoundCurve';
 import { ExDividend } from './ExDividend';
 import { IndexWeights } from './IndexWeights';
 import { InflationCart } from './InflationCart';
+import { Leverage } from './Leverage';
 import { LoanAmortization } from './LoanAmortization';
 import { MarketCapFloat } from './MarketCapFloat';
 import { MoneyCreation } from './MoneyCreation';
@@ -38,6 +39,7 @@ const REGISTRY = {
   ShareDilution,
   ThreeStatements,
   CashCycle,
+  Leverage,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

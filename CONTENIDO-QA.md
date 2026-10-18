@@ -227,3 +227,21 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** un distractor sin error asociado en salto q3 (4.283 → 3.575), la pregunta de variación de caja recuperada y dos retoques. Aplicados.
 - **Ronda 3:** aprobada. Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier, contrastando con sus apuntes de Contabilidad cuando lleguen.
+
+## n3-u2 — De la cuenta de resultados a la caja y lección-juego «Ciclo de caja» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios, sin errores de cálculo.
+  - Mayores aplicados:
+    - incoherencia con el plazo de 30 días de la fruta fresca: el juego usa ahora días de pago **medios** de 30, 40 o 50 (50 es la fruta a 30 y los envases a 60), y las lecciones lo explican;
+    - l4-e5: la explicación decía «el doble», y es 730 frente a 545;
+    - l4-e2: el adelanto de factoring admitía dos lecturas;
+    - l2-e4: «sueldos pendientes» chocaba con la definición simplificada de NOF;
+    - el texto de la tarjeta de NOF era falso cuando no hay hueco.
+  - Menores aplicados:
+    - distractores del test de salto con su error típico;
+    - fuera «descuento de efectos»;
+    - nuevos ejercicios de beneficio → caja (8.151) y de intereses de la póliza;
+    - sin días en el orden de pasos.
+- **Ronda 2:** un mayor (l5-e7 daba por buena una media de pago de 60 días, imposible con la fruta a 30) y seis menores. Aplicados.
+- **Ronda 3:** aprobada. Estado: `reviewed`.
+- 🛑 Pendiente: comprobar en el BOE consolidado el artículo de la Ley 12/2013 que se cita (art. 14 bis, tras la Ley 16/2021) y la frase «desde la entrega». Además, la revisión de Javier.

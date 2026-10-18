@@ -1,8 +1,8 @@
 {
   "id": "n3-u2-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 2,
   "order": 0,
@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Necesidades operativas de fondos",
-      "text": "Las NOF son el dinero atrapado en el día a día: clientes ({clients}) + existencias ({stock}) − proveedores ({payables}) = {nof} mil €. Los proveedores restan porque te financian mientras no les pagas. Tenías {available} de caja: lo que faltaba, {shortfall}, había que pedirlo."
+      "text": "Las NOF son el dinero atrapado en el día a día: clientes ({clients}) + existencias ({stock}) − proveedores ({payables}) = {nof} mil €. Los proveedores restan porque te financian mientras no les pagas. Tenías {available} de caja; lo que las NOF la superaban ({shortfall}) había que pedirlo fuera."
     },
     {
       "type": "card",
@@ -67,8 +67,8 @@
         "dpo": {
           "value": 30,
           "min": 30,
-          "max": 60,
-          "step": 15
+          "max": 50,
+          "step": 10
         }
       },
       "derived": {
@@ -196,6 +196,42 @@
     },
     {
       "id": "n3-u2-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Si la póliza te dejara financiar todo el hueco de tu plan ({shortfall}) durante el año al {rate} % anual, ¿cuánto pagarías de intereses? (miles de €)",
+      "answer": 178.85,
+      "unit": "mil €",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{shortfall} * {rate} / 100",
+      "params": {
+        "shortfall": {
+          "value": 2555,
+          "min": 0,
+          "max": 6000,
+          "step": 1
+        },
+        "rate": {
+          "value": 7,
+          "min": 5,
+          "max": 9,
+          "step": 1
+        }
+      },
+      "derived": {
+        "interest": {
+          "formula": "{shortfall} * {rate} / 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Intereses = hueco × tipo = {shortfall} × {rate} % = {interest}. Con factoring costaría más: la comisión se paga en cada factura.",
+      "hint": "Multiplica lo que pides por el tipo anual."
+    },
+    {
+      "id": "n3-u2-l1-e6",
       "type": "scenario",
       "difficulty": 3,
       "bloom": "analizar",
@@ -219,7 +255,7 @@
       }
     },
     {
-      "id": "n3-u2-l1-e6",
+      "id": "n3-u2-l1-e7",
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
@@ -230,24 +266,24 @@
       "explanation": "Verdadero. El beneficio llega a la caja con retraso: si el dinero atrapado en clientes y existencias supera lo que tiene y lo que le prestan, no puede pagar aunque gane dinero."
     },
     {
-      "id": "n3-u2-l1-e7",
+      "id": "n3-u2-l1-e8",
       "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "analizar",
       "tags": [],
       "concepts": ["ciclo-caja"],
-      "prompt": "El proveedor ofrece un 2 % de descuento si le pagas a 30 días en lugar de a 60. ¿Cuánto es eso en tipo anual, aproximadamente?",
-      "options": ["Algo más del 24 % anual", "Un 2 % anual", "Un 6 % anual", "Un 0,5 % anual"],
+      "prompt": "Los proveedores ofrecen un 2 % de descuento si les pagas a 30 días en lugar de a una media de 50. ¿Cuánto es eso en tipo anual, aproximadamente?",
+      "options": ["Más de un 36 % anual", "Un 2 % anual", "Un 6 % anual", "Un 0,5 % anual"],
       "answer": 0,
-      "explanation": "Ganas un 2 % por adelantar el pago 30 días; en un año hay unos 12 periodos de 30 días: 2 % × 365 / 30 ≈ 24 %. Mientras te financies por debajo de ese tipo, conviene pagar pronto.",
+      "explanation": "Ganas un 2 % por adelantar el pago 20 días; en un año hay unos 18 periodos de 20 días: 2 % × 365 / 20 ≈ 36,5 %. Mientras te financies por debajo de ese tipo, conviene pagar pronto.",
       "wrongExplanations": {
-        "1": "El 2 % se gana en solo 30 días, no en un año.",
-        "2": "Un 6 % es anualizar mal: el 2 % se gana cada 30 días, unas 12 veces al año.",
-        "3": "Es mucho más: hay que anualizar el 2 % de 30 días."
+        "1": "El 2 % se gana en solo 20 días, no en un año.",
+        "2": "Un 6 % es anualizar mal: el 2 % se gana cada 20 días, unas 18 veces al año.",
+        "3": "Es mucho más: hay que anualizar el 2 % de 20 días."
       }
     },
     {
-      "id": "n3-u2-l1-e8",
+      "id": "n3-u2-l1-e9",
       "type": "categorize",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -297,7 +333,7 @@
       "date": "2026-10-18"
     },
     {
-      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria, reformada por la Ley 16/2021 (art. 14 bis: prohibición de aplazar el pago más de 30 días desde la entrega en productos frescos y perecederos y 60 en el resto; texto consolidado)",
       "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
       "date": "2026-10-18"
     }

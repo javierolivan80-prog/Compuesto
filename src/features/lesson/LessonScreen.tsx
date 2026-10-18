@@ -35,6 +35,7 @@ import { IpoGame } from '../games/IpoGame';
 import { TakeoverGame } from '../games/TakeoverGame';
 import { BalanceGame } from '../games/BalanceGame';
 import { CashGame } from '../games/CashGame';
+import { RatioGame } from '../games/RatioGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -193,6 +194,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'takeover-rumor': TakeoverGame,
             'balance-builder': BalanceGame,
             'cash-cycle': CashGame,
+            'ratio-detective': RatioGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

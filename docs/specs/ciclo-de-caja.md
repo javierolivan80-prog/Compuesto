@@ -11,7 +11,7 @@ Motor: `src/engine/games/cash-cycle.ts`. Interfaz: `src/features/games/CashGame.
   - comisión del factoring: 1,5–2 % por factura.
 - **Cobro a la cadena (30 / 45 / 60 días):** cobrar antes vende un 3 % / 1 % / 0 % menos.
 - **Existencias (45 / 60 / 75 días):** con 45 días las roturas cuestan un 3 % de las ventas; con 75, las compras en campaña son un 1 % más baratas.
-- **Pago a proveedores (30 / 45 / 60 días):** descuento por pronto pago del 2 % / 1 % / 0 %. El coste de ventas es el 62 % de las ventas.
+- **Pago medio a proveedores (30 / 40 / 50 días):** descuento por pronto pago del 2 % / 1 % / 0 %. Son medias: la fruta fresca se paga como mucho a 30 días (Ley 12/2013) y los envases hasta a 60 (Ley 3/2004), así que 50 es «la fruta a 30 y los envases a 60». El coste de ventas es el 62 % de las ventas.
 - Todos los plazos están dentro de los 60 días de la Ley 3/2004. Una opción de cobro a 90 días queda fuera porque es ilegal; el ejercicio e5 lo trata.
 - Saldos: clientes = ventas × días de cobro / 365; existencias = coste × días / 365; proveedores = coste × días de pago / 365. NOF = clientes + existencias − proveedores. Hueco = NOF − caja disponible.
 - **Financiación del hueco:**

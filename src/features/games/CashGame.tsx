@@ -27,7 +27,7 @@ interface Props {
 }
 
 type Step = 'dso' | 'dio' | 'dpo' | 'funding' | 'outcome' | 'done';
-const DEFAULT: CashPlan = { dso: 60, dio: 60, dpo: 60, funding: 'poliza' };
+const DEFAULT: CashPlan = { dso: 60, dio: 60, dpo: 50, funding: 'poliza' };
 const n = (v: number) => formatNumber(v);
 
 /** Reloj de días: compras el día 0, pagas el día DPO, vendes el día DIO y cobras el día DIO + DSO. */

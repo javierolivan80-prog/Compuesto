@@ -1,8 +1,8 @@
 {
   "id": "n3-u2-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 2,
   "title": "Circulante: NOF y fondo de maniobra",
@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Fondo de maniobra",
-      "text": "Es el activo corriente menos el pasivo corriente: la parte del circulante financiada con recursos a largo plazo (patrimonio neto y deuda a más de un año). Si no cubre las NOF, la diferencia hay que pedirla a corto plazo: pólizas, descuento de efectos o factoring."
+      "text": "Es el activo corriente menos el pasivo corriente: la parte del circulante financiada con recursos a largo plazo (patrimonio neto y deuda a más de un año). Si no cubre las NOF, la diferencia hay que pedirla a corto plazo: una póliza de crédito o factoring."
     },
     {
       "type": "example",
@@ -103,10 +103,6 @@
           "category": "Resta en las NOF"
         },
         {
-          "text": "Sueldos del mes pendientes de pagar a la plantilla",
-          "category": "Resta en las NOF"
-        },
-        {
           "text": "Póliza de crédito dispuesta",
           "category": "No entra en las NOF"
         },
@@ -115,7 +111,7 @@
           "category": "No entra en las NOF"
         }
       ],
-      "explanation": "Las NOF recogen lo que genera el día a día: lo que te deben y tienes en almacén, menos lo que debes sin pedirlo (proveedores, sueldos pendientes). Las pólizas y los préstamos son la forma de financiarlas, no parte de ellas."
+      "explanation": "Las NOF recogen lo que genera el día a día: lo que te deben y tienes en almacén, menos lo que debes a los proveedores sin pedirlo. Las pólizas y los préstamos son la forma de financiarlas, no parte de ellas."
     },
     {
       "id": "n3-u2-l2-e5",
@@ -176,6 +172,22 @@
     },
     {
       "id": "n3-u2-l2-e8",
+      "type": "numeric_input",
+      "difficulty": 4,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Las NOF de Naranjas pasaron de 10.915 (2024) a 11.679 (2025). En 2025 ganó 7.233 con una amortización de 1.682. ¿Cuál fue su flujo de explotación? (miles de €)",
+      "answer": 8151,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "7233 + 1682 - (11679 - 10915)",
+      "explanation": "El aumento de las NOF (764) es dinero que el beneficio no trajo a la caja: 7.233 + 1.682 − 764 = 8.151, el flujo de explotación del estado de flujos de 2025.",
+      "hint": "Beneficio + amortización − lo que suben las NOF."
+    },
+    {
+      "id": "n3-u2-l2-e9",
       "type": "fill_blank",
       "difficulty": 1,
       "bloom": "recordar",

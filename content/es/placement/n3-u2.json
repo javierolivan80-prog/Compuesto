@@ -2,8 +2,8 @@
   "id": "salto-n3-u2",
   "unitId": "n3-u2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n3-u2-q1",
@@ -13,13 +13,13 @@
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
       "prompt": "A 31/12/2022: clientes 7.904, existencias 5.717 y proveedores 4.084. ¿NOF?",
-      "options": ["9.537", "17.705", "13.621", "1.813"],
+      "options": ["9.537", "17.705", "13.621", "−1.897"],
       "answer": 0,
       "explanation": "7.904 + 5.717 − 4.084 = 9.537.",
       "wrongExplanations": {
         "1": "Los proveedores restan, no suman.",
         "2": "Te has dejado los proveedores.",
-        "3": "Has restado las existencias."
+        "3": "Has restado las existencias: suman."
       }
     },
     {
@@ -30,13 +30,13 @@
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
       "prompt": "Ventas de 48.082 y clientes de 7.904. ¿Días de cobro?",
-      "options": ["60 días", "16 días", "45 días", "72 días"],
+      "options": ["60 días", "16 días", "59,2 días", "6,1 días"],
       "answer": 0,
       "explanation": "7.904 / 48.082 × 365 = 60,0 días.",
       "wrongExplanations": {
         "1": "Has olvidado multiplicar por 365: 16 % es la proporción.",
-        "2": "Revisa la división.",
-        "3": "Revisa la división."
+        "2": "Has usado un año de 360 días; aquí se cuenta con 365.",
+        "3": "Has invertido la división: ventas ÷ clientes es la rotación de clientes (veces al año), no los días."
       }
     },
     {
@@ -153,7 +153,7 @@
       "date": "2026-10-18"
     },
     {
-      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria, reformada por la Ley 16/2021 (art. 14 bis: prohibición de aplazar el pago más de 30 días desde la entrega en productos frescos y perecederos y 60 en el resto; texto consolidado)",
       "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
       "date": "2026-10-18"
     }

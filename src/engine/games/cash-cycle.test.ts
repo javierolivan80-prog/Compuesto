@@ -27,18 +27,18 @@ describe('ciclo de caja', () => {
 
   it('NOF = clientes + existencias − proveedores y ciclo de caja = cobro + existencias − pago', () => {
     const s = setupCash(2);
-    const r = planResult(s, { dso: 60, dio: 60, dpo: 60, funding: 'poliza' });
+    const r = planResult(s, { dso: 60, dio: 60, dpo: 50, funding: 'poliza' });
     expect(r.clients).toBe(Math.round((r.sales * 60) / 365));
     expect(r.nof).toBe(r.clients + r.stock - r.payables);
-    expect(r.ccc).toBe(60);
+    expect(r.ccc).toBe(70);
     expect(r.shortfall).toBe(Math.max(0, r.nof - s.available));
     expect(r.margin).toBe(r.sales - r.cost - r.fundingCost);
   });
 
   it('cobrar antes baja las NOF pero vende menos; pagar antes tiene descuento pero sube las NOF', () => {
     const s = setupCash(2);
-    const late = planResult(s, { dso: 60, dio: 60, dpo: 60, funding: 'poliza' });
-    const early = planResult(s, { dso: 30, dio: 60, dpo: 60, funding: 'poliza' });
+    const late = planResult(s, { dso: 60, dio: 60, dpo: 50, funding: 'poliza' });
+    const early = planResult(s, { dso: 30, dio: 60, dpo: 50, funding: 'poliza' });
     expect(early.nof).toBeLessThan(late.nof);
     expect(early.sales).toBeLessThan(late.sales);
     const pay = planResult(s, { dso: 60, dio: 60, dpo: 30, funding: 'poliza' });
@@ -48,7 +48,7 @@ describe('ciclo de caja', () => {
 
   it('la póliza tiene límite (si te pasas, sin caja); el factoring cubre el hueco, pero es más caro', () => {
     const s = setupCash(2);
-    const plan = { dso: 60, dio: 60, dpo: 60 } as const;
+    const plan = { dso: 60, dio: 60, dpo: 50 } as const;
     const pol = planResult(s, { ...plan, funding: 'poliza' });
     const fac = planResult(s, { ...plan, funding: 'factoring' });
     expect(pol.shortfall).toBeGreaterThan(s.limit);
@@ -73,7 +73,7 @@ describe('ciclo de caja', () => {
 
   it('la nota baja con lo que te alejas del mejor margen, con un suelo de 0,3', () => {
     const s = setupCash(8);
-    const r = planResult(s, { dso: 30, dio: 45, dpo: 60, funding: 'factoring' });
+    const r = planResult(s, { dso: 30, dio: 45, dpo: 50, funding: 'factoring' });
     const score = cashScore(s, r);
     expect(score).toBeGreaterThanOrEqual(0.3);
     expect(score).toBeLessThan(1);

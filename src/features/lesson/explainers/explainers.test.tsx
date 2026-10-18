@@ -92,6 +92,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/horquilla 0,02/);
     expect(text).toMatch(/precio medio 10,03/);
   });
+  it('Leverage: la deuda amplifica el ROE arriba y abajo', () => {
+    render(<ExplainerBlock component="Leverage" props={{ goodRoa: 12, badRoa: 2, rate: 5 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/\+33,0/);
+    expect(text).toMatch(/−7,0/);
+  });
   it('CashCycle: del pago al cobro pasan días de existencias + cobro − pago', () => {
     render(<ExplainerBlock component="CashCycle" props={{ dso: 60, dio: 70, dpo: 50 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

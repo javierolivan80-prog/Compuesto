@@ -20,7 +20,7 @@ export function CashCycle({ dso, dio, dpo, onInteract }: Props) {
   const steps: ExplainerStep[] = [
     {
       title: 'Compras',
-      text: `Día 0: llegan la fruta y los envases. Aún no los pagas: los proveedores te dan ${dpo} días.`,
+      text: `Día 0: llegan las compras. Aún no las pagas: de media, los proveedores te dan ${dpo} días (la fruta fresca, como mucho 30).`,
     },
     {
       title: 'Pagas a los proveedores',
