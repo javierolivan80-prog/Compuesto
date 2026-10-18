@@ -1,0 +1,58 @@
+/* Ciclo de caja: reloj de días (marcas y hueco que financias, con transform) y barra de NOF frente a caja y póliza. */
+.cg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.cg-sheet {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.cg-gap {
+  fill: color-mix(in oklch, var(--bear) 22%, transparent);
+  transform-box: fill-box;
+  transform-origin: left center;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.cg-mark {
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.cg-track {
+  background: color-mix(in oklch, var(--line) 60%, transparent);
+}
+.cg-avail,
+.cg-limit,
+.cg-need {
+  transform-origin: left center;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.cg-avail {
+  background: color-mix(in oklch, var(--bull) 35%, transparent);
+}
+.cg-limit {
+  background: color-mix(in oklch, var(--accent) 40%, transparent);
+}
+.cg-need {
+  background: var(--brand);
+  border-radius: 3px;
+}
+.cg-over {
+  background: var(--bear);
+  animation: cg-blink 900ms var(--ease-out) 2;
+}
+@keyframes cg-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cg-gap,
+  .cg-mark,
+  .cg-avail,
+  .cg-limit,
+  .cg-need {
+    transition: none;
+  }
+  .cg-over {
+    animation: none;
+  }
+}

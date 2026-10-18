@@ -722,5 +722,90 @@
   },
   "threeStatements": {
     "title": "Una venta a crédito en los tres estados"
+  },
+  "cashGame": {
+    "title": "Ciclo de caja",
+    "stepOf": "Paso {{n}} de {{total}}",
+    "step": {
+      "dso": "cobro a los clientes",
+      "dio": "existencias",
+      "dpo": "pago a los proveedores",
+      "funding": "cómo financias el hueco",
+      "outcome": "el año, mes a mes"
+    },
+    "brief": "El jefe te pide el plan de circulante de Naranjas para 2026. Con los plazos de siempre venderá unos {{sales}}. Para financiar el circulante tiene {{available}} de caja y una póliza de crédito de hasta {{limit}} al {{rate}} % anual. Si lo que necesitas supera las dos cosas, Naranjas se queda sin caja aunque gane dinero.",
+    "units": "Cifras en miles de euros.",
+    "law": "La Ley 3/2004 de morosidad limita los plazos de pago entre empresas a 60 días: no se puede pactar más.",
+    "ask": {
+      "dso": "¿A cuántos días cobras a la cadena de supermercados?",
+      "dio": "¿Cuántos días de existencias tienes en el almacén?",
+      "dpo": "¿A cuántos días pagas a los proveedores de envases?",
+      "funding": "¿Cómo financias el hueco?"
+    },
+    "opt": {
+      "dso": {
+        "30": "30 días: cobras pronto, pero la cadena compra un 3 % menos",
+        "45": "45 días: la cadena compra un 1 % menos",
+        "60": "60 días: lo que pide la cadena, el máximo legal"
+      },
+      "dio": {
+        "45": "45 días: almacén ajustado, con roturas que cuestan un 3 % de las ventas",
+        "60": "60 días: lo habitual",
+        "75": "75 días: compras en campaña, un 1 % más baratas"
+      },
+      "dpo": {
+        "30": "30 días: el proveedor te hace un 2 % de descuento por pronto pago",
+        "45": "45 días: un 1 % de descuento",
+        "60": "60 días: sin descuento, el máximo legal"
+      },
+      "funding": {
+        "poliza": "Póliza de crédito al {{rate}} % anual (hasta el límite)",
+        "factoring": "Factoring: el banco te adelanta las facturas de clientes con una comisión del {{fee}} % por factura"
+      }
+    },
+    "gap": "Tu plan necesita {{shortfall}} más de lo que tiene la caja. La póliza llega hasta {{limit}}.",
+    "next": "Siguiente",
+    "close": "Cerrar el plan y ver el año",
+    "survived": "Naranjas pasa el año sin quedarse sin caja. Financia {{shortfall}} y le cuesta {{cost}}.",
+    "broke": "En octubre, en plena campaña, la caja llega a cero: necesitas {{shortfall}} y la póliza solo llega a {{limit}}. Naranjas no puede pagar las nóminas aunque el plan gane dinero.",
+    "retry": "Rehacer el plan",
+    "summary": "Ver el resumen",
+    "hit": "¡Caja a salvo!",
+    "panel": "Tu plan de circulante",
+    "timelineAria": "Pagas a los proveedores el día {{dpo}}, vendes el día {{sale}} y cobras el día {{cash}}: {{ccc}} días que financia Naranjas.",
+    "tl": {
+      "buy": "Compra",
+      "pay": "Pago, día {{d}}",
+      "sell": "Venta, día {{d}}",
+      "collect": "Cobro, día {{d}}"
+    },
+    "cccCaption": "Ciclo de caja: {{ccc}} días entre que pagas y cobras. Esos días los financias tú.",
+    "nof": "Necesidades de circulante (NOF)",
+    "available": "Caja disponible",
+    "limit": "Límite de la póliza",
+    "doneTitle": "Plan de circulante de 2026",
+    "yourPlan": "Tu plan",
+    "planText": "Cobro a {{dso}} días, {{dio}} días de existencias y pago a {{dpo}} días",
+    "ccc": "Ciclo de caja",
+    "days": "{{d}} días",
+    "fundingCost": {
+      "poliza": "Intereses de la póliza",
+      "factoring": "Comisiones del factoring"
+    },
+    "fundingName": {
+      "poliza": "póliza",
+      "factoring": "factoring"
+    },
+    "margin": "Margen del plan (ventas − coste de ventas − financiación)",
+    "best": "El mejor margen posible",
+    "bestPlan": "El mejor plan",
+    "great": "Plan redondo: el mejor margen posible sin quedarte sin caja. El jefe lo firma.",
+    "ok": "Buen plan: no te quedas sin caja, aunque se podía ganar algo más.",
+    "bad": "Has acabado el año, pero lejos del mejor plan. Mira cuántos días financias y cuánto te cuesta.",
+    "debrief": "Ver qué ha pasado",
+    "provisional": "Plan provisional con los plazos de siempre (60 días). Cifras en miles de euros."
+  },
+  "cashCycle": {
+    "title": "El ciclo de caja, día a día"
   }
 }

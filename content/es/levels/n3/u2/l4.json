@@ -1,0 +1,198 @@
+{
+  "id": "n3-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 2,
+  "title": "Financiar el circulante: póliza, factoring y confirming",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Comparar el coste y los límites de la póliza de crédito y del factoring",
+    "Distinguir factoring y confirming y conocer los plazos legales de pago en España"
+  ],
+  "concepts": ["factoring-confirming"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Póliza de crédito",
+      "text": "Un límite que el banco pone a tu disposición: dispones y devuelves cuando quieres y pagas intereses solo por lo dispuesto, más comisiones. Es barata y flexible, pero tiene un límite y suele renovarse cada año: si el banco no la renueva, el hueco vuelve."
+    },
+    {
+      "type": "card",
+      "term": "Factoring y confirming",
+      "text": "Con el factoring, el banco te adelanta el cobro de tus facturas a clientes a cambio de comisiones e intereses; sin recurso, además asume el riesgo de impago. Con el confirming, el banco gestiona tus pagos a proveedores y les ofrece cobrar antes: tú pagas en tu plazo y ellos consiguen liquidez."
+    },
+    {
+      "type": "example",
+      "text": "Plazos legales en España: entre empresas, como máximo 60 días (Ley 3/2004), sin que se pueda pactar más. En alimentación, la Ley 12/2013 fija 30 días para productos frescos y perecederos y 60 para el resto, contados desde la entrega."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u2-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Naranjas tiene dispuestos 3.000 de su póliza durante todo el año al 7 % anual. ¿Cuánto paga de intereses? (miles de €)",
+      "answer": 210,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "3000 * 0.07",
+      "explanation": "3.000 × 7 % = 210 (sin contar comisiones)."
+    },
+    {
+      "id": "n3-u2-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Durante todo el año, adelanta con factoring 3.000 de facturas que se cobran a 60 días, con una comisión del 2 % por factura. ¿Cuánto le cuesta al año? (miles de €)",
+      "answer": 365,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3000 * 0.02 * 365 / 60",
+      "explanation": "Cada 60 días adelanta 3.000 y paga un 2 %: 60 de comisión. En un año lo hace 365 / 60 = 6,08 veces: 60 × 6,08 = 365.",
+      "hint": "Comisión de cada adelanto × veces que adelantas en el año."
+    },
+    {
+      "id": "n3-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Un 2 % por cada factura que se cobra a 60 días, ¿a qué tipo anual simple equivale? (en %, 2 decimales)",
+      "answer": 12.17,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2 * 365 / 60",
+      "explanation": "2 % × 365 / 60 = 12,17 % anual: bastante más caro que una póliza al 7 %.",
+      "hint": "Multiplica el 2 % por las veces que cabe un plazo de 60 días en un año."
+    },
+    {
+      "id": "n3-u2-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "¿Póliza, factoring o confirming?",
+      "categories": ["Póliza de crédito", "Factoring", "Confirming"],
+      "items": [
+        {
+          "text": "Un límite del que dispones y que devuelves cuando quieres",
+          "category": "Póliza de crédito"
+        },
+        {
+          "text": "Pagas intereses solo por lo que tienes dispuesto",
+          "category": "Póliza de crédito"
+        },
+        {
+          "text": "El banco te adelanta el cobro de tus facturas a clientes",
+          "category": "Factoring"
+        },
+        {
+          "text": "Sin recurso, el banco asume el riesgo de que el cliente no pague",
+          "category": "Factoring"
+        },
+        {
+          "text": "El banco paga a tus proveedores por ti y les ofrece cobrar antes",
+          "category": "Confirming"
+        },
+        {
+          "text": "Tus proveedores consiguen liquidez sin que tú pagues antes",
+          "category": "Confirming"
+        }
+      ],
+      "explanation": "La póliza financia el hueco con un límite; el factoring convierte en dinero tus cobros; el confirming ordena tus pagos y da liquidez a tus proveedores."
+    },
+    {
+      "id": "n3-u2-l4-e5",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["factoring-confirming", "ciclo-caja"],
+      "character": "jefe",
+      "situation": "Para la campaña, Naranjas necesita financiar 6.000 de circulante. Su póliza llega hasta 3.000 al 6 % anual. El factoring le cuesta un 2 % por factura, con facturas a 60 días (un 12 % anual).",
+      "prompt": "¿Qué plan propones?",
+      "options": [
+        "Agotar la póliza (3.000) y cubrir con factoring los otros 3.000",
+        "Todo con factoring, por comodidad",
+        "Todo con la póliza",
+        "Pagar a los proveedores a 90 días"
+      ],
+      "answer": 0,
+      "explanation": "Lo barato primero, hasta su límite, y lo caro solo para lo que falta: unos 180 de intereses más unos 365 de factoring, frente a unos 730 si todo fuera factoring.",
+      "wrongExplanations": {
+        "1": "Funciona, pero cuesta el doble que usar primero la póliza.",
+        "2": "La póliza no llega: el hueco que supera su límite dejaría a Naranjas sin caja.",
+        "3": "Es ilegal: el plazo máximo entre empresas es de 60 días."
+      }
+    },
+    {
+      "id": "n3-u2-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "statement": "En el factoring con recurso, si el cliente no paga, el banco te reclama a ti lo que te adelantó.",
+      "answer": true,
+      "explanation": "Verdadero. Con recurso, el riesgo de impago sigue siendo tuyo; sin recurso lo asume el banco y por eso es más caro."
+    },
+    {
+      "id": "n3-u2-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "¿Cuál es el plazo máximo que Naranjas puede pactar para pagar a sus proveedores de envases?",
+      "options": ["60 días", "90 días", "120 días", "El que se pacte por contrato"],
+      "answer": 0,
+      "explanation": "La Ley 3/2004 fija un máximo de 60 días entre empresas, que no se puede ampliar por pacto. Para la fruta fresca, la Ley 12/2013 lo deja en 30 días.",
+      "wrongExplanations": {
+        "1": "Supera el máximo legal: la cláusula sería nula.",
+        "2": "Supera el máximo legal.",
+        "3": "El plazo máximo es imperativo: no se puede pactar más."
+      }
+    },
+    {
+      "id": "n3-u2-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "El ___ adelanta a la empresa el cobro de sus facturas a clientes.",
+      "answers": [["factoring"]],
+      "explanation": "Factoring: cedes tus facturas al banco y cobras antes."
+    }
+  ],
+  "realWorld": "Los bancos españoles publican sus productos de factoring y confirming para empresas. Y si un cliente te paga tarde, la Ley 3/2004 te da derecho a intereses de demora.",
+  "sources": [
+    {
+      "title": "BOE: Ley 3/2004, de medidas de lucha contra la morosidad en las operaciones comerciales (art. 4: plazo máximo de pago de 60 días entre empresas, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2004/12/29/3/con",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-18"
+}

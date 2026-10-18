@@ -72,6 +72,11 @@
           "id": "n3-u1",
           "name": "Los tres estados financieros",
           "concepts": ["balance", "pyg", "flujos-caja", "conexion-estados"]
+        },
+        {
+          "id": "n3-u2",
+          "name": "De la cuenta de resultados a la caja",
+          "concepts": ["ciclo-caja", "factoring-confirming"]
         }
       ]
     },

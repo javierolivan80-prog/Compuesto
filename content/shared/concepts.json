@@ -763,7 +763,9 @@
     "id": "ciclo-caja",
     "name": "Circulante y ciclo de caja",
     "level": 3,
-    "prerequisites": ["balance"]
+    "prerequisites": ["balance"],
+    "unit": "n3-u2",
+    "description": "Días de existencias + días de cobro − días de pago, y las necesidades operativas de fondos (clientes + existencias − proveedores) que hay que financiar; el fondo de maniobra es la parte que cubren los recursos a largo plazo."
   },
   {
     "id": "prestamo-sindicado",
@@ -781,7 +783,9 @@
     "id": "factoring-confirming",
     "name": "Factoring y confirming",
     "level": 3,
-    "prerequisites": ["ciclo-caja"]
+    "prerequisites": ["ciclo-caja"],
+    "unit": "n3-u2",
+    "description": "Formas de financiar el circulante: la póliza de crédito (con límite), el factoring (adelanto de cobros a clientes) y el confirming (gestión de pagos a proveedores), dentro de los plazos legales de pago."
   },
   {
     "id": "emision-bonos",

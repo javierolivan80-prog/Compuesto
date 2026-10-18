@@ -1,0 +1,162 @@
+{
+  "id": "salto-n3-u2",
+  "unitId": "n3-u2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n3-u2-q1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "A 31/12/2022: clientes 7.904, existencias 5.717 y proveedores 4.084. ¿NOF?",
+      "options": ["9.537", "17.705", "13.621", "1.813"],
+      "answer": 0,
+      "explanation": "7.904 + 5.717 − 4.084 = 9.537.",
+      "wrongExplanations": {
+        "1": "Los proveedores restan, no suman.",
+        "2": "Te has dejado los proveedores.",
+        "3": "Has restado las existencias."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Ventas de 48.082 y clientes de 7.904. ¿Días de cobro?",
+      "options": ["60 días", "16 días", "45 días", "72 días"],
+      "answer": 0,
+      "explanation": "7.904 / 48.082 × 365 = 60,0 días.",
+      "wrongExplanations": {
+        "1": "Has olvidado multiplicar por 365: 16 % es la proporción.",
+        "2": "Revisa la división.",
+        "3": "Revisa la división."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Días de cobro 60, de existencias 70 y de pago 50. ¿Ciclo de caja?",
+      "options": ["80 días", "180 días", "40 días", "60 días"],
+      "answer": 0,
+      "explanation": "70 + 60 − 50 = 80.",
+      "wrongExplanations": {
+        "1": "Los días de pago restan.",
+        "2": "Los días de existencias suman.",
+        "3": "Ese es solo el plazo de cobro."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q4",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Caja 6.927, clientes 7.904, existencias 5.717 y proveedores 4.084 (sin deuda a corto). ¿Fondo de maniobra?",
+      "options": ["16.464", "9.537", "24.632", "20.548"],
+      "answer": 0,
+      "explanation": "20.548 de activo corriente − 4.084 de pasivo corriente = 16.464.",
+      "wrongExplanations": {
+        "1": "Esas son las NOF, sin la caja.",
+        "2": "Has sumado los proveedores.",
+        "3": "Es el activo corriente: falta restar el pasivo corriente."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "¿Qué baja las NOF?",
+      "options": [
+        "Cobrar antes a los clientes",
+        "Pagar antes a los proveedores",
+        "Tener más existencias",
+        "Vender más con los mismos plazos"
+      ],
+      "answer": 0,
+      "explanation": "Menos días de cobro, menos dinero atrapado en clientes.",
+      "wrongExplanations": {
+        "1": "Deber menos a los proveedores sube las NOF.",
+        "2": "Más almacén, más NOF.",
+        "3": "Crecer con los mismos plazos sube las NOF."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q6",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["factoring-confirming"],
+      "prompt": "¿Qué es el factoring?",
+      "options": [
+        "El banco te adelanta el cobro de tus facturas a clientes",
+        "El banco paga a tus proveedores por ti",
+        "Un préstamo a cinco años para comprar maquinaria",
+        "Una ampliación de capital"
+      ],
+      "answer": 0,
+      "explanation": "Cedes tus facturas y cobras antes, a cambio de comisiones e intereses.",
+      "wrongExplanations": {
+        "1": "Eso es el confirming.",
+        "2": "Es un préstamo de inversión, no factoring.",
+        "3": "Es financiación con capital propio."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["factoring-confirming"],
+      "statement": "Con el confirming, la empresa consigue cobrar antes de sus clientes.",
+      "answer": false,
+      "explanation": "Falso. El confirming gestiona tus pagos a proveedores y les permite cobrar antes a ellos; lo que adelanta tus cobros es el factoring."
+    },
+    {
+      "id": "salto-n3-u2-q8",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Plazo máximo de pago entre empresas en España (Ley 3/2004):",
+      "options": ["60 días", "90 días", "30 días en todos los casos", "El que se pacte"],
+      "answer": 0,
+      "explanation": "60 días, sin que se pueda pactar más (30 para alimentos frescos y perecederos, Ley 12/2013).",
+      "wrongExplanations": {
+        "1": "Supera el máximo legal.",
+        "2": "30 días es el máximo para frescos y perecederos; el general es 60.",
+        "3": "Es imperativo: no se puede pactar más."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "BOE: Ley 3/2004, de medidas de lucha contra la morosidad en las operaciones comerciales (art. 4: plazo máximo de pago de 60 días entre empresas, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2004/12/29/3/con",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31"
+}

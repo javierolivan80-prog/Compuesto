@@ -1,0 +1,199 @@
+{
+  "id": "n3-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 2,
+  "title": "Circulante: NOF y fondo de maniobra",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular las NOF y el fondo de maniobra desde el balance",
+    "Explicar cómo se financia la diferencia entre los dos"
+  ],
+  "concepts": ["ciclo-caja"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Necesidades operativas de fondos",
+      "text": "Para vender, Naranjas compra fruta y envases, guarda el zumo en el almacén y espera a que le paguen. Ese dinero atrapado en el negocio son las NOF: clientes + existencias − proveedores. Los proveedores restan porque financian a la empresa mientras no les paga."
+    },
+    {
+      "type": "card",
+      "term": "Fondo de maniobra",
+      "text": "Es el activo corriente menos el pasivo corriente: la parte del circulante financiada con recursos a largo plazo (patrimonio neto y deuda a más de un año). Si no cubre las NOF, la diferencia hay que pedirla a corto plazo: pólizas, descuento de efectos o factoring."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas a 31/12/2025 (miles de €): NOF = 9.679 de clientes + 7.001 de existencias − 5.001 de proveedores = 11.679. Si su deuda con bancos es a largo plazo, el fondo de maniobra es 32.065 − 5.001 = 27.064. Sobran 15.385 sobre las NOF: justo su caja."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u2-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "A 31/12/2024 Naranjas tenía 9.046 en clientes, 6.543 en existencias y 4.674 en proveedores. ¿Cuáles eran sus NOF? (miles de €)",
+      "answer": 10915,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "9046 + 6543 - 4674",
+      "explanation": "9.046 + 6.543 − 4.674 = 10.915.",
+      "hint": "Clientes + existencias − proveedores."
+    },
+    {
+      "id": "n3-u2-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Ese mismo día tenía 11.989 en caja y toda su deuda con bancos era a largo plazo. ¿Cuál era su fondo de maniobra? (miles de €)",
+      "answer": 22904,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "11989 + 9046 + 6543 - 4674",
+      "explanation": "Activo corriente: 11.989 + 9.046 + 6.543 = 27.578. Pasivo corriente: 4.674 (proveedores). Fondo de maniobra: 27.578 − 4.674 = 22.904.",
+      "hint": "Activo corriente (caja, clientes y existencias) menos pasivo corriente (aquí, solo proveedores)."
+    },
+    {
+      "id": "n3-u2-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Con esas cifras, ¿cuánto supera el fondo de maniobra (22.904) a las NOF (10.915)? (miles de €)",
+      "answer": 11989,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "22904 - 10915",
+      "explanation": "22.904 − 10.915 = 11.989: exactamente la caja. En este balance sencillo, lo que el fondo de maniobra financia de más se queda en la caja.",
+      "hint": "Resta; luego busca esa cifra en el balance."
+    },
+    {
+      "id": "n3-u2-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "¿Cómo cuenta cada partida en las NOF?",
+      "categories": ["Suma en las NOF", "Resta en las NOF", "No entra en las NOF"],
+      "items": [
+        {
+          "text": "Clientes",
+          "category": "Suma en las NOF"
+        },
+        {
+          "text": "Existencias",
+          "category": "Suma en las NOF"
+        },
+        {
+          "text": "Proveedores",
+          "category": "Resta en las NOF"
+        },
+        {
+          "text": "Sueldos del mes pendientes de pagar a la plantilla",
+          "category": "Resta en las NOF"
+        },
+        {
+          "text": "Póliza de crédito dispuesta",
+          "category": "No entra en las NOF"
+        },
+        {
+          "text": "Préstamo bancario a cinco años",
+          "category": "No entra en las NOF"
+        }
+      ],
+      "explanation": "Las NOF recogen lo que genera el día a día: lo que te deben y tienes en almacén, menos lo que debes sin pedirlo (proveedores, sueldos pendientes). Las pólizas y los préstamos son la forma de financiarlas, no parte de ellas."
+    },
+    {
+      "id": "n3-u2-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Naranjas vende un 20 % más en 2026 con los mismos plazos de cobro, almacén y pago. ¿Qué pasa con sus NOF?",
+      "options": [
+        "Suben más o menos un 20 %: más ventas por cobrar, más existencias y algo más de proveedores",
+        "Bajan, porque gana más dinero",
+        "No cambian: dependen solo de los plazos",
+        "Se convierten en caja al final del año"
+      ],
+      "answer": 0,
+      "explanation": "Con los mismos días, clientes, existencias y proveedores crecen con las ventas: crecer también consume caja.",
+      "wrongExplanations": {
+        "1": "El beneficio no reduce las NOF; al contrario, vender más las sube.",
+        "2": "Los plazos dicen cuántos días; el tamaño del negocio dice cuánto dinero hay en esos días.",
+        "3": "Las NOF se mantienen mientras siga el negocio: es dinero atrapado de forma permanente."
+      }
+    },
+    {
+      "id": "n3-u2-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "statement": "En el balance simplificado de Naranjas (sin deuda a corto), fondo de maniobra − NOF = caja.",
+      "answer": true,
+      "explanation": "Verdadero: activo corriente − proveedores − (clientes + existencias − proveedores) = caja."
+    },
+    {
+      "id": "n3-u2-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "character": "mentora",
+      "situation": "Una empresa de zumos que crece muy deprisa tiene un fondo de maniobra de 3.000 y unas NOF de 9.000. Gana dinero todos los años.",
+      "prompt": "¿Cuál es su riesgo principal?",
+      "options": [
+        "Depende de que los bancos le renueven 6.000 de financiación a corto: si no lo hacen, se queda sin caja",
+        "Ninguno: si gana dinero, no puede tener problemas de caja",
+        "Que paga demasiados impuestos",
+        "Que su fondo de maniobra es demasiado alto"
+      ],
+      "answer": 0,
+      "explanation": "Las NOF que el fondo de maniobra no cubre (6.000) se financian a corto. Si la póliza no se renueva, el negocio se queda sin caja aunque sea rentable.",
+      "wrongExplanations": {
+        "1": "Precisamente las empresas que crecen deprisa con beneficios son las que más a menudo se quedan sin caja.",
+        "2": "El problema es de financiación del circulante, no fiscal.",
+        "3": "Es al revés: es bajo frente a sus NOF."
+      }
+    },
+    {
+      "id": "n3-u2-l2-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "NOF = clientes + existencias − ___",
+      "answers": [["proveedores", "los proveedores"]],
+      "explanation": "Los proveedores financian a la empresa mientras no les paga: restan."
+    }
+  ],
+  "realWorld": "Para calcular las NOF y el fondo de maniobra de una cotizada, toma de su balance el activo corriente, el pasivo corriente, los clientes, las existencias y los proveedores. Aquí las NOF se simplifican a clientes + existencias − proveedores, sin caja operativa ni otras partidas del día a día.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelo de balance: activo y pasivo corriente)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

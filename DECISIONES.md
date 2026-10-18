@@ -537,3 +537,21 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Herramientas:** el solver de e2e resuelve ahora `build_statement`.
 - **Validación:** el test de detalle de conceptos admite descripción y unidad en niveles ≥ 2 cuando el concepto ya está en una unidad del curriculum.
 - 🛑 **Test de salto:** el esquema solo admite preguntas de reconocer (tipo test, verdadero/falso y multi_select) y exactamente 8 en todas las unidades. Por eso no puede cumplir el «≥ 50 % de producir» de TEMARIO §5. Se apunta como pendiente global, junto con el banco de 12.
+
+## 2026-10-18 — Unidad `n3-u2` «De la cuenta de resultados a la caja» y juego «Ciclo de caja»
+
+- **Decisión:** cinco lecciones:
+  - el juego «Ciclo de caja» (`n3-u2-l1`, semilla 2: el plan de siempre, 60/60/60 con póliza, deja a Naranjas sin caja; el mejor plan cobra a 30 días);
+  - NOF y fondo de maniobra;
+  - días de cobro, existencias y pago, con el explicador nuevo `CashCycle`;
+  - financiar el circulante: póliza, factoring y confirming, y los plazos legales;
+  - el Jefe final con las cuentas de 2023.
+- **Conceptos:** `ciclo-caja` y `factoring-confirming`.
+- **Normativa:** plazos de pago de la Ley 3/2004 (60 días entre empresas, imperativo según el Tribunal Supremo, STS de 23/11/2016) y de la Ley 12/2013 (30 días frescos y perecederos, 60 el resto, desde la entrega), con su URL ELI del BOE.
+  - Hay un anteproyecto que propone bajar el plazo general a 30 días, así que `verificarAntesDe` es 2027-03-31.
+- **Simplificaciones declaradas en las lecciones:**
+  - NOF = clientes + existencias − proveedores, sin caja operativa ni otras partidas espontáneas;
+  - días de pago sobre el coste de ventas, en lugar de sobre las compras;
+  - fondo de maniobra con la deuda con bancos a largo plazo, porque `companies.json` no la separa.
+- **Juego:** el factoring se paga por factura; su coste anual se modela como comisión × 365 / días de cobro, más caro que la póliza pero sin su límite. Peor caso: semilla 120.
+- **Herramientas:** el solver de e2e resuelve ahora `match_pairs`.

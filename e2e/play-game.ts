@@ -2,6 +2,7 @@ import { expect, type Page } from '@playwright/test';
 import type { Exercise } from '../src/content/schemas';
 import { readFileSync } from 'node:fs';
 import { setupBalance, SIDE_OF, type ItemId } from '../src/engine/games/balance-builder';
+import { bestPlan, setupCash } from '../src/engine/games/cash-cycle';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -14,6 +15,7 @@ import type { Ex } from './solver';
 
 const es = JSON.parse(readFileSync('src/i18n/es.json', 'utf8')) as {
   balanceGame: { side: Record<string, string>; item: Record<string, string> };
+  cashGame: { opt: Record<string, Record<string, string>> };
 };
 
 export type GameLesson = Lesson & { game: { kind: LessonGameKind; seed: number } };
@@ -33,6 +35,24 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'cash-cycle') {
+    // referencia 0: el mejor plan
+    await expect(page.getByRole('heading', { name: 'Ciclo de caja' })).toBeVisible();
+    const setup = setupCash(seed);
+    const best = bestPlan(setup);
+    const opt = es.cashGame.opt;
+    for (const k of ['dso', 'dio', 'dpo'] as const) {
+      await page.getByRole('radio', { name: opt[k]![String(best[k])]!, exact: true }).click();
+      await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
+    }
+    if (best.shortfall > 0) {
+      const label = opt
+        .funding![best.funding]!.replace('{{rate}}', String(setup.rate))
+        .replace('{{fee}}', formatNumber(setup.fee, 2));
+      await page.getByRole('radio', { name: label, exact: true }).click();
+      await page.getByRole('button', { name: 'Cerrar el plan y ver el año' }).click();
+    }
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'balance-builder') {
     // referencia 0: colocar bien las ocho partidas y elegir el apunte correcto de las cinco operaciones
     await expect(page.getByRole('heading', { name: 'Cuadra el balance' })).toBeVisible();

@@ -1,0 +1,179 @@
+{
+  "id": "n3-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 2,
+  "title": "Días de cobro, de existencias y de pago",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular los días de cobro, de existencias y de pago desde las cuentas",
+    "Calcular el ciclo de caja y cuánta caja libera acortarlo"
+  ],
+  "concepts": ["ciclo-caja"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Días de cobro, existencias y pago",
+      "text": "Días de cobro: clientes ÷ ventas × 365. Días de existencias: existencias ÷ coste de ventas × 365. Días de pago: proveedores ÷ compras × 365; aquí, para simplificar, sobre el coste de ventas. Miden cuántos días de ventas o de compras hay en cada partida."
+    },
+    {
+      "type": "visual",
+      "component": "CashCycle",
+      "props": {
+        "dso": 60,
+        "dio": 70,
+        "dpo": 50
+      }
+    },
+    {
+      "type": "card",
+      "term": "Ciclo de caja",
+      "text": "Días de existencias + días de cobro − días de pago: los días entre que pagas a tus proveedores y cobras a tus clientes. Naranjas en 2025: 70 + 60 − 50 = 80 días. Cuanto más corto, menos dinero atrapado en el negocio."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u2-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Naranjas vendió 58.882 en 2025 y terminó el año con 9.679 en clientes. ¿Cuántos días de cobro tiene? (1 decimal)",
+      "answer": 60.0,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "9679 / 58882 * 365",
+      "explanation": "9.679 / 58.882 × 365 = 60,0 días: cobra a dos meses.",
+      "hint": "Clientes ÷ ventas × 365."
+    },
+    {
+      "id": "n3-u2-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Su coste de ventas fue 36.507 y terminó con 7.001 en existencias. ¿Cuántos días de existencias tiene? (1 decimal)",
+      "answer": 70.0,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "7001 / 36507 * 365",
+      "explanation": "7.001 / 36.507 × 365 = 70,0 días.",
+      "hint": "Existencias ÷ coste de ventas × 365."
+    },
+    {
+      "id": "n3-u2-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Debía 5.001 a sus proveedores. Tomando el coste de ventas (36.507) como compras, ¿cuántos días de pago tiene? (1 decimal)",
+      "answer": 50.0,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "5001 / 36507 * 365",
+      "explanation": "5.001 / 36.507 × 365 = 50,0 días.",
+      "hint": "Proveedores ÷ compras × 365."
+    },
+    {
+      "id": "n3-u2-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Con 60 días de cobro, 70 de existencias y 50 de pago, ¿cuántos días dura el ciclo de caja de Naranjas?",
+      "answer": 80,
+      "unit": "días",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "60 + 70 - 50",
+      "explanation": "70 + 60 − 50 = 80 días entre que paga a los proveedores y cobra a la cadena."
+    },
+    {
+      "id": "n3-u2-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Si Naranjas cobrara a 45 días en lugar de a 60, con las mismas ventas de 58.882, ¿cuánta caja liberaría? (miles de €, sin decimales)",
+      "answer": 2420,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "58882 * (60 - 45) / 365",
+      "explanation": "Cada día de cobro son 58.882 / 365 = 161 mil €. Quince días menos liberan 58.882 × 15 / 365 = 2.420.",
+      "hint": "Ventas de un día × días que acortas."
+    },
+    {
+      "id": "n3-u2-l3-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Ordena el recorrido del dinero en el ciclo de Naranjas de 2025.",
+      "steps": [
+        "Llegan la fruta y los envases (día 0)",
+        "Paga a los proveedores (día 50)",
+        "Vende el zumo a la cadena (día 70)",
+        "Cobra de la cadena (día 130)"
+      ],
+      "explanation": "Paga el día 50 y cobra el día 70 + 60 = 130: 80 días de ciclo de caja."
+    },
+    {
+      "id": "n3-u2-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "¿Qué cambio acorta el ciclo de caja?",
+      "options": [
+        "Pagar a los proveedores más tarde, dentro del plazo legal",
+        "Tener más existencias",
+        "Dar más plazo a los clientes",
+        "Pagar antes a los proveedores para tener descuento"
+      ],
+      "answer": 0,
+      "explanation": "Más días de pago restan del ciclo: los proveedores financian más tiempo.",
+      "wrongExplanations": {
+        "1": "Más existencias alargan el ciclo.",
+        "2": "Más plazo de cobro alarga el ciclo.",
+        "3": "Pagar antes resta menos días: el ciclo se alarga, aunque el descuento pueda compensarlo."
+      }
+    },
+    {
+      "id": "n3-u2-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "statement": "Un ciclo de caja negativo significa que la empresa cobra antes de pagar: sus proveedores le financian el negocio.",
+      "answer": true,
+      "explanation": "Verdadero. Le pasa, por ejemplo, a un supermercado que cobra al contado, rota rápido su almacén y paga a sus proveedores a dos meses."
+    }
+  ],
+  "realWorld": "En las cuentas de cualquier empresa puedes calcular sus días de cobro, de existencias y de pago con el balance y la cuenta de resultados. Los supermercados suelen tener ciclos de caja muy cortos o negativos; los fabricantes, largos.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelo de balance: activo y pasivo corriente)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

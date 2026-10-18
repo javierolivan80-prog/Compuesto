@@ -67,6 +67,11 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       .max(5),
     buySize: z.number().int().positive(),
   }),
+  CashCycle: z.object({
+    dso: z.number().int().min(0).max(365),
+    dio: z.number().int().min(0).max(365),
+    dpo: z.number().int().min(0).max(365),
+  }),
   ThreeStatements: z.object({
     sale: z.number().positive(),
     cost: z.number().positive(),

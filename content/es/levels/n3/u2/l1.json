@@ -1,0 +1,307 @@
+{
+  "id": "n3-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: ciclo de caja",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ciclo de caja y las necesidades operativas de fondos (NOF) de un plan de circulante",
+    "Entender que una empresa con beneficios puede quedarse sin caja y cómo se financia el hueco"
+  ],
+  "concepts": ["ciclo-caja", "factoring-confirming"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "cash-cycle",
+    "seed": 2
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ciclo de caja",
+      "text": "Con tu plan, Naranjas paga a sus proveedores a {dpo} días, tiene el zumo {dio} días en el almacén y cobra a {dso} días. Del pago al cobro pasan {ccc} días: es el ciclo de caja, días de existencias + días de cobro − días de pago. Esos días los financia la empresa."
+    },
+    {
+      "type": "card",
+      "term": "Necesidades operativas de fondos",
+      "text": "Las NOF son el dinero atrapado en el día a día: clientes ({clients}) + existencias ({stock}) − proveedores ({payables}) = {nof} mil €. Los proveedores restan porque te financian mientras no les pagas. Tenías {available} de caja: lo que faltaba, {shortfall}, había que pedirlo."
+    },
+    {
+      "type": "card",
+      "term": "Póliza o factoring",
+      "text": "La póliza de crédito es barata ({rate} % anual) pero tiene un límite ({limit}): si el hueco lo supera, te quedas sin caja aunque ganes dinero. El factoring adelanta las facturas de clientes por una comisión de cada factura ({fee} %): no tiene ese límite, pero sale más caro."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u2-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Cobras a {dso} días, tienes {dio} días de existencias y pagas a {dpo} días. ¿Cuántos días dura el ciclo de caja?",
+      "answer": 75,
+      "unit": "días",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "{dso} + {dio} - {dpo}",
+      "params": {
+        "dso": {
+          "value": 30,
+          "min": 30,
+          "max": 60,
+          "step": 15
+        },
+        "dio": {
+          "value": 75,
+          "min": 45,
+          "max": 75,
+          "step": 15
+        },
+        "dpo": {
+          "value": 30,
+          "min": 30,
+          "max": 60,
+          "step": 15
+        }
+      },
+      "derived": {
+        "ccc": {
+          "formula": "{dso} + {dio} - {dpo}",
+          "decimals": 0
+        }
+      },
+      "explanation": "Ciclo de caja = días de existencias + días de cobro − días de pago = {dio} + {dso} − {dpo} = {ccc} días.",
+      "hint": "Suma los días que el dinero está fuera (almacén y cobro) y resta los que te financian los proveedores."
+    },
+    {
+      "id": "n3-u2-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Tu plan deja {clients} en clientes, {stock} en existencias y {payables} en proveedores. ¿Cuáles son las NOF? (miles de €)",
+      "answer": 9555,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "{clients} + {stock} - {payables}",
+      "params": {
+        "clients": {
+          "value": 5023,
+          "min": 4000,
+          "max": 11000,
+          "step": 1
+        },
+        "stock": {
+          "value": 7553,
+          "min": 4000,
+          "max": 8500,
+          "step": 1
+        },
+        "payables": {
+          "value": 3021,
+          "min": 2500,
+          "max": 7000,
+          "step": 1
+        }
+      },
+      "derived": {
+        "nof": {
+          "formula": "{clients} + {stock} - {payables}",
+          "decimals": 0
+        }
+      },
+      "explanation": "NOF = clientes + existencias − proveedores = {clients} + {stock} − {payables} = {nof}.",
+      "hint": "Lo que te deben y lo que tienes en el almacén, menos lo que debes a los proveedores."
+    },
+    {
+      "id": "n3-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Con tu plan, Naranjas vende {sales} al año y cobra a {dso} días. ¿Cuánto le deben de media sus clientes? (miles de €, sin decimales)",
+      "answer": 5023,
+      "unit": "mil €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{sales} * {dso} / 365",
+      "params": {
+        "sales": {
+          "value": 61110,
+          "min": 58000,
+          "max": 64000,
+          "step": 1
+        },
+        "dso": {
+          "value": 30,
+          "min": 30,
+          "max": 60,
+          "step": 15
+        }
+      },
+      "derived": {
+        "cli": {
+          "formula": "{sales} * {dso} / 365",
+          "decimals": 0
+        }
+      },
+      "explanation": "Clientes = ventas × días de cobro / 365 = {sales} × {dso} / 365 = {cli}: las ventas de {dso} días que aún no has cobrado.",
+      "hint": "Las ventas de un día son ventas / 365; ¿cuántos días de ventas estás esperando a cobrar?"
+    },
+    {
+      "id": "n3-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Tus NOF eran {nof} y Naranjas tenía {available} de caja para el circulante. ¿Cuánto tenía que financiar fuera? (miles de €; 0 si la caja bastaba)",
+      "answer": 2555,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "MAX(0, {nof} - {available})",
+      "params": {
+        "nof": {
+          "value": 9555,
+          "min": 5000,
+          "max": 12000,
+          "step": 1
+        },
+        "available": {
+          "value": 7000,
+          "min": 5000,
+          "max": 11000,
+          "step": 1000
+        }
+      },
+      "derived": {
+        "gap": {
+          "formula": "MAX(0, {nof} - {available})",
+          "decimals": 0
+        }
+      },
+      "explanation": "Hueco = NOF − caja disponible = {nof} − {available} → {gap} (si sale negativo, la caja basta y no hay que pedir nada).",
+      "hint": "Compara lo que necesitas con lo que tienes."
+    },
+    {
+      "id": "n3-u2-l1-e5",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "character": "jefe",
+      "situation": "La cadena de supermercados ofrece comprar un 5 % más de zumo si Naranjas le da 90 días para pagar.",
+      "prompt": "¿Qué le respondes al jefe?",
+      "options": [
+        "Que no se puede: la Ley 3/2004 limita a 60 días el plazo de pago entre empresas y un pacto por encima es nulo",
+        "Que sí, si lo firman por escrito",
+        "Que sí, porque la ley solo limita lo que paga Naranjas, no lo que cobra",
+        "Que sí, siempre que la cadena pague intereses por los 30 días de más"
+      ],
+      "answer": 0,
+      "explanation": "El plazo de 60 días es imperativo: no se puede ampliar por contrato. En alimentación, la Ley 12/2013 fija además 30 días para frescos y perecederos.",
+      "wrongExplanations": {
+        "1": "Firmarlo no lo hace válido: la cláusula sería nula.",
+        "2": "El límite vale para cualquier pago entre empresas, también el que la cadena hace a Naranjas.",
+        "3": "Cobrar intereses no permite saltarse el plazo máximo."
+      }
+    },
+    {
+      "id": "n3-u2-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "statement": "Una empresa con beneficios puede quedarse sin caja si su ciclo de caja es largo y no tiene con qué financiar sus NOF.",
+      "answer": true,
+      "explanation": "Verdadero. El beneficio llega a la caja con retraso: si el dinero atrapado en clientes y existencias supera lo que tiene y lo que le prestan, no puede pagar aunque gane dinero."
+    },
+    {
+      "id": "n3-u2-l1-e7",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "El proveedor ofrece un 2 % de descuento si le pagas a 30 días en lugar de a 60. ¿Cuánto es eso en tipo anual, aproximadamente?",
+      "options": ["Algo más del 24 % anual", "Un 2 % anual", "Un 6 % anual", "Un 0,5 % anual"],
+      "answer": 0,
+      "explanation": "Ganas un 2 % por adelantar el pago 30 días; en un año hay unos 12 periodos de 30 días: 2 % × 365 / 30 ≈ 24 %. Mientras te financies por debajo de ese tipo, conviene pagar pronto.",
+      "wrongExplanations": {
+        "1": "El 2 % se gana en solo 30 días, no en un año.",
+        "2": "Un 6 % es anualizar mal: el 2 % se gana cada 30 días, unas 12 veces al año.",
+        "3": "Es mucho más: hay que anualizar el 2 % de 30 días."
+      }
+    },
+    {
+      "id": "n3-u2-l1-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "¿Suben o bajan las NOF?",
+      "categories": ["Suben las NOF", "Bajan las NOF"],
+      "items": [
+        {
+          "text": "Cobrar antes a los clientes",
+          "category": "Bajan las NOF"
+        },
+        {
+          "text": "Tener más días de existencias",
+          "category": "Suben las NOF"
+        },
+        {
+          "text": "Pagar antes a los proveedores",
+          "category": "Suben las NOF"
+        },
+        {
+          "text": "Vender más con los mismos plazos",
+          "category": "Suben las NOF"
+        },
+        {
+          "text": "Pagar más tarde, dentro de los 60 días legales",
+          "category": "Bajan las NOF"
+        },
+        {
+          "text": "Reducir el almacén",
+          "category": "Bajan las NOF"
+        }
+      ],
+      "explanation": "Lo que alarga el tiempo que el dinero está fuera (cobrar tarde, más almacén, pagar pronto) o el tamaño del negocio sube las NOF; lo contrario las baja."
+    }
+  ],
+  "realWorld": "En las cuentas anuales de una empresa, mira clientes, existencias y proveedores de dos años: si crecen más que las ventas, su ciclo de caja se alarga y necesita más financiación.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelo de balance: activo y pasivo corriente)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 3/2004, de medidas de lucha contra la morosidad en las operaciones comerciales (art. 4: plazo máximo de pago de 60 días entre empresas, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2004/12/29/3/con",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-18"
+}

@@ -14,5 +14,6 @@ export const EXPLAINER_NAMES = [
   'StockSplit',
   'ShareDilution',
   'ThreeStatements',
+  'CashCycle',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

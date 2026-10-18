@@ -92,6 +92,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/horquilla 0,02/);
     expect(text).toMatch(/precio medio 10,03/);
   });
+  it('CashCycle: del pago al cobro pasan días de existencias + cobro − pago', () => {
+    render(<ExplainerBlock component="CashCycle" props={{ dso: 60, dio: 70, dpo: 50 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/80 días/);
+    expect(text).toMatch(/día 130/);
+  });
   it('ThreeStatements: el beneficio se apunta al vender y la caja entra al cobrar', () => {
     render(<ExplainerBlock component="ThreeStatements" props={{ sale: 3000, cost: 1860 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

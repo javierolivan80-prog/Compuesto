@@ -1,0 +1,229 @@
+{
+  "id": "n3-u2-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 2,
+  "title": "Jefe final: el circulante de Naranjas",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular las NOF, el fondo de maniobra, los días y el ciclo de caja de Naranjas de 2023",
+    "Decidir cómo financiar el circulante dentro de la ley"
+  ],
+  "concepts": ["ciclo-caja", "factoring-confirming"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u2-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "A 31/12/2023 Naranjas tenía 8.299 en clientes, 6.003 en existencias y 4.288 en proveedores. ¿NOF? (miles de €)",
+      "answer": 10014,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "8299 + 6003 - 4288",
+      "explanation": "8.299 + 6.003 − 4.288 = 10.014."
+    },
+    {
+      "id": "n3-u2-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Con 9.863 de caja y toda la deuda con bancos a largo plazo, ¿cuál era su fondo de maniobra? (miles de €)",
+      "answer": 19877,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "9863 + 8299 + 6003 - 4288",
+      "explanation": "Activo corriente 24.165 − pasivo corriente 4.288 = 19.877. Menos las NOF (10.014) da 9.863: su caja."
+    },
+    {
+      "id": "n3-u2-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "En 2023 vendió 50.486. ¿Cuántos días de cobro tenía? (1 decimal)",
+      "answer": 60.0,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "8299 / 50486 * 365",
+      "explanation": "8.299 / 50.486 × 365 = 60,0 días."
+    },
+    {
+      "id": "n3-u2-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Su coste de ventas fue 31.301. ¿Cuántos días de existencias tenía? (1 decimal)",
+      "answer": 70.0,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "6003 / 31301 * 365",
+      "explanation": "6.003 / 31.301 × 365 = 70,0 días."
+    },
+    {
+      "id": "n3-u2-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Con 60 días de cobro, 70 de existencias y unos días de pago de 4.288 / 31.301 × 365, ¿cuántos días dura su ciclo de caja? (sin decimales)",
+      "answer": 80,
+      "unit": "días",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "60 + 70 - 4288 / 31301 * 365",
+      "explanation": "Días de pago: 4.288 / 31.301 × 365 = 50,0. Ciclo de caja: 70 + 60 − 50 = 80 días.",
+      "hint": "Calcula primero los días de pago."
+    },
+    {
+      "id": "n3-u2-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Si en 2023 hubiera tenido 60 días de existencias en lugar de 70, con el mismo coste de ventas (31.301), ¿cuánta caja habría liberado? (miles de €, sin decimales)",
+      "answer": 858,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "31301 * 10 / 365",
+      "explanation": "31.301 × 10 / 365 = 858: diez días menos de almacén."
+    },
+    {
+      "id": "n3-u2-l5-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-caja", "factoring-confirming"],
+      "prompt": "¿Qué hace cada medida con la caja que necesita Naranjas?",
+      "categories": ["Reduce las NOF", "Financia las NOF sin reducirlas"],
+      "items": [
+        {
+          "text": "Cobrar a 45 días en lugar de 60",
+          "category": "Reduce las NOF"
+        },
+        {
+          "text": "Ajustar el almacén a 60 días",
+          "category": "Reduce las NOF"
+        },
+        {
+          "text": "Ampliar la póliza de crédito",
+          "category": "Financia las NOF sin reducirlas"
+        },
+        {
+          "text": "Una ampliación de capital",
+          "category": "Financia las NOF sin reducirlas"
+        },
+        {
+          "text": "Pagar a los proveedores a 60 días en lugar de 50",
+          "category": "Reduce las NOF"
+        }
+      ],
+      "explanation": "Cambiar los plazos o el almacén cambia cuánto dinero está atrapado; la póliza o la ampliación solo traen dinero para financiarlo. El factoring es un caso intermedio: convierte clientes en caja a cambio de un coste."
+    },
+    {
+      "id": "n3-u2-l5-e8",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "character": "mentora",
+      "situation": "Naranjas necesita 4.500 más para la campaña. Tiene una póliza de hasta 2.000 al 8 % y factoring a un 1,5 % por factura con facturas a 45 días (un 12,2 % anual).",
+      "prompt": "¿Qué haces?",
+      "options": [
+        "Usar los 2.000 de la póliza y 2.500 de factoring",
+        "Pedir los 4.500 a la póliza, aunque supere el límite",
+        "Todo con factoring, que no tiene límite",
+        "Retrasar el pago de la fruta fresca a 60 días"
+      ],
+      "answer": 0,
+      "explanation": "Primero lo barato (la póliza al 8 %, hasta su límite) y lo caro (factoring al 12,2 %) solo para el resto.",
+      "wrongExplanations": {
+        "1": "La póliza no da más que su límite: faltarían 2.500.",
+        "2": "Se puede, pero cuesta más que usar primero la póliza.",
+        "3": "La fruta fresca se paga como máximo a 30 días (Ley 12/2013)."
+      }
+    },
+    {
+      "id": "n3-u2-l5-e9",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["factoring-confirming"],
+      "prompt": "Naranjas compra naranjas frescas a los agricultores. ¿A cuántos días como máximo puede pagarles?",
+      "options": [
+        "30 días desde la entrega",
+        "60 días desde la factura",
+        "90 días si se pacta",
+        "Sin límite"
+      ],
+      "answer": 0,
+      "explanation": "Para productos frescos y perecederos, la Ley 12/2013 de la cadena alimentaria fija 30 días desde la entrega.",
+      "wrongExplanations": {
+        "1": "60 días es el máximo para el resto de alimentos y entre empresas en general; para frescos son 30, y desde la entrega.",
+        "2": "No se puede pactar por encima del máximo legal.",
+        "3": "Hay límite legal."
+      }
+    },
+    {
+      "id": "n3-u2-l5-e10",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-caja"],
+      "character": "rival",
+      "prompt": "Hugo defiende pagar a los proveedores a 30 días para aprovechar el descuento. ¿Dónde se equivoca?",
+      "lines": [
+        "Pagar a 30 días en lugar de 60 da un 2 % de descuento.",
+        "El coste de ventas baja, así que el margen sube.",
+        "Además, pagar antes baja las NOF, porque debemos menos a los proveedores.",
+        "Habrá que comprobar si hay caja o póliza para pagar antes."
+      ],
+      "errorIndex": 2,
+      "explanation": "Deber menos a los proveedores sube las NOF: los proveedores restan. Pagar antes suele compensar por el descuento (un 24 % anual), pero hay que financiar ese circulante extra."
+    }
+  ],
+  "realWorld": "Con estas cuentas puedes preparar el plan de circulante de cualquier empresa: cuántos días cobra, almacena y paga, cuánto dinero atrapa eso y con qué lo financia.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelo de balance: activo y pasivo corriente)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 3/2004, de medidas de lucha contra la morosidad en las operaciones comerciales (art. 4: plazo máximo de pago de 60 días entre empresas, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2004/12/29/3/con",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 12/2013, de medidas para mejorar el funcionamiento de la cadena alimentaria (plazos de pago de 30 días en productos frescos y perecederos y 60 en el resto, texto consolidado)",
+      "url": "https://www.boe.es/eli/es/l/2013/08/02/12/con",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-18"
+}

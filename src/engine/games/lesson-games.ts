@@ -26,6 +26,7 @@ import {
   SIDE_OF,
   startBalance,
 } from './balance-builder';
+import { bestPlan, cashValues, planResult, setupCash } from './cash-cycle';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -57,6 +58,7 @@ export const LESSON_GAMES = [
   'ipo-book',
   'takeover-rumor',
   'balance-builder',
+  'cash-cycle',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -171,6 +173,27 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     classify_hits: [0, 0],
     post_hits: [0, 0],
   },
+  'cash-cycle': {
+    sales: [0, 0],
+    cost: [0, 0],
+    dso: [0, 0],
+    dio: [0, 0],
+    dpo: [0, 0],
+    ccc: [0, 0],
+    clients: [0, 0],
+    stock: [0, 0],
+    payables: [0, 0],
+    nof: [0, 0],
+    available: [0, 0],
+    limit: [0, 0],
+    rate: [0, 0],
+    fee: [2, 2],
+    shortfall: [0, 0],
+    funding_cost: [0, 0],
+    margin: [0, 0],
+    best_margin: [0, 0],
+    factoring: [0, 0],
+  },
 };
 
 /**
@@ -262,6 +285,17 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       for (const id of setup.order) s = classify(s, SIDE_OF[id]);
       for (const op of setup.ops) s = post(s, op.right);
       return [balanceValues(balanceResult(s))];
+    }
+    case 'cash-cycle': {
+      // el mejor plan, el plan «de siempre» (60/60/60) con póliza y con factoring, y uno de cobrar y pagar pronto
+      const setup = setupCash(seed);
+      const base = { dso: 60, dio: 60, dpo: 60 } as const;
+      return [
+        bestPlan(setup),
+        planResult(setup, { ...base, funding: 'poliza' }),
+        planResult(setup, { ...base, funding: 'factoring' }),
+        planResult(setup, { dso: 30, dio: 45, dpo: 30, funding: 'poliza' }),
+      ].map((r) => cashValues(setup, r));
     }
   }
 }

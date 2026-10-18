@@ -368,3 +368,48 @@ test('cuadra el balance: captura y axe a 375 px en cada fase y lección completa
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('ciclo de caja: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n3-u2-l1');
+  await expect(page.getByRole('heading', { name: 'Ciclo de caja' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('cobro');
+  await page.screenshot({ path: 'docs/capturas/leccion-juego/caja-plan-375.png', fullPage: true });
+  // el plan de siempre con póliza: sin caja
+  for (const re of [/^60 días: lo que pide/, /^60 días: lo habitual/, /^60 días: sin descuento/]) {
+    await page.getByRole('radio', { name: re }).click();
+    await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
+  }
+  await scan('financiación');
+  await page.getByRole('radio', { name: /^Póliza de crédito/ }).click();
+  await page.getByRole('button', { name: 'Cerrar el plan y ver el año' }).click();
+  await scan('sin caja');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/caja-sin-caja-375.png',
+    fullPage: true,
+  });
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n3-u2-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n3/u2/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});
