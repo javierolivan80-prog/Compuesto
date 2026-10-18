@@ -1,8 +1,8 @@
 {
   "id": "n3-u1-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "title": "Cómo se conectan los tres estados",
@@ -46,7 +46,7 @@
       "prompt": "El patrimonio neto de Naranjas era 33.934 a finales de 2024. En 2025 ganó 7.233, repartió 3.255 en dividendos y no amplió capital. ¿Cuál es su patrimonio neto a finales de 2025? (miles de €)",
       "answer": 37912,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "33934 + 7233 - 3255",
       "explanation": "33.934 + 7.233 − 3.255 = 37.912: el mismo patrimonio neto que muestra el balance de 2025. Así se comprueba que la cuenta de resultados y el balance casan.",
@@ -62,7 +62,7 @@
       "prompt": "Naranjas tenía 11.989 en caja a finales de 2024 y su estado de flujos de 2025 suma +3.396. ¿Cuánta caja debe mostrar el balance de 2025? (miles de €)",
       "answer": 15385,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "11989 + 3396",
       "explanation": "11.989 + 3.396 = 15.385, justo la caja del balance de 2025: el estado de flujos explica el cambio de caja entre dos balances.",
@@ -125,7 +125,7 @@
         "Naranjas ganó 7.233 en 2025.",
         "Pagó 3.255 de dividendos.",
         "Por tanto, su caja tuvo que subir 7.233 − 3.255 = 3.978.",
-        "La caja subió 3.396, así que alguien ha calculado mal."
+        "La caja subió 3.396."
       ],
       "errorIndex": 2,
       "explanation": "Beneficio no es caja: hay que sumar la amortización (1.682), restar lo que absorbió el circulante (764), la inversión (3.500) y sumar la deuda nueva (2.000). 7.233 + 1.682 − 764 − 3.500 + 2.000 − 3.255 = 3.396: las cuentas cuadran."

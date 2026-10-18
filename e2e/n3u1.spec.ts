@@ -25,7 +25,9 @@ test('se completa la Unidad 1 del Nivel 3 entera y queda completada en el Camino
     await page.reload();
     if (l.game) await playGameLesson(page, l as GameLesson);
     else {
-      await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
+      // el Jefe final no tiene teoría: empieza directamente por los ejercicios
+      if ((l as { intro?: unknown[] }).intro?.length)
+        await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
       await playLesson(page, l);
     }
     await page.getByRole('button', { name: 'Continuar' }).click();

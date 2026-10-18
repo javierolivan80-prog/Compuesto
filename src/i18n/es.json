@@ -651,7 +651,7 @@
     "title": "Cuadra el balance",
     "stepClassify": "Paso {{n}} de {{total}} · 31 de diciembre de 2024: coloca cada partida",
     "stepOps": "Operación {{n}} de {{total}} · enero de 2025",
-    "brief": "La mentora te pasa el balance de Naranjas del Turia a 31 de diciembre de 2024, desordenado. Coloca cada partida en su sitio: lo que la empresa tiene (activo), lo que debe a terceros (pasivo) o lo que es de sus accionistas (patrimonio neto). Al final, el activo tiene que ser igual al pasivo más el patrimonio neto.",
+    "brief": "La mentora te pasa el balance de Naranjas del Turia a 31 de diciembre de 2024, desordenado. Coloca cada partida en su sitio: lo que la empresa tiene (activo), lo que debe a terceros (pasivo) o lo que es de sus accionistas (patrimonio neto). Al final, el activo tiene que ser igual al pasivo más el patrimonio neto. Para simplificar, el beneficio de 2024 ya está sumado a las reservas.",
     "units": "Cifras en miles de euros.",
     "sheet": "Balance de Naranjas del Turia",
     "activo": "Activo",
@@ -684,7 +684,7 @@
       "proveedores": "Proveedores va en el pasivo: es lo que Naranjas debe a quien le vende envases y fruta.",
       "deuda": "Deudas con bancos va en el pasivo: son préstamos que hay que devolver.",
       "capital": "Capital va en el patrimonio neto: es lo que aportaron los accionistas.",
-      "reservas": "Reservas va en el patrimonio neto: son beneficios de años anteriores que no se repartieron."
+      "reservas": "Reservas va en el patrimonio neto: son beneficios que no se repartieron (aquí incluye ya el de 2024)."
     },
     "classified": "El balance cuadra: activo = patrimonio neto + pasivo = {{total}}. Ahora llegan las operaciones de enero: elige el apunte que recoge cada una.",
     "january": "Enero de 2025",
@@ -700,10 +700,10 @@
       "loan": "Entra dinero (activo) y nace una deuda con el banco (pasivo) por lo mismo. No es un ingreso: hay que devolverlo.",
       "machine": "Cambias un activo por otro: baja la caja y sube el inmovilizado. No es un gasto ese día: la máquina se irá gastando año a año con la amortización.",
       "sale": "Nace un derecho de cobro (clientes), sale el zumo del almacén y la diferencia, {{margin}}, es beneficio: sube el resultado del ejercicio, dentro del patrimonio neto. Todavía no ha entrado dinero en la caja.",
-      "suppliers": "Baja la caja y baja la deuda con proveedores por lo mismo. Pagar lo que debes no es un gasto: el gasto se apuntó cuando compraste.",
+      "suppliers": "Baja la caja y baja la deuda con proveedores por lo mismo. La compra ya se apuntó cuando llegó la mercancía; pagarla solo cancela la deuda.",
       "dividend": "Sale dinero hacia los accionistas y baja el patrimonio neto (reservas). Un dividendo no es un gasto: es repartir beneficio ya ganado."
     },
-    "unbalanced": "Ese apunte descuadra el balance: toda operación toca al menos dos partidas.",
+    "unbalanced": "Ese apunte descuadra el balance: lo que cambia el activo tiene que cambiar igual el patrimonio neto más el pasivo.",
     "wrongButBalanced": "Ese apunte cuadra, pero no recoge lo que ha pasado.",
     "rightEntry": "El apunte correcto: {{entry}}.",
     "next": "Siguiente operación",

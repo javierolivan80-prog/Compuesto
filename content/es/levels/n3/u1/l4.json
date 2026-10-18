@@ -1,8 +1,8 @@
 {
   "id": "n3-u1-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "title": "El estado de flujos de efectivo",
@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Estado de flujos de efectivo",
-      "text": "Cuenta de dónde vino y adónde fue el dinero del año, en tres bloques: explotación (cobros y pagos del negocio), inversión (comprar o vender inmovilizado) y financiación (deuda, ampliaciones de capital y dividendos). Su suma es lo que cambió la caja."
+      "text": "Cuenta de dónde vino y adónde fue el dinero del año, en tres bloques: explotación (cobros y pagos del negocio), inversión (comprar o vender inmovilizado) y financiación (deuda, ampliaciones de capital y, según el PGC, dividendos). Su suma es lo que cambió la caja."
     },
     {
       "type": "card",
@@ -142,10 +142,10 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["flujos-caja"],
-      "prompt": "Naranjas ganó 7.233 en 2025, con una amortización de 1.682. Entre clientes, existencias y proveedores, el circulante absorbió 764. ¿Cuál fue su flujo de explotación? (miles de €)",
+      "prompt": "Naranjas ganó 7.233 en 2025, con una amortización de 1.682. El capital circulante (aumento de clientes y existencias menos aumento de proveedores) absorbió 764. ¿Cuál fue su flujo de explotación? (miles de €)",
       "answer": 8151,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "7233 + 1682 - 764",
       "explanation": "7.233 + 1.682 − 764 = 8.151. La amortización se suma porque no fue salida de dinero; el circulante resta porque quedó dinero pendiente de cobro y en el almacén.",
@@ -161,7 +161,7 @@
       "prompt": "El flujo de explotación de Naranjas en 2025 fue +8.151, el de inversión −3.500 y el de financiación −1.255. ¿Cuánto varió su caja? (miles de €)",
       "answer": 3396,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "8151 - 3500 - 1255",
       "explanation": "8.151 − 3.500 − 1.255 = 3.396: la caja pasó de 11.989 a 15.385.",
@@ -231,9 +231,9 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["flujos-caja"],
-      "prompt": "Pagar dividendos a los accionistas es un flujo de ___.",
+      "prompt": "Según el PGC, pagar dividendos a los accionistas es un flujo de ___.",
       "answers": [["financiación", "financiacion"]],
-      "explanation": "Los dividendos, la deuda y las ampliaciones de capital son flujos de financiación."
+      "explanation": "En el PGC los dividendos, la deuda y las ampliaciones de capital son flujos de financiación. La NIC 7 permite presentar los dividendos pagados también en explotación."
     }
   ],
   "realWorld": "En las cuentas anuales del PGC el estado se llama «Estado de flujos de efectivo» y tiene los tres bloques: explotación, inversión y financiación. No es obligatorio para las empresas que pueden hacer balance, estado de cambios en el patrimonio neto y memoria abreviados, pero las cotizadas siempre lo publican.",

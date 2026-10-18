@@ -1,8 +1,8 @@
 {
   "id": "n3-u1-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "title": "El balance: lo que tienes y cómo lo pagaste",
@@ -28,7 +28,7 @@
     },
     {
       "type": "example",
-      "text": "Naranjas del Turia a 31/12/2025, en miles de €: activo 54.913 (inmovilizado 22.848, existencias 7.001, clientes 9.679, caja 15.385); patrimonio neto 37.912 (capital 6.000 y reservas 31.912) y pasivo 17.001 (deudas con bancos 12.000 y proveedores 5.001)."
+      "text": "Naranjas a 31/12/2025 (miles de €): activo 54.913 (inmovilizado 22.848, existencias 7.001, clientes 9.679, caja 15.385); patrimonio neto 37.912 (capital 6.000, reservas 31.912) y pasivo 17.001 (bancos 12.000, proveedores 5.001). Aquí el beneficio del año va sumado a las reservas; el PGC lo muestra aparte como «Resultado del ejercicio»."
     }
   ],
   "exercises": [
@@ -80,7 +80,7 @@
               "value": 6000
             },
             {
-              "label": "Reservas",
+              "label": "Reservas (con el resultado del año)",
               "value": 31912,
               "blank": true
             }
@@ -102,7 +102,7 @@
         }
       ],
       "explanation": "Caja = 54.913 − 22.848 − 7.001 − 9.679 = 15.385. Reservas = 54.913 − 12.000 − 5.001 − 6.000 = 31.912. Los dos lados suman 54.913.",
-      "hint": "Empieza por el lado que tiene un solo hueco y usa el total del activo para los dos."
+      "hint": "Cada lado tiene un hueco: usa el total del activo en los dos."
     },
     {
       "id": "n3-u1-l2-e2",
@@ -164,13 +164,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["balance"],
-      "prompt": "Las reservas de Naranjas eran 27.934 a finales de 2024. En 2025 ganó 7.233 y repartió 3.255 en dividendos. ¿Cuánto suman sus reservas a finales de 2025? (miles de €)",
+      "prompt": "En estas cuentas el beneficio de cada año se suma a las reservas. Las reservas de Naranjas eran 27.934 a finales de 2024; en 2025 ganó 7.233 y repartió 3.255 en dividendos. ¿Cuánto suman sus reservas a finales de 2025? (miles de €)",
       "answer": 31912,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "27934 + 7233 - 3255",
-      "explanation": "27.934 + 7.233 − 3.255 = 31.912. Lo que se gana y no se reparte se queda en la empresa como reservas (aquí, por simplificar, el resultado de 2025 ya aparece dentro de las reservas).",
+      "explanation": "27.934 + 7.233 − 3.255 = 31.912. Lo que se gana y no se reparte se queda en la empresa. En el modelo del PGC verías 24.679 de reservas y 7.233 de resultado del ejercicio por separado, hasta que la junta lo aplique.",
       "hint": "Las reservas crecen con lo que se gana y no se reparte."
     },
     {
@@ -237,7 +237,7 @@
       "explanation": "Activo corriente: existencias, clientes y caja. Lo que dura más de un año es no corriente."
     }
   ],
-  "realWorld": "En las cuentas anuales del PGC el balance tiene este orden: activo no corriente y corriente; después patrimonio neto, pasivo no corriente y pasivo corriente. Búscalo en el informe financiero anual de una cotizada en la web de la CNMV.",
+  "realWorld": "En las cuentas anuales del PGC el balance tiene este orden: activo no corriente y corriente; después patrimonio neto, pasivo no corriente y pasivo corriente. Búscalo en el informe financiero anual de una cotizada en la web de la CNMV. Las cuentas consolidadas de los grupos cotizados siguen las NIIF-UE; las individuales de cada sociedad española, el PGC.",
   "sources": [
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",

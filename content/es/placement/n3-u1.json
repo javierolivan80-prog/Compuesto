@@ -2,8 +2,8 @@
   "id": "salto-n3-u1",
   "unitId": "n3-u1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n3-u1-q1",
@@ -12,10 +12,10 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["balance"],
-      "prompt": "Una empresa tiene un activo de 54.913 y un pasivo de 17.001. ¿Cuál es su patrimonio neto?",
-      "options": ["37.912", "71.914", "17.001", "54.913"],
+      "prompt": "A 31/12/2022 Naranjas tenía un activo de 40.007 y un pasivo de 13.084. ¿Cuál era su patrimonio neto?",
+      "options": ["26.923", "53.091", "13.084", "40.007"],
       "answer": 0,
-      "explanation": "Patrimonio neto = activo − pasivo = 54.913 − 17.001 = 37.912.",
+      "explanation": "Patrimonio neto = activo − pasivo = 40.007 − 13.084 = 26.923.",
       "wrongExplanations": {
         "1": "Has sumado en lugar de restar.",
         "2": "Eso es el pasivo.",
@@ -29,10 +29,10 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["pyg"],
-      "prompt": "Ingresos 58.882; coste de ventas 36.507; otros gastos de explotación 10.599; amortización 1.682. ¿Resultado de explotación?",
-      "options": ["10.094", "11.776", "22.375", "7.233"],
+      "prompt": "En 2021: ingresos 44.520; coste de ventas 27.602; otros gastos de explotación 8.014; amortización 1.440. ¿Resultado de explotación?",
+      "options": ["7.464", "8.904", "16.918", "5.294"],
       "answer": 0,
-      "explanation": "58.882 − 36.507 − 10.599 − 1.682 = 10.094.",
+      "explanation": "44.520 − 27.602 − 8.014 − 1.440 = 7.464.",
       "wrongExplanations": {
         "1": "Te has olvidado de restar la amortización.",
         "2": "Solo has restado el coste de ventas.",
@@ -42,18 +42,18 @@
     {
       "id": "salto-n3-u1-q3",
       "type": "multiple_choice",
-      "difficulty": 2,
+      "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["flujos-caja"],
-      "prompt": "Explotación +8.151, inversión −3.500 y financiación −1.255. ¿Cuánto varía la caja?",
-      "options": ["+3.396", "+12.906", "+4.651", "−3.396"],
+      "prompt": "En 2022 una empresa gana 5.782, con una amortización de 1.501. Clientes sube 586, existencias sube 423 y proveedores sube 303. ¿Flujo de explotación (método indirecto)?",
+      "options": ["6.577", "3.575", "8.595", "7.283"],
       "answer": 0,
-      "explanation": "8.151 − 3.500 − 1.255 = 3.396.",
+      "explanation": "5.782 + 1.501 − 586 − 423 + 303 = 6.577.",
       "wrongExplanations": {
-        "1": "Has sumado todo sin signo.",
-        "2": "Te falta restar la financiación.",
-        "3": "El signo: la caja sube."
+        "1": "La amortización se suma, no se resta: no es salida de dinero.",
+        "2": "Los aumentos de clientes y existencias restan: es dinero que no ha entrado.",
+        "3": "Te falta restar los aumentos de clientes y existencias y sumar el de proveedores."
       }
     },
     {
@@ -63,7 +63,7 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["conexion-estados"],
-      "prompt": "Reservas iniciales 17.743; resultado del ejercicio 5.782; dividendos 2.602. ¿Reservas finales?",
+      "prompt": "Con el beneficio de cada año sumado a las reservas: reservas iniciales 17.743; resultado del ejercicio 5.782; dividendos 2.602. ¿Reservas finales?",
       "options": ["20.923", "26.127", "23.525", "15.141"],
       "answer": 0,
       "explanation": "17.743 + 5.782 − 2.602 = 20.923.",
@@ -75,12 +75,34 @@
     },
     {
       "id": "salto-n3-u1-q5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["balance"],
+      "prompt": "Una empresa recibe un préstamo bancario de 2.000. ¿Qué apunte lo recoge?",
+      "options": [
+        "Caja +2.000 · Deudas con bancos +2.000",
+        "Caja +2.000 · Resultado del ejercicio +2.000",
+        "Caja +2.000",
+        "Deudas con bancos +2.000 · Capital −2.000"
+      ],
+      "answer": 0,
+      "explanation": "Entra dinero (activo) y nace una deuda (pasivo) por lo mismo.",
+      "wrongExplanations": {
+        "1": "Un préstamo no es un ingreso: hay que devolverlo.",
+        "2": "Solo cambia una partida: el balance descuadraría.",
+        "3": "La caja tiene que subir: el dinero entra en la cuenta."
+      }
+    },
+    {
+      "id": "salto-n3-u1-q6",
       "type": "multi_select",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["flujos-caja"],
-      "prompt": "¿Cuáles son flujos de financiación?",
+      "prompt": "Según el PGC, ¿cuáles son flujos de financiación?",
       "options": [
         "Préstamo recibido del banco",
         "Pago de dividendos",
@@ -96,7 +118,24 @@
       }
     },
     {
-      "id": "salto-n3-u1-q6",
+      "id": "salto-n3-u1-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["flujos-caja"],
+      "prompt": "En 2022 el flujo de explotación fue +6.577, el de inversión −2.200 y el de financiación −2.602. ¿Cuánto varió la caja?",
+      "options": ["+1.775", "+11.379", "+4.377", "−1.775"],
+      "answer": 0,
+      "explanation": "6.577 − 2.200 − 2.602 = 1.775: la caja pasó de 5.152 a 6.927.",
+      "wrongExplanations": {
+        "1": "Has sumado los tres sin signo.",
+        "2": "Te falta restar la financiación.",
+        "3": "El signo: la caja sube."
+      }
+    },
+    {
+      "id": "salto-n3-u1-q8",
       "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
@@ -115,39 +154,6 @@
         "1": "Se usa durante años: activo no corriente.",
         "2": "Es una deuda: pasivo no corriente.",
         "3": "Es patrimonio neto."
-      }
-    },
-    {
-      "id": "salto-n3-u1-q7",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["conexion-estados"],
-      "statement": "La amortización baja el beneficio y también saca dinero de la caja ese año.",
-      "answer": false,
-      "explanation": "Falso. Baja el beneficio, pero el dinero salió cuando se pagó la máquina."
-    },
-    {
-      "id": "salto-n3-u1-q8",
-      "type": "multiple_choice",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["pyg"],
-      "prompt": "¿Cuál es un gasto de la cuenta de pérdidas y ganancias?",
-      "options": [
-        "La amortización de las máquinas",
-        "La compra de una nave",
-        "La devolución de un préstamo",
-        "El pago de dividendos"
-      ],
-      "answer": 0,
-      "explanation": "La amortización reparte el coste de las máquinas entre los años que se usan.",
-      "wrongExplanations": {
-        "1": "Es inversión: cambia caja por inmovilizado.",
-        "2": "Baja deuda y caja; solo los intereses son gasto.",
-        "3": "Reparte beneficio: no es un gasto."
       }
     }
   ],

@@ -26,6 +26,7 @@ export type Ex = {
   modelAnswer?: string;
   rubric?: string[];
   sections?: { rows: { value: number; blank?: boolean }[] }[];
+  pairs?: { left: string; right: string }[];
 };
 
 export const promptOf = (e: Ex) =>
@@ -151,6 +152,17 @@ export async function solve(page: Page, e: Ex, wrong = false) {
     case 'spreadsheet':
       await page.locator(`input[aria-label="Celda ${e.target}"]`).fill(e.solution!);
       break;
+    case 'match_pairs': {
+      // toca un elemento de la izquierda y luego su pareja; para fallar, cruza las dos primeras
+      const pairs = e.pairs!;
+      const rights = pairs.map((p) => p.right);
+      if (wrong) [rights[0], rights[1]] = [rights[1]!, rights[0]!];
+      for (const [i, p] of pairs.entries()) {
+        await page.getByRole('list', { name: 'Elementos' }).getByText(p.left, exact).click();
+        await page.getByRole('list', { name: 'Parejas' }).getByText(rights[i]!, exact).click();
+      }
+      break;
+    }
     case 'build_statement': {
       // los huecos salen en el orden de las secciones y sus filas
       const blanks = e.sections!.flatMap((s) => s.rows).filter((r) => r.blank);

@@ -211,3 +211,19 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - fuentes con artículos (RD 1066/2007, Ley 6/2023 con identificador BOE-A-2023-7053, comprobado por búsqueda, y Código Penal arts. 285 y 285 bis).
 - **Ronda 2:** aprobada; aplicado un retoque de estilo en `spreadNote`. Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier y de la pregunta del test de salto sobre información privilegiada.
+
+## n3-u1 — Los tres estados financieros (planta 1) y lección-juego «Cuadra el balance» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Las cifras estaban todas bien; los hallazgos eran de criterio y de evaluación.
+  - Mayores aplicados:
+    - el resultado del ejercicio va sumado a reservas (convención de `companies.json`): ahora se declara en el juego, en las tarjetas, en los enunciados y en las filas, y la explicación de l2-e4 da la cifra PGC separada;
+    - nota PGC (gastos por naturaleza) frente a NIIF (por función: coste de ventas) y aclaración NIIF-UE / PGC en los realWorld;
+    - fuente del 25 % (Ley 27/2014, art. 29.1, BOE-A-2014-12328) con `verificarAntesDe`;
+    - el mensaje de apunte que descuadra era falso en dos casos;
+    - el test de salto cubre ahora el método indirecto y el apunte de una operación, con cifras de 2021 y 2022;
+    - el Jefe final separa activo corriente y no corriente, clasifica flujos y dura 5 minutos.
+  - Menores aplicados (13): tolerancias exactas en sumas enteras, conceptos de l1 reetiquetados, «según el PGC» en dividendos (la NIC 7 admite explotación), «registró un gasto por impuesto», capital circulante definido y otros.
+  - No aplicado: test de salto con ≥ 50 % de preguntas de producir y banco de 12. El esquema de todas las unidades solo admite 8 preguntas de reconocer; queda como pendiente global (ver `DECISIONES.md`).
+- **Ronda 2:** un distractor sin error asociado en salto q3 (4.283 → 3.575), la pregunta de variación de caja recuperada y dos retoques. Aplicados.
+- **Ronda 3:** aprobada. Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier, contrastando con sus apuntes de Contabilidad cuando lleguen.

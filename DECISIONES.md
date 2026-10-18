@@ -510,3 +510,30 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - Ya cubierto antes: almacenamiento lleno durante una lección-juego (la primera lección tras el onboarding es un juego) y lección sin conexión.
 - **Frágil, anotado:** las tarjetas y los ejercicios de cada lección-juego se escribieron con la semilla fija; si se cambia una semilla, hay que volver a revisar sus textos.
 - `/review-animations` no puede lanzarla el modelo: queda para que la ejecute Javier.
+
+## 2026-10-18 — Planta 1: unidad `n3-u1` «Los tres estados financieros» y juego «Cuadra el balance»
+
+- **Decisión:** la planta 1 empieza con una unidad de seis lecciones:
+  - el juego «Cuadra el balance» (`n3-u1-l1`, orden 0);
+  - el balance;
+  - la cuenta de pérdidas y ganancias;
+  - el estado de flujos de efectivo (método indirecto);
+  - cómo se conectan los tres estados (explicador nuevo `ThreeStatements`);
+  - el Jefe final con las cuentas de 2023.
+
+  Todas usan las cuentas de Naranjas de `companies.json`.
+- **Simplificación declarada:**
+  - `companies.json` suma el beneficio de cada año a las reservas. El modelo del PGC lo muestra aparte («Resultado del ejercicio») hasta que la junta lo aplica.
+  - Se mantiene la convención para no rehacer el universo, y se avisa en el juego, en las tarjetas, en los enunciados y en las filas («Reservas (con el resultado del año)»).
+  - Si más adelante hace falta el detalle PGC, se añade un campo `resultado` a `companies.json` con migración de los tests que cuadran las cuentas.
+- **PGC frente a NIIF:**
+  - La cuenta de resultados usa «coste de ventas» (presentación por función, que las NIIF permiten). El PGC clasifica los gastos por naturaleza. La lección 3 lo dice.
+  - El estado de flujos parte del resultado del ejercicio. El modelo del PGC parte del resultado antes de impuestos. La lección 4 lo dice.
+  - Los dividendos pagados van en financiación, como en el PGC; la NIC 7 permite presentarlos también en explotación.
+- **Juego:**
+  - Tres apuntes por operación: el correcto, uno que descuadra y uno que cuadra pero toca la partida equivocada (cuadrar no basta).
+  - El balance avanza siempre con el correcto, para que las cifras de la lección no dependan de la partida.
+  - Semilla 1; peor caso, semilla 203.
+- **Herramientas:** el solver de e2e resuelve ahora `build_statement`.
+- **Validación:** el test de detalle de conceptos admite descripción y unidad en niveles ≥ 2 cuando el concepto ya está en una unidad del curriculum.
+- 🛑 **Test de salto:** el esquema solo admite preguntas de reconocer (tipo test, verdadero/falso y multi_select) y exactamente 8 en todas las unidades. Por eso no puede cumplir el «≥ 50 % de producir» de TEMARIO §5. Se apunta como pendiente global, junto con el banco de 12.

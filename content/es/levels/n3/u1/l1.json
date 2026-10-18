@@ -1,8 +1,8 @@
 {
   "id": "n3-u1-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "order": 0,
@@ -13,7 +13,7 @@
     "Colocar cada partida del balance en el activo, el pasivo o el patrimonio neto",
     "Apuntar operaciones sencillas en el balance sabiendo que siempre toca al menos dos partidas y que sigue cuadrando"
   ],
-  "concepts": ["balance", "conexion-estados"],
+  "concepts": ["balance", "pyg"],
   "companies": ["naranjas-del-turia"],
   "historical": false,
   "game": {
@@ -24,11 +24,11 @@
     {
       "type": "card",
       "term": "Balance",
-      "text": "El balance es una foto a una fecha: lo que la empresa tiene (activo) frente a de dónde salió el dinero para tenerlo, de terceros (pasivo) o de sus accionistas (patrimonio neto). Por eso siempre cuadra: el de Naranjas sumaba {total_start} mil € a cada lado el 31 de diciembre de 2024."
+      "text": "El balance es una foto a una fecha: lo que la empresa tiene (activo) frente al origen del dinero con que lo pagó, terceros (pasivo) o accionistas (patrimonio neto). Por eso siempre cuadra: el de Naranjas sumaba {total_start} mil € a cada lado el 31/12/2024, con el beneficio de 2024 ya sumado a las reservas para simplificar."
     },
     {
       "type": "card",
-      "term": "Toda operación toca dos partidas",
+      "term": "Toda operación toca al menos dos partidas",
       "text": "El préstamo de {loan} subió la caja y la deuda; la máquina de {machine} cambió caja por inmovilizado. Si una partida cambia, otra cambia también, y el balance sigue cuadrando: tras enero, {total_end} mil € a cada lado. Ojo: cuadrar no basta, hay que acertar qué partidas cambian."
     },
     {
@@ -48,7 +48,7 @@
       "prompt": "Naranjas empezó enero con 11.989 mil € en caja. Recibió un préstamo de {loan}, pagó una máquina de {machine}, pagó {suppliers} a proveedores y {dividend} de dividendo. ¿Cuánta caja le queda? (miles de €)",
       "answer": 7539,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "11989 + {loan} - {machine} - {suppliers} - {dividend}",
       "params": {
@@ -92,11 +92,11 @@
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["conexion-estados"],
+      "concepts": ["pyg"],
       "prompt": "Naranjas vendió por {sale} un zumo que le había costado {cost}. ¿Cuánto beneficio le da la venta? (miles de €)",
       "answer": 1520,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "{sale} - {cost}",
       "params": {
@@ -128,11 +128,11 @@
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["balance", "conexion-estados"],
+      "concepts": ["balance"],
       "prompt": "El patrimonio neto de Naranjas era de {equity_start}. En enero ganó {margin} con la venta y pagó {dividend} de dividendo. ¿Cuál es su patrimonio neto ahora? (miles de €)",
       "answer": 32454,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "{equity_start} + {margin} - {dividend}",
       "params": {
@@ -245,7 +245,7 @@
       "difficulty": 3,
       "bloom": "analizar",
       "tags": [],
-      "concepts": ["conexion-estados"],
+      "concepts": ["balance"],
       "character": "rival",
       "situation": "Hugo Ferrer, el otro becario, mira tu balance de enero: «Naranjas ha ganado {margin} con la venta del zumo, así que tiene {margin} más en la caja».",
       "prompt": "¿Qué le contestas?",
@@ -260,7 +260,7 @@
       "wrongExplanations": {
         "1": "Beneficio y caja no van al mismo ritmo: una venta a crédito da beneficio sin dinero.",
         "2": "Eso sería si el cliente hubiera pagado al contado.",
-        "3": "El zumo ya estaba en el almacén y pagado: lo que baja son las existencias."
+        "3": "El zumo ya estaba en existencias: la venta baja las existencias, no la caja."
       }
     },
     {
@@ -275,7 +275,7 @@
       "explanation": "Todo lo que la empresa tiene se financió con dinero de sus accionistas (patrimonio neto) o de terceros (pasivo)."
     }
   ],
-  "realWorld": "Las cuentas anuales de cualquier sociedad cotizada española están en la web de la CNMV, en sus informes financieros anuales: el primer estado que verás es el balance, con el activo a un lado y el patrimonio neto y el pasivo al otro.",
+  "realWorld": "Las cuentas anuales de cualquier sociedad cotizada española están en la web de la CNMV, en sus informes financieros anuales: el primer estado que verás es el balance, con el activo a un lado y el patrimonio neto y el pasivo al otro. Las cuentas consolidadas de los grupos cotizados siguen las NIIF-UE; las individuales de cada sociedad española, el PGC.",
   "sources": [
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",

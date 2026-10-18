@@ -58,7 +58,7 @@ export const OPENING: Balance = {
   deuda: 10000,
   capital: 6000,
   reservas: 27934,
-  // el resultado de 2024 ya está en reservas: el ejercicio 2025 empieza en cero
+  // simplificación: el resultado de 2024 ya está sumado a reservas (en companies.json no va aparte); 2025 empieza en cero
   resultado: 0,
 };
 
@@ -150,7 +150,7 @@ export function setupBalance(seed: number): BalanceSetup {
     suppliers: pick(rnd, 1000, 2500, 100),
     dividend: pick(rnd, 2500, 3500, 100),
   };
-  // la mercancía vendida costó en torno al 62 % del precio de venta (margen bruto de Naranjas en 2024)
+  // la mercancía vendida costó en torno al 62 % del precio de venta (coste de ventas / ingresos de Naranjas en 2024)
   const cost = Math.round(amounts.sale * 0.62);
   const ops = OPS.map((id) => {
     const all = entries(id, amounts[id], cost);

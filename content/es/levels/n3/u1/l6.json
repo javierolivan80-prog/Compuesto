@@ -1,15 +1,16 @@
 {
   "id": "n3-u1-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "title": "Jefe final: los tres estados de Naranjas",
   "cfa": "financial-statement-analysis",
-  "estimatedMinutes": 7,
+  "estimatedMinutes": 5,
   "objectives": [
-    "Construir y conectar el balance, la cuenta de resultados y el estado de flujos de Naranjas de 2023"
+    "Construir y conectar el balance, la cuenta de resultados y el estado de flujos de Naranjas de 2023",
+    "Distinguir un gasto de una salida de dinero"
   ],
   "concepts": ["balance", "pyg", "flujos-caja", "conexion-estados"],
   "companies": ["naranjas-del-turia"],
@@ -27,13 +28,19 @@
       "prompt": "Completa el balance de Naranjas a 31/12/2023. El total del activo es 45.067.",
       "sections": [
         {
-          "name": "Activo",
+          "name": "Activo no corriente",
           "side": "activo",
           "rows": [
             {
               "label": "Inmovilizado",
               "value": 20902
-            },
+            }
+          ]
+        },
+        {
+          "name": "Activo corriente",
+          "side": "activo",
+          "rows": [
             {
               "label": "Existencias",
               "value": 6003,
@@ -58,7 +65,7 @@
               "value": 6000
             },
             {
-              "label": "Reservas",
+              "label": "Reservas (con el resultado del año)",
               "value": 24279
             }
           ]
@@ -92,7 +99,7 @@
       "prompt": "En 2023 Naranjas ingresó 50.486, con un coste de ventas de 31.301, otros gastos de explotación de 9.087 y una amortización de 1.557. ¿Cuál fue su resultado de explotación? (miles de €)",
       "answer": 8541,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "50486 - 31301 - 9087 - 1557",
       "explanation": "50.486 − 31.301 − 9.087 − 1.557 = 8.541."
@@ -107,7 +114,7 @@
       "prompt": "Su resultado antes de impuestos de 2023 fue 8.136 y el impuesto sobre beneficios, del 25 %. ¿Cuál fue el resultado del ejercicio? (miles de €)",
       "answer": 6102,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "8136 * (1 - 0.25)",
       "explanation": "8.136 × 0,75 = 6.102 (impuesto de 2.034)."
@@ -122,10 +129,10 @@
       "prompt": "En 2023 Naranjas ganó 6.102 con una amortización de 1.557. Clientes subió 395, existencias subió 286 y proveedores subió 204. ¿Cuál fue su flujo de explotación? (miles de €)",
       "answer": 7182,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "6102 + 1557 - 395 - 286 + 204",
-      "explanation": "6.102 + 1.557 − 395 − 286 + 204 = 7.182. Los aumentos de clientes y existencias restan; el de proveedores suma.",
+      "explanation": "6.102 + 1.557 − 395 − 286 + 204 = 7.182. La amortización se vuelve a sumar porque fue un gasto sin salida de dinero; los aumentos de clientes y existencias restan y el de proveedores suma.",
       "hint": "Beneficio + amortización − aumentos de activo corriente + aumento de proveedores."
     },
     {
@@ -135,10 +142,10 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["conexion-estados"],
-      "prompt": "Las reservas de Naranjas eran 20.923 a finales de 2022. En 2023 ganó 6.102 y pagó 2.746 de dividendos. ¿Cuánto suman a finales de 2023? (miles de €)",
+      "prompt": "Con el beneficio de cada año sumado a las reservas, las de Naranjas eran 20.923 a finales de 2022. En 2023 ganó 6.102 y pagó 2.746 de dividendos. ¿Cuánto suman a finales de 2023? (miles de €)",
       "answer": 24279,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "20923 + 6102 - 2746",
       "explanation": "20.923 + 6.102 − 2.746 = 24.279, las reservas del balance de 2023: la cuenta de resultados y el balance casan."
@@ -247,14 +254,36 @@
     },
     {
       "id": "n3-u1-l6-e10",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "aplicar",
       "tags": [],
-      "concepts": ["balance"],
-      "statement": "Activo = patrimonio neto + pasivo se cumple en cualquier balance, también en el de una empresa con pérdidas.",
-      "answer": true,
-      "explanation": "Verdadero. Las pérdidas bajan el patrimonio neto (incluso por debajo de cero), pero el balance siempre cuadra."
+      "concepts": ["flujos-caja", "balance"],
+      "prompt": "Clasifica los movimientos de dinero de Naranjas en 2023 según el PGC.",
+      "categories": ["Explotación", "Inversión", "Financiación"],
+      "items": [
+        {
+          "text": "Cobros de cadenas de supermercados",
+          "category": "Explotación"
+        },
+        {
+          "text": "Pagos a proveedores de envases",
+          "category": "Explotación"
+        },
+        {
+          "text": "Pago de la nueva línea de envasado",
+          "category": "Inversión"
+        },
+        {
+          "text": "Préstamo nuevo de 1.500 con el banco",
+          "category": "Financiación"
+        },
+        {
+          "text": "Dividendo de 2.746",
+          "category": "Financiación"
+        }
+      ],
+      "explanation": "Explotación: el día a día del negocio. Inversión: lo que se usa durante años. Financiación: bancos y accionistas."
     }
   ],
   "realWorld": "Con estas tres comprobaciones (balance que cuadra, resultado que llega al patrimonio neto y flujos que explican la caja) puedes revisar las cuentas de cualquier empresa del IBEX en la web de la CNMV.",

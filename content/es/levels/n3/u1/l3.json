@@ -1,8 +1,8 @@
 {
   "id": "n3-u1-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 1,
   "title": "La cuenta de pérdidas y ganancias",
@@ -28,7 +28,7 @@
     },
     {
       "type": "example",
-      "text": "Naranjas en 2025, en miles de €: ingresos 58.882; coste de ventas 36.507; otros gastos de explotación 10.599; amortización 1.682; resultado de explotación 10.094; gastos financieros 450; resultado antes de impuestos 9.644; impuesto sobre beneficios 2.411; resultado del ejercicio 7.233."
+      "text": "Naranjas en 2025 (miles de €): ingresos 58.882; coste de ventas 36.507; otros gastos 10.599; amortización 1.682; resultado de explotación 10.094; gastos financieros 450; antes de impuestos 9.644; impuesto 2.411; resultado del ejercicio 7.233. El PGC clasifica los gastos por naturaleza; las NIIF permiten agruparlos por función (coste de ventas)."
     }
   ],
   "exercises": [
@@ -94,7 +94,7 @@
       "prompt": "Naranjas ingresó 58.882 en 2025. El coste de ventas fue 36.507, los otros gastos de explotación 10.599 y la amortización 1.682. ¿Cuál fue su resultado de explotación? (miles de €)",
       "answer": 10094,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "58882 - 36507 - 10599 - 1682",
       "explanation": "58.882 − 36.507 − 10.599 − 1.682 = 10.094. Es lo que gana el negocio antes de intereses e impuestos (en inglés, EBIT).",
@@ -107,13 +107,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pyg"],
-      "prompt": "El resultado antes de impuestos de Naranjas fue 9.644 y pagó un impuesto sobre beneficios de 2.411. ¿Qué tipo efectivo pagó? (en %, 1 decimal)",
+      "prompt": "El resultado antes de impuestos de Naranjas fue 9.644 y registró un gasto por impuesto sobre beneficios de 2.411. ¿Qué tipo efectivo soporta? (en %, 1 decimal)",
       "answer": 25.0,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 1,
       "formula": "2411 / 9644 * 100",
-      "explanation": "2.411 / 9.644 = 0,25: un 25,0 %, el tipo general del impuesto sobre sociedades en España.",
+      "explanation": "2.411 / 9.644 = 0,25: un 25,0 %, el tipo general del impuesto sobre sociedades en España (Ley 27/2014, art. 29.1).",
       "hint": "Divide el impuesto entre el resultado antes de impuestos."
     },
     {
@@ -126,7 +126,7 @@
       "prompt": "Si Naranjas hubiera tenido 200 más de gastos financieros en 2025, con el mismo tipo del 25 %, ¿cuánto habría bajado su resultado del ejercicio? (miles de €)",
       "answer": 150,
       "unit": "mil €",
-      "tolerance": 0.5,
+      "tolerance": 0,
       "answerDecimals": 0,
       "formula": "200 * (1 - 0.25)",
       "explanation": "200 más de gasto bajan el resultado antes de impuestos en 200, pero el impuesto baja 50 (el 25 %): el resultado del ejercicio cae 200 × 0,75 = 150.",
@@ -206,14 +206,19 @@
       }
     }
   ],
-  "realWorld": "En las cuentas anuales del PGC busca la línea «Resultado de explotación» y la línea final, «Resultado del ejercicio». En la web de la CNMV, los informes financieros semestrales de las cotizadas traen las dos.",
+  "realWorld": "En las cuentas anuales del PGC busca la línea «Resultado de explotación» y la línea final, «Resultado del ejercicio». En la web de la CNMV, los informes financieros semestrales de las cotizadas traen las dos. Las cuentas consolidadas de los grupos cotizados siguen las NIIF-UE; las individuales de cada sociedad española, el PGC.",
   "sources": [
     {
       "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (marco conceptual, modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
       "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 27/2014, del Impuesto sobre Sociedades (art. 29.1, tipo general del 25 %)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328",
+      "date": "2026-10-18"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-06-30",
   "lastReviewed": "2026-10-18"
 }

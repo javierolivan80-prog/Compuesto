@@ -1,8 +1,8 @@
 {
   "fecha": "2026-10-18",
   "escenario": "ticker + partículas (≤40 cada 120 ms) + pops + combo, CPU 4×, Chromium sin cabeza (render por software)",
-  "fotogramas": 179,
-  "fps_medio": 59,
+  "fotogramas": 174,
+  "fps_medio": 57.1,
   "p95_ms": 16.700000000000273,
-  "max_ms": 50.09999999999991
+  "max_ms": 66.70000000000005
 }
