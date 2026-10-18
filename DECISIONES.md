@@ -454,3 +454,15 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Datos:** acciones de `companies.json` (un test lo comprueba); precios cercanos a la cinta de La Mesa; free float fijado por empresa en el motor (`src/engine/games/index-mover.ts`). Los pesos de cada día salen de los precios del cierre anterior.
 - **Acierto:** a 0,15 p. p. o menos cuenta 1; a 0,5 p. p. o menos, medio.
 - La lección abre la unidad (`order: 0`). Javier debe comprobar el tope del 20 % del IBEX en el PDF de las Normas Técnicas: desde aquí solo se pudo citar la página de índices de BME.
+
+## 2026-10-18 — Lección-juego «El primer dividendo» (`n1-u5-l7`)
+
+- **Decisión:** el juego de la unidad 4 de la planta 0 es una historia en cinco pasos con Pirineo Energía. Lo que propuse antes, «tu primer dividendo en La Mesa», queda para más adelante: meter eventos de empresa en el mercado vivo es un cambio mayor.
+  1. Eliges bróker entre tres ficticios: 0,10 % con mínimo de 1 €; 5 € fijos; 0,25 % con mínimo de 8 €. El más barato depende del importe; el corte entre 0,10 % y 5 € está en 5.000 €.
+  2. Decides si «cazas» el dividendo comprando 300 acciones el día antes de la fecha ex y vendiéndolas ese día.
+  3. Predices el precio de referencia en la fecha ex.
+  4. Cobras el dividendo con la retención del 19 %, que es un pago a cuenta.
+  5. Vendes un mes después.
+- **Supuesto del motor:** en la fecha ex el precio de referencia es exactamente el cierre anterior menos el dividendo bruto, y cazar el dividendo cuesta solo dos comisiones, antes de impuestos. 🛑 Pendiente de citar la norma exacta de BME sobre el ajuste del precio de referencia: no se pudo abrir desde el entorno y la búsqueda no la encontró. La lección lleva `verificarAntesDe` 2027-03-31, como `n1-u5-l5`.
+- **Nombres ficticios:** Llave Valores, Fijo Bolsa y Ancla Inversión. «Banco del Turia» se descartó porque sonaba a una entidad real. 🛑 Javier los comprobará en los registros de la CNMV.
+- **Repaso de e3:** los rangos de coste y venta no se solapan. Si se solapan, salen rentabilidades cercanas al 0 % y la tolerancia relativa no admite el redondeo a 2 decimales.

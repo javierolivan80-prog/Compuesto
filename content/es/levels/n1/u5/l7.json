@@ -1,8 +1,8 @@
 {
   "id": "n1-u5-l7",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 5,
   "order": 0,
@@ -29,12 +29,12 @@
     {
       "type": "card",
       "term": "Fecha ex-dividendo",
-      "text": "Cobraste {gross} € brutos, {div} € por acción. En la fecha ex-dividendo el precio de referencia bajó ese importe, hasta {p_ex} €: lo que se reparte sale de la empresa. Por eso comprar justo antes para cobrarlo no es dinero gratis: te habría costado {cap_loss} € en comisiones."
+      "text": "Cobraste {gross} € brutos, {div} € por acción. En la fecha ex-dividendo el precio de referencia se ajustó restando {div} €, de {p_before} € a {p_ex} €; desde ahí cotiza libremente. Lo que se reparte sale de la empresa: cazar el dividendo con 300 acciones cuesta {cap_loss} € en comisiones, y no se gana nada."
     },
     {
       "type": "card",
       "term": "Retención y rentabilidad total",
-      "text": "Hacienda te retuvo el 19 %, {retained} €: es un pago a cuenta del IRPF, y en la declaración los dividendos tributan en la base del ahorro. La rentabilidad total suma lo que gana el precio y el dividendo: en tu partida, un {total} % antes de impuestos."
+      "text": "Hacienda te retuvo el 19 %, {retained} €: es un pago a cuenta del IRPF, y en la declaración los dividendos tributan en la base del ahorro. La rentabilidad total suma lo que gana el precio y el dividendo, descontadas las comisiones: en tu partida, un {total} % antes de impuestos."
     }
   ],
   "exercises": [
@@ -129,7 +129,7 @@
       "tags": ["rentabilidad"],
       "concepts": ["rentabilidad-total", "comisiones"],
       "prompt": "Compraste por {cost} € (comisión incluida), cobraste {gross} € de dividendo bruto y al vender recibiste {sale} € (ya descontada la comisión). ¿Cuál fue tu rentabilidad total antes de impuestos, en %? (2 decimales)",
-      "answer": 17.14,
+      "answer": 5.77,
       "unit": "%",
       "tolerance": 1,
       "answerDecimals": 2,
@@ -137,25 +137,25 @@
       "params": {
         "cost": {
           "value": 7205,
-          "min": 5000,
-          "max": 8000,
+          "min": 7000,
+          "max": 7250,
           "step": 5,
           "decimals": 2,
           "fixed": true
         },
         "gross": {
           "value": 240,
-          "min": 100,
-          "max": 400,
+          "min": 150,
+          "max": 300,
           "step": 10,
           "decimals": 2,
           "fixed": true
         },
         "sale": {
-          "value": 8200,
-          "min": 8100,
-          "max": 8800,
-          "step": 10,
+          "value": 7381,
+          "min": 7300,
+          "max": 7700,
+          "step": 1,
           "decimals": 2,
           "fixed": true
         }
@@ -178,7 +178,7 @@
       "concepts": ["dividendo"],
       "statement": "Comprar acciones justo antes de la fecha ex-dividendo para cobrar el dividendo y venderlas después es una forma de ganar dinero casi seguro.",
       "answer": false,
-      "explanation": "El precio de referencia baja el importe del dividendo en la fecha ex, así que lo que cobras lo pierdes en precio. Además pagas dos comisiones y Hacienda te retiene el 19 % del dividendo."
+      "explanation": "El precio de referencia baja el importe del dividendo en la fecha ex, así que lo que cobras lo pierdes en precio. Además pagas dos comisiones, y el dividendo tributa en tu IRPF (la retención del 19 % adelanta ese impuesto)."
     },
     {
       "id": "n1-u5-l7-e5",
@@ -221,7 +221,7 @@
           "category": "La reduce"
         },
         {
-          "text": "La bajada del precio en la fecha ex-dividendo, si cobras ese dividendo",
+          "text": "La retención del 19 % del dividendo (pago a cuenta del IRPF)",
           "category": "No la reduce"
         },
         {
@@ -229,7 +229,7 @@
           "category": "No la reduce"
         }
       ],
-      "explanation": "Las comisiones son coste puro. La bajada en la fecha ex se compensa con el dividendo que cobras, y el dividendo suma a la rentabilidad total."
+      "explanation": "Las comisiones son coste puro. El dividendo suma a la rentabilidad total. La retención no entra porque la rentabilidad se mide antes de impuestos y la retención es un adelanto del IRPF."
     },
     {
       "id": "n1-u5-l7-e7",
@@ -240,12 +240,12 @@
       "concepts": ["dividendo"],
       "prompt": "Ordena lo que pasa con un dividendo, de lo primero a lo último.",
       "steps": [
-        "La junta de accionistas aprueba el dividendo",
+        "La empresa aprueba y anuncia el dividendo",
         "Último día para comprar con derecho a cobrarlo",
         "Fecha ex-dividendo: el precio de referencia baja su importe",
         "Fecha de pago: llega a tu cuenta, menos la retención"
       ],
-      "explanation": "Primero se aprueba; quien tenga las acciones al cierre del último día con derecho lo cobrará; en la fecha ex el precio se ajusta, y en la de pago llega el dinero neto de retención."
+      "explanation": "Primero se aprueba y se anuncia; quien compre como tarde el último día con derecho lo cobrará; en la fecha ex el precio de referencia se ajusta, y en la de pago llega el dinero neto de retención."
     },
     {
       "id": "n1-u5-l7-e8",
@@ -263,7 +263,7 @@
         "Da igual: con órdenes pequeñas las comisiones no importan"
       ],
       "answer": 0,
-      "explanation": "Con 300 €, el 0,10 % serían 0,30 €, así que pagas el mínimo de 1 €. Los otros cobran 5 € y 8 €: entre un 1,7 % y un 2,7 % de cada compra, que se comen la rentabilidad de años.",
+      "explanation": "Con 300 €, el 0,10 % serían 0,30 €, así que pagas el mínimo de 1 € (un 0,33 %). Los otros cobran 5 € y 8 €: entre un 1,7 % y un 2,7 % de cada compra, un coste que tardas meses en recuperar.",
       "wrongExplanations": {
         "1": "La tarifa fija solo compensa en órdenes grandes; con 300 € son un 1,7 % de cada compra.",
         "2": "La comisión no dice nada del servicio, y aquí pagarías 8 € por orden, un 2,7 %.",
@@ -271,7 +271,7 @@
       }
     }
   ],
-  "realWorld": "En la web de cada bróker hay un folleto de tarifas, obligatorio por la normativa de la CNMV; compáralo con el tamaño de tus órdenes. Las empresas anuncian sus dividendos como información relevante en la CNMV, con la fecha ex-dividendo y la de pago.",
+  "realWorld": "Cada bróker publica sus tarifas en su web: compáralas con el tamaño de tus órdenes. Las empresas anuncian sus dividendos en la web de la CNMV, como «otra información relevante», con la fecha ex-dividendo y la de pago.",
   "sources": [
     {
       "title": "CNMV: registros oficiales de entidades autorizadas",
@@ -286,6 +286,16 @@
     {
       "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 y 76 (escala del ahorro) y 101 (retenciones)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CNMV: consulta de «otra información relevante» de los emisores (art. 227 de la Ley del Mercado de Valores)",
+      "url": "https://www.cnmv.es/Portal/Otra-Informacion-Relevante/Consulta-OIR.aspx",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BME: Reglamentación del mercado (ajuste del precio de referencia por dividendos; pendiente de citar la circular exacta)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
       "date": "2026-10-18"
     }
   ],

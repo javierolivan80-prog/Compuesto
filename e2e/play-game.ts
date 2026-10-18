@@ -29,14 +29,14 @@ export async function playGameLesson(
     // referencia 0: el bróker más barato, sin cazar el dividendo y acertando la fecha ex
     await expect(page.getByRole('heading', { name: 'El primer dividendo' })).toBeVisible();
     const s = setupDividend(seed);
-    const name = { llave: 'Llave Valores', fijo: 'Fijo Bolsa', banco: 'Banco del Turia' }[
+    const name = { llave: 'Llave Valores', fijo: 'Fijo Bolsa', banco: 'Ancla Inversión' }[
       BROKERS[cheapestBroker(s)]!.id
     ];
     await page.getByRole('button', { name: new RegExp(`^${name}`) }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('button', { name: /^No hacer nada/ }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
-    await page.getByRole('button', { name: /^Más o menos el cierre menos el dividendo/ }).click();
+    await page.getByRole('button', { name: /^El cierre menos el dividendo/ }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('button', { name: 'Pasar un mes y vender' }).click();
   } else if (kind === 'index-mover') {

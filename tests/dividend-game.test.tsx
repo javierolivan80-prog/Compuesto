@@ -17,9 +17,7 @@ describe('El primer dividendo (interfaz)', () => {
     expect(screen.getByText(/dividendo de 0,40/)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /^No hacer nada/ }));
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
-    await user.click(
-      screen.getByRole('button', { name: /^Más o menos el cierre menos el dividendo/ }),
-    );
+    await user.click(screen.getByRole('button', { name: /^El cierre menos el dividendo/ }));
     expect(await screen.findByRole('status')).toHaveTextContent('✓');
     expect(screen.getByTestId('dv-ex')).toHaveTextContent('11,72');
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
@@ -35,7 +33,7 @@ describe('El primer dividendo (interfaz)', () => {
   it('cazar el dividendo: la fecha ex enseña que solo quedan las comisiones', async () => {
     const user = userEvent.setup();
     render(<DividendGame seed={1} onDone={() => {}} />);
-    await user.click(screen.getByRole('button', { name: /^Banco del Turia/ }));
+    await user.click(screen.getByRole('button', { name: /^Ancla Inversión/ }));
     expect(screen.getByRole('status')).toHaveTextContent('Hay otro más barato');
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
     await user.click(screen.getByRole('button', { name: /^Comprar 300 más/ }));

@@ -161,3 +161,15 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - la tarjeta 3 explica qué es el mercado continuo y dice «tope en cada revisión», DAX 40 y Euro Stoxx 50 (con la misma fuente que l4);
   - e6, longitud de las opciones y explicación del distractor 2.
 - **Ronda 2:** aprobada; dos retoques aplicados («p. p.» en e5 y e8, y la frase del Euro Stoxx 50). Estado: `reviewed`. 🛑 Pendiente de la revisión de Javier, incluido el tope del 20 % en las Normas Técnicas del IBEX.
+
+## n1-u5-l7 — Lección-juego «El primer dividendo» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Mayores aplicados:
+  - e6 tenía dos respuestas defendibles; se cambió el ítem por el de la retención;
+  - los parámetros de repaso de e3 daban rentabilidades absurdas;
+  - e4 y el texto del juego trataban la retención como un coste;
+  - la pantalla final no descontaba el coste de cazar el dividendo;
+  - el folleto de tarifas se citaba como obligatorio sin fuente; ahora no se afirma.
+
+  Menores aplicados: «otra información relevante» en lugar de «hecho relevante», el día de pago sin fijar, «el cierre menos el dividendo», la bajada por acción en la tarjeta 2, «descontadas las comisiones», e7 (anuncio y «comprar como tarde»), e8 sin exagerar y el nombre «Banco del Turia» cambiado.
+- **Ronda 2:** solo faltaban fuentes concretas. Añadida la consulta de «otra información relevante» de la CNMV; la norma de BME sobre el ajuste por dividendo queda pendiente (ver DECISIONES.md). Estado: `reviewed`. 🛑 Pendiente de la revisión de Javier y de comprobar en la CNMV los nombres de los brókers.

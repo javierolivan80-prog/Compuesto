@@ -111,7 +111,7 @@ export function DividendGame({ seed, onDone }: Props) {
             <dd className="text-bull text-xl">+{formatEur(r.gross)}</dd>
           </div>
           <div className="col-span-2">
-            <dt className="text-text-2 text-sm">{t('dividend.total')}</dt>
+            <dt className="text-text-2 text-sm">{t('dividend.total', { n: formatNumber(s.n) })}</dt>
             <dd
               className={`text-2xl ${r.total >= 0 ? 'text-bull' : 'text-bear'}`}
               data-testid="dv-total"
@@ -120,6 +120,16 @@ export function DividendGame({ seed, onDone }: Props) {
               {formatNumber(Math.abs(r.total), 2)} %
             </dd>
           </div>
+          {capture && (
+            <div className="col-span-2">
+              <dt className="text-text-2 text-sm">
+                {t('dividend.captureLine', { n: formatNumber(CAPTURE_QTY) })}
+              </dt>
+              <dd className="text-bear text-xl" data-testid="dv-capture-cost">
+                −{formatEur(r.capLoss)}
+              </dd>
+            </div>
+          )}
         </dl>
         <p className="text-lg" data-testid="dv-verdict">
           {r.score >= 1
