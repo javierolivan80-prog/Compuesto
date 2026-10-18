@@ -466,3 +466,11 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Supuesto del motor:** en la fecha ex el precio de referencia es exactamente el cierre anterior menos el dividendo bruto, y cazar el dividendo cuesta solo dos comisiones, antes de impuestos. 🛑 Pendiente de citar la norma exacta de BME sobre el ajuste del precio de referencia: no se pudo abrir desde el entorno y la búsqueda no la encontró. La lección lleva `verificarAntesDe` 2027-03-31, como `n1-u5-l5`.
 - **Nombres ficticios:** Llave Valores, Fijo Bolsa y Ancla Inversión. «Banco del Turia» se descartó porque sonaba a una entidad real. 🛑 Javier los comprobará en los registros de la CNMV.
 - **Repaso de e3:** los rangos de coste y venta no se solapan. Si se solapan, salen rentabilidades cercanas al 0 % y la tolerancia relativa no admite el redondeo a 2 decimales.
+
+## 2026-10-18 — Lección-juego «La salida a bolsa» (`n1-u2-l6`)
+
+- **Decisión:** la unidad 5 de la planta 0 revive la salida a bolsa de Naranjas del Turia **antes de 2021**, el primer ejercicio del universo. Así no contradice `companies.json`, donde Naranjas tiene 12.000.000 de acciones y el mismo capital desde 2021.
+  - La familia tenía 9.000.000 de acciones; la oferta fue una OPS de 3.000.000 nuevas más una OPV de 1.200.000 de la familia. Resultado: 12.000.000 de acciones, un 35 % de free float y un 65 % para la familia, las mismas cifras que usan «Tus primeras acciones» y «¿Quién mueve el índice?».
+- **Término:** «libro de demanda» (book-building). «Libro de órdenes» queda para el del mercado secundario (`n1-u4`).
+- **Supuesto del juego (se dice en pantalla):** la demanda baja en línea recta a lo largo del rango (9,00–10,50 €). El cierre del primer día es el valor de la semilla × (1 + 0,015 × (veces cubierta − 2)), con un tope de 6 veces. Si la oferta no se cubre, el juego pide otro precio.
+- **Nota:** 1 con el precio más alto que no rompe el estreno ni sube más de un 15 %; 0,75 con otro precio bueno; 0,5 si sube más de un 15 % (dinero en la mesa); 0,25 si cierra por debajo del precio.

@@ -555,17 +555,17 @@
   "ipo": {
     "title": "La salida a bolsa",
     "step": {
-      "prospectus": "Hace un año · El folleto",
-      "book": "Hace un año · El libro de órdenes",
-      "debut": "Hace un año · Primer día de cotización"
+      "prospectus": "Antes de 2021 · El folleto",
+      "book": "Antes de 2021 · El libro de demanda",
+      "debut": "Antes de 2021 · Primer día de cotización"
     },
-    "brief": "Revive cómo salió a bolsa Naranjas del Turia. La familia fundadora tenía 9.000.000 de acciones. En la oferta, la empresa emite acciones nuevas para financiar una planta de zumos, y la familia vende parte de las suyas. Tú, desde Albufera Partners, fijas el precio.",
+    "brief": "Revive cómo salió a bolsa Naranjas del Turia, antes de 2021. La familia fundadora tenía 9.000.000 de acciones. En la oferta, la empresa emitió acciones nuevas para financiar una planta de zumos y la familia vendió parte de las suyas. Albufera Partners coordinó la oferta: propón el precio que fijaron la empresa y la familia con el banco.",
     "ops": "OPS: acciones nuevas (el dinero va a Naranjas)",
     "opv": "OPV: acciones de la familia (el dinero va a la familia)",
     "range": "Rango indicativo de precio",
     "after": "Acciones después de la salida",
     "cnmv": "La CNMV aprueba el folleto de la oferta, pero no garantiza que la inversión salga bien.",
-    "openBook": "Abrir el libro de órdenes",
+    "openBook": "Abrir el libro de demanda",
     "bookIntro": "Los inversores han dicho cuántas acciones comprarían a cada precio del rango. Se ofrecen {{offer}}: la línea marca la oferta. Elige el precio de salida.",
     "pick": "Precio de salida",
     "bookNote": "Barra: acciones pedidas a ese precio. Verde si cubren la oferta; roja si no. A la derecha, veces cubierta.",
@@ -591,9 +591,10 @@
     "great": "Muy bien: el precio más alto que no rompía el estreno. Más dinero para Naranjas sin perjudicar a los nuevos accionistas.",
     "goodLow": "Bien: el estreno sale bien, pero podías haber pedido algo más y Naranjas habría recibido más dinero.",
     "verdict": {
-      "broke": "Pediste demasiado: con poca demanda sobrante, el estreno cae por debajo del precio.",
+      "broke": "Pediste demasiado: por encima de lo que el mercado veía en la acción y con poca demanda sobrante, el estreno cerró por debajo del precio.",
       "table": "Precio demasiado bajo: el estreno se dispara y Naranjas deja dinero en la mesa."
     },
-    "debrief": "Ver qué ha pasado"
+    "debrief": "Ver qué ha pasado",
+    "debutNote": "Supuesto del juego: el cierre depende de lo que el mercado cree que vale la acción y de la demanda que sobró. En la realidad influyen muchas más cosas."
   }
 }

@@ -29,7 +29,7 @@ export async function playGameLesson(
   } else if (kind === 'ipo-book') {
     // referencia 0: el primer precio que se cubre, de abajo arriba (9,00 €)
     await expect(page.getByRole('heading', { name: 'La salida a bolsa' })).toBeVisible();
-    await page.getByRole('button', { name: 'Abrir el libro de órdenes' }).click();
+    await page.getByRole('button', { name: 'Abrir el libro de demanda' }).click();
     const first = PRICES.find((p) => outcomeAt(setupIpo(seed), p) !== 'failed')!;
     const label = first.toFixed(2).replace('.', ',');
     await page.getByRole('radio', { name: new RegExp(`^${label}`) }).click();

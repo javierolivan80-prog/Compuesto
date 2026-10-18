@@ -173,3 +173,21 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 
   Menores aplicados: «otra información relevante» en lugar de «hecho relevante», el día de pago sin fijar, «el cierre menos el dividendo», la bajada por acción en la tarjeta 2, «descontadas las comisiones», e7 (anuncio y «comprar como tarde»), e8 sin exagerar y el nombre «Banco del Turia» cambiado.
 - **Ronda 2:** solo faltaban fuentes concretas. Añadida la consulta de «otra información relevante» de la CNMV; la norma de BME sobre el ajuste por dividendo queda pendiente (ver DECISIONES.md). Estado: `reviewed`. 🛑 Pendiente de la revisión de Javier y de comprobar en la CNMV los nombres de los brókers.
+
+## n1-u2-l6 — Lección-juego «La salida a bolsa» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Mayores, aplicados:
+  - «Libro de órdenes» pasa a «libro de demanda», porque chocaba con su significado en `n1-u4`.
+  - «Hace un año» pasa a «antes de 2021», porque contradecía las cuentas de `companies.json`.
+
+  Menores, aplicados:
+  - nota visible del supuesto del estreno;
+  - «cubierta, y sobresuscrita si pasa de 1»;
+  - prorrateo y reparto en conjunto en e2;
+  - e5 y e6 sin afirmaciones absolutas;
+  - el brief dice quién fija el precio;
+  - realWorld reescrito;
+  - fuentes concretas de la CNMV.
+- **Ronda 2:** aprobada sin errores. Estado: `reviewed`.
+- **Fuentes:** las dos nuevas de la CNMV (Mercado primario y la guía rápida GR07) se localizaron con una búsqueda que citaba su contenido, pero no se pudieron abrir desde el entorno.
+- 🛑 Pendiente de la revisión de Javier.

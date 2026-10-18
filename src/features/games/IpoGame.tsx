@@ -265,6 +265,7 @@ export function IpoGame({ seed, onDone }: Props) {
                 {t(`ipo.debutWhy.${r.outcome}`)}
               </p>
               <p className="text-text-2 text-sm">{t('ipo.secondary')}</p>
+              <p className="text-text-2 text-xs">{t('ipo.debutNote')}</p>
               <Button onClick={() => setStep('done')}>{t('ipo.summary')}</Button>
             </div>
           </section>

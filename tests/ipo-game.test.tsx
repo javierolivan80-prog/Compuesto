@@ -10,7 +10,7 @@ describe('La salida a bolsa (interfaz)', () => {
     render(<IpoGame seed={1} onDone={onDone} />);
     expect(screen.getByRole('heading', { name: 'La salida a bolsa' })).toBeInTheDocument();
     expect(screen.getByText(/OPS: acciones nuevas/)).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: 'Abrir el libro de órdenes' }));
+    await user.click(screen.getByRole('button', { name: 'Abrir el libro de demanda' }));
     expect(screen.getAllByRole('radio')).toHaveLength(7);
     // a 10,50 € no se cubre: el juego pide otro precio
     await user.click(screen.getByRole('radio', { name: /^10,50/ }));
@@ -30,7 +30,7 @@ describe('La salida a bolsa (interfaz)', () => {
   it('precio bajo: el estreno se dispara y se deja dinero en la mesa', async () => {
     const user = userEvent.setup();
     render(<IpoGame seed={1} onDone={() => {}} />);
-    await user.click(screen.getByRole('button', { name: 'Abrir el libro de órdenes' }));
+    await user.click(screen.getByRole('button', { name: 'Abrir el libro de demanda' }));
     await user.click(screen.getByRole('radio', { name: /^9,00/ }));
     await user.click(screen.getByRole('button', { name: /^Fijar el precio en 9,00/ }));
     expect(await screen.findByRole('status')).toHaveTextContent('dinero en la mesa');

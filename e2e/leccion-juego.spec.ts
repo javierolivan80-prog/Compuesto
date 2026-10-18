@@ -245,7 +245,7 @@ test('la salida a bolsa: captura y axe a 375 px en cada paso y lección completa
     path: 'docs/capturas/leccion-juego/opv-folleto-375.png',
     fullPage: true,
   });
-  await page.getByRole('button', { name: 'Abrir el libro de órdenes' }).click();
+  await page.getByRole('button', { name: 'Abrir el libro de demanda' }).click();
   await page.getByRole('radio', { name: /^10,50/ }).click();
   await page.getByRole('button', { name: /^Fijar el precio en 10,50/ }).click();
   await expect(page.getByTestId('ipo-failed')).toBeVisible();

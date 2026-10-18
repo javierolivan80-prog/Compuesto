@@ -1,8 +1,8 @@
 {
   "id": "n1-u2-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 2,
   "order": 0,
@@ -10,7 +10,7 @@
   "cfa": "equity",
   "estimatedMinutes": 5,
   "objectives": [
-    "Fijar el precio de una salida a bolsa con el libro de órdenes, entre recaudar más y un buen estreno",
+    "Fijar el precio de una salida a bolsa con el libro de demanda, entre recaudar más y un buen estreno",
     "Distinguir quién recibe el dinero en la OPS, en la OPV y después, en el mercado secundario"
   ],
   "concepts": ["mercado-primario", "opv", "mercado-secundario"],
@@ -28,8 +28,8 @@
     },
     {
       "type": "card",
-      "term": "Libro de órdenes y sobresuscripción",
-      "text": "Antes de fijar el precio, los bancos recogen cuántas acciones pediría cada inversor y a qué precio. A tu precio pidieron {cov} veces lo ofrecido: la oferta estaba sobresuscrita. Cuanto más alto el precio, menos demanda sobra."
+      "term": "Libro de demanda y sobresuscripción",
+      "text": "Antes de fijar el precio, los bancos recogen cuántas acciones pediría cada inversor y a qué precio: es el libro de demanda (book-building). A tu precio pidieron {cov} veces lo ofrecido: la oferta quedó cubierta, y sobresuscrita si pasa de 1. Cuanto más alto el precio, menos demanda sobra."
     },
     {
       "type": "card",
@@ -115,7 +115,7 @@
           "decimals": 2
         }
       },
-      "explanation": "Veces cubierta = acciones pedidas ÷ acciones ofrecidas = {demand} ÷ {offer} = {veces}. Si pasa de 1, la oferta está sobresuscrita y cada inversor recibe menos de lo que pidió.",
+      "explanation": "Veces cubierta = acciones pedidas ÷ acciones ofrecidas = {demand} ÷ {offer} = {veces}. Si pasa de 1, la oferta está sobresuscrita: en conjunto, los inversores reciben menos de lo que pidieron y las acciones se reparten (por ejemplo, con un prorrateo).",
       "hint": "Divide lo que piden entre lo que se ofrece."
     },
     {
@@ -198,7 +198,7 @@
       "wrongExplanations": {
         "1": "La sobresuscripción habla de demanda, no del valor de la acción.",
         "2": "Cada acción se vende una vez en la oferta; lo que se multiplica es lo que se pide.",
-        "3": "El número de acciones ofrecidas está fijado en el folleto; lo que es el triple es la demanda."
+        "3": "El número de acciones que se ofrecen se anuncia de antemano; lo que es el triple es la demanda."
       }
     },
     {
@@ -228,7 +228,7 @@
           "category": "Precio demasiado bajo"
         }
       ],
-      "explanation": "Un precio alto da más dinero, pero con poca demanda sobrante el estreno puede caer o la oferta no cubrirse. Uno bajo asegura el estreno, pero la empresa y quienes venden dejan dinero en la mesa."
+      "explanation": "Un precio alto da más dinero, pero con poca demanda sobrante el estreno puede caer o la oferta no cubrirse. Uno bajo hace más probable un buen estreno, pero la empresa y quienes venden dejan dinero en la mesa."
     },
     {
       "id": "n1-u2-l6-e7",
@@ -240,7 +240,7 @@
       "prompt": "Ordena una salida a bolsa, de lo primero a lo último.",
       "steps": [
         "La CNMV aprueba el folleto con el rango indicativo de precio",
-        "Los bancos recogen las peticiones de los inversores (libro de órdenes)",
+        "Los bancos recogen las peticiones de los inversores (libro de demanda)",
         "Se fija el precio de salida y se reparten las acciones",
         "Las acciones empiezan a cotizar en el mercado secundario"
       ],
@@ -270,7 +270,7 @@
       }
     }
   ],
-  "realWorld": "En la web de la CNMV están los folletos de las salidas a bolsa, con el rango de precio y para qué se usará el dinero. Las noticias hablan de las «veces sobresuscrita» y de cómo cierra el estreno.",
+  "realWorld": "En la web de la CNMV están los folletos de las salidas a bolsa, con el rango de precio y para qué se usará el dinero. Las noticias dicen cuántas veces la demanda superó la oferta (la oferta, «sobresuscrita X veces») y cómo cerró el estreno.",
   "sources": [
     {
       "title": "Reglamento (UE) 2017/1129 sobre el folleto de valores",
@@ -278,8 +278,13 @@
       "date": "2026-10-18"
     },
     {
-      "title": "CNMV: folletos y ofertas públicas de valores",
-      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "title": "CNMV: mercado primario (prospección de la demanda, fijación del precio y prorrateo)",
+      "url": "https://www.cnmv.es/Portal/Inversor/Mercado-Primario",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CNMV: guía rápida de ofertas públicas de venta y suscripción de acciones (OPV/OPS)",
+      "url": "https://internet.cnmv.es/DocPortal/Publicaciones/Fichas/GR07_OPV_OPS.pdf",
       "date": "2026-10-18"
     }
   ],
