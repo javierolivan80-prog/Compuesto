@@ -1,0 +1,175 @@
+{
+  "id": "n3-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "title": "Rentabilidad: márgenes, ROA y ROE",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el margen bruto, el margen EBITDA, el margen de explotación y el margen neto",
+    "Calcular e interpretar el ROA y el ROE"
+  ],
+  "concepts": ["ratios"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Márgenes",
+      "text": "Cada margen divide un resultado entre las ventas: el bruto (ventas − coste de ventas), el EBITDA (resultado de explotación + amortización), el de explotación y el neto (resultado del ejercicio). Bajando por la cuenta de resultados, cada margen descuenta más gastos."
+    },
+    {
+      "type": "card",
+      "term": "ROA y ROE",
+      "text": "El ROA mide lo que gana el activo: resultado ÷ activo total. El ROE, lo que gana el patrimonio neto: resultado ÷ patrimonio neto. Si la empresa tiene deuda, el ROE es mayor que el ROA en los años buenos y menor en los malos."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas en 2025 (miles de €): ventas 58.882; coste de ventas 36.507; resultado de explotación 10.094; amortización 1.682; resultado del ejercicio 7.233; activo 54.913; patrimonio neto 37.912."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u3-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Con ventas de 58.882 y un coste de ventas de 36.507, ¿cuál es el margen bruto de Naranjas? (en %, 1 decimal)",
+      "answer": 38.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(58882 - 36507) / 58882 * 100",
+      "explanation": "(58.882 − 36.507) / 58.882 = 38,0 %."
+    },
+    {
+      "id": "n3-u3-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Su resultado de explotación fue 10.094 y la amortización 1.682. ¿Cuál es su EBITDA? (miles de €)",
+      "answer": 11776,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "10094 + 1682",
+      "explanation": "EBITDA = resultado de explotación + amortización = 11.776. Es el resultado de explotación antes de amortizaciones (y de deterioros).",
+      "hint": "Devuelve la amortización al resultado de explotación."
+    },
+    {
+      "id": "n3-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "¿Cuál es su margen EBITDA? (EBITDA 11.776, ventas 58.882; en %, 1 decimal)",
+      "answer": 20.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "11776 / 58882 * 100",
+      "explanation": "11.776 / 58.882 = 20,0 %."
+    },
+    {
+      "id": "n3-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Ganó 7.233 con un activo de 54.913. ¿Cuál es su ROA? (en %, 2 decimales)",
+      "answer": 13.17,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "7233 / 54913 * 100",
+      "explanation": "7.233 / 54.913 = 13,17 %. (Otra forma frecuente usa el resultado de explotación después de impuestos; aquí, el resultado del ejercicio.)"
+    },
+    {
+      "id": "n3-u3-l2-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Ordena los márgenes de Naranjas de mayor a menor.",
+      "steps": ["Margen bruto", "Margen EBITDA", "Margen de explotación", "Margen neto"],
+      "explanation": "Cada uno descuenta más gastos: 38,0 % > 20,0 % > 17,1 % > 12,3 %."
+    },
+    {
+      "id": "n3-u3-l2-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "El ROE de Naranjas (19,08 %) es mayor que su ROA (13,17 %). ¿Por qué?",
+      "options": [
+        "Porque parte del activo se financia con deuda y proveedores, no solo con patrimonio neto",
+        "Porque el ROE se calcula antes de impuestos",
+        "Porque el ROA incluye la amortización",
+        "Porque el ROE usa las ventas"
+      ],
+      "answer": 0,
+      "explanation": "El mismo beneficio se reparte entre menos patrimonio neto que activo: activo ÷ patrimonio = 1,45.",
+      "wrongExplanations": {
+        "1": "Los dos usan aquí el resultado del ejercicio, después de impuestos.",
+        "2": "La amortización ya está restada en el resultado de los dos.",
+        "3": "Ninguno de los dos usa las ventas."
+      }
+    },
+    {
+      "id": "n3-u3-l2-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "statement": "Un margen EBITDA alto garantiza que la empresa gane dinero.",
+      "answer": false,
+      "explanation": "Falso. El EBITDA no descuenta la amortización, los intereses ni los impuestos: una empresa con mucha inversión o mucha deuda puede tener EBITDA alto y pérdidas."
+    },
+    {
+      "id": "n3-u3-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "character": "jefe",
+      "situation": "El jefe compara: Naranjas tiene un margen neto del 12,3 % y Tramuntana, del 4,2 %. Concluye que Naranjas es mucho mejor negocio.",
+      "prompt": "¿Qué le matizas?",
+      "options": [
+        "Que el margen solo es una parte: Tramuntana rota su activo casi el doble y su ROE no está tan lejos",
+        "Que tiene razón: el margen neto lo dice todo",
+        "Que Tramuntana es mejor porque vende más en euros",
+        "Que hay que comparar el número de empleados"
+      ],
+      "answer": 0,
+      "explanation": "Comparar márgenes de negocios distintos engaña: una tienda gana poco por venta pero vende muchas veces su activo al año.",
+      "wrongExplanations": {
+        "1": "El margen ignora cuánto activo hace falta para vender.",
+        "2": "Vender más en euros no dice cuánto gana cada euro invertido.",
+        "3": "Puede ser útil, pero no responde a la comparación de rentabilidad."
+      }
+    }
+  ],
+  "realWorld": "En los resultados trimestrales de las cotizadas verás el EBITDA y su margen en primer plano. Mira siempre también el resultado neto: el EBITDA no descuenta amortización, intereses ni impuestos.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

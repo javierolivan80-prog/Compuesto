@@ -89,7 +89,7 @@ export function IpoGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="ipo-done"
-        className="ipo-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="ipo-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="ipo-done"
       >
         <h2 id="ipo-done" className="text-3xl">
@@ -143,7 +143,7 @@ export function IpoGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="ipo-title"
-      className="ipo-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="ipo-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="ipo-title" className="text-3xl">

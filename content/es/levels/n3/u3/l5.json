@@ -1,0 +1,192 @@
+{
+  "id": "n3-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "title": "Calidad del beneficio: ¿se convierte en caja?",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la conversión del beneficio en caja",
+    "Detectar señales de un beneficio de baja calidad"
+  ],
+  "concepts": ["calidad-beneficio"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Conversión en caja",
+      "text": "Divide el flujo de explotación entre el resultado del ejercicio. Si está cerca de 1 o por encima, el beneficio llega a la caja; con amortizaciones altas suele pasar de 1. Si es baja varios años seguidos, una parte del beneficio solo existe en el papel."
+    },
+    {
+      "type": "card",
+      "term": "Señales de alarma",
+      "text": "Clientes que crecen mucho más que las ventas, existencias que se acumulan, un beneficio que sube mientras el flujo de explotación baja, o ingresos extraordinarios que se repiten. No prueban un fraude, pero obligan a preguntar."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas en 2025: flujo de explotación 8.151 y resultado del ejercicio 7.233: una conversión de 1,13. Sus clientes crecieron un 7 %, igual que sus ventas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u3-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Flujo de explotación 8.151 y resultado del ejercicio 7.233. ¿Conversión del beneficio en caja de Naranjas? (2 decimales)",
+      "answer": 1.13,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "8151 / 7233",
+      "explanation": "8.151 / 7.233 = 1,13: algo más de caja que beneficio, sobre todo por la amortización."
+    },
+    {
+      "id": "n3-u3-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Una empresa ficticia gana 6.000, pero su flujo de explotación es de 2.100. ¿Cuál es su conversión? (2 decimales)",
+      "answer": 0.35,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2100 / 6000",
+      "explanation": "2.100 / 6.000 = 0,35: solo un tercio del beneficio llegó a la caja."
+    },
+    {
+      "id": "n3-u3-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Sus ventas crecen un 10 % y sus clientes pasan de 8.000 a 11.600. ¿Cuánto crecen los clientes, en %? (sin decimales)",
+      "answer": 45,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(11600 / 8000 - 1) * 100",
+      "explanation": "11.600 / 8.000 − 1 = 45 %: los clientes crecen cuatro veces y media más que las ventas. O cobra mucho peor o apunta ventas que no cobrará."
+    },
+    {
+      "id": "n3-u3-l5-e4",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "¿Señal de alarma o normal?",
+      "categories": ["Señal de alarma", "Normal"],
+      "items": [
+        {
+          "text": "Los clientes crecen un 45 % y las ventas un 10 %",
+          "category": "Señal de alarma"
+        },
+        {
+          "text": "El beneficio sube y el flujo de explotación cae tres años seguidos",
+          "category": "Señal de alarma"
+        },
+        {
+          "text": "Un ingreso extraordinario por venta de inmuebles todos los años",
+          "category": "Señal de alarma"
+        },
+        {
+          "text": "Conversión en caja de 1,1 con amortizaciones altas",
+          "category": "Normal"
+        },
+        {
+          "text": "Existencias que crecen al mismo ritmo que las ventas",
+          "category": "Normal"
+        }
+      ],
+      "explanation": "Lo preocupante es lo que crece más deprisa que el negocio o lo que se repite siendo «extraordinario»."
+    },
+    {
+      "id": "n3-u3-l5-e5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "¿Qué explica mejor un beneficio que sube mientras el flujo de explotación baja?",
+      "options": [
+        "Que se apuntan ventas que no se cobran, o se acumulan existencias",
+        "Que la empresa amortiza más",
+        "Que ha pagado más dividendos",
+        "Que ha devuelto deuda"
+      ],
+      "answer": 0,
+      "explanation": "El beneficio se apunta al vender; si el dinero no llega o se queda en el almacén, el flujo de explotación lo delata.",
+      "wrongExplanations": {
+        "1": "Más amortización baja el beneficio, no la caja.",
+        "2": "Los dividendos son flujo de financiación.",
+        "3": "Devolver deuda es flujo de financiación."
+      }
+    },
+    {
+      "id": "n3-u3-l5-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "statement": "Una conversión del beneficio en caja baja un solo año prueba que hay fraude.",
+      "answer": false,
+      "explanation": "Falso. Puede deberse a un crecimiento fuerte o a una campaña con más existencias. Lo preocupante es que sea baja varios años y sin explicación."
+    },
+    {
+      "id": "n3-u3-l5-e7",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "character": "mentora",
+      "situation": "Revisas una empresa candidata para invertir: tres años de beneficios crecientes, conversión en caja de 0,9, 0,6 y 0,35, y una deuda que sube cada año.",
+      "prompt": "¿Qué le dices a la mentora?",
+      "options": [
+        "Que el beneficio no se convierte en caja y la deuda lo está tapando: antes de invertir hay que entender por qué",
+        "Que es una gran inversión: los beneficios suben",
+        "Que la conversión baja es normal en cualquier empresa",
+        "Que basta con mirar el ROE"
+      ],
+      "answer": 0,
+      "explanation": "Beneficio sin caja, financiado con deuda: es el patrón de muchos escándalos contables. No es una prueba, pero exige investigar.",
+      "wrongExplanations": {
+        "1": "El beneficio solo no basta: hay que ver si llega a la caja.",
+        "2": "Una conversión que cae año tras año no es normal.",
+        "3": "El ROE se calcula con el mismo beneficio sospechoso."
+      }
+    },
+    {
+      "id": "n3-u3-l5-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Conversión del beneficio en caja = flujo de ___ ÷ resultado del ejercicio.",
+      "answers": [["explotación", "explotacion"]],
+      "explanation": "Flujo de explotación entre beneficio."
+    }
+  ],
+  "realWorld": "Muchos fraudes contables famosos se notaron primero aquí: beneficios que crecían y una caja que no aparecía. En la planta 9 lo verás con casos reales.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

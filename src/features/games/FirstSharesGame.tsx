@@ -122,7 +122,7 @@ export function FirstSharesGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="fs-done"
-        className="fs-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="fs-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="fs-done"
       >
         <h2 id="fs-done" className="text-3xl">
@@ -178,7 +178,7 @@ export function FirstSharesGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="fs-title"
-      className="fs-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="fs-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="fs-title" className="text-3xl">

@@ -556,3 +556,24 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Juego:** el factoring se paga por factura; su coste anual se modela como comisión × 365 / días de cobro, más caro que la póliza pero sin su límite. Peor caso: semilla 120.
 - **Días de pago medios:** como la fruta fresca se paga a 30 días como mucho, el juego ofrece pagos medios de 30, 40 o 50 días; 50 es la fruta a 30 y los envases a 60. Lo pidió la revisión.
 - **Herramientas:** el solver de e2e resuelve ahora `match_pairs`.
+
+## 2026-10-18 — Unidad `n3-u3` «Ratios y calidad del beneficio» y juego «¿Quién es quién?»
+
+- **Decisión:** seis lecciones:
+  - el juego «¿Quién es quién?» (`n3-u3-l1`, semilla 4, cuentas de 2025): el ejercicio clásico de identificar el sector por sus ratios, con las cinco empresas del universo;
+  - rentabilidad;
+  - liquidez y solvencia;
+  - DuPont y apalancamiento, con el explicador nuevo `Leverage`;
+  - calidad del beneficio;
+  - el Jefe final con Tramuntana Retail de 2025.
+- **Conceptos:** `ratios` y `calidad-beneficio`. `dupont-roic` (ROIC frente a WACC) queda para la unidad de coste de capital, porque requiere el WACC.
+- **Simplificaciones:**
+  - ROA con el resultado del ejercicio;
+  - la deuda con bancos se trata como a largo plazo, de modo que el pasivo corriente son los proveedores;
+  - el apalancamiento del explicador se calcula antes de impuestos.
+- **Datos:** el motor importa `companies.json` con `with { type: 'json' }`, porque el cargador de Playwright lo exige al jugar en e2e.
+- **Peor caso, ampliado:** el vigilante de desbordes comprueba ahora también que los hijos de cada panel respeten su relleno (sin contar las capas absolutas).
+  - Encontró dos fallos y los dos están corregidos:
+    - un `<select>` que estiraba la columna de «¿Quién es quién?»;
+    - la fila del deslizador de «¿Quién mueve el índice?» a 320 px.
+  - Todos los paneles de juego usan ahora `grid-cols-[minmax(0,1fr)]`.

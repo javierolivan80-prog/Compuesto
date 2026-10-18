@@ -36,8 +36,8 @@ test('se completa la Unidad 2 del Nivel 3 entera y queda completada en el Camino
 
   await page.goto('/#/camino');
   await page.reload();
-  await expect(page.getByRole('group', { name: /De la cuenta de resultados a la caja/ })).toContainText(
-    '✓ Completada',
-  );
+  await expect(
+    page.getByRole('group', { name: /De la cuenta de resultados a la caja/ }),
+  ).toContainText('✓ Completada');
   expect(errors).toEqual([]);
 });

@@ -54,7 +54,7 @@ export function IndexGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="im-done"
-        className="im-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="im-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="im-done"
       >
         <h2 id="im-done" className="text-3xl">
@@ -119,7 +119,7 @@ export function IndexGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="im-title"
-      className="im-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="im-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="im-title" className="text-3xl">
@@ -194,7 +194,7 @@ export function IndexGame({ seed, onDone }: Props) {
               value={guess}
               onChange={(e) => setGuess(Number(e.target.value))}
               aria-valuetext={signed(guess)}
-              className="im-range min-h-12 flex-1"
+              className="im-range min-h-12 min-w-0 flex-1"
             />
             <Button
               variant="secondary"

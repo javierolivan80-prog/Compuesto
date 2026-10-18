@@ -3,6 +3,7 @@ import type { Exercise } from '../src/content/schemas';
 import { readFileSync } from 'node:fs';
 import { setupBalance, SIDE_OF, type ItemId } from '../src/engine/games/balance-builder';
 import { bestPlan, setupCash } from '../src/engine/games/cash-cycle';
+import { setupDetective } from '../src/engine/games/ratio-detective';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -35,6 +36,13 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'ratio-detective') {
+    // referencia 0: acertar las cinco sin pedir ratios
+    await expect(page.getByRole('heading', { name: '¿Quién es quién?' })).toBeVisible();
+    const setup = setupDetective(seed);
+    for (const [i, c] of setup.cards.entries()) await page.locator('select').nth(i).selectOption(c);
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'cash-cycle') {
     // referencia 0: el mejor plan
     await expect(page.getByRole('heading', { name: 'Ciclo de caja' })).toBeVisible();

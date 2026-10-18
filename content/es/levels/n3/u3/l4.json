@@ -1,0 +1,187 @@
+{
+  "id": "n3-u3-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "title": "El árbol DuPont y el apalancamiento",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Descomponer el ROE en margen neto, rotación del activo y apalancamiento",
+    "Explicar cómo la deuda amplifica el ROE hacia arriba y hacia abajo"
+  ],
+  "concepts": ["ratios"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Árbol DuPont",
+      "text": "ROE = (resultado ÷ ventas) × (ventas ÷ activo) × (activo ÷ patrimonio neto). Al multiplicar, las ventas y el activo se cancelan y queda resultado ÷ patrimonio neto. Así se ve si el ROE viene del margen, de la rotación o de la deuda."
+    },
+    {
+      "type": "visual",
+      "component": "Leverage",
+      "props": {
+        "goodRoa": 12,
+        "badRoa": 2,
+        "rate": 5
+      }
+    },
+    {
+      "type": "card",
+      "term": "Apalancamiento financiero",
+      "text": "Si el activo rinde más de lo que cuesta la deuda, cada euro prestado sube el ROE; si rinde menos, lo hunde. Con un 75 % de deuda al 5 %, un activo que rinde un 12 % da un ROE del 33 %; uno que rinde un 2 %, del −7 % (antes de impuestos)."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u3-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Naranjas 2025: activo 54.913 y patrimonio neto 37.912. ¿Cuál es su apalancamiento (activo ÷ patrimonio neto)? (2 decimales)",
+      "answer": 1.45,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "54913 / 37912",
+      "explanation": "54.913 / 37.912 = 1,45: por cada euro de los accionistas hay 1,45 € de activo."
+    },
+    {
+      "id": "n3-u3-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Tramuntana 2025: margen neto 4,22 %, rotación 1,86 y apalancamiento 1,92. ¿ROE? (en %, 2 decimales)",
+      "answer": 15.07,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "4.22 * 1.86 * 1.92",
+      "explanation": "4,22 % × 1,86 × 1,92 = 15,07 % (con las cifras sin redondear, 15,09 %)."
+    },
+    {
+      "id": "n3-u3-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Antes de impuestos: un activo que rinde un 12 %, financiado al 50 % con deuda al 5 %. ¿Qué ROE obtienen los accionistas? (en %, 1 decimal)",
+      "answer": 19.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(12 - 5 * 0.5) / 0.5",
+      "explanation": "Por cada 100 de activo: gana 12, paga 2,5 de intereses (5 % de 50) y quedan 9,5 para 50 de patrimonio: 19 %.",
+      "hint": "Calcula por cada 100 € de activo: lo que gana, lo que paga y lo que pusieron los accionistas."
+    },
+    {
+      "id": "n3-u3-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "El mismo caso en un año malo: el activo rinde un 2 %. ¿ROE? (en %, 1 decimal)",
+      "answer": -1.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(2 - 5 * 0.5) / 0.5",
+      "explanation": "Gana 2, paga 2,5 de intereses: −0,5 para 50 de patrimonio, un −1 %. Sin deuda habría sido un +2 %."
+    },
+    {
+      "id": "n3-u3-l4-e5",
+      "type": "match_pairs",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Une cada factor del árbol DuPont con lo que mide.",
+      "pairs": [
+        {
+          "left": "Margen neto",
+          "right": "Cuánto gana por cada euro que vende"
+        },
+        {
+          "left": "Rotación del activo",
+          "right": "Cuánto vende por cada euro de activo"
+        },
+        {
+          "left": "Apalancamiento",
+          "right": "Cuánto activo hay por cada euro de los accionistas"
+        }
+      ],
+      "explanation": "Margen × rotación es el ROA; × apalancamiento, el ROE."
+    },
+    {
+      "id": "n3-u3-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Dos empresas tienen el mismo ROE, un 15 %. A: margen 15 %, rotación 1, apalancamiento 1. B: margen 3 %, rotación 1, apalancamiento 5. ¿Cuál tiene un ROE más arriesgado?",
+      "options": [
+        "B: su ROE viene casi todo de la deuda",
+        "A: su margen es más alto",
+        "Las dos igual, porque el ROE es el mismo",
+        "No se puede saber"
+      ],
+      "answer": 0,
+      "explanation": "B tiene 4 € de deuda (y otros pasivos) por cada euro de los accionistas: un año flojo y su ROE se hunde.",
+      "wrongExplanations": {
+        "1": "El margen alto, sin deuda, da un ROE más estable.",
+        "2": "El mismo ROE puede esconder riesgos muy distintos.",
+        "3": "El árbol DuPont lo muestra: el apalancamiento de B es 5."
+      }
+    },
+    {
+      "id": "n3-u3-l4-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "statement": "Endeudarse sube el ROE siempre que el activo rinda más que el coste de la deuda.",
+      "answer": true,
+      "explanation": "Verdadero (en un año bueno). Si el activo rinde menos que el coste de la deuda, el efecto se invierte y el ROE cae."
+    },
+    {
+      "id": "n3-u3-l4-e8",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "character": "rival",
+      "prompt": "Hugo calcula el ROE de Naranjas con el árbol DuPont. ¿Dónde se equivoca?",
+      "lines": [
+        "Margen neto: 7.233 / 58.882 = 12,28 %.",
+        "Rotación del activo: 58.882 / 54.913 = 1,07.",
+        "Apalancamiento: 37.912 / 54.913 = 0,69.",
+        "ROE: 12,28 % × 1,07 × 0,69 = 9,1 %."
+      ],
+      "errorIndex": 2,
+      "explanation": "El apalancamiento es activo ÷ patrimonio neto (54.913 / 37.912 = 1,45), no al revés. Con 1,45 sale un ROE del 19 %, el de verdad."
+    }
+  ],
+  "realWorld": "En los informes de análisis verás el ROE descompuesto con DuPont para explicar de dónde viene la rentabilidad de una empresa y si es sostenible.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

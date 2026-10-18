@@ -92,7 +92,7 @@ export function RatioGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="rg-done"
-        className="rg-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="rg-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="rg-done"
       >
         <h2 id="rg-done" className="text-3xl">
@@ -122,7 +122,7 @@ export function RatioGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="rg-title"
-      className="rg-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="rg-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="rg-title" className="text-3xl">
@@ -186,7 +186,7 @@ export function RatioGame({ seed, onDone }: Props) {
                         next[i] = (e.target.value || null) as CompanyId | null;
                         setGuesses(next);
                       }}
-                      className="bg-surface-1 border-line min-h-12 rounded-[var(--radius-sm)] border px-2 text-base"
+                      className="bg-surface-1 border-line min-h-12 w-full min-w-0 rounded-[var(--radius-sm)] border px-2 text-base"
                     >
                       <option value="">{t('ratioGame.choose')}</option>
                       {COMPANIES.map((c) => (

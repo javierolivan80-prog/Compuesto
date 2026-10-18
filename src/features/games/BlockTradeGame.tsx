@@ -149,7 +149,7 @@ export function BlockTradeGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="bt-done"
-        className="bt-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="bt-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="bt-done"
       >
         <h2 id="bt-done" className="text-3xl">
@@ -190,7 +190,7 @@ export function BlockTradeGame({ seed, onDone }: Props) {
   return (
     <section
       aria-labelledby="bt-title"
-      className={`bt-panel grid gap-4 rounded-[var(--radius-md)] border p-4 ${shake ? 'bt-shake' : ''}`}
+      className={`bt-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4 ${shake ? 'bt-shake' : ''}`}
     >
       <header className="grid gap-1">
         <h2 id="bt-title" className="text-3xl">

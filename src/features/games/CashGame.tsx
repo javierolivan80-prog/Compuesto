@@ -200,7 +200,7 @@ export function CashGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="cg-done"
-        className="cg-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="cg-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="cg-done"
       >
         <h2 id="cg-done" className="text-3xl">
@@ -265,7 +265,7 @@ export function CashGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="cg-title"
-      className="cg-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="cg-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="cg-title" className="text-3xl">

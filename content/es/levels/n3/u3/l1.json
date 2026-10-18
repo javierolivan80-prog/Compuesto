@@ -1,0 +1,309 @@
+{
+  "id": "n3-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: ¿quién es quién?",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Reconocer el modelo de negocio de una empresa por sus ratios",
+    "Descomponer el ROE en margen, rotación y apalancamiento (DuPont)"
+  ],
+  "concepts": ["ratios"],
+  "companies": [
+    "naranjas-del-turia",
+    "pirineo-energia",
+    "mediterranea-de-navieras",
+    "albufera-partners",
+    "tramuntana-retail"
+  ],
+  "historical": false,
+  "game": {
+    "kind": "ratio-detective",
+    "seed": 4
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Los ratios cuentan el negocio",
+      "text": "Un ratio divide dos cifras de las cuentas para comparar empresas de tamaños distintos. La eléctrica casi no tiene existencias y su activo son centrales; la cadena de tiendas cobra casi al contado y vende mucho con poco margen. Has acertado {hits} de 5 pidiendo {reveals} ratios de más."
+    },
+    {
+      "type": "card",
+      "term": "Rentabilidad sobre fondos propios (ROE)",
+      "text": "ROE = resultado del ejercicio ÷ patrimonio neto: lo que gana cada euro de los accionistas. En {year}, Naranjas ganó {nar_net} mil € con {nar_equity} mil € de patrimonio neto: un ROE del {nar_roe} %."
+    },
+    {
+      "type": "card",
+      "term": "Árbol DuPont",
+      "text": "ROE = margen neto × rotación del activo × apalancamiento (activo ÷ patrimonio neto). Naranjas: {nar_margin} % × {nar_turnover} × {nar_leverage}. Tramuntana: {tra_margin} % × {tra_turnover} × {tra_leverage}, un ROE del {tra_roe} %. Una gana con margen; la otra, vendiendo mucho con poco margen."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u3-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "En {year}, Naranjas ganó {nar_net} con un patrimonio neto de {nar_equity}. ¿Cuál fue su ROE? (en %, 2 decimales)",
+      "answer": 19.08,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{nar_net} / {nar_equity} * 100",
+      "params": {
+        "year": {
+          "value": 2025,
+          "min": 2021,
+          "max": 2025,
+          "step": 1,
+          "fixed": true
+        },
+        "nar_net": {
+          "value": 7233,
+          "min": 4000,
+          "max": 9000,
+          "step": 1
+        },
+        "nar_equity": {
+          "value": 37912,
+          "min": 22000,
+          "max": 42000,
+          "step": 1
+        }
+      },
+      "derived": {
+        "roe": {
+          "formula": "{nar_net} / {nar_equity} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "ROE = resultado del ejercicio ÷ patrimonio neto = {nar_net} / {nar_equity} = {roe} %.",
+      "hint": "Divide el beneficio entre lo que han puesto (y dejado) los accionistas."
+    },
+    {
+      "id": "n3-u3-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Tramuntana vendió {tra_sales} y ganó {tra_net}. ¿Cuál fue su margen neto? (en %, 2 decimales)",
+      "answer": 4.22,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{tra_net} / {tra_sales} * 100",
+      "params": {
+        "tra_net": {
+          "value": 6905,
+          "min": 4000,
+          "max": 9000,
+          "step": 1
+        },
+        "tra_sales": {
+          "value": 163472,
+          "min": 120000,
+          "max": 170000,
+          "step": 1
+        }
+      },
+      "derived": {
+        "m": {
+          "formula": "{tra_net} / {tra_sales} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Margen neto = resultado del ejercicio ÷ ventas = {tra_net} / {tra_sales} = {m} %: de cada 100 € que vende, gana unos 4.",
+      "hint": "Beneficio entre ventas."
+    },
+    {
+      "id": "n3-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Tramuntana vendió {tra_sales} con un activo de {tra_assets}. ¿Cuántas veces rota su activo? (2 decimales)",
+      "answer": 1.86,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{tra_sales} / {tra_assets}",
+      "params": {
+        "tra_sales": {
+          "value": 163472,
+          "min": 120000,
+          "max": 170000,
+          "step": 1
+        },
+        "tra_assets": {
+          "value": 87911,
+          "min": 55000,
+          "max": 95000,
+          "step": 1
+        }
+      },
+      "derived": {
+        "rot": {
+          "formula": "{tra_sales} / {tra_assets}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Rotación del activo = ventas ÷ activo = {tra_sales} / {tra_assets} = {rot}: cada euro de activo genera {rot} € de ventas al año.",
+      "hint": "Ventas entre activo total."
+    },
+    {
+      "id": "n3-u3-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Con un margen neto del {nar_margin} %, una rotación de {nar_turnover} y un apalancamiento de {nar_leverage}, ¿qué ROE sale con el árbol DuPont? (en %, 2 decimales)",
+      "answer": 19.05,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{nar_margin} * {nar_turnover} * {nar_leverage}",
+      "params": {
+        "nar_margin": {
+          "value": 12.28,
+          "min": 10,
+          "max": 14,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "nar_turnover": {
+          "value": 1.07,
+          "min": 1,
+          "max": 1.3,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "nar_leverage": {
+          "value": 1.45,
+          "min": 1.3,
+          "max": 1.7,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "dupont": {
+          "formula": "{nar_margin} * {nar_turnover} * {nar_leverage}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{nar_margin} % × {nar_turnover} × {nar_leverage} = {dupont} %. Sale casi el mismo ROE que dividiendo beneficio entre patrimonio neto; la pequeña diferencia viene de redondear los tres factores.",
+      "hint": "Multiplica los tres factores."
+    },
+    {
+      "id": "n3-u3-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "¿Qué negocio delata cada pista?",
+      "categories": [
+        "Eléctrica renovable",
+        "Cadena de tiendas",
+        "Productora de zumos",
+        "Boutique de banca"
+      ],
+      "items": [
+        {
+          "text": "Sin existencias y tres cuartas partes del activo en centrales",
+          "category": "Eléctrica renovable"
+        },
+        {
+          "text": "Cobro casi al contado y rotación del activo alta",
+          "category": "Cadena de tiendas"
+        },
+        {
+          "text": "70 días de fruta, zumo y envases en el almacén",
+          "category": "Productora de zumos"
+        },
+        {
+          "text": "Sin existencias, poco inmovilizado y casi sin deuda",
+          "category": "Boutique de banca"
+        }
+      ],
+      "explanation": "Cada negocio deja huella en sus ratios: lo que necesita tener (centrales, almacén, oficinas), cuánto tarda en cobrar y cuánto gana por cada venta."
+    },
+    {
+      "id": "n3-u3-l1-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "El margen neto de Tramuntana ({tra_margin} %) es mucho menor que el de Naranjas ({nar_margin} %). ¿Por qué su ROE ({tra_roe} %) no es tan inferior?",
+      "options": [
+        "Porque rota su activo mucho más y se financia con más deuda",
+        "Porque paga menos impuestos",
+        "Porque su activo es mayor",
+        "Porque cobra más tarde a sus clientes"
+      ],
+      "answer": 0,
+      "explanation": "DuPont: el bajo margen se compensa con más rotación ({tra_turnover} frente a {nar_turnover}) y más apalancamiento ({tra_leverage} frente a {nar_leverage}).",
+      "wrongExplanations": {
+        "1": "Los impuestos ya están dentro del margen neto.",
+        "2": "Un activo mayor, con las mismas ventas, bajaría la rotación y el ROE.",
+        "3": "Tramuntana cobra antes, no después; y cobrar tarde no sube el ROE."
+      }
+    },
+    {
+      "id": "n3-u3-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "statement": "Un ROE alto siempre es buena noticia, venga de donde venga.",
+      "answer": false,
+      "explanation": "Falso. Si viene de mucho apalancamiento, también hay más riesgo: en un año malo, la deuda hunde el ROE. Por eso se mira el árbol DuPont completo."
+    },
+    {
+      "id": "n3-u3-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "character": "mentora",
+      "situation": "Albufera Partners, tu banco, tiene un ROE de más del 40 % y casi no tiene deuda.",
+      "prompt": "¿Cómo lo consigue, según sus ratios?",
+      "options": [
+        "Gana un buen margen y su activo es pequeño frente a lo que factura: no necesita fábricas ni almacén",
+        "Usa mucha deuda para multiplicar el ROE",
+        "Tiene muchas existencias que se revalorizan",
+        "Cobra a sus clientes a muchos días"
+      ],
+      "answer": 0,
+      "explanation": "Margen alto y rotación alta: su activo principal es el talento de su gente, que no está en el balance.",
+      "wrongExplanations": {
+        "1": "Casi no tiene deuda: su apalancamiento es bajo.",
+        "2": "No tiene existencias.",
+        "3": "Cobrar tarde no sube el ROE; inmoviliza dinero."
+      }
+    }
+  ],
+  "realWorld": "En las cuentas de cualquier cotizada puedes calcular estos ratios y compararlos con los de su sector. Así se empieza un informe de análisis: ¿cómo gana dinero esta empresa?",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

@@ -745,7 +745,9 @@
     "id": "ratios",
     "name": "Ratios financieros",
     "level": 3,
-    "prerequisites": ["balance", "pyg"]
+    "prerequisites": ["balance", "pyg"],
+    "unit": "n3-u3",
+    "description": "Ratios de rentabilidad (márgenes, ROA, ROE y su árbol DuPont), liquidez (corriente y prueba ácida) y solvencia (deuda financiera neta / EBITDA, cobertura de intereses), y el apalancamiento financiero."
   },
   {
     "id": "dupont-roic",
@@ -757,7 +759,9 @@
     "id": "calidad-beneficio",
     "name": "Conversión del beneficio en caja (calidad del beneficio)",
     "level": 3,
-    "prerequisites": ["ratios", "flujos-caja"]
+    "prerequisites": ["ratios", "flujos-caja"],
+    "unit": "n3-u3",
+    "description": "Si el beneficio se convierte en caja (flujo de explotación ÷ resultado) y las señales de alarma: clientes o existencias que crecen más que las ventas, beneficio que sube con caja que baja, extraordinarios recurrentes."
   },
   {
     "id": "ciclo-caja",

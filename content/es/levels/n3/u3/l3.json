@@ -1,0 +1,201 @@
+{
+  "id": "n3-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "title": "Liquidez y solvencia",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la liquidez corriente, la prueba ácida y la deuda financiera neta",
+    "Calcular la deuda neta sobre EBITDA y la cobertura de intereses"
+  ],
+  "concepts": ["ratios"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Liquidez",
+      "text": "La liquidez corriente divide el activo corriente entre el pasivo corriente: si pasa de 1, lo que se cobra o vende en un año cubre lo que vence en un año. La prueba ácida quita las existencias, que no siempre se venden rápido."
+    },
+    {
+      "type": "card",
+      "term": "Solvencia",
+      "text": "Deuda financiera neta = deuda con bancos y bonos − caja. Se compara con el EBITDA: cuántos años de EBITDA harían falta para pagarla. La cobertura de intereses divide el resultado de explotación entre los gastos financieros: cuántas veces se pagan los intereses."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas a 31/12/2025 (miles de €): activo corriente 32.065 (existencias 7.001, clientes 9.679, caja 15.385); pasivo corriente 5.001 (proveedores; su deuda con bancos, 12.000, es a largo plazo); EBITDA 11.776; resultado de explotación 10.094; gastos financieros 450."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u3-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Activo corriente 32.065 y pasivo corriente 5.001. ¿Liquidez corriente de Naranjas? (2 decimales)",
+      "answer": 6.41,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "32065 / 5001",
+      "explanation": "32.065 / 5.001 = 6,41: muy holgada, sobre todo por la caja."
+    },
+    {
+      "id": "n3-u3-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Sin las existencias (7.001), ¿cuál es su prueba ácida? (2 decimales)",
+      "answer": 5.01,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(32065 - 7001) / 5001",
+      "explanation": "(32.065 − 7.001) / 5.001 = 5,01."
+    },
+    {
+      "id": "n3-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Debe 12.000 a los bancos y tiene 15.385 en caja. ¿Cuál es su deuda financiera neta? (miles de €; negativa si tiene más caja que deuda)",
+      "answer": -3385,
+      "unit": "mil €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "12000 - 15385",
+      "explanation": "12.000 − 15.385 = −3.385: tiene caja neta. Podría pagar toda su deuda y aún le sobrarían 3.385.",
+      "hint": "Deuda − caja; el signo importa."
+    },
+    {
+      "id": "n3-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Resultado de explotación 10.094 y gastos financieros 450. ¿Cuántas veces cubre los intereses? (2 decimales)",
+      "answer": 22.43,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "10094 / 450",
+      "explanation": "10.094 / 450 = 22,43: los intereses son una parte pequeñísima de lo que gana."
+    },
+    {
+      "id": "n3-u3-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "¿Qué mide cada ratio?",
+      "categories": ["Liquidez (corto plazo)", "Solvencia (deuda)", "Rentabilidad"],
+      "items": [
+        {
+          "text": "Activo corriente / pasivo corriente",
+          "category": "Liquidez (corto plazo)"
+        },
+        {
+          "text": "Prueba ácida",
+          "category": "Liquidez (corto plazo)"
+        },
+        {
+          "text": "Deuda financiera neta / EBITDA",
+          "category": "Solvencia (deuda)"
+        },
+        {
+          "text": "Resultado de explotación / gastos financieros",
+          "category": "Solvencia (deuda)"
+        },
+        {
+          "text": "ROE",
+          "category": "Rentabilidad"
+        },
+        {
+          "text": "Margen EBITDA",
+          "category": "Rentabilidad"
+        }
+      ],
+      "explanation": "Liquidez: si puede pagar lo que vence pronto. Solvencia: si su deuda es sostenible. Rentabilidad: cuánto gana."
+    },
+    {
+      "id": "n3-u3-l3-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Una empresa tiene una deuda financiera neta de 4 veces su EBITDA y su EBITDA cae a la mitad. ¿Qué pasa con el ratio?",
+      "options": [
+        "Sube a 8 veces: la misma deuda pesa el doble",
+        "Baja a 2 veces",
+        "No cambia",
+        "Sube a 4,5 veces"
+      ],
+      "answer": 0,
+      "explanation": "Misma deuda entre la mitad de EBITDA: el doble. Por eso los bancos fijan límites de deuda neta / EBITDA en los préstamos.",
+      "wrongExplanations": {
+        "1": "El EBITDA está en el denominador: si baja, el ratio sube.",
+        "2": "El denominador cambia.",
+        "3": "Al dividir entre la mitad, el ratio se duplica."
+      }
+    },
+    {
+      "id": "n3-u3-l3-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ratios"],
+      "statement": "Una liquidez corriente muy alta siempre es buena señal.",
+      "answer": false,
+      "explanation": "Falso. Puede indicar caja ociosa o existencias que no se venden. Lo sano depende del sector: un supermercado opera con liquidez por debajo de 1."
+    },
+    {
+      "id": "n3-u3-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "character": "mentora",
+      "situation": "Un banco estudia prestar a Naranjas. Tiene caja neta, cubre sus intereses 22 veces y su liquidez corriente es 6,4.",
+      "prompt": "¿Qué conclusión es razonable?",
+      "options": [
+        "Su riesgo de impago es bajo: tiene más caja que deuda y gana mucho más de lo que paga en intereses",
+        "Es arriesgada, porque tiene deuda",
+        "Su liquidez es demasiado alta para prestarle",
+        "No se puede saber sin su ROE"
+      ],
+      "answer": 0,
+      "explanation": "Caja neta y una cobertura alta son exactamente lo que mira un banco.",
+      "wrongExplanations": {
+        "1": "Tener deuda no es malo si se puede pagar holgadamente.",
+        "2": "Una liquidez alta no impide un préstamo; como mucho, indica caja poco aprovechada.",
+        "3": "Para el banco importa más la capacidad de pago que la rentabilidad."
+      }
+    }
+  ],
+  "realWorld": "En los contratos de préstamo es habitual pactar límites de deuda financiera neta sobre EBITDA (los «covenants»). En los informes de resultados de las cotizadas verás este ratio casi siempre.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

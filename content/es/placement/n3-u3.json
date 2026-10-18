@@ -1,0 +1,162 @@
+{
+  "id": "salto-n3-u3",
+  "unitId": "n3-u3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n3-u3-q1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Pirineo Energía en 2025 ganó un 29,5 % de sus ventas y rotó su activo 0,40 veces con un apalancamiento de 1,7. ¿ROE aproximado?",
+      "options": ["20 %", "29,5 %", "12 %", "50 %"],
+      "answer": 0,
+      "explanation": "29,5 % × 0,40 × 1,7 ≈ 20 %.",
+      "wrongExplanations": {
+        "1": "Ese es solo el margen neto.",
+        "2": "Margen × rotación es el ROA (11,8 %); falta el apalancamiento.",
+        "3": "Has sumado o multiplicado de más."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Resultado de explotación 9.334 y amortización 1.672. ¿EBITDA?",
+      "options": ["11.006", "7.662", "9.334", "15.606"],
+      "answer": 0,
+      "explanation": "9.334 + 1.672 = 11.006.",
+      "wrongExplanations": {
+        "1": "La amortización se suma, no se resta.",
+        "2": "Ese es el resultado de explotación.",
+        "3": "Revisa la suma."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Deuda con bancos 10.000 y caja 11.989. ¿Deuda financiera neta?",
+      "options": ["−1.989 (caja neta)", "21.989", "1.989", "10.000"],
+      "answer": 0,
+      "explanation": "10.000 − 11.989 = −1.989.",
+      "wrongExplanations": {
+        "1": "La caja se resta.",
+        "2": "El signo: tiene más caja que deuda.",
+        "3": "Falta restar la caja."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "¿Qué ratio mide la solvencia?",
+      "options": [
+        "Deuda financiera neta / EBITDA",
+        "Margen bruto",
+        "Rotación del activo",
+        "Días de existencias"
+      ],
+      "answer": 0,
+      "explanation": "Compara la deuda con lo que genera la empresa para pagarla.",
+      "wrongExplanations": {
+        "1": "Mide rentabilidad.",
+        "2": "Mide eficiencia en el uso del activo.",
+        "3": "Mide el ciclo de caja."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Una empresa cobra a 12 días, rota su activo 1,9 veces y su margen neto es del 4 %. ¿Qué negocio es probablemente?",
+      "options": [
+        "Una cadena de tiendas",
+        "Una eléctrica renovable",
+        "Una boutique de banca de inversión",
+        "Una naviera"
+      ],
+      "answer": 0,
+      "explanation": "Cobro casi al contado, mucha rotación y poco margen: comercio minorista.",
+      "wrongExplanations": {
+        "1": "Una eléctrica rota poco su activo y tiene márgenes altos.",
+        "2": "Una boutique tiene márgenes mucho más altos.",
+        "3": "Una naviera rota poco su activo."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "statement": "Con deuda, si el activo rinde menos que lo que cuesta la deuda, el ROE es menor que el ROA.",
+      "answer": true,
+      "explanation": "Verdadero: los intereses se comen más de lo que el activo gana con el dinero prestado."
+    },
+    {
+      "id": "salto-n3-u3-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Beneficio 6.646 y flujo de explotación 7.417. ¿Conversión en caja?",
+      "options": ["1,12", "0,90", "0,77", "1,00"],
+      "answer": 0,
+      "explanation": "7.417 / 6.646 = 1,12.",
+      "wrongExplanations": {
+        "1": "Has invertido la división.",
+        "2": "Revisa la división.",
+        "3": "No son iguales."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "¿Cuál es una señal de alarma sobre la calidad del beneficio?",
+      "options": [
+        "Los clientes crecen un 45 % y las ventas un 10 %",
+        "Las existencias crecen como las ventas",
+        "La conversión en caja es de 1,1",
+        "La amortización sube porque se ha invertido"
+      ],
+      "answer": 0,
+      "explanation": "Clientes que crecen mucho más que las ventas: ventas que no se cobran.",
+      "wrongExplanations": {
+        "1": "Crecer al ritmo de las ventas es normal.",
+        "2": "Es una conversión sana.",
+        "3": "Más amortización por más inversión es normal."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null
+}

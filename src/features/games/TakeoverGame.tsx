@@ -84,7 +84,7 @@ export function TakeoverGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="tk-done"
-        className="tk-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="tk-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="tk-done"
       >
         <h2 id="tk-done" className="text-3xl">
@@ -148,7 +148,7 @@ export function TakeoverGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="tk-title"
-      className="tk-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="tk-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="tk-title" className="text-3xl">

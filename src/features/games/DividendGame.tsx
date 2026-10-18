@@ -81,7 +81,7 @@ export function DividendGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="dv-done"
-        className="dv-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="dv-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="dv-done"
       >
         <p className="text-text-2 text-sm">
@@ -149,7 +149,7 @@ export function DividendGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="dv-title"
-      className="dv-panel relative grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="dv-panel relative grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <h2 id="dv-title" className="text-3xl">

@@ -174,7 +174,7 @@ export function AuctionGame({ seed, onDone }: Props) {
     return (
       <section
         aria-labelledby="oa-done"
-        className="oa-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+        className="oa-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
         data-testid="oa-done"
       >
         <h2 id="oa-done" className="text-3xl">
@@ -228,7 +228,7 @@ export function AuctionGame({ seed, onDone }: Props) {
     <section
       ref={box}
       aria-labelledby="oa-title"
-      className="oa-panel grid gap-4 rounded-[var(--radius-md)] border p-4"
+      className="oa-panel grid grid-cols-[minmax(0,1fr)] gap-4 rounded-[var(--radius-md)] border p-4"
     >
       <header className="grid gap-1">
         <div className="flex items-baseline justify-between gap-3">

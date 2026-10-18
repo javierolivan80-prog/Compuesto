@@ -77,6 +77,11 @@
           "id": "n3-u2",
           "name": "De la cuenta de resultados a la caja",
           "concepts": ["ciclo-caja", "factoring-confirming"]
+        },
+        {
+          "id": "n3-u3",
+          "name": "Ratios y calidad del beneficio",
+          "concepts": ["ratios", "calidad-beneficio"]
         }
       ]
     },

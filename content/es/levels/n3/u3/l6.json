@@ -1,0 +1,206 @@
+{
+  "id": "n3-u3-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 3,
+  "title": "Jefe final: el informe de ratios de Tramuntana",
+  "cfa": "financial-statement-analysis",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular e interpretar los ratios de rentabilidad, liquidez, solvencia y calidad del beneficio de Tramuntana Retail en 2025"
+  ],
+  "concepts": ["ratios", "calidad-beneficio"],
+  "companies": ["tramuntana-retail", "naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u3-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Tramuntana 2025: ventas 163.472 y coste de ventas 112.796. ¿Margen bruto? (en %, 1 decimal)",
+      "answer": 31.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(163472 - 112796) / 163472 * 100",
+      "explanation": "(163.472 − 112.796) / 163.472 = 31,0 %."
+    },
+    {
+      "id": "n3-u3-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Resultado de explotación 10.215 y amortización 3.680. ¿Margen EBITDA? (en %, 2 decimales)",
+      "answer": 8.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(10215 + 3680) / 163472 * 100",
+      "explanation": "EBITDA 13.895 / 163.472 = 8,50 %."
+    },
+    {
+      "id": "n3-u3-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Ganó 6.905 con un patrimonio neto de 45.751. ¿ROE? (en %, 2 decimales)",
+      "answer": 15.09,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "6905 / 45751 * 100",
+      "explanation": "6.905 / 45.751 = 15,09 %."
+    },
+    {
+      "id": "n3-u3-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Debe 23.000 a los bancos y tiene 21.908 en caja; su EBITDA es 13.895. ¿Deuda financiera neta / EBITDA? (3 decimales)",
+      "answer": 0.079,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 3,
+      "formula": "(23000 - 21908) / 13895",
+      "explanation": "Deuda neta 1.092 / 13.895 = 0,08: casi no tiene deuda neta."
+    },
+    {
+      "id": "n3-u3-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Gastos financieros 1.008. ¿Cuántas veces cubre su resultado de explotación (10.215) los intereses? (2 decimales)",
+      "answer": 10.13,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "10215 / 1008",
+      "explanation": "10.215 / 1.008 = 10,13."
+    },
+    {
+      "id": "n3-u3-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "Activo corriente 45.206 (caja 21.908, clientes 5.374, existencias 17.924) y pasivo corriente 19.160 (proveedores). ¿Prueba ácida? (2 decimales)",
+      "answer": 1.42,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(45206 - 17924) / 19160",
+      "explanation": "(45.206 − 17.924) / 19.160 = 1,42. Sin las existencias, sigue cubriendo lo que vence en un año."
+    },
+    {
+      "id": "n3-u3-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "Su flujo de explotación fue 10.279 y su resultado del ejercicio 6.905. ¿Conversión en caja? (2 decimales)",
+      "answer": 1.49,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "10279 / 6905",
+      "explanation": "10.279 / 6.905 = 1,49: su beneficio llega con creces a la caja (amortización alta y proveedores que la financian)."
+    },
+    {
+      "id": "n3-u3-l6-e8",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "prompt": "¿Qué ratio de Tramuntana delata cada rasgo de su negocio?",
+      "categories": ["Venta en tienda", "Poco margen, mucho volumen", "Proveedores que financian"],
+      "items": [
+        {
+          "text": "12 días de cobro",
+          "category": "Venta en tienda"
+        },
+        {
+          "text": "Margen neto del 4,2 %",
+          "category": "Poco margen, mucho volumen"
+        },
+        {
+          "text": "Rotación del activo de 1,86",
+          "category": "Poco margen, mucho volumen"
+        },
+        {
+          "text": "Proveedores (19.160) mayores que sus existencias (17.924)",
+          "category": "Proveedores que financian"
+        }
+      ],
+      "explanation": "Una cadena de tiendas cobra casi al contado, gana poco por venta pero vende mucho y paga a sus proveedores después de vender."
+    },
+    {
+      "id": "n3-u3-l6-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["ratios", "calidad-beneficio"],
+      "character": "jefe",
+      "situation": "El jefe te pide una conclusión de una línea sobre Tramuntana para el comité.",
+      "prompt": "¿Cuál propones?",
+      "options": [
+        "Negocio de poco margen y mucha rotación, con un ROE del 15 %, casi sin deuda neta y un beneficio que se convierte bien en caja",
+        "Empresa poco rentable: su margen neto es del 4 %",
+        "Empresa muy endeudada: debe 23.000",
+        "Empresa con problemas de liquidez: su prueba ácida es baja"
+      ],
+      "answer": 0,
+      "explanation": "Resume lo que dicen los ratios juntos, no uno suelto.",
+      "wrongExplanations": {
+        "1": "El margen bajo es su modelo de negocio; su ROE es del 15 %.",
+        "2": "Su deuda casi la cubre su caja: deuda neta / EBITDA de 0,08.",
+        "3": "Una prueba ácida de 1,42 es holgada para una cadena de tiendas."
+      }
+    },
+    {
+      "id": "n3-u3-l6-e10",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ratios"],
+      "character": "rival",
+      "prompt": "Hugo compara a Tramuntana con Naranjas. ¿Dónde está el fallo?",
+      "lines": [
+        "Tramuntana tiene un margen neto del 4,2 % y Naranjas, del 12,3 %.",
+        "Tramuntana rota su activo 1,86 veces y Naranjas, 1,07.",
+        "Tramuntana tiene un apalancamiento de 1,92 y Naranjas, de 1,45.",
+        "Por tanto, Tramuntana es menos rentable para sus accionistas: su ROE tiene que ser un tercio del de Naranjas."
+      ],
+      "errorIndex": 3,
+      "explanation": "Con DuPont: 4,2 % × 1,86 × 1,92 ≈ 15 %, frente a 12,3 % × 1,07 × 1,45 ≈ 19 %. Menos ROE, sí, pero ni de lejos un tercio: rotación y apalancamiento compensan gran parte del margen."
+    }
+  ],
+  "realWorld": "Con estos ratios puedes escribir el primer párrafo de un informe de análisis de cualquier empresa: cómo gana dinero, si puede pagar lo que debe y si su beneficio es de verdad.",
+  "sources": [
+    {
+      "title": "BOE: Real Decreto 1514/2007, Plan General de Contabilidad (modelos de balance, cuenta de pérdidas y ganancias y estado de flujos de efectivo)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

@@ -19,6 +19,7 @@ const LESSONS = [
   'n1/u6/l7',
   'n3/u1/l1',
   'n3/u2/l1',
+  'n3/u3/l1',
 ] as const;
 
 async function watchOverflow(page: Page, textZoom: boolean) {
@@ -44,6 +45,22 @@ async function watchOverflow(page: Page, textZoom: boolean) {
           if (r > max && r > window.innerWidth + 0.5) {
             max = r;
             who = `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 50)} «${(el.textContent ?? '').slice(0, 30)}» → ${Math.round(r)}`;
+          }
+        }
+        // paneles cuyo contenido invade su relleno derecho (una columna estirada por un hijo demasiado ancho)
+        for (const el of document.querySelectorAll('section')) {
+          const box = el.getBoundingClientRect();
+          if (!box.width) continue;
+          const inner = box.right - parseFloat(getComputedStyle(el).paddingRight);
+          for (const child of el.children) {
+            // las capas absolutas (puntos flotantes, brillos) ocupan el panel entero a propósito
+            if (['absolute', 'fixed'].includes(getComputedStyle(child).position)) continue;
+            const r = (child as HTMLElement).getBoundingClientRect();
+            if (r.width && r.right > inner + 1)
+              w.__over.push({
+                px: Math.round(r.right - inner),
+                who: `relleno de «${(el.textContent ?? '').slice(0, 20)}»`,
+              });
           }
         }
         // cifras que no caben en su celda y se pisan con la siguiente
