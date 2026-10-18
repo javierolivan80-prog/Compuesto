@@ -440,3 +440,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Corrección en `n1-u4-l4`** (versión 2): la tarjeta 2 no tenía el paso 3. Además, la tarjeta 1 decía que se casan todas las órdenes; ahora dice «las que pueden casarse».
 - **Prioridad:** primero las órdenes a mercado, luego el límite más alto y, a igual límite, la hora de llegada. Si a las 8:59 confirmas la misma orden de las 8:30, conserva su sitio por delante de la orden grande; si cambias el precio o el tipo, va al final de la cola.
 - **Nota:** 1 con la orden final más barata posible (con un margen de 2 €) y 0 con la más cara. Se calcula probando todas las órdenes que se podían poner.
+
+## 2026-10-18 — Lección-juego «¿Quién mueve el índice?» (`n1-u3-l6`)
+
+- **Decisión:** el juego de «Bolsas e índices» usa el índice ficticio **Turia 6**. Reúne las seis cotizadas del universo, ponderadas por capitalización ajustada por free float, **sin topes**: así se ve que la mayor (Azahar) pesa la mitad. El IBEX 35 y su tope del 20 % se explican en las tarjetas. Base: 1.000 puntos. Cuatro sesiones, cada una de un tipo:
+  - una pequeña se dispara;
+  - la grande sube y las demás bajan;
+  - cae la segunda;
+  - todas suben.
+
+  Cada día predices la variación con un deslizador (también con botones − y +, en décimas) y luego ves la aportación de cada empresa (peso × variación).
+- **Motivo:** es la idea central de la unidad (l2 y l3) y se aprende mejor fallando una predicción que leyendo la fórmula.
+- **Datos:** acciones de `companies.json` (un test lo comprueba); precios cercanos a la cinta de La Mesa; free float fijado por empresa en el motor (`src/engine/games/index-mover.ts`). Los pesos de cada día salen de los precios del cierre anterior.
+- **Acierto:** a 0,15 p. p. o menos cuenta 1; a 0,5 p. p. o menos, medio.
+- La lección abre la unidad (`order: 0`). Javier debe comprobar el tope del 20 % del IBEX en el PDF de las Normas Técnicas: desde aquí solo se pudo citar la página de índices de BME.

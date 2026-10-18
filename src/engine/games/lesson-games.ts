@@ -18,6 +18,14 @@ import {
   type Move,
 } from './first-shares';
 import {
+  guessIndex,
+  indexResult,
+  indexValues,
+  playSessions,
+  setupIndex,
+  startIndex,
+} from './index-mover';
+import {
   auctionResult,
   auctionValues,
   equilibrium,
@@ -28,7 +36,12 @@ import {
 
 /* Juegos que abren una lección (lección-juego): qué cifras devuelven y con qué formato se escriben en el texto. */
 
-export const LESSON_GAMES = ['block-trade', 'first-shares', 'opening-auction'] as const;
+export const LESSON_GAMES = [
+  'block-trade',
+  'first-shares',
+  'opening-auction',
+  'index-mover',
+] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
 export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>> = {
@@ -66,6 +79,14 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     cost: [2, 2],
     avg: [2, 4],
     pct: [2, 2],
+  },
+  'index-mover': {
+    start: [0, 0],
+    end: [2, 2],
+    points: [2, 2],
+    pct: [2, 2],
+    top: [1, 1],
+    hits: [0, 0],
   },
 };
 
@@ -116,6 +137,17 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
         { limit: choices[0]! },
         { limit: choices.at(-1)! },
       ].map((mine) => auctionValues(auctionResult(setup, mine)));
+    }
+    case 'index-mover': {
+      // los puntos del índice no dependen de lo que predigas: solo cambian los aciertos
+      const setup = setupIndex(seed);
+      const out = playSessions(setup);
+      const play = (pick: (actual: number) => number) => {
+        let s = startIndex(setup);
+        for (const o of out) s = guessIndex(s, pick(o.pct));
+        return indexValues(indexResult(s));
+      };
+      return [play((a) => a), play(() => 0), play(() => 3)];
     }
   }
 }

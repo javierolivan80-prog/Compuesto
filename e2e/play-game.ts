@@ -1,6 +1,7 @@
 import { expect, type Page } from '@playwright/test';
 import type { Exercise } from '../src/content/schemas';
 import { setupFirstShares } from '../src/engine/games/first-shares';
+import { playSessions, setupIndex } from '../src/engine/games/index-mover';
 import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson-games';
 import { instantiate, isParametric } from '../src/engine/params';
 import { playLesson, type Lesson } from './play';
@@ -23,6 +24,21 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'index-mover') {
+    // referencia 0: clavar las cuatro sesiones
+    await expect(page.getByRole('heading', { name: '¿Quién mueve el índice?' })).toBeVisible();
+    const out = playSessions(setupIndex(seed));
+    for (const [i, o] of out.entries()) {
+      await page
+        .getByLabel('¿Cuánto se mueve hoy el índice?')
+        .fill(String(Math.round(o.pct * 10) / 10));
+      await page.getByRole('button', { name: 'Ver el cierre' }).click();
+      await page
+        .getByRole('button', {
+          name: i === out.length - 1 ? 'Ver el resultado' : 'Siguiente sesión',
+        })
+        .click();
+    }
   } else if (kind === 'opening-auction') {
     // referencia 0: a mercado desde las 8:30
     await expect(page.getByRole('heading', { name: 'La subasta de apertura' })).toBeVisible();

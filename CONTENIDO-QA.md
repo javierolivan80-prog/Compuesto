@@ -149,3 +149,15 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   Menores, aplicados: el ítem de e6 (que se cambió por un ejercicio de prioridad), e3 (demanda acumulada), el supuesto del continuo explicado como tal, la longitud de las opciones de e8 y las cabeceras de la tabla.
 - **Ronda 2:** aprobada. Cuatro retoques aplicados (`tableNote`, e6, la pista de e1 y la fecha de la fuente).
 - Estado: `n1-u4-l8` en `reviewed`; `n1-u4-l4` v2 sigue en `reviewed` con el visto bueno del subagente. 🛑 Pendiente de la revisión de Javier. Pendiente de contrastar el paso 3 de la regla de precio con la circular del SIBE (ver DECISIONES.md).
+
+## n1-u3-l6 — Lección-juego «¿Quién mueve el índice?» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Mayores aplicados: los textos «why» de las sesiones all-up y small-big no se cumplían con todas las semillas (ahora sí, comprobado con los rangos del motor). Menores aplicados:
+  - big-up: «todas las demás bajen»;
+  - second-down: «algo más de una cuarta parte»;
+  - «p. p.» en lugar de «puntos» donde podía confundirse con los puntos del índice;
+  - la tarjeta 2 separa la regla de una sesión del total;
+  - test de que la semilla 3 termina en subida;
+  - la tarjeta 3 explica qué es el mercado continuo y dice «tope en cada revisión», DAX 40 y Euro Stoxx 50 (con la misma fuente que l4);
+  - e6, longitud de las opciones y explicación del distractor 2.
+- **Ronda 2:** aprobada; dos retoques aplicados («p. p.» en e5 y e8, y la frase del Euro Stoxx 50). Estado: `reviewed`. 🛑 Pendiente de la revisión de Javier, incluido el tope del 20 % en las Normas Técnicas del IBEX.

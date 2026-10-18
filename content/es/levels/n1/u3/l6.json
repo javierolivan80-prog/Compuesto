@@ -1,0 +1,280 @@
+{
+  "id": "n1-u3-l6",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
+  "level": 1,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: ¿quién mueve el índice?",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Ver que un índice ponderado por capitalización lo mueven sobre todo las empresas que más pesan",
+    "Calcular pesos, aportaciones (peso × variación) y la variación de un índice"
+  ],
+  "concepts": ["ibex-35", "capitalizacion", "free-float", "indices-mundiales"],
+  "companies": [
+    "azahar-calderona",
+    "pirineo-energia",
+    "tramuntana-retail",
+    "mediterranea-de-navieras",
+    "naranjas-del-turia",
+    "albufera-partners"
+  ],
+  "historical": false,
+  "game": {
+    "kind": "index-mover",
+    "seed": 3
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Índice ponderado",
+      "text": "Un índice resume cómo se mueve un grupo de acciones. El Turia 6 pondera cada empresa por su capitalización ajustada por free float: la mayor pesaba un {top} %. Por eso la gran subida de una empresa pequeña mueve poco el índice, y un 1 % de la grande lo mueve mucho."
+    },
+    {
+      "type": "card",
+      "term": "Aportación",
+      "text": "Lo que aporta cada empresa es peso × variación: con un peso del 50 %, una subida del 2 % aporta 1 punto porcentual. La variación del índice en una sesión es la suma de las aportaciones de ese día. Tu índice pasó de {start} a {end} puntos en cuatro sesiones: una subida del {pct} %."
+    },
+    {
+      "type": "card",
+      "term": "El IBEX 35 y otros índices",
+      "text": "El IBEX 35 funciona igual, pero con 35 empresas del mercado continuo (donde cotizan las grandes empresas españolas) y un tope del 20 % por valor en cada revisión, para que ninguna domine. Hay otros de referencia: el DAX 40 en Alemania, el Euro Stoxx 50 en toda la zona euro o el S&P 500 en Estados Unidos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u3-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["indices"],
+      "concepts": ["ibex-35", "free-float"],
+      "prompt": "En un índice, una empresa tiene una capitalización ajustada por free float de {cap} millones de euros y el total del índice suma {total} millones. ¿Qué peso tiene, en %? (2 decimales)",
+      "answer": 50.48,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{cap} / {total} * 100",
+      "params": {
+        "cap": {
+          "value": 530,
+          "min": 50,
+          "max": 900,
+          "step": 10
+        },
+        "total": {
+          "value": 1050,
+          "min": 1000,
+          "max": 3000,
+          "step": 50
+        }
+      },
+      "derived": {
+        "peso": {
+          "formula": "{cap} / {total} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Peso = capitalización ajustada por free float de la empresa ÷ la del índice entero = {cap} ÷ {total} × 100 = {peso} %.",
+      "hint": "Divide lo que vale la empresa entre lo que vale todo el índice."
+    },
+    {
+      "id": "n1-u3-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["indices"],
+      "concepts": ["ibex-35"],
+      "prompt": "Una empresa pesa un {w} % del índice y hoy sube un {r} %. ¿Cuántos puntos porcentuales aporta al índice? (3 decimales)",
+      "answer": 1,
+      "unit": "puntos porcentuales",
+      "tolerance": 0,
+      "answerDecimals": 3,
+      "formula": "{w} * {r} / 100",
+      "params": {
+        "w": {
+          "value": 50,
+          "min": 2,
+          "max": 60,
+          "step": 1
+        },
+        "r": {
+          "value": 2,
+          "min": 0.5,
+          "max": 9,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "aporta": {
+          "formula": "{w} * {r} / 100",
+          "decimals": 3
+        }
+      },
+      "explanation": "Aportación = peso × variación = {w} % × {r} % = {aporta} puntos porcentuales. Si las demás empresas no se movieran, el índice subiría eso.",
+      "hint": "Multiplica el peso por la variación y divide entre 100."
+    },
+    {
+      "id": "n1-u3-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["indices"],
+      "concepts": ["ibex-35"],
+      "prompt": "El índice empezó en {start} puntos y terminó en {end}. ¿Cuánto ha subido, en %? (2 decimales)",
+      "answer": 0.74,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "({end} / {start} - 1) * 100",
+      "params": {
+        "start": {
+          "value": 1000,
+          "min": 900,
+          "max": 1000,
+          "step": 10
+        },
+        "end": {
+          "value": 1007.37,
+          "min": 1007,
+          "max": 1080,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "var": {
+          "formula": "({end} / {start} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Variación = (puntos finales ÷ puntos iniciales − 1) × 100 = ({end} ÷ {start} − 1) × 100 = {var} %. Los puntos solo sirven para comparar el índice consigo mismo.",
+      "hint": "Divide los puntos finales entre los iniciales, resta 1 y multiplica por 100."
+    },
+    {
+      "id": "n1-u3-l6-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["indices"],
+      "concepts": ["ibex-35"],
+      "prompt": "¿Qué movimientos mueven el índice más de medio punto porcentual (arriba o abajo) y cuáles menos?",
+      "categories": ["Más de 0,5 p. p.", "Menos de 0,5 p. p."],
+      "items": [
+        {
+          "text": "Una empresa que pesa un 30 % sube un 3 %",
+          "category": "Más de 0,5 p. p."
+        },
+        {
+          "text": "Una empresa que pesa un 2 % sube un 10 %",
+          "category": "Menos de 0,5 p. p."
+        },
+        {
+          "text": "Una empresa que pesa un 25 % baja un 4 %",
+          "category": "Más de 0,5 p. p."
+        },
+        {
+          "text": "Una empresa que pesa un 8 % baja un 5 %",
+          "category": "Menos de 0,5 p. p."
+        }
+      ],
+      "explanation": "Aportación = peso × variación: 30 % × 3 % = 0,9 p. p.; 2 % × 10 % = 0,2; 25 % × 4 % = 1 (a la baja); 8 % × 5 % = 0,4 (a la baja). La subida más llamativa, la del 10 %, es de las que menos mueven el índice."
+    },
+    {
+      "id": "n1-u3-l6-e5",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["indices"],
+      "concepts": ["ibex-35", "capitalizacion"],
+      "statement": "En un índice ponderado por capitalización, una subida del 10 % de una empresa pequeña mueve siempre el índice más que una subida del 2 % de la empresa más grande.",
+      "answer": false,
+      "explanation": "Depende de los pesos. Si la pequeña pesa un 3 % y la grande un 50 %, la primera aporta 0,3 p. p. y la segunda 1 p. p."
+    },
+    {
+      "id": "n1-u3-l6-e6",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": ["indices"],
+      "concepts": ["ibex-35", "free-float"],
+      "prompt": "¿Qué describe bien al IBEX 35?",
+      "options": [
+        "35 valores del mercado continuo, ponderados por capitalización ajustada por free float y con tope por valor",
+        "Todas las empresas que cotizan en las bolsas españolas, cada una con el mismo peso en el índice",
+        "Las 35 empresas españolas con más empleados, ponderadas según lo que venden cada año",
+        "La media de los precios de 35 acciones, en la que pesa más la acción con el precio más alto"
+      ],
+      "answer": 0,
+      "explanation": "El IBEX 35 reúne 35 de las empresas más grandes y negociadas del mercado continuo y las pondera por la capitalización de su free float, con un tope por valor.",
+      "wrongExplanations": {
+        "1": "No incluye todas las cotizadas ni les da el mismo peso: son 35 y pesan según su capitalización ajustada por free float.",
+        "2": "Se eligen por negociación y tamaño, y se ponderan por capitalización ajustada por free float; los empleados y las ventas no cuentan.",
+        "3": "El precio de una acción no dice nada del tamaño: lo que cuenta es la capitalización, no el precio por acción."
+      }
+    },
+    {
+      "id": "n1-u3-l6-e7",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["indices"],
+      "concepts": ["ibex-35"],
+      "situation": "Hoy el IBEX 35 sube un 0,6 %, pero las tres acciones que tienes, de empresas pequeñas del índice, han bajado.",
+      "prompt": "¿Cómo es posible?",
+      "options": [
+        "Las empresas que más pesan han subido y compensan con creces las bajadas de las pequeñas",
+        "El índice se calcula con un día de retraso, así que aún no recoge las bajadas de hoy",
+        "Las empresas pequeñas no cuentan para el índice hasta su próxima revisión semestral",
+        "El índice solo sigue a las empresas extranjeras que cotizan en Madrid"
+      ],
+      "answer": 0,
+      "explanation": "En un índice ponderado por capitalización, unas pocas empresas grandes pueden marcar el día. Las pequeñas cuentan, pero con poco peso.",
+      "wrongExplanations": {
+        "1": "El índice se calcula durante la sesión con los precios de cada momento.",
+        "2": "Las pequeñas sí cuentan desde que entran en el índice, solo que pesan poco; la revisión decide qué empresas entran o salen.",
+        "3": "El IBEX 35 lo forman empresas del mercado continuo español, no solo extranjeras."
+      }
+    },
+    {
+      "id": "n1-u3-l6-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["indices"],
+      "concepts": ["ibex-35"],
+      "prompt": "Ordena estas empresas de mayor a menor aportación al índice hoy.",
+      "steps": [
+        "Empresa C: pesa un 40 % y sube un 1 %",
+        "Empresa A: pesa un 5 % y sube un 6 %",
+        "Empresa B: pesa un 20 % y sube un 1 %"
+      ],
+      "explanation": "C aporta 40 % × 1 % = 0,4 p. p.; A, 5 % × 6 % = 0,3 p. p.; B, 20 % × 1 % = 0,2 p. p. La que más sube (A) no es la que más mueve el índice."
+    }
+  ],
+  "realWorld": "Cuando una noticia dice «el IBEX 35 sube un 1 %», normalmente lo explican unos pocos valores grandes. En la web de BME verás la composición del índice y el peso de cada empresa.",
+  "sources": [
+    {
+      "title": "Sociedad de Bolsas / BME: Normas técnicas del IBEX 35 (ponderación por capitalización ajustada por free float y límites de peso)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "Fichas de los índices: S&P Dow Jones Indices, STOXX y Deutsche Börse",
+      "url": "https://www.spglobal.com/spdji/es/",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-18"
+}

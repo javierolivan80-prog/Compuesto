@@ -1,0 +1,34 @@
+/* ¿Quién mueve el índice?: barras de peso (scaleX desde la izquierda) y de aportación divergentes desde el centro. */
+.im-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.im-weight {
+  background: color-mix(in oklch, var(--brand) 16%, transparent);
+  transform-origin: left center;
+  border-radius: 4px;
+}
+.im-axis {
+  background: linear-gradient(var(--line), var(--line)) center / 1px 100% no-repeat;
+}
+.im-contrib {
+  border-radius: 3px;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.im-up {
+  background: var(--bull);
+  transform-origin: left center;
+}
+.im-down {
+  background: var(--bear);
+  transform-origin: right center;
+}
+.im-range {
+  accent-color: var(--brand);
+  touch-action: manipulation;
+}
+@media (prefers-reduced-motion: reduce) {
+  .im-contrib {
+    transition: none;
+  }
+}

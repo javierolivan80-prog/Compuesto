@@ -29,6 +29,7 @@ import { ExplainerBlock } from './explainers';
 import { BlockTradeGame } from '../games/BlockTradeGame';
 import { FirstSharesGame } from '../games/FirstSharesGame';
 import { AuctionGame } from '../games/AuctionGame';
+import { IndexGame } from '../games/IndexGame';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -175,6 +176,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'block-trade': BlockTradeGame,
             'first-shares': FirstSharesGame,
             'opening-auction': AuctionGame,
+            'index-mover': IndexGame,
           }[lesson.game.kind];
           return (
             <Game
