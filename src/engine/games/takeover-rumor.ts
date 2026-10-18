@@ -74,6 +74,9 @@ export interface TakeoverResult {
   gainSell: number;
   /** Lo que habrías perdido con las 1.000 de más si el rumor hubiera sido falso (€). */
   falseLoss: number;
+  /** Lo que ganan las 1.000 compradas por el rumor si acudes a la OPA / si vendes tras el anuncio (€). */
+  rumorAccept: number;
+  rumorSell: number;
   score: number;
 }
 
@@ -96,6 +99,8 @@ export function takeoverResult(s: TakeoverSetup, c: TakeoverChoices): TakeoverRe
     gainAccept: r2(MY_SHARES * (s.offer - s.p0)),
     gainSell: r2(MY_SHARES * (s.pAfter - s.p0)),
     falseLoss: r2(EXTRA * (s.pRumor - s.pFalse)),
+    rumorAccept: r2(EXTRA * (s.offer - s.pRumor)),
+    rumorSell: r2(EXTRA * (s.pAfter - s.pRumor)),
     score: Math.round((insider + final) * 1000) / 1000,
   };
 }

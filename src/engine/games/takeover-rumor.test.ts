@@ -43,6 +43,8 @@ describe('el rumor de OPA', () => {
     expect(r.gainAccept).toBeCloseTo(MY_SHARES * (s.offer - s.p0), 2);
     expect(r.gainSell).toBeLessThan(r.gainAccept);
     expect(r.falseLoss).toBeCloseTo(EXTRA * (s.pRumor - s.pFalse), 2);
+    expect(r.rumorAccept).toBeCloseTo(EXTRA * (s.offer - s.pRumor), 2);
+    expect(r.rumorSell).toBeLessThan(r.rumorAccept);
     expect(Object.keys(takeoverValues(r))).toHaveLength(14);
   });
 

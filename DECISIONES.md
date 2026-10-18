@@ -474,3 +474,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Término:** «libro de demanda» (book-building). «Libro de órdenes» queda para el del mercado secundario (`n1-u4`).
 - **Supuesto del juego (se dice en pantalla):** la demanda baja en línea recta a lo largo del rango (9,00–10,50 €). El cierre del primer día es el valor de la semilla × (1 + 0,015 × (veces cubierta − 2)), con un tope de 6 veces. Si la oferta no se cubre, el juego pide otro precio.
 - **Nota:** 1 con el precio más alto que no rompe el estreno ni sube más de un 15 %; 0,75 con otro precio bueno; 0,5 si sube más de un 15 % (dinero en la mesa); 0,25 si cierra por debajo del precio.
+
+## 2026-10-18 — Lección-juego «El rumor de OPA» (`n1-u6-l7`) y fin de la planta 0
+
+- **Decisión:** el juego de la unidad 6 de la planta 0 es una historia de tres días con Mediterránea de Navieras (tienes 1.000 acciones):
+  1. Lunes: rumor en prensa de una OPA de Ebro Capital. Comprar por el rumor no resta nota: es legal para un inversor cualquiera y se enseña el riesgo de que sea falso.
+  2. Martes: Hugo Ferrer, que asesora a Ebro, te da la confidencia. Lo correcto es no operar, no contarlo y avisar a cumplimiento normativo (Pilar Soler). Pesa el 60 % de la nota.
+  3. Miércoles: anuncio de la OPA con un premio del 20–30 %, y la acción cotiza un 1–2 % por debajo de la oferta. Vender en bolsa y acudir valen lo mismo; no acudir vale menos.
+- **Motivo:** es el primer caso del hilo de ética (TEMARIO §1) y el más útil para alguien que va a trabajar en banca.
+- **Concepto nuevo** `informacion-privilegiada` (nivel 1), que pasa a ser prerrequisito de `abuso-mercado` (N9).
+  - No entra todavía en la lista de conceptos de la unidad en `curriculum.json`: el test de salto revisado de `n1-u6` tendría que evaluarlo, y eso exige ampliar el banco y volver a revisarlo.
+  - 🛑 Pendiente: añadir una pregunta al test de salto de `n1-u6` sobre información privilegiada (se puede hacer junto con la ampliación de los bancos a 12 preguntas, ya aprobada).
+- **Validación:** la comprobación de conceptos «adelantados» compara ahora el orden de las plantas (`levelOrder`), no el número de nivel, igual que los prerrequisitos.
+- 🛑 «Ebro Capital» (ficticio, ya usado en `n1-u6-l5`) queda pendiente de comprobar en el registro de la CNMV, como el resto de los nombres.
+- **Planta 0 completa:** las seis unidades empiezan con una lección-juego.

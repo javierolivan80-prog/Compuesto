@@ -191,3 +191,23 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada sin errores. Estado: `reviewed`.
 - **Fuentes:** las dos nuevas de la CNMV (Mercado primario y la guía rápida GR07) se localizaron con una búsqueda que citaba su contenido, pero no se pudieron abrir desde el entorno.
 - 🛑 Pendiente de la revisión de Javier.
+
+## n1-u6-l7 — Lección-juego «El rumor de OPA» (18/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Mayores aplicados:
+  - el diferencial se medía con la base contraria a la de e3;
+  - el cobro de la OPA llega en meses, no en semanas (autorización de la CNMV y plazo de 15 a 70 días; art. 23 del RD 1066/2007), y e8 dice ahora «se acaba de anunciar»;
+  - un rumor no hace pública la confirmación de alguien de dentro;
+  - las operaciones personales de un empleado de banco pasan por cumplimiento.
+
+  Menores aplicados:
+  - «de forma apreciable»;
+  - Hugo tampoco debía contarlo;
+  - información obtenida por casualidad;
+  - el premio medido sobre el precio del rumor;
+  - e3 en condicional;
+  - `okReject` matizado;
+  - el resultado de la apuesta por el rumor en el resumen;
+  - fuentes con artículos (RD 1066/2007, Ley 6/2023 con identificador BOE-A-2023-7053, comprobado por búsqueda, y Código Penal arts. 285 y 285 bis).
+- **Ronda 2:** aprobada; aplicado un retoque de estilo en `spreadNote`. Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier y de la pregunta del test de salto sobre información privilegiada.

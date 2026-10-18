@@ -1,8 +1,8 @@
 {
   "id": "n1-u6-l7",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 6,
   "order": 0,
@@ -24,17 +24,17 @@
     {
       "type": "card",
       "term": "Premio de una OPA",
-      "text": "Ebro ofreció {offer} € por acción: un {premium} % más que antes del rumor ({p0} €). Ese premio es lo que paga quien quiere el control de la empresa. Medido desde el precio del día del rumor, {p_rumor} €, parecía menor: el rumor ya había adelantado parte."
+      "text": "Ebro ofreció {offer} € por acción: un {premium} % más que antes del rumor ({p0} €). Ese premio es lo que paga quien quiere el control de la empresa. Medido desde el precio del día del rumor, {p_rumor} €, el premio es solo del {premium_rumor} %: el rumor ya había adelantado parte de la subida."
     },
     {
       "type": "card",
       "term": "Diferencial",
-      "text": "Tras el anuncio la acción cotizó a {p_after} €, un {spread} % por debajo de la oferta. Quien compra ahí y acude cobra esa diferencia a cambio de esperar y de asumir que la OPA puede no salir. Vender en bolsa o acudir a la oferta son opciones válidas."
+      "text": "Tras el anuncio la acción cotizó a {p_after} €, algo por debajo de la oferta: quien compra ahí y acude gana un {spread} % sobre lo que paga, a cambio de esperar y de asumir que la OPA puede no salir. Vender en bolsa o acudir a la oferta son opciones válidas."
     },
     {
       "type": "card",
       "term": "Información privilegiada",
-      "text": "Lo que te contó Hugo era información concreta, no pública y capaz de mover el precio. Con ella no se opera, ni se recomienda, ni se comunica: se avisa a cumplimiento normativo. Un rumor publicado en prensa sí es público, aunque no sea fiable."
+      "text": "Lo que te contó Hugo era información concreta, no pública y capaz de mover el precio de forma apreciable. Hugo no debía contártela; tú no puedes operar, recomendar ni comunicarla: se avisa a cumplimiento. Un rumor en prensa es público, pero la confirmación de alguien de dentro sigue siendo privilegiada."
     }
   ],
   "exercises": [
@@ -123,7 +123,7 @@
       "bloom": "aplicar",
       "tags": ["opa"],
       "concepts": ["opa"],
-      "prompt": "Tras anunciarse una OPA a {offer} €, la acción cotiza a {p_after} €. Si compras hoy y acudes a la oferta, ¿qué ganas, en %? (2 decimales)",
+      "prompt": "Tras anunciarse una OPA a {offer} €, la acción cotiza a {p_after} €. Si compras hoy y acudes a la oferta, ¿qué ganarías sobre lo que pagas, en %, si la OPA sale adelante? (2 decimales)",
       "answer": 1.48,
       "unit": "%",
       "tolerance": 0.5,
@@ -165,7 +165,7 @@
       "concepts": ["informacion-privilegiada"],
       "statement": "Si un compañero que trabaja en una OPA te cuenta que mañana se anuncia, puedes comprar acciones porque no eres tú quien prepara la operación.",
       "answer": false,
-      "explanation": "Es información privilegiada aunque te llegue de otro: no puedes operar con ella, ni recomendar operar, ni comunicarla. Lo correcto es avisar a cumplimiento normativo."
+      "explanation": "Es información privilegiada aunque te llegue de otro: no puedes operar con ella, ni recomendar operar, ni comunicarla. Y tu compañero tampoco debía contártelo: comunicarla también está prohibido. Lo correcto es avisar a cumplimiento normativo."
     },
     {
       "id": "n1-u6-l7-e5",
@@ -216,7 +216,7 @@
           "category": "No: es privilegiada"
         }
       ],
-      "explanation": "Lo publicado está al alcance de todos, aunque un rumor no sea fiable. Lo que sabes por tu trabajo y aún no es público, y movería el precio, es información privilegiada."
+      "explanation": "Lo publicado está al alcance de todos, aunque un rumor no sea fiable. Lo que sabes por tu trabajo o por casualidad (como el borrador de la impresora), aún no es público y movería el precio es información privilegiada. Que haya un rumor no te permite operar si alguien de dentro te lo confirma: esa confirmación no es pública."
     },
     {
       "id": "n1-u6-l7-e7",
@@ -242,18 +242,18 @@
       "bloom": "aplicar",
       "tags": ["opa"],
       "concepts": ["opa"],
-      "situation": "Se ha anunciado una OPA a 12 € por acción y la acción cotiza a 11,85 €. Tienes acciones y necesitas el dinero esta misma semana.",
+      "situation": "Se acaba de anunciar una OPA a 12 € por acción y la acción cotiza a 11,85 €. Tienes acciones y necesitas el dinero esta misma semana.",
       "prompt": "¿Qué haces?",
       "options": [
         "Vender en bolsa a 11,85 €: cobras ya, aunque algo menos que la oferta",
-        "Acudir a la OPA: cobrarás 12 € esta misma semana",
+        "Acudir a la OPA: cobrarás los 12 € esta misma semana",
         "Comprar más a 11,85 € para cobrar luego la diferencia",
         "Esperar a que la acción supere los 12 € y vender entonces"
       ],
       "answer": 0,
-      "explanation": "Acudir a la OPA paga más, pero solo cuando termina el plazo de aceptación, que suele ser de semanas. Si necesitas el dinero ya, vender en bolsa es lo que encaja.",
+      "explanation": "Acudir paga más, pero tras el anuncio la CNMV aún tiene que autorizar la OPA; después se abre un plazo de aceptación de 15 a 70 días naturales y se cobra unos días después de publicarse el resultado: meses, no días. Si necesitas el dinero ya, vender en bolsa es lo que encaja.",
       "wrongExplanations": {
-        "1": "El pago de la OPA llega al final del plazo de aceptación, normalmente semanas después.",
+        "1": "Primero la CNMV tiene que autorizarla y después corre el plazo de aceptación: cobrarías dentro de meses, no esta semana.",
         "2": "Eso aumenta tu inversión y tu espera, justo lo contrario de lo que necesitas.",
         "3": "Con una oferta a 12 €, lo normal es que cotice algo por debajo; esperar no te da el dinero esta semana."
       }
@@ -262,7 +262,7 @@
   "realWorld": "Las OPA se anuncian en la web de la CNMV, donde también se publican su folleto y su resultado. Los bancos tienen un departamento de cumplimiento normativo que controla quién conoce cada operación y vigila las operaciones de sus empleados.",
   "sources": [
     {
-      "title": "BOE: Real Decreto 1066/2007 sobre ofertas públicas de adquisición (anuncio, autorización de la CNMV, plazo de aceptación y venta forzosa)",
+      "title": "BOE: Real Decreto 1066/2007 sobre ofertas públicas de adquisición, arts. 16 y 17 (anuncio y solicitud), 21 (autorización), 23 (plazo de aceptación), 36 (resultado y liquidación) y 47 (venta forzosa)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-14913",
       "date": "2026-10-18"
     },
@@ -272,7 +272,12 @@
       "date": "2026-10-18"
     },
     {
-      "title": "BOE: Código Penal, art. 285 (abuso de información privilegiada)",
+      "title": "BOE: Ley 6/2023 de los Mercados de Valores y de los Servicios de Inversión (régimen sancionador del abuso de mercado)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-7053",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Código Penal, arts. 285 y 285 bis (abuso y comunicación ilícita de información privilegiada)",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444",
       "date": "2026-10-18"
     }

@@ -106,7 +106,7 @@ export function TakeoverGame({ seed, onDone }: Props) {
           <div>
             <dt className="text-text-2 text-sm">{t('takeover.premium')}</dt>
             <dd className="text-bull text-xl" data-num>
-              ▲&nbsp;+{formatNumber(r.premium, 2)}&nbsp;%
+              {`▲\u00a0+${formatNumber(r.premium, 2)}\u00a0%`}
             </dd>
           </div>
           <div>
@@ -119,6 +119,19 @@ export function TakeoverGame({ seed, onDone }: Props) {
                 : `+${formatEur(final === 'sell' ? r.gainSell : r.gainAccept)}`}
             </dd>
           </div>
+          {buyOnRumor && final !== 'reject' && (
+            <div className="col-span-2">
+              <dt className="text-text-2 text-sm">
+                {t('takeover.rumorBet', { n: formatNumber(EXTRA) })}
+              </dt>
+              <dd className="text-xl" data-num data-testid="tk-bet">
+                +{formatEur(final === 'sell' ? r.rumorSell : r.rumorAccept)}{' '}
+                <span className="text-text-2 text-sm">
+                  {t('takeover.rumorBetFalse', { loss: formatEur(r.falseLoss) })}
+                </span>
+              </dd>
+            </div>
+          )}
         </dl>
         <p className="text-lg" data-testid="tk-verdict">
           {r.score >= 1
