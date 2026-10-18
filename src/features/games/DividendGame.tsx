@@ -90,7 +90,10 @@ export function DividendGame({ seed, onDone }: Props) {
         <h2 id="dv-done" className="text-3xl">
           {t('dividend.doneTitle', { price: formatEur(s.pEnd) })}
         </h2>
-        <dl className="grid grid-cols-2 gap-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3"
+          data-num
+        >
           <div>
             <dt className="text-text-2 text-sm">{t('dividend.cost')}</dt>
             <dd className="text-xl">{formatEur(r.cost)}</dd>
@@ -110,7 +113,7 @@ export function DividendGame({ seed, onDone }: Props) {
             <dt className="text-text-2 text-sm">{t('dividend.grossShort')}</dt>
             <dd className="text-bull text-xl">+{formatEur(r.gross)}</dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">{t('dividend.total', { n: formatNumber(s.n) })}</dt>
             <dd
               className={`text-2xl ${r.total >= 0 ? 'text-bull' : 'text-bear'}`}
@@ -121,7 +124,7 @@ export function DividendGame({ seed, onDone }: Props) {
             </dd>
           </div>
           {capture && (
-            <div className="col-span-2">
+            <div className="col-span-full">
               <dt className="text-text-2 text-sm">
                 {t('dividend.captureLine', { n: formatNumber(CAPTURE_QTY) })}
               </dt>

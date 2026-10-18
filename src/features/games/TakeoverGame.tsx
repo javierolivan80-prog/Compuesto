@@ -90,7 +90,7 @@ export function TakeoverGame({ seed, onDone }: Props) {
         <h2 id="tk-done" className="text-3xl">
           {t('takeover.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3">
+        <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3">
           <div>
             <dt className="text-text-2 text-sm">{t('takeover.before')}</dt>
             <dd className="text-xl" data-num>
@@ -120,7 +120,7 @@ export function TakeoverGame({ seed, onDone }: Props) {
             </dd>
           </div>
           {buyOnRumor && final !== 'reject' && (
-            <div className="col-span-2">
+            <div className="col-span-full">
               <dt className="text-text-2 text-sm">
                 {t('takeover.rumorBet', { n: formatNumber(EXTRA) })}
               </dt>

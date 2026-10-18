@@ -60,7 +60,10 @@ export function IndexGame({ seed, onDone }: Props) {
         <h2 id="im-done" className="text-3xl">
           {t('indexMover.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3"
+          data-num
+        >
           <div>
             <dt className="text-text-2 text-sm">{t('indexMover.points')}</dt>
             <dd className="text-xl">

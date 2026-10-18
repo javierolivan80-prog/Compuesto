@@ -75,6 +75,7 @@ export default defineConfig({
         'exercises.spec.ts',
         'games-lab.spec.ts',
         'leccion-juego.spec.ts',
+        'peor-caso-juegos.spec.ts',
       ],
       use: { baseURL: 'http://localhost:5174', launchOptions },
     },

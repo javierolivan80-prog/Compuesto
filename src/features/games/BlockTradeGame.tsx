@@ -155,7 +155,10 @@ export function BlockTradeGame({ seed, onDone }: Props) {
         <h2 id="bt-done" className="text-3xl">
           {t('blockTrade.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3"
+          data-num
+        >
           <div>
             <dt className="text-text-2 text-sm">{t('blockTrade.avg')}</dt>
             <dd className="text-2xl" data-testid="bt-avg">
@@ -166,7 +169,7 @@ export function BlockTradeGame({ seed, onDone }: Props) {
             <dt className="text-text-2 text-sm">{t('blockTrade.mid')}</dt>
             <dd className="text-2xl">{formatEur(r.mid)}</dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">{t('blockTrade.impact')}</dt>
             <dd className="text-bear text-2xl">{formatEur(r.impact)}</dd>
           </div>
@@ -251,7 +254,7 @@ export function BlockTradeGame({ seed, onDone }: Props) {
         <Button onClick={() => play({ type: 'market', qty: n })} disabled={n < 1}>
           {t('blockTrade.market', { n: formatNumber(n) })}
         </Button>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <label htmlFor="bt-limit" className="sr-only">
             {t('blockTrade.limitPrice')}
           </label>

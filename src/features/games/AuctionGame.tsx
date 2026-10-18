@@ -47,11 +47,26 @@ function AuctionTable({ orders, refPrice }: { orders: AuctionOrder[]; refPrice: 
       .reduce((s, o) => s + o.qty, 0);
   const max = Math.max(...rows.map((p) => Math.max(demand(p), supply(p))), 1);
   return (
-    <div role="table" aria-label={t('auction.table')} className="oa-table grid gap-1" data-num>
-      <div role="row" className="text-text-2 grid grid-cols-[5.5rem_1fr_1fr_3.5rem] gap-2 text-xs">
+    // tabla de datos: con texto grande o a 320 px se desplaza en horizontal dentro de su caja, nunca la página
+    <div
+      role="table"
+      aria-label={t('auction.table')}
+      tabIndex={0}
+      className="oa-table grid gap-1 overflow-x-auto"
+      data-num
+    >
+      <div
+        role="row"
+        className="text-text-2 px-1 grid grid-cols-[0.9rem_4.25rem_repeat(3,minmax(max-content,1fr))] gap-1 text-xs"
+      >
+        <span role="columnheader" aria-hidden="true" />
         <span role="columnheader">{t('auction.price')}</span>
-        <span role="columnheader">{t('auction.buyCol')}</span>
-        <span role="columnheader">{t('auction.sellCol')}</span>
+        <span role="columnheader" className="text-right">
+          {t('auction.buyCol')}
+        </span>
+        <span role="columnheader" className="text-right">
+          {t('auction.sellCol')}
+        </span>
         <span role="columnheader" className="text-right">
           {t('auction.matchCol')}
         </span>
@@ -65,10 +80,12 @@ function AuctionTable({ orders, refPrice }: { orders: AuctionOrder[]; refPrice: 
             role="row"
             key={p}
             aria-current={isEq ? 'true' : undefined}
-            className={`oa-row grid grid-cols-[5.5rem_1fr_1fr_3.5rem] items-center gap-2 px-1 py-0.5 ${isEq ? 'oa-eq' : ''}`}
+            className={`oa-row grid grid-cols-[0.9rem_4.25rem_repeat(3,minmax(max-content,1fr))] gap-1 items-center px-1 py-0.5 text-sm ${isEq ? 'oa-eq' : ''}`}
           >
-            <span role="cell">
-              {isEq && <span aria-hidden="true">▶ </span>}
+            <span role="cell" aria-hidden="true">
+              {isEq ? '▶' : ''}
+            </span>
+            <span role="cell" className="whitespace-nowrap">
               {formatEur(p)}
             </span>
             <span role="cell" className="relative">
@@ -77,7 +94,7 @@ function AuctionTable({ orders, refPrice }: { orders: AuctionOrder[]; refPrice: 
                 className="oa-bar oa-bar-buy absolute inset-y-0 left-0 w-full"
                 style={{ transform: `scaleX(${d / max})` }}
               />
-              <span className="relative">{formatNumber(d)}</span>
+              <span className="relative block pr-1 text-right">{formatNumber(d)}</span>
             </span>
             <span role="cell" className="relative">
               <span
@@ -85,7 +102,7 @@ function AuctionTable({ orders, refPrice }: { orders: AuctionOrder[]; refPrice: 
                 className="oa-bar oa-bar-sell absolute inset-y-0 left-0 w-full"
                 style={{ transform: `scaleX(${s / max})` }}
               />
-              <span className="relative">{formatNumber(s)}</span>
+              <span className="relative block pr-1 text-right">{formatNumber(s)}</span>
             </span>
             <span role="cell" className="text-right">
               {formatNumber(Math.min(d, s))}
@@ -163,7 +180,10 @@ export function AuctionGame({ seed, onDone }: Props) {
         <h2 id="oa-done" className="text-3xl">
           {t('auction.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3"
+          data-num
+        >
           <div>
             <dt className="text-text-2 text-sm">{t('auction.openPrice')}</dt>
             <dd className="text-2xl" data-testid="oa-price">
@@ -188,7 +208,7 @@ export function AuctionGame({ seed, onDone }: Props) {
                 : '—'}
             </dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">{t('auction.total')}</dt>
             <dd className="text-2xl" data-testid="oa-cost">
               {formatEur(r.cost)}

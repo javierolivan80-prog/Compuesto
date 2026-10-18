@@ -33,6 +33,8 @@ import { IndexGame } from '../games/IndexGame';
 import { DividendGame } from '../games/DividendGame';
 import { IpoGame } from '../games/IpoGame';
 import { TakeoverGame } from '../games/TakeoverGame';
+import { DevDataToggle } from '../games/DevDataToggle';
+import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -153,10 +155,10 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
 
   const header = (
     <header className="flex items-center justify-between gap-3">
-      <p className="text-text-2 text-sm">
+      <p className="text-text-2 min-w-0 text-sm [overflow-wrap:anywhere]">
         <span data-num>{unitId.toUpperCase()}</span> · {lesson.title}
       </p>
-      <Button variant="ghost" onClick={onExit}>
+      <Button variant="ghost" className="shrink-0" onClick={onExit}>
         Salir
       </Button>
     </header>
@@ -171,7 +173,10 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
 
   if (phase === 'game' && lesson.game) {
     return (
-      <section aria-label={`Lección: ${lesson.title}`} className="grid gap-5">
+      <section
+        aria-label={`Lección: ${lesson.title}`}
+        className="grid grid-cols-[minmax(0,1fr)] gap-5"
+      >
         {header}
         {errorBanner}
         {(() => {
@@ -186,7 +191,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
           }[lesson.game.kind];
           return (
             <Game
-              seed={lesson.game.seed}
+              seed={worstCaseOn() ? WORST_SEEDS[lesson.game.kind] : lesson.game.seed}
               onDone={(v) => {
                 setGameValues(v);
                 setPhase(afterGame);
@@ -194,6 +199,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             />
           );
         })()}
+        <DevDataToggle />
       </section>
     );
   }
@@ -202,7 +208,10 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
     const block = lesson.intro[introIdx]!;
     const last = introIdx === lesson.intro.length - 1;
     return (
-      <section aria-label={`Lección: ${lesson.title}`} className="grid gap-5">
+      <section
+        aria-label={`Lección: ${lesson.title}`}
+        className="grid grid-cols-[minmax(0,1fr)] gap-5"
+      >
         {header}
         {errorBanner}
         <ProgressBar value={introIdx} max={lesson.intro.length + 1} label="Progreso de la teoría" />

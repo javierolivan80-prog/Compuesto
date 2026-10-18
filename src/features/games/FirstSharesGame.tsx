@@ -128,7 +128,10 @@ export function FirstSharesGame({ seed, onDone }: Props) {
         <h2 id="fs-done" className="text-3xl">
           {t('firstShares.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3"
+          data-num
+        >
           <div>
             <dt className="text-text-2 text-sm">{t('firstShares.priceRange')}</dt>
             <dd className="text-xl">
@@ -141,13 +144,13 @@ export function FirstSharesGame({ seed, onDone }: Props) {
               {r.pct >= 0 ? '▲' : '▼'} {signedPct(r.pct)}
             </dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">{t('firstShares.cap')}</dt>
             <dd className="text-xl">
               {formatEur(r.capStart, 0)} → {formatEur(r.capEnd, 0)}
             </dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">
               {t('firstShares.yours', { n: formatNumber(STAKE) })}
             </dt>
@@ -190,7 +193,10 @@ export function FirstSharesGame({ seed, onDone }: Props) {
       </header>
 
       <div className="grid gap-2">
-        <dl className="grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3" data-num>
+        <dl
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-x-3 gap-y-2"
+          data-num
+        >
           <div className="min-w-0">
             <dt className="text-text-2 text-xs">{t('firstShares.price')}</dt>
             <dd className="text-lg" data-testid="fs-price">
@@ -206,7 +212,7 @@ export function FirstSharesGame({ seed, onDone }: Props) {
               />
             </dd>
           </div>
-          <div className="col-span-2 min-w-0 sm:col-span-1">
+          <div className="min-w-0">
             <dt className="text-text-2 text-xs">
               {t('firstShares.yoursShort', { n: formatNumber(STAKE) })}
             </dt>

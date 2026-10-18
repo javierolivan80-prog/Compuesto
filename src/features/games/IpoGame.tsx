@@ -95,7 +95,7 @@ export function IpoGame({ seed, onDone }: Props) {
         <h2 id="ipo-done" className="text-3xl">
           {t('ipo.doneTitle')}
         </h2>
-        <dl className="grid grid-cols-2 gap-3">
+        <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3">
           <div>
             <dt className="text-text-2 text-sm">{t('ipo.price')}</dt>
             <dd className="text-xl" data-num>
@@ -120,7 +120,7 @@ export function IpoGame({ seed, onDone }: Props) {
               {formatEur(r.opvCash, 0)}
             </dd>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-full">
             <dt className="text-text-2 text-sm">{t('ipo.firstDay')}</dt>
             <dd className="text-xl" data-num data-testid="ipo-first">
               {formatEur(r.first)}{' '}
@@ -173,8 +173,9 @@ export function IpoGame({ seed, onDone }: Props) {
             </div>
             <div className="flex items-baseline justify-between gap-3">
               <dt>{t('ipo.range')}</dt>
-              <dd className="whitespace-nowrap" data-num>
-                {formatEur(RANGE_MIN)} – {formatEur(RANGE_MAX)}
+              <dd className="text-right" data-num>
+                <span className="whitespace-nowrap">{formatEur(RANGE_MIN)} –</span>{' '}
+                <span className="whitespace-nowrap">{formatEur(RANGE_MAX)}</span>
               </dd>
             </div>
             <div className="flex items-baseline justify-between gap-3">

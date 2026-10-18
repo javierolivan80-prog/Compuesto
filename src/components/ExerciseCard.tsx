@@ -37,8 +37,12 @@ export function ExerciseCard({ state, children, onSelect, multi = false }: Exerc
       data-state={state}
       className={`flex min-h-14 w-full cursor-pointer items-center justify-between gap-3 rounded-[var(--radius-md)] border-2 px-4 py-3 text-left text-base transition-[transform,border-color] duration-[120ms] ease-[var(--ease-out)] active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 ${STYLES[state]} ${state === 'incorrect' ? 'shake' : ''}`}
     >
-      <span>{children}</span>
-      {badge && <span className={`text-sm font-medium ${badge.tone}`}>{badge.text}</span>}
+      <span className="min-w-0 [overflow-wrap:anywhere]">{children}</span>
+      {badge && (
+        <span className={`shrink-0 text-sm font-medium whitespace-nowrap ${badge.tone}`}>
+          {badge.text}
+        </span>
+      )}
     </button>
   );
 }
