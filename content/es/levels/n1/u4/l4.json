@@ -1,6 +1,6 @@
 {
   "id": "n1-u4-l4",
-  "version": 1,
+  "version": 2,
   "status": "reviewed",
   "reviewedBy": ["subagente"],
   "level": 1,
@@ -18,11 +18,11 @@
     {
       "type": "card",
       "term": "Subasta",
-      "text": "Antes de la apertura y al cierre hay subastas: se acumulan órdenes sin cruzarlas y, al terminar, se casan a un único precio. Ese precio es el que permite negociar el mayor volumen de acciones."
+      "text": "Antes de la apertura y al cierre hay subastas: se acumulan órdenes sin cruzarlas y, al terminar, las que pueden casarse se ejecutan a un único precio. Ese precio es el que permite negociar el mayor volumen de acciones."
     },
     {
       "type": "card",
-      "text": "Las subastas fijan el precio de apertura y de cierre. Si dos precios permiten el mismo volumen, se elige el de menor desequilibrio entre compra y venta y, después, el más cercano al de referencia."
+      "text": "Si dos precios permiten el mismo volumen, se elige el de menor desequilibrio entre compra y venta. Si siguen empatados, el del lado con más volumen (el más alto si sobra demanda, el más bajo si sobra oferta) y, por último, el más cercano al último precio negociado."
     }
   ],
   "exercises": [
@@ -156,11 +156,11 @@
         "El de la primera orden recibida"
       ],
       "answer": 0,
-      "explanation": "Si hay empate de volumen, se elige el precio con menor desequilibrio entre demanda y oferta y, después, el más cercano al de referencia.",
+      "explanation": "Si hay empate de volumen, se elige el precio con menor desequilibrio entre demanda y oferta. Solo si sigue el empate cuentan el lado con más volumen y, al final, la cercanía al último precio negociado.",
       "wrongExplanations": {
-        "1": "No se elige por ser el más alto.",
-        "2": "No se elige por ser el más bajo.",
-        "3": "El orden de llegada no fija el precio de subasta."
+        "1": "El más alto solo se elige más tarde, si sigue el empate y en todos los precios sobra demanda.",
+        "2": "El más bajo solo se elige más tarde, si sigue el empate y en todos los precios sobra oferta.",
+        "3": "El orden de llegada decide qué órdenes se ejecutan primero a ese precio, no qué precio se fija."
       }
     }
   ],
@@ -170,8 +170,13 @@
       "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
       "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
       "date": "2026-10-15"
+    },
+    {
+      "title": "BME: «Las subastas en la bolsa (Parte I)», 2023 (horario, cierre aleatorio y reglas de fijación del precio de la subasta)",
+      "url": "https://www.bolsasymercados.es/es/sala-de-comunicacion/noticias/2023/las-subastas-en-la-bolsa-parte-1.html",
+      "date": "2026-10-18"
     }
   ],
   "verificarAntesDe": "2027-06-30",
-  "lastReviewed": "2026-10-15"
+  "lastReviewed": "2026-10-18"
 }

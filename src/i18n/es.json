@@ -415,5 +415,36 @@
         "why": "Es lo de todos los años y ya se sabía: no cambia lo que se espera que gane la empresa."
       }
     }
+  },
+  "auction": {
+    "title": "La subasta de apertura",
+    "brief": "Tu cliente quiere {{n}} acciones de Naranjas del Turia en la apertura. Ayer cerró a {{ref}}, y de madrugada han salido buenas noticias. Hasta las 9:00 las órdenes se acumulan sin ejecutarse: mira qué precio indica la subasta y pon tu orden.",
+    "shockBuy": "8:59: entra una orden de compra de {{n}} acciones con límite {{price}}. El indicativo se mueve: revisa tu orden. Si cambias el precio o el tipo de orden, pierdes tu sitio en la cola.",
+    "shockSell": "8:59: entra una orden de venta de {{n}} acciones con límite {{price}}. El indicativo se mueve: revisa tu orden. Si cambias el precio o el tipo de orden, pierdes tu sitio en la cola.",
+    "closing": "Cierre aleatorio: la subasta termina en un momento al azar, dentro de un margen de 30 segundos…",
+    "indicative": "Precio indicativo con tu orden: {{price}} · se casarían {{volume}} acciones · tú comprarías {{fill}} de {{total}}.",
+    "table": "Subasta: a cada precio, acciones que se comprarían, que se venderían y que se casarían",
+    "price": "Precio",
+    "buyCol": "Compran",
+    "sellCol": "Venden",
+    "matchCol": "Casan",
+    "yourOrder": "Tu orden de compra de {{n}} acciones",
+    "market": "A mercado",
+    "limit": "Limitada",
+    "limitPrice": "Precio máximo de tu orden limitada",
+    "send": "Enviar la orden",
+    "confirm": "Confirmar y esperar a las 9:00",
+    "doneTitle": "Suena la campana: 9:00",
+    "openPrice": "Precio de apertura",
+    "vsRef": "Frente al cierre de ayer",
+    "inAuction": "Compradas en la subasta",
+    "inCont": "Compradas después, en el continuo",
+    "restAt": "{{n}} a {{price}}",
+    "total": "Total pagado",
+    "great": "Muy bien: compraste todo en la subasta, al mismo precio que todos y sin pagar horquilla.",
+    "ok": "Te quedaste corto en la subasta y compraste el resto después, más caro: tu límite estaba demasiado justo.",
+    "bad": "Tu límite quedó por debajo del precio de apertura: no compraste nada en la subasta y pagaste más en el continuo.",
+    "debrief": "Ver qué ha pasado",
+    "tableNote": "Compran: acciones con límite igual o más alto que ese precio, más las de mercado. Venden: con límite igual o más bajo, más las de mercado. ▶ el precio de la subasta: el que casa más acciones (si varios empatan, gana el de menor desequilibrio)."
   }
 }

@@ -426,3 +426,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Bloom por nivel** sigue contando por nivel de contenido (`nN`), no por planta.
 - **Juego nuevo: Tus primeras acciones** (`src/engine/games/first-shares.ts`, lección `n1-u1-l6`). Es el «¿Sube o baja?» de la propuesta adaptado a la unidad 1: 100 acciones de Naranjas (regalo de la abuela, para no rozar las normas de operaciones personales del banco), cinco noticias de la empresa (dos suben, dos bajan, una sin novedad), precio, capitalización y lo que valen tus acciones. Las cifras que devuelve van en snake_case porque los nombres de parámetros lo exigen. El «¿Sube o baja?» de Practicar sigue igual.
 - **e2e:** `completeOnboarding` ya no supone la primera lección; `e2e/play-any.ts` reconoce la lección abierta por su cabecera y `e2e/play-game.ts` juega la partida de referencia 0 de cada lección-juego.
+
+## 2026-10-18 — Lección-juego «La subasta de apertura» (`n1-u4-l8`)
+
+- **Nombre:** la propuesta la llamaba *Campana de apertura*, pero ese nombre ya lo tiene el juego de verdadero/falso de Practicar. Esta es otra cosa, una subasta jugable, así que se llama **La subasta de apertura**. Va en la unidad `n1-u4` justo antes de la lección teórica de subastas (`order: 3`).
+- **Juego** (`src/engine/games/opening-auction.ts`):
+  - 500 acciones para un cliente. Libro de subasta a las 8:30 y una orden grande a las 8:59, de compra o de venta según la semilla.
+  - Ves en directo el precio indicativo con tu orden y cuántas acciones comprarías.
+  - Lo que no compras en la subasta lo compras en el continuo a la apertura + 0,05 € (supuesto del juego: media horquilla más impacto; así se dice en el texto).
+- **Fijación del precio** (reglas de BME, en orden): (1) máximo volumen; (2) menor desequilibrio; (3) el lado con más volumen; (4) el más cercano al último precio negociado, o ese mismo si está entre los precios empatados.
+  - **Fuente:** el artículo de BME «Las subastas en la bolsa (Parte I)» (2023) y las circulares de MEFF, vistos en una búsqueda. La circular del SIBE no se pudo abrir: el dominio de BME está bloqueado desde el entorno.
+  - 🛑 **Interpretación propia del paso 3**, pendiente de contrastar con la circular: si en todos los precios empatados sobra demanda, gana el más alto; si en todos sobra oferta, el más bajo; si los signos están mezclados, se pasa al paso 4. Las lecciones `n1-u4-l4` y `n1-u4-l8` llevan `verificarAntesDe` 2027-06-30.
+- **Corrección en `n1-u4-l4`** (versión 2): la tarjeta 2 no tenía el paso 3. Además, la tarjeta 1 decía que se casan todas las órdenes; ahora dice «las que pueden casarse».
+- **Prioridad:** primero las órdenes a mercado, luego el límite más alto y, a igual límite, la hora de llegada. Si a las 8:59 confirmas la misma orden de las 8:30, conserva su sitio por delante de la orden grande; si cambias el precio o el tipo, va al final de la cola.
+- **Nota:** 1 con la orden final más barata posible (con un margen de 2 €) y 0 con la más cara. Se calcula probando todas las órdenes que se podían poner.

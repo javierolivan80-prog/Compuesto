@@ -135,3 +135,17 @@ Primera lección-juego: se juega primero y las cifras de la partida rellenan tar
 Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; luego tarjetas y ejercicios con las cifras de la partida (semilla 1: 9,62 € → 9,86 €, capitalización 115.440.000 € → 118.320.000 €, free float 35 %).
 - **Ronda 1 (revisor-financiero):** aprobada con retoques. Mayores aplicados: definición de free float (todas las acciones cotizan; el free float es la parte en manos de inversores que compran y venden), origen de las acciones (las regala la abuela antes de entrar en el banco: evita un conflicto de intereses), e8 con etiquetas que no siguen el orden alfabético. Menores aplicados: cifras por defecto de e2 iguales a la semilla, «una subida del {pct} %», `envases.why`, e7 «vale en bolsa», distractor 2 de e4, fuentes concretas (Normas técnicas del IBEX 35, LSC art. 93).
 - **Ronda 2:** aprobada; un retoque de vocabulario en e3 aplicado. Estado: `reviewed`. 🛑 Pendiente de la revisión de Javier.
+
+## n1-u4-l8 — Lección-juego «La subasta de apertura» (18/10/2026), y `n1-u4-l4` v2
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Mayores, aplicados:
+  - la tarjeta 1 decía que se casan todas las órdenes;
+  - e1 quedaba trivial con las cifras de la partida: ahora es una hipótesis con su propio parámetro;
+  - la prioridad no respetaba la orden de las 8:30 que no se cambia;
+  - faltaba el tercer criterio de desempate (el lado con más volumen), también en `n1-u4-l4`;
+  - `verificarAntesDe` y las fuentes estaban sin concretar;
+  - el paso 3 de e7 se podía colocar en otro sitio.
+
+  Menores, aplicados: el ítem de e6 (que se cambió por un ejercicio de prioridad), e3 (demanda acumulada), el supuesto del continuo explicado como tal, la longitud de las opciones de e8 y las cabeceras de la tabla.
+- **Ronda 2:** aprobada. Cuatro retoques aplicados (`tableNote`, e6, la pista de e1 y la fecha de la fuente).
+- Estado: `n1-u4-l8` en `reviewed`; `n1-u4-l4` v2 sigue en `reviewed` con el visto bueno del subagente. 🛑 Pendiente de la revisión de Javier. Pendiente de contrastar el paso 3 de la regla de precio con la circular del SIBE (ver DECISIONES.md).

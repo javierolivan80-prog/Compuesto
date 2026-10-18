@@ -6,7 +6,7 @@ import { completeOnboarding } from './solver';
 
 /* Unidad 4 del Nivel 1 del Nivel 0 (Precios, órdenes y subastas) jugada entera contra la build de producción. */
 
-const lessons: (Lesson & { game?: GameLesson['game'] })[] = [1, 2, 3, 4, 5, 6, 7].map((n) =>
+const lessons: (Lesson & { game?: GameLesson['game'] })[] = [1, 2, 3, 4, 5, 6, 7, 8].map((n) =>
   JSON.parse(readFileSync(`content/es/levels/n1/u4/l${n}.json`, 'utf8')),
 );
 

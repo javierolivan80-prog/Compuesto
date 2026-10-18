@@ -23,6 +23,12 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'opening-auction') {
+    // referencia 0: a mercado desde las 8:30
+    await expect(page.getByRole('heading', { name: 'La subasta de apertura' })).toBeVisible();
+    await page.getByRole('button', { name: 'A mercado' }).click();
+    await page.getByRole('button', { name: 'Enviar la orden' }).click();
+    await page.getByRole('button', { name: 'Confirmar y esperar a las 9:00' }).click();
   } else {
     // referencia 0: acertar las cinco noticias
     await expect(page.getByRole('heading', { name: 'Tus primeras acciones' })).toBeVisible();

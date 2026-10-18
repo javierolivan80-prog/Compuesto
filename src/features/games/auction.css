@@ -1,0 +1,49 @@
+/* La subasta de apertura: barras de compra y venta acumuladas (scaleX) y fila del precio que casa más acciones. */
+.oa-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.oa-row {
+  border-radius: 6px;
+}
+.oa-eq {
+  background: color-mix(in oklch, var(--brand) 12%, transparent);
+  outline: 1px solid color-mix(in oklch, var(--brand) 45%, transparent);
+}
+.oa-bar {
+  transform-origin: left center;
+  transition: transform var(--dur-short) var(--ease-out);
+  border-radius: 4px;
+}
+.oa-bar-buy {
+  background: color-mix(in oklch, var(--bull) 16%, transparent);
+}
+.oa-bar-sell {
+  background: color-mix(in oklch, var(--bear) 16%, transparent);
+}
+.oa-shock {
+  color: var(--text);
+  border-left: 2px solid var(--accent, var(--brand));
+  padding-left: 0.5rem;
+}
+.oa-clock-bar {
+  background: var(--surface-2);
+}
+.oa-clock-fill {
+  background: var(--brand);
+  transform-origin: left center;
+  animation: oa-close linear both;
+}
+@keyframes oa-close {
+  from {
+    transform: scaleX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oa-bar {
+    transition: none;
+  }
+  .oa-clock-fill {
+    animation: none;
+  }
+}

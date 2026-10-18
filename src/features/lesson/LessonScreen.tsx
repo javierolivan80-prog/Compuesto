@@ -28,6 +28,7 @@ import { RankUp } from '../sequences/RankUp';
 import { ExplainerBlock } from './explainers';
 import { BlockTradeGame } from '../games/BlockTradeGame';
 import { FirstSharesGame } from '../games/FirstSharesGame';
+import { AuctionGame } from '../games/AuctionGame';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -170,7 +171,11 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         {header}
         {errorBanner}
         {(() => {
-          const Game = lesson.game.kind === 'first-shares' ? FirstSharesGame : BlockTradeGame;
+          const Game = {
+            'block-trade': BlockTradeGame,
+            'first-shares': FirstSharesGame,
+            'opening-auction': AuctionGame,
+          }[lesson.game.kind];
           return (
             <Game
               seed={lesson.game.seed}

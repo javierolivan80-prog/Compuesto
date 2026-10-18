@@ -1,0 +1,277 @@
+{
+  "id": "n1-u4-l8",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
+  "level": 1,
+  "unit": 4,
+  "order": 3,
+  "title": "Juego: la subasta de apertura",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Ver cómo se forma el precio de apertura en una subasta: el que permite casar más acciones",
+    "Elegir entre orden a mercado y limitada en una subasta, sabiendo que tu orden también mueve el precio"
+  ],
+  "concepts": ["subastas", "formacion-precios", "orden-mercado", "orden-limitada"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "opening-auction",
+    "seed": 1
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Subasta de apertura",
+      "text": "De 8:30 a 9:00 las órdenes se acumulan sin ejecutarse y se publica un precio indicativo. Al terminar, las órdenes que pueden casarse se ejecutan todas a un único precio: el que permite negociar más acciones. En tu partida, {auction} €, con {volume} acciones casadas; ayer había cerrado a {ref} €."
+    },
+    {
+      "type": "card",
+      "term": "Tu orden también cuenta",
+      "text": "Tu orden entra en el cálculo: una compra a mercado o con límite alto suma demanda y puede subir el precio de apertura; una limitada demasiado justa puede quedarse fuera. Compraste {filled} de {qty} en la subasta. Lo que falte se compra después en el continuo, pagando media horquilla e impacto (en el juego, 5 céntimos más)."
+    },
+    {
+      "type": "card",
+      "term": "Cierre aleatorio",
+      "text": "La subasta no acaba a una hora exacta: termina en un momento al azar, dentro de un margen de 30 segundos. Así nadie puede meter o quitar una orden en el último instante para mover el precio a su favor. Hasta entonces, el indicativo puede cambiar, como te pasó a las 8:59."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u4-l8-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["subastas"],
+      "concepts": ["subastas", "orden-limitada"],
+      "prompt": "Imagina que en la subasta, a {auction} €, solo compras {n} de las 500 acciones y las {rest} restantes las compras después, en el continuo, a {cont} €. ¿Cuánto pagas en total? (2 decimales)",
+      "answer": 4720,
+      "unit": "€",
+      "tolerance": 0.1,
+      "formula": "{n} * {auction} + {rest} * {cont}",
+      "params": {
+        "n": {
+          "value": 300,
+          "min": 50,
+          "max": 450,
+          "step": 50
+        },
+        "auction": {
+          "value": 9.42,
+          "min": 9,
+          "max": 10,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "rest": {
+          "formula": "500 - {n}",
+          "decimals": 0
+        },
+        "cont": {
+          "formula": "{auction} + 0.05",
+          "decimals": 2
+        },
+        "subasta": {
+          "formula": "{n} * {auction}",
+          "decimals": 2
+        },
+        "continuo": {
+          "formula": "(500 - {n}) * ({auction} + 0.05)",
+          "decimals": 2
+        }
+      },
+      "explanation": "En la subasta: {n} × {auction} € = {subasta} €. En el continuo: {rest} × {cont} € = {continuo} €. En este juego, comprar después cuesta de media 5 céntimos más por acción (media horquilla más impacto).",
+      "hint": "Suma lo que pagas en la subasta y lo que pagas después en el continuo."
+    },
+    {
+      "id": "n1-u4-l8-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["subastas"],
+      "concepts": ["formacion-precios"],
+      "prompt": "Ayer Naranjas cerró a {ref} € y hoy la subasta de apertura fija el precio en {auction} €. ¿Cuánto abre por encima del cierre, en %? (2 decimales)",
+      "answer": 1.18,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({auction} / {ref} - 1) * 100",
+      "params": {
+        "ref": {
+          "value": 9.31,
+          "min": 9,
+          "max": 9.31,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "auction": {
+          "value": 9.42,
+          "min": 9.41,
+          "max": 10,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "var": {
+          "formula": "({auction} / {ref} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Variación = (apertura ÷ cierre de ayer − 1) × 100 = ({auction} ÷ {ref} − 1) × 100 = {var} %. Las noticias de la noche se recogen de golpe en la subasta de apertura.",
+      "hint": "Divide el precio de apertura entre el cierre de ayer, resta 1 y multiplica por 100."
+    },
+    {
+      "id": "n1-u4-l8-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["subastas"],
+      "concepts": ["subastas", "formacion-precios"],
+      "prompt": "En una subasta, a 9,40 € hay compradores dispuestos a comprar {d} acciones y vendedores dispuestos a vender {s} (contando todas las órdenes que aceptan ese precio). ¿Cuántas acciones se casarían a ese precio?",
+      "answer": 1350,
+      "unit": "acciones",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "MIN({d}; {s})",
+      "params": {
+        "d": {
+          "value": 1350,
+          "min": 800,
+          "max": 2400,
+          "step": 50
+        },
+        "s": {
+          "value": 1700,
+          "min": 800,
+          "max": 2400,
+          "step": 50
+        }
+      },
+      "derived": {
+        "casan": {
+          "formula": "MIN({d}; {s})",
+          "decimals": 0
+        }
+      },
+      "explanation": "Solo se casan las acciones que tienen comprador y vendedor: la menor de las dos cifras, {casan}. El precio de la subasta es el que hace máxima esa cifra.",
+      "hint": "Una compraventa necesita las dos partes: ¿cuál de las dos cantidades limita?"
+    },
+    {
+      "id": "n1-u4-l8-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["subastas"],
+      "concepts": ["subastas"],
+      "statement": "En la subasta de apertura, todas las órdenes que se ejecutan lo hacen al mismo precio, aunque cada comprador hubiera puesto un límite distinto.",
+      "answer": true,
+      "explanation": "Es la diferencia con el mercado continuo: en la subasta hay un único precio para todos. Quien puso un límite más alto no paga más; solo tenía más prioridad."
+    },
+    {
+      "id": "n1-u4-l8-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["subastas"],
+      "concepts": ["subastas"],
+      "prompt": "¿Para qué termina la subasta en un momento al azar, dentro de un margen de 30 segundos?",
+      "options": [
+        "Para que nadie pueda meter o retirar una orden en el último instante y mover el precio a su favor",
+        "Para dar ventaja a los inversores que operan más rápido",
+        "Para que el precio de apertura sea siempre igual al cierre de ayer",
+        "Para que las órdenes a mercado no se ejecuten"
+      ],
+      "answer": 0,
+      "explanation": "Si todos supieran el segundo exacto del cierre, alguien podría colar una orden grande justo antes para empujar el precio sin dar tiempo a reaccionar. El final al azar lo impide.",
+      "wrongExplanations": {
+        "1": "Es lo contrario: el final al azar quita ventaja a quien pretende actuar en el último segundo.",
+        "2": "El precio de apertura sale de las órdenes de hoy; puede ser muy distinto del cierre de ayer.",
+        "3": "Las órdenes a mercado se ejecutan en la subasta si hay contrapartida; el final al azar no cambia eso."
+      }
+    },
+    {
+      "id": "n1-u4-l8-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["subastas", "ordenes"],
+      "concepts": ["subastas", "orden-mercado", "orden-limitada"],
+      "prompt": "La subasta casa a 9,42 €, pero a ese precio hay más compras que ventas: no todas las compras se ejecutan. ¿Cuáles van primero?",
+      "options": [
+        "Las órdenes a mercado; después, las de límite más alto; y, a igual límite, la que llegó antes",
+        "Las de más acciones, porque son las que mueven más volumen en la subasta",
+        "Las que tienen el límite justo en 9,42 €, porque coinciden con el precio",
+        "Se reparten a partes iguales entre todos los compradores que aceptan ese precio"
+      ],
+      "answer": 0,
+      "explanation": "En la subasta todos pagan el mismo precio, pero no todos tienen la misma prioridad: primero las órdenes a mercado, luego por precio (el límite más alto) y, a igual precio, por hora de llegada. Por eso, si cambias el precio de tu orden, pierdes tu sitio en la cola.",
+      "wrongExplanations": {
+        "1": "El tamaño de la orden no da prioridad: cuentan el precio y la hora.",
+        "2": "Las de límite justo en el precio de la subasta son las últimas a ese precio: van detrás de las de mercado y de las de límite más alto.",
+        "3": "No hay reparto a partes iguales: se aplica prioridad por precio y por hora."
+      }
+    },
+    {
+      "id": "n1-u4-l8-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["subastas"],
+      "concepts": ["subastas"],
+      "prompt": "Ordena lo que pasa en la apertura de la bolsa, de lo primero a lo último.",
+      "steps": [
+        "Los inversores introducen, cambian o retiran órdenes, que no se ejecutan; se publica un precio indicativo",
+        "La subasta termina en un momento al azar",
+        "Se fija el precio definitivo: el que permite casar más acciones",
+        "Las órdenes casadas se ejecutan a ese precio",
+        "Empieza el mercado continuo"
+      ],
+      "explanation": "Primero se acumulan órdenes; tras el cierre aleatorio se fija el precio de mayor volumen, se ejecuta lo casado a ese precio y arranca el continuo."
+    },
+    {
+      "id": "n1-u4-l8-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["subastas", "ordenes"],
+      "concepts": ["orden-mercado", "orden-limitada", "subastas"],
+      "situation": "Un cliente te pide comprar 300 acciones en la apertura, sí o sí, y no quiere pagar la horquilla del continuo. El precio indicativo está en 12,40 € y todavía queda un minuto de subasta.",
+      "prompt": "¿Qué orden pones?",
+      "options": [
+        "A mercado, o con un límite claramente por encima del indicativo",
+        "Una limitada a 12,35 €, por debajo del indicativo, para intentar pagar menos",
+        "Ninguna: esperar a que abra el continuo y comprar entonces lo que haga falta",
+        "Una limitada justo a 12,40 €, porque ese será con seguridad el precio final"
+      ],
+      "answer": 0,
+      "explanation": "Si lo prioritario es comprar en la subasta, tu orden tiene que seguir siendo ejecutable aunque el precio cambie hasta el cierre. Además, las órdenes a mercado son las primeras en el reparto. Pagarás lo mismo que todos: el precio de apertura.",
+      "wrongExplanations": {
+        "1": "Si la subasta casa por encima de 12,35 €, tu orden se queda fuera y tendrás que comprar en el continuo.",
+        "2": "El cliente no quiere pagar la horquilla del continuo, y además ya ha pedido comprar en la apertura.",
+        "3": "El indicativo puede cambiar hasta el cierre aleatorio, y tu propia orden puede subirlo: a 12,40 € podrías quedarte fuera."
+      }
+    }
+  ],
+  "realWorld": "En el mercado continuo español las sesiones empiezan y acaban con subastas, y la web de BME y las aplicaciones de bolsa muestran el precio indicativo y el volumen durante la de apertura. Cuando un valor se mueve demasiado durante la sesión, se abre una subasta de volatilidad.",
+  "sources": [
+    {
+      "title": "BME: «Las subastas en la bolsa (Parte I)», 2023 (horario, cierre aleatorio y reglas de fijación del precio de la subasta)",
+      "url": "https://www.bolsasymercados.es/es/sala-de-comunicacion/noticias/2023/las-subastas-en-la-bolsa-parte-1.html",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-18"
+}

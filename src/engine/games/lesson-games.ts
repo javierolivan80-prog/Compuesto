@@ -17,10 +17,18 @@ import {
   startFirstShares,
   type Move,
 } from './first-shares';
+import {
+  auctionResult,
+  auctionValues,
+  equilibrium,
+  limitChoices,
+  ordersAt830,
+  setupAuction,
+} from './opening-auction';
 
 /* Juegos que abren una lección (lección-juego): qué cifras devuelven y con qué formato se escriben en el texto. */
 
-export const LESSON_GAMES = ['block-trade', 'first-shares'] as const;
+export const LESSON_GAMES = ['block-trade', 'first-shares', 'opening-auction'] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
 export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>> = {
@@ -45,6 +53,19 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     stake_start: [2, 2],
     stake_end: [2, 2],
     hits: [0, 0],
+  },
+  'opening-auction': {
+    ref: [2, 2],
+    ind: [2, 2],
+    auction: [2, 2],
+    volume: [0, 0],
+    qty: [0, 0],
+    filled: [0, 0],
+    rest: [0, 0],
+    cont: [2, 2],
+    cost: [2, 2],
+    avg: [2, 4],
+    pct: [2, 2],
   },
 };
 
@@ -84,6 +105,17 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
         return firstSharesValues(firstSharesResult(s));
       };
       return [play((r) => r), play(() => 'up'), play((r) => (r === 'down' ? 'up' : 'down'))];
+    }
+    case 'opening-auction': {
+      // a mercado, la limitada sin tocar desde las 8:30, el límite más bajo y el más alto que se podían elegir
+      const setup = setupAuction(seed);
+      const choices = limitChoices(setup, 1);
+      return [
+        { limit: null },
+        { limit: equilibrium(ordersAt830(setup), setup.ref).price },
+        { limit: choices[0]! },
+        { limit: choices.at(-1)! },
+      ].map((mine) => auctionValues(auctionResult(setup, mine)));
     }
   }
 }
