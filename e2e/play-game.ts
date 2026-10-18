@@ -1,5 +1,6 @@
 import { expect, type Page } from '@playwright/test';
 import type { Exercise } from '../src/content/schemas';
+import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { setupFirstShares } from '../src/engine/games/first-shares';
 import { playSessions, setupIndex } from '../src/engine/games/index-mover';
 import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson-games';
@@ -24,6 +25,20 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'dividend-day') {
+    // referencia 0: el bróker más barato, sin cazar el dividendo y acertando la fecha ex
+    await expect(page.getByRole('heading', { name: 'El primer dividendo' })).toBeVisible();
+    const s = setupDividend(seed);
+    const name = { llave: 'Llave Valores', fijo: 'Fijo Bolsa', banco: 'Banco del Turia' }[
+      BROKERS[cheapestBroker(s)]!.id
+    ];
+    await page.getByRole('button', { name: new RegExp(`^${name}`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('button', { name: /^No hacer nada/ }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('button', { name: /^Más o menos el cierre menos el dividendo/ }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('button', { name: 'Pasar un mes y vender' }).click();
   } else if (kind === 'index-mover') {
     // referencia 0: clavar las cuatro sesiones
     await expect(page.getByRole('heading', { name: '¿Quién mueve el índice?' })).toBeVisible();

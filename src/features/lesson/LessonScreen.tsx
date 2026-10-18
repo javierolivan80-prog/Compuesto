@@ -30,6 +30,7 @@ import { BlockTradeGame } from '../games/BlockTradeGame';
 import { FirstSharesGame } from '../games/FirstSharesGame';
 import { AuctionGame } from '../games/AuctionGame';
 import { IndexGame } from '../games/IndexGame';
+import { DividendGame } from '../games/DividendGame';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -177,6 +178,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'first-shares': FirstSharesGame,
             'opening-auction': AuctionGame,
             'index-mover': IndexGame,
+            'dividend-day': DividendGame,
           }[lesson.game.kind];
           return (
             <Game

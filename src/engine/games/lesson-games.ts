@@ -17,6 +17,7 @@ import {
   startFirstShares,
   type Move,
 } from './first-shares';
+import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import {
   guessIndex,
   indexResult,
@@ -41,6 +42,7 @@ export const LESSON_GAMES = [
   'first-shares',
   'opening-auction',
   'index-mover',
+  'dividend-day',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -87,6 +89,25 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     pct: [2, 2],
     top: [1, 1],
     hits: [0, 0],
+  },
+  'dividend-day': {
+    n: [0, 0],
+    p0: [2, 2],
+    fee_buy: [2, 2],
+    cost: [2, 2],
+    div: [2, 2],
+    gross: [2, 2],
+    retained: [2, 2],
+    net: [2, 2],
+    p_before: [2, 2],
+    p_ex: [2, 2],
+    p_end: [2, 2],
+    fee_sell: [2, 2],
+    sale: [2, 2],
+    gain: [2, 2],
+    total: [2, 2],
+    dy: [2, 2],
+    cap_loss: [2, 2],
   },
 };
 
@@ -148,6 +169,13 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
         return indexValues(indexResult(s));
       };
       return [play((a) => a), play(() => 0), play(() => 3)];
+    }
+    case 'dividend-day': {
+      // las cifras solo dependen del bróker: el más barato y cada uno de los tres
+      const setup = setupDividend(seed);
+      return [cheapestBroker(setup), 0, 1, 2].map((broker) =>
+        dividendValues(dividendResult(setup, { broker, capture: false, exGuess: 'down' })),
+      );
     }
   }
 }

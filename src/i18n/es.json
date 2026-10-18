@@ -485,5 +485,70 @@
     "ok": "Vas bien. Antes de mirar quién sube más, mira quién pesa más.",
     "bad": "El truco: una empresa que pesa la mitad del índice importa más que cualquier subida espectacular de una pequeña.",
     "debrief": "Ver qué ha pasado"
+  },
+  "dividend": {
+    "title": "El primer dividendo",
+    "stepOf": "Paso {{n}} de {{total}}",
+    "day": {
+      "broker": "Lunes: abres tu cuenta",
+      "meeting": "Jueves: junta de accionistas",
+      "ex": "Martes siguiente: fecha ex-dividendo",
+      "pay": "Viernes: pago del dividendo",
+      "done": "Un mes después: vendes"
+    },
+    "brief": "Vas a comprar {{n}} acciones de Pirineo Energía a {{price}}: una orden de {{amount}}. Elige bróker; las tres entidades son ficticias y están autorizadas.",
+    "pickBroker": "Elige bróker",
+    "brokers": {
+      "llave": {
+        "name": "Llave Valores",
+        "fee": "0,10 % del importe (mín. 1 €)"
+      },
+      "fijo": {
+        "name": "Fijo Bolsa",
+        "fee": "5 € por orden, sea del importe que sea"
+      },
+      "banco": {
+        "name": "Banco del Turia",
+        "fee": "0,25 % del importe (mín. 8 €)"
+      }
+    },
+    "feeFor": "En esta orden: {{fee}}",
+    "brokerRight": "Bien elegido: es el más barato para una orden de este tamaño.",
+    "brokerWrong": "Hay otro más barato para esta orden. Un porcentaje con mínimo conviene en órdenes pequeñas; una tarifa fija, en las grandes.",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "paper": "Hecho relevante",
+    "announce": "La junta de Pirineo Energía aprueba un dividendo de {{div}} por acción. La fecha ex-dividendo es el martes.",
+    "captureAsk": "Un compañero te sugiere comprar {{n}} acciones más el lunes para cobrar también su dividendo y venderlas el martes. ¿Qué haces?",
+    "captureYes": "Comprar {{n}} más para cobrar su dividendo",
+    "captureNo": "No hacer nada: ya tengo mis acciones",
+    "captureDone": "Compras {{n}} más el lunes. Veremos qué pasa el martes.",
+    "captureSkip": "Bien pensado: el dividendo no es dinero gratis. Veremos por qué el martes.",
+    "exAsk": "El lunes la acción cerró a {{price}}. Hoy es la fecha ex-dividendo de {{div}} por acción. ¿A qué precio de referencia empieza hoy?",
+    "exGroup": "Precio de referencia en la fecha ex-dividendo",
+    "ex": {
+      "down": "Más o menos el cierre menos el dividendo: {{price}}",
+      "same": "Igual que el cierre: {{price}}",
+      "up": "El cierre más el dividendo: {{price}}"
+    },
+    "exResult": "El precio en la fecha ex-dividendo",
+    "exWhy": "Desde hoy quien compra ya no cobra este dividendo: el precio de referencia se ajusta restando {{div}}. El dinero que se reparte sale de la empresa.",
+    "captureResult": "Tus {{n}} acciones de más: el dividendo que cobrarás compensa justo la bajada del precio, pero pagaste {{loss}} en comisiones al comprar y vender. Y Hacienda te retiene {{retained}} de ese dividendo.",
+    "payIntro": "Llega el dividendo de tus {{n}} acciones: {{div}} por acción.",
+    "gross": "Dividendo bruto",
+    "retention": "Retención del IRPF ({{pct}} %)",
+    "net": "Llega a tu cuenta",
+    "retentionNote": "La retención es un pago a cuenta del IRPF: en la declaración, los dividendos tributan en la base del ahorro y se ajusta lo que ya te retuvieron.",
+    "sell": "Pasar un mes y vender",
+    "doneTitle": "Vendes a {{price}}",
+    "cost": "Te costó (con comisión)",
+    "sale": "Recibes (tras la comisión)",
+    "gain": "Ganancia por precio",
+    "grossShort": "Dividendo bruto",
+    "total": "Rentabilidad total, antes de impuestos",
+    "great": "Muy bien: bróker más barato, sin cazar el dividendo y entendiendo la fecha ex.",
+    "ok": "Bien, pero repasa lo que fallaste: las comisiones y la fecha ex-dividendo cuentan.",
+    "bad": "El dividendo no es dinero gratis: el precio baja su importe y las comisiones se comen la diferencia.",
+    "debrief": "Ver qué ha pasado"
   }
 }

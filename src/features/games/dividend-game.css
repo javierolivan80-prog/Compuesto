@@ -1,0 +1,9 @@
+/* El primer dividendo: panel y apunte de la cuenta (bruto, retención, neto). */
+.dv-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.dv-ledger {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

@@ -1,0 +1,294 @@
+{
+  "id": "n1-u5-l7",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 5,
+  "order": 0,
+  "title": "Juego: el primer dividendo",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Elegir bróker según el importe de la orden y ver por qué el dividendo no es dinero gratis",
+    "Calcular el dividendo neto tras la retención y la rentabilidad total con comisiones"
+  ],
+  "concepts": ["comisiones", "broker-espana", "dividendo", "rentabilidad-total", "irpf-ganancias"],
+  "companies": ["pirineo-energia"],
+  "historical": false,
+  "game": {
+    "kind": "dividend-day",
+    "seed": 1
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Comisiones",
+      "text": "Pagaste {fee_buy} € de comisión por comprar {n} acciones a {p0} €. Un porcentaje con mínimo sale barato en órdenes pequeñas; una tarifa fija, en las grandes. Entre un 0,10 % y 5 € fijos, el corte está en 5.000 €. Mira el importe de tu orden antes de elegir."
+    },
+    {
+      "type": "card",
+      "term": "Fecha ex-dividendo",
+      "text": "Cobraste {gross} € brutos, {div} € por acción. En la fecha ex-dividendo el precio de referencia bajó ese importe, hasta {p_ex} €: lo que se reparte sale de la empresa. Por eso comprar justo antes para cobrarlo no es dinero gratis: te habría costado {cap_loss} € en comisiones."
+    },
+    {
+      "type": "card",
+      "term": "Retención y rentabilidad total",
+      "text": "Hacienda te retuvo el 19 %, {retained} €: es un pago a cuenta del IRPF, y en la declaración los dividendos tributan en la base del ahorro. La rentabilidad total suma lo que gana el precio y el dividendo: en tu partida, un {total} % antes de impuestos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u5-l7-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["comisiones"],
+      "concepts": ["comisiones", "broker-espana"],
+      "prompt": "Un bróker cobra un {pct} % del importe y otro, {f} € fijos por orden. ¿Con qué importe de orden cuestan lo mismo? (en euros, 2 decimales)",
+      "answer": 5000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{f} / ({pct} / 100)",
+      "params": {
+        "pct": {
+          "value": 0.1,
+          "min": 0.05,
+          "max": 0.3,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "f": {
+          "value": 5,
+          "min": 2,
+          "max": 10,
+          "step": 1
+        }
+      },
+      "derived": {
+        "corte": {
+          "formula": "{f} / ({pct} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "Cuestan lo mismo cuando {pct} % × importe = {f} €, es decir, con un importe de {f} ÷ {pct} % = {corte} €. Por debajo sale más barato el porcentaje; por encima, la tarifa fija.",
+      "hint": "Busca el importe con el que el porcentaje da justo la tarifa fija."
+    },
+    {
+      "id": "n1-u5-l7-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["dividendos", "fiscalidad"],
+      "concepts": ["dividendo", "irpf-ganancias"],
+      "prompt": "Tienes {n} acciones y la empresa paga {div} € por acción, con una retención del 19 %. ¿Cuánto llega a tu cuenta? (2 decimales)",
+      "answer": 194.4,
+      "unit": "€",
+      "tolerance": 0.1,
+      "formula": "{n} * {div} * 0.81",
+      "params": {
+        "n": {
+          "value": 600,
+          "min": 100,
+          "max": 1000,
+          "step": 100
+        },
+        "div": {
+          "value": 0.4,
+          "min": 0.1,
+          "max": 0.8,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "bruto": {
+          "formula": "{n} * {div}",
+          "decimals": 2
+        },
+        "retenido": {
+          "formula": "{n} * {div} * 0.19",
+          "decimals": 2
+        },
+        "neto": {
+          "formula": "{n} * {div} * 0.81",
+          "decimals": 2
+        }
+      },
+      "explanation": "Bruto = {n} × {div} € = {bruto} €. Retención del 19 % = {retenido} €. Neto = {neto} €. La retención es un pago a cuenta: se ajusta en la declaración.",
+      "hint": "Calcula el bruto y quítale el 19 %."
+    },
+    {
+      "id": "n1-u5-l7-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["rentabilidad"],
+      "concepts": ["rentabilidad-total", "comisiones"],
+      "prompt": "Compraste por {cost} € (comisión incluida), cobraste {gross} € de dividendo bruto y al vender recibiste {sale} € (ya descontada la comisión). ¿Cuál fue tu rentabilidad total antes de impuestos, en %? (2 decimales)",
+      "answer": 17.14,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "({sale} - {cost} + {gross}) / {cost} * 100",
+      "params": {
+        "cost": {
+          "value": 7205,
+          "min": 5000,
+          "max": 8000,
+          "step": 5,
+          "decimals": 2,
+          "fixed": true
+        },
+        "gross": {
+          "value": 240,
+          "min": 100,
+          "max": 400,
+          "step": 10,
+          "decimals": 2,
+          "fixed": true
+        },
+        "sale": {
+          "value": 8200,
+          "min": 8100,
+          "max": 8800,
+          "step": 10,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "rt": {
+          "formula": "({sale} - {cost} + {gross}) / {cost} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Rentabilidad total = (lo que recibes al vender − lo que pagaste + dividendo) ÷ lo que pagaste = ({sale} − {cost} + {gross}) ÷ {cost} × 100 = {rt} %. Las comisiones ya están dentro del coste y de la venta.",
+      "hint": "Suma la ganancia por precio y el dividendo, y divide entre lo que pagaste."
+    },
+    {
+      "id": "n1-u5-l7-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["dividendos"],
+      "concepts": ["dividendo"],
+      "statement": "Comprar acciones justo antes de la fecha ex-dividendo para cobrar el dividendo y venderlas después es una forma de ganar dinero casi seguro.",
+      "answer": false,
+      "explanation": "El precio de referencia baja el importe del dividendo en la fecha ex, así que lo que cobras lo pierdes en precio. Además pagas dos comisiones y Hacienda te retiene el 19 % del dividendo."
+    },
+    {
+      "id": "n1-u5-l7-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["fiscalidad"],
+      "concepts": ["irpf-ganancias", "dividendo"],
+      "prompt": "¿Qué es la retención del 19 % que te aplican al cobrar un dividendo?",
+      "options": [
+        "Un pago a cuenta del IRPF: en la declaración se calcula lo que te toca y se descuenta lo ya retenido",
+        "El impuesto definitivo de los dividendos, que no vuelve a aparecer en la declaración",
+        "Una comisión que cobra el bróker por gestionar el cobro del dividendo",
+        "Un depósito que Hacienda te devuelve siempre al año siguiente, sin más"
+      ],
+      "answer": 0,
+      "explanation": "La retención adelanta parte del impuesto. Los dividendos tributan en la base del ahorro de tu IRPF y en la declaración se compara lo que te toca pagar con lo que ya te retuvieron.",
+      "wrongExplanations": {
+        "1": "No es definitiva: en la declaración se calcula el impuesto con la escala del ahorro y se ajusta.",
+        "2": "La retención va a Hacienda, no al bróker; la comisión es otra cosa.",
+        "3": "Solo te devuelven la diferencia si lo retenido supera lo que te toca pagar."
+      }
+    },
+    {
+      "id": "n1-u5-l7-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["rentabilidad"],
+      "concepts": ["rentabilidad-total", "comisiones", "dividendo"],
+      "prompt": "¿Qué reduce tu rentabilidad total antes de impuestos y qué no?",
+      "categories": ["La reduce", "No la reduce"],
+      "items": [
+        {
+          "text": "La comisión de compra",
+          "category": "La reduce"
+        },
+        {
+          "text": "La comisión de venta",
+          "category": "La reduce"
+        },
+        {
+          "text": "La bajada del precio en la fecha ex-dividendo, si cobras ese dividendo",
+          "category": "No la reduce"
+        },
+        {
+          "text": "El dividendo que cobras",
+          "category": "No la reduce"
+        }
+      ],
+      "explanation": "Las comisiones son coste puro. La bajada en la fecha ex se compensa con el dividendo que cobras, y el dividendo suma a la rentabilidad total."
+    },
+    {
+      "id": "n1-u5-l7-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["dividendos"],
+      "concepts": ["dividendo"],
+      "prompt": "Ordena lo que pasa con un dividendo, de lo primero a lo último.",
+      "steps": [
+        "La junta de accionistas aprueba el dividendo",
+        "Último día para comprar con derecho a cobrarlo",
+        "Fecha ex-dividendo: el precio de referencia baja su importe",
+        "Fecha de pago: llega a tu cuenta, menos la retención"
+      ],
+      "explanation": "Primero se aprueba; quien tenga las acciones al cierre del último día con derecho lo cobrará; en la fecha ex el precio se ajusta, y en la de pago llega el dinero neto de retención."
+    },
+    {
+      "id": "n1-u5-l7-e8",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["comisiones"],
+      "concepts": ["comisiones", "broker-espana"],
+      "situation": "Quieres invertir 300 € al mes comprando acciones, una orden cada mes. Comparas tres brókers autorizados: 0,10 % con mínimo de 1 €, 5 € fijos por orden, o 0,25 % con mínimo de 8 €.",
+      "prompt": "¿Cuál te conviene?",
+      "options": [
+        "El de 0,10 % con mínimo de 1 €: en órdenes de 300 € pagas 1 € al mes",
+        "El de 5 € fijos: una tarifa fija siempre es más barata",
+        "El de 0,25 % con mínimo de 8 €: el porcentaje más alto suele dar mejor servicio",
+        "Da igual: con órdenes pequeñas las comisiones no importan"
+      ],
+      "answer": 0,
+      "explanation": "Con 300 €, el 0,10 % serían 0,30 €, así que pagas el mínimo de 1 €. Los otros cobran 5 € y 8 €: entre un 1,7 % y un 2,7 % de cada compra, que se comen la rentabilidad de años.",
+      "wrongExplanations": {
+        "1": "La tarifa fija solo compensa en órdenes grandes; con 300 € son un 1,7 % de cada compra.",
+        "2": "La comisión no dice nada del servicio, y aquí pagarías 8 € por orden, un 2,7 %.",
+        "3": "Al contrario: en órdenes pequeñas una comisión mínima alta pesa mucho en porcentaje."
+      }
+    }
+  ],
+  "realWorld": "En la web de cada bróker hay un folleto de tarifas, obligatorio por la normativa de la CNMV; compáralo con el tamaño de tus órdenes. Las empresas anuncian sus dividendos como información relevante en la CNMV, con la fecha ex-dividendo y la de pago.",
+  "sources": [
+    {
+      "title": "CNMV: registros oficiales de entidades autorizadas",
+      "url": "https://www.cnmv.es/portal/Consultas/Registros.aspx",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Ley 35/2006 del IRPF, arts. 25 (rendimientos del capital mobiliario), 66 y 76 (escala del ahorro) y 101 (retenciones)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-18"
+}

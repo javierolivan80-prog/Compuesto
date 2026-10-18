@@ -163,3 +163,58 @@ test('¿quién mueve el índice?: captura y axe a 375 px y lección completa con
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('el primer dividendo: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n1-u5-l7');
+  await expect(page.getByRole('heading', { name: 'El primer dividendo' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400); // fundidos de acierto o fallo
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('bróker');
+  await page.getByRole('button', { name: /^Fijo Bolsa/ }).click();
+  await scan('bróker elegido');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/dividendo-broker-375.png',
+    fullPage: true,
+  });
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('button', { name: /^Comprar 300 más/ }).click();
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('button', { name: /^Igual que el cierre/ }).click();
+  await expect(page.getByTestId('dv-capture')).toBeVisible();
+  await scan('fecha ex');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/dividendo-ex-375.png',
+    fullPage: true,
+  });
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('pago');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/dividendo-pago-375.png',
+    fullPage: true,
+  });
+  await page.getByRole('button', { name: 'Pasar un mes y vender' }).click();
+  await scan('resultado');
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n1-u5-l7');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n1/u5/l7.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});
