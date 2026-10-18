@@ -551,5 +551,49 @@
     "bad": "El dividendo no es dinero gratis: el precio baja su importe y las comisiones se comen la diferencia.",
     "debrief": "Ver qué ha pasado",
     "captureLine": "Cazar el dividendo con {{n}} acciones más (comisiones)"
+  },
+  "ipo": {
+    "title": "La salida a bolsa",
+    "step": {
+      "prospectus": "Hace un año · El folleto",
+      "book": "Hace un año · El libro de órdenes",
+      "debut": "Hace un año · Primer día de cotización"
+    },
+    "brief": "Revive cómo salió a bolsa Naranjas del Turia. La familia fundadora tenía 9.000.000 de acciones. En la oferta, la empresa emite acciones nuevas para financiar una planta de zumos, y la familia vende parte de las suyas. Tú, desde Albufera Partners, fijas el precio.",
+    "ops": "OPS: acciones nuevas (el dinero va a Naranjas)",
+    "opv": "OPV: acciones de la familia (el dinero va a la familia)",
+    "range": "Rango indicativo de precio",
+    "after": "Acciones después de la salida",
+    "cnmv": "La CNMV aprueba el folleto de la oferta, pero no garantiza que la inversión salga bien.",
+    "openBook": "Abrir el libro de órdenes",
+    "bookIntro": "Los inversores han dicho cuántas acciones comprarían a cada precio del rango. Se ofrecen {{offer}}: la línea marca la oferta. Elige el precio de salida.",
+    "pick": "Precio de salida",
+    "bookNote": "Barra: acciones pedidas a ese precio. Verde si cubren la oferta; roja si no. A la derecha, veces cubierta.",
+    "live": "A {{price}} piden {{demand}} de acciones: {{cov}} veces la oferta. Naranjas recibiría {{ops}} y la familia, {{opv}}.",
+    "failed": "A ese precio solo piden {{demand}} de acciones para {{offer}} en oferta: la salida no se cubre. Elige un precio más bajo.",
+    "fix": "Fijar el precio en {{price}}",
+    "debut": "Primer día de cotización",
+    "debutIntro": "Las acciones se reparten a {{price}} y empiezan a cotizar en el mercado continuo. ¿Cómo cierra el primer día?",
+    "hit": "¡Buen estreno!",
+    "debutWhy": {
+      "good": "Buen estreno: la acción cierra cerca o un poco por encima del precio de salida. Naranjas y la familia recibieron un buen precio y los nuevos accionistas no pierden.",
+      "broke": "El estreno cierra por debajo del precio de salida: había poca demanda sobrante y los nuevos accionistas pierden el primer día. Mala señal para la próxima vez que Naranjas quiera financiarse.",
+      "table": "La acción se dispara el primer día: sobraba tanta demanda que el precio era demasiado bajo. Naranjas y la familia dejaron dinero en la mesa."
+    },
+    "secondary": "Desde hoy las acciones cambian de manos en el mercado secundario: lo que se pague por ellas va de inversor a inversor, no a Naranjas.",
+    "summary": "Ver el resumen",
+    "doneTitle": "Naranjas ya cotiza",
+    "price": "Precio de salida",
+    "covShort": "Veces cubierta",
+    "toCompany": "Recibe Naranjas (OPS)",
+    "toFamily": "Recibe la familia (OPV)",
+    "firstDay": "Cierre del primer día",
+    "great": "Muy bien: el precio más alto que no rompía el estreno. Más dinero para Naranjas sin perjudicar a los nuevos accionistas.",
+    "goodLow": "Bien: el estreno sale bien, pero podías haber pedido algo más y Naranjas habría recibido más dinero.",
+    "verdict": {
+      "broke": "Pediste demasiado: con poca demanda sobrante, el estreno cae por debajo del precio.",
+      "table": "Precio demasiado bajo: el estreno se dispara y Naranjas deja dinero en la mesa."
+    },
+    "debrief": "Ver qué ha pasado"
   }
 }

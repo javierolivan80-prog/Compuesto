@@ -1,0 +1,44 @@
+/* La salida a bolsa: demanda a cada precio (scaleX desde la izquierda) con la marca de la oferta. */
+.ipo-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.ipo-sheet {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.ipo-row {
+  border: 1px solid transparent;
+  touch-action: manipulation;
+  transition: transform 100ms var(--ease-out);
+}
+.ipo-row:active {
+  transform: scale(0.98);
+}
+.ipo-row:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.ipo-chosen {
+  border-color: var(--brand);
+  background: color-mix(in oklch, var(--brand) 10%, transparent);
+}
+.ipo-bar {
+  transform-origin: left center;
+  border-radius: 4px;
+}
+.ipo-ok {
+  background: color-mix(in oklch, var(--bull) 30%, transparent);
+}
+.ipo-short {
+  background: color-mix(in oklch, var(--bear) 30%, transparent);
+}
+.ipo-offer {
+  width: 2px;
+  background: var(--text);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ipo-row {
+    transition: none;
+  }
+}

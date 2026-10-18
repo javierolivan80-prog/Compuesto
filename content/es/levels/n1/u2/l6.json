@@ -1,0 +1,288 @@
+{
+  "id": "n1-u2-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 1,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: la salida a bolsa",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Fijar el precio de una salida a bolsa con el libro de órdenes, entre recaudar más y un buen estreno",
+    "Distinguir quién recibe el dinero en la OPS, en la OPV y después, en el mercado secundario"
+  ],
+  "concepts": ["mercado-primario", "opv", "mercado-secundario"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "ipo-book",
+    "seed": 1
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "OPS y OPV",
+      "text": "En tu salida a bolsa, a {price} €, Naranjas recibió {ops_cash} € por {new_shares} acciones nuevas (OPS) y la familia, {opv_cash} € por las {sold_shares} que vendió (OPV). Después hay {shares_after} acciones y la familia conserva el {family} %."
+    },
+    {
+      "type": "card",
+      "term": "Libro de órdenes y sobresuscripción",
+      "text": "Antes de fijar el precio, los bancos recogen cuántas acciones pediría cada inversor y a qué precio. A tu precio pidieron {cov} veces lo ofrecido: la oferta estaba sobresuscrita. Cuanto más alto el precio, menos demanda sobra."
+    },
+    {
+      "type": "card",
+      "term": "Primer día",
+      "text": "El primer día cerró a {first} €. En el juego, si sobra mucha demanda, quien se quedó sin acciones las compra en bolsa y el precio sube; si sobra poca, puede caer. Desde ese día el dinero va de inversor a inversor: es el mercado secundario."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u2-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["opv"],
+      "concepts": ["opv", "mercado-primario"],
+      "prompt": "Una salida a bolsa combina una OPS de {new_shares} acciones nuevas y una OPV de {sold_shares} acciones de los accionistas, todas a {price} €. ¿Cuánto recibe la empresa? (en euros, sin decimales)",
+      "answer": 30000000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{new_shares} * {price}",
+      "params": {
+        "new_shares": {
+          "value": 3000000,
+          "min": 1000000,
+          "max": 5000000,
+          "step": 500000
+        },
+        "sold_shares": {
+          "value": 1200000,
+          "min": 500000,
+          "max": 3000000,
+          "step": 100000
+        },
+        "price": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 0.25,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "empresa": {
+          "formula": "{new_shares} * {price}",
+          "decimals": 0
+        }
+      },
+      "explanation": "La empresa solo recibe el dinero de las acciones nuevas (OPS): {new_shares} × {price} € = {empresa} €. Lo de la OPV va a los accionistas que venden.",
+      "hint": "¿Qué parte de la oferta son acciones nuevas?"
+    },
+    {
+      "id": "n1-u2-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["opv"],
+      "concepts": ["opv"],
+      "prompt": "En una salida a bolsa se ofrecen {offer} acciones y los inversores piden {demand}. ¿Cuántas veces está cubierta la oferta? (2 decimales)",
+      "answer": 1.94,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{demand} / {offer}",
+      "params": {
+        "offer": {
+          "value": 4200000,
+          "min": 2000000,
+          "max": 6000000,
+          "step": 100000
+        },
+        "demand": {
+          "value": 8150000,
+          "min": 6000000,
+          "max": 20000000,
+          "step": 50000
+        }
+      },
+      "derived": {
+        "veces": {
+          "formula": "{demand} / {offer}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Veces cubierta = acciones pedidas ÷ acciones ofrecidas = {demand} ÷ {offer} = {veces}. Si pasa de 1, la oferta está sobresuscrita y cada inversor recibe menos de lo que pidió.",
+      "hint": "Divide lo que piden entre lo que se ofrece."
+    },
+    {
+      "id": "n1-u2-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["opv"],
+      "concepts": ["opv", "mercado-primario"],
+      "prompt": "La familia tenía {antes} acciones, vende {vende} en la OPV y la empresa emite {nuevas} nuevas en la OPS. ¿Qué porcentaje de la empresa conserva la familia? (2 decimales)",
+      "answer": 65,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({antes} - {vende}) / ({antes} + {nuevas}) * 100",
+      "params": {
+        "antes": {
+          "value": 9000000,
+          "min": 6000000,
+          "max": 12000000,
+          "step": 500000
+        },
+        "vende": {
+          "value": 1200000,
+          "min": 500000,
+          "max": 3000000,
+          "step": 100000
+        },
+        "nuevas": {
+          "value": 3000000,
+          "min": 1000000,
+          "max": 5000000,
+          "step": 500000
+        }
+      },
+      "derived": {
+        "quedan": {
+          "formula": "{antes} - {vende}",
+          "decimals": 0
+        },
+        "total": {
+          "formula": "{antes} + {nuevas}",
+          "decimals": 0
+        },
+        "pct": {
+          "formula": "({antes} - {vende}) / ({antes} + {nuevas}) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "A la familia le quedan {antes} − {vende} = {quedan} acciones, de un total de {antes} + {nuevas} = {total}: un {pct} %. Baja por lo que vende y porque las acciones nuevas aumentan el total (dilución).",
+      "hint": "Cuenta las acciones que le quedan y divídelas entre las que hay después de emitir las nuevas."
+    },
+    {
+      "id": "n1-u2-l6-e4",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["mercado-secundario"],
+      "concepts": ["mercado-secundario"],
+      "statement": "Si la acción de Naranjas sube un 10 % el día después de salir a bolsa, Naranjas recibe ese dinero extra.",
+      "answer": false,
+      "explanation": "Ese día las acciones ya se compran y venden entre inversores, en el mercado secundario: la subida beneficia a quien las tiene. Naranjas solo recibió el dinero de la OPS, al precio de salida."
+    },
+    {
+      "id": "n1-u2-l6-e5",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["opv"],
+      "concepts": ["opv"],
+      "prompt": "La oferta de una salida a bolsa está cubierta 3 veces. ¿Qué significa?",
+      "options": [
+        "Que los inversores piden el triple de acciones de las que se ofrecen",
+        "Que cada acción vale el triple de su precio de salida",
+        "Que las mismas acciones se venden tres veces seguidas",
+        "Que la empresa emite el triple de acciones de lo previsto"
+      ],
+      "answer": 0,
+      "explanation": "Veces cubierta = acciones pedidas ÷ ofrecidas. Con 3 veces, cada inversor recibe, de media, un tercio de lo que pidió.",
+      "wrongExplanations": {
+        "1": "La sobresuscripción habla de demanda, no del valor de la acción.",
+        "2": "Cada acción se vende una vez en la oferta; lo que se multiplica es lo que se pide.",
+        "3": "El número de acciones ofrecidas está fijado en el folleto; lo que es el triple es la demanda."
+      }
+    },
+    {
+      "id": "n1-u2-l6-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["opv"],
+      "concepts": ["opv", "mercado-secundario"],
+      "prompt": "¿Qué riesgo tiene fijar un precio de salida demasiado alto y cuál uno demasiado bajo?",
+      "categories": ["Precio demasiado alto", "Precio demasiado bajo"],
+      "items": [
+        {
+          "text": "Que la demanda no llegue a cubrir la oferta",
+          "category": "Precio demasiado alto"
+        },
+        {
+          "text": "Que el primer día cierre por debajo del precio de salida",
+          "category": "Precio demasiado alto"
+        },
+        {
+          "text": "Que la empresa recaude menos de lo que podía",
+          "category": "Precio demasiado bajo"
+        },
+        {
+          "text": "Que la acción se dispare el primer día",
+          "category": "Precio demasiado bajo"
+        }
+      ],
+      "explanation": "Un precio alto da más dinero, pero con poca demanda sobrante el estreno puede caer o la oferta no cubrirse. Uno bajo asegura el estreno, pero la empresa y quienes venden dejan dinero en la mesa."
+    },
+    {
+      "id": "n1-u2-l6-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["opv"],
+      "concepts": ["opv", "mercado-primario", "mercado-secundario"],
+      "prompt": "Ordena una salida a bolsa, de lo primero a lo último.",
+      "steps": [
+        "La CNMV aprueba el folleto con el rango indicativo de precio",
+        "Los bancos recogen las peticiones de los inversores (libro de órdenes)",
+        "Se fija el precio de salida y se reparten las acciones",
+        "Las acciones empiezan a cotizar en el mercado secundario"
+      ],
+      "explanation": "Sin folleto aprobado no hay oferta; con las peticiones se fija el precio y se reparten las acciones; después, empiezan a negociarse en bolsa."
+    },
+    {
+      "id": "n1-u2-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["opv"],
+      "concepts": ["opv", "mercado-secundario"],
+      "situation": "Asesoras la salida a bolsa de una empresa que quiere volver a pedir dinero a los inversores dentro de dos años. A 11 € la oferta queda cubierta 1,1 veces; a 10 €, 2,5 veces.",
+      "prompt": "¿Qué precio recomiendas?",
+      "options": [
+        "10 €: recauda algo menos, pero con demanda de sobra el estreno tiene más margen para ir bien",
+        "11 €: siempre es mejor recaudar el máximo posible el día de la salida",
+        "11 €, porque cuanto menos sobra la demanda, más sube la acción el primer día",
+        "10 €, porque así la CNMV aprueba antes el folleto de la oferta"
+      ],
+      "answer": 0,
+      "explanation": "Con la oferta cubierta solo 1,1 veces, casi no sobra demanda y el estreno puede caer, lo que castiga a los inversores a los que la empresa volverá a pedir dinero. A 10 € hay margen.",
+      "wrongExplanations": {
+        "1": "Recaudar el máximo arriesga un mal estreno, y la empresa necesita la confianza de los inversores para volver.",
+        "2": "Es al revés: con poca demanda sobrante hay menos compradores el primer día, no más.",
+        "3": "La CNMV aprueba el folleto antes de fijar el precio; el precio no cambia esa aprobación."
+      }
+    }
+  ],
+  "realWorld": "En la web de la CNMV están los folletos de las salidas a bolsa, con el rango de precio y para qué se usará el dinero. Las noticias hablan de las «veces sobresuscrita» y de cómo cierra el estreno.",
+  "sources": [
+    {
+      "title": "Reglamento (UE) 2017/1129 sobre el folleto de valores",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/1129/oj",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

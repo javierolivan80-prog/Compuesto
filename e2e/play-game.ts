@@ -2,6 +2,7 @@ import { expect, type Page } from '@playwright/test';
 import type { Exercise } from '../src/content/schemas';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { setupFirstShares } from '../src/engine/games/first-shares';
+import { outcomeAt, PRICES, setupIpo } from '../src/engine/games/ipo-book';
 import { playSessions, setupIndex } from '../src/engine/games/index-mover';
 import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson-games';
 import { instantiate, isParametric } from '../src/engine/params';
@@ -25,6 +26,15 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'ipo-book') {
+    // referencia 0: el primer precio que se cubre, de abajo arriba (9,00 €)
+    await expect(page.getByRole('heading', { name: 'La salida a bolsa' })).toBeVisible();
+    await page.getByRole('button', { name: 'Abrir el libro de órdenes' }).click();
+    const first = PRICES.find((p) => outcomeAt(setupIpo(seed), p) !== 'failed')!;
+    const label = first.toFixed(2).replace('.', ',');
+    await page.getByRole('radio', { name: new RegExp(`^${label}`) }).click();
+    await page.getByRole('button', { name: new RegExp(`^Fijar el precio en ${label}`) }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'dividend-day') {
     // referencia 0: el bróker más barato, sin cazar el dividendo y acertando la fecha ex
     await expect(page.getByRole('heading', { name: 'El primer dividendo' })).toBeVisible();

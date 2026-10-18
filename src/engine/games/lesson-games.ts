@@ -18,6 +18,7 @@ import {
   type Move,
 } from './first-shares';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
+import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import {
   guessIndex,
   indexResult,
@@ -43,6 +44,7 @@ export const LESSON_GAMES = [
   'opening-auction',
   'index-mover',
   'dividend-day',
+  'ipo-book',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -108,6 +110,20 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     total: [2, 2],
     dy: [2, 2],
     cap_loss: [2, 2],
+  },
+  'ipo-book': {
+    price: [2, 2],
+    new_shares: [0, 0],
+    sold_shares: [0, 0],
+    offer: [0, 0],
+    ops_cash: [0, 0],
+    opv_cash: [0, 0],
+    demand: [0, 0],
+    cov: [2, 2],
+    first: [2, 2],
+    pop: [2, 2],
+    shares_after: [0, 0],
+    family: [0, 0],
   },
 };
 
@@ -175,6 +191,13 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       const setup = setupDividend(seed);
       return [cheapestBroker(setup), 0, 1, 2].map((broker) =>
         dividendValues(dividendResult(setup, { broker, capture: false, exGuess: 'down' })),
+      );
+    }
+    case 'ipo-book': {
+      // todos los precios con los que la oferta se cubre (si no se cubre, el juego pide otro precio)
+      const setup = setupIpo(seed);
+      return PRICES.filter((p) => outcomeAt(setup, p) !== 'failed').map((p) =>
+        ipoValues(ipoResult(setup, p)),
       );
     }
   }
