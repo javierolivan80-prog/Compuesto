@@ -1,5 +1,6 @@
 import { addDays, dayKey, daysBetween } from './days';
 import { DEFAULT_TZ, type AppEvent } from './events';
+import { floorOfLevel } from './floors';
 
 /* Proyecciones puras: el estado se recalcula siempre desde los eventos (CLAUDE.md §3b). */
 
@@ -194,7 +195,7 @@ export interface RankProjection {
   rank: string;
   nextRank: string | null;
   xpToNext: number | null;
-  /** Planta: nivel más alto con alguna lección completada (0 si ninguna). PROVISIONAL(tarea 1.9): se afinará con el curriculum. */
+  /** Planta: la más alta con alguna lección completada (0 si ninguna; la Base no cuenta). */
   floor: number;
 }
 
@@ -205,7 +206,10 @@ export function projectRank(totalXp: number, progress: ProgressProjection): Rank
   });
   const next = RANKS[idx + 1];
   const floor = Object.values(progress.lessons).reduce(
-    (m, l) => (l.status === 'completed' && l.level !== undefined ? Math.max(m, l.level) : m),
+    (m, l) =>
+      l.status === 'completed' && l.level !== undefined
+        ? Math.max(m, floorOfLevel(l.level) ?? 0)
+        : m,
     0,
   );
   return {

@@ -4,6 +4,7 @@
  * viven en `library.ts` y se cargan al entrar en una lección.
  */
 import curriculumJson from '../../content/es/curriculum.json';
+import { compareLessons, isBaseLevel } from './order';
 
 import { lessons as rawLessons, placements as rawPlacements } from 'virtual:content-index';
 
@@ -17,24 +18,26 @@ export interface LessonMeta {
   title: string;
   level: number;
   unit: number;
+  order?: number;
   estimatedMinutes: number;
 }
 
 const lessonMeta: LessonMeta[] = rawLessons
   .filter((l) => PLAYABLE.includes(l.status))
-  .map(({ id, title, level, unit, estimatedMinutes }) => ({
+  .map(({ id, title, level, unit, order, estimatedMinutes }) => ({
     id,
     title,
     level,
     unit,
+    order,
     estimatedMinutes,
   }))
-  .sort(
-    (a, b) =>
-      a.level - b.level || a.unit - b.unit || a.id.localeCompare(b.id, 'es', { numeric: true }),
-  );
+  .sort(compareLessons);
 
+/** Todas las lecciones jugables en el orden del temario (la Base al principio). */
 export const allLessonMeta = (): LessonMeta[] => lessonMeta;
+/** Las lecciones del Camino, en orden: sin la Base, que es opcional y vive en Practicar. */
+export const pathLessonMeta = (): LessonMeta[] => lessonMeta.filter((l) => !isBaseLevel(l.level));
 export const hasLesson = (id: string): boolean => lessonMeta.some((l) => l.id === id);
 export const lessonMetaOfUnit = (level: number, unit: number): LessonMeta[] =>
   lessonMeta.filter((l) => l.level === level && l.unit === unit);

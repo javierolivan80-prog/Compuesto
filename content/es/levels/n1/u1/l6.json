@@ -1,0 +1,280 @@
+{
+  "id": "n1-u1-l6",
+  "version": 1,
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
+  "level": 1,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: tus primeras acciones",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Entender que una acción es una parte de la empresa y que su precio se mueve con lo que se espera que gane",
+    "Calcular la capitalización, su variación y el free float (la parte en manos de inversores que compran y venden en bolsa)"
+  ],
+  "concepts": ["empresa", "accion", "capitalizacion", "free-float"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "first-shares",
+    "seed": 1
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Acción",
+      "text": "Tenías {stake} de las {shares} acciones de Naranjas del Turia: eras dueño de una parte diminuta de la empresa, con derecho a tu parte de los dividendos que reparta y a votar en su junta. Tus acciones pasaron de valer {stake_start} € a {stake_end} €."
+    },
+    {
+      "type": "card",
+      "term": "Por qué se mueve el precio",
+      "text": "El precio recoge sobre todo lo que los inversores esperan que gane la empresa en el futuro. Una noticia que cambia esa expectativa lo mueve; lo que ya se sabía, como unos resultados en línea con lo esperado, apenas lo mueve. Lo que mueve el precio es la sorpresa."
+    },
+    {
+      "type": "card",
+      "term": "Capitalización y free float",
+      "text": "La capitalización es lo que vale en bolsa la empresa entera: precio × número de acciones. Naranjas pasó de {cap_start} € a {cap_end} €: una subida del {pct} %. Todas sus acciones cotizan, pero solo el {free_float} % está en manos de inversores que compran y venden: es el free float. El resto lo conserva la familia fundadora."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n1-u1-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["capitalizacion"],
+      "concepts": ["capitalizacion"],
+      "prompt": "Naranjas del Turia tiene {shares} acciones y cotiza a {end} €. ¿Cuál es su capitalización? (en euros, sin decimales)",
+      "answer": 118320000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{shares} * {end}",
+      "params": {
+        "shares": {
+          "value": 12000000,
+          "min": 5000000,
+          "max": 50000000,
+          "step": 1000000
+        },
+        "end": {
+          "value": 9.86,
+          "min": 5,
+          "max": 30,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "cap": {
+          "formula": "{shares} * {end}",
+          "decimals": 0
+        }
+      },
+      "explanation": "Capitalización = precio × acciones = {end} € × {shares} = {cap} €. Es lo que costaría comprar todas las acciones al precio de ahora.",
+      "hint": "Multiplica el precio de una acción por el número de acciones."
+    },
+    {
+      "id": "n1-u1-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["accion"],
+      "concepts": ["accion"],
+      "prompt": "La acción pasó de {start} € a {end} €. ¿Cuánto ha subido su precio, en %? (2 decimales)",
+      "answer": 2.49,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({end} / {start} - 1) * 100",
+      "params": {
+        "start": {
+          "value": 9.62,
+          "min": 9,
+          "max": 9.79,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "end": {
+          "value": 9.86,
+          "min": 9.8,
+          "max": 10.5,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "ratio": {
+          "formula": "{end} / {start}",
+          "decimals": 4
+        },
+        "var": {
+          "formula": "({end} / {start} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Variación = (precio final ÷ precio inicial − 1) × 100 = ({end} ÷ {start} − 1) × 100 = {var} %. La capitalización varía lo mismo, porque el número de acciones no cambia.",
+      "hint": "Divide el precio final entre el inicial, resta 1 y multiplica por 100."
+    },
+    {
+      "id": "n1-u1-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["free-float"],
+      "concepts": ["free-float", "capitalizacion"],
+      "prompt": "Naranjas capitaliza {cap_end} € y solo el {free_float} % de sus acciones está en manos de inversores que las compran y venden en bolsa. ¿Cuánto vale ese free float? (en euros, sin decimales)",
+      "answer": 41412000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{cap_end} * {free_float} / 100",
+      "params": {
+        "cap_end": {
+          "value": 118320000,
+          "min": 48000000,
+          "max": 504000000,
+          "step": 120000
+        },
+        "free_float": {
+          "value": 35,
+          "min": 20,
+          "max": 80,
+          "step": 5
+        }
+      },
+      "derived": {
+        "flot": {
+          "formula": "{cap_end} * {free_float} / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "Free float = capitalización × porcentaje de free float = {cap_end} € × {free_float} % = {flot} €. Es la parte de la empresa disponible para comprarse y venderse en bolsa; el resto lo guardan accionistas estables, como la familia.",
+      "hint": "Aplica el porcentaje del free float a la capitalización."
+    },
+    {
+      "id": "n1-u1-l6-e4",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["accion"],
+      "concepts": ["accion", "empresa"],
+      "prompt": "Tienes 100 acciones de Naranjas del Turia. ¿Qué tienes exactamente?",
+      "options": [
+        "Una parte de la empresa: derecho a tu parte de los dividendos y a votar en la junta",
+        "Un préstamo a la empresa, que te lo devolverá con intereses en una fecha fija",
+        "El derecho a comprar naranjas de la empresa a precio de coste",
+        "Un depósito que el banco te garantiza si la empresa quiebra"
+      ],
+      "answer": 0,
+      "explanation": "Una acción es una parte del capital de la empresa: si la empresa va bien, tu parte vale más y cobras dividendos si los reparte; también votas en la junta de accionistas.",
+      "wrongExplanations": {
+        "1": "Eso es un bono: prestas dinero y te lo devuelven con intereses. La acción no tiene fecha de devolución.",
+        "2": "Ser accionista no te da derecho a comprar sus productos a precio de coste: te da una parte de la empresa, de sus beneficios y de sus votos.",
+        "3": "Las acciones no están garantizadas: si la empresa quiebra, puedes perder lo invertido."
+      }
+    },
+    {
+      "id": "n1-u1-l6-e5",
+      "type": "true_false_swipe",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["accion"],
+      "concepts": ["accion"],
+      "statement": "Si una empresa publica unos resultados exactamente iguales a lo que esperaba el mercado, lo normal es que su acción apenas se mueva.",
+      "answer": true,
+      "explanation": "El precio ya recogía lo que se esperaba. Sin sorpresa no cambian las expectativas, así que el precio suele moverse poco."
+    },
+    {
+      "id": "n1-u1-l6-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["accion"],
+      "concepts": ["accion", "empresa"],
+      "prompt": "¿Qué noticias harían probablemente subir la acción de Naranjas y cuáles bajarla?",
+      "categories": ["Probablemente sube", "Probablemente baja"],
+      "items": [
+        {
+          "text": "Gana más de lo que esperaban los analistas",
+          "category": "Probablemente sube"
+        },
+        {
+          "text": "Firma un contrato de varios años con una gran cadena de supermercados",
+          "category": "Probablemente sube"
+        },
+        {
+          "text": "Una plaga daña buena parte de sus naranjos",
+          "category": "Probablemente baja"
+        },
+        {
+          "text": "Se encarece mucho el transporte con el que exporta, sin poder subir sus precios",
+          "category": "Probablemente baja"
+        }
+      ],
+      "explanation": "Lo que aumenta el beneficio que se espera de la empresa empuja el precio hacia arriba; lo que lo reduce, hacia abajo."
+    },
+    {
+      "id": "n1-u1-l6-e7",
+      "type": "scenario",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["capitalizacion"],
+      "concepts": ["capitalizacion", "accion"],
+      "situation": "Una compañera ve que la acción de una empresa cotiza a 20 € y la de otra a 10 €, y dice que la primera vale en bolsa el doble.",
+      "prompt": "¿Tiene razón?",
+      "options": [
+        "No: para comparar lo que valen en bolsa hay que multiplicar cada precio por su número de acciones",
+        "Sí: el precio de la acción indica el tamaño de la empresa",
+        "Sí, siempre que las dos coticen en el mismo mercado",
+        "No: la más grande es siempre la que tiene más acciones"
+      ],
+      "answer": 0,
+      "explanation": "El precio de una acción solo dice cuánto cuesta una parte. El tamaño en bolsa es la capitalización: precio × número de acciones.",
+      "wrongExplanations": {
+        "1": "Una empresa con acciones caras pero pocas puede valer menos que otra con acciones baratas pero muchas.",
+        "2": "Cotizar en el mismo mercado no cambia nada: sigue faltando el número de acciones.",
+        "3": "Tampoco basta con contar acciones: hay que multiplicarlas por su precio."
+      }
+    },
+    {
+      "id": "n1-u1-l6-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["capitalizacion"],
+      "concepts": ["capitalizacion"],
+      "prompt": "Ordena estas empresas de mayor a menor capitalización.",
+      "steps": [
+        "Empresa C: 5 € por acción y 100 millones de acciones",
+        "Empresa A: 40 € por acción y 10 millones de acciones",
+        "Empresa B: 2 € por acción y 150 millones de acciones"
+      ],
+      "explanation": "C vale 5 € × 100 millones = 500 millones de euros; A, 40 € × 10 millones = 400 millones; B, 2 € × 150 millones = 300 millones. La acción más cara (A) no es la de la empresa más grande."
+    }
+  ],
+  "realWorld": "En la web de BME y en cualquier aplicación de bolsa verás, para cada empresa, el precio, la variación del día y la capitalización. Los índices como el IBEX 35 dan más peso a las empresas con más capitalización en free float.",
+  "sources": [
+    {
+      "title": "CNMV: el inversor y los mercados de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "Sociedad de Bolsas / BME: Normas técnicas del IBEX 35 (ponderación por capitalización ajustada por free float)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+      "date": "2026-10-18"
+    },
+    {
+      "title": "BOE: Real Decreto Legislativo 1/2010, Ley de Sociedades de Capital (art. 93, derechos del socio)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544",
+      "date": "2026-10-18"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-18"
+}

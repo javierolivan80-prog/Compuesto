@@ -13,6 +13,8 @@ describe('format', () => {
   it('la variación lleva flecha, signo y texto', () => {
     expect(formatDelta(1.25)).toBe('▲ +1,3 %');
     expect(formatDelta(-0.8)).toBe('▼ −0,8 %');
+    expect(formatDelta(-0.04)).toBe('0,0 %');
+    expect(formatDelta(0.04, 2)).toBe('▲ +0,04 %');
     expect(formatDelta(0)).toBe('0,0 %');
   });
   it('formatPlain no rellena decimales y agrupa miles', () => {

@@ -3,9 +3,11 @@ import type { AppData } from '../../app/hooks';
 import { Button } from '../../components/Button';
 import { ErrorState, Loading } from '../../components/States';
 import { getPlacement, lessonsOfUnit, levelName, unitsOfLevel } from '../../content/library';
+import { FLOOR_COUNT, levelOfFloor } from '../../engine/floors';
 import { RANKS } from '../../engine/projections';
 
-const FLOORS = Array.from({ length: 11 }, (_, i) => 10 - i);
+/** Plantas de arriba abajo (la Base no es planta: está en Practicar). */
+const FLOORS = Array.from({ length: FLOOR_COUNT }, (_, i) => FLOOR_COUNT - 1 - i);
 
 type UnitState = 'completada' | 'en curso' | 'disponible' | 'proximamente';
 
@@ -45,12 +47,13 @@ export function Camino({ data, onStart, onSkipUnit, onSkipLevel }: Props) {
         Las plantas de Albufera Partners, de la recepción al despacho de socios.
       </p>
       <ol aria-label="Edificio de Albufera Partners" className="grid gap-2">
-        {FLOORS.map((level) => {
+        {FLOORS.map((floor) => {
+          const level = levelOfFloor(floor)!;
           const units = unitsOfLevel(level);
           const states = units.map((u) => unitState(level, Number(u.id.split('-u')[1]), u.id));
           const hasContent = states.some((s) => s !== 'proximamente');
           const allDone = units.length > 0 && states.every((s) => s === 'completada');
-          const rank = RANKS[Math.min(level, RANKS.length - 1)]!.name;
+          const rank = RANKS[Math.min(floor, RANKS.length - 1)]!.name;
           const status = allDone
             ? '✓ completada'
             : states.some((s) => s === 'en curso' || s === 'completada')
@@ -58,18 +61,18 @@ export function Camino({ data, onStart, onSkipUnit, onSkipLevel }: Props) {
               : hasContent
                 ? 'disponible'
                 : 'próximamente';
-          const current = data.summary!.rank.floor === level;
+          const current = data.summary!.rank.floor === floor;
           return (
             <li
-              key={level}
+              key={floor}
               aria-current={current ? 'step' : undefined}
               className={`rounded-[var(--radius-md)] border ${current ? 'border-brand bg-surface-2' : 'border-line bg-surface-1'}`}
             >
-              <details open={level <= 1}>
+              <details open={floor <= 1}>
                 <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-3 px-4 py-2">
                   <span>
                     <span data-num className="mr-3">
-                      P{level}
+                      P{floor}
                     </span>
                     {levelTitle(level)}
                     <span className="text-text-2 block text-sm">
@@ -147,7 +150,7 @@ export function Camino({ data, onStart, onSkipUnit, onSkipLevel }: Props) {
                       onClick={() => onSkipLevel(level)}
                       className="justify-self-start"
                     >
-                      Saltar el Nivel {level}
+                      Saltar la planta {floor}
                     </Button>
                   )}
                 </div>

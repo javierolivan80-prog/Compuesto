@@ -1,5 +1,6 @@
 import companiesJson from '../../content/shared/companies.json';
 import { instantiate } from '../engine/params';
+import { compareLessons } from './order';
 import conceptsJson from '../../content/shared/concepts.json';
 import type { ExerciseRef } from '../engine/srs';
 import glossaryJson from '../../content/es/glossary.json';
@@ -36,10 +37,7 @@ function load(): Lesson[] {
     }
     if (PLAYABLE.includes(r.data.status)) out.push(r.data);
   }
-  return out.sort(
-    (a, b) =>
-      a.level - b.level || a.unit - b.unit || a.id.localeCompare(b.id, 'es', { numeric: true }),
-  );
+  return out.sort(compareLessons);
 }
 
 const lessons = load();

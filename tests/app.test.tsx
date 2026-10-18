@@ -26,10 +26,9 @@ it('un usuario nuevo ve la bienvenida; tras el onboarding llega a su primera lec
   await user.type(screen.getByLabelText('Tus iniciales'), 'jav');
   await user.click(start);
 
-  expect(
-    await screen.findByRole('heading', { name: 'Inflación: por qué tu dinero compra menos' }),
-  ).toBeInTheDocument();
-  expect(window.location.hash).toBe('#/leccion/n0-u1-l1');
+  // la primera lección es un juego de la planta 0 (mercados), no la Base de finanzas personales
+  expect(await screen.findByRole('heading', { name: 'Tus primeras acciones' })).toBeInTheDocument();
+  expect(window.location.hash).toBe('#/leccion/n1-u1-l6');
 });
 
 it('con el onboarding hecho la app abre en Inicio con la barra de 5 pestañas', async () => {

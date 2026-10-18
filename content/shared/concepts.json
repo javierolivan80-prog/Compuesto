@@ -771,7 +771,7 @@
     "id": "emision-bonos",
     "name": "Emisión de bonos corporativos",
     "level": 3,
-    "prerequisites": ["cupon-bono"]
+    "prerequisites": ["prestamo"]
   },
   {
     "id": "estructura-capital",
@@ -855,7 +855,7 @@
     "id": "anclaje",
     "name": "Sesgo de anclaje",
     "level": 3,
-    "prerequisites": ["ilusion-control"]
+    "prerequisites": ["fomo-manada"]
   },
   {
     "id": "pib",

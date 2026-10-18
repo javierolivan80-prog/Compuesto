@@ -26,10 +26,14 @@ test('se completa la Unidad 4 entera y queda completada en el Camino', async ({ 
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
 
-  await page.goto('/#/camino');
+  // el Nivel 0 es la Base opcional: su progreso se ve en Practicar, no en el Camino
+  await page.goto('/#/practicar');
   await page.reload();
-  await expect(page.getByRole('group', { name: /Bancos y depósitos/ })).toContainText(
-    '✓ Completada',
-  );
+  await expect(
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /Bancos y depósitos/ }),
+  ).toContainText(/(\d+) de \1 lecciones/);
   expect(errors).toEqual([]);
 });

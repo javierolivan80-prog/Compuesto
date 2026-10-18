@@ -33,6 +33,7 @@ function contentIndex(): Plugin {
           title: d['title'],
           level: d['level'],
           unit: d['unit'],
+          order: d['order'],
           status: d['status'],
           estimatedMinutes: d['estimatedMinutes'],
         };

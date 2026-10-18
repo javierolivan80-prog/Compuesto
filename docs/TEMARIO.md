@@ -6,11 +6,14 @@
 
 ## 0. A dónde lleva
 
+> **Orden «directo a mercados»** (aprobado por Javier el 17/10/2026, `docs/cambios/rumbo-juego-mercado/`): se empieza en la bolsa, cada unidad gira alrededor de un juego y de La Mesa, y la teoría llega después explicando lo que te ha pasado. Las finanzas personales (antiguo Nivel 0) son una **Base opcional** en Practicar.
+
 | Tramo | Duración | Nivel al terminar |
 |---|---|---|
-| Troncal N0–N2 | Semanas 1–16 (menos con tests de salto) | Finanzas personales, mercados y productos: lo que la carrera da por sabido |
-| Troncal N3–N5 | Semanas 17–37 | Contabilidad española e IFRS, valoración, macro, banca y mercados de 2.º–4.º de carrera |
-| Troncal N6–N9 | Semanas 38–52 | Amplitud del **CFA Nivel I** (los 10 bloques) + lo específico de España |
+| Plantas 0–2 | Semanas 1–22 (menos con tests de salto) | Mercados en vivo, leer y valorar una empresa, tipos y bonos: lo que la carrera da por sabido y bastante de 2.º |
+| Plantas 3–5 | Semanas 23–38 | Macro y banca, trading y microestructura, carteras y riesgo de 2.º–4.º de carrera |
+| Plantas 6–9 | Semanas 39–49 | Amplitud del **CFA Nivel I** (los 10 bloques) + lo específico de España, y examen final |
+| Base (opcional) | Cuando quieras | Inflación, interés compuesto, préstamos, bancos y pensiones |
 | **Itinerario Pro** (6 ramas) | 8–12 semanas cada una | **Nivel técnico de entrevista y de primer año** de analista en investment banking, equity research, private equity, mercados o riesgos: hacer los modelos y entregables reales, no solo conocer los conceptos |
 
 **Lo que diferencia el nivel Pro:** no basta con saber qué es un LBO; hay que **construirlo** (fuentes y usos, calendario de deuda, cash sweep, TIR y MOIC), defenderlo ante un comité y responder preguntas técnicas de entrevista con presión de tiempo. Cada rama Pro se organiza alrededor de los **entregables que hace un analista real** (ver §3).
@@ -21,14 +24,32 @@ Promesa honesta: conocimientos y práctica técnica a nivel de analista junior. 
 
 ## 1. Estructura
 
-Nivel (= rango = planta de Albufera Partners) → Unidad → Lección → Ejercicios.
-- **Año troncal:** 10 niveles, 52 semanas, ~700 lecciones.
-- **Itinerario Pro:** 6 ramas de 8–12 semanas. Se desbloquean al aprobar el nivel indicado y se pueden hacer en paralelo al troncal (a costa de avanzar más despacio) o al terminarlo. **Vía rápida:** si ya dominas N0–N2 (por la carrera), los tests de salto te llevan a N3 en pocos días y la primera rama Pro (Investment Banking) se abre al aprobar N3.
-- 4–8 unidades por nivel · 4–6 lecciones por unidad · **6–10 ejercicios por lección (3–5 min)**.
+Planta (= rango) → Unidad → Lección → Ejercicios.
+- **Planta y nivel de contenido.** Cada planta enseña un nivel de contenido. El nivel es un identificador (`n1-u4-l7`) y no cambia nunca; la planta es el orden en que se presenta (`src/engine/floors.ts`, y `curriculum.json` lo repite; `content:validate` comprueba que coinciden):
+
+| Planta | Rango | Nivel de contenido | Bloque |
+|---|---|---|---|
+| 0 | Becario | N1 | Mercados en vivo |
+| 1 | Analista Junior | N3 | Leer una empresa: contabilidad, finanzas corporativas y valoración |
+| 2 | Analista | N2 | Tipos, bonos y productos |
+| 3 | Asociado | N4 | Macro que mueve precios: macro, finanzas internacionales y banca |
+| 4 | VP | N5 | Trading y microestructura |
+| 5 | Director | N6 | Carteras, riesgo y alternativos |
+| 6 | Director Sénior | N7 | Derivados |
+| 7 | Managing Director | N8 | Finanzas profesionales y fintech |
+| 8 | Partner | N9 | Historia, regulación, ética y fiscalidad |
+| 9 | Leyenda | N10 | Despacho de socios: examen final del año |
+| Base | — | N0 | El dinero (opcional, en Practicar) |
+
+- Los **prerrequisitos** de un concepto deben enseñarse en su planta o antes (la Base cuenta como anterior a todo).
+- **Año troncal:** 10 plantas, ~49 semanas, ~700 lecciones, más la Base.
+- **Itinerario Pro:** 6 ramas de 8–12 semanas. Se desbloquean al aprobar el nivel indicado y se pueden hacer en paralelo al troncal (a costa de avanzar más despacio) o al terminarlo. Con el orden nuevo, Investment Banking (se abre al aprobar N3) queda disponible desde la planta 1.
+- 4–8 unidades por planta · 4–7 lecciones por unidad · **6–10 ejercicios por lección (3–5 min)**.
+- **Lección-juego** (planta 0 en adelante, cada unidad tiene al menos una y la abre): se juega primero; la explicación y los ejercicios usan las cifras de tu partida; en el repaso, los ejercicios usan cifras nuevas (`params`). Campo `game` y `order: 0` en el JSON de la lección.
 - Cada unidad termina con **Jefe final** (≥80 %) y una tarjeta **"Dónde verás esto"**.
 - Una vez por semana, **Encargo del jefe** sobre el caso hilo (8–10 min, varios pasos).
-- Cada nivel y cada rama terminan con **Comité de inversión** + diploma PDF local para tu Despacho.
-- **Orden de producción:** primero Niveles 0 y 1 completos (prueba personal de 4 semanas). Después, el resto del troncal, adelantando lo que coincida con la carrera en cada cuatrimestre. Las ramas Pro, empezando por Investment Banking y Equity Research/Buy-side, en cuanto su nivel de desbloqueo esté publicado (ver `FASES.md`).
+- Cada planta y cada rama terminan con **Comité de inversión** + diploma PDF local para tu Despacho.
+- **Orden de producción:** primero la planta 0 rehecha como lecciones-juego (una unidad cada vez, con revisor y revisión de Javier). Después, la planta 1 y el resto del troncal, adelantando lo que coincida con la carrera en cada cuatrimestre. Las ramas Pro, empezando por Investment Banking y Equity Research/Buy-side, en cuanto su nivel de desbloqueo esté publicado (ver `FASES.md`).
 - **Presupuesto realista:** apuntar en `CONTENIDO-QA.md` las horas reales de revisión por unidad para ajustar el ritmo; es preferible un temario más corto y correcto que uno completo con errores.
 
 ### Hilos transversales (en todos los niveles)
@@ -43,45 +64,50 @@ Nivel (= rango = planta de Albufera Partners) → Unidad → Lección → Ejerci
 
 ## 2. Año troncal
 
-**Nivel 0 · Becario · Planta 0 — El dinero (sem. 1–4)**
-Inflación y poder adquisitivo · interés simple y **compuesto** (lección fundacional), regla del 72 · TIN vs TAE · presupuesto y fondo de emergencia · deuda, préstamos, hipotecas (fijo, variable, Euríbor), alquilar vs comprar · cómo funciona un banco y cómo se crea el dinero · depósitos y Fondo de Garantía de Depósitos · seguros básicos · **pensiones públicas en España** (Seguridad Social y los tres pilares) · riesgo y rentabilidad.
-🧮 porcentajes, tasas, valor temporal del dinero · 🏛 intereses en el IRPF · 🧠 sesgo del presente · 📊 celdas, SUMA, referencias · 📄 ficha de información precontractual de un depósito.
+Cada bloque lleva su nivel de contenido (N1, N3…), que es el prefijo de sus IDs.
 
-**Nivel 1 · Analista Junior · Planta 1 — Mercados 101 (sem. 5–10)**
+**Planta 0 · Becario — Mercados en vivo (N1, sem. 1–6)**
 Empresa y acción · mercado primario/secundario, OPV · BME, mercado continuo, IBEX 35, **BME Growth**, índices mundiales · formación de precios, horquilla, liquidez · órdenes y subastas · cómo abrir un bróker en España · dividendos, **scrip dividend**, ampliaciones y **derechos de suscripción**, splits, recompras · **OPAs** (cómo funcionan en España) · capitalización y free float · OTC.
 🧮 rentabilidad total, rentabilidad por dividendo · 🏛 ganancias patrimoniales, dividendos, venta de derechos · 🧠 FOMO y efecto manada · 📊 porcentajes, VF, VA · 📄 anuncio de una OPA en la CNMV.
+**Unidades de la planta 0 y su juego** (IDs de siempre; cambia el orden): 1. La empresa y la acción (`n1-u1`) → **Tus primeras acciones** (`n1-u1-l6`, hecho: noticias de Naranjas, capitalización y free float) · 2. Precios, órdenes y subastas (`n1-u4`) → **La compra grande** (`n1-u4-l7`, hecho) y *Campana de apertura* · 3. Bolsas e índices (`n1-u3`) · 4. Operar en España: bróker, dividendos y fiscalidad (`n1-u5`) → tu primer dividendo en La Mesa · 5. Mercado primario y secundario (`n1-u2`) · 6. Operaciones corporativas y OPAs (`n1-u6`) → *rumor de OPA*. Psicología (FOMO, manada, exceso de confianza → *El trader impulsivo*) va dentro de las unidades 2 y 4 hasta que tenga unidad propia.
 
-**Nivel 2 · Analista · Planta 2 — Productos (sem. 11–16)**
-**Renta fija:** cupón, precio vs tipos, precio limpio y sucio (cupón corrido, convención de días), TIR, curva de tipos, **curva cupón cero** (bootstrapping) y tipos forward, duración y **convexidad**, rating y **spread de crédito**, Letras y Bonos del Tesoro · **mercado monetario y repo** · **cédulas hipotecarias y titulizaciones** · fondos, TER y traspasos · ETFs · planes de pensiones · inmobiliario: SOCIMIs, REITs · materias primas · divisas · cripto (MiCA) · introducción a derivados · productos complejos y avisos de la CNMV.
-🧮 estadística básica: media, desviación típica, normal, colas gordas · 🏛 fondos, ETFs, pensiones, cripto · 🧠 ilusión de control · 📊 PROMEDIO, DESVEST, gráficos · 📄 KID (documento de datos fundamentales) de un fondo.
-
-**Nivel 3 · Asociado · Planta 3 — Contabilidad, finanzas corporativas y valoración (sem. 17–26)**
+**Planta 1 · Analista Junior — Leer una empresa (N3, sem. 7–16)**
 Balance, PyG, flujos de caja y cómo se conectan · **PGC español vs NIIF/IFRS** · **consolidación** (minoritarios, puesta en equivalencia), **fondo de comercio y deterioros** (amortización en 10 años en PGC frente a test de deterioro en NIIF), provisiones, **arrendamientos (IFRS 16)**, **reconocimiento de ingresos (NIIF 15)**, **impuestos diferidos (NIC 12)** · estado de flujos por el método indirecto construido desde dos balances · ratios y análisis: árbol DuPont, ROIC frente a WACC, conversión de beneficio en caja · **circulante y ciclo de caja** · **financiación de la empresa:** préstamo bancario y sindicado, leasing, renting, factoring, confirming, emisión de bonos · estructura de capital (Modigliani-Miller intuitivo) · **coste de capital: CAPM, beta apalancada y desapalancada (Hamada), coste de la deuda después de impuestos y WACC** · política de dividendos · presupuesto de capital (VAN, TIR) · múltiplos · DCF paso a paso (FCFF, mitad de año, valor terminal por Gordon y por múltiplo) · trampas contables.
 🧮 VAN, TIR, crecimiento compuesto · 🏛 impuesto de sociedades · 🧠 anclaje · 📊 VNA, TIR, modelo de 3 estados · 📄 cuentas anuales de una cotizada española.
 
-**Nivel 4 · VP · Planta 4 — Macro, finanzas internacionales y banca (sem. 27–33)**
+**Planta 2 · Analista — Tipos, bonos y productos (N2, sem. 17–22)**
+**Renta fija:** cupón, precio vs tipos, precio limpio y sucio (cupón corrido, convención de días), TIR, curva de tipos, **curva cupón cero** (bootstrapping) y tipos forward, duración y **convexidad**, rating y **spread de crédito**, Letras y Bonos del Tesoro · **mercado monetario y repo** · **cédulas hipotecarias y titulizaciones** · fondos, TER y traspasos · ETFs · planes de pensiones · inmobiliario: SOCIMIs, REITs · materias primas · divisas · cripto (MiCA) · introducción a derivados · productos complejos y avisos de la CNMV.
+🧮 estadística básica: media, desviación típica, normal, colas gordas · 🏛 fondos, ETFs, pensiones, cripto · 🧠 ilusión de control · 📊 PROMEDIO, DESVEST, gráficos · 📄 KID (documento de datos fundamentales) de un fondo.
+
+**Planta 3 · Asociado — Macro que mueve precios (N4, sem. 23–29)**
 PIB, IPC, paro, PMI · calendario macro · BCE, Fed, Banco de España, QE/QT · curva de tipos e inversión · ciclo y rotación sectorial · política fiscal, deuda pública, prima de riesgo · **finanzas internacionales:** balanza de pagos, paridad del poder adquisitivo, paridad de tipos de interés, mercados emergentes · **banca por dentro:** margen de intereses, solvencia (CET1), Basilea, liquidez (LCR, NSFR), test de estrés · **riesgo de crédito básico:** PD, LGD, EAD, morosidad, provisiones IFRS 9 (intuición) · **supervisión:** Unión Bancaria, MUS, FROB, resolución · **valorar bancos** (P/VTC, ROTE).
 🧮 tasas interanuales, índices, correlación · 🏛 deuda pública en el IRPF · 🧠 sesgo de narrativa · 📊 series temporales · 📄 nota de prensa de política monetaria del BCE.
 
-**Nivel 5 · Director · Planta 5 — Trading y microestructura (sem. 34–37)**
+**Planta 4 · VP — Trading y microestructura (N5, sem. 30–33)**
 Libro de órdenes · market makers, HFT, dark pools · subastas · costes reales de operar · cortos y préstamo de valores · análisis técnico con mirada crítica (evidencia y por qué la mayoría del minorista pierde) · eficiencia de mercado (formas débil, semifuerte y fuerte) y anomalías · gestión del riesgo de una operación (stop, tamaño de posición).
 🧮 probabilidad, valor esperado, contraste de hipótesis, p-valor e intervalos de confianza · 🏛 regla de los dos meses, compensación de pérdidas · 🧠 exceso de confianza, aversión a la pérdida · 📊 SI, BUSCARX · 📄 informe de la CNMV sobre resultados de inversores minoristas en CFD (o equivalente vigente).
 
-**Nivel 6 · Director Sénior · Planta 6 — Carteras, riesgo y alternativos (sem. 38–42)**
+**Planta 5 · Director — Carteras, riesgo y alternativos (N6, sem. 34–38)**
 Rentabilidad simple/log, TWR vs MWR · volatilidad, correlación, diversificación · Markowitz · CAPM y beta (estimación por regresión, beta ajustada y errores típicos; amplía lo visto en N3) · Sharpe, Sortino, ratio de información y tracking error, drawdown · VaR y CVaR · factores · pasiva vs activa, atribución de resultados (Brinson-Fachler) · **alternativos como inversión:** private equity, hedge funds, deuda privada, infraestructuras · ESG y SFDR · asset allocation (media-varianza, Black-Litterman y paridad de riesgo a nivel intuitivo) y rebalanceo · **Monte Carlo** y **trampas del backtesting** · efecto compuesto de las comisiones.
 🧮 covarianza, regresión (coeficientes, t, R² y sus trampas), simulación · 🏛 optimización fiscal legal de una cartera · 🧠 contabilidad mental · 📊 matriz de correlaciones · 📄 informe periódico de un fondo.
 
-**Nivel 7 · Managing Director · Planta 7 — Derivados (sem. 43–46)**
+**Planta 6 · Director Sénior — Derivados (N7, sem. 39–42)**
 Futuros y forwards (precio por coste de financiación, base, liquidación diaria de márgenes) · opciones · payoffs · **paridad put-call** · valor intrínseco y temporal · **modelo binomial** de uno y dos pasos (réplica y probabilidad neutral al riesgo) · Black-Scholes con números · griegas · estrategias · swaps de tipos y divisa · CDS · apalancamiento y margin call · coberturas en empresas (caso hilo).
 🧮 árboles binomiales, volatilidad implícita (intuición) · 🏛 tributación de derivados · 🧠 sesgo de resultado · 📊 tablas de payoff · 📄 folleto de un producto estructurado.
 
-**Nivel 8 · Partner · Planta 8 — Finanzas profesionales y fintech (sem. 47–49)**
+**Planta 7 · Managing Director — Finanzas profesionales y fintech (N8, sem. 43–45)**
 Mapa del sector (banca comercial, de inversión, asset management, PE, VC, hedge funds, research, trading, riesgos, compliance) · OPV, M&A, LBO y VC **a nivel de intuición** (los modelos se construyen en las ramas Pro) · **panorama fintech:** pagos, neobancos, open banking, euro digital, tokenización, IA en finanzas · CFA, EFPA, FRM · prácticas en banca en España.
 🧮 TIR de un LBO · 🏛 fiscalidad de M&A (intuición) · 🧠 pensamiento de grupo · 📊 LBO simplificado, sensibilidades · 📄 folleto de una OPV española.
 
-**Nivel 9 · Leyenda · Planta 9 — Historia, regulación, ética y fiscalidad (sem. 50–52)**
+**Planta 8 · Partner — Historia, regulación, ética y fiscalidad (N9, sem. 46–48)**
 Burbujas y crisis: tulipanes, 1929, puntocom, 2008, **burbuja inmobiliaria española**, **crisis de las cajas y Bankia**, deuda europea 2012, **resolución del Banco Popular (2017)**, COVID, SVB 2023 · fraudes (Ponzi, Madoff, Enron, Wirecard, pump and dump, chiringuitos) · regulación: CNMV, ESMA, MiFID II, idoneidad y conveniencia, abuso de mercado · **prevención del blanqueo y KYC** · protección del cliente bancario y reclamaciones al Banco de España · fiscalidad avanzada: 720/721, doble imposición, **Patrimonio y Sucesiones** (ejemplo: Comunidad Valenciana) · ética y conflictos de interés · repaso integrador.
-**Planta 10 · Despacho de socios:** examen final del año.
+
+**Planta 9 · Leyenda · Despacho de socios:** examen final del año (N10).
+
+**Base (opcional, N0) — El dinero**
+Inflación y poder adquisitivo · interés simple y **compuesto** (lección fundacional), regla del 72 · TIN vs TAE · presupuesto y fondo de emergencia · deuda, préstamos, hipotecas (fijo, variable, Euríbor), alquilar vs comprar · cómo funciona un banco y cómo se crea el dinero · depósitos y Fondo de Garantía de Depósitos · seguros básicos · **pensiones públicas en España** (Seguridad Social y los tres pilares) · riesgo y rentabilidad.
+🧮 porcentajes, tasas, valor temporal del dinero · 🏛 intereses en el IRPF · 🧠 sesgo del presente · 📊 celdas, SUMA, referencias · 📄 ficha de información precontractual de un depósito.
+No es una planta: está en Practicar y el Camino no la exige. Sus ideas aparecen dentro de los juegos (la inflación es la línea que tu cartera tiene que batir en La Mesa; el interés compuesto, la curva de tu cartera).
 
 ---
 

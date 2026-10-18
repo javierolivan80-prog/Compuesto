@@ -3,7 +3,13 @@ import { Toaster } from '../components/Toaster';
 import { TabBar } from '../components/TabBar';
 import { RouteBoundary } from '../components/RouteBoundary';
 import { Loading, OfflineBanner } from '../components/States';
-import { hasLesson, hasPlacement, lessonMetaOfUnit, unitsOfLevel } from '../content/meta';
+import {
+  hasLesson,
+  hasPlacement,
+  lessonMetaOfUnit,
+  pathLessonMeta,
+  unitsOfLevel,
+} from '../content/meta';
 import { useRepo } from '../db/RepoProvider';
 import { Home } from '../features/home/Home';
 import { backupReminder } from '../engine/pwa';
@@ -180,7 +186,7 @@ export function Product() {
       <Onboarding
         onFinish={() => {
           setOnboarded(true);
-          go(`#/leccion/${lessonMetaOfUnit(0, 1)[0]?.id ?? ''}`);
+          go(`#/leccion/${pathLessonMeta()[0]?.id ?? ''}`);
         }}
       />
     );

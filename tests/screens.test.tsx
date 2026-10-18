@@ -56,19 +56,23 @@ describe('pantallas principales', () => {
     expect(screen.getByTestId('goal-xp')).toHaveTextContent('30 / 60 XP');
     expect(screen.getByTestId('streak')).toHaveTextContent('1 d');
     expect(screen.getByRole('heading', { name: 'Siguiente' })).toBeInTheDocument();
-    expect(screen.getByText(/Interés simple e interés compuesto/)).toBeInTheDocument(); // la siguiente sin completar
+    // la Base (nivel 0) es opcional: la siguiente es la primera de la planta 0, mercados
+    expect(screen.getByText(/Juego: tus primeras acciones/)).toBeInTheDocument();
   });
 
-  it('Camino: 11 plantas, la más alta arriba, con estados y "Próximamente" explícito', async () => {
+  it('Camino: 10 plantas, la más alta arriba, con estados y "Próximamente" explícito', async () => {
     await open('#/camino');
     const building = await screen.findByRole('list', { name: 'Edificio de Albufera Partners' });
     const floors = within(building)
       .getAllByRole('listitem', { name: '' })
       .filter((li) => li.querySelector(':scope > details'));
-    expect(floors).toHaveLength(11);
-    expect(floors[0]).toHaveTextContent('P10');
-    expect(floors[10]).toHaveTextContent('P0');
-    expect(floors[10]).toHaveTextContent('▶ en curso');
+    expect(floors).toHaveLength(10);
+    expect(floors[0]).toHaveTextContent('P9');
+    expect(floors[0]).toHaveTextContent('Despacho de socios');
+    expect(floors[9]).toHaveTextContent('P0');
+    expect(floors[9]).toHaveTextContent('Mercados en vivo');
+    expect(floors[9]).toHaveTextContent('disponible'); // lo completado es de la Base, que no es planta
+    expect(floors[8]).toHaveTextContent('Leer una empresa');
     expect(floors[5]).toHaveTextContent('próximamente');
     expect(screen.getAllByText(/Próximamente/).length).toBeGreaterThan(3);
   });
@@ -77,6 +81,10 @@ describe('pantallas principales', () => {
     await open('#/practicar');
     expect(await screen.findByRole('heading', { name: 'Minijuegos' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Repetir' })).toBeInTheDocument();
+    // la Base opcional: el nivel 0 sigue disponible aquí
+    const base = screen.getByRole('heading', { name: 'Base: el dinero' }).parentElement!;
+    expect(within(base).getByText(/1 de \d+ lecciones/)).toBeInTheDocument();
+    expect(within(base).getAllByRole('button', { name: /^Continuar/ }).length).toBe(1);
   });
 
   it('Rivales', async () => {

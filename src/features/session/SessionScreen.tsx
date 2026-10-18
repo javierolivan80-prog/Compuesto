@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { t } from '../../i18n';
 import { Button } from '../../components/Button';
 import { Loading } from '../../components/States';
-import { allLessonMeta } from '../../content/meta';
+import { pathLessonMeta } from '../../content/meta';
 import { conceptGraph, conceptName, exerciseCatalog, getLesson } from '../../content/library';
 import { useRepo } from '../../db/RepoProvider';
 import type { AppEvent, BlockSpec } from '../../engine/events';
@@ -131,7 +131,7 @@ export function SessionScreen({ onExit }: Props) {
       const catalog = exerciseCatalog();
       const cards = projectCards(ctx.events);
       const due = dueCards(cards, { today, catalog });
-      const nextLessons = allLessonMeta()
+      const nextLessons = pathLessonMeta()
         .filter((l) => !completed(l.id))
         .slice(0, 3)
         .map((l) => ({ id: l.id, minutes: l.estimatedMinutes }));
@@ -179,7 +179,7 @@ export function SessionScreen({ onExit }: Props) {
   if (!ctx) return <Loading />;
 
   if (!session) {
-    const done = allLessonMeta().every(
+    const done = pathLessonMeta().every(
       (l) => ctx.summary.progress.lessons[l.id]?.status === 'completed',
     );
     return (

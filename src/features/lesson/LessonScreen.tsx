@@ -22,10 +22,12 @@ import type { Summary } from '../../engine/projections';
 import { formatNumber } from '../../lib/format';
 import { ExerciseRunner, isSupported, type ExerciseOutcome } from '../exercises/ExerciseRunner';
 import { levelName } from '../../content/library';
+import { levelOfFloor } from '../../engine/floors';
 import { Elevator } from '../sequences/Elevator';
 import { RankUp } from '../sequences/RankUp';
 import { ExplainerBlock } from './explainers';
 import { BlockTradeGame } from '../games/BlockTradeGame';
+import { FirstSharesGame } from '../games/FirstSharesGame';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
 
@@ -131,7 +133,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
               rank: after.rankIndex > b.rankIndex ? after.rank : null,
               from: b.floor,
               to: after.floor > b.floor ? after.floor : b.floor,
-              level: levelName(after.floor),
+              level: levelName(levelOfFloor(after.floor) ?? 1),
             }
           : null;
       setClosing({
@@ -167,13 +169,18 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
       <section aria-label={`Lección: ${lesson.title}`} className="grid gap-5">
         {header}
         {errorBanner}
-        <BlockTradeGame
-          seed={lesson.game.seed}
-          onDone={(v) => {
-            setGameValues(v);
-            setPhase(afterGame);
-          }}
-        />
+        {(() => {
+          const Game = lesson.game.kind === 'first-shares' ? FirstSharesGame : BlockTradeGame;
+          return (
+            <Game
+              seed={lesson.game.seed}
+              onDone={(v) => {
+                setGameValues(v);
+                setPhase(afterGame);
+              }}
+            />
+          );
+        })()}
       </section>
     );
   }

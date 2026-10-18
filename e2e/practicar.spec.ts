@@ -86,6 +86,7 @@ test('un fallo en la lección aparece en «Mis errores» y repasarlo lo limpia',
   test.setTimeout(120_000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await completeOnboarding(page);
+  await page.goto('/#/leccion/n0-u1-l1');
   const l1 = lesson(1);
   await playLesson(page, l1, { wrongFirst: l1.exercises[0]!.id });
   await page.getByRole('button', { name: 'Continuar' }).click();
@@ -149,6 +150,7 @@ test('examen cronometrado: 10 preguntas, temporizador y resultado al final', asy
   test.setTimeout(180_000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await completeOnboarding(page);
+  await page.goto('/#/leccion/n0-u1-l1');
   for (const n of [1, 2, 3, 4, 5]) {
     await playLesson(page, lesson(n));
     await page.getByRole('button', { name: 'Continuar' }).click();

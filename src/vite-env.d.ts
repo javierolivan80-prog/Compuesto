@@ -8,6 +8,7 @@ declare module 'virtual:content-index' {
     title: string;
     level: number;
     unit: number;
+    order?: number;
     status: string;
     estimatedMinutes: number;
   }[];

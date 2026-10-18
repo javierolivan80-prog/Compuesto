@@ -1,6 +1,6 @@
 # Propuesta 🛑: orden nuevo del temario «directo a mercados»
 
-**Estado:** propuesta para que Javier la apruebe. No se ha tocado `docs/TEMARIO.md`.
+**Estado:** aprobada por Javier el 17/10/2026 y aplicada el 18/10/2026 (TEMARIO §0–§2, CLAUDE.md §8 y §8b, `curriculum.json`, `src/engine/floors.ts`; ver DECISIONES.md). Diferencias con la tabla: «Subastas» y «Psicología» viven por ahora dentro de `n1-u4`.
 
 **Idea:** cada unidad gira alrededor de **un juego** y de lo que pasa en **La Mesa**. La teoría llega después, explicando lo que te ha pasado. Las finanzas personales del N0 actual dejan de ser un nivel: sus ideas aparecen dentro de los juegos (la inflación es la línea que tu cartera tiene que batir en La Mesa; el interés compuesto, la curva de tu cartera). Las lecciones de N0 siguen disponibles como «Base» opcional en Practicar.
 

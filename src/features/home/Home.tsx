@@ -3,7 +3,7 @@ import { stockFromEvents } from '../../engine/stock';
 import { CompoundRing } from '../../components/CompoundRing';
 import { Button } from '../../components/Button';
 import { EmptyState, ErrorState, Loading } from '../../components/States';
-import { allLessonMeta } from '../../content/meta';
+import { pathLessonMeta } from '../../content/meta';
 import { dailyMissions } from '../../engine/missions';
 import { activeSession } from '../../engine/session';
 import { todayKey } from '../../engine/stats';
@@ -24,7 +24,7 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
       />
     );
   const { summary } = data;
-  const lessons = allLessonMeta();
+  const lessons = pathLessonMeta();
   const completed = (id: string) => summary.progress.lessons[id]?.status === 'completed';
   const next = lessons.find((l) => !completed(l.id));
   const started = next ? !!summary.progress.lessons[next.id] : false;

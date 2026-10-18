@@ -173,7 +173,9 @@ describe('mapa de conceptos', () => {
     const msgs = r.issues.map((i) => i.message).join('\n');
     expect(msgs).toContain('Ciclo de prerrequisitos: a → b → a');
     expect(msgs).toContain('Prerrequisito inexistente: zzz');
-    expect(msgs).toContain('Prerrequisito e (nivel 3) posterior a d (nivel 0)');
+    expect(msgs).toContain(
+      'Prerrequisito e (nivel 3) se enseña en una planta posterior a d (nivel 0)',
+    );
   });
 });
 

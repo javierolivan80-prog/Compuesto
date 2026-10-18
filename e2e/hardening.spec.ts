@@ -1,13 +1,9 @@
-import { readFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { expect, test, type Page } from '@playwright/test';
-import { playLesson, type Lesson } from './play';
+import { playCurrentLesson } from './play-any';
 import { completeOnboarding } from './solver';
 
 /* Tarea 1.10: casos límite (break-ui) contra la build de producción. */
-
-const lesson = (n: number): Lesson =>
-  JSON.parse(readFileSync(`content/es/levels/n0/u1/l${n}.json`, 'utf8'));
 
 const noHorizontalScroll = async (page: Page, label: string) => {
   const over = await page.evaluate(
@@ -134,7 +130,7 @@ test('almacenamiento lleno: la lección sigue, avisa del error y no se rompe', a
     IDBObjectStore.prototype.add = full as unknown as typeof IDBObjectStore.prototype.add;
     IDBObjectStore.prototype.put = full as unknown as typeof IDBObjectStore.prototype.put;
   });
-  await playLesson(page, lesson(1));
+  await playCurrentLesson(page);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
   await expect(page.getByRole('alert').filter({ hasText: 'no se pudo guardar' })).toBeVisible();
   expect(errors).toEqual([]);
@@ -146,6 +142,7 @@ test('texto largo en inglés en un reporte y en el buscador del glosario no desb
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 375, height: 812 });
   await completeOnboarding(page);
+  await page.goto('/#/leccion/n0-u1-l1'); // tres tarjetas de teoría antes de los ejercicios
   await page
     .getByRole('button', { name: /Siguiente/ })
     .first()

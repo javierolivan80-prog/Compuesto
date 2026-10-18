@@ -21,8 +21,10 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
 
-  // el onboarding termina directamente en la primera lección
+  // el onboarding termina en la primera lección de la planta 0; la Base (nivel 0) se abre aparte
   await completeOnboarding(page);
+  await page.goto('/#/leccion/n0-u1-l1');
+  await expect(page.getByRole('heading', { name: lessons[0]!.title })).toBeVisible();
 
   // L1: el primer ejercicio se falla a propósito → vuelve al final
   const r1 = await playLesson(page, lessons[0]!, {
@@ -38,8 +40,9 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   await expect(page.getByTestId('streak')).toHaveText('1 d');
 
   for (const [i, l] of lessons.slice(1).entries()) {
-    // Inicio ofrece siempre la siguiente lección sin completar
-    await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
+    // la Base, en Practicar, ofrece siempre la siguiente lección sin completar de la unidad
+    await page.goto('/#/practicar');
+    await page.getByRole('button', { name: /^Continuar El dinero en el tiempo/ }).click();
     await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
     await playLesson(page, l, i === 0 ? { shots: 'l2', shotsDir: SHOTS } : {});
     // la última lección cruza los 500 XP: sube de rango y el cierre lo celebra
@@ -54,20 +57,28 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   await expect(page.getByTestId('xp-total')).toHaveText('535');
   await expect(page.getByText('Analista Junior').first()).toBeVisible();
   await page.screenshot({ path: `${SHOTS}/home-final.png` });
-  await page.goto('/#/camino');
-  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
-    '✓ Completada',
-  );
+  // el Nivel 0 es la Base opcional: su progreso se ve en Practicar, no en el Camino
+  await page.goto('/#/practicar');
+  await expect(
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /El dinero en el tiempo/ }),
+  ).toContainText(/(\d+) de \1 lecciones/);
 
   // recarga: XP, racha y lecciones completadas siguen ahí (IndexedDB); el onboarding no vuelve
   await page.goto('/#/');
   await page.reload();
   await expect(page.getByTestId('xp-total')).toHaveText('535');
   await expect(page.getByTestId('streak')).toHaveText('1 d');
-  await page.goto('/#/camino');
-  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
-    '✓ Completada',
-  );
+  // el Nivel 0 es la Base opcional: su progreso se ve en Practicar, no en el Camino
+  await page.goto('/#/practicar');
+  await expect(
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /El dinero en el tiempo/ }),
+  ).toContainText(/(\d+) de \1 lecciones/);
   expect(errors).toEqual([]);
 });
 
@@ -91,7 +102,9 @@ test('axe: onboarding, Home, teoría con explicador y feedback sin errores', asy
   await scan('onboarding 3');
   await page.getByLabel('Tus iniciales').fill('JAV');
   await page.getByRole('button', { name: 'Empezar mi primera lección' }).click();
+  await expect(page).toHaveURL(/#\/leccion\/n1-u1-/);
 
+  await page.goto('/#/leccion/n0-u1-l1');
   await expect(page.getByText('Inflación', { exact: true }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
   await expect(page.getByRole('figure', { name: 'La cesta que se encarece' })).toBeVisible();

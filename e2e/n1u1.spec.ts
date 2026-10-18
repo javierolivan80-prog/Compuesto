@@ -1,11 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { playLesson, type Lesson } from './play';
+import { playGameLesson, type GameLesson } from './play-game';
 import { completeOnboarding } from './solver';
 
 /* Unidad 1 del Nivel 1 del Nivel 0 (La empresa y la acción) jugada entera contra la build de producción. */
 
-const lessons: Lesson[] = [1, 2, 3, 4, 5].map((n) =>
+const lessons: (Lesson & { game?: GameLesson['game'] })[] = [1, 2, 3, 4, 5, 6].map((n) =>
   JSON.parse(readFileSync(`content/es/levels/n1/u1/l${n}.json`, 'utf8')),
 );
 
@@ -22,8 +23,11 @@ test('se completa la Unidad 1 del Nivel 1 entera y queda completada en el Camino
   for (const l of lessons) {
     await page.goto(`/#/leccion/${l.id}`);
     await page.reload();
-    await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
-    await playLesson(page, l);
+    if (l.game) await playGameLesson(page, l as GameLesson);
+    else {
+      await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
+      await playLesson(page, l);
+    }
     await page.getByRole('button', { name: 'Continuar' }).click();
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }

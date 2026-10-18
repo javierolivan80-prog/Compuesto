@@ -346,5 +346,74 @@
     "debrief": "Ver qué ha pasado",
     "newsIn_one": "los fondos indexados compran dentro de 1 ronda",
     "newsIn_other": "los fondos indexados compran dentro de {{count}} rondas"
+  },
+  "firstShares": {
+    "title": "Tus primeras acciones",
+    "brief": "Antes de tu primer día en Albufera Partners, tu abuela te regaló {{n}} acciones de Naranjas del Turia, de las {{shares}} que tiene la empresa. Hoy llegan cinco noticias: ¿la acción subirá, bajará o apenas se moverá?",
+    "round": "Noticia {{n}} de {{total}}",
+    "price": "Precio",
+    "capShort": "Capitalización",
+    "yoursShort": "Tus {{n}} acciones",
+    "lineAlt": "El precio ha ido de {{from}} a {{to}}.",
+    "paper": "El Diario del Turia",
+    "ask": "¿Qué hará la acción?",
+    "move": {
+      "up": "Sube",
+      "down": "Baja",
+      "flat": "Apenas se mueve"
+    },
+    "result": "Cómo ha reaccionado la acción",
+    "hit": "¡Bien!",
+    "verdict": "La acción: {{move}}.",
+    "next": "Siguiente noticia",
+    "finish": "Ver el resultado",
+    "doneTitle": "Fin de la jornada",
+    "priceRange": "Precio",
+    "change": "Variación",
+    "cap": "Capitalización (precio × 12.000.000 acciones)",
+    "yours": "Lo que valen tus {{n}} acciones",
+    "score": "Acertaste {{n}} de {{total}}.",
+    "great": "Lees las noticias como un analista: mueve el precio lo que cambia el beneficio esperado.",
+    "ok": "Vas bien. Pregúntate siempre: ¿esto cambia lo que la empresa va a ganar, o ya se sabía?",
+    "bad": "La clave: el precio se mueve cuando cambia lo que se espera que gane la empresa. Lo ya sabido no lo mueve.",
+    "debrief": "Ver qué ha pasado",
+    "news": {
+      "contrato": {
+        "headline": "Naranjas del Turia firma un contrato de cinco años con una cadena de supermercados alemana",
+        "why": "Ventas aseguradas durante años: se espera que la empresa gane más, y ser dueño de una parte de ella vale más."
+      },
+      "beneficioMas": {
+        "headline": "Naranjas gana un 20 % más de lo que esperaban los analistas",
+        "why": "Lo que mueve el precio es la sorpresa: gana más de lo que el mercado ya daba por hecho."
+      },
+      "japon": {
+        "headline": "Naranjas consigue permiso para vender su zumo en Japón",
+        "why": "Un mercado nuevo significa más ventas posibles en el futuro: sube el beneficio esperado."
+      },
+      "helada": {
+        "headline": "Una helada en la Ribera arruina parte de la cosecha de Naranjas",
+        "why": "Menos naranjas que vender este año: baja lo que se espera que gane la empresa, y la acción con ello."
+      },
+      "cliente": {
+        "headline": "Naranjas pierde a su mayor cliente en Francia",
+        "why": "Ventas que se esperaban y ya no llegarán: vale menos ser dueño de la empresa."
+      },
+      "beneficioMenos": {
+        "headline": "Naranjas gana bastante menos de lo que esperaban los analistas",
+        "why": "Decepción frente a lo esperado: el mercado rebaja lo que cree que ganará la empresa."
+      },
+      "enLinea": {
+        "headline": "Naranjas publica unos resultados justo en línea con lo que esperaba el mercado",
+        "why": "Nada nuevo: el precio ya recogía ese beneficio. Sin sorpresa, el precio apenas se mueve."
+      },
+      "envases": {
+        "headline": "Naranjas cambia el diseño de sus envases de zumo",
+        "why": "No cambia lo que se espera que gane la empresa: el precio apenas se mueve."
+      },
+      "feria": {
+        "headline": "Naranjas presenta sus zumos en una feria de alimentación de Madrid, como cada año",
+        "why": "Es lo de todos los años y ya se sabía: no cambia lo que se espera que gane la empresa."
+      }
+    }
   }
 }

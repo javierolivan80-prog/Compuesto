@@ -3,7 +3,8 @@ import { createServer, type Server } from 'node:http';
 import { extname, join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { playLesson, type Lesson as PlayLesson } from './play';
-import { completeOnboarding, currentExercise, solve, type Ex } from './solver';
+import { playCurrentLesson } from './play-any';
+import { completeOnboarding } from './solver';
 
 /* PWA contra la build de producción servida por un servidor propio, para poder cambiar sw.js
    y sw-control.json a mitad de test (versión nueva, interruptor de emergencia). */
@@ -47,9 +48,6 @@ test.beforeEach(() => {
   state.swSuffix = '';
   state.control = '{ "kill": false, "minVersion": "0.1.0" }';
 });
-
-type Lesson = { intro: unknown[]; exercises: Ex[] };
-const lesson1: Lesson = JSON.parse(readFileSync('content/es/levels/n0/u1/l1.json', 'utf8'));
 
 /** Registra el SW y espera a que controle la página (necesita una recarga tras la primera instalación). */
 async function ready(page: Page) {
@@ -106,26 +104,9 @@ test('sin conexión tras la primera carga: recarga y completa una lección enter
   await expect(page.getByText(/Sin conexión/)).toBeVisible();
 
   await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
-  for (let i = 0; i < lesson1.intro.length; i++) {
-    await page
-      .getByRole('button', {
-        name: i === lesson1.intro.length - 1 ? 'Empezar los ejercicios' : 'Siguiente',
-        exact: true,
-      })
-      .click();
-  }
-  const closing = page.getByRole('heading', { name: 'Lección completada' });
-  const check = page.getByRole('button', { name: 'Comprobar' });
-  for (;;) {
-    await expect(check.or(closing)).toBeVisible();
-    if (await closing.count()) break;
-    await solve(page, await currentExercise(page, lesson1.exercises));
-    await check.click();
-    await expect(page.getByRole('status').filter({ hasText: 'Correcto' })).toBeVisible();
-    await page.getByRole('button', { name: 'Continuar' }).click();
-  }
+  await playCurrentLesson(page);
   await page.getByRole('button', { name: 'Continuar' }).click();
-  await expect(page.getByTestId('xp-total')).toHaveText('100'); // 8×10 + 20; sin red, guardado en local
+  await expect(page.getByTestId('xp-total')).not.toHaveText('0'); // sin red, guardado en local
   expect(errors).toEqual([]);
 });
 
@@ -256,9 +237,12 @@ test('flujo completo: onboarding → 3 lecciones sin conexión → recarga → p
   await page.reload();
   await expect(page.getByTestId('xp-total')).toHaveText(xp);
   await expect(page.getByTestId('streak')).toHaveText('1 d');
-  await page.goto(`${base}/#/camino`);
-  await expect(page.getByRole('group', { name: /El dinero en el tiempo/ })).toContainText(
-    '▶ En curso',
-  );
+  await page.goto(`${base}/#/practicar`);
+  await expect(
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /El dinero en el tiempo/ }),
+  ).toContainText('3 de');
   expect(errors).toEqual([]);
 });

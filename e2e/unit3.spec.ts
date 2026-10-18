@@ -26,10 +26,14 @@ test('se completa la Unidad 3 entera y queda completada en el Camino', async ({ 
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
 
-  await page.goto('/#/camino');
+  // el Nivel 0 es la Base opcional: su progreso se ve en Practicar, no en el Camino
+  await page.goto('/#/practicar');
   await page.reload();
   await expect(
-    page.getByRole('group', { name: /Presupuesto, deuda y primeros pasos con Excel/ }),
-  ).toContainText('✓ Completada');
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /Presupuesto, deuda y primeros pasos con Excel/ }),
+  ).toContainText(/(\d+) de \1 lecciones/);
   expect(errors).toEqual([]);
 });

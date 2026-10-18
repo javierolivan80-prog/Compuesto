@@ -196,6 +196,7 @@ Espaciado base 4 px · radios 10 / 16 / 999 px · sombras suaves semitransparent
 
 ## 8. Pedagogía
 
+- **Juego primero (temario «directo a mercados», 17/10/2026):** cada unidad tiene al menos una **lección-juego** y la abre: juego → explicación de lo que te ha pasado → ejercicios con tus cifras (en el repaso, cifras nuevas). Lo que se aprende se practica además en **La Mesa**, el mercado vivo persistente.
 - **Práctica de recuperación:** máx. 60 palabras de teoría por tarjeta, máx. 3 tarjetas antes de la primera pregunta. En el itinerario Pro, cada lección puede enlazar una **ficha de referencia** consultable (fórmulas, convenciones, plantilla del entregable) que no cuenta para ese límite.
 - **Explicadores visuales interactivos:** cada unidad usa al menos uno del catálogo de `docs/ANIMACIONES.md §2` (SVG + Motion o Canvas, sin vídeo ni API). El usuario los manipula (slider o arrastre), no solo los mira.
 - **Repaso espaciado** (FSRS vía `ts-fsrs`, local) + **intercalado** de temas.
@@ -206,16 +207,16 @@ Espaciado base 4 px · radios 10 / 16 / 999 px · sombras suaves semitransparent
 - **Mezcla obligatoria por lección:** máx. 40 % ejercicios de reconocer (tipo test, verdadero/falso, emparejar); mín. 40 % de producir (numérico, rellenar estados, hoja de cálculo, ordenar, categorizar); el resto, aplicar (escenarios, casos). **En el itinerario Pro:** máx. 20 % de reconocer.
 - **Lección:** 3–5 min, 6–10 ejercicios. Nunca más.
 - **Dominio:** unidad cerrada con ≥80 % en el Jefe final.
-- **Bloom por nivel:** niveles 0–2 con ≥50 % recordar/entender; niveles 3–6 con ≥50 % aplicar/analizar; niveles 7–9 con ≥30 % evaluar (trade-offs, decisiones con información incompleta).
+- **Bloom por nivel** (de contenido, el prefijo `nN` de los IDs, no la planta): niveles 0–2 con ≥50 % recordar/entender; niveles 3–6 con ≥50 % aplicar/analizar; niveles 7–9 con ≥30 % evaluar (trade-offs, decisiones con información incompleta).
 - **Explicación específica** para cada opción incorrecta.
 - **Dificultad adaptativa:** >90 % en 3 lecciones → modo experto; <60 % → refuerzo.
 - **Transferencia:** cada unidad termina conectando con el mundo real ("Dónde verás esto": la web de la CNMV, el folleto de un fondo, una noticia tipo).
 
 ## 8b. La campaña: un año en Albufera Partners
 
-El temario es una **historia**. El usuario entra como becario en **Albufera Partners**, banco ficticio con sede en Valencia. El **Camino** es el edificio: cada nivel es una planta (planta 0 recepción → planta 10 despacho de socios) y se sube en ascensor al cambiar de rango.
+El temario es una **historia**. El usuario entra como becario en **Albufera Partners**, banco ficticio con sede en Valencia. El **Camino** es el edificio: cada planta enseña un nivel de contenido, en el orden «directo a mercados» (`src/engine/floors.ts`; planta 0 recepción, mercados → planta 9 despacho de socios) y se sube en ascensor al cambiar de rango. Las finanzas personales (N0) son la **Base** opcional de Practicar.
 
-**Caso hilo: Naranjas del Turia S.A.** acompaña todo el año: su dueña ahorra e invierte (N0) → sale a bolsa (N1) → emite bonos (N2) → analizas sus cuentas y la valoras (N3) → la macro le afecta (N4) → su acción en el libro de órdenes (N5) → entra en tu cartera (N6) → cubre su riesgo de divisa con derivados (N7) → recibe una oferta de compra apalancada (N8) → una empresa rival del universo cae por fraude contable y aprendes a detectarlo (N9).
+**Caso hilo: Naranjas del Turia S.A.** acompaña todo el año, y empieza en bolsa: tienes tus primeras acciones y la ves cotizar, salir a bolsa y negociarse en el libro de órdenes (planta 0, N1) → analizas sus cuentas y la valoras (planta 1, N3) → emite bonos (planta 2, N2) → la macro le afecta (N4) → su acción en el libro de órdenes (N5) → entra en tu cartera (N6) → cubre su riesgo de divisa con derivados (N7) → recibe una oferta de compra apalancada (N8) → una empresa rival del universo cae por fraude contable y aprendes a detectarlo (N9).
 
 - **Personajes recurrentes** (texto + avatar SVG simple): tu mentora (Directora de Research), un compañero becario rival, el jefe de la mesa de trading, la compliance officer que salta con los avisos legales.
 - **Encargo del jefe (semanal):** una vez por semana el Reto del día es un caso de 8–10 min en varios pasos sobre el caso hilo. Da más XP e insignia.

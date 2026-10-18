@@ -26,10 +26,14 @@ test('se completa la Unidad 5 entera y queda completada en el Camino', async ({ 
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
 
-  await page.goto('/#/camino');
+  // el Nivel 0 es la Base opcional: su progreso se ve en Practicar, no en el Camino
+  await page.goto('/#/practicar');
   await page.reload();
-  await expect(page.getByRole('group', { name: /Seguros, pensiones y riesgo/ })).toContainText(
-    '✓ Completada',
-  );
+  await expect(
+    page
+      .getByRole('region', { name: 'Base: el dinero' })
+      .getByRole('listitem')
+      .filter({ hasText: /Seguros, pensiones y riesgo/ }),
+  ).toContainText(/(\d+) de \1 lecciones/);
   expect(errors).toEqual([]);
 });

@@ -158,13 +158,24 @@ describe('progreso, rango y objetivo diario', () => {
     });
     expect(p.skippedUnits).toEqual(['n0-u3']);
   });
+  it('la planta sigue el orden del temario: nivel 3 → planta 1; la Base no sube de planta', () => {
+    const done = (level: number) =>
+      ev(
+        'lesson_completed',
+        { lessonId: `n${level}-u1-l1`, unitId: `n${level}-u1`, level, xp: 30, accuracy: 1 },
+        '2026-01-05T12:00:00Z',
+      );
+    expect(projectRank(0, projectProgress([done(0)])).floor).toBe(0);
+    expect(projectRank(0, projectProgress([done(3)])).floor).toBe(1);
+    expect(projectRank(0, projectProgress([done(3), done(2)])).floor).toBe(2);
+  });
   it('rango por XP y planta por nivel completado', () => {
     const progress = projectProgress([lesson('2026-01-05T12:00:00Z', 1)]);
     expect(projectRank(0, progress)).toMatchObject({
       rank: 'Becario',
       nextRank: 'Analista Junior',
       xpToNext: 500,
-      floor: 1,
+      floor: 0, // el nivel 1 (mercados) es la planta 0
     });
     expect(projectRank(500, progress).rank).toBe('Analista Junior');
     expect(projectRank(499, progress).rank).toBe('Becario');

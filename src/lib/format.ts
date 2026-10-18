@@ -16,7 +16,8 @@ export function formatNumber(value: number, digits = 0): string {
 
 /** Variación con signo y flecha: nunca solo color (CLAUDE.md §5). */
 export function formatDelta(pct: number, digits = 1): string {
-  if (pct === 0) return `${formatNumber(0, digits)} %`;
+  // lo que se redondea a cero se muestra sin flecha ni signo («0,0 %», no «▼ −0,0 %»)
+  if (Number(Math.abs(pct).toFixed(digits)) === 0) return `${formatNumber(0, digits)} %`;
   const arrow = pct > 0 ? '▲' : '▼';
   const sign = pct > 0 ? '+' : '−';
   return `${arrow} ${sign}${formatNumber(Math.abs(pct), digits)} %`;

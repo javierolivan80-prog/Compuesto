@@ -411,3 +411,18 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - `content:validate` comprueba los marcadores contra lo que devuelve el juego y prueba cada ejercicio con 4 partidas de referencia.
   - Primer juego: **La compra grande** (`src/engine/games/block-trade.ts`): 600 acciones en un libro poco profundo antes de unos resultados. El precio medio se muestra con 4 decimales para que media × acciones − punto medio × acciones dé el impacto que se enseña.
   - Lección `n1-u4-l7` en `draft`, pendiente del revisor.
+  - **Actualización (17/10/2026):** `n1-u4-l7` revisada (dos rondas) y en `reviewed`. El evento pasó a ser público y cierto (Naranjas entra en un índice y compran los fondos indexados).
+
+## 2026-10-18 — Temario «directo a mercados» aplicado (aprobado por Javier el 17/10/2026)
+
+- **Decisión:** la planta es el orden de presentación; el nivel de contenido (`nN` en los IDs) no cambia. `src/engine/floors.ts` define `FLOOR_LEVELS = [1, 3, 2, 4, 5, 6, 7, 8, 9, 10]` y la Base (nivel 0). `curriculum.json` lleva `floor` (número) en cada planta y `base: true` en el nivel 0; `content:validate` comprueba que coinciden.
+  - **Motivo:** cambiar el orden sin tocar IDs publicados ni las tarjetas SRS de Javier (CLAUDE.md §3b).
+  - **Descartado:** renumerar niveles y lecciones (rompe IDs y eventos ya guardados).
+- **Camino:** 10 plantas (0–9), la 9 es el despacho de socios. El rango de cada planta sale de la planta, no del nivel. La planta actual del rango es la más alta con alguna lección completada; la Base no cuenta.
+- **Base opcional:** el nivel 0 sale del Camino y de «siguiente lección» (Inicio, sesión, onboarding) y aparece en Practicar con su progreso y lo dominado por test de salto. Su test de salto de nivel sigue en `#/saltar-nivel/0`.
+- **Orden de la planta 0:** `n1-u1` → `n1-u4` → `n1-u3` → `n1-u5` → `n1-u2` → `n1-u6`. La propuesta tenía «Subastas y apertura» y «Psicología» como unidades propias; por ahora viven dentro de `n1-u4` (subastas, FOMO) para no mover lecciones de unidad (cambiaría sus IDs). Se crearán unidades nuevas si hace falta.
+- **Lección-juego primero:** campo opcional `order` en la lección (posición dentro de la unidad); `order: 0` abre la unidad. El orden global es planta → posición de la unidad en `curriculum.json` → `order` o número de lección (`src/content/order.ts`).
+- **Prerrequisitos:** deben enseñarse en la misma planta o antes. Dos conceptos cambiados: `emision-bonos` (N3) pasa a depender de `prestamo` (Base) en vez de `cupon-bono` (N2, ahora planta posterior), y `anclaje` (N3) de `fomo-manada` (N1) en vez de `ilusion-control` (N2). Al escribir la planta 1 habrá que explicar cupón y coste de la deuda sin dar por vista la renta fija.
+- **Bloom por nivel** sigue contando por nivel de contenido (`nN`), no por planta.
+- **Juego nuevo: Tus primeras acciones** (`src/engine/games/first-shares.ts`, lección `n1-u1-l6`). Es el «¿Sube o baja?» de la propuesta adaptado a la unidad 1: 100 acciones de Naranjas (regalo de la abuela, para no rozar las normas de operaciones personales del banco), cinco noticias de la empresa (dos suben, dos bajan, una sin novedad), precio, capitalización y lo que valen tus acciones. Las cifras que devuelve van en snake_case porque los nombres de parámetros lo exigen. El «¿Sube o baja?» de Practicar sigue igual.
+- **e2e:** `completeOnboarding` ya no supone la primera lección; `e2e/play-any.ts` reconoce la lección abierta por su cabecera y `e2e/play-game.ts` juega la partida de referencia 0 de cada lección-juego.

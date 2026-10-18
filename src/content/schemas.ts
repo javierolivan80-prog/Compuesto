@@ -376,6 +376,8 @@ export const lessonSchema = z.object({
   /** Ramas: id de la rama; el nivel es el de desbloqueo. */
   track: slug.optional(),
   unit: z.number().int().min(1),
+  /** Posición dentro de la unidad si no es la de su id (p. ej. 0: la lección-juego abre la unidad). */
+  order: z.number().int().min(0).optional(),
   title: text,
   /** Bloque CFA al que pertenece (informe de cobertura en content:check). */
   cfa: z.enum(CFA_BLOCKS).optional(),
@@ -437,8 +439,12 @@ export const curriculumSchema = z.object({
     z.object({
       level: z.number().int().min(0).max(10),
       name: text,
-      rank: text,
-      floor: text,
+      /** Rango de la planta; la Base no tiene. */
+      rank: text.optional(),
+      /** Planta del Camino (orden de presentación, `src/engine/floors.ts`); la Base no es planta. */
+      floor: z.number().int().min(0).max(9).optional(),
+      /** Nivel 0: finanzas personales como Base opcional en Practicar. */
+      base: z.boolean().optional(),
       weeks: text,
       units: z
         .array(z.object({ id: slug, name: text, concepts: z.array(slug).default([]) }))
@@ -454,6 +460,7 @@ export const curriculumSchema = z.object({
     }),
   ),
 });
+export type Curriculum = z.infer<typeof curriculumSchema>;
 
 /* ---------- Mapa de conceptos ---------- */
 

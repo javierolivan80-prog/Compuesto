@@ -5,6 +5,7 @@
   "reviewedBy": ["subagente"],
   "level": 1,
   "unit": 4,
+  "order": 0,
   "title": "Juego: la compra grande",
   "cfa": "equity",
   "estimatedMinutes": 5,

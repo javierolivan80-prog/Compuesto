@@ -1,0 +1,48 @@
+import { expect, type Page } from '@playwright/test';
+import type { Exercise } from '../src/content/schemas';
+import { setupFirstShares } from '../src/engine/games/first-shares';
+import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson-games';
+import { instantiate, isParametric } from '../src/engine/params';
+import { playLesson, type Lesson } from './play';
+import type { Ex } from './solver';
+
+export type GameLesson = Lesson & { game: { kind: LessonGameKind; seed: number } };
+
+/**
+ * Lección-juego por la interfaz: juega la partida de referencia 0 del juego (la que content:validate ya comprueba),
+ * pasa a la explicación y resuelve los ejercicios con las cifras de esa partida.
+ */
+export async function playGameLesson(
+  page: Page,
+  lesson: GameLesson,
+  opts: Parameters<typeof playLesson>[2] = {},
+) {
+  const { kind, seed } = lesson.game;
+  if (kind === 'block-trade') {
+    // referencia 0: las 600 de golpe a mercado
+    await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
+    await page.getByRole('button', { name: /^Lo que queda/ }).click();
+    await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else {
+    // referencia 0: acertar las cinco noticias
+    await expect(page.getByRole('heading', { name: 'Tus primeras acciones' })).toBeVisible();
+    const label = { up: /^▲ Sube$/, down: /^▼ Baja$/, flat: /^＝ Apenas se mueve$/ } as const;
+    const rounds = setupFirstShares(seed).rounds;
+    for (const [i, r] of rounds.entries()) {
+      await page.getByRole('button', { name: label[r.news.move] }).click();
+      await page
+        .getByRole('button', {
+          name: i === rounds.length - 1 ? 'Ver el resultado' : 'Siguiente noticia',
+        })
+        .click();
+    }
+  }
+  await page.getByRole('button', { name: 'Ver qué ha pasado' }).click();
+  const values = referenceValues(kind, seed)[0]!;
+  const exercises = lesson.exercises.map((e) =>
+    isParametric(e as unknown as Exercise)
+      ? (instantiate(e as unknown as Exercise, undefined, values).exercise as unknown as Ex)
+      : e,
+  );
+  return playLesson(page, { ...lesson, exercises }, opts);
+}

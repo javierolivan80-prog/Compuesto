@@ -43,9 +43,9 @@ test('el onboarding lleva a la primera lección en menos de 60 s y no vuelve a s
   await page.getByRole('button', { name: 'Continuar', exact: true }).click();
   await page.getByLabel('Tus iniciales').fill('jav');
   await page.getByRole('button', { name: 'Empezar mi primera lección' }).click();
-  await expect(
-    page.getByRole('heading', { name: 'Inflación: por qué tu dinero compra menos' }),
-  ).toBeVisible();
+  // la primera lección es de la planta 0, mercados (la Base de finanzas personales es opcional)
+  await expect(page).toHaveURL(/#\/leccion\/n1-u1-l\d+$/);
+  await expect(page.getByText(/^N1-U1 · /)).toBeVisible();
   const seconds = (Date.now() - t0) / 1000;
   console.log(`onboarding → primera lección: ${seconds.toFixed(1)} s`);
   expect(seconds).toBeLessThan(60);
@@ -64,24 +64,24 @@ test('test de salto aprobado: unidad marcada como dominada, persiste y no se rep
   await ready(page);
   await page.goto('/#/camino');
   await page
-    .getByRole('group', { name: /El dinero en el tiempo/ })
+    .getByRole('group', { name: /La empresa y la acción/ })
     .getByRole('button', { name: 'Test de salto' })
     .click();
   await expect(page.getByRole('heading', { name: 'Test de salto' })).toBeVisible();
-  await takeTest(page, 'n0-u1', 0);
+  await takeTest(page, 'n1-u1', 0);
   await expect(page.getByRole('heading', { name: 'Unidad dominada' })).toBeVisible();
   await expect(page.getByTestId('placement-score')).toHaveText('8 de 8 · 100 %');
   await page.getByRole('button', { name: 'Volver al inicio' }).click();
   await expect(page.getByTestId('xp-total')).toHaveText('0'); // el test no da XP ni racha
 
   await page.goto('/#/camino');
-  const unit = page.getByRole('group', { name: /El dinero en el tiempo/ });
+  const unit = page.getByRole('group', { name: /La empresa y la acción/ });
   await expect(unit).toContainText('✓ Dominada por test de salto');
   await expect(unit.getByRole('button', { name: 'Test de salto' })).toBeDisabled();
   await page.reload();
   await expect(
     page
-      .getByRole('group', { name: /El dinero en el tiempo/ })
+      .getByRole('group', { name: /La empresa y la acción/ })
       .getByRole('button', { name: 'Test de salto' }),
   ).toBeDisabled();
 });
@@ -110,11 +110,10 @@ test('7 de 8 (87,5 %) es el mínimo que aprueba', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Unidad dominada' })).toBeVisible();
 });
 
-test('saltar el Nivel 0 completo encadena las 5 unidades', async ({ page }) => {
+test('saltar la Base (Nivel 0) completa encadena las 5 unidades', async ({ page }) => {
   test.setTimeout(120_000);
   await ready(page);
-  await page.goto('/#/camino');
-  await page.getByRole('button', { name: 'Saltar el Nivel 0' }).click();
+  await page.goto('/#/saltar-nivel/0');
   const units = ['n0-u1', 'n0-u2', 'n0-u3', 'n0-u4', 'n0-u5'];
   for (const [i, u] of units.entries()) {
     await takeTest(page, u, 0);
@@ -125,8 +124,11 @@ test('saltar el Nivel 0 completo encadena las 5 unidades', async ({ page }) => {
   }
   await expect(page.getByRole('heading', { name: /nivel saltado/ })).toBeVisible();
   await expect(page.getByText('✓ Dominada')).toHaveCount(5);
-  await page.getByRole('button', { name: 'Volver al Camino' }).click();
-  await expect(page.getByText('✓ Dominada por test de salto')).toHaveCount(5);
+  // la Base no es una planta: lo dominado se ve en Practicar
+  await page.goto('/#/practicar');
+  await expect(
+    page.getByRole('region', { name: 'Base: el dinero' }).getByText(/✓ Dominada por test de salto/),
+  ).toHaveCount(5);
 });
 
 test('saltar un nivel: la cadena se detiene en la primera unidad suspendida', async ({ page }) => {
@@ -134,12 +136,13 @@ test('saltar un nivel: la cadena se detiene en la primera unidad suspendida', as
   await page.goto('/#/saltar-nivel/1');
   await takeTest(page, 'n1-u1', 0);
   await page.getByRole('button', { name: 'Siguiente unidad' }).click();
-  await takeTest(page, 'n1-u2', 3);
+  // el orden de la planta 0: la empresa → el libro de órdenes → bolsas e índices…
+  await takeTest(page, 'n1-u4', 3);
   await expect(page.getByRole('heading', { name: 'Todavía no' })).toBeVisible();
   await page.getByRole('button', { name: 'Siguiente unidad' }).click();
   await expect(page.getByRole('heading', { name: /saltado en parte/ })).toBeVisible();
   await expect(page.getByText(/✓ Dominada · La empresa y la acción/)).toBeVisible();
-  await expect(page.getByText(/✗ No superada · Mercado primario y secundario/)).toBeVisible();
+  await expect(page.getByText(/✗ No superada · Precios, órdenes y subastas/)).toBeVisible();
   await expect(page.getByText(/· Sin hacer · Bolsas e índices/)).toBeVisible();
 });
 

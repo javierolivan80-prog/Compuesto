@@ -1,6 +1,7 @@
 import { chartFacts, chartSeries } from '../engine/charts';
 import { evaluateNumber } from '../engine/expr';
 import { LESSON_GAME_FORMATS, referenceValues } from '../engine/games/lesson-games';
+import { BASE_LEVEL, FLOOR_COUNT, levelOfFloor, levelOrder } from '../engine/floors';
 import {
   ANSWER_MARKER,
   fillFormula,
@@ -21,6 +22,7 @@ import {
   companiesSchema,
   conceptsSchema,
   curriculumSchema,
+  type Curriculum,
   glossarySchema,
   gamesDataSchema,
   lessonSchema,
@@ -496,6 +498,27 @@ function checkLesson(
  * Lección-juego: la explicación solo puede citar cifras que devuelve el juego, y cada ejercicio paramétrico tiene
  * que funcionar con las cifras de varias partidas de referencia (todo de golpe, trocear, esperar…).
  */
+/** curriculum.json en el orden de las plantas de `floors.ts`, con la Base aparte. */
+function checkFloors(c: Curriculum): Issue[] {
+  const out: Issue[] = [];
+  const bad = (message: string) =>
+    out.push({ severity: 'error', code: 'plantas', where: 'curriculum.json', message });
+  const floors = c.levels.filter((l) => !l.base);
+  floors.forEach((l, i) => {
+    if (l.floor !== i)
+      bad(`El nivel ${l.level} está en la posición ${i} pero dice planta ${l.floor}`);
+    if (levelOfFloor(i) !== l.level)
+      bad(`La planta ${i} debería ser el nivel ${levelOfFloor(i)} (floors.ts) y es el ${l.level}`);
+    if (!l.rank) bad(`La planta ${i} no tiene rango`);
+  });
+  if (floors.length !== FLOOR_COUNT)
+    bad(`Hay ${floors.length} plantas y floors.ts define ${FLOOR_COUNT}`);
+  for (const l of c.levels.filter((x) => x.base))
+    if (l.level !== BASE_LEVEL || l.floor !== undefined)
+      bad(`Solo el nivel ${BASE_LEVEL} es Base y no tiene planta`);
+  return out;
+}
+
 function checkLessonGame(l: Lesson): Issue[] {
   const out: Issue[] = [];
   const game = l.game!;
@@ -584,12 +607,12 @@ export function validateContent(b: ContentBundle): {
           where: c.id,
           message: `Prerrequisito inexistente: ${p}`,
         });
-      else if (pc.level > c.level && !(c.track && c.track !== pc.track))
+      else if (levelOrder(pc.level) > levelOrder(c.level) && !(c.track && c.track !== pc.track))
         issues.push({
           severity: 'error',
           code: 'prerrequisito-nivel',
           where: c.id,
-          message: `Prerrequisito ${p} (nivel ${pc.level}) posterior a ${c.id} (nivel ${c.level})`,
+          message: `Prerrequisito ${p} (nivel ${pc.level}) se enseña en una planta posterior a ${c.id} (nivel ${c.level})`,
         });
     }
   }
@@ -676,7 +699,7 @@ export function validateContent(b: ContentBundle): {
   if (b.curriculum !== undefined) {
     const c = curriculumSchema.safeParse(b.curriculum);
     if (!c.success) issues.push(...zodIssues('curriculum.json', c.error));
-    else
+    else {
       for (const u of c.data.levels.flatMap((l) => l.units).flatMap((u) => u.concepts))
         if (!conceptIds.has(u))
           issues.push({
@@ -685,6 +708,8 @@ export function validateContent(b: ContentBundle): {
             where: 'curriculum.json',
             message: `Concepto inexistente en el curriculum: ${u}`,
           });
+      issues.push(...checkFloors(c.data));
+    }
   }
 
   const ctx = {

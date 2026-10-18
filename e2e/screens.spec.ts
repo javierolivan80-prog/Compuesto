@@ -100,6 +100,9 @@ test('capturas de cada pantalla a 375, 768 y 1440 px, sin scroll horizontal', as
     await page.setViewportSize({ width: w, height: h });
     for (const [hash, name] of ROUTES) {
       await page.goto(`/${hash}`);
+      // las pantallas se cargan en diferido: esperar al título, no a un tiempo fijo
+      await expect(page.getByRole('main')).toBeVisible();
+      await expect(page.getByText('Cargando…')).toHaveCount(0);
       await page.waitForTimeout(250);
       await page.screenshot({ path: `docs/capturas/1.7/${name}-${w}.png`, fullPage: true });
       const over = await page.evaluate(

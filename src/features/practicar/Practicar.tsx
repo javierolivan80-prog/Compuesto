@@ -7,9 +7,11 @@ import {
   conceptGraph,
   conceptName,
   exerciseCatalog,
+  lessonsOfUnit,
   levelName,
   unitsOfLevel,
 } from '../../content/library';
+import { BASE_LEVEL, FLOOR_LEVELS } from '../../engine/floors';
 import {
   MAX_REVIEW_CARDS,
   buildReview,
@@ -81,9 +83,18 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
     );
   const progress = data.summary.progress.lessons;
   const done = allLessons().filter((l) => progress[l.id]?.status === 'completed');
-  const examUnits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const examUnits = [...FLOOR_LEVELS, BASE_LEVEL]
     .flatMap((lv) => unitsOfLevel(lv).map((u) => ({ ...u, levelName: levelName(lv) })))
     .filter((u) => done.some((l) => `n${l.level}-u${l.unit}` === u.id));
+  const baseUnits = unitsOfLevel(BASE_LEVEL)
+    .map((u) => {
+      const ls = lessonsOfUnit(BASE_LEVEL, Number(u.id.split('-u')[1]));
+      const doneIds = ls.filter((l) => progress[l.id]?.status === 'completed');
+      const next = ls.find((l) => progress[l.id]?.status !== 'completed') ?? ls[0];
+      const skipped = data.summary!.progress.skippedUnits.includes(u.id);
+      return { ...u, total: ls.length, done: doneIds.length, next: next?.id, skipped };
+    })
+    .filter((u) => u.total > 0);
 
   return (
     <div className="grid gap-8">
@@ -221,6 +232,41 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
         <p className="text-text-2 text-sm">
           10 preguntas, 10 minutos, sin ver la solución hasta el final.
         </p>
+      </section>
+
+      <section aria-labelledby="base-title" className="grid gap-2">
+        <h2 id="base-title" className="text-2xl">
+          {levelName(BASE_LEVEL)}
+        </h2>
+        <p className="text-text-2 text-sm">
+          Opcional: inflación, interés compuesto, préstamos, bancos y pensiones. El Camino no lo
+          exige; repásalo cuando un juego te pida algo que no recuerdes.
+        </p>
+        <ul className="grid gap-2">
+          {baseUnits.map((u) => (
+            <li
+              key={u.id}
+              className="bg-surface-1 border-line flex items-center justify-between gap-3 rounded-[var(--radius-md)] border p-3"
+            >
+              <span>
+                {u.name}
+                <span className="text-text-2 block text-sm" data-num>
+                  {u.done} de {u.total} lecciones
+                  {u.skipped && ' · ✓ Dominada por test de salto'}
+                </span>
+              </span>
+              {u.next && (
+                <Button
+                  variant="secondary"
+                  aria-label={`${u.done === 0 ? 'Empezar' : u.done === u.total ? 'Repetir' : 'Continuar'} ${u.name}`}
+                  onClick={() => onStart(u.next!)}
+                >
+                  {u.done === 0 ? 'Empezar' : u.done === u.total ? 'Repetir' : 'Continuar'}
+                </Button>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section aria-labelledby="games-title" className="grid gap-3">

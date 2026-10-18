@@ -155,14 +155,16 @@ export async function solve(page: Page, e: Ex, wrong = false) {
   }
 }
 
-/** Onboarding de 3 pantallas hasta la primera lección. */
+/**
+ * Onboarding de 3 pantallas hasta la primera lección: la primera de la planta 0, mercados (la Base de finanzas
+ * personales es opcional). En producción es la primera lección revisada de la unidad 1; en desarrollo, su juego.
+ */
 export async function completeOnboarding(page: Page, initials = 'JAV', url = '/') {
   await page.goto(url);
   await page.getByRole('button', { name: 'Entrar a la oficina' }).click();
   await page.getByRole('button', { name: 'Continuar', exact: true }).click();
   await page.getByLabel('Tus iniciales').fill(initials);
   await page.getByRole('button', { name: 'Empezar mi primera lección' }).click();
-  await expect(
-    page.getByRole('heading', { name: 'Inflación: por qué tu dinero compra menos' }),
-  ).toBeVisible();
+  await expect(page).toHaveURL(/#\/leccion\/n1-u1-l\d+$/);
+  await expect(page.getByRole('heading').first()).toBeVisible();
 }
