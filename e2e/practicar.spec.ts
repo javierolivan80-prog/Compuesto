@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { playLesson, type Lesson } from './play';
 import { exerciseSchema } from '../src/content/schemas';
@@ -12,6 +12,13 @@ import { completeOnboarding, currentExercise, promptOf, solve, type Ex } from '.
 const lesson = (n: number): Lesson =>
   JSON.parse(readFileSync(`content/es/levels/n0/u1/l${n}.json`, 'utf8'));
 const unitExercises: Ex[] = [1, 2, 3, 4, 5].flatMap((n) => lesson(n).exercises);
+/** Todo el contenido: en el repaso, una tarjeta vencida puede mostrarse con una variante de otra lección (2.11). */
+const allExercises: Ex[] = readdirSync('content/es/levels', { recursive: true, encoding: 'utf8' })
+  .filter((f) => f.endsWith('.json'))
+  .flatMap(
+    (f) =>
+      (JSON.parse(readFileSync(`content/es/levels/${f}`, 'utf8')) as { exercises: Ex[] }).exercises,
+  );
 
 const DAY = 86_400_000;
 const ev = (type: string, createdAt: string, payload: object) => ({
@@ -69,7 +76,7 @@ async function answerAll(page: Page, exam: boolean) {
     const check = page.getByRole('button', { name: exam ? 'Responder' : 'Comprobar' });
     await expect(check.or(end)).toBeVisible();
     if (await end.isVisible()) return;
-    await solve(page, await currentExercise(page, unitExercises));
+    await solve(page, await currentExercise(page, allExercises));
     const counter = page.getByRole('heading', { level: 1 });
     const before = await counter.textContent();
     await check.click();

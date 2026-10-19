@@ -4,6 +4,8 @@ import { MINUTE_OPTIONS, dailyGoalXpFor, normalizeInitials } from './onboarding'
 import {
   PASS_PCT,
   chainSummary,
+  firstPhaseDecision,
+  phaseQuestions,
   currentUnit,
   recordChainResult,
   scorePlacement,
@@ -24,7 +26,7 @@ describe('puntuación del test de salto', () => {
       pct: 75,
       passed: false,
     });
-    expect(PASS_PCT).toBe(80);
+    expect(PASS_PCT).toBe(87.5);
   });
   it('8 de 8 aprueba, 0 de 8 suspende, y lo no contestado cuenta como fallo', () => {
     expect(scorePlacement(Array(8).fill(true)).passed).toBe(true);
@@ -123,5 +125,47 @@ describe('onboarding', () => {
     expect(normalizeInitials('j')).toBeNull();
     expect(normalizeInitials('12')).toBeNull();
     expect(normalizeInitials('')).toBeNull();
+  });
+});
+
+describe('test de salto en dos fases (tarea 2.12)', () => {
+  const flags = (n: number, total: number) => Array.from({ length: total }, (_, i) => i < n);
+  it('8 y 7 aciertos dominan; 6 abre la segunda fase si el banco tiene 12; 5 empieza la unidad', () => {
+    expect(firstPhaseDecision(8, 12)).toBe('dominada');
+    expect(firstPhaseDecision(7, 12)).toBe('dominada');
+    expect(firstPhaseDecision(6, 12)).toBe('segunda-fase');
+    expect(firstPhaseDecision(6, 8)).toBe('estudiar'); // banco antiguo: sin reserva no hay segunda fase
+    expect(firstPhaseDecision(5, 12)).toBe('estudiar');
+  });
+  it('6 + 3 domina; 6 + 2 no; el resultado guarda las dos fases', () => {
+    expect(scorePlacement(flags(6, 8), 8, flags(3, 4))).toEqual({
+      correct: 6,
+      total: 8,
+      pct: 75,
+      passed: true,
+      second: { correct: 3, total: 4 },
+    });
+    expect(scorePlacement(flags(6, 8), 8, flags(2, 4)).passed).toBe(false);
+    expect(scorePlacement(flags(6, 8), 8, flags(4, 4)).passed).toBe(true);
+    // una segunda fase no rescata a quien no sacó 6
+    expect(scorePlacement(flags(5, 8), 8, flags(4, 4)).passed).toBe(false);
+    expect(scorePlacement(flags(8, 8)).passed).toBe(true);
+    expect(scorePlacement(flags(5, 8)).passed).toBe(false);
+  });
+  it('las preguntas de la segunda fase son las 4 del banco que no salieron en la primera', () => {
+    const bank = Array.from({ length: 12 }, (_, i) => `q${i + 1}`);
+    const one = phaseQuestions(bank, 1);
+    const two = phaseQuestions(bank, 2);
+    expect(one).toHaveLength(8);
+    expect(two).toEqual(['q9', 'q10', 'q11', 'q12']);
+    expect(one.filter((q) => two.includes(q))).toEqual([]);
+    expect(phaseQuestions(bank.slice(0, 8), 2)).toEqual([]);
+  });
+  it('la cadena «saltar nivel» usa la misma regla: un 6 + 3 cuenta como superada', () => {
+    let s = startChain(['a', 'b']);
+    s = recordChainResult(s, scorePlacement(flags(6, 8), 8, flags(3, 4)));
+    expect(currentUnit(s)).toBe('b');
+    s = recordChainResult(s, scorePlacement(flags(6, 8), 8, flags(2, 4)));
+    expect(chainSummary(s)).toEqual({ skipped: ['a'], stoppedAt: 'b', levelSkipped: false });
   });
 });

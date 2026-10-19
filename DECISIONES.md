@@ -745,3 +745,20 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - `modelref-version`;
   - `modelref-tipo`;
   - `modelref-parametrico`.
+
+## 2026-10-19 — Tarea 2.12: test de salto en dos fases (código)
+
+- **Regla** (`src/engine/placement.ts`):
+  - primera fase de 8 preguntas: 7 u 8 aciertos dominan la unidad;
+  - con 6 se ofrece una segunda fase con las preguntas 9 a 12 del banco, sin repetir, y hacen falta 3;
+  - con menos de 6, o menos de 3 en la segunda fase, se empieza la unidad.
+  - En el puente se puede elegir «Prefiero estudiar la unidad».
+  - La cadena «saltar nivel» usa el mismo resultado (`passed`).
+- **Orden fijo de las preguntas:** las 8 primeras del banco son la primera fase y las 4 siguientes, la segunda. Es la forma más simple de garantizar que no se repiten y que la primera fase cubre todos los conceptos, que `content:validate` exige.
+- **Bancos:**
+  - 12 preguntas con ≥ 50 % de producir. Se admiten `fill_blank`, `order_steps`, `numeric_input` sin `params` y `categorize`.
+  - Los 24 bancos antiguos de 8 preguntas siguen siendo válidos, sin segunda fase. `content:validate` los lista con el aviso `banco-antiguo` hasta ampliarlos.
+  - «Una pregunta por objetivo» se comprueba como un concepto de la unidad por pregunta, porque los objetivos están en las lecciones y no en la unidad.
+- **Repaso:**
+  - Las preguntas de un test de salto crean tarjeta solo si la unidad se saltó. Vencen a los 7 días del salto (`SKIP_CHECK_DAYS`), tanto los aciertos como los fallos. Esto vale también para los saltos anteriores a esta tarea, porque la proyección se recalcula desde los eventos.
+  - El catálogo del repaso incluye las preguntas de los tests de salto. No entran en el examen de la unidad ni sirven de variante de otras tarjetas.

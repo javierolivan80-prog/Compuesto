@@ -344,7 +344,8 @@ describe('Unidad 1 del Nivel 0 (contenido real)', () => {
       'n0-u1-l4',
       'n0-u1-l5',
     ]);
-    expect(issues).toEqual([]);
+    // los bancos de salto antiguos (8 preguntas) solo avisan hasta ampliarlos (tarea 2.12)
+    expect(issues.filter((i) => i.code !== 'banco-antiguo')).toEqual([]);
     for (const l of lessons) {
       expect(l.status).toBe('reviewed');
       expect(l.reviewedBy).toEqual(['subagente']); // nunca "humano" hasta que Javier lo revise
@@ -410,10 +411,46 @@ describe('tests de salto (validación)', () => {
     expect(placementCodes(r)).toEqual([]);
     expect(r.placements).toHaveLength(1);
   });
-  it('exige exactamente 8 preguntas', () => {
+  it('exige 12 preguntas (u 8 en un banco antiguo, que solo avisa)', () => {
     const r = withPlacement((p) => p.questions.pop());
     expect(placementCodes(r)).toEqual(['esquema']);
-    expect(r.issues[0]!.message).toContain('exactamente 8 preguntas');
+    expect(r.issues[0]!.message).toContain('12 preguntas');
+    expect(withPlacement(() => {}).issues.map((i) => i.code)).toContain('banco-antiguo');
+  });
+  it('un banco de 12 exige ≥ 50 % de producir y que la primera fase cubra todos los conceptos', () => {
+    type Q = (typeof real)['questions'][number];
+    const fill = (q: Q, i: number) => ({
+      id: `${q.id}-p${i}`,
+      type: 'fill_blank' as const,
+      difficulty: 1,
+      bloom: 'recordar' as const,
+      tags: [],
+      concepts: q.concepts,
+      prompt: 'Rellena: ___',
+      answers: [['x']],
+      explanation: 'x',
+    });
+    // 8 originales (reconocer) + 4 de producir: 4/12 < 50 %
+    const r = withPlacement((p) => p.questions.push(...p.questions.slice(0, 4).map(fill)));
+    expect(placementCodes(r)).toEqual(['mezcla']);
+    expect(r.issues.map((i) => i.code)).not.toContain('banco-antiguo');
+    // 6 de producir en la primera fase y 4 en la segunda: vale
+    const ok = withPlacement((p) => {
+      const extra = p.questions.slice(0, 4).map(fill);
+      p.questions = [...p.questions.slice(0, 2), ...p.questions.slice(2).map(fill), ...extra];
+    });
+    expect(placementCodes(ok)).toEqual([]);
+    // si un concepto solo aparece en la segunda fase, falla
+    const late = withPlacement((p) => {
+      const extra = p.questions.map(fill);
+      p.questions = [
+        ...extra
+          .slice(0, 8)
+          .map((q: ReturnType<typeof fill>) => ({ ...q, concepts: [p.questions[0].concepts[0]] })),
+        ...extra.slice(0, 4),
+      ];
+    });
+    expect(placementCodes(late)).toContain('concepto-sin-cubrir');
   });
   it('una pregunta con un concepto de otra unidad es un error, y todo concepto de la unidad debe estar cubierto', () => {
     const r = withPlacement((p) => (p.questions[0].concepts = ['inflacion']));

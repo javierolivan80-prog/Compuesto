@@ -1,6 +1,7 @@
 import { createEmptyCard, fsrs, generatorParameters, Rating, type Card } from 'ts-fsrs';
 import { dayKey } from './days';
 import { seedFrom } from './params';
+import { SKIP_CHECK_DAYS } from './placement';
 import type { AppEvent } from './events';
 import { normalizeEvents } from './projections';
 
@@ -52,6 +53,8 @@ export interface Attempt {
   at: string;
   timeMs: number;
   hintUsed: boolean;
+  /** 'review' = repaso; 'lesson' = lección o test de salto. */
+  source: 'lesson' | 'review';
 }
 
 /** Intentos "de verdad": quita los reintentos dentro de la misma sesión (misma tarjeta a menos de 20 min). */
@@ -75,10 +78,14 @@ export function firstAttempts(events: readonly AppEvent[]): Attempt[] {
       at: e.createdAt,
       timeMs: e.payload.timeMs,
       hintUsed: e.payload.hintUsed ?? false,
+      source: e.payload.source,
     });
   }
   return out;
 }
+
+/** Los tests de salto usan ids `salto-<unidad>` como lección de sus preguntas. */
+export const PLACEMENT_PREFIX = 'salto-';
 
 /** Intentos previos que hacen falta para tener una mediana de tiempo fiable. */
 export const MIN_TIMES_FOR_MEDIAN = 3;
@@ -125,8 +132,33 @@ export function projectCards(
 ): Map<string, SrsCard> {
   const cards = new Map<string, SrsCard>();
   const done: Attempt[] = [];
+  // unidad saltada → primer salto (tarea 2.12)
+  const skips = new Map<string, string>();
+  for (const e of normalizeEvents(events))
+    if (e.type === 'unit_skipped' && !skips.has(e.payload.unitId))
+      skips.set(e.payload.unitId, e.createdAt);
   for (const a of firstAttempts(events)) {
     const when = new Date(a.at);
+    if (a.lessonId.startsWith(PLACEMENT_PREFIX) && a.source !== 'review') {
+      // pregunta de un test de salto: solo crea tarjeta si la unidad quedó saltada, y vence a los 7 días
+      const skippedAt = skips.get(a.lessonId.slice(PLACEMENT_PREFIX.length));
+      if (skippedAt === undefined || skippedAt < a.at) continue;
+      const card = createEmptyCard<Card>(when);
+      card.due = new Date(Date.parse(skippedAt) + SKIP_CHECK_DAYS * 86_400_000);
+      cards.set(a.cardId, {
+        exerciseId: a.cardId,
+        lessonId: a.lessonId,
+        conceptIds: a.conceptIds,
+        card,
+        reviews: 0,
+        lapses: 0,
+        lastCorrect: a.correct,
+        lastReviewAt: a.at,
+        lastRating: a.correct ? Rating.Good : Rating.Again,
+        lastShownId: a.exerciseId,
+      });
+      continue;
+    }
     const prev = cards.get(a.cardId);
     const base: Card = prev ? prev.card : createEmptyCard<Card>(when);
     const rating = rateAttempt(a, done, opts.typeOf);
@@ -284,7 +316,9 @@ export function pickVariant(
     .filter(
       (e) =>
         e.id === self.id ||
-        (e.category === self.category && e.concepts.some((c) => concepts.has(c))),
+        (e.category === self.category &&
+          !e.lessonId.startsWith(PLACEMENT_PREFIX) && // las preguntas de salto no son variantes
+          e.concepts.some((c) => concepts.has(c))),
     )
     .filter((e) => e.id !== card.lastShownId && !taken.has(e.id))
     .sort((a, b) => a.id.localeCompare(b.id));

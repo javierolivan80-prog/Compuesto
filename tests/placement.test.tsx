@@ -164,3 +164,69 @@ describe('PlacementScreen', () => {
     ).toBe(true);
   });
 });
+
+describe('PlacementScreen en dos fases (tarea 2.12)', () => {
+  // banco de 12: las 8 reales y 4 de reserva (copias con otro id) para la segunda fase
+  const bank12 = {
+    ...bank,
+    questions: [
+      ...bank.questions,
+      ...bank.questions.slice(0, 4).map((q) => ({ ...q, id: `${q.id}-r` })),
+    ],
+  };
+  async function run(firstWrong: number, secondWrong: number) {
+    const user = userEvent.setup();
+    const onDone = vi.fn();
+    render(
+      <RepoProvider repo={repo}>
+        <PlacementScreen
+          bank={bank12}
+          unitName="TIN, TAE, préstamos e hipotecas"
+          level={0}
+          onDone={onDone}
+          onExit={() => {}}
+        />
+      </RepoProvider>,
+    );
+    expect(screen.getByText(/4 preguntas más/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Empezar el test' }));
+    for (const [i, q] of bank12.questions.slice(0, 8).entries()) {
+      await screen.findByText(`Pregunta ${i + 1} de 8`, { selector: 'p[data-num]' });
+      await answerQuestion(user, q as Exercise, i < firstWrong);
+    }
+    if (firstWrong !== 2) return { user, onDone };
+    expect(await screen.findByTestId('placement-first')).toHaveTextContent('6 de 8');
+    await user.click(screen.getByRole('button', { name: 'Seguir con la segunda fase' }));
+    for (const [i, q] of bank12.questions.slice(8).entries()) {
+      await screen.findByText(new RegExp(`Segunda fase · Pregunta ${i + 1} de 4`));
+      await answerQuestion(user, q as Exercise, i < secondWrong);
+    }
+    return { user, onDone };
+  }
+
+  it('6 + 3: unidad dominada y unit_skipped', async () => {
+    await run(2, 1);
+    expect(await screen.findByRole('heading', { name: 'Unidad dominada' })).toBeInTheDocument();
+    expect(screen.getByTestId('placement-second')).toHaveTextContent('3 de 4');
+    await waitFor(async () =>
+      expect((await repo.allEvents()).some((e) => e.type === 'unit_skipped')).toBe(true),
+    );
+  });
+
+  it('6 + 2: hay que estudiar la unidad', async () => {
+    await run(2, 2);
+    expect(await screen.findByRole('heading', { name: 'Todavía no' })).toBeInTheDocument();
+    expect((await repo.allEvents()).some((e) => e.type === 'unit_skipped')).toBe(false);
+  });
+
+  it('7 de 8 domina sin segunda fase; 5 de 8 no la ofrece', async () => {
+    await run(1, 0);
+    expect(await screen.findByRole('heading', { name: 'Unidad dominada' })).toBeInTheDocument();
+    expect(screen.queryByTestId('placement-second')).toBeNull();
+  });
+
+  it('5 de 8 no ofrece segunda fase', async () => {
+    await run(3, 0);
+    expect(await screen.findByRole('heading', { name: 'Todavía no' })).toBeInTheDocument();
+  });
+});

@@ -458,9 +458,16 @@ export const placementSchema = z.object({
   version: z.number().int().min(1),
   status: z.enum(STATUSES),
   reviewedBy: z.array(z.enum(REVIEWERS)).default([]),
+  /**
+   * Banco del test (tarea 2.12): 12 preguntas, las 8 primeras para la primera fase y las 4 siguientes para la
+   * segunda. Los bancos antiguos de 8 siguen siendo válidos (sin segunda fase) y content:validate los lista.
+   */
   questions: z
-    .array(z.union([mc, tf, ms]))
-    .length(8, 'el test de salto tiene exactamente 8 preguntas'),
+    .array(z.discriminatedUnion('type', [mc, tf, ms, fb, os, ni, cat]))
+    .refine(
+      (qs) => qs.length === 8 || qs.length === 12,
+      'el banco tiene 12 preguntas (u 8, si es antiguo)',
+    ),
   sources: z.array(sourceSchema).default([]),
   verificarAntesDe: isoDay.nullable().default(null),
 });

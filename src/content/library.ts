@@ -11,6 +11,7 @@ import {
   glossarySchema,
   lessonSchema,
   placementSchema,
+  type Exercise,
   type GlossaryEntry,
   type Lesson,
   type Placement,
@@ -111,9 +112,13 @@ export const conceptName = (id: string): string => conceptsAll.find((c) => c.id 
 export const conceptGraph = (): Record<string, { prerequisites: string[] }> =>
   Object.fromEntries(conceptsAll.map((c) => [c.id, { prerequisites: c.prerequisites }]));
 
-/** Ejercicios vivos (de lecciones jugables) como referencias para el repaso; los de lecciones retiradas no están aquí y sus tarjetas se archivan. */
-export const exerciseCatalog = (): ExerciseRef[] =>
-  lessons.flatMap((l) =>
+/**
+ * Ejercicios vivos (de lecciones jugables y de tests de salto) como referencias para el repaso; los de lecciones
+ * retiradas no están aquí y sus tarjetas se archivan. Las preguntas de un test de salto solo tienen tarjeta si la
+ * unidad se saltó (comprobación a los 7 días, tarea 2.12).
+ */
+export const exerciseCatalog = (): ExerciseRef[] => [
+  ...lessons.flatMap((l) =>
     l.exercises.map((e) => ({
       id: e.id,
       lessonId: l.id,
@@ -122,16 +127,37 @@ export const exerciseCatalog = (): ExerciseRef[] =>
       category: EXERCISE_CATEGORY[e.type],
       parametric: isParametric(e),
     })),
-  );
+  ),
+  ...placements.flatMap((p) =>
+    p.questions.map((q) => ({
+      id: q.id,
+      lessonId: p.id,
+      unitId: p.unitId,
+      concepts: q.concepts,
+      category: EXERCISE_CATEGORY[q.type],
+      parametric: false,
+    })),
+  ),
+];
 
-const typeById = new Map(lessons.flatMap((l) => l.exercises.map((e) => [e.id, e.type] as const)));
+const typeById = new Map([
+  ...lessons.flatMap((l) => l.exercises.map((e) => [e.id, e.type] as const)),
+  ...placements.flatMap((p) => p.questions.map((q) => [q.id, q.type] as const)),
+]);
 /** Opciones del repaso espaciado: el tipo de cada ejercicio, para la mediana de tiempo de la calificación Hard. */
 export const srsOptions: ProjectOptions = { typeOf: (id) => typeById.get(id) };
 
-export function getExerciseById(id: string) {
+/** Ejercicio y de dónde sale (una lección o un test de salto), para el repaso. */
+export function getExerciseById(
+  id: string,
+): { exercise: Exercise; lesson: { id: string; title: string } } | undefined {
   for (const l of lessons) {
     const exercise = l.exercises.find((e) => e.id === id);
     if (exercise) return { exercise, lesson: l };
+  }
+  for (const p of placements) {
+    const exercise = p.questions.find((q) => q.id === id);
+    if (exercise) return { exercise, lesson: { id: p.id, title: 'Test de salto' } };
   }
   return undefined;
 }

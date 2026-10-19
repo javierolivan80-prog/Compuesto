@@ -13,6 +13,7 @@ import type { GameId } from '../engine/games/common';
 import { seededShuffle } from '../engine/grading';
 import {
   buildReview,
+  PLACEMENT_PREFIX,
   conceptMastery,
   interleave,
   practiceConcept,
@@ -85,7 +86,9 @@ export function ReviewRoute({ mode, conceptId, events, onExit }: ReviewRouteProp
 export function ExamRoute({ unitId, onExit }: { unitId: string; onExit: () => void }) {
   const { items, name } = useMemo(() => {
     const today = todayKey(new Date());
-    const pool = exerciseCatalog().filter((e) => e.unitId === unitId);
+    const pool = exerciseCatalog().filter(
+      (e) => e.unitId === unitId && !e.lessonId.startsWith(PLACEMENT_PREFIX),
+    );
     const chosen = seededShuffle(pool, `${unitId}:${today}`).slice(0, EXAM_QUESTIONS);
     const level = Number(/^n(\d+)-/.exec(unitId)?.[1] ?? 0);
     const unit = unitsOfLevel(level).find((u) => u.id === unitId);

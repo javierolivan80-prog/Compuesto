@@ -469,3 +469,68 @@ describe('variantes en el repaso (tarea 2.11)', () => {
     expect(review.find((r) => r.exerciseId === 'z1')!.cardId).toBeUndefined();
   });
 });
+
+describe('unidades saltadas en el repaso (tarea 2.12)', () => {
+  const placementAnswer = (id: string, correct: boolean, at: string) =>
+    makeEvent(
+      'exercise_answered',
+      { exerciseId: id, lessonId: 'salto-n2-u7', conceptIds: ['c1'], correct, timeMs: 3000, xp: 0 },
+      { ...ctx, now: new Date(at), id: `00000000-0000-4000-a000-${String(++n).padStart(12, '0')}` },
+    );
+  const skipped = (at: string) =>
+    makeEvent(
+      'unit_skipped',
+      { unitId: 'n2-u7', level: 2, scorePct: 87.5 },
+      { ...ctx, now: new Date(at), id: `00000000-0000-4000-b000-${String(++n).padStart(12, '0')}` },
+    );
+  const qs = ['salto-n2-u7-q1', 'salto-n2-u7-q2'];
+  const placementCatalog: ExerciseRef[] = qs.map((id) => ({
+    id,
+    lessonId: 'salto-n2-u7',
+    unitId: 'n2-u7',
+    concepts: ['c1'],
+  }));
+
+  it('las preguntas de una unidad saltada vencen a los 7 días, aciertos y fallos', () => {
+    const evs = [
+      placementAnswer(qs[0]!, true, '2026-10-19T10:00:00Z'),
+      placementAnswer(qs[1]!, false, '2026-10-19T10:01:00Z'),
+      skipped('2026-10-19T10:02:00Z'),
+    ];
+    const cards = projectCards(evs);
+    expect(qs.map((id) => nextReviewDay(cards.get(id)!))).toEqual(['2026-10-26', '2026-10-26']);
+    expect(dueCards(cards, { today: '2026-10-25', catalog: placementCatalog })).toHaveLength(0);
+    expect(dueCards(cards, { today: '2026-10-26', catalog: placementCatalog })).toHaveLength(2);
+    // en cualquier orden de llegada, lo mismo
+    expect([...projectCards([...evs].reverse()).entries()].sort()).toEqual(
+      [...cards.entries()].sort(),
+    );
+  });
+
+  it('sin saltar la unidad, el test no crea tarjetas; el repaso de una pregunta saltada programa normal', () => {
+    expect(projectCards([placementAnswer(qs[0]!, true, '2026-10-19T10:00:00Z')]).size).toBe(0);
+    const reviewed = projectCards([
+      placementAnswer(qs[0]!, true, '2026-10-19T10:00:00Z'),
+      skipped('2026-10-19T10:02:00Z'),
+      makeEvent(
+        'exercise_answered',
+        {
+          exerciseId: qs[0]!,
+          lessonId: 'salto-n2-u7',
+          conceptIds: ['c1'],
+          correct: true,
+          timeMs: 3000,
+          xp: 5,
+          source: 'review',
+        },
+        {
+          ...ctx,
+          now: new Date('2026-10-26T10:00:00Z'),
+          id: '00000000-0000-4000-8fff-000000000001',
+        },
+      ),
+    ]).get(qs[0]!)!;
+    expect(reviewed.reviews).toBe(1);
+    expect(nextReviewDay(reviewed) > '2026-10-27').toBe(true);
+  });
+});

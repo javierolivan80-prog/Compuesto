@@ -793,6 +793,29 @@ export function validateContent(b: ContentBundle): {
           'concepto-sin-cubrir',
           `Ninguna pregunta evalúa el concepto "${c}" de la unidad ${pl.unitId}`,
         );
+    // banco en dos fases (tarea 2.12): 12 preguntas, ≥ 50 % de producir y sin cifras que cambien
+    if (pl.questions.length < 12)
+      issues.push({
+        severity: 'warning',
+        code: 'banco-antiguo',
+        where: f.path,
+        message: `Banco de ${pl.questions.length} preguntas: sin segunda fase hasta ampliarlo a 12 con ≥ 50 % de producir`,
+      });
+    else {
+      const produce = pl.questions.filter((q) => EXERCISE_CATEGORY[q.type] === 'producir').length;
+      if (produce / pl.questions.length < 0.5)
+        bad(
+          'mezcla',
+          `El banco necesita ≥ 50 % de preguntas de producir: ${produce}/${pl.questions.length}`,
+        );
+      const first = new Set(pl.questions.slice(0, 8).flatMap((q) => q.concepts));
+      for (const c of expected ?? [])
+        if (!first.has(c))
+          bad('concepto-sin-cubrir', `La primera fase (8 primeras) no evalúa el concepto "${c}"`);
+    }
+    for (const q of pl.questions)
+      if (q.type === 'numeric_input' && q.params)
+        bad('salto-parametrico', 'Un test de salto usa cifras fijas', `${f.path} › ${q.id}`);
     // contenido de las preguntas: sin empresas reales
     const text = strings(pl.questions).join('\n');
     for (const name of b.realCompanies ?? [])
