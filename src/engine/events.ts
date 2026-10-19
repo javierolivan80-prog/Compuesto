@@ -67,6 +67,10 @@ export const payloads = {
     source: z.enum(['lesson', 'review']).default('lesson'),
     /** Ejercicios paramétricos (tarea 2.9): cifras de la variante contestada. Ausente en los demás. */
     params: z.record(z.string(), z.number()).optional(),
+    /** Se miró la pista antes de responder (tarea 2.11): un acierto con pista califica Hard. Ausente = false. */
+    hintUsed: z.boolean().optional(),
+    /** Repaso con variante (tarea 2.11): tarjeta que se califica, si no es la del ejercicio mostrado. */
+    cardId: id.optional(),
   }),
   lesson_completed: z.object({
     lessonId: id,

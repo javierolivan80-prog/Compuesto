@@ -102,6 +102,8 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
         xp: gained,
         source: 'review',
         ...(outcome.params ? { params: outcome.params } : {}),
+        ...(outcome.hintUsed ? { hintUsed: true } : {}),
+        ...(current.it.cardId ? { cardId: current.it.cardId } : {}),
       });
     } catch (e) {
       console.error('No se pudo guardar el repaso', e);

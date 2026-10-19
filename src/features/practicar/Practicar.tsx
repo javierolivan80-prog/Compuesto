@@ -8,6 +8,7 @@ import {
   conceptName,
   exerciseCatalog,
   lessonsOfUnit,
+  srsOptions,
   levelName,
   unitsOfLevel,
 } from '../../content/library';
@@ -41,7 +42,7 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
   const today = todayKey(new Date());
   const view = useMemo(() => {
     const catalog = exerciseCatalog();
-    const cards = projectCards(data.events);
+    const cards = projectCards(data.events, srsOptions);
     const mastery = conceptMastery(data.events);
     const due = dueCards(cards, { today, catalog });
     const planned = buildReview({ cards, catalog, mastery, graph: conceptGraph(), today });

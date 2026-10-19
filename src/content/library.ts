@@ -1,11 +1,12 @@
 import companiesJson from '../../content/shared/companies.json';
-import { instantiate } from '../engine/params';
+import { instantiate, isParametric } from '../engine/params';
 import { compareLessons } from './order';
 import conceptsJson from '../../content/shared/concepts.json';
-import type { ExerciseRef } from '../engine/srs';
+import type { ExerciseRef, ProjectOptions } from '../engine/srs';
 import glossaryJson from '../../content/es/glossary.json';
 import {
   companiesSchema,
+  EXERCISE_CATEGORY,
   conceptsSchema,
   glossarySchema,
   lessonSchema,
@@ -118,8 +119,14 @@ export const exerciseCatalog = (): ExerciseRef[] =>
       lessonId: l.id,
       unitId: `n${l.level}-u${l.unit}`,
       concepts: e.concepts,
+      category: EXERCISE_CATEGORY[e.type],
+      parametric: isParametric(e),
     })),
   );
+
+const typeById = new Map(lessons.flatMap((l) => l.exercises.map((e) => [e.id, e.type] as const)));
+/** Opciones del repaso espaciado: el tipo de cada ejercicio, para la mediana de tiempo de la calificación Hard. */
+export const srsOptions: ProjectOptions = { typeOf: (id) => typeById.get(id) };
 
 export function getExerciseById(id: string) {
   for (const l of lessons) {

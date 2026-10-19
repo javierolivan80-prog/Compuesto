@@ -4,6 +4,7 @@ import {
   conceptName,
   exerciseCatalog,
   getLesson,
+  srsOptions,
   getPlacement,
   unitsOfLevel,
 } from '../content/library';
@@ -56,7 +57,7 @@ interface ReviewRouteProps {
 export function ReviewRoute({ mode, conceptId, events, onExit }: ReviewRouteProps) {
   const { title, items } = useMemo(() => {
     const catalog = exerciseCatalog();
-    const cards = projectCards(events);
+    const cards = projectCards(events, srsOptions);
     const today = todayKey(new Date());
     if (mode === 'errores') return { title: 'Mis errores', items: recentMistakes(cards, catalog) };
     if (mode === 'tema' && conceptId)

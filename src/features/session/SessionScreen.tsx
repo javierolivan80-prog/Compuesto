@@ -3,7 +3,13 @@ import { t } from '../../i18n';
 import { Button } from '../../components/Button';
 import { Loading } from '../../components/States';
 import { pathLessonMeta } from '../../content/meta';
-import { conceptGraph, conceptName, exerciseCatalog, getLesson } from '../../content/library';
+import {
+  conceptGraph,
+  conceptName,
+  exerciseCatalog,
+  getLesson,
+  srsOptions,
+} from '../../content/library';
 import { useRepo } from '../../db/RepoProvider';
 import type { AppEvent, BlockSpec } from '../../engine/events';
 import { seededShuffle } from '../../engine/grading';
@@ -46,7 +52,7 @@ const newId = () => globalThis.crypto.randomUUID();
 function itemsFor(block: BlockSpec, events: readonly AppEvent[], summary: Summary): ReviewItem[] {
   const today = todayKey(new Date());
   const catalog = exerciseCatalog();
-  const cards = projectCards(events);
+  const cards = projectCards(events, srsOptions);
   const mastery = conceptMastery(events);
   if (block.kind === 'due') {
     return buildReview({ cards, catalog, mastery, graph: conceptGraph(), today }).slice(
@@ -129,7 +135,7 @@ export function SessionScreen({ onExit }: Props) {
       const today = todayKey(new Date());
       const completed = (id: string) => ctx.summary.progress.lessons[id]?.status === 'completed';
       const catalog = exerciseCatalog();
-      const cards = projectCards(ctx.events);
+      const cards = projectCards(ctx.events, srsOptions);
       const due = dueCards(cards, { today, catalog });
       const nextLessons = pathLessonMeta()
         .filter((l) => !completed(l.id))

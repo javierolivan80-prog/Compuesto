@@ -480,3 +480,55 @@ describe('variante que falla en ejecución', () => {
     spy.mockRestore();
   });
 });
+
+describe('pista (tarea 2.11)', () => {
+  it('sin mirarla, hintUsed es false; al mirarla se muestra y el resultado lleva hintUsed', async () => {
+    const exercise = {
+      ...sampleExercise('multiple_choice'),
+      hint: 'Piensa en lo que puedes perder.',
+    };
+    for (const look of [false, true]) {
+      const onComplete = vi.fn<(o: ExerciseOutcome) => void>();
+      const user = userEvent.setup();
+      const { unmount } = render(<ExerciseRunner exercise={exercise} onComplete={onComplete} />);
+      if (look) {
+        await user.click(screen.getByRole('button', { name: 'Ver pista' }));
+        expect(screen.getByTestId('exercise-hint')).toHaveTextContent(
+          'Piensa en lo que puedes perder.',
+        );
+        expect(screen.queryByRole('button', { name: 'Ver pista' })).toBeNull();
+      }
+      await user.click(screen.getByRole('radio', { name: 'Limitada' }));
+      await user.click(check());
+      expect(screen.queryByRole('button', { name: 'Ver pista' })).toBeNull();
+      await user.click(screen.getByRole('button', { name: 'Continuar' }));
+      expect(onComplete.mock.calls[0]![0].hintUsed).toBe(look);
+      unmount();
+    }
+  });
+
+  it('en modo examen no se ofrece la pista', () => {
+    const exercise = { ...sampleExercise('multiple_choice'), hint: 'Pista' };
+    render(<ExerciseRunner exercise={exercise} onComplete={vi.fn()} showFeedback={false} />);
+    expect(screen.queryByRole('button', { name: 'Ver pista' })).toBeNull();
+  });
+
+  it('el evento acepta hintUsed y cardId, y los antiguos sin ellos siguen siendo válidos', () => {
+    const base = {
+      exerciseId: 'e2',
+      lessonId: 'l1',
+      conceptIds: ['c1'],
+      correct: true,
+      timeMs: 1000,
+      xp: 5,
+    };
+    const ctx = { deviceId: 'd', tz: 'Europe/Madrid' };
+    const old = makeEvent('exercise_answered', base, ctx);
+    expect(parseEvent(JSON.parse(JSON.stringify(old)))?.payload).not.toHaveProperty('hintUsed');
+    const ev = makeEvent('exercise_answered', { ...base, hintUsed: true, cardId: 'e1' }, ctx);
+    expect(parseEvent(JSON.parse(JSON.stringify(ev)))?.payload).toMatchObject({
+      hintUsed: true,
+      cardId: 'e1',
+    });
+  });
+});

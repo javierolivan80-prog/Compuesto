@@ -1,5 +1,6 @@
 import { createEmptyCard, fsrs, generatorParameters, Rating, type Card } from 'ts-fsrs';
 import { dayKey } from './days';
+import { seedFrom } from './params';
 import type { AppEvent } from './events';
 import { normalizeEvents } from './projections';
 
@@ -24,6 +25,7 @@ const scheduler = fsrs(
 );
 
 export interface SrsCard {
+  /** Ejercicio de la tarjeta (la original, aunque en el repaso se haya mostrado una variante). */
   exerciseId: string;
   lessonId: string;
   conceptIds: string[];
@@ -33,15 +35,23 @@ export interface SrsCard {
   lapses: number;
   lastCorrect: boolean;
   lastReviewAt: string;
+  /** Calificación FSRS del último intento contado. */
+  lastRating: Rating.Again | Rating.Hard | Rating.Good;
+  /** Ejercicio que se mostró en el último intento (la variante, o el mismo). */
+  lastShownId: string;
 }
 
 export interface Attempt {
+  /** Ejercicio mostrado. */
   exerciseId: string;
+  /** Tarjeta que se califica: la del ejercicio mostrado o, en un repaso con variante, la original. */
+  cardId: string;
   lessonId: string;
   conceptIds: string[];
   correct: boolean;
   at: string;
   timeMs: number;
+  hintUsed: boolean;
 }
 
 /** Intentos "de verdad": quita los reintentos dentro de la misma sesión (misma tarjeta a menos de 20 min). */
@@ -51,39 +61,88 @@ export function firstAttempts(events: readonly AppEvent[]): Attempt[] {
   for (const e of normalizeEvents(events)) {
     if (e.type !== 'exercise_answered') continue;
     const t = Date.parse(e.createdAt);
-    const prev = last.get(e.payload.exerciseId);
-    last.set(e.payload.exerciseId, t);
+    const cardId = e.payload.cardId ?? e.payload.exerciseId;
+    const prev = last.get(cardId);
+    last.set(cardId, t);
     // en una lección, un reintento a menos de 20 min es la misma sesión; un repaso siempre cuenta
     if (e.payload.source === 'lesson' && prev !== undefined && t - prev < SAME_ATTEMPT_MS) continue;
     out.push({
       exerciseId: e.payload.exerciseId,
+      cardId,
       lessonId: e.payload.lessonId,
       conceptIds: e.payload.conceptIds,
       correct: e.payload.correct,
       at: e.createdAt,
       timeMs: e.payload.timeMs,
+      hintUsed: e.payload.hintUsed ?? false,
     });
   }
   return out;
 }
 
-/** Tarjetas FSRS por ejercicio: acierto → Good, fallo → Again. */
-export function projectCards(events: readonly AppEvent[]): Map<string, SrsCard> {
+/** Intentos previos que hacen falta para tener una mediana de tiempo fiable. */
+export const MIN_TIMES_FOR_MEDIAN = 3;
+/** Un acierto que tarda más de este múltiplo de la mediana cuesta: Hard. */
+export const SLOW_FACTOR = 2;
+
+const median = (xs: readonly number[]): number => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m]! : (s[m - 1]! + s[m]!) / 2;
+};
+
+export interface ProjectOptions {
+  /** Tipo de cada ejercicio, para la mediana de tiempo cuando el ejercicio tiene menos de 3 intentos. */
+  typeOf?: (exerciseId: string) => string | undefined;
+}
+
+/**
+ * Calificación FSRS de un intento (TEMARIO §4): fallo → Again; acierto con pista o con más del doble del tiempo
+ * mediano → Hard; acierto limpio → Good. Easy nunca es automático. La mediana es la de tus intentos anteriores
+ * de ese ejercicio; con menos de 3, la de tus intentos anteriores del mismo tipo; con menos de 3, no hay mediana.
+ */
+export function rateAttempt(
+  a: Attempt,
+  earlier: readonly Attempt[],
+  typeOf?: ProjectOptions['typeOf'],
+): Rating.Again | Rating.Hard | Rating.Good {
+  if (!a.correct) return Rating.Again;
+  if (a.hintUsed) return Rating.Hard;
+  let times = earlier.filter((b) => b.exerciseId === a.exerciseId).map((b) => b.timeMs);
+  if (times.length < MIN_TIMES_FOR_MEDIAN && typeOf) {
+    const type = typeOf(a.exerciseId);
+    times = type ? earlier.filter((b) => typeOf(b.exerciseId) === type).map((b) => b.timeMs) : [];
+  }
+  if (times.length >= MIN_TIMES_FOR_MEDIAN && a.timeMs > SLOW_FACTOR * median(times))
+    return Rating.Hard;
+  return Rating.Good;
+}
+
+/** Tarjetas FSRS por ejercicio, con la calificación de `rateAttempt`. */
+export function projectCards(
+  events: readonly AppEvent[],
+  opts: ProjectOptions = {},
+): Map<string, SrsCard> {
   const cards = new Map<string, SrsCard>();
+  const done: Attempt[] = [];
   for (const a of firstAttempts(events)) {
     const when = new Date(a.at);
-    const prev = cards.get(a.exerciseId);
+    const prev = cards.get(a.cardId);
     const base: Card = prev ? prev.card : createEmptyCard<Card>(when);
-    const next = scheduler.next(base, when, a.correct ? Rating.Good : Rating.Again).card;
-    cards.set(a.exerciseId, {
-      exerciseId: a.exerciseId,
-      lessonId: a.lessonId,
-      conceptIds: a.conceptIds,
+    const rating = rateAttempt(a, done, opts.typeOf);
+    done.push(a);
+    const next = scheduler.next(base, when, rating).card;
+    cards.set(a.cardId, {
+      exerciseId: a.cardId,
+      lessonId: prev?.lessonId ?? a.lessonId,
+      conceptIds: prev?.conceptIds ?? a.conceptIds,
       card: next,
       reviews: (prev?.reviews ?? 0) + 1,
       lapses: next.lapses,
       lastCorrect: a.correct,
       lastReviewAt: a.at,
+      lastRating: rating,
+      lastShownId: a.exerciseId,
     });
   }
   return cards;
@@ -98,6 +157,10 @@ export interface ExerciseRef {
   lessonId: string;
   unitId: string;
   concepts: string[];
+  /** Categoría de la mezcla (reconocer, producir, aplicar): una variante es de la misma categoría. */
+  category?: string;
+  /** Paramétrico: su variante es él mismo con cifras nuevas. */
+  parametric?: boolean;
 }
 
 export interface DueOptions {
@@ -195,9 +258,38 @@ export function weakPrerequisites(
 export type ReviewReason = 'vencida' | 'refuerzo' | 'error' | 'tema';
 
 export interface ReviewItem {
+  /** Ejercicio que se muestra. */
   exerciseId: string;
   lessonId: string;
   reason: ReviewReason;
+  /** Tarjeta que se califica, si el ejercicio mostrado es una variante de otro. */
+  cardId?: string;
+}
+
+/**
+ * Variante que se muestra al vencer una tarjeta (TEMARIO §4). Un ejercicio paramétrico se muestra a sí mismo
+ * (con cifras nuevas). Si no, se elige entre él y los ejercicios vivos de la misma categoría que comparten algún
+ * concepto, sin repetir el que se mostró en el último repaso; la elección es determinista por tarjeta y día.
+ */
+export function pickVariant(
+  card: SrsCard,
+  catalog: readonly ExerciseRef[],
+  today: string,
+  taken: ReadonlySet<string> = new Set(),
+): ExerciseRef | undefined {
+  const self = catalog.find((e) => e.id === card.exerciseId);
+  if (!self || self.parametric || !self.category) return self;
+  const concepts = new Set(self.concepts);
+  const pool = catalog
+    .filter(
+      (e) =>
+        e.id === self.id ||
+        (e.category === self.category && e.concepts.some((c) => concepts.has(c))),
+    )
+    .filter((e) => e.id !== card.lastShownId && !taken.has(e.id))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  if (pool.length === 0) return self;
+  return pool[seedFrom(`variante:${card.exerciseId}#${today}`) % pool.length];
 }
 
 /** Reparte los elementos para que no salgan seguidos dos del mismo concepto o lección (intercalado). */
@@ -257,13 +349,25 @@ export function buildReview(input: BuildReviewInput): ReviewItem[] {
       add(c.id, 'refuerzo');
     }
   }
-  // 2) vencidas
+  // 2) vencidas, cada una con su variante (la tarjeta que se califica es la original)
+  const shown = new Set(chosen.keys());
   for (const c of dueCards(input.cards, {
     today: input.today,
     catalog: input.catalog,
     tz: input.tz,
-  }))
-    add(c.exerciseId, 'vencida');
+  })) {
+    if (chosen.size >= max) break;
+    if (chosen.has(c.exerciseId)) continue;
+    const v = pickVariant(c, input.catalog, input.today, shown) ?? byId.get(c.exerciseId);
+    if (!v) continue;
+    shown.add(v.id);
+    chosen.set(c.exerciseId, {
+      exerciseId: v.id,
+      lessonId: v.lessonId,
+      reason: 'vencida',
+      ...(v.id !== c.exerciseId ? { cardId: c.exerciseId } : {}),
+    });
+  }
 
   return interleave([...chosen.values()]);
 }

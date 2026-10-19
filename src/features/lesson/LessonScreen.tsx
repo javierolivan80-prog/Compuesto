@@ -127,6 +127,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         timeMs: Math.min(outcome.timeMs, 3_600_000),
         xp,
         ...(outcome.params ? { params: outcome.params } : {}),
+        ...(outcome.hintUsed ? { hintUsed: true } : {}),
       }),
     );
     setSession(state);

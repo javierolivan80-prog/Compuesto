@@ -118,6 +118,8 @@ export interface ExerciseOutcome {
   xpFactor: number;
   /** Cifras de la variante, si el ejercicio es paramétrico y se jugó con semilla (tarea 2.9). */
   params?: Record<string, number>;
+  /** Se miró la pista antes de comprobar: un acierto así califica Hard en el repaso (tarea 2.11). */
+  hintUsed: boolean;
 }
 
 interface Props {
@@ -164,6 +166,7 @@ export function ExerciseRunner({
   const [result, setResult] = useState<GradeResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [startedAt] = useState(() => Date.now());
+  const [hintShown, setHintShown] = useState(false);
 
   const empty = isEmptyAnswer(answer);
 
@@ -187,6 +190,7 @@ export function ExerciseRunner({
         timeMs: Date.now() - startedAt,
         xpFactor: xpFactor(exercise),
         params,
+        hintUsed: hintShown,
       });
       return;
     }
@@ -255,6 +259,23 @@ export function ExerciseRunner({
         {promptOf(exercise)}
       </h3>
       {view}
+      {exercise.hint &&
+        showFeedback &&
+        !result &&
+        (hintShown ? (
+          <p className="text-text-2" role="note" data-testid="exercise-hint">
+            {`Pista: ${exercise.hint}`}
+          </p>
+        ) : (
+          <Button
+            type="button"
+            variant="secondary"
+            className="justify-self-start"
+            onClick={() => setHintShown(true)}
+          >
+            {'Ver pista'}
+          </Button>
+        ))}
       {error && (
         <p role="alert" className="text-bear text-sm">
           Error: {error}
@@ -273,6 +294,7 @@ export function ExerciseRunner({
               timeMs: Date.now() - startedAt,
               xpFactor: xpFactor(exercise),
               params,
+              hintUsed: hintShown,
             })
           }
         />

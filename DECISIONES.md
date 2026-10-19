@@ -706,3 +706,22 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Bloom de N2:** la unidad lleva 31/50 de recordar/entender (62 %) para dar margen al nivel, que queda en ≈ 52 %.
 - **Test de salto:** el esquema solo admite 8 preguntas de reconocer. Los tests con ejercicios de producir y el banco de 12 preguntas quedan en la tarea 2.12, para todos los niveles a la vez.
 - **Hechos que caducan:** el límite de 1.500 € (Ley 35/2006, art. 52), los supuestos de liquidez de los planes (RDL 1/2002, art. 8), el régimen de las SOCIMI (Ley 11/2009), MiFID II, la Ley 6/2023, la Circular 1/2018 de la CNMV y PRIIPs llevan fuente y `verificarAntesDe` 2027-04-30.
+
+## 2026-10-19 — Tarea 2.11: calificación Hard en FSRS y variantes por concepto
+
+- **Calificación** (`rateAttempt` en `src/engine/srs.ts`):
+  - fallo → Again;
+  - acierto con pista → Hard;
+  - acierto con más del doble del tiempo mediano → Hard, con umbral estricto (`SLOW_FACTOR` = 2);
+  - el resto → Good. Easy nunca es automático.
+- **Mediana:** la de tus intentos anteriores del mismo ejercicio. Si hay menos de 3 (`MIN_TIMES_FOR_MEDIAN`), la de tus intentos anteriores del mismo tipo de ejercicio (`srsOptions.typeOf`). Si tampoco hay 3, no se califica por tiempo. Solo cuentan los intentos anteriores, para que la proyección sea la misma en cualquier orden de llegada.
+- **Evento:** `exercise_answered` gana `hintUsed` y `cardId`, los dos opcionales. Un evento antiguo se califica igual que antes.
+  - `hintUsed`: si falta, cuenta como false.
+  - `cardId`: la tarjeta que se califica cuando se muestra una variante.
+- **Pista:** el ejercicio que tiene `hint` muestra un botón «Ver pista» antes de comprobar. En modo examen no aparece. Mirar la pista no quita XP, solo cambia la calificación del repaso.
+- **Variantes** (`pickVariant`):
+  - al vencer una tarjeta, un ejercicio paramétrico se muestra a sí mismo con cifras nuevas;
+  - si no, se elige entre él y los ejercicios vivos de la misma categoría de la mezcla (reconocer, producir o aplicar) que comparten algún concepto, sin repetir el que se mostró en el último repaso y sin repetir un ejercicio dentro de la misma sesión;
+  - la elección es determinista por tarjeta y día (hash FNV de `variante:<id>#<día>`);
+  - la respuesta se guarda con el ejercicio mostrado y califica la tarjeta original.
+- **Alcance:** la variante solo se aplica a las tarjetas vencidas. El refuerzo, Mis errores y la práctica por tema muestran el ejercicio tal cual.

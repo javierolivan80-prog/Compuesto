@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { addDays } from './days';
+import { Rating } from 'ts-fsrs';
 import { makeEvent, type AppEvent } from './events';
 import { seededShuffle } from './grading';
 import {
@@ -12,8 +13,10 @@ import {
   firstAttempts,
   interleave,
   nextReviewDay,
+  pickVariant,
   practiceConcept,
   projectCards,
+  rateAttempt,
   recentMistakes,
   weakPrerequisites,
   type ExerciseRef,
@@ -273,5 +276,196 @@ describe('bloques de la sesión diaria', () => {
     const without = buildChallenge({ ...base, n: 5, answeredToday: new Set(['e1']) });
     expect(without.some((i) => i.exerciseId === 'e1')).toBe(false);
     expect(buildChallenge({ ...base, completedLessons: new Set() })).toEqual([]);
+  });
+});
+
+/* ---------- Tarea 2.11: Hard y variantes ---------- */
+
+const answered = (
+  exerciseId: string,
+  correct: boolean,
+  at: string,
+  extra: { timeMs?: number; hintUsed?: boolean; cardId?: string } = {},
+): AppEvent =>
+  makeEvent(
+    'exercise_answered',
+    {
+      exerciseId,
+      lessonId: 'l1',
+      conceptIds: ['c1'],
+      correct,
+      timeMs: extra.timeMs ?? 5000,
+      xp: correct ? 10 : 0,
+      source: 'review',
+      ...(extra.hintUsed !== undefined ? { hintUsed: extra.hintUsed } : {}),
+      ...(extra.cardId ? { cardId: extra.cardId } : {}),
+    },
+    { ...ctx, now: new Date(at), id: `00000000-0000-4000-9000-${String(++n).padStart(12, '0')}` },
+  );
+
+describe('calificación Again / Hard / Good (tarea 2.11)', () => {
+  const first = '2026-10-01T10:00:00Z';
+  const second = '2026-10-04T10:00:00Z';
+  const due = (evs: AppEvent[]) => nextReviewDay(projectCards(evs).get('e1')!);
+
+  it('Hard programa antes que Good y después que Again', () => {
+    const good = due([answered('e1', true, first), answered('e1', true, second)]);
+    const hard = due([
+      answered('e1', true, first),
+      answered('e1', true, second, { hintUsed: true }),
+    ]);
+    const again = due([answered('e1', true, first), answered('e1', false, second)]);
+    expect(again < hard).toBe(true);
+    expect(hard < good).toBe(true);
+    expect(
+      projectCards([answered('e1', true, first, { hintUsed: true })]).get('e1')!.lastRating,
+    ).toBe(Rating.Hard);
+  });
+
+  it('un evento antiguo sin hintUsed da lo mismo que hoy (Good) y Easy nunca es automático', () => {
+    const old = projectCards([answer('e1', true, first)]).get('e1')!;
+    const explicit = projectCards([answered('e1', true, first, { hintUsed: false })]).get('e1')!;
+    expect(old.lastRating).toBe(Rating.Good);
+    expect(nextReviewDay(old)).toBe(nextReviewDay(explicit));
+    const fast = projectCards([
+      answered('e1', true, first, { timeMs: 9000 }),
+      answered('e1', true, '2026-10-05T10:00:00Z', { timeMs: 9000 }),
+      answered('e1', true, '2026-10-20T10:00:00Z', { timeMs: 9000 }),
+      answered('e1', true, '2026-11-20T10:00:00Z', { timeMs: 100 }),
+    ]).get('e1')!;
+    expect(fast.lastRating).toBe(Rating.Good);
+  });
+
+  it('un acierto con más del doble del tiempo mediano es Hard; sin 3 intentos previos no hay mediana', () => {
+    const base = (t: number) => [
+      answered('e1', true, '2026-10-01T10:00:00Z', { timeMs: 4000 }),
+      answered('e1', true, '2026-10-05T10:00:00Z', { timeMs: 5000 }),
+      answered('e1', true, '2026-10-20T10:00:00Z', { timeMs: 6000 }),
+      answered('e1', true, '2026-11-20T10:00:00Z', { timeMs: t }),
+    ];
+    expect(projectCards(base(10_001)).get('e1')!.lastRating).toBe(Rating.Hard);
+    expect(projectCards(base(10_000)).get('e1')!.lastRating).toBe(Rating.Good);
+    // solo dos intentos previos de e1 y ningún tipo conocido: no hay mediana
+    const two = [
+      answered('e1', true, '2026-10-01T10:00:00Z', { timeMs: 1000 }),
+      answered('e1', true, '2026-10-05T10:00:00Z', { timeMs: 1000 }),
+      answered('e1', true, '2026-10-20T10:00:00Z', { timeMs: 60_000 }),
+    ];
+    expect(projectCards(two).get('e1')!.lastRating).toBe(Rating.Good);
+  });
+
+  it('con menos de 3 intentos del ejercicio, usa la mediana de los del mismo tipo', () => {
+    const typeOf = (id: string) => (id === 'e3' ? 'scenario' : 'numeric_input');
+    const evs = [
+      answered('e1', true, '2026-10-01T10:00:00Z', { timeMs: 3000 }),
+      answered('e2', true, '2026-10-01T10:05:00Z', { timeMs: 3000 }),
+      answered('e3', true, '2026-10-01T10:10:00Z', { timeMs: 60_000 }),
+      answered('e1', true, '2026-10-05T10:00:00Z', { timeMs: 3000 }),
+      answered('x9', true, '2026-10-06T10:00:00Z', { timeMs: 7000 }),
+    ];
+    // x9 es numérico: mediana de e1, e2, e1 = 3000 → 7000 > 6000 → Hard
+    expect(projectCards(evs, { typeOf }).get('x9')!.lastRating).toBe(Rating.Hard);
+    // sin tipos, x9 no tiene mediana
+    expect(projectCards(evs).get('x9')!.lastRating).toBe(Rating.Good);
+    expect(
+      rateAttempt(
+        { ...firstAttempts([evs[4]!])[0]!, correct: false },
+        firstAttempts(evs.slice(0, 4)),
+        typeOf,
+      ),
+    ).toBe(Rating.Again);
+  });
+
+  it('reconstruir desde eventos da las mismas tarjetas en cualquier orden', () => {
+    const evs = [
+      answered('e1', true, '2026-10-01T10:00:00Z', { timeMs: 4000 }),
+      answered('e1', true, '2026-10-05T10:00:00Z', { timeMs: 5000, hintUsed: true }),
+      answered('e2', false, '2026-10-06T10:00:00Z'),
+      answered('e1', true, '2026-10-20T10:00:00Z', { timeMs: 6000 }),
+      answered('e2', true, '2026-10-21T10:00:00Z', { cardId: 'e1' }),
+      answered('e1', true, '2026-11-20T10:00:00Z', { timeMs: 30_000 }),
+    ];
+    const a = projectCards(evs);
+    for (const order of [[...evs].reverse(), seededShuffle(evs, 'orden')]) {
+      const b = projectCards(order);
+      expect([...b.entries()].sort()).toEqual([...a.entries()].sort());
+    }
+  });
+
+  it('una variante califica la tarjeta original y queda como último ítem mostrado', () => {
+    const cards = projectCards([
+      answered('e1', true, '2026-10-01T10:00:00Z'),
+      answered('e2', true, '2026-10-05T10:00:00Z', { cardId: 'e1' }),
+    ]);
+    expect(cards.has('e2')).toBe(false);
+    const c = cards.get('e1')!;
+    expect(c.reviews).toBe(2);
+    expect(c.lastShownId).toBe('e2');
+    expect(c.exerciseId).toBe('e1');
+  });
+});
+
+describe('variantes en el repaso (tarea 2.11)', () => {
+  const cat: ExerciseRef[] = [
+    { id: 'a1', lessonId: 'l1', unitId: 'u1', concepts: ['c1'], category: 'producir' },
+    { id: 'a2', lessonId: 'l1', unitId: 'u1', concepts: ['c1'], category: 'producir' },
+    { id: 'a3', lessonId: 'l2', unitId: 'u1', concepts: ['c1', 'c2'], category: 'producir' },
+    { id: 'b1', lessonId: 'l1', unitId: 'u1', concepts: ['c1'], category: 'reconocer' },
+    { id: 'z1', lessonId: 'l3', unitId: 'u1', concepts: ['c9'], category: 'producir' },
+    {
+      id: 'p1',
+      lessonId: 'l1',
+      unitId: 'u1',
+      concepts: ['c1'],
+      category: 'producir',
+      parametric: true,
+    },
+  ];
+  const cardOf = (id: string, at = '2026-10-01T10:00:00Z') =>
+    projectCards([answered(id, true, at)]).get(id)!;
+
+  it('elige de forma determinista entre los de la misma categoría y concepto, sin repetir el último', () => {
+    const c = cardOf('a1');
+    const v = pickVariant(c, cat, '2026-10-10')!;
+    expect(v).toEqual(pickVariant(c, cat, '2026-10-10'));
+    expect(['a2', 'a3', 'p1']).toContain(v.id); // ni a1 (el último mostrado), ni b1 (otra categoría), ni z1
+    // a lo largo de muchos días nunca repite el último ni sale de su grupo
+    const seen = new Set<string>();
+    for (let d = 1; d <= 28; d++) {
+      const id = pickVariant(c, cat, `2026-11-${String(d).padStart(2, '0')}`)!.id;
+      expect(id).not.toBe('a1');
+      seen.add(id);
+    }
+    expect([...seen].sort()).toEqual(['a2', 'a3', 'p1']);
+    // si el último repaso mostró a2, puede volver a1 pero no a2
+    const shownA2 = projectCards([
+      answered('a1', true, '2026-10-01T10:00:00Z'),
+      answered('a2', true, '2026-10-05T10:00:00Z', { cardId: 'a1' }),
+    ]).get('a1')!;
+    for (let d = 1; d <= 28; d++)
+      expect(pickVariant(shownA2, cat, `2026-12-${String(d).padStart(2, '0')}`)!.id).not.toBe('a2');
+  });
+
+  it('un paramétrico se muestra a sí mismo (con cifras nuevas); sin otros candidatos, el original', () => {
+    expect(pickVariant(cardOf('p1'), cat, '2026-10-10')!.id).toBe('p1');
+    expect(pickVariant(cardOf('z1'), cat, '2026-10-10')!.id).toBe('z1');
+    expect(pickVariant(cardOf('b1'), cat, '2026-10-10')!.id).toBe('b1');
+  });
+
+  it('buildReview muestra la variante y apunta a la tarjeta original', () => {
+    const cards = projectCards([
+      answered('a1', true, '2026-10-01T10:00:00Z'),
+      answered('z1', true, '2026-10-01T10:05:00Z'),
+    ]);
+    const review = buildReview({
+      cards,
+      catalog: cat,
+      mastery: new Map(),
+      graph: {},
+      today: '2026-12-31',
+    });
+    const forA1 = review.find((r) => r.cardId === 'a1')!;
+    expect(['a2', 'a3', 'p1']).toContain(forA1.exerciseId);
+    expect(review.find((r) => r.exerciseId === 'z1')!.cardId).toBeUndefined();
   });
 });
