@@ -1,8 +1,8 @@
 {
   "id": "n2-u3-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 3,
   "title": "Traspasos y fiscalidad de los fondos",

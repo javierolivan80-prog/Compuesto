@@ -1,8 +1,8 @@
 {
   "id": "n2-u3-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 3,
   "order": 0,
@@ -234,7 +234,7 @@
       }
     }
   ],
-  "realWorld": "En el documento de datos fundamentales (DFI o KID) de cada fondo verás sus gastos corrientes. La CNMV registra los fondos españoles y publica sus folletos. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "En el documento de datos fundamentales de cada fondo verás sus costes corrientes. La CNMV registra los fondos españoles y publica sus folletos. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",

@@ -14,6 +14,7 @@ import { Leverage } from './Leverage';
 import { LoanAmortization } from './LoanAmortization';
 import { MarketCapFloat } from './MarketCapFloat';
 import { MoneyCreation } from './MoneyCreation';
+import { NormalTails } from './NormalTails';
 import { OrderBook } from './OrderBook';
 import { PrimarySecondary } from './PrimarySecondary';
 import { Rule72 } from './Rule72';
@@ -52,6 +53,7 @@ const REGISTRY = {
   BondSeesaw,
   Duration,
   TerDrain,
+  NormalTails,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

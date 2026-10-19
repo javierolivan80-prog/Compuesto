@@ -1,8 +1,8 @@
 {
   "id": "n2-u3-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 3,
   "title": "Jefe final: el plan de ahorro de un cliente",
@@ -168,11 +168,11 @@
       "wrongExplanations": {
         "1": "Los gastos corrientes no son el único coste.",
         "2": "Existen y son lo que acaba de proponerle.",
-        "3": "En e3 viste que el fondo caro le costaría unos 6.300 € en 15 años."
+        "3": "Hace un momento viste que seguir en el fondo caro le costaría unos 6.300 € en 15 años."
       }
     }
   ],
-  "realWorld": "Antes de elegir un fondo, lee su DFI: objetivo, riesgo (escala de 1 a 7), gastos y escenarios de rentabilidad. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "Antes de elegir un fondo, lee su documento de datos fundamentales: objetivo, riesgo (escala de 1 a 7), costes y escenarios de rentabilidad. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",

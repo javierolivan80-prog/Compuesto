@@ -1260,5 +1260,8 @@
     "ok": "Bien encaminado: repasa lo que fallaste.",
     "bad": "Repasa media, desviación típica y el papel del azar.",
     "debrief": "Ver qué ha pasado"
+  },
+  "normalTails": {
+    "title": "La campana y sus colas"
   }
 }

@@ -22,5 +22,6 @@ export const EXPLAINER_NAMES = [
   'BondSeesaw',
   'Duration',
   'TerDrain',
+  'NormalTails',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

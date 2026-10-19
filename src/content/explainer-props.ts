@@ -80,6 +80,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       g: z.number().min(0).max(5),
     })
     .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
+  NormalTails: z.object({
+    mean: z.number().min(-5).max(5),
+    sd: z.number().positive().max(20),
+  }),
   TerDrain: z
     .object({
       amount: z.number().positive(),

@@ -346,3 +346,23 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada. Estado: `reviewed`.
 - Bloom del nivel N2: 40/74 de recordar/entender (54,1 %).
 - 🛑 Pendiente de la revisión de Javier.
+
+## n2-u3 — Fondos, ETF y comisiones y lección-juego «Dos fondos, veinte años» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Las cifras y la fiscalidad estaban bien.
+  - Mayores aplicados (5):
+    - el traspaso no evita días fuera del mercado; la ventaja es solo fiscal;
+    - enunciado de l3-e2;
+    - q8 con datos fijos y cifras;
+    - el categorize de l5-e5;
+    - l3-e7 acepta «pasivo».
+  - Menores aplicados (9):
+    - objetivo de l3;
+    - el valor liquidativo también lo publican los ETF;
+    - diferencia de seguimiento;
+    - fuente con los arts. 66 y 76;
+    - «costes corrientes» del documento PRIIPs;
+    - redacción de l4-e7 y de varios distractores.
+- **Ronda 2:** dos menores de redacción aplicados (referencia a «e3» y «costes corrientes» en los realWorld). Estado: `reviewed`.
+- Bloom del nivel N2: 60/115 de recordar/entender (52,2 %).
+- 🛑 Pendiente de la revisión de Javier, incluidos el régimen de traspasos y el tipo del 19 % (verificarAntesDe 2027-03-31).

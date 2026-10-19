@@ -140,6 +140,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/30 años/);
     expect(text).toMatch(/8\.113/);
   });
+  it('NormalTails: bandas de una y dos desviaciones típicas', () => {
+    render(<ExplainerBlock component="NormalTails" props={{ mean: 0.5, sd: 3.4 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/entre [−-]2,9\s% y 3,9\s%/);
+    expect(text).toMatch(/entre [−-]6,3\s% y 7,3\s%/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock
