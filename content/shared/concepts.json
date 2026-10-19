@@ -585,19 +585,25 @@
     "id": "fondos-inversion",
     "name": "Fondos de inversión y TER",
     "level": 2,
-    "prerequisites": ["riesgo-rentabilidad"]
+    "prerequisites": ["riesgo-rentabilidad"],
+    "unit": "n2-u3",
+    "description": "Un fondo junta el dinero de muchos partícipes; una gestora lo invierte y un depositario lo custodia. Sus gastos corrientes se cobran cada año del patrimonio y se componen con el tiempo."
   },
   {
     "id": "traspasos-fondos",
     "name": "Traspasos entre fondos",
     "level": 2,
-    "prerequisites": ["fondos-inversion"]
+    "prerequisites": ["fondos-inversion"],
+    "unit": "n2-u3",
+    "description": "En el IRPF, pasar el dinero de un fondo a otro con un traspaso aplaza la tributación de la ganancia hasta el reembolso. Los ETF, en general, quedan fuera."
   },
   {
     "id": "etf",
     "name": "ETF",
     "level": 2,
-    "prerequisites": ["fondos-inversion", "mercado-secundario"]
+    "prerequisites": ["fondos-inversion", "mercado-secundario"],
+    "unit": "n2-u3",
+    "description": "Un fondo que cotiza en bolsa durante toda la sesión, normalmente indexado y con gastos bajos; al operar suma corretaje y horquilla."
   },
   {
     "id": "planes-pensiones",

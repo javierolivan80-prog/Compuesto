@@ -1,0 +1,172 @@
+{
+  "id": "salto-n2-u3",
+  "unitId": "n2-u3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u3-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Un fondo rinde un 7 % bruto y tiene un 1,5 % de gastos corrientes. ¿Neto?",
+      "options": ["5,5 %", "8,5 %", "7 %", "1,5 %"],
+      "answer": 0,
+      "explanation": "7 − 1,5 = 5,5 %.",
+      "wrongExplanations": {
+        "1": "Los gastos se restan.",
+        "2": "Falta restar los gastos.",
+        "3": "Son solo los gastos."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Qué es el valor liquidativo de un fondo?",
+      "options": [
+        "El precio de una participación, calculado una vez al día",
+        "La comisión de reembolso",
+        "Lo que cotiza en bolsa en cada momento",
+        "El dinero que aportaste"
+      ],
+      "answer": 0,
+      "explanation": "Patrimonio entre participaciones, una vez al día.",
+      "wrongExplanations": {
+        "1": "Es una comisión, no un precio.",
+        "2": "Eso es un ETF.",
+        "3": "Eso es tu coste."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["etf"],
+      "prompt": "¿Qué tiene un ETF que no tiene un fondo tradicional?",
+      "options": [
+        "Cotiza en bolsa durante toda la sesión",
+        "Gastos corrientes",
+        "Gestora",
+        "Depositario"
+      ],
+      "answer": 0,
+      "explanation": "Se compra y vende en bolsa como una acción.",
+      "wrongExplanations": {
+        "1": "Los dos los tienen.",
+        "2": "Los dos la tienen.",
+        "3": "Los dos lo tienen."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q4",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["traspasos-fondos"],
+      "statement": "Un traspaso entre fondos de inversión aplaza el impuesto sobre la ganancia hasta que vendes.",
+      "answer": true,
+      "explanation": "Verdadero: el fondo nuevo hereda el coste y la fecha del antiguo."
+    },
+    {
+      "id": "salto-n2-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["traspasos-fondos", "etf"],
+      "prompt": "¿Puedes traspasar sin tributar de un ETF a otro?",
+      "options": [
+        "En general, no: la venta del ETF tributa",
+        "Sí, siempre",
+        "Sí, si es de la misma gestora",
+        "Solo si hay pérdidas"
+      ],
+      "answer": 0,
+      "explanation": "El régimen de traspasos no se aplica a los ETF.",
+      "wrongExplanations": {
+        "1": "No es así.",
+        "2": "La gestora no cambia el tratamiento.",
+        "3": "Con pérdidas no hay impuesto que aplazar, pero tampoco es un traspaso."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["traspasos-fondos"],
+      "prompt": "Ganancia de 2.000 € al vender un fondo, al 19 %. ¿Impuesto?",
+      "options": ["380 €", "2.000 €", "190 €", "3.800 €"],
+      "answer": 0,
+      "explanation": "2.000 × 19 % = 380 €.",
+      "wrongExplanations": {
+        "1": "Tributa un porcentaje, no toda la ganancia.",
+        "2": "Es la mitad.",
+        "3": "Has multiplicado por 1,9."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Qué comisión se cobra cada año del patrimonio del fondo?",
+      "options": ["La de gestión", "La de suscripción", "La de reembolso", "El corretaje"],
+      "answer": 0,
+      "explanation": "Gestión y depósito son anuales.",
+      "wrongExplanations": {
+        "1": "Se cobra al entrar.",
+        "2": "Se cobra al salir.",
+        "3": "Es del bróker, al operar."
+      }
+    },
+    {
+      "id": "salto-n2-u3-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Dos fondos invierten igual; uno cobra un 1,6 % más al año. ¿Qué pasa con la diferencia a 20 años?",
+      "options": [
+        "Se hace mucho mayor que 1,6 × 20 puntos, porque se compone",
+        "Es exactamente 32 puntos",
+        "Desaparece",
+        "Depende solo del primer año"
+      ],
+      "answer": 0,
+      "explanation": "El coste se compone como la rentabilidad.",
+      "wrongExplanations": {
+        "1": "Eso ignora el interés compuesto.",
+        "2": "Se acumula, no desaparece.",
+        "3": "Se cobra cada año."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31"
+}

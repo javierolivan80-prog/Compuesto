@@ -1,0 +1,257 @@
+{
+  "id": "n2-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: dos fondos, veinte años",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Ver cómo los gastos corrientes de un fondo se componen con los años",
+    "Distinguir un fondo de un ETF y explicar por qué un traspaso no tributa al momento"
+  ],
+  "concepts": ["fondos-inversion", "etf", "traspasos-fondos"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "fund-fees",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Gastos corrientes",
+      "text": "Los dos fondos rendían un {gross} % bruto, pero el caro cobraba un {ter_dear} % al año y el barato un {ter_cheap} %: netos, un {net_dear} % frente a un {net_cheap} %. En {years} años, {initial} € se convirtieron en {final_dear} € y en {final_cheap} €."
+    },
+    {
+      "type": "card",
+      "term": "Fondo y ETF",
+      "text": "Un fondo se compra y se vende a su valor liquidativo, que se calcula una vez al día, a través de la gestora o de quien lo comercializa. Un ETF es un fondo que cotiza en bolsa: lo compras con tu bróker en cualquier momento de la sesión."
+    },
+    {
+      "type": "card",
+      "term": "Traspaso",
+      "text": "En España, pasar el dinero de un fondo a otro con un traspaso no tributa hasta que vendes. Vendiendo habrías pagado {tax} € de IRPF sobre la ganancia; traspasando, ese dinero siguió invirtiéndose: {end_gap} € más en {years} años, antes de los impuestos finales."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u3-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Un fondo rinde un {gross} % bruto al año y sus gastos corrientes son del {ter_dear} %. ¿Cuál es su rentabilidad neta? (%, 1 decimal)",
+      "answer": 4.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{gross} - {ter_dear}",
+      "params": {
+        "gross": {
+          "value": 6,
+          "min": 4,
+          "max": 8,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "ter_dear": {
+          "value": 1.8,
+          "min": 1,
+          "max": 2.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{gross} - {ter_dear}",
+          "decimals": 1
+        }
+      },
+      "explanation": "Los gastos corrientes se descuentan cada año del patrimonio del fondo: {gross} − {ter_dear} = {v} %."
+    },
+    {
+      "id": "n2-u3-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Inviertes 10.000 € en un fondo que rinde un {net_cheap} % neto al año. ¿Cuánto tendrás en 20 años? (€)",
+      "answer": 30883,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10000 * (1 + {net_cheap} / 100) ^ 20",
+      "params": {
+        "net_cheap": {
+          "value": 5.8,
+          "min": 3,
+          "max": 7,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "10000 * (1 + {net_cheap} / 100) ^ 20",
+          "decimals": 0
+        }
+      },
+      "explanation": "10.000 × (1 + {net_cheap} %)^20 = {v} €.",
+      "hint": "Interés compuesto: elevado a 20."
+    },
+    {
+      "id": "n2-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["traspasos-fondos"],
+      "prompt": "Vendes un fondo con {gain} € de ganancia. Si toda cae en el primer tramo de la base del ahorro, al 19 %, ¿cuánto pagas de IRPF? (€)",
+      "answer": 760,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{gain} * 0.19",
+      "params": {
+        "gain": {
+          "value": 4000,
+          "min": 1000,
+          "max": 6000,
+          "step": 100,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{gain} * 0.19",
+          "decimals": 0
+        }
+      },
+      "explanation": "{gain} × 19 % = {v} €. Tributa la ganancia, no todo lo que vendes."
+    },
+    {
+      "id": "n2-u3-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion", "etf"],
+      "prompt": "¿Es propio de un fondo de inversión o de un ETF?",
+      "categories": ["Fondo", "ETF"],
+      "items": [
+        {
+          "text": "Un valor liquidativo al día",
+          "category": "Fondo"
+        },
+        {
+          "text": "Cotiza durante toda la sesión",
+          "category": "ETF"
+        },
+        {
+          "text": "Traspaso sin tributar en España",
+          "category": "Fondo"
+        },
+        {
+          "text": "Se compra con el bróker, como una acción",
+          "category": "ETF"
+        }
+      ],
+      "explanation": "El ETF es un fondo que cotiza; el fondo tradicional se suscribe y se reembolsa a su valor liquidativo."
+    },
+    {
+      "id": "n2-u3-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Por qué una diferencia de 1,6 puntos en comisiones acaba siendo tanto dinero en 20 años?",
+      "options": [
+        "Porque la comisión se cobra cada año sobre todo lo acumulado, y lo que se pierde también deja de rendir",
+        "Porque la comisión sube cada año",
+        "Porque se cobra solo al final",
+        "Porque el fondo caro invierte peor"
+      ],
+      "answer": 0,
+      "explanation": "El coste se compone igual que la rentabilidad: es interés compuesto en contra.",
+      "wrongExplanations": {
+        "1": "El porcentaje es el mismo cada año.",
+        "2": "Se cobra cada año, sobre el patrimonio.",
+        "3": "En el juego invertían igual: solo cambiaba la comisión."
+      }
+    },
+    {
+      "id": "n2-u3-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["traspasos-fondos"],
+      "statement": "Si traspasas tu dinero de un fondo a otro, la ganancia ya no tributa nunca.",
+      "answer": false,
+      "explanation": "Falso: se aplaza. Tributa cuando reembolsas de verdad, y mientras tanto sigue invertida."
+    },
+    {
+      "id": "n2-u3-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "El precio de una participación de un fondo, calculado una vez al día, se llama valor ___.",
+      "answers": [["liquidativo"]],
+      "explanation": "Valor liquidativo: el patrimonio del fondo dividido entre las participaciones."
+    },
+    {
+      "id": "n2-u3-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["traspasos-fondos"],
+      "character": "rival",
+      "situation": "Hugo quiere pasar su dinero de un fondo caro a otro barato: «vendo, cobro, y luego compro el otro».",
+      "prompt": "¿Qué le aconsejas?",
+      "options": [
+        "Que pida un traspaso: no tributa ahora y no pierde días fuera del mercado",
+        "Que venda: así paga los impuestos y se olvida",
+        "Que espere a que el fondo caro baje",
+        "Que no cambie: las comisiones dan igual"
+      ],
+      "answer": 0,
+      "explanation": "El traspaso aplaza el impuesto y mantiene el dinero invertido. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Pagar antes significa reinvertir menos.",
+        "2": "Esperar no cambia las comisiones que paga mientras tanto.",
+        "3": "Ya has visto que no."
+      }
+    }
+  ],
+  "realWorld": "En el documento de datos fundamentales (DFI o KID) de cada fondo verás sus gastos corrientes. La CNMV registra los fondos españoles y publica sus folletos. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, guías para el inversor: fondos de inversión y documento de datos fundamentales",
+      "url": "https://www.cnmv.es",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-19"
+}

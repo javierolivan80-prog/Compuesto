@@ -1,0 +1,258 @@
+{
+  "id": "n2-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 3,
+  "title": "Fondos de inversión y sus comisiones",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es un fondo de inversión y quién interviene",
+    "Calcular el coste de las comisiones de un fondo"
+  ],
+  "concepts": ["fondos-inversion"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Qué es un fondo",
+      "text": "Un fondo junta el dinero de muchos partícipes y una gestora lo invierte según su folleto. Un depositario custodia los activos y vigila a la gestora, y la CNMV supervisa. Cada partícipe tiene participaciones, que valen el patrimonio entre el número de participaciones."
+    },
+    {
+      "type": "visual",
+      "component": "TerDrain",
+      "props": {
+        "amount": 10000,
+        "gross": 6,
+        "terCheap": 0.2,
+        "terDear": 1.8
+      }
+    },
+    {
+      "type": "card",
+      "term": "Las comisiones",
+      "text": "La de gestión y la de depósito se cobran cada año del patrimonio, y entran en los gastos corrientes. Algunas gestoras cobran además al entrar (suscripción) o al salir (reembolso), sobre lo que inviertes o retiras."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u3-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Tienes {v} € en un fondo con unos gastos corrientes del {ter} % anual. ¿Cuánto te cuestan este año? (€)",
+      "answer": 360,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{v} * {ter} / 100",
+      "params": {
+        "v": {
+          "value": 20000,
+          "min": 5000,
+          "max": 50000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "ter": {
+          "value": 1.8,
+          "min": 0.1,
+          "max": 2.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "c": {
+          "formula": "{v} * {ter} / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "{v} × {ter} % = {c} €, aunque no lo veas: sale del valor liquidativo."
+    },
+    {
+      "id": "n2-u3-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "10.000 € al {n} % neto durante 10 años. ¿Cuánto tendrás? (€)",
+      "answer": 15090,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10000 * (1 + {n} / 100) ^ 10",
+      "params": {
+        "n": {
+          "value": 4.2,
+          "min": 2,
+          "max": 7,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "10000 * (1 + {n} / 100) ^ 10",
+          "decimals": 0
+        }
+      },
+      "explanation": "10.000 × (1 + {n} %)^10 = {v} €."
+    },
+    {
+      "id": "n2-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Un fondo cobra un {c} % de comisión de reembolso. Si retiras {v} €, ¿cuánto pagas? (€)",
+      "answer": 100,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{v} * {c} / 100",
+      "params": {
+        "v": {
+          "value": 5000,
+          "min": 1000,
+          "max": 20000,
+          "step": 500,
+          "decimals": 0
+        },
+        "c": {
+          "value": 2,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "x": {
+          "formula": "{v} * {c} / 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{v} × {c} % = {x} €, una sola vez, al salir."
+    },
+    {
+      "id": "n2-u3-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Se cobra cada año del patrimonio o una vez, al entrar o salir?",
+      "categories": ["Cada año (gastos corrientes)", "Una vez"],
+      "items": [
+        {
+          "text": "Comisión de gestión",
+          "category": "Cada año (gastos corrientes)"
+        },
+        {
+          "text": "Comisión de depósito",
+          "category": "Cada año (gastos corrientes)"
+        },
+        {
+          "text": "Comisión de suscripción",
+          "category": "Una vez"
+        },
+        {
+          "text": "Comisión de reembolso",
+          "category": "Una vez"
+        }
+      ],
+      "explanation": "Gestión y depósito se descuentan cada día del valor liquidativo; suscripción y reembolso, al entrar o salir."
+    },
+    {
+      "id": "n2-u3-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Qué hace el depositario de un fondo?",
+      "options": [
+        "Custodia los activos del fondo y vigila que la gestora cumpla",
+        "Decide qué acciones compra el fondo",
+        "Vende el fondo a los clientes",
+        "Fija el valor liquidativo a su gusto"
+      ],
+      "answer": 0,
+      "explanation": "Separar quien gestiona de quien guarda los activos protege a los partícipes.",
+      "wrongExplanations": {
+        "1": "Eso lo decide la gestora.",
+        "2": "Eso lo hace el comercializador, que puede ser un banco.",
+        "3": "El valor liquidativo sale del patrimonio entre las participaciones."
+      }
+    },
+    {
+      "id": "n2-u3-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "statement": "Si la gestora quebrara, los activos del fondo seguirían siendo de los partícipes.",
+      "answer": true,
+      "explanation": "Verdadero: el patrimonio del fondo está separado del de la gestora y lo custodia el depositario."
+    },
+    {
+      "id": "n2-u3-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Quien invierte en un fondo de inversión se llama ___.",
+      "answers": [["partícipe", "participe"]],
+      "explanation": "Partícipe: tiene participaciones del fondo."
+    },
+    {
+      "id": "n2-u3-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "character": "mentora",
+      "situation": "Un cliente compara dos fondos que invierten en las mismas acciones europeas: uno con unos gastos corrientes del 1,9 % y otro del 0,3 %. «El caro tendrá mejores gestores», dice.",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que el caro tiene que ganar al barato en 1,6 puntos al año solo para empatar, y eso es difícil de sostener muchos años",
+        "Que tiene razón: lo caro es mejor",
+        "Que la comisión no cuenta porque no se ve",
+        "Que ambos rinden lo mismo seguro"
+      ],
+      "answer": 0,
+      "explanation": "Las comisiones son lo único seguro de un fondo; la rentabilidad extra, no. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "El precio no garantiza mejor resultado.",
+        "2": "Se descuenta cada día del valor liquidativo.",
+        "3": "No: el barato parte con 1,6 puntos de ventaja."
+      }
+    }
+  ],
+  "realWorld": "En el DFI (KID) de un fondo, la CNMV exige mostrar sus costes. En la web de la CNMV puedes consultar cualquier fondo registrado. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, guías para el inversor: fondos de inversión y documento de datos fundamentales",
+      "url": "https://www.cnmv.es",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

@@ -129,6 +129,11 @@
           "id": "n2-u2",
           "name": "Duración y curva de tipos",
           "concepts": ["curva-tipos", "duracion", "convexidad"]
+        },
+        {
+          "id": "n2-u3",
+          "name": "Fondos, ETF y comisiones",
+          "concepts": ["fondos-inversion", "etf", "traspasos-fondos"]
         }
       ]
     },

@@ -1,0 +1,254 @@
+{
+  "id": "n2-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 3,
+  "title": "ETF y fondos indexados",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es un ETF y cómo replica un índice",
+    "Comparar los costes de un ETF y de un fondo"
+  ],
+  "concepts": ["etf"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Gestión indexada",
+      "text": "Un fondo indexado no intenta ganar al mercado: copia un índice, como el IBEX 35 o el MSCI World, con comisiones bajas. Un ETF suele ser eso mismo, pero cotiza en bolsa durante toda la sesión."
+    },
+    {
+      "type": "card",
+      "term": "Costes de un ETF",
+      "text": "Además de sus gastos corrientes, comprar o vender un ETF tiene los costes de operar en bolsa: el corretaje de tu bróker y la horquilla entre el precio de compra y el de venta."
+    },
+    {
+      "type": "example",
+      "text": "Compras 2.000 € de un ETF con 5 € de corretaje y una horquilla del 0,10 %: pagas 5 € más 1 € por cruzar la horquilla (la mitad de 0,10 % sobre 2.000 €, frente al precio medio): 6 € en total."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u3-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "Compras {v} € de un ETF con {b} € de corretaje y una horquilla del {h} %. Contando la mitad de la horquilla, ¿cuánto te cuesta la compra? (€, 2 decimales)",
+      "answer": 6,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{b} + {v} * {h} / 100 / 2",
+      "params": {
+        "v": {
+          "value": 2000,
+          "min": 500,
+          "max": 10000,
+          "step": 100,
+          "decimals": 0
+        },
+        "b": {
+          "value": 5,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "h": {
+          "value": 0.1,
+          "min": 0.02,
+          "max": 0.5,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "c": {
+          "formula": "{b} + {v} * {h} / 100 / 2",
+          "decimals": 2
+        }
+      },
+      "explanation": "{b} € de corretaje + {v} × {h} % / 2 de horquilla = {c} €."
+    },
+    {
+      "id": "n2-u3-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "Si haces esa compra de {c} € 12 veces al año, ¿qué porcentaje de 24.000 € invertidos se va en costes de compra? (%, 2 decimales)",
+      "answer": 0.35,
+      "unit": "%",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{c} * 12 / 24000 * 100",
+      "params": {
+        "c": {
+          "value": 7,
+          "min": 2,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} * 12 / 24000 * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{c} × 12 / 24.000 = {v} %: por eso, para aportaciones pequeñas y frecuentes, el corretaje pesa."
+    },
+    {
+      "id": "n2-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "Un ETF tiene unos gastos corrientes del {t} %. Con {v} € invertidos, ¿cuánto cuesta al año? (€)",
+      "answer": 14,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{v} * {t} / 100",
+      "params": {
+        "v": {
+          "value": 20000,
+          "min": 5000,
+          "max": 50000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "t": {
+          "value": 0.07,
+          "min": 0.03,
+          "max": 0.5,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "x": {
+          "formula": "{v} * {t} / 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{v} × {t} % = {x} € al año."
+    },
+    {
+      "id": "n2-u3-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "¿Gestión indexada o activa?",
+      "categories": ["Indexada", "Activa"],
+      "items": [
+        {
+          "text": "Copia el IBEX 35",
+          "category": "Indexada"
+        },
+        {
+          "text": "El gestor elige las acciones que cree mejores",
+          "category": "Activa"
+        },
+        {
+          "text": "Su objetivo es ganar a su índice de referencia",
+          "category": "Activa"
+        },
+        {
+          "text": "Comisiones muy bajas",
+          "category": "Indexada"
+        }
+      ],
+      "explanation": "La indexada busca el resultado del índice con costes mínimos; la activa intenta superarlo."
+    },
+    {
+      "id": "n2-u3-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "¿Qué es la horquilla de un ETF?",
+      "options": [
+        "La diferencia entre el mejor precio de compra y el de venta en bolsa",
+        "Su comisión de gestión",
+        "Lo que cobra el bróker",
+        "La diferencia frente a su índice"
+      ],
+      "answer": 0,
+      "explanation": "Es un coste implícito de operar: compras algo más caro y vendes algo más barato que el precio medio.",
+      "wrongExplanations": {
+        "1": "Es un gasto corriente, aparte.",
+        "2": "Eso es el corretaje.",
+        "3": "Eso se llama error de seguimiento."
+      }
+    },
+    {
+      "id": "n2-u3-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["etf"],
+      "statement": "Un ETF que replica el MSCI World se puede comprar a las 11:30 a un precio distinto del de las 16:00.",
+      "answer": true,
+      "explanation": "Verdadero: cotiza en continuo, y su precio se mueve durante la sesión."
+    },
+    {
+      "id": "n2-u3-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["etf"],
+      "prompt": "Un fondo que copia un índice en lugar de intentar ganarle se llama fondo ___.",
+      "answers": [["indexado"]],
+      "explanation": "Indexado (o de gestión pasiva)."
+    },
+    {
+      "id": "n2-u3-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["etf", "fondos-inversion"],
+      "character": "mentora",
+      "situation": "Una clienta quiere aportar 50 € al mes al MSCI World. Duda entre un ETF (gastos 0,12 %, corretaje de 3 € por compra) y un fondo indexado (gastos 0,20 %, sin corretaje).",
+      "prompt": "¿Qué le comentas?",
+      "options": [
+        "Que con 50 € al mes el corretaje del ETF (6 % de cada compra) pesa mucho más que la diferencia de gastos: el fondo le sale más barato",
+        "Que el ETF siempre es más barato porque tiene menos gastos",
+        "Que da igual: el corretaje no cuenta",
+        "Que compre acciones sueltas"
+      ],
+      "answer": 0,
+      "explanation": "3 € sobre 50 € es un 6 % de cada aportación, frente a 0,08 puntos de diferencia anual en gastos. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Los gastos corrientes no son el único coste.",
+        "2": "Con aportaciones pequeñas es el coste mayor.",
+        "3": "Eso no responde a su duda."
+      }
+    }
+  ],
+  "realWorld": "En la web de BME verás los ETF que cotizan en la bolsa española, con su horquilla y su volumen. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

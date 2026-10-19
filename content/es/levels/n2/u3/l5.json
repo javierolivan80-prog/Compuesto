@@ -1,0 +1,195 @@
+{
+  "id": "n2-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 3,
+  "title": "Jefe final: el plan de ahorro de un cliente",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": ["Elegir y comparar fondos y ETF por sus costes y su fiscalidad"],
+  "concepts": ["fondos-inversion", "etf", "traspasos-fondos"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u3-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Un cliente de Albufera tiene 15.000 € en un fondo de bolsa europea que rinde un 6,5 % bruto con un 1,5 % de gastos corrientes. ¿Rentabilidad neta? (%, 1 decimal)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "6.5 - 1.5",
+      "explanation": "6,5 − 1,5 = 5,0 %."
+    },
+    {
+      "id": "n2-u3-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Cuánto tendrá en 15 años con ese 5 % neto? (€)",
+      "answer": 31184,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "15000 * 1.05 ^ 15",
+      "explanation": "15.000 × 1,05^15 = 31.184 €."
+    },
+    {
+      "id": "n2-u3-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "¿Y si se pasa a un fondo indexado con el mismo 6,5 % bruto y solo un 0,2 % de gastos, es decir, un 6,3 % neto? (€, 15 años)",
+      "answer": 37505,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "15000 * 1.063 ^ 15",
+      "explanation": "15.000 × 1,063^15 = 37.505 €: unos 6.300 € más."
+    },
+    {
+      "id": "n2-u3-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["traspasos-fondos"],
+      "prompt": "Su fondo tiene 3.000 € de ganancia. Si vendiera para cambiarse (al 19 %), ¿cuánto pagaría ahora? (€)",
+      "answer": 570,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3000 * 0.19",
+      "explanation": "3.000 × 19 % = 570 €, que con un traspaso seguirían invertidos."
+    },
+    {
+      "id": "n2-u3-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion", "etf"],
+      "prompt": "¿Qué coste es de cada vehículo en este plan?",
+      "categories": ["Del fondo indexado", "Del ETF"],
+      "items": [
+        {
+          "text": "Corretaje en cada compra",
+          "category": "Del ETF"
+        },
+        {
+          "text": "Horquilla al comprar y vender",
+          "category": "Del ETF"
+        },
+        {
+          "text": "Aportación periódica automática sin corretaje",
+          "category": "Del fondo indexado"
+        },
+        {
+          "text": "Traspaso sin tributar a otro fondo",
+          "category": "Del fondo indexado"
+        }
+      ],
+      "explanation": "El ETF suma costes de operar en bolsa; el fondo se suscribe a su valor liquidativo y admite traspasos."
+    },
+    {
+      "id": "n2-u3-l5-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["traspasos-fondos"],
+      "prompt": "¿Cómo debería cambiarse del fondo caro al indexado?",
+      "options": [
+        "Con un traspaso, para no tributar ahora",
+        "Vendiendo y comprando el mismo día",
+        "Vendiendo a final de año",
+        "Comprando el indexado y manteniendo los dos"
+      ],
+      "answer": 0,
+      "explanation": "El traspaso aplaza el impuesto y mantiene invertido todo el dinero.",
+      "wrongExplanations": {
+        "1": "La venta tributa aunque compres el mismo día.",
+        "2": "La fecha no evita el impuesto.",
+        "3": "Seguiría pagando las comisiones del caro."
+      }
+    },
+    {
+      "id": "n2-u3-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "statement": "Una comisión de reembolso del 2 % se cobra cada año.",
+      "answer": false,
+      "explanation": "Falso: se cobra una vez, al retirar el dinero, sobre lo que retiras."
+    },
+    {
+      "id": "n2-u3-l5-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Los costes anuales de un fondo aparecen como gastos ___ en su documento de datos fundamentales.",
+      "answers": [["corrientes"]],
+      "explanation": "Gastos corrientes."
+    },
+    {
+      "id": "n2-u3-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["fondos-inversion", "traspasos-fondos"],
+      "character": "mentora",
+      "situation": "El cliente pregunta: «¿Y si me paso a un ETF del mismo índice, con aún menos gastos?». Aporta 200 € al mes y piensa cambiar de fondo alguna vez más.",
+      "prompt": "¿Qué le recomiendas valorar?",
+      "options": [
+        "Que con aportaciones mensuales el corretaje y la horquilla del ETF pesan, y que perdería la opción de traspasar sin tributar",
+        "Que el ETF es siempre mejor por tener menos gastos",
+        "Que los fondos indexados no existen",
+        "Que se quede en el fondo caro"
+      ],
+      "answer": 0,
+      "explanation": "El coste total incluye operar y la fiscalidad, no solo los gastos corrientes. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Los gastos corrientes no son el único coste.",
+        "2": "Existen y son lo que acaba de proponerle.",
+        "3": "Ya vio cuánto le cuesta."
+      }
+    }
+  ],
+  "realWorld": "Antes de elegir un fondo, lee su DFI: objetivo, riesgo (escala de 1 a 7), gastos y escenarios de rentabilidad. Los fondos, sus comisiones y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (fondos de inversión, ETF y comisiones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, guías para el inversor: fondos de inversión y documento de datos fundamentales",
+      "url": "https://www.cnmv.es",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-19"
+}

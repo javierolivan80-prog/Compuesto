@@ -9,6 +9,7 @@ import { bestWeight, CURRENT, leveredBeta, setupWacc } from '../src/engine/games
 import { BASE, bossGrowth, impliedWacc, setupDcf, START_3 } from '../src/engine/games/dcf-express';
 import { required, setupBond } from '../src/engine/games/bond-issue';
 import { fall10, setupCurve } from '../src/engine/games/yield-curve';
+import { rightDiff, setupFunds, SITUATIONS } from '../src/engine/games/fund-fees';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -41,6 +42,22 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'fund-fees') {
+    // referencia 0: la diferencia buena, los cuatro vehículos bien y el traspaso
+    await expect(page.getByRole('heading', { name: 'Dos fondos, veinte años' })).toBeVisible();
+    const diff = formatNumber(rightDiff(setupFunds(seed)), 0).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^Unos ${diff}`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    for (const [i, x] of SITUATIONS.entries())
+      await page
+        .getByRole('radiogroup')
+        .nth(i)
+        .getByRole('radio', { name: x.right === 'etf' ? 'ETF' : 'Fondo', exact: true })
+        .click();
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: /^Traspaso/ }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'yield-curve') {
     // referencia 0: +1 punto en todos los plazos, aplanar 1 punto y la caída buena del bono a 10 años
     await expect(page.getByRole('heading', { name: 'Curva de tipos' })).toBeVisible();

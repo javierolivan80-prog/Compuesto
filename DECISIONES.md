@@ -643,3 +643,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - el Jefe final con la cartera de bonos de la mesa de Albufera (duración de cartera e inmunización sencilla).
 - **Conceptos:** `curva-tipos`, `duracion` y `convexidad`. La curva cupón cero, el bootstrapping y los forwards quedan para una unidad posterior.
 - **Juego, simplificación:** la curva se mueve con dos palancas (nivel y pendiente) en lugar de arrastrarla con el dedo. Es accesible por teclado y cumple el núcleo de la ficha; el arrastre con física de cuerda queda anotado como mejora en `docs/specs/curva-de-tipos.md`.
+
+## 2026-10-19 — Unidad `n2-u3` «Fondos, ETF y comisiones» y juego «Dos fondos, veinte años»
+
+- **Decisión:** cinco lecciones:
+  - el juego, nuevo, con ficha en `docs/specs/dos-fondos.md`;
+  - fondos y comisiones, con el explicador `TerDrain` (ya en el catálogo);
+  - ETF e indexados (corretaje y horquilla);
+  - traspasos y fiscalidad;
+  - el Jefe final con el plan de ahorro de un cliente.
+- **Conceptos:** `fondos-inversion`, `etf` y `traspasos-fondos`. La `fiscalidad-fondos` completa (cripto, retenciones, compensación) queda para más adelante.
+- **Hechos que caducan:**
+  - el régimen de traspasos (art. 94 de la Ley del IRPF) y la exclusión general de los ETF;
+  - el primer tramo de la base del ahorro (19 % hasta 6.000 €, art. 66).
+  - Llevan la fuente del BOE y `verificarAntesDe` 2027-03-31. 🛑 Javier debe contrastarlos.
