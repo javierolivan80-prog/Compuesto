@@ -801,7 +801,9 @@
     "id": "estructura-capital",
     "name": "Estructura de capital",
     "level": 3,
-    "prerequisites": ["balance"]
+    "prerequisites": ["balance"],
+    "unit": "n3-u5",
+    "description": "La mezcla de deuda y capital propio, medida a valor de mercado (D/V, D/E). Con impuestos, algo de deuda baja el WACC; demasiada, lo sube."
   },
   {
     "id": "modigliani-miller",
@@ -845,25 +847,33 @@
     "id": "coste-deuda",
     "name": "Coste de la deuda después de impuestos",
     "level": 3,
-    "prerequisites": ["impuesto-sociedades", "emision-bonos"]
+    "prerequisites": ["impuesto-sociedades", "emision-bonos"],
+    "unit": "n3-u5",
+    "description": "Lo que costaría hoy endeudarse, por su ahorro fiscal: kd × (1 − t)."
   },
   {
     "id": "beta-apalancada",
     "name": "Beta apalancada y desapalancada (Hamada)",
     "level": 3,
-    "prerequisites": ["capm-beta", "estructura-capital"]
+    "prerequisites": ["capm-beta", "estructura-capital"],
+    "unit": "n3-u5",
+    "description": "La deuda sube la beta de los accionistas. Hamada: βl = βu × (1 + (1 − t) × D/E); se desapalancan las betas de comparables y se reapalanca con la estructura objetivo."
   },
   {
     "id": "coste-capital",
     "name": "Coste del capital propio (CAPM)",
     "level": 3,
-    "prerequisites": ["estructura-capital", "capm-beta"]
+    "prerequisites": ["estructura-capital", "capm-beta"],
+    "unit": "n3-u5",
+    "description": "Lo que piden los accionistas: tipo sin riesgo + beta × prima de mercado (CAPM), a veces con una prima por tamaño."
   },
   {
     "id": "wacc",
     "name": "WACC",
     "level": 3,
-    "prerequisites": ["coste-capital", "coste-deuda", "beta-apalancada"]
+    "prerequisites": ["coste-capital", "coste-deuda", "beta-apalancada"],
+    "unit": "n3-u5",
+    "description": "Coste medio ponderado del capital: E/V × ke + D/V × kd × (1 − t). Es la rentabilidad mínima de los proyectos con el riesgo de la empresa y la tasa de descuento del DCF."
   },
   {
     "id": "trampas-contables",
@@ -1153,7 +1163,9 @@
     "id": "capm-beta",
     "name": "CAPM y beta",
     "level": 3,
-    "prerequisites": ["riesgo-rentabilidad"]
+    "prerequisites": ["riesgo-rentabilidad"],
+    "unit": "n3-u5",
+    "description": "La beta mide cuánto se mueve una acción con el mercado; el CAPM solo paga ese riesgo, que no se diversifica."
   },
   {
     "id": "regresion",

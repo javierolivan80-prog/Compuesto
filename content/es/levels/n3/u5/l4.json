@@ -1,0 +1,264 @@
+{
+  "id": "n3-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 5,
+  "title": "El coste de la deuda y el WACC",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste de la deuda después de impuestos y el WACC con pesos de mercado",
+    "Usar el WACC como rentabilidad mínima de un proyecto"
+  ],
+  "concepts": ["coste-deuda", "wacc", "estructura-capital"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Coste de la deuda",
+      "text": "Es lo que pagaría hoy la empresa por pedir prestado: su tipo de mercado, no el de un préstamo antiguo si los tipos han cambiado. Como los intereses son gasto deducible en el impuesto sobre sociedades, después de impuestos cuesta kd × (1 − t)."
+    },
+    {
+      "type": "visual",
+      "component": "WaccMix",
+      "props": {
+        "rf": 3.25,
+        "erp": 5.5,
+        "size": 2,
+        "betaU": 0.65,
+        "kd0": 4.5,
+        "threshold": 30
+      }
+    },
+    {
+      "type": "card",
+      "term": "WACC",
+      "text": "WACC = E/V × ke + D/V × kd × (1 − t), con pesos a valor de mercado o, al valorar, los de la estructura objetivo. Es la rentabilidad mínima que deben dar los proyectos con el riesgo de la empresa: lo que piden, a la vez, accionistas y bancos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u5-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-deuda"],
+      "prompt": "Una empresa se financia hoy al {kd} % y paga un 25 % de impuesto sobre sociedades. ¿Coste de la deuda después de impuestos? (%, 2 decimales)",
+      "answer": 3.75,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{kd} * 0.75",
+      "params": {
+        "kd": {
+          "value": 5,
+          "min": 3,
+          "max": 8,
+          "step": 0.2,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "k": {
+          "formula": "{kd} * 0.75",
+          "decimals": 2
+        }
+      },
+      "explanation": "{kd} × (1 − 0,25) = {k} %."
+    },
+    {
+      "id": "n3-u5-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["estructura-capital"],
+      "prompt": "Capitalización {e} y deuda financiera {d} (miles de €). ¿Qué peso tiene la deuda en la financiación, D/V? (%, 1 decimal)",
+      "answer": 25.0,
+      "unit": "%",
+      "tolerance": 1.5,
+      "answerDecimals": 1,
+      "formula": "{d} / ({e} + {d}) * 100",
+      "params": {
+        "e": {
+          "value": 300000,
+          "min": 100000,
+          "max": 500000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 100000,
+          "min": 20000,
+          "max": 200000,
+          "step": 10000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "w": {
+          "formula": "{d} / ({e} + {d}) * 100",
+          "decimals": 1
+        }
+      },
+      "explanation": "D/V = {d} / ({e} + {d}) = {w} %."
+    },
+    {
+      "id": "n3-u5-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "E/V = 70 % con un coste del capital propio del 10 %, y D/V = 30 % con una deuda al 6 % antes de impuestos (impuesto del 25 %). ¿WACC? (%, 2 decimales)",
+      "answer": 8.35,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.7 * 10 + 0.3 * 6 * 0.75",
+      "explanation": "0,7 × 10 + 0,3 × 6 × 0,75 = 7 + 1,35 = 8,35 %."
+    },
+    {
+      "id": "n3-u5-l4-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-deuda"],
+      "prompt": "Pirineo pidió un préstamo al 3 % hace seis años. Hoy sus bonos cotizan con una rentabilidad del 5,5 %. ¿Qué coste de la deuda usas, antes de impuestos?",
+      "options": [
+        "El 5,5 %: lo que le costaría endeudarse hoy",
+        "El 3 %: lo que paga de verdad",
+        "La media, 4,25 %",
+        "El tipo sin riesgo"
+      ],
+      "answer": 0,
+      "explanation": "El WACC mira hacia delante: es el coste de financiar hoy los proyectos nuevos.",
+      "wrongExplanations": {
+        "1": "Es un coste histórico: si hoy pidiera prestado, pagaría más.",
+        "2": "Mezcla un dato histórico con uno actual.",
+        "3": "Su deuda tiene riesgo de impago: cuesta más que la del Estado."
+      }
+    },
+    {
+      "id": "n3-u5-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Con un 35 % de deuda, Naranjas tendría un coste del capital propio del 10,27 % y una deuda al 4,65 % antes de impuestos (impuesto del 25 %). ¿Su WACC? (%, 2 decimales)",
+      "answer": 7.9,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.65 * 10.27 + 0.35 * 4.65 * 0.75",
+      "explanation": "0,65 × 10,27 + 0,35 × 4,65 × 0,75 = 6,68 + 1,22 = 7,90 %: el mínimo que encontraste en el juego."
+    },
+    {
+      "id": "n3-u5-l4-e6",
+      "type": "categorize",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Si todo lo demás no cambia, ¿qué le pasa al WACC?",
+      "categories": ["Sube", "Baja"],
+      "items": [
+        {
+          "text": "Sube el rendimiento del bono del Estado a 10 años",
+          "category": "Sube"
+        },
+        {
+          "text": "Los bancos piden más diferencial a la empresa",
+          "category": "Sube"
+        },
+        {
+          "text": "Baja la beta desapalancada del sector",
+          "category": "Baja"
+        },
+        {
+          "text": "Sube el tipo del impuesto sobre sociedades, con la misma deuda",
+          "category": "Baja"
+        }
+      ],
+      "explanation": "El tipo sin riesgo y el diferencial encarecen la financiación; una beta menor abarata el capital propio; un impuesto más alto hace mayor el ahorro fiscal de los intereses."
+    },
+    {
+      "id": "n3-u5-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "character": "mentora",
+      "situation": "Un proyecto de Naranjas, con su mismo riesgo, rendirá un 7,5 % al año. Su WACC es el 8,27 %.",
+      "prompt": "¿Qué le recomiendas?",
+      "options": [
+        "No hacerlo: rinde menos de lo que piden quienes lo financian y destruye valor",
+        "Hacerlo: un 7,5 % es más que lo que cobran los bancos",
+        "Hacerlo con deuda, que cuesta solo un 3,4 %",
+        "Da igual: el WACC es solo teoría"
+      ],
+      "answer": 0,
+      "explanation": "Si rinde menos que el WACC, no paga a la vez a bancos y accionistas: los accionistas cobrarían menos de lo que piden.",
+      "wrongExplanations": {
+        "1": "También hay que pagar a los accionistas, que piden más.",
+        "2": "Endeudarse más sube el coste del capital propio: el coste de un proyecto no es el de la fuente que lo paga.",
+        "3": "Es la rentabilidad mínima con la que se valoran empresas y proyectos."
+      }
+    },
+    {
+      "id": "n3-u5-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Los pesos del WACC se calculan a valor de ___, no con las cifras contables.",
+      "answers": [["mercado"]],
+      "explanation": "Lo que valen hoy acciones y deuda; o, al valorar, los de la estructura objetivo."
+    },
+    {
+      "id": "n3-u5-l4-e9",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["estructura-capital"],
+      "prompt": "Modigliani y Miller demostraron que, sin impuestos ni costes de quiebra, la estructura de capital no cambia el valor. ¿Por qué el WACC no baja al añadir deuda barata en ese mundo?",
+      "options": [
+        "Porque el coste del capital propio sube justo lo necesario para compensar",
+        "Porque la deuda deja de ser más barata",
+        "Porque sin impuestos no hay WACC",
+        "Porque el tipo sin riesgo sube"
+      ],
+      "answer": 0,
+      "explanation": "Lo que se ahorra con la parte barata se pierde porque los accionistas, con más riesgo, piden más. Con impuestos, el escudo fiscal sí baja el WACC, hasta que pesan los costes de quiebra.",
+      "wrongExplanations": {
+        "1": "Sigue siendo más barata: lo que cambia es el capital propio.",
+        "2": "Se calcula igual, con t = 0.",
+        "3": "No depende de la estructura de la empresa."
+      }
+    }
+  ],
+  "realWorld": "En España, los gastos financieros netos solo son deducibles hasta el 30 % del beneficio operativo del ejercicio, con un mínimo de un millón de euros (art. 16 de la Ley del Impuesto sobre Sociedades): con mucha deuda, el escudo fiscal deja de crecer. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 27/2014, del Impuesto sobre Sociedades, art. 16 (limitación de la deducibilidad de gastos financieros)",
+      "url": "https://www.boe.es/eli/es/l/2014/11/27/27/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-19"
+}

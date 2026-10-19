@@ -1,0 +1,274 @@
+{
+  "id": "n3-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 5,
+  "title": "El CAPM: lo que piden los accionistas",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste del capital propio con el CAPM",
+    "Distinguir el riesgo de mercado del riesgo que se puede diversificar"
+  ],
+  "concepts": ["capm-beta", "coste-capital"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Tipo sin riesgo y prima de mercado",
+      "text": "Quien compra acciones podría prestar al Estado: eso rinde el tipo sin riesgo, el del bono a 10 años. Por aguantar el riesgo de la bolsa pide algo más: la prima de mercado. Los dos son hipótesis que el analista justifica con fuentes."
+    },
+    {
+      "type": "card",
+      "term": "Beta",
+      "text": "La beta mide cuánto se mueve una acción con el mercado: con beta 1, lo mismo; con 1,5, un 50 % más; con 0,6, menos. Solo se paga el riesgo que no se puede quitar diversificando: el que la acción comparte con el mercado."
+    },
+    {
+      "type": "example",
+      "text": "CAPM: coste del capital propio = tipo sin riesgo + beta × prima de mercado. Con un 3,25 %, beta 0,8 y prima de un 5,5 %: 3,25 + 0,8 × 5,5 = 7,65 %. A las empresas pequeñas, algunos analistas les suman una prima por tamaño; es discutida."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u5-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-beta", "coste-capital"],
+      "prompt": "Tipo sin riesgo {rf} %, beta {beta} y prima de mercado {erp} %. ¿Coste del capital propio por CAPM? (%, 2 decimales)",
+      "answer": 9.0,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{rf} + {beta} * {erp}",
+      "params": {
+        "rf": {
+          "value": 3,
+          "min": 2,
+          "max": 4,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "beta": {
+          "value": 1.2,
+          "min": 0.5,
+          "max": 1.6,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "erp": {
+          "value": 5,
+          "min": 4,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "k": {
+          "formula": "{rf} + {beta} * {erp}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{rf} + {beta} × {erp} = {k} %.",
+      "hint": "Sin riesgo + beta × prima."
+    },
+    {
+      "id": "n3-u5-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "prompt": "Una acción con beta 1, un tipo sin riesgo del {rf} % y una prima de mercado del {erp} %. ¿Qué rentabilidad piden sus accionistas? (%, 2 decimales)",
+      "answer": 8.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{rf} + {erp}",
+      "params": {
+        "rf": {
+          "value": 3,
+          "min": 2,
+          "max": 4,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "erp": {
+          "value": 5.5,
+          "min": 4,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "k": {
+          "formula": "{rf} + {erp}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Con beta 1 se mueve como el mercado y pide lo mismo que el mercado: {rf} + {erp} = {k} %."
+    },
+    {
+      "id": "n3-u5-l2-e3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "prompt": "Una acción tiene beta 1,5. ¿Qué significa?",
+      "options": [
+        "Que, de media, cuando el mercado sube un 10 %, ella sube en torno a un 15 %, y cuando cae, cae más",
+        "Que rinde un 1,5 % al año",
+        "Que es un 50 % menos arriesgada que el mercado",
+        "Que su precio es 1,5 veces su valor contable"
+      ],
+      "answer": 0,
+      "explanation": "La beta mide la sensibilidad al mercado: amplifica sus movimientos en las dos direcciones.",
+      "wrongExplanations": {
+        "1": "La beta no es una rentabilidad.",
+        "2": "Más de 1 es más sensible, no menos.",
+        "3": "Eso sería un precio sobre valor contable de 1,5."
+      }
+    },
+    {
+      "id": "n3-u5-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "prompt": "Los accionistas piden un {k} %, el tipo sin riesgo es {rf} % y la prima de mercado {erp} %. ¿Qué beta está implícita? (2 decimales)",
+      "answer": 1.4,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "({k} - {rf}) / {erp}",
+      "params": {
+        "k": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "rf": {
+          "value": 3,
+          "min": 2,
+          "max": 4,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "erp": {
+          "value": 5,
+          "min": 4,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "({k} - {rf}) / {erp}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Despejando el CAPM: beta = ({k} − {rf}) / {erp} = {b}.",
+      "hint": "Resta el tipo sin riesgo y divide entre la prima."
+    },
+    {
+      "id": "n3-u5-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "prompt": "¿Qué riesgo es cada uno?",
+      "categories": ["De mercado (no se diversifica)", "Propio de la empresa (se diversifica)"],
+      "items": [
+        {
+          "text": "El BCE sube los tipos de interés",
+          "category": "De mercado (no se diversifica)"
+        },
+        {
+          "text": "Una recesión en Europa",
+          "category": "De mercado (no se diversifica)"
+        },
+        {
+          "text": "Una helada arruina la cosecha de un proveedor",
+          "category": "Propio de la empresa (se diversifica)"
+        },
+        {
+          "text": "Dimite el consejero delegado",
+          "category": "Propio de la empresa (se diversifica)"
+        }
+      ],
+      "explanation": "Lo que afecta a todo el mercado no desaparece en una cartera; lo de una sola empresa se compensa con las demás. El CAPM solo paga el primero."
+    },
+    {
+      "id": "n3-u5-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "statement": "Según el CAPM, una acción con beta 0 debería rendir lo mismo que el tipo sin riesgo.",
+      "answer": true,
+      "explanation": "Verdadero: con beta 0, beta × prima = 0 y queda solo el tipo sin riesgo."
+    },
+    {
+      "id": "n3-u5-l2-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-capital"],
+      "prompt": "Naranjas es una cotizada pequeña. Tipo sin riesgo 3,25 %, beta 0,9, prima de mercado 5,5 % y una prima por tamaño del 2 %. ¿Coste del capital propio? (%, 2 decimales)",
+      "answer": 10.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "3.25 + 0.9 * 5.5 + 2",
+      "explanation": "3,25 + 0,9 × 5,5 + 2 = 3,25 + 4,95 + 2 = 10,20 %. Sin la prima por tamaño, 8,20 %: una hipótesis que hay que defender."
+    },
+    {
+      "id": "n3-u5-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["capm-beta"],
+      "character": "rival",
+      "situation": "Hugo dice: «Esta minera tiene beta 0,3, pero su acción es muy volátil: el CAPM le tiene que pedir mucha rentabilidad».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que el CAPM solo paga el riesgo que comparte con el mercado: si su volatilidad es propia, se diversifica y no sube el coste",
+        "Que tiene razón: a más volatilidad, más coste por CAPM",
+        "Que la beta y la volatilidad son lo mismo",
+        "Que con beta 0,3 el coste es negativo"
+      ],
+      "answer": 0,
+      "explanation": "Con beta 0,3 pide poco por CAPM aunque sea volátil: su riesgo es sobre todo propio y en una cartera se compensa.",
+      "wrongExplanations": {
+        "1": "El CAPM no usa la volatilidad total, solo la beta.",
+        "2": "Una acción puede ser muy volátil y moverse poco con el mercado.",
+        "3": "Con beta positiva, el coste es mayor que el tipo sin riesgo."
+      }
+    }
+  ],
+  "realWorld": "Los informes de análisis detallan el tipo sin riesgo, la prima y la beta que usan; las primas por país y las betas por sector más citadas son las que publica Aswath Damodaran. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

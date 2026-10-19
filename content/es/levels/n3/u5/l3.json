@@ -1,0 +1,235 @@
+{
+  "id": "n3-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 5,
+  "title": "Beta apalancada y desapalancada",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Desapalancar y reapalancar una beta con la fórmula de Hamada",
+    "Explicar por qué la deuda sube la beta de los accionistas"
+  ],
+  "concepts": ["beta-apalancada", "estructura-capital"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "La deuda carga a los accionistas",
+      "text": "Dos empresas con el mismo negocio tienen el mismo riesgo operativo. Si una se endeuda, sus accionistas cobran después de los bancos: su beneficio oscila más y su beta sube. La beta de una acción mezcla el riesgo del negocio y el de su deuda."
+    },
+    {
+      "type": "card",
+      "term": "Hamada",
+      "text": "Beta apalancada = beta desapalancada × (1 + (1 − t) × D/E), con D/E la deuda entre el capital propio a valor de mercado y t el tipo del impuesto. Supone que la deuda no tiene riesgo de mercado: beta de la deuda igual a cero."
+    },
+    {
+      "type": "card",
+      "term": "Desapalancar y reapalancar",
+      "text": "Para estimar la beta de una empresa: se desapalancan las betas de sus comparables, βu = βl / (1 + (1 − t) × D/E), se toma la mediana y se reapalanca con la estructura de deuda objetivo de la empresa."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u5-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Beta desapalancada {bu}, D/E = {de} e impuesto del 25 %. ¿Beta apalancada? (2 decimales)",
+      "answer": 1.1,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{bu} * (1 + 0.75 * {de})",
+      "params": {
+        "bu": {
+          "value": 0.8,
+          "min": 0.5,
+          "max": 1,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "de": {
+          "value": 0.5,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{bu} * (1 + 0.75 * {de})",
+          "decimals": 2
+        }
+      },
+      "explanation": "{bu} × (1 + 0,75 × {de}) = {b}."
+    },
+    {
+      "id": "n3-u5-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Un comparable tiene una beta (apalancada) de {bl}, D/E = {de} e impuesto del 25 %. ¿Su beta desapalancada? (2 decimales)",
+      "answer": 0.83,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{bl} / (1 + 0.75 * {de})",
+      "params": {
+        "bl": {
+          "value": 1.2,
+          "min": 0.8,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "de": {
+          "value": 0.6,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{bl} / (1 + 0.75 * {de})",
+          "decimals": 2
+        }
+      },
+      "explanation": "{bl} / (1 + 0,75 × {de}) = {b}: el riesgo del negocio, sin su deuda.",
+      "hint": "Divide entre el mismo factor por el que se multiplica al apalancar."
+    },
+    {
+      "id": "n3-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["estructura-capital"],
+      "prompt": "La deuda es un {w} % de la financiación (D/V). ¿Cuánto vale D/E? (2 decimales)",
+      "answer": 0.67,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{w} / (100 - {w})",
+      "params": {
+        "w": {
+          "value": 40,
+          "min": 20,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "r": {
+          "formula": "{w} / (100 - {w})",
+          "decimals": 2
+        }
+      },
+      "explanation": "D/E = {w} / (100 − {w}) = {r}. Hamada usa D/E; el WACC usa los pesos D/V y E/V."
+    },
+    {
+      "id": "n3-u5-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Las betas desapalancadas de tres comparables de Naranjas son 0,55 · 0,70 · 0,62. Con su mediana y la estructura objetivo de Naranjas (D/E = 0,25, impuesto del 25 %), ¿cuál es su beta apalancada? (2 decimales)",
+      "answer": 0.74,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "0.62 * (1 + 0.75 * 0.25)",
+      "explanation": "Mediana 0,62; reapalancada: 0,62 × (1 + 0,75 × 0,25) = 0,62 × 1,1875 = 0,74.",
+      "hint": "Primero la mediana; luego Hamada."
+    },
+    {
+      "id": "n3-u5-l3-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Ordena cómo se estima la beta de una empresa con sus comparables.",
+      "steps": [
+        "Buscar comparables cotizados del mismo negocio y sus betas",
+        "Desapalancar cada beta con la D/E de su comparable",
+        "Tomar la mediana de las betas desapalancadas",
+        "Reapalancarla con la estructura de deuda objetivo de la empresa"
+      ],
+      "explanation": "Se quita la deuda de cada comparable para quedarse con el riesgo del negocio, se resume con la mediana y se le pone la deuda de la empresa que valoras."
+    },
+    {
+      "id": "n3-u5-l3-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["beta-apalancada", "estructura-capital"],
+      "prompt": "¿Por qué D/E se calcula con el capital propio a valor de mercado y no con el patrimonio neto del balance?",
+      "options": [
+        "Porque la beta se mide con precios de mercado: el riesgo que cargan los accionistas depende de lo que valen hoy sus acciones",
+        "Porque el patrimonio del balance siempre es negativo",
+        "Porque así D/E sale siempre más alto",
+        "Porque el balance no incluye la deuda"
+      ],
+      "answer": 0,
+      "explanation": "Lo que se reparte entre accionistas y bancos es el valor de mercado; el patrimonio contable refleja costes históricos.",
+      "wrongExplanations": {
+        "1": "Suele ser positivo; el problema es que es una cifra histórica.",
+        "2": "Con empresas que cotizan por encima de su valor contable, sale más bajo, no más alto.",
+        "3": "El balance sí recoge la deuda financiera."
+      }
+    },
+    {
+      "id": "n3-u5-l3-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "statement": "Con la fórmula de Hamada, si una empresa devolviera toda su deuda, su beta apalancada sería igual a la desapalancada.",
+      "answer": true,
+      "explanation": "Verdadero: con D/E = 0, el factor (1 + (1 − t) × 0) vale 1."
+    },
+    {
+      "id": "n3-u5-l3-e8",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "character": "rival",
+      "prompt": "Hugo calcula la beta de Naranjas con un 30 % de deuda. ¿Dónde se equivoca?",
+      "lines": [
+        "La beta desapalancada del sector es 0,65.",
+        "Con un 30 % de deuda, D/E = 30 / 70 = 0,43.",
+        "Beta apalancada = 0,65 × (1 + 0,43) = 0,93.",
+        "Con un 3,25 % sin riesgo y un 5,5 % de prima, su coste del capital propio es 8,37 % antes de la prima por tamaño."
+      ],
+      "errorIndex": 2,
+      "explanation": "Se ha olvidado del impuesto: 0,65 × (1 + 0,75 × 0,43) = 0,86. Los intereses ahorran impuestos y la deuda carga algo menos a los accionistas."
+    }
+  ],
+  "realWorld": "En las valoraciones de expertos independientes de las OPA que publica la CNMV verás betas desapalancadas de comparables reapalancadas con la estructura objetivo. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

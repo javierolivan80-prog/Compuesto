@@ -1,0 +1,157 @@
+{
+  "id": "salto-n3-u5",
+  "unitId": "n3-u5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n3-u5-q1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-beta", "coste-capital"],
+      "prompt": "Tipo sin riesgo 3 %, beta 1,2 y prima de mercado 5 %. ¿Coste del capital propio por CAPM?",
+      "options": ["9 %", "8 %", "6 %", "9,6 %"],
+      "answer": 0,
+      "explanation": "3 + 1,2 × 5 = 9 %.",
+      "wrongExplanations": {
+        "1": "Has usado beta 1.",
+        "2": "Has multiplicado la beta por el tipo sin riesgo.",
+        "3": "Has multiplicado todo por la beta."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-beta"],
+      "prompt": "¿Qué riesgo paga el CAPM?",
+      "options": [
+        "Solo el que la acción comparte con el mercado",
+        "Toda la volatilidad de la acción",
+        "Solo el riesgo de impago",
+        "El riesgo de la divisa"
+      ],
+      "answer": 0,
+      "explanation": "El riesgo propio se diversifica en una cartera.",
+      "wrongExplanations": {
+        "1": "La parte propia se diversifica.",
+        "2": "Eso es de la deuda.",
+        "3": "No es lo que mide la beta."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Beta desapalancada 0,8, D/E 0,5 e impuesto del 25 %. ¿Beta apalancada?",
+      "options": ["1,10", "1,20", "0,80", "0,58"],
+      "answer": 0,
+      "explanation": "0,8 × (1 + 0,75 × 0,5) = 1,10.",
+      "wrongExplanations": {
+        "1": "Falta el (1 − t).",
+        "2": "Esa es la desapalancada.",
+        "3": "Has desapalancado en vez de apalancar."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["coste-deuda"],
+      "prompt": "Deuda al 6 % e impuesto del 25 %. ¿Coste después de impuestos?",
+      "options": ["4,5 %", "6 %", "7,5 %", "1,5 %"],
+      "answer": 0,
+      "explanation": "6 × 0,75 = 4,5 %.",
+      "wrongExplanations": {
+        "1": "Falta el ahorro fiscal.",
+        "2": "El impuesto abarata la deuda, no la encarece.",
+        "3": "Ese es el ahorro, no el coste."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["wacc"],
+      "prompt": "E/V 60 % con ke 10 %; D/V 40 % con kd 5 % antes de impuestos (t = 25 %). ¿WACC?",
+      "options": ["7,5 %", "8 %", "7,5 % sin impuestos", "9 %"],
+      "answer": 0,
+      "explanation": "0,6 × 10 + 0,4 × 3,75 = 6 + 1,5 = 7,5 %.",
+      "wrongExplanations": {
+        "1": "Falta el ahorro fiscal: 0,6 × 10 + 0,4 × 5 = 8 %.",
+        "2": "Sin impuestos saldría 8 %, no 7,5 %.",
+        "3": "No es la media ponderada."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["wacc", "estructura-capital"],
+      "statement": "Con impuestos, el WACC siempre baja al aumentar la deuda.",
+      "answer": false,
+      "explanation": "Falso: pasado un punto, la beta y el coste de la deuda suben tanto que el WACC vuelve a subir."
+    },
+    {
+      "id": "salto-n3-u5-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["coste-deuda"],
+      "prompt": "Una empresa paga un 2 % por un préstamo de hace años; hoy se financiaría al 5 %. ¿Qué coste de la deuda va en el WACC?",
+      "options": ["5 %", "2 %", "3,5 %", "El tipo sin riesgo"],
+      "answer": 0,
+      "explanation": "El de financiarse hoy.",
+      "wrongExplanations": {
+        "1": "Es histórico.",
+        "2": "Mezcla histórico y actual.",
+        "3": "La empresa tiene riesgo de impago."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": ["test-de-salto"],
+      "concepts": ["wacc"],
+      "prompt": "Un proyecto con el mismo riesgo que la empresa rinde un 7 %. El WACC es un 8 %. ¿Qué haces?",
+      "options": [
+        "Rechazarlo: destruye valor",
+        "Aceptarlo si se financia con deuda",
+        "Aceptarlo: rinde más que el tipo sin riesgo",
+        "Aceptarlo si el coste de la deuda es menor del 7 %"
+      ],
+      "answer": 0,
+      "explanation": "Rinde menos de lo que piden accionistas y bancos juntos.",
+      "wrongExplanations": {
+        "1": "La fuente de financiación no cambia el riesgo del proyecto.",
+        "2": "Tiene que superar el WACC, no el tipo sin riesgo.",
+        "3": "También hay que pagar a los accionistas."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null
+}

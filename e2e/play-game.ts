@@ -5,6 +5,7 @@ import { setupBalance, SIDE_OF, type ItemId } from '../src/engine/games/balance-
 import { bestPlan, setupCash } from '../src/engine/games/cash-cycle';
 import { setupDetective } from '../src/engine/games/ratio-detective';
 import { rightVerdict, setupCheap } from '../src/engine/games/cheap-or-dear';
+import { bestWeight, CURRENT, leveredBeta, setupWacc } from '../src/engine/games/wacc-mix';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -37,6 +38,20 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'wacc-mix') {
+    // referencia 0: la beta apalancada bien y la estructura con el WACC mínimo
+    await expect(page.getByRole('heading', { name: 'La mezcla de la financiación' })).toBeVisible();
+    const setup = setupWacc(seed);
+    await page
+      .getByRole('radio', { name: formatNumber(leveredBeta(setup, CURRENT), 2), exact: true })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const best = bestWeight(setup);
+    const step = best > CURRENT ? 'Más deuda' : 'Menos deuda';
+    for (let w = CURRENT; w !== best; w += best > CURRENT ? 5 : -5)
+      await page.getByRole('button', { name: step }).click();
+    await page.getByRole('button', { name: `Proponer un ${best} % de deuda` }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'cheap-or-dear') {
     // referencia 0: la mediana y el veredicto correcto en las tres empresas
     await expect(page.getByRole('heading', { name: '¿Cara o barata?' })).toBeVisible();

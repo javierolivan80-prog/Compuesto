@@ -87,6 +87,18 @@
           "id": "n3-u4",
           "name": "Múltiplos: ¿cara o barata?",
           "concepts": ["multiplos", "anclaje"]
+        },
+        {
+          "id": "n3-u5",
+          "name": "Coste de capital: CAPM y WACC",
+          "concepts": [
+            "capm-beta",
+            "coste-capital",
+            "beta-apalancada",
+            "coste-deuda",
+            "estructura-capital",
+            "wacc"
+          ]
         }
       ]
     },

@@ -1,0 +1,203 @@
+{
+  "id": "n3-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 5,
+  "title": "Jefe final: el WACC de Pirineo Energía",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": ["Calcular el WACC de una empresa de principio a fin y usarlo con criterio"],
+  "concepts": ["wacc", "beta-apalancada", "coste-capital", "coste-deuda"],
+  "companies": ["pirineo-energia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u5-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["estructura-capital"],
+      "prompt": "Pirineo Energía tiene una capitalización de 380.000 y una deuda financiera de 102.000 (miles de €). ¿D/E? (2 decimales)",
+      "answer": 0.27,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "102000 / 380000",
+      "explanation": "102.000 / 380.000 = 0,27."
+    },
+    {
+      "id": "n3-u5-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Con una beta desapalancada de su sector de 0,50, D/E = 0,27 e impuesto del 25 %, ¿su beta apalancada? (2 decimales)",
+      "answer": 0.6,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.5 * (1 + 0.75 * 0.27)",
+      "explanation": "0,50 × (1 + 0,75 × 0,27) = 0,60."
+    },
+    {
+      "id": "n3-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-capital"],
+      "prompt": "Con beta 0,60, un 3,25 % sin riesgo y un 5,5 % de prima de mercado (sin prima por tamaño: es grande), ¿coste del capital propio? (%, 2 decimales)",
+      "answer": 6.55,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "3.25 + 0.6 * 5.5",
+      "explanation": "3,25 + 0,60 × 5,5 = 6,55 %."
+    },
+    {
+      "id": "n3-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["estructura-capital"],
+      "prompt": "Con 380.000 de capitalización y 102.000 de deuda, ¿qué peso tiene la deuda, D/V? (%, 1 decimal)",
+      "answer": 21.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "102000 / 482000 * 100",
+      "explanation": "102.000 / 482.000 = 21,2 %."
+    },
+    {
+      "id": "n3-u5-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Su deuda cuesta hoy un 5 % antes de impuestos (impuesto del 25 %). Con ke = 6,55 % y D/V = 21,2 %, ¿su WACC? (%, 2 decimales)",
+      "answer": 5.96,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.788 * 6.55 + 0.212 * 5 * 0.75",
+      "explanation": "0,788 × 6,55 + 0,212 × 3,75 = 5,16 + 0,80 = 5,96 %. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación."
+    },
+    {
+      "id": "n3-u5-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "¿En qué parte del WACC entra cada dato?",
+      "categories": ["Coste del capital propio", "Coste de la deuda"],
+      "items": [
+        {
+          "text": "Beta",
+          "category": "Coste del capital propio"
+        },
+        {
+          "text": "Prima de mercado",
+          "category": "Coste del capital propio"
+        },
+        {
+          "text": "Diferencial de crédito sobre el bono del Estado",
+          "category": "Coste de la deuda"
+        },
+        {
+          "text": "Ahorro fiscal de los intereses",
+          "category": "Coste de la deuda"
+        }
+      ],
+      "explanation": "El CAPM construye el coste del capital propio; el tipo de mercado de la deuda, ajustado por impuestos, el de la deuda."
+    },
+    {
+      "id": "n3-u5-l5-e7",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["coste-deuda", "wacc"],
+      "character": "rival",
+      "prompt": "Hugo calcula el WACC de Pirineo. ¿Dónde se equivoca?",
+      "lines": [
+        "Coste del capital propio: 6,55 %, con un peso del 78,8 %.",
+        "Coste de la deuda: 5 %, con un peso del 21,2 %.",
+        "WACC = 0,788 × 6,55 + 0,212 × 5 = 6,22 %.",
+        "Con ese WACC descontará los flujos de Pirineo."
+      ],
+      "errorIndex": 2,
+      "explanation": "No ha descontado el ahorro fiscal: la deuda pesa con 5 × 0,75 = 3,75 % y el WACC es 5,96 %, no 6,22 %."
+    },
+    {
+      "id": "n3-u5-l5-e8",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "character": "jefe",
+      "situation": "Pirineo quiere valorar un parque eólico en Brasil con su WACC del 5,96 %.",
+      "prompt": "¿Qué le objetas?",
+      "options": [
+        "Que el WACC de Pirineo vale para proyectos con su riesgo; uno en otro país y otra divisa tiene más riesgo y necesita una tasa mayor",
+        "Ninguna: una empresa tiene un único WACC para todo",
+        "Que debe usar el coste de la deuda, que es el más barato",
+        "Que debe usar el tipo sin riesgo de España"
+      ],
+      "answer": 0,
+      "explanation": "La tasa de descuento depende del riesgo del proyecto, no de quién lo financia.",
+      "wrongExplanations": {
+        "1": "Usar un único WACC hace que los proyectos más arriesgados parezcan mejores de lo que son.",
+        "2": "El coste de un proyecto no es el de una sola fuente de financiación.",
+        "3": "Eso ignora el riesgo del proyecto."
+      }
+    },
+    {
+      "id": "n3-u5-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["estructura-capital", "wacc"],
+      "character": "mentora",
+      "situation": "La directora financiera de Pirineo propone subir la deuda al 60 % de la financiación: «la deuda es más barata».",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que con tanta deuda la beta se dispara, los bancos cobrarían más y el escudo fiscal tiene un límite: el WACC probablemente subiría",
+        "Que tiene razón: el WACC baja siempre con deuda",
+        "Que la deuda no ahorra impuestos",
+        "Que la estructura de capital nunca influye en el WACC"
+      ],
+      "answer": 0,
+      "explanation": "Es lo que viste en el juego: pasado un punto, el capital propio y la deuda se encarecen más de lo que se ahorra.",
+      "wrongExplanations": {
+        "1": "Solo hasta cierto nivel.",
+        "2": "Sí lo ahorra, con el límite del art. 16 de la Ley del Impuesto sobre Sociedades.",
+        "3": "Eso solo pasa sin impuestos ni costes de quiebra (Modigliani-Miller)."
+      }
+    }
+  ],
+  "realWorld": "Con el WACC ya tienes la tasa para descontar flujos: en la próxima unidad, el DCF de Naranjas. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 27/2014, del Impuesto sobre Sociedades, art. 16 (limitación de la deducibilidad de gastos financieros)",
+      "url": "https://www.boe.es/eli/es/l/2014/11/27/27/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-19"
+}

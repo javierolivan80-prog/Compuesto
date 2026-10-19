@@ -1,0 +1,330 @@
+{
+  "id": "n3-u5-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 5,
+  "order": 0,
+  "title": "Juego: la mezcla de la financiación",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la beta apalancada, el coste del capital propio, el de la deuda después de impuestos y el WACC",
+    "Explicar por qué el WACC baja con algo de deuda y sube con demasiada"
+  ],
+  "concepts": ["wacc", "beta-apalancada", "coste-capital", "coste-deuda"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "wacc-mix",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Beta apalancada",
+      "text": "La beta del negocio, sin deuda, era {beta_u}. Con un {weight} % de deuda (deuda entre capital propio, D/E = {de}), los accionistas cobran después de los bancos y cargan más riesgo: beta apalancada = {beta_u} × (1 + 0,75 × {de}) = {beta_l}."
+    },
+    {
+      "type": "card",
+      "term": "Lo que cuesta cada parte",
+      "text": "Los accionistas piden, por CAPM: {rf} + {beta_l} × {erp} + {size} de prima por tamaño = {ke} %. Los bancos cobran un {kd} %, pero los intereses rebajan el impuesto sobre sociedades: {kd} × (1 − 0,25) = {kd_after} % después de impuestos."
+    },
+    {
+      "type": "card",
+      "term": "WACC",
+      "text": "El WACC pondera cada coste por su peso en la financiación: 80 % × {ke} + 20 % × {kd_after} = {wacc} %. Con un {best} % de deuda bajaría al {wacc_best} %. Con más, la beta y lo que cobran los bancos suben tanto que el WACC vuelve a subir."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u5-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Si la deuda es un {weight} % de la financiación y el capital propio el resto, ¿cuánto vale D/E, la deuda entre el capital propio? (2 decimales)",
+      "answer": 0.25,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{weight} / (100 - {weight})",
+      "params": {
+        "weight": {
+          "value": 20,
+          "min": 20,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "e": {
+          "formula": "100 - {weight}",
+          "decimals": 0
+        },
+        "r": {
+          "formula": "{weight} / (100 - {weight})",
+          "decimals": 2
+        }
+      },
+      "explanation": "D/E = {weight} / {e} = {r}: por cada euro de capital propio hay {r} € de deuda.",
+      "hint": "El capital propio es el 100 % menos la deuda."
+    },
+    {
+      "id": "n3-u5-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["beta-apalancada"],
+      "prompt": "Beta desapalancada {beta_u}, D/E = {de} e impuesto sobre sociedades del 25 %. ¿Cuál es la beta apalancada? (2 decimales)",
+      "answer": 0.77,
+      "unit": "veces",
+      "tolerance": 1.5,
+      "answerDecimals": 2,
+      "formula": "{beta_u} * (1 + 0.75 * {de})",
+      "params": {
+        "beta_u": {
+          "value": 0.65,
+          "min": 0.5,
+          "max": 0.9,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "de": {
+          "value": 0.25,
+          "min": 0.1,
+          "max": 0.6,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{beta_u} * (1 + 0.75 * {de})",
+          "decimals": 2
+        }
+      },
+      "explanation": "Hamada: {beta_u} × (1 + (1 − 0,25) × {de}) = {b}.",
+      "hint": "βu × (1 + (1 − t) × D/E)."
+    },
+    {
+      "id": "n3-u5-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-capital"],
+      "prompt": "Tipo sin riesgo {rf} %, beta {beta_l}, prima de mercado {erp} % y prima por tamaño {size} %. ¿Coste del capital propio? (%, 2 decimales)",
+      "answer": 9.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{rf} + {beta_l} * {erp} + {size}",
+      "params": {
+        "rf": {
+          "value": 3.25,
+          "min": 2,
+          "max": 4,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "beta_l": {
+          "value": 0.7719,
+          "min": 0.5,
+          "max": 1.2,
+          "step": 0.0001,
+          "decimals": 4
+        },
+        "erp": {
+          "value": 5.5,
+          "min": 4,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 2
+        },
+        "size": {
+          "value": 2,
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "k": {
+          "formula": "{rf} + {beta_l} * {erp} + {size}",
+          "decimals": 2
+        }
+      },
+      "explanation": "CAPM más la prima por tamaño: {rf} + {beta_l} × {erp} + {size} = {k} %.",
+      "hint": "Sin riesgo + beta × prima de mercado, y suma la prima por tamaño."
+    },
+    {
+      "id": "n3-u5-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["coste-deuda"],
+      "prompt": "La deuda cuesta un {kd} % antes de impuestos y el impuesto sobre sociedades es del 25 %. ¿Cuánto cuesta después de impuestos? (%, 3 decimales)",
+      "answer": 3.375,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "{kd} * 0.75",
+      "params": {
+        "kd": {
+          "value": 4.5,
+          "min": 3,
+          "max": 7,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "k": {
+          "formula": "{kd} * 0.75",
+          "decimals": 3
+        }
+      },
+      "explanation": "{kd} × (1 − 0,25) = {k} %: los intereses son gasto y rebajan el impuesto.",
+      "hint": "Multiplica por (1 − t)."
+    },
+    {
+      "id": "n3-u5-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Con un 80 % de capital propio que cuesta un {ke} % y un 20 % de deuda que cuesta un {kd_after} % después de impuestos, ¿cuál es el WACC? (%, 2 decimales)",
+      "answer": 8.27,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.8 * {ke} + 0.2 * {kd_after}",
+      "params": {
+        "ke": {
+          "value": 9.4955,
+          "min": 7,
+          "max": 12,
+          "step": 0.0001,
+          "decimals": 2
+        },
+        "kd_after": {
+          "value": 3.375,
+          "min": 2,
+          "max": 5,
+          "step": 0.001,
+          "decimals": 3
+        }
+      },
+      "derived": {
+        "w": {
+          "formula": "0.8 * {ke} + 0.2 * {kd_after}",
+          "decimals": 2
+        }
+      },
+      "explanation": "0,8 × {ke} + 0,2 × {kd_after} = {w} %.",
+      "hint": "Media ponderada por los pesos."
+    },
+    {
+      "id": "n3-u5-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["wacc"],
+      "prompt": "Con el {weight} % de deuda de hoy, el WACC de Naranjas es {wacc} %; con un {best} %, {wacc_best} %. ¿Cuántos puntos baja? (2 decimales)",
+      "answer": 0.38,
+      "unit": "puntos",
+      "tolerance": 3,
+      "answerDecimals": 2,
+      "formula": "{wacc} - {wacc_best}",
+      "params": {
+        "weight": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "wacc": {
+          "value": 8.2714,
+          "min": 6,
+          "max": 11,
+          "step": 0.0001,
+          "decimals": 2
+        },
+        "best": {
+          "value": 35,
+          "min": 0,
+          "max": 70,
+          "step": 5,
+          "decimals": 0
+        },
+        "wacc_best": {
+          "value": 7.8953,
+          "min": 6,
+          "max": 11,
+          "step": 0.0001,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "g": {
+          "formula": "{wacc} - {wacc_best}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{wacc} − {wacc_best} = {g} puntos: un WACC más bajo hace que los mismos flujos de caja valgan más hoy."
+    },
+    {
+      "id": "n3-u5-l1-e7",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["wacc", "estructura-capital"],
+      "prompt": "¿Por qué el WACC de Naranjas baja al pasar de un 0 % a un 20 % de deuda?",
+      "options": [
+        "Porque la deuda cuesta menos que el capital propio y sus intereses ahorran impuestos, y eso pesa más que la subida de la beta",
+        "Porque con deuda la beta baja",
+        "Porque el tipo sin riesgo baja al endeudarse",
+        "Porque los bancos cobran menos cuanta más deuda tiene"
+      ],
+      "answer": 0,
+      "explanation": "Con poca deuda, el ahorro de la parte barata y del escudo fiscal compensa con creces que el capital propio se encarezca.",
+      "wrongExplanations": {
+        "1": "Al revés: la deuda sube la beta de los accionistas.",
+        "2": "El tipo sin riesgo no depende de la empresa.",
+        "3": "Al revés: pasado un umbral cobran más."
+      }
+    },
+    {
+      "id": "n3-u5-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["wacc"],
+      "statement": "Como la deuda es más barata que el capital propio, cuanta más deuda tenga una empresa, más bajo será siempre su WACC.",
+      "answer": false,
+      "explanation": "Falso. Cada punto de deuda sube la beta y, a partir de cierto nivel, los bancos cobran mucho más por el riesgo de impago: en el juego, por encima del {best} % el WACC vuelve a subir."
+    }
+  ],
+  "realWorld": "Las cuentas anuales de las cotizadas recogen la tasa de descuento con la que prueban el deterioro de sus activos, que suele construirse como un WACC. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}
