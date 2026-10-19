@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Letras, Bonos y Obligaciones",
-      "text": "El Tesoro Público financia al Estado con Letras (hasta 12 meses, sin cupón: se compran por menos de lo que se cobra al vencer), Bonos (3 y 5 años) y Obligaciones (10 años o más), con cupón anual. Su rentabilidad es la referencia de los tipos en España."
+      "text": "El Tesoro Público financia al Estado con Letras (hasta 12 meses, sin cupón: se compran por menos de lo que se cobra al vencer), Bonos (hasta 5 años; hoy, a 3 y 5) y Obligaciones (más de 5 años; hoy, sobre todo a 10, 15, 30 y 50), con cupón anual. Su rentabilidad es la referencia en España."
     },
     {
       "type": "card",
@@ -175,7 +175,7 @@
       "concepts": ["rating-spread"],
       "prompt": "Ordena los ratings de menos a más riesgo de impago.",
       "steps": ["AAA", "AA", "A", "BBB", "BB"],
-      "explanation": "Cuantas menos letras A, más riesgo; por debajo de BBB−, alto rendimiento."
+      "explanation": "AAA es la mejor; después vienen AA, A, BBB y BB. Por debajo de BBB− empieza el alto rendimiento."
     },
     {
       "id": "n2-u1-l4-e6",
@@ -222,7 +222,7 @@
       "explanation": "Falso: no tienen cupón. Se compran por menos de lo que se cobra al vencimiento, y esa diferencia es la rentabilidad."
     }
   ],
-  "realWorld": "En la web del Tesoro Público verás los resultados de cada subasta de Letras, Bonos y Obligaciones; los ratings de las empresas que emiten, en sus folletos y en las webs de las agencias. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "En la web del Tesoro Público verás los resultados de cada subasta de Letras, Bonos y Obligaciones; los ratings de las empresas que emiten, en sus folletos y en las webs de las agencias. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",

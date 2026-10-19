@@ -120,7 +120,7 @@
       "wrongExplanations": {
         "1": "1 punto son 100 pb.",
         "2": "Es la rentabilidad de la empresa, no el diferencial.",
-        "3": "Falta multiplicar por 100, no por 10."
+        "3": "Has multiplicado por 10: 1 punto son 100 pb, así que 1,25 puntos son 125 pb."
       }
     },
     {

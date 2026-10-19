@@ -40,10 +40,10 @@
       "concepts": ["precio-bono-tipos"],
       "prompt": "El bono paga un cupón del 5 %. Al 4,5 %, ¿cuál es su precio? (por cada 100, 2 decimales)",
       "answer": 101.37,
-      "tolerance": 0.5,
+      "tolerance": 0.1,
       "answerDecimals": 2,
       "formula": "5 / 1.045 + 5 / 1.045 ^ 2 + 105 / 1.045 ^ 3",
-      "explanation": "5 / 1,045 + 5 / 1,045² + 105 / 1,045³ = 101,37: sobre la par, porque el cupón supera lo que pide el mercado. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación."
+      "explanation": "5 / 1,045 + 5 / 1,045² + 105 / 1,045³ = 101,37: sobre la par, porque el cupón supera lo que pide el mercado."
     },
     {
       "id": "n2-u1-l5-e3",
@@ -145,7 +145,7 @@
       "tags": [],
       "concepts": ["precio-bono-tipos", "tir-bono"],
       "character": "mentora",
-      "situation": "Un cliente quiere comprar el bono de Pirineo a 101,37 «porque paga un 5 %, más que el 4,5 % de otros bonos parecidos».",
+      "situation": "Un cliente quiere comprar el bono de Pirineo a 101,37 «porque paga un 5 %, más que el 4,5 % de otros bonos parecidos que cotizan a 100».",
       "prompt": "¿Qué le explicas?",
       "options": [
         "Que lo que gana si lo mantiene es la TIR, un 4,5 %, como los otros: el cupón alto ya está pagado en el precio sobre la par",
@@ -154,7 +154,7 @@
         "Que debería esperar a que cotice a 100"
       ],
       "answer": 0,
-      "explanation": "Precio y cupón se compensan: comparar bonos por la TIR evita esa ilusión. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "explanation": "Precio y cupón se compensan: comparar bonos por la TIR evita esa ilusión.",
       "wrongExplanations": {
         "1": "El cupón alto se paga en el precio.",
         "2": "La rentabilidad corriente ignora la pérdida de 101,37 a 100.",
@@ -173,7 +173,7 @@
       "explanation": "Sube el tipo, baja el precio; baja el tipo, sube el precio."
     }
   ],
-  "realWorld": "Pirineo sigue en el universo de Compuesto: en la planta 1 calculaste su WACC con un coste de la deuda del 5 %. Ahora ves de dónde sale ese coste: el tipo del Estado más su diferencial. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "En la planta 1 calculaste el WACC de Pirineo con un coste de la deuda del 5 %: ese coste es la rentabilidad que el mercado pide hoy a su deuda (Estado al mismo plazo + diferencial), no el cupón. Aquí, a 3 años, le piden un 4,5 %; a plazos más largos, normalmente más. Los tipos y el bono de Pirineo son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",

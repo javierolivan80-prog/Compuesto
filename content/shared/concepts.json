@@ -561,7 +561,7 @@
     "level": 2,
     "prerequisites": ["cupon-bono"],
     "unit": "n2-u1",
-    "description": "Deuda del Estado: Letras (hasta 12 meses, al descuento), Bonos (3 y 5 años) y Obligaciones (10 años o más), con cupón anual."
+    "description": "Deuda del Estado: Letras (hasta 12 meses, al descuento), Bonos (hasta 5 años) y Obligaciones (más de 5 años), con cupón anual."
   },
   {
     "id": "mercado-monetario-repo",

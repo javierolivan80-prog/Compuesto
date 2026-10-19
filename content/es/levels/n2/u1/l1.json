@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Cupón y nominal",
-      "text": "Un bono es un préstamo troceado: Naranjas pide 1.000 € a cada inversor, le paga cada año un cupón fijo del {coupon} % del nominal ({coupon_cash} € por bono) y le devuelve los 1.000 € al vencimiento."
+      "text": "Un bono es un préstamo troceado: cada bono es un trozo de 1.000 €. Naranjas paga cada año un cupón fijo del {coupon} % del nominal ({coupon_cash} € por bono) y devuelve los 1.000 € al vencimiento."
     },
     {
       "type": "card",
@@ -115,7 +115,7 @@
       "concepts": ["precio-bono-tipos"],
       "prompt": "A un bono le queda un año: pagará 100 más un cupón de {coupon} dentro de un año. Si el mercado pide un {new_yield} %, ¿cuánto vale hoy? (por cada 100, 2 decimales)",
       "answer": 99.05,
-      "tolerance": 0.5,
+      "tolerance": 0.1,
       "answerDecimals": 2,
       "formula": "(100 + {coupon}) / (1 + {new_yield} / 100)",
       "params": {
@@ -224,7 +224,7 @@
       "tags": [],
       "concepts": ["tir-bono"],
       "character": "rival",
-      "situation": "Hugo compró un bono con cupón del 3 % a 94,69 y dice: «me rinde un 3 %, lo que pone el cupón».",
+      "situation": "Hugo compró en la emisión, a 94,69, un bono a 5 años con cupón del 3 % y dice: «me rinde un 3 %, lo que pone el cupón».",
       "prompt": "¿Qué le contestas?",
       "options": [
         "Que si lo mantiene hasta el vencimiento rinde más: cobra el 3 % sobre el nominal y además gana la diferencia de 94,69 a 100",
@@ -233,7 +233,7 @@
         "Que no rinde nada hasta el vencimiento"
       ],
       "answer": 0,
-      "explanation": "Su TIR suma el cupón y la subida hasta 100: en el juego, un 4,2 % a cinco años.",
+      "explanation": "Su TIR suma el cupón y la subida hasta 100: a cinco años, un 4,2 %, lo que pedía el mercado.",
       "wrongExplanations": {
         "1": "Pagar menos sube la rentabilidad, no la baja.",
         "2": "Eso solo pasa comprando a 100.",

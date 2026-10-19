@@ -82,7 +82,7 @@
       "concepts": ["precio-bono-tipos"],
       "prompt": "Un bono a 2 años paga un cupón del 4 %. Si el mercado pide un 5 %, ¿cuál es su precio? (por cada 100, 2 decimales)",
       "answer": 98.14,
-      "tolerance": 0.5,
+      "tolerance": 0.1,
       "answerDecimals": 2,
       "formula": "4 / 1.05 + 104 / 1.05 ^ 2",
       "explanation": "4 / 1,05 + 104 / 1,05² = 3,81 + 94,33 = 98,14: bajo la par, porque paga menos de lo que pide el mercado.",
@@ -97,7 +97,7 @@
       "concepts": ["precio-bono-tipos"],
       "prompt": "Un bono a 3 años paga un cupón del {c} %. Si el mercado pide un {y} %, ¿cuál es su precio? (por cada 100, 2 decimales)",
       "answer": 102.78,
-      "tolerance": 0.5,
+      "tolerance": 0.1,
       "answerDecimals": 2,
       "formula": "{c} / (1 + {y} / 100) + {c} / (1 + {y} / 100) ^ 2 + (100 + {c}) / (1 + {y} / 100) ^ 3",
       "params": {
@@ -169,7 +169,7 @@
       "wrongExplanations": {
         "1": "Al vencimiento devuelve el nominal: 100.",
         "2": "El precio no dice el cupón.",
-        "3": "Si temiera impagos, cotizaría bajo la par."
+        "3": "Un precio sobre la par no indica problemas; si el mercado temiera impagos, pediría más rentabilidad y el precio bajaría."
       }
     },
     {
@@ -201,7 +201,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["cupon-bono"],
-      "prompt": "Ordena lo que cobras con un bono a 3 años con cupón del 4 %, comprado al emitirse.",
+      "prompt": "Ordena los flujos de un bono a 3 años con cupón del 4 %, comprado al emitirse.",
       "steps": [
         "Pagas el precio al comprarlo",
         "Cobras 4 al final del año 1",
@@ -211,7 +211,7 @@
       "explanation": "Un pago al principio, cupones cada año y el nominal con el último cupón."
     }
   ],
-  "realWorld": "En la web del Tesoro y en la de BME (renta fija) verás bonos con su cupón, su vencimiento y su precio en porcentaje del nominal. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "En la web del Tesoro y en la de BME (renta fija) verás bonos con su cupón, su vencimiento y su precio en porcentaje del nominal. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
