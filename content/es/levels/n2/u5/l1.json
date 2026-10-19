@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "El efecto divisa",
-      "text": "El ETF subió un {etf} % en dólares, hasta {usd_end} $. Pero el EUR/USD pasó a {rate1}: el dólar se depreció frente al euro y tus dólares valían {eur_end} €, solo un {eur_return} % más. En euros, la divisa pesa tanto como la bolsa."
+      "text": "El ETF subió un {etf} % en dólares, hasta {usd_end} $. Pero el EUR/USD pasó a {rate1}: el dólar se depreció frente al euro y tus dólares valían {eur_end} €, solo un {eur_return} % más. En euros, la divisa puede pesar tanto como la bolsa."
     },
     {
       "type": "card",
@@ -219,7 +219,7 @@
       "tags": [],
       "concepts": ["divisas"],
       "prompt": "Si el EUR/USD sube, el euro se ___ frente al dólar.",
-      "answers": [["aprecia"]],
+      "answers": [["aprecia", "revaloriza", "fortalece"]],
       "explanation": "Se aprecia: compra más dólares."
     },
     {
@@ -252,6 +252,11 @@
     {
       "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BCE, tipos de cambio de referencia del euro",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.es.html",
       "date": "2026-10-19"
     }
   ],

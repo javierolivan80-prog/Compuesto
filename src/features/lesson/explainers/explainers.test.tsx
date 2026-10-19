@@ -152,6 +152,17 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/1,20 un año después, en euros: \+0,8\s%/);
     expect(text).toMatch(/1,00 un año después, en euros: \+21,0\s%/);
   });
+  it('RepoFlow: bonos por dinero hoy y vuelta con intereses', () => {
+    render(
+      <ExplainerBlock
+        component="RepoFlow"
+        props={{ collateral: 10000000, haircut: 2, rate: 3.2, days: 1 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/9\.800\.000/);
+    expect(text).toMatch(/9\.800\.871/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock

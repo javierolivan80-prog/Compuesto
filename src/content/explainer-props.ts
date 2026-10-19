@@ -80,6 +80,12 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       g: z.number().min(0).max(5),
     })
     .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
+  RepoFlow: z.object({
+    collateral: z.number().positive(),
+    haircut: z.number().min(0).max(50),
+    rate: z.number().min(-1).max(15),
+    days: z.number().int().positive().max(365),
+  }),
   FxEffect: z.object({
     rate0: z.number().min(0.5).max(2),
     gain: z.number().min(-50).max(100),

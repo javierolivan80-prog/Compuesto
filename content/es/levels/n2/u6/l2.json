@@ -1,0 +1,237 @@
+{
+  "id": "n2-u6-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 6,
+  "title": "El mercado monetario: €STR, Euríbor y Letras",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es el mercado monetario y sus tipos de referencia",
+    "Calcular intereses y precios con la convención actual/360"
+  ],
+  "concepts": ["mercado-monetario-repo"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Mercado monetario",
+      "text": "Es donde bancos, empresas y Estados se prestan dinero a menos de un año: depósitos entre bancos, repos, Letras del Tesoro, pagarés de empresa. Es la parte más corta y líquida de la curva de tipos."
+    },
+    {
+      "type": "card",
+      "term": "€STR y Euríbor",
+      "text": "El €STR es el tipo medio al que los bancos de la zona euro toman prestado a un día sin garantía; lo publica el BCE. El Euríbor es un tipo de referencia a plazos (por ejemplo, a 12 meses), y en España se usa para revisar muchas hipotecas."
+    },
+    {
+      "type": "example",
+      "text": "Una Letra que paga 1.000 € dentro de 180 días, con un tipo del 3 % y actual/360, vale hoy 1.000 / (1 + 0,03 × 180 / 360) = 985,22 €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u6-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Una Letra paga 1.000 € dentro de {d} días. Con un tipo del {r} % y actual/360, ¿cuánto vale hoy? (€, 2 decimales)",
+      "answer": 993.05,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "1000 / (1 + {r} / 100 * {d} / 360)",
+      "params": {
+        "d": {
+          "value": 90,
+          "min": 30,
+          "max": 360,
+          "step": 30,
+          "decimals": 0
+        },
+        "r": {
+          "value": 2.8,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "1000 / (1 + {r} / 100 * {d} / 360)",
+          "decimals": 2
+        }
+      },
+      "explanation": "1.000 / (1 + {r} % × {d} / 360) = {v} €."
+    },
+    {
+      "id": "n2-u6-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Compras por 985 € una Letra que paga 1.000 € a 180 días. ¿Qué tipo anual obtienes, con actual/360? (%, 2 decimales)",
+      "answer": 3.05,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(1000 / 985 - 1) * 360 / 180 * 100",
+      "explanation": "(1.000 / 985 − 1) × 360 / 180 = 3,05 %."
+    },
+    {
+      "id": "n2-u6-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Una hipoteca revisa al Euríbor a 12 meses más {s} puntos. Si el Euríbor está en el {e} %, ¿qué tipo paga? (%, 2 decimales)",
+      "answer": 3.25,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{e} + {s}",
+      "params": {
+        "e": {
+          "value": 2.5,
+          "min": 0,
+          "max": 5,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "s": {
+          "value": 0.75,
+          "min": 0.25,
+          "max": 2,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{e} + {s}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{e} + {s} = {v} %."
+    },
+    {
+      "id": "n2-u6-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Es del mercado monetario (menos de un año) o no?",
+      "categories": ["Mercado monetario", "No"],
+      "items": [
+        {
+          "text": "Letra del Tesoro a 6 meses",
+          "category": "Mercado monetario"
+        },
+        {
+          "text": "Repo a un día",
+          "category": "Mercado monetario"
+        },
+        {
+          "text": "Obligación del Estado a 10 años",
+          "category": "No"
+        },
+        {
+          "text": "Acción de una empresa",
+          "category": "No"
+        }
+      ],
+      "explanation": "El mercado monetario es la financiación a corto: menos de un año."
+    },
+    {
+      "id": "n2-u6-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Qué mide el €STR?",
+      "options": [
+        "El tipo medio al que los bancos de la zona euro toman prestado a un día sin garantía",
+        "El tipo de las hipotecas a 12 meses",
+        "La inflación de la zona euro",
+        "La rentabilidad del bono alemán a 10 años"
+      ],
+      "answer": 0,
+      "explanation": "Es el tipo a un día de referencia del euro; lo publica el BCE.",
+      "wrongExplanations": {
+        "1": "Ese uso es más propio del Euríbor a 12 meses.",
+        "2": "No mide precios, sino tipos.",
+        "3": "Es un plazo muy largo; el €STR es a un día."
+      }
+    },
+    {
+      "id": "n2-u6-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "statement": "En el mercado monetario del euro, los intereses se suelen calcular con los días reales entre 360.",
+      "answer": true,
+      "explanation": "Verdadero: la convención actual/360."
+    },
+    {
+      "id": "n2-u6-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "El índice de referencia a plazos con el que se revisan muchas hipotecas en España se llama ___.",
+      "answers": [["Euríbor", "euribor", "Euribor"]],
+      "explanation": "El Euríbor, sobre todo a 12 meses."
+    },
+    {
+      "id": "n2-u6-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "character": "rival",
+      "situation": "Hugo calcula los intereses de un depósito a 90 días al 3 % como 3 % × 90 / 365.",
+      "prompt": "¿Qué le corriges?",
+      "options": [
+        "Que en el mercado monetario del euro la convención habitual es actual/360, no 365: le salen algo menos de intereses de los que se pagan",
+        "Nada: siempre es entre 365",
+        "Que hay que dividir entre 12",
+        "Que los intereses no dependen de los días"
+      ],
+      "answer": 0,
+      "explanation": "Con 360 en el denominador, el mismo tipo da algo más de intereses que con 365.",
+      "wrongExplanations": {
+        "1": "Depende del mercado; en el monetario del euro, 360.",
+        "2": "Eso sería para meses, no días.",
+        "3": "Dependen de cuánto tiempo prestas."
+      }
+    }
+  ],
+  "realWorld": "El BCE publica cada día el €STR, y el Euríbor se publica cada día hábil; en las hipotecas a tipo variable verás el Euríbor a 12 meses más un diferencial. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BCE, el tipo de interés a corto plazo del euro (€STR)",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.es.html",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

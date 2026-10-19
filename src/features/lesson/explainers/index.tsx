@@ -18,6 +18,7 @@ import { MoneyCreation } from './MoneyCreation';
 import { NormalTails } from './NormalTails';
 import { OrderBook } from './OrderBook';
 import { PrimarySecondary } from './PrimarySecondary';
+import { RepoFlow } from './RepoFlow';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -56,6 +57,7 @@ const REGISTRY = {
   TerDrain,
   NormalTails,
   FxEffect,
+  RepoFlow,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

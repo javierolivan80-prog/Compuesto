@@ -573,13 +573,17 @@
     "id": "mercado-monetario-repo",
     "name": "Mercado monetario y repo",
     "level": 2,
-    "prerequisites": ["letras-bonos-tesoro"]
+    "prerequisites": ["letras-bonos-tesoro"],
+    "unit": "n2-u6",
+    "description": "Financiación a menos de un año: depósitos, Letras, pagarés y repos (préstamos con bonos como garantía y un recorte). Tipos de referencia: €STR a un día y Euríbor a plazos; intereses con actual/360."
   },
   {
     "id": "cedulas-titulizaciones",
     "name": "Cédulas hipotecarias y titulizaciones",
     "level": 2,
-    "prerequisites": ["hipoteca", "rating-spread"]
+    "prerequisites": ["hipoteca", "rating-spread"],
+    "unit": "n2-u6",
+    "description": "Las cédulas hipotecarias son bonos garantizados: deuda del banco con una cartera de hipotecas como garantía preferente. En una titulización, los préstamos pasan a un fondo que emite tramos; las pérdidas van del equity al senior."
   },
   {
     "id": "fondos-inversion",

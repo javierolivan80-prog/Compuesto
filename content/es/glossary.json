@@ -1115,5 +1115,29 @@
         "date": "2026-10-15"
       }
     ]
+  },
+  {
+    "id": "etf",
+    "term": "ETF",
+    "definition": "Fondo de inversión que cotiza en bolsa durante toda la sesión; suele copiar un índice con gastos bajos. Al operar se paga corretaje y horquilla.",
+    "level": 2,
+    "concepts": ["etf"],
+    "aliases": ["fondo cotizado"],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
+  },
+  {
+    "id": "etc",
+    "term": "ETC",
+    "definition": "Producto cotizado parecido a un ETF, pero de una materia prima; legalmente es un título de deuda respaldado por el activo físico o por futuros, con riesgo de su emisor.",
+    "level": 2,
+    "concepts": ["materias-primas"],
+    "aliases": ["exchange traded commodity"],
+    "status": "draft",
+    "reviewedBy": [],
+    "verificarAntesDe": null,
+    "sources": []
   }
 ]

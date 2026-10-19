@@ -102,7 +102,7 @@
       "id": "n2-u5-l5-e6",
       "type": "multiple_choice",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": [],
       "concepts": ["divisas"],
       "prompt": "El cliente teme que el euro siga apreciándose frente al dólar. ¿Qué le propones para su bolsa de EE. UU.?",
@@ -138,7 +138,7 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["cripto-mica"],
-      "prompt": "En España, el supervisor de los proveedores de servicios de criptoactivos según MiCA es la ___.",
+      "prompt": "En España, la autoridad que autoriza y supervisa a los proveedores de servicios de criptoactivos de MiCA es la ___.",
       "answers": [["CNMV", "cnmv"]],
       "explanation": "La CNMV."
     },
@@ -177,6 +177,11 @@
     {
       "title": "Reglamento (UE) 2023/1114 relativo a los mercados de criptoactivos (MiCA)",
       "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 6/2023, de 17 de marzo, de los Mercados de Valores y de los Servicios de Inversión (autoridades competentes en MiCA)",
+      "url": "https://www.boe.es/eli/es/l/2023/03/17/6/con",
       "date": "2026-10-19"
     }
   ],

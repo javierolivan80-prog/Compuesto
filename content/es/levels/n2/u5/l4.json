@@ -24,12 +24,12 @@
     {
       "type": "card",
       "term": "MiCA",
-      "text": "El Reglamento europeo MiCA regula a los emisores de criptoactivos y de stablecoins y a los proveedores de servicios (exchanges, custodios), que necesitan autorización. En España los supervisa la CNMV. MiCA no protege del riesgo de que el precio caiga."
+      "text": "MiCA regula a quien emite u ofrece criptoactivos, incluidas las stablecoins (que buscan un valor estable, como 1 €), y a los proveedores de servicios, que necesitan autorización. En España, la CNMV supervisa a los proveedores; a los emisores de stablecoins, el Banco de España. MiCA no protege de que el precio caiga."
     },
     {
       "type": "card",
       "term": "Custodia",
-      "text": "Si un exchange quiebra o pierde tus claves, puedes perder tus criptoactivos. Los depósitos bancarios tienen un fondo de garantía; los criptoactivos, no."
+      "text": "MiCA obliga a los custodios autorizados a separar tus criptoactivos de los suyos y a responder si los pierden por su culpa. Aun así, con una plataforma no autorizada, un fraude o un hackeo puedes perderlos, y no hay fondo de garantía como el de los depósitos."
     }
   ],
   "exercises": [
@@ -107,7 +107,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cripto-mica"],
-      "prompt": "Una stablecoin promete valer 1 €. Si llegara a cotizar a {p} €, ¿cuánto perdería quien tuviera {n} unidades? (€)",
+      "prompt": "Una stablecoin promete valer 1 €. Si llegara a cotizar a {p} €, ¿cuánto perdería quien vendiera {n} unidades a ese precio? (€)",
       "answer": 500,
       "unit": "€",
       "tolerance": 0.5,
@@ -135,7 +135,7 @@
           "decimals": 0
         }
       },
-      "explanation": "{n} × (1 − {p}) = {v} €: una promesa de valor estable no es una garantía."
+      "explanation": "{n} × (1 − {p}) = {v} €. MiCA da derecho a reembolso a la par frente al emisor de una stablecoin autorizada, pero si el emisor falla o la stablecoin no está autorizada, el valor estable no está garantizado."
     },
     {
       "id": "n2-u5-l4-e4",
@@ -148,7 +148,7 @@
       "categories": ["Lo regula MiCA", "No te protege"],
       "items": [
         {
-          "text": "Que un exchange necesite autorización para operar en la UE",
+          "text": "Que una plataforma de compraventa (exchange) necesite autorización para operar en la UE",
           "category": "Lo regula MiCA"
         },
         {
@@ -173,7 +173,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["cripto-mica"],
-      "prompt": "¿Por qué es tan difícil valorar bitcoin con las herramientas de esta carrera?",
+      "prompt": "¿Por qué es tan difícil valorar bitcoin con un DCF o un PER?",
       "options": [
         "Porque no genera flujos de caja que descontar ni tiene beneficios: no hay DCF ni PER posible",
         "Porque cotiza en dólares",
@@ -230,7 +230,7 @@
       "explanation": "Una rentabilidad alta garantizada es la señal típica de un fraude. Contenido educativo, no asesoramiento.",
       "wrongExplanations": {
         "1": "Con un fraude, también se pierde lo poco.",
-        "2": "Un 2 % semanal es más de un 180 % al año compuesto: no es creíble.",
+        "2": "Un 2 % semanal compuesto es alrededor de un 180 % al año: no es creíble.",
         "3": "No cambia nada."
       }
     }
@@ -248,8 +248,13 @@
       "date": "2026-10-19"
     },
     {
-      "title": "CNMV, criptoactivos: advertencias y registro de proveedores de servicios",
-      "url": "https://www.cnmv.es",
+      "title": "BOE, Ley 6/2023, de 17 de marzo, de los Mercados de Valores y de los Servicios de Inversión (autoridades competentes en MiCA)",
+      "url": "https://www.boe.es/eli/es/l/2023/03/17/6/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, criptoactivos: registro de proveedores de servicios y advertencias",
+      "url": "https://www.cnmv.es/portal/criptoactivos/criptoactivos.aspx",
       "date": "2026-10-19"
     }
   ],

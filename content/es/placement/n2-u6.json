@@ -1,0 +1,162 @@
+{
+  "id": "salto-n2-u6",
+  "unitId": "n2-u6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u6-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "20 millones en bonos con un recorte del 5 %. ¿Cuánto te prestan?",
+      "options": ["19 millones", "20 millones", "21 millones", "15 millones"],
+      "answer": 0,
+      "explanation": "20 × 0,95.",
+      "wrongExplanations": {
+        "1": "Falta el recorte.",
+        "2": "El recorte resta.",
+        "3": "Has restado 5 millones, no un 5 %."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Un millón a 36 días al 3 %, con actual/360. ¿Intereses?",
+      "options": ["3.000 €", "30.000 €", "2.959 €", "300 €"],
+      "answer": 0,
+      "explanation": "1.000.000 × 3 % × 36 / 360 = 3.000 €.",
+      "wrongExplanations": {
+        "1": "Es un año entero.",
+        "2": "Es con 365.",
+        "3": "Falta un cero."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Qué es un repo?",
+      "options": [
+        "Un préstamo con bonos como garantía, en forma de venta con recompra",
+        "Un depósito sin garantía",
+        "Una acción",
+        "Un bono a 10 años"
+      ],
+      "answer": 0,
+      "explanation": "Venta con pacto de recompra.",
+      "wrongExplanations": {
+        "1": "Lleva garantía.",
+        "2": "Es financiación, no capital.",
+        "3": "Suele ser muy corto."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Qué publica el BCE como tipo de referencia a un día del euro?",
+      "options": ["El €STR", "El Euríbor a 12 meses", "El IPC", "El bono alemán"],
+      "answer": 0,
+      "explanation": "El €STR.",
+      "wrongExplanations": {
+        "1": "Es a plazo, no a un día.",
+        "2": "Es inflación.",
+        "3": "Es un bono a largo."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cedulas-titulizaciones"],
+      "statement": "En una titulización, el tramo senior es el primero en absorber las pérdidas.",
+      "answer": false,
+      "explanation": "Falso: el primero es el equity; el senior, el último."
+    },
+    {
+      "id": "salto-n2-u6-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "Tramos: senior 70, mezzanine 20, equity 10. Pérdidas de 15. ¿Cuánto pierde el mezzanine?",
+      "options": ["5", "15", "0", "10"],
+      "answer": 0,
+      "explanation": "El equity absorbe 10; el mezzanine, los 5 restantes.",
+      "wrongExplanations": {
+        "1": "El equity absorbe primero 10.",
+        "2": "Las pérdidas superan al equity.",
+        "3": "Eso es lo que pierde el equity."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "¿Qué da una cédula hipotecaria que no da un bono de titulización?",
+      "options": [
+        "Recurso al banco emisor además de a las hipotecas",
+        "Más rentabilidad siempre",
+        "Garantía del Estado",
+        "Que no tiene riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Doble garantía.",
+      "wrongExplanations": {
+        "1": "Suele rendir menos por ser más segura.",
+        "2": "No la garantiza el Estado.",
+        "3": "Tiene riesgo, aunque bajo."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Financiar bonos a 5 años con repos a un día tiene, sobre todo, riesgo…",
+      "options": ["De liquidez", "De tipo de cambio", "De inflación", "Ninguno"],
+      "answer": 0,
+      "explanation": "Si un día nadie presta o suben los recortes, hay que vender a mal precio.",
+      "wrongExplanations": {
+        "1": "No hay divisa en juego.",
+        "2": "No es el principal.",
+        "3": "Lo hay."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BCE, el tipo de interés a corto plazo del euro (€STR)",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.es.html",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30"
+}

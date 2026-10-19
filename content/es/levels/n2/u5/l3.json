@@ -19,16 +19,16 @@
     {
       "type": "card",
       "term": "Cómo se invierte",
-      "text": "Petróleo, gas, metales, cereales: casi nadie guarda barriles. Se invierte con futuros (contratos para comprar más adelante a un precio fijado hoy), con ETC que siguen esos futuros o con acciones de empresas productoras."
+      "text": "Petróleo, gas, metales, cereales: casi nadie guarda barriles. Se invierte con futuros (contratos para comprar más adelante a un precio fijado hoy), con ETC (parecidos a un ETF, pero legalmente títulos de deuda respaldados por el activo o por futuros) o con acciones de productoras."
     },
     {
       "type": "card",
       "term": "Renovar futuros",
-      "text": "Un fondo de futuros tiene que venderlos antes de que venzan y comprar los siguientes. Si los siguientes son más caros (contango), pierde un poco en cada cambio; si son más baratos (backwardation), gana."
+      "text": "Un fondo o ETC de futuros tiene que venderlos antes de que venzan y comprar los siguientes. Si los siguientes son más caros (contango), pierde un poco en cada cambio; si son más baratos (backwardation), gana."
     },
     {
       "type": "example",
-      "text": "Si cada mes el futuro siguiente cuesta un 2 % más, renovar 5 veces deja 100 × 0,98^5 ≈ 90,4 aunque el precio de hoy no se mueva: el fondo no sigue al precio del día."
+      "text": "Si en cada renovación el fondo pierde un 2 %, renovar 5 veces deja 100 × 0,98^5 ≈ 90,4 aunque el precio de hoy no se mueva: el fondo no sigue al precio del día."
     }
   ],
   "exercises": [
@@ -39,7 +39,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["materias-primas"],
-      "prompt": "Un fondo de futuros pierde un {c} % en cada renovación por el contango. Tras {n} renovaciones, sin que se mueva el precio de hoy, ¿cuánto vale lo que era 100? (2 decimales)",
+      "prompt": "Un fondo o ETC de futuros pierde un {c} % en cada renovación por el contango. Tras {n} renovaciones, sin que se mueva el precio de hoy, ¿cuánto vale lo que era 100? (2 decimales)",
       "answer": 90.39,
       "tolerance": 0.5,
       "answerDecimals": 2,
@@ -91,7 +91,7 @@
         },
         "r": {
           "value": 8,
-          "min": -20,
+          "min": 1,
           "max": 30,
           "step": 1,
           "decimals": 0
@@ -153,11 +153,11 @@
       "categories": ["Contango", "Backwardation"],
       "items": [
         {
-          "text": "El futuro a seis meses cuesta más que el actual",
+          "text": "El futuro a seis meses cuesta más que el precio al contado (el de hoy)",
           "category": "Contango"
         },
         {
-          "text": "El futuro a seis meses cuesta menos que el actual",
+          "text": "El futuro a seis meses cuesta menos que el precio al contado (el de hoy)",
           "category": "Backwardation"
         },
         {
@@ -211,8 +211,8 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["materias-primas"],
-      "prompt": "Un contrato para comprar más adelante a un precio fijado hoy es un ___.",
-      "answers": [["futuro"]],
+      "prompt": "Un contrato estandarizado, negociado en un mercado organizado, para comprar o vender más adelante a un precio fijado hoy es un ___.",
+      "answers": [["futuro", "futuros", "contrato de futuros"]],
       "explanation": "Un futuro: lo verás a fondo en la planta de derivados."
     },
     {

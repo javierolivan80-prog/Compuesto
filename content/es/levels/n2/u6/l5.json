@@ -1,0 +1,181 @@
+{
+  "id": "n2-u6-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 6,
+  "title": "Jefe final: el lunes de la tesorería",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": ["Gestionar la liquidez a corto y valorar instrumentos garantizados"],
+  "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u6-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "La tesorería de Albufera necesita 20 millones de € hasta el viernes y tiene bonos del Estado. Con un recorte del 2 %, ¿cuántos millones en bonos debe entregar? (2 decimales)",
+      "answer": 20.41,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "20 / 0.98",
+      "explanation": "20 / 0,98 = 20,41 millones."
+    },
+    {
+      "id": "n2-u6-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Esos 20 millones, 4 días al 3,1 %, con actual/360. ¿Intereses? (€)",
+      "answer": 6889,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "20000000 * 0.031 * 4 / 360",
+      "explanation": "20.000.000 × 3,1 % × 4 / 360 = 6.889 €."
+    },
+    {
+      "id": "n2-u6-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "El excedente del jueves lo invierte en una Letra que paga 1.000.000 € a 91 días al 2,9 %. ¿Cuánto paga hoy? (€, 0 decimales)",
+      "answer": 992723,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1000000 / (1 + 0.029 * 91 / 360)",
+      "explanation": "1.000.000 / (1 + 2,9 % × 91 / 360) = 992.723 €."
+    },
+    {
+      "id": "n2-u6-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "Tiene 2 millones en el tramo mezzanine (15 millones) de una titulización con equity de 5. Si los préstamos pierden 11 millones, ¿cuánto pierde Albufera? (millones, 1 decimal)",
+      "answer": 0.8,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(11 - 5) / 15 * 2",
+      "explanation": "El mezzanine pierde 6 de 15 (40 %); sobre 2 millones, 0,8."
+    },
+    {
+      "id": "n2-u6-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"],
+      "prompt": "¿Qué riesgo es el principal de cada instrumento?",
+      "categories": ["Que el banco no devuelva", "Que impaguen los préstamos del fondo"],
+      "items": [
+        {
+          "text": "Un depósito sin garantía en otro banco",
+          "category": "Que el banco no devuelva"
+        },
+        {
+          "text": "El tramo mezzanine de una titulización",
+          "category": "Que impaguen los préstamos del fondo"
+        },
+        {
+          "text": "El tramo equity de una titulización",
+          "category": "Que impaguen los préstamos del fondo"
+        }
+      ],
+      "explanation": "Sin garantía, el riesgo es el banco; en una titulización, los préstamos del fondo."
+    },
+    {
+      "id": "n2-u6-l5-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Para financiarse 4 días con la mínima tasa, ¿qué conviene a la tesorería?",
+      "options": [
+        "Un repo con bonos del Estado como garantía",
+        "Un préstamo sin garantía",
+        "Vender acciones",
+        "Emitir bonos a 10 años"
+      ],
+      "answer": 0,
+      "explanation": "Con la mejor garantía, el tipo más bajo.",
+      "wrongExplanations": {
+        "1": "Sin garantía, más caro.",
+        "2": "No es financiación y puede vender barato.",
+        "3": "Es para el largo plazo, no 4 días."
+      }
+    },
+    {
+      "id": "n2-u6-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "statement": "A igual rentabilidad, una cédula hipotecaria ofrece más protección que un bono de titulización del mismo banco.",
+      "answer": true,
+      "explanation": "Verdadero: la cédula da recurso al banco y a la cartera."
+    },
+    {
+      "id": "n2-u6-l5-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "La convención de días del mercado monetario del euro es actual/___.",
+      "answers": [["360"]],
+      "explanation": "Actual/360."
+    },
+    {
+      "id": "n2-u6-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"],
+      "character": "jefe",
+      "situation": "El jefe propone financiar la cartera de bonos de 5 años de la mesa con repos a un día, renovados cada mañana, «porque el repo es lo más barato».",
+      "prompt": "¿Qué riesgo le señalas?",
+      "options": [
+        "El de liquidez: si un día suben los recortes o nadie presta, hay que vender bonos largos a mal precio para devolver el dinero",
+        "Ninguno: el repo es barato y seguro",
+        "Que los bonos a 5 años no se pueden usar en repo",
+        "Que el repo sube el rating"
+      ],
+      "answer": 0,
+      "explanation": "Financiar activos largos con dinero a un día es barato hasta que deja de haber dinero: el riesgo de liquidez. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Lo barato depende de que siempre haya quien preste.",
+        "2": "Pueden usarse, con su recorte.",
+        "3": "No tiene relación."
+      }
+    }
+  ],
+  "realWorld": "La tesorería de un banco equilibra cada día lo que entra y lo que sale. Las crisis de liquidez suelen empezar en el corto plazo. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

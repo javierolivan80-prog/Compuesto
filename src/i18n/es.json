@@ -1281,7 +1281,7 @@
       "more": "Más que un {{etf}}",
       "less": "Menos que un {{etf}}"
     },
-    "whyLess": "Tienes {{usdEnd}}, pero ahora cada euro cuesta {{rate1}} dólares: son {{eurEnd}}, un {{ret}}. El dólar se ha depreciado frente al euro y se ha comido casi toda la subida.",
+    "whyLess": "Tienes {{usdEnd}}, pero ahora cada euro cuesta {{rate1}} dólares: son {{eurEnd}}, un {{ret}}. El dólar se ha depreciado frente al euro y se ha comido gran parte de la subida, o toda.",
     "whyMore": "Tienes {{usdEnd}}, y ahora cada euro cuesta solo {{rate1}} dólares: son {{eurEnd}}, un {{ret}}. El dólar se ha apreciado y has ganado además por la divisa.",
     "briefHedge": "El ETF tiene una clase cubierta frente al dólar: elimina casi todo el efecto de la divisa, a cambio de un coste de cobertura de un {{cost}} al año. Al comprar temes que el dólar se deprecie.",
     "askHedge": "¿Qué clase eliges?",
@@ -1345,5 +1345,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo funcionan el repo y las garantías.",
     "debrief": "Ver qué ha pasado"
+  },
+  "repoFlow": {
+    "title": "El viaje de ida y vuelta del repo"
   }
 }

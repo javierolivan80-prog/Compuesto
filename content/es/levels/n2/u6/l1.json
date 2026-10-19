@@ -1,0 +1,250 @@
+{
+  "id": "n2-u6-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 6,
+  "order": 0,
+  "title": "Juego: una noche en la tesorería",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar cómo funciona un repo y calcular sus intereses",
+    "Distinguir una cédula hipotecaria de una titulización"
+  ],
+  "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "repo-night",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "El repo",
+      "text": "Albufera entregó {collateral} millones de € en bonos del Estado y recibió {loan} millones: el valor menos un recorte del {haircut} %. Un repo es un préstamo con garantía: si no devuelve el dinero, el prestamista se queda con los bonos."
+    },
+    {
+      "type": "card",
+      "term": "Actual/360",
+      "text": "En el mercado monetario del euro, los intereses se calculan con los días reales entre 360: {loan} millones × {rate} % × {days} / 360 = {interest} €. Al vencer, Albufera devolvió {repay} € y recuperó sus bonos."
+    },
+    {
+      "type": "card",
+      "term": "Cédula o titulización",
+      "text": "La cédula hipotecaria es deuda del banco respaldada además por su cartera de hipotecas: doble garantía. En una titulización, las hipotecas pasan a un fondo separado, y sus bonos cobran solo de esos préstamos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u6-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Un banco entrega {collateral} millones de € en bonos con un recorte del {haircut} %. ¿Cuánto le prestan? (millones de €, 2 decimales)",
+      "answer": 9.8,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{collateral} * (1 - {haircut} / 100)",
+      "params": {
+        "collateral": {
+          "value": 10,
+          "min": 5,
+          "max": 100,
+          "step": 5,
+          "decimals": 0
+        },
+        "haircut": {
+          "value": 2,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{collateral} * (1 - {haircut} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{collateral} × (1 − {haircut} %) = {v} millones."
+    },
+    {
+      "id": "n2-u6-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Un repo de {loan} millones de € a {days} día(s) al {rate} % anual, con actual/360. ¿Cuántos euros de intereses? (€)",
+      "answer": 871,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{loan} * 1000000 * {rate} / 100 * {days} / 360",
+      "params": {
+        "loan": {
+          "value": 9.8,
+          "min": 1,
+          "max": 50,
+          "step": 0.1,
+          "decimals": 2
+        },
+        "rate": {
+          "value": 3.2,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "days": {
+          "value": 1,
+          "min": 1,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{loan} * 1000000 * {rate} / 100 * {days} / 360",
+          "decimals": 0
+        }
+      },
+      "explanation": "{loan} millones × {rate} % × {days} / 360 = {v} €."
+    },
+    {
+      "id": "n2-u6-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Un repo de 5 millones de € a 7 días al 3,2 %. ¿Cuántos euros de intereses, con actual/360? (€)",
+      "answer": 3111,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "5000000 * 0.032 * 7 / 360",
+      "explanation": "5.000.000 × 3,2 % × 7 / 360 = 3.111 €."
+    },
+    {
+      "id": "n2-u6-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "¿Es propio de una cédula hipotecaria o de una titulización?",
+      "categories": ["Cédula hipotecaria", "Titulización"],
+      "items": [
+        {
+          "text": "Puedes reclamar al banco emisor",
+          "category": "Cédula hipotecaria"
+        },
+        {
+          "text": "Las hipotecas salen del balance del banco a un fondo",
+          "category": "Titulización"
+        },
+        {
+          "text": "Doble garantía: el banco y su cartera de hipotecas",
+          "category": "Cédula hipotecaria"
+        },
+        {
+          "text": "Los bonos cobran solo de los préstamos del fondo",
+          "category": "Titulización"
+        }
+      ],
+      "explanation": "La cédula es deuda del banco con garantía extra; la titulización separa los préstamos en un fondo."
+    },
+    {
+      "id": "n2-u6-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Por qué en el repo se aplica un recorte (haircut) a la garantía?",
+      "options": [
+        "Para proteger al que presta por si los bonos pierden valor antes de recuperar el dinero",
+        "Para cobrar una comisión",
+        "Porque los bonos del Estado no valen nada",
+        "Para que el préstamo sea más caro"
+      ],
+      "answer": 0,
+      "explanation": "Si el prestatario no paga y los bonos han caído, el recorte cubre la diferencia.",
+      "wrongExplanations": {
+        "1": "Los intereses ya son el precio; el recorte es una protección.",
+        "2": "Valen, pero su precio puede moverse.",
+        "3": "El recorte reduce lo que se presta, no sube el tipo."
+      }
+    },
+    {
+      "id": "n2-u6-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "statement": "En un repo, al vencimiento el prestatario devuelve el dinero con intereses y recupera sus bonos.",
+      "answer": true,
+      "explanation": "Verdadero: es una venta con pacto de recompra, un préstamo garantizado de ida y vuelta."
+    },
+    {
+      "id": "n2-u6-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "El recorte que se aplica al valor de la garantía en un repo se llama, en inglés, ___.",
+      "answers": [["haircut"]],
+      "explanation": "Haircut: recorte."
+    },
+    {
+      "id": "n2-u6-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "character": "mentora",
+      "situation": "La tesorería duda entre una cédula hipotecaria de un banco sólido y un bono de una titulización de hipotecas del mismo banco, con la misma rentabilidad.",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que a igual rentabilidad, la cédula tiene más protección: además de las hipotecas, puede reclamar al banco",
+        "Que son lo mismo: las dos tienen hipotecas detrás",
+        "Que la titulización es más segura porque las hipotecas salen del banco",
+        "Que da igual: el banco es sólido"
+      ],
+      "answer": 0,
+      "explanation": "La doble garantía de la cédula es su gran ventaja; por eso suele pagar menos. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Cambia a quién puedes reclamar.",
+        "2": "Separarlas protege del banco, pero quita el recurso a él.",
+        "3": "Hoy lo es; la garantía importa si deja de serlo."
+      }
+    }
+  ],
+  "realWorld": "En el mercado monetario del euro, el tipo de referencia a un día es el €STR, que publica el BCE cada día hábil. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BCE, el tipo de interés a corto plazo del euro (€STR)",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.es.html",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

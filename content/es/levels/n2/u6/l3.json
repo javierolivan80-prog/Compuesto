@@ -1,0 +1,238 @@
+{
+  "id": "n2-u6-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 6,
+  "title": "El repo por dentro",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar el repo como préstamo garantizado",
+    "Calcular préstamo, recorte e intereses de un repo"
+  ],
+  "concepts": ["mercado-monetario-repo"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Venta con recompra",
+      "text": "Un repo es vender unos bonos hoy y comprometerse a recomprarlos más adelante a un precio algo mayor. En la práctica, es un préstamo con los bonos como garantía: la diferencia de precio son los intereses."
+    },
+    {
+      "type": "visual",
+      "component": "RepoFlow",
+      "props": {
+        "collateral": 10000000,
+        "haircut": 2,
+        "rate": 3.2,
+        "days": 1
+      }
+    },
+    {
+      "type": "card",
+      "term": "Para qué sirve",
+      "text": "Los bancos lo usan para financiarse a corto con sus bonos, y los bancos centrales para dar liquidez al sistema. Es barato porque tiene garantía: si la garantía es mejor, el recorte y el tipo son menores."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u6-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Entregas {c} millones de € en bonos con un recorte del {h} %. ¿Cuánto te prestan? (millones de €, 2 decimales)",
+      "answer": 48.5,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} * (1 - {h} / 100)",
+      "params": {
+        "c": {
+          "value": 50,
+          "min": 5,
+          "max": 200,
+          "step": 5,
+          "decimals": 0
+        },
+        "h": {
+          "value": 3,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} * (1 - {h} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{c} × (1 − {h} %) = {v} millones."
+    },
+    {
+      "id": "n2-u6-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Y por 30 días al 3,5 % con actual/360, ¿cuántos euros de intereses sobre 48,5 millones? (€)",
+      "answer": 141458,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "48500000 * 0.035 * 30 / 360",
+      "explanation": "48.500.000 × 3,5 % × 30 / 360 = 141.458 €."
+    },
+    {
+      "id": "n2-u6-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Necesitas {n} millones de € con un recorte del {h} %. ¿Cuántos millones en bonos tienes que entregar? (2 decimales)",
+      "answer": 10.2,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{n} / (1 - {h} / 100)",
+      "params": {
+        "n": {
+          "value": 10,
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "decimals": 0
+        },
+        "h": {
+          "value": 2,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} / (1 - {h} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{n} / (1 − {h} %) = {v} millones: hay que entregar más de lo que se recibe."
+    },
+    {
+      "id": "n2-u6-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Lleva a un recorte menor o mayor?",
+      "categories": ["Recorte menor", "Recorte mayor"],
+      "items": [
+        {
+          "text": "Bonos del Estado a corto plazo",
+          "category": "Recorte menor"
+        },
+        {
+          "text": "Bonos de empresa de alto rendimiento",
+          "category": "Recorte mayor"
+        },
+        {
+          "text": "Garantía muy líquida y estable",
+          "category": "Recorte menor"
+        },
+        {
+          "text": "Garantía volátil y difícil de vender",
+          "category": "Recorte mayor"
+        }
+      ],
+      "explanation": "Cuanto más segura y líquida es la garantía, menos recorte hace falta."
+    },
+    {
+      "id": "n2-u6-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Por qué un repo suele ser más barato que un préstamo sin garantía entre bancos?",
+      "options": [
+        "Porque el prestamista tiene los bonos: si no le pagan, se queda con ellos",
+        "Porque no tiene intereses",
+        "Porque lo paga el banco central",
+        "Porque dura más"
+      ],
+      "answer": 0,
+      "explanation": "La garantía reduce el riesgo del prestamista, y con él el tipo.",
+      "wrongExplanations": {
+        "1": "Tiene intereses, aunque bajos.",
+        "2": "El banco central es una de las partes posibles, no quien paga.",
+        "3": "Suele ser muy corto."
+      }
+    },
+    {
+      "id": "n2-u6-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "statement": "En un repo hay que entregar bonos por más valor que el dinero que se recibe.",
+      "answer": true,
+      "explanation": "Verdadero: por el recorte."
+    },
+    {
+      "id": "n2-u6-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Un repo es una venta con pacto de ___.",
+      "answers": [["recompra"]],
+      "explanation": "Venta con pacto de recompra."
+    },
+    {
+      "id": "n2-u6-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "character": "jefe",
+      "situation": "En plena crisis, los prestamistas de repo suben el recorte de los bonos de empresa del 5 % al 20 %.",
+      "prompt": "¿Qué le pasa a un banco que se financia con repos de esos bonos?",
+      "options": [
+        "Que con la misma garantía consigue mucho menos dinero y puede quedarse sin liquidez",
+        "Que consigue más dinero",
+        "Nada: el tipo es el mismo",
+        "Que sus bonos valen más"
+      ],
+      "answer": 0,
+      "explanation": "Con un 20 % de recorte, por cada 100 de bonos recibe 80 en vez de 95: un agujero de liquidez.",
+      "wrongExplanations": {
+        "1": "Al revés.",
+        "2": "Cambia cuánto le prestan.",
+        "3": "El recorte sube porque se teme que valgan menos."
+      }
+    }
+  ],
+  "realWorld": "Los bancos centrales dan liquidez con operaciones garantizadas parecidas a un repo, y publican qué activos admiten como garantía y con qué recortes. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

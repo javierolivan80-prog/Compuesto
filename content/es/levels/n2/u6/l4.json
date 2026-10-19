@@ -1,0 +1,205 @@
+{
+  "id": "n2-u6-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 6,
+  "title": "Cédulas y titulizaciones",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir cédulas hipotecarias y titulizaciones",
+    "Repartir las pérdidas de una titulización entre sus tramos"
+  ],
+  "concepts": ["cedulas-titulizaciones"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cédulas",
+      "text": "Las cédulas hipotecarias son bonos garantizados: deuda del banco con una cartera de hipotecas como garantía preferente. Si el banco quiebra, sus tenedores cobran primero de esa cartera. Por eso suelen tener rating alto."
+    },
+    {
+      "type": "card",
+      "term": "Titulización",
+      "text": "El banco vende préstamos a un fondo de titulización, que se financia emitiendo bonos en tramos. Las pérdidas de los préstamos las absorbe primero el tramo inferior (equity), luego el intermedio (mezzanine) y por último el preferente (senior)."
+    },
+    {
+      "type": "example",
+      "text": "Un fondo de 100 millones: senior 80, mezzanine 15, equity 5. Si los préstamos pierden 8 millones, el equity pierde sus 5 (todo) y el mezzanine 3 (un 20 %). El senior no pierde nada."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u6-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "Fondo con tramos senior 80, mezzanine 15 y equity 5 (millones). Si los préstamos pierden {p} millones (más de 5 y hasta 20), ¿cuánto pierde el mezzanine? (millones, 1 decimal)",
+      "answer": 3,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{p} - 5",
+      "params": {
+        "p": {
+          "value": 8,
+          "min": 5.5,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{p} - 5",
+          "decimals": 1
+        }
+      },
+      "explanation": "El equity absorbe los primeros 5; el mezzanine, el resto hasta 15: {p} − 5 = {v} millones."
+    },
+    {
+      "id": "n2-u6-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "Con esas mismas pérdidas de {p} millones, ¿qué porcentaje pierde el tramo mezzanine de 15 millones? (%, 1 decimal)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 1.5,
+      "answerDecimals": 1,
+      "formula": "({p} - 5) / 15 * 100",
+      "params": {
+        "p": {
+          "value": 8,
+          "min": 5.5,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({p} - 5) / 15 * 100",
+          "decimals": 1
+        }
+      },
+      "explanation": "({p} − 5) / 15 = {v} %."
+    },
+    {
+      "id": "n2-u6-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "¿Cuántos millones de pérdidas tendría que haber para que el tramo senior empezara a perder?",
+      "answer": 20,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "5 + 15",
+      "explanation": "Cuando se agotan el equity (5) y el mezzanine (15): a partir de 20 millones."
+    },
+    {
+      "id": "n2-u6-l4-e4",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "Ordena qué tramo absorbe primero las pérdidas de una titulización.",
+      "steps": ["Equity", "Mezzanine", "Senior"],
+      "explanation": "De abajo arriba: el que más rinde es el que primero pierde."
+    },
+    {
+      "id": "n2-u6-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "¿Por qué el tramo equity paga más rentabilidad que el senior?",
+      "options": [
+        "Porque absorbe las primeras pérdidas: tiene mucho más riesgo",
+        "Porque es más grande",
+        "Porque lo emite el Estado",
+        "Porque vence antes"
+      ],
+      "answer": 0,
+      "explanation": "Más riesgo, más rentabilidad exigida.",
+      "wrongExplanations": {
+        "1": "Suele ser el más pequeño.",
+        "2": "Lo emite el fondo de titulización.",
+        "3": "Lo que cambia es el orden en las pérdidas."
+      }
+    },
+    {
+      "id": "n2-u6-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "statement": "Si el banco que emitió una cédula hipotecaria quiebra, sus tenedores cobran primero de la cartera de hipotecas que la garantiza.",
+      "answer": true,
+      "explanation": "Verdadero: es la garantía preferente de las cédulas."
+    },
+    {
+      "id": "n2-u6-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "El tramo de una titulización que cobra el primero y pierde el último se llama ___.",
+      "answers": [["senior", "preferente"]],
+      "explanation": "Senior o preferente."
+    },
+    {
+      "id": "n2-u6-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cedulas-titulizaciones"],
+      "character": "mentora",
+      "situation": "Un cliente quiere comprar el tramo equity de una titulización de hipotecas porque «tiene hipotecas detrás, así que es seguro».",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que el equity absorbe las primeras pérdidas: con pocos impagos puede perderlo todo, aunque haya hipotecas detrás",
+        "Que tiene razón: las hipotecas son seguras",
+        "Que el equity es el tramo más protegido",
+        "Que las titulizaciones no tienen riesgo con rating"
+      ],
+      "answer": 0,
+      "explanation": "Las garantías protegen a los tramos de arriba a costa de los de abajo. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Las hipotecas pueden impagarse.",
+        "2": "Es el menos protegido.",
+        "3": "El rating no elimina el riesgo, y el equity suele no tenerlo."
+      }
+    }
+  ],
+  "realWorld": "En España, las cédulas hipotecarias son un tipo de bono garantizado con régimen propio; las titulizaciones se hacen con fondos de titulización registrados en la CNMV. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Real Decreto-ley 24/2021: régimen de los bonos garantizados (incluidas las cédulas hipotecarias)",
+      "url": "https://www.boe.es/eli/es/rdl/2021/11/02/24/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

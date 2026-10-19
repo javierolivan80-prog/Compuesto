@@ -28,7 +28,9 @@ export function FxEffect({ rate0, gain, onInteract }: Props) {
         ? `Si el tipo de cambio no se mueve, ganas en euros lo mismo que en dólares: ${pct(gain)}.`
         : x.r < rate0
           ? `El dólar se aprecia: cada dólar vale más euros, y ganas ${pct(x.eur)} en euros, más que el ${pct(gain)} en dólares.`
-          : `El euro se aprecia: tus dólares valen menos euros, y en euros te queda ${pct(x.eur)}.`,
+          : x.eur < 0
+            ? `El euro se aprecia: tus dólares valen menos euros y en euros pierdes un ${formatNumber(-x.eur, 1)}\u00a0%.`
+            : `El euro se aprecia: tus dólares valen menos euros, y en euros te queda ${pct(x.eur)}.`,
   }));
   const max = Math.max(...rows.map((x) => Math.abs(x.eur)), gain);
   return (
