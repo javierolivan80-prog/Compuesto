@@ -80,6 +80,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       g: z.number().min(0).max(5),
     })
     .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
+  FuturePayoff: z.object({
+    price: z.number().min(20),
+    units: z.number().int().positive().max(1000),
+  }),
   RepoFlow: z.object({
     collateral: z.number().positive(),
     haircut: z.number().min(0).max(50),

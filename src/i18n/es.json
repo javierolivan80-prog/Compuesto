@@ -1399,5 +1399,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa los productos y sus reglas antes de firmar nada.",
     "debrief": "Ver qué ha pasado"
+  },
+  "futurePayoff": {
+    "title": "Lo que gana uno, lo pierde el otro"
   }
 }

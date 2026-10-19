@@ -71,6 +71,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `Duration` | Duración | El balancín con bonos de distintos plazos: los largos se mueven más | Plazo del bono |
 | `YieldCurve` | Curva de tipos | Curva elástica que se empina, aplana o invierte | Arrastrar la curva |
 | `FundVsEtf` | Fondo vs ETF | Una cesta que cotiza en continuo frente a otra con precio una vez al día | Ninguna |
+| `FuturePayoff` | Introducción a derivados | Dos rectas cruzadas: el resultado del comprador y del vendedor de un futuro frente al precio al vencer | Precio al vencimiento |
 | `RepoFlow` | Repo | Bonos que van al prestamista y dinero que vuelve; al vencer, el camino inverso con intereses | Paso a paso |
 | `FxEffect` | Efecto divisa | Dos barras: la subida de un activo en dólares, fija, y la misma subida en euros, que cambia con el EUR/USD | Tipo de cambio un año después |
 | `TerDrain` | Comisiones (TER) | Dos curvas compuestas idénticas; una pierde un hilo dorado cada año por comisiones | TER |

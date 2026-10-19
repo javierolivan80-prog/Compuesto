@@ -7,6 +7,7 @@ import { CompoundCurve } from './CompoundCurve';
 import { DcfTimeTravel } from './DcfTimeTravel';
 import { Duration } from './Duration';
 import { EvBridge } from './EvBridge';
+import { FuturePayoff } from './FuturePayoff';
 import { FxEffect } from './FxEffect';
 import { ExDividend } from './ExDividend';
 import { IndexWeights } from './IndexWeights';
@@ -58,6 +59,7 @@ const REGISTRY = {
   NormalTails,
   FxEffect,
   RepoFlow,
+  FuturePayoff,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */
