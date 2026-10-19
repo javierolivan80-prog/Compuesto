@@ -7,6 +7,7 @@ import { setupDetective } from '../src/engine/games/ratio-detective';
 import { rightVerdict, setupCheap } from '../src/engine/games/cheap-or-dear';
 import { bestWeight, CURRENT, leveredBeta, setupWacc } from '../src/engine/games/wacc-mix';
 import { BASE, bossGrowth, impliedWacc, setupDcf, START_3 } from '../src/engine/games/dcf-express';
+import { required, setupBond } from '../src/engine/games/bond-issue';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -39,6 +40,22 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'bond-issue') {
+    // referencia 0: cupón a la par, dirección del precio y TIR bien (el cupón empieza en el 3 %)
+    await expect(page.getByRole('heading', { name: 'La emisión de Naranjas' })).toBeVisible();
+    const setup = setupBond(seed);
+    const y = required(setup);
+    const n = Math.round((y - 3) * 10);
+    for (let i = 0; i < Math.abs(n); i++)
+      await page.getByRole('button', { name: n > 0 ? 'Subir el cupón' : 'Bajar el cupón' }).click();
+    await page.getByRole('button', { name: /^Emitir con un cupón/ }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: setup.shock < 0 ? '▲ Sube' : '▼ Baja' }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: new RegExp(`^${formatNumber(y + setup.shock, 2)}\\s%$`) })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'dcf-express') {
     // referencia 0: WACC implícito, g del jefe sin defenderla y el caso base del modelo aprobado
     await expect(page.getByRole('heading', { name: 'DCF Express' })).toBeVisible();

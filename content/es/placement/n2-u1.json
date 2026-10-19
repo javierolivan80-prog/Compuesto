@@ -1,0 +1,157 @@
+{
+  "id": "salto-n2-u1",
+  "unitId": "n2-u1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u1-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cupon-bono"],
+      "prompt": "Bono de 1.000 € con cupón del 3 %. ¿Cuánto cobras al año?",
+      "options": ["30 €", "3 €", "300 €", "1.030 €"],
+      "answer": 0,
+      "explanation": "3 % de 1.000 = 30 €.",
+      "wrongExplanations": {
+        "1": "El cupón es sobre 1.000, no sobre 100.",
+        "2": "Es el 30 %.",
+        "3": "Esa es la cantidad del último año, con el nominal."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Suben los tipos de interés. ¿Qué pasa con el precio de los bonos ya emitidos?",
+      "options": ["Baja", "Sube", "No cambia", "Depende del rating, pero nunca baja"],
+      "answer": 0,
+      "explanation": "Precio y tipos van al revés.",
+      "wrongExplanations": {
+        "1": "Eso pasa cuando bajan los tipos.",
+        "2": "El cupón es fijo, pero el precio se ajusta.",
+        "3": "Baja en todos."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono con cupón del 5 % y el mercado pide un 3 %. ¿Cómo cotiza?",
+      "options": ["Sobre la par", "A la par", "Bajo la par", "No cotiza"],
+      "answer": 0,
+      "explanation": "Paga más de lo que pide el mercado: vale más de 100.",
+      "wrongExplanations": {
+        "1": "Solo si cupón y mercado coinciden.",
+        "2": "Al revés.",
+        "3": "Cotiza a un precio distinto de 100."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["tir-bono"],
+      "prompt": "A un bono le queda un año, paga cupón de 4 y cotiza a 100. ¿Su TIR?",
+      "options": ["4 %", "0 %", "104 %", "4,2 %"],
+      "answer": 0,
+      "explanation": "104 / 100 − 1 = 4 %: a la par, TIR = cupón.",
+      "wrongExplanations": {
+        "1": "Cobras el cupón.",
+        "2": "Es lo que cobras, no la rentabilidad.",
+        "3": "Sería si cotizara por debajo de 100."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["tir-bono"],
+      "statement": "Comprar un bono por encima de 100 da una TIR menor que su cupón.",
+      "answer": true,
+      "explanation": "Verdadero: pierdes la diferencia hasta 100 al vencimiento."
+    },
+    {
+      "id": "salto-n2-u1-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["letras-bonos-tesoro"],
+      "prompt": "¿Qué valor del Tesoro no paga cupón?",
+      "options": [
+        "La Letra",
+        "El Bono a 5 años",
+        "La Obligación a 10 años",
+        "La Obligación a 30 años"
+      ],
+      "answer": 0,
+      "explanation": "Las Letras se compran al descuento.",
+      "wrongExplanations": {
+        "1": "Paga cupón anual.",
+        "2": "Paga cupón anual.",
+        "3": "Paga cupón anual."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["rating-spread"],
+      "prompt": "El Estado rinde un 3 % y una empresa un 4,25 %. ¿Diferencial?",
+      "options": ["125 pb", "1,25 pb", "425 pb", "12,5 pb"],
+      "answer": 0,
+      "explanation": "1,25 puntos = 125 puntos básicos.",
+      "wrongExplanations": {
+        "1": "1 punto son 100 pb.",
+        "2": "Es la rentabilidad de la empresa, no el diferencial.",
+        "3": "Falta multiplicar por 100, no por 10."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["rating-spread"],
+      "prompt": "¿Qué rating es el último de grado de inversión?",
+      "options": ["BBB−", "BB+", "A", "AAA"],
+      "answer": 0,
+      "explanation": "Desde BBB− hacia arriba es grado de inversión.",
+      "wrongExplanations": {
+        "1": "Ya es alto rendimiento.",
+        "2": "Es grado de inversión, pero no el último.",
+        "3": "Es el mejor, no el último."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Tesoro Público, los valores del Tesoro: Letras, Bonos y Obligaciones del Estado",
+      "url": "https://www.tesoro.es",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30"
+}

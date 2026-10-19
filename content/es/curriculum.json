@@ -113,7 +113,19 @@
       "rank": "Analista",
       "floor": 2,
       "weeks": "Semanas 17–22",
-      "units": []
+      "units": [
+        {
+          "id": "n2-u1",
+          "name": "Bonos: cupón, precio y TIR",
+          "concepts": [
+            "cupon-bono",
+            "precio-bono-tipos",
+            "tir-bono",
+            "letras-bonos-tesoro",
+            "rating-spread"
+          ]
+        }
+      ]
     },
     {
       "level": 4,

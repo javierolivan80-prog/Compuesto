@@ -491,19 +491,25 @@
     "id": "cupon-bono",
     "name": "Cupón y valor nominal de un bono",
     "level": 2,
-    "prerequisites": ["interes-compuesto"]
+    "prerequisites": ["interes-compuesto"],
+    "unit": "n2-u1",
+    "description": "Un bono paga un cupón fijo sobre su nominal cada año y devuelve el nominal al vencimiento."
   },
   {
     "id": "precio-bono-tipos",
     "name": "Precio de un bono y tipos de interés",
     "level": 2,
-    "prerequisites": ["cupon-bono"]
+    "prerequisites": ["cupon-bono"],
+    "unit": "n2-u1",
+    "description": "El precio de un bono es el valor actual de sus flujos: si suben los tipos, baja. A la par si el cupón iguala lo que pide el mercado."
   },
   {
     "id": "tir-bono",
     "name": "TIR de un bono",
     "level": 2,
-    "prerequisites": ["precio-bono-tipos"]
+    "prerequisites": ["precio-bono-tipos"],
+    "unit": "n2-u1",
+    "description": "La TIR es la rentabilidad que iguala el precio con el valor actual de los flujos: lo que se gana manteniendo el bono hasta el vencimiento. No es el cupón ni la rentabilidad corriente."
   },
   {
     "id": "curva-tipos",
@@ -545,13 +551,17 @@
     "id": "rating-spread",
     "name": "Rating y spread de crédito",
     "level": 2,
-    "prerequisites": ["tir-bono"]
+    "prerequisites": ["tir-bono"],
+    "unit": "n2-u1",
+    "description": "El rating mide el riesgo de impago (grado de inversión desde BBB−) y el diferencial es lo que paga una empresa sobre el Estado al mismo plazo, en puntos básicos."
   },
   {
     "id": "letras-bonos-tesoro",
     "name": "Letras y Bonos del Tesoro",
     "level": 2,
-    "prerequisites": ["cupon-bono"]
+    "prerequisites": ["cupon-bono"],
+    "unit": "n2-u1",
+    "description": "Deuda del Estado: Letras (hasta 12 meses, al descuento), Bonos (3 y 5 años) y Obligaciones (10 años o más), con cupón anual."
   },
   {
     "id": "mercado-monetario-repo",

@@ -1,0 +1,186 @@
+{
+  "id": "n2-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 1,
+  "title": "Jefe final: el bono de Pirineo Energía",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el precio, el cupón y la TIR de un bono y razonar cómo le afectan los tipos"
+  ],
+  "concepts": ["cupon-bono", "precio-bono-tipos", "tir-bono", "rating-spread"],
+  "companies": ["pirineo-energia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "Pirineo Energía emite un bono a 3 años. El Estado a 3 años rinde un 2,6 % y a Pirineo le piden 190 puntos básicos más. ¿Qué rentabilidad le piden? (%, 1 decimal)",
+      "answer": 4.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2.6 + 190 / 100",
+      "explanation": "2,6 + 1,9 = 4,5 %."
+    },
+    {
+      "id": "n2-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "El bono paga un cupón del 5 %. Al 4,5 %, ¿cuál es su precio? (por cada 100, 2 decimales)",
+      "answer": 101.37,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "5 / 1.045 + 5 / 1.045 ^ 2 + 105 / 1.045 ^ 3",
+      "explanation": "5 / 1,045 + 5 / 1,045² + 105 / 1,045³ = 101,37: sobre la par, porque el cupón supera lo que pide el mercado. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación."
+    },
+    {
+      "id": "n2-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "prompt": "Si compras 10 bonos de 1.000 €, ¿cuánto cobras de cupones al año? (€)",
+      "answer": 500,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10 * 1000 * 0.05",
+      "explanation": "10 × 1.000 × 5 % = 500 €."
+    },
+    {
+      "id": "n2-u1-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "¿Cuál es la rentabilidad corriente si lo compras a 101,37? (%, 2 decimales)",
+      "answer": 4.93,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "5 / 101.37 * 100",
+      "explanation": "5 / 101,37 = 4,93 %, más que su TIR del 4,5 %: sobre la par, la rentabilidad corriente exagera lo que ganas."
+    },
+    {
+      "id": "n2-u1-l5-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un año después, a Pirineo le piden un 5,5 %. ¿Qué le pasa al precio de su bono?",
+      "options": [
+        "Baja de 101,37 a menos de 100: la rentabilidad pedida ya supera su cupón del 5 %",
+        "Sube, porque Pirineo paga más",
+        "No cambia: el cupón es fijo",
+        "Baja exactamente un punto"
+      ],
+      "answer": 0,
+      "explanation": "Con dos años por delante, al 5,5 % vale 99,08.",
+      "wrongExplanations": {
+        "1": "Pirineo sigue pagando el mismo cupón; lo que sube es lo que pide el mercado.",
+        "2": "El cupón es fijo, el precio no.",
+        "3": "El precio no baja punto por punto con el tipo."
+      }
+    },
+    {
+      "id": "n2-u1-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "¿Qué abre el diferencial de Pirineo y qué lo cierra?",
+      "categories": ["Lo abre", "Lo cierra"],
+      "items": [
+        {
+          "text": "Una agencia le baja el rating",
+          "category": "Lo abre"
+        },
+        {
+          "text": "Su deuda crece más que su EBITDA",
+          "category": "Lo abre"
+        },
+        {
+          "text": "Le suben el rating",
+          "category": "Lo cierra"
+        },
+        {
+          "text": "Reduce deuda con la caja que genera",
+          "category": "Lo cierra"
+        }
+      ],
+      "explanation": "Más riesgo de impago, más diferencial; menos riesgo, menos."
+    },
+    {
+      "id": "n2-u1-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "statement": "Si compras el bono de Pirineo a 99,08 a dos años del vencimiento y cobras todo, tu TIR es mayor que su cupón del 5 %.",
+      "answer": true,
+      "explanation": "Verdadero: bajo la par, ganas además la subida hasta 100. En el ejemplo, un 5,5 %."
+    },
+    {
+      "id": "n2-u1-l5-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos", "tir-bono"],
+      "character": "mentora",
+      "situation": "Un cliente quiere comprar el bono de Pirineo a 101,37 «porque paga un 5 %, más que el 4,5 % de otros bonos parecidos».",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que lo que gana si lo mantiene es la TIR, un 4,5 %, como los otros: el cupón alto ya está pagado en el precio sobre la par",
+        "Que tiene razón: el cupón es lo que cuenta",
+        "Que rendirá un 4,93 %, la rentabilidad corriente",
+        "Que debería esperar a que cotice a 100"
+      ],
+      "answer": 0,
+      "explanation": "Precio y cupón se compensan: comparar bonos por la TIR evita esa ilusión. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "El cupón alto se paga en el precio.",
+        "2": "La rentabilidad corriente ignora la pérdida de 101,37 a 100.",
+        "3": "Nadie sabe si cotizará a 100 antes del vencimiento."
+      }
+    },
+    {
+      "id": "n2-u1-l5-e9",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Precio y tipos de interés se mueven en sentido ___.",
+      "answers": [["contrario", "opuesto", "inverso"]],
+      "explanation": "Sube el tipo, baja el precio; baja el tipo, sube el precio."
+    }
+  ],
+  "realWorld": "Pirineo sigue en el universo de Compuesto: en la planta 1 calculaste su WACC con un coste de la deuda del 5 %. Ahora ves de dónde sale ese coste: el tipo del Estado más su diferencial. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

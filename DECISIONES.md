@@ -619,3 +619,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Conceptos:** `van` y `dcf`. La TIR (`tir-proyecto`) queda para una unidad de presupuesto de capital.
 - **Diseño del juego:** el objetivo de la ficha («caer en el rango del comité») es el reto 3; antes van dos retos que enseñan lo esencial del DCF, el WACC implícito en el precio y el peso del valor terminal. Ficha en `docs/specs/dcf-express.md`.
 - **Convención:** el valor terminal por Gordon se descuenta con el factor del último flujo a mitad de año (4,5 años), porque parte de un flujo. El valor por múltiplo se descuenta a 5 años, porque es un valor a 31/12/2030. Las dos convenciones son las del modelo de referencia (revisión, ronda 2).
+
+## 2026-10-19 — Planta 2: unidad `n2-u1` «Bonos: cupón, precio y TIR» y juego «La emisión de Naranjas»
+
+- **Decisión:** la planta 2 empieza por el caso hilo: Naranjas emite bonos (CLAUDE.md §8b). Cinco lecciones:
+  - el juego «La emisión de Naranjas» (`n2-u1-l1`, semilla 0), nuevo, con ficha en `docs/specs/emision-naranjas.md`;
+  - cupón, nominal y precio, con el explicador `BondSeesaw` (ya en el catálogo);
+  - la TIR;
+  - Letras, Bonos y Obligaciones del Tesoro, rating y diferencial;
+  - el Jefe final con un bono de Pirineo Energía a 3 años.
+- La ficha 13 de JUEGOS («Curva de tipos») queda para la unidad de duración y curva, donde encaja mejor: mover la curva tiene más sentido cuando ya se sabe qué es el precio de un bono.
+- **Conceptos:** `cupon-bono`, `precio-bono-tipos`, `tir-bono`, `letras-bonos-tesoro` y `rating-spread`.
+- **Bloom de N2** (≥ 50 % recordar/entender): los numéricos son de aplicar, y los ejercicios de producir de entender o recordar (clasificar, ordenar, completar) equilibran la mezcla.
+- **Hechos que caducan:** los plazos de los valores del Tesoro y la escala de rating llevan fuente (Tesoro Público y ESMA) y `verificarAntesDe` 2027-04-30.
+  - 🛑 Javier debe contrastarlos en tesoro.es: Letras de 3, 6, 9 y 12 meses; Bonos a 3 y 5 años; Obligaciones a 10, 15, 30 y 50 años.

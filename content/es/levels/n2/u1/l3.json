@@ -1,0 +1,226 @@
+{
+  "id": "n2-u1-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 1,
+  "title": "La TIR de un bono",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es la TIR de un bono y en qué se diferencia de la rentabilidad corriente",
+    "Calcular la TIR de un bono a un año"
+  ],
+  "concepts": ["tir-bono"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "TIR",
+      "text": "La tasa interna de rentabilidad (TIR) de un bono es la rentabilidad que iguala su precio con el valor actual de sus flujos. Es lo que ganas al año si lo mantienes hasta el vencimiento y reinviertes los cupones a esa misma tasa."
+    },
+    {
+      "type": "card",
+      "term": "Rentabilidad corriente",
+      "text": "La rentabilidad corriente es solo cupón ÷ precio: lo que cobras este año sobre lo que pagaste. Ignora la ganancia o la pérdida hasta 100 al vencimiento, así que no es la TIR."
+    },
+    {
+      "type": "example",
+      "text": "Un bono a 2 años con cupón del 3 % cotiza a 96,28. Su TIR es un 5 %: 3 / 1,05 + 103 / 1,05² = 96,28. Su rentabilidad corriente, 3 / 96,28 = 3,12 %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u1-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "Un bono paga un cupón de {c} y cotiza a {p}. ¿Cuál es su rentabilidad corriente? (%, 2 decimales)",
+      "answer": 4.21,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} / {p} * 100",
+      "params": {
+        "c": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "p": {
+          "value": 95,
+          "min": 90,
+          "max": 110,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / {p} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{c} / {p} = {v} %: solo el cupón sobre el precio."
+    },
+    {
+      "id": "n2-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "A un bono le queda un año: pagará 100 más un cupón de {c}. Si cotiza a {p}, ¿cuál es su TIR? (%, 2 decimales)",
+      "answer": 4.67,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "((100 + {c}) / {p} - 1) * 100",
+      "params": {
+        "c": {
+          "value": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "p": {
+          "value": 98.4,
+          "min": 95,
+          "max": 102,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "((100 + {c}) / {p} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "Con un año, la TIR es lo que cobras sobre lo que pagas, menos 1: (100 + {c}) / {p} − 1 = {v} %.",
+      "hint": "Divide lo que cobrarás entre el precio."
+    },
+    {
+      "id": "n2-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "Comprueba la TIR del ejemplo: ¿qué precio tiene un bono a 2 años con cupón del 3 % si su TIR es del 5 %? (por cada 100, 2 decimales)",
+      "answer": 96.28,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "3 / 1.05 + 103 / 1.05 ^ 2",
+      "explanation": "3 / 1,05 + 103 / 1,05² = 2,86 + 93,42 = 96,28: la TIR es la tasa que da exactamente el precio."
+    },
+    {
+      "id": "n2-u1-l3-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "Compras a 105 un bono con cupón del 6 % y lo mantienes hasta el vencimiento. ¿Cómo es tu TIR?",
+      "options": [
+        "Menor del 6 %: al vencimiento solo te devuelven 100",
+        "Mayor del 6 %, por el precio alto",
+        "Exactamente un 6 %",
+        "No se puede saber sin el rating"
+      ],
+      "answer": 0,
+      "explanation": "Pierdes 5 desde 105 hasta 100, y esa pérdida rebaja lo que te da el cupón.",
+      "wrongExplanations": {
+        "1": "Pagar más de 100 baja la rentabilidad.",
+        "2": "Solo si lo compras a 100.",
+        "3": "El rating explica el precio, pero la TIR se calcula con los flujos."
+      }
+    },
+    {
+      "id": "n2-u1-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "¿La TIR es mayor o menor que el cupón?",
+      "categories": ["TIR mayor que el cupón", "TIR menor que el cupón"],
+      "items": [
+        {
+          "text": "Bono comprado a 92",
+          "category": "TIR mayor que el cupón"
+        },
+        {
+          "text": "Bono comprado a 108",
+          "category": "TIR menor que el cupón"
+        },
+        {
+          "text": "Bono que cotiza bajo la par",
+          "category": "TIR mayor que el cupón"
+        },
+        {
+          "text": "Bono que cotiza sobre la par",
+          "category": "TIR menor que el cupón"
+        }
+      ],
+      "explanation": "Bajo la par ganas además la subida hasta 100; sobre la par pierdes la bajada."
+    },
+    {
+      "id": "n2-u1-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "statement": "La rentabilidad corriente (cupón ÷ precio) es lo mismo que la TIR.",
+      "answer": false,
+      "explanation": "Falso: la rentabilidad corriente ignora la ganancia o la pérdida hasta 100 al vencimiento."
+    },
+    {
+      "id": "n2-u1-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "prompt": "La TIR es la tasa que iguala el precio del bono con el valor ___ de sus flujos.",
+      "answers": [["actual"]],
+      "explanation": "El valor actual: los flujos traídos a hoy."
+    },
+    {
+      "id": "n2-u1-l3-e8",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "character": "rival",
+      "prompt": "Hugo calcula la TIR de un bono al que le queda un año. ¿Dónde se equivoca?",
+      "lines": [
+        "Cupón de 5 y nominal de 100.",
+        "Cotiza a 101.",
+        "Cobrará 105 dentro de un año.",
+        "Su TIR es 5 / 101 = 4,95 %."
+      ],
+      "errorIndex": 3,
+      "explanation": "Esa es la rentabilidad corriente. La TIR es 105 / 101 − 1 = 3,96 %: pierde 1 de 101 a 100."
+    }
+  ],
+  "realWorld": "Las webs de renta fija muestran junto a cada bono su TIR: es la cifra que se compara entre bonos, no el cupón. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

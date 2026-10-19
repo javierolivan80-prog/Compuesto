@@ -1,0 +1,254 @@
+{
+  "id": "n2-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: la emisión de Naranjas",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué son el cupón, el nominal y el precio de un bono",
+    "Relacionar el precio de un bono con los tipos de interés y con su TIR"
+  ],
+  "concepts": ["cupon-bono", "precio-bono-tipos", "tir-bono"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "bond-issue",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cupón y nominal",
+      "text": "Un bono es un préstamo troceado: Naranjas pide 1.000 € a cada inversor, le paga cada año un cupón fijo del {coupon} % del nominal ({coupon_cash} € por bono) y le devuelve los 1.000 € al vencimiento."
+    },
+    {
+      "type": "card",
+      "term": "Precio y tipos",
+      "text": "Los inversores pedían un {yield} %: el {tesoro} % del Bono del Estado a 5 años más un diferencial de {spread} puntos por el riesgo de Naranjas. Con tu cupón del {coupon} %, el bono se colocó a {price_issue} por cada 100. Si el cupón es menor que lo que piden, el precio baja de 100."
+    },
+    {
+      "type": "card",
+      "term": "TIR",
+      "text": "Cuando los tipos subieron al {new_yield} %, el bono pasó a valer {price_after}: precio y tipos van al revés. Quien lo compra a ese precio obtiene una TIR del {tir_buy} % si lo mantiene hasta el vencimiento: la rentabilidad del mercado, no el cupón."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u1-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "prompt": "Un bono de 1.000 € de nominal paga un cupón anual del {coupon} %. ¿Cuánto cobras cada año? (€)",
+      "answer": 42,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{coupon} * 10",
+      "params": {
+        "coupon": {
+          "value": 4.2,
+          "min": 2,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{coupon} * 10",
+          "decimals": 2
+        }
+      },
+      "explanation": "{coupon} % de 1.000 € = {v} € al año, sea cual sea el precio al que se negocie el bono.",
+      "hint": "El cupón se calcula sobre el nominal."
+    },
+    {
+      "id": "n2-u1-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "El Bono del Estado a 5 años rinde un {tesoro} % y los inversores piden a una empresa un diferencial de {spread} puntos. ¿Qué rentabilidad le piden? (%, 1 decimal)",
+      "answer": 4.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{tesoro} + {spread}",
+      "params": {
+        "tesoro": {
+          "value": 2.8,
+          "min": 2,
+          "max": 4,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "spread": {
+          "value": 1.4,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{tesoro} + {spread}",
+          "decimals": 1
+        }
+      },
+      "explanation": "{tesoro} + {spread} = {v} %: lo que rinde el Estado al mismo plazo más una prima por el riesgo de la empresa."
+    },
+    {
+      "id": "n2-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "A un bono le queda un año: pagará 100 más un cupón de {coupon} dentro de un año. Si el mercado pide un {new_yield} %, ¿cuánto vale hoy? (por cada 100, 2 decimales)",
+      "answer": 99.05,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(100 + {coupon}) / (1 + {new_yield} / 100)",
+      "params": {
+        "coupon": {
+          "value": 4.2,
+          "min": 2,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "new_yield": {
+          "value": 5.2,
+          "min": 2,
+          "max": 7,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "(100 + {coupon}) / (1 + {new_yield} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "Lo que cobrarás, traído a hoy: (100 + {coupon}) / (1 + {new_yield} %) = {v}.",
+      "hint": "Divide lo que cobrarás entre (1 + rentabilidad)."
+    },
+    {
+      "id": "n2-u1-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "¿El bono cotiza sobre la par (más de 100) o bajo la par (menos de 100)?",
+      "categories": ["Sobre la par", "Bajo la par"],
+      "items": [
+        {
+          "text": "Cupón del 5 % y el mercado pide un 4 %",
+          "category": "Sobre la par"
+        },
+        {
+          "text": "Cupón del 3 % y el mercado pide un 4 %",
+          "category": "Bajo la par"
+        },
+        {
+          "text": "Emitido a la par; después suben los tipos",
+          "category": "Bajo la par"
+        },
+        {
+          "text": "Emitido a la par; después bajan los tipos",
+          "category": "Sobre la par"
+        }
+      ],
+      "explanation": "Si el bono paga más de lo que pide el mercado, vale más de 100; si paga menos, vale menos."
+    },
+    {
+      "id": "n2-u1-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "¿Por qué baja el precio de tu bono cuando suben los tipos de interés?",
+      "options": [
+        "Porque los bonos nuevos pagan más, y nadie paga 100 por uno que paga menos",
+        "Porque la empresa paga menos cupón",
+        "Porque el nominal que se devuelve baja",
+        "Porque el bono vence antes"
+      ],
+      "answer": 0,
+      "explanation": "El cupón y el nominal no cambian; lo que cambia es la rentabilidad que pide el mercado, y el precio se ajusta para darla.",
+      "wrongExplanations": {
+        "1": "El cupón es fijo.",
+        "2": "Al vencimiento se devuelve el nominal completo.",
+        "3": "El vencimiento tampoco cambia."
+      }
+    },
+    {
+      "id": "n2-u1-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "statement": "Si compras un bono por debajo de 100 y lo mantienes hasta el vencimiento, tu TIR es mayor que su cupón.",
+      "answer": true,
+      "explanation": "Verdadero: además del cupón, ganas la diferencia entre lo que pagaste y los 100 que te devuelven."
+    },
+    {
+      "id": "n2-u1-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "prompt": "El importe que el emisor devuelve al vencimiento del bono es su valor ___.",
+      "answers": [["nominal", "facial"]],
+      "explanation": "El nominal (o valor facial): sobre él se calcula el cupón."
+    },
+    {
+      "id": "n2-u1-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["tir-bono"],
+      "character": "rival",
+      "situation": "Hugo compró un bono con cupón del 3 % a 94,69 y dice: «me rinde un 3 %, lo que pone el cupón».",
+      "prompt": "¿Qué le contestas?",
+      "options": [
+        "Que si lo mantiene hasta el vencimiento rinde más: cobra el 3 % sobre el nominal y además gana la diferencia de 94,69 a 100",
+        "Que rinde menos del 3 %, porque pagó menos",
+        "Que rinde exactamente un 3 %",
+        "Que no rinde nada hasta el vencimiento"
+      ],
+      "answer": 0,
+      "explanation": "Su TIR suma el cupón y la subida hasta 100: en el juego, un 4,2 % a cinco años.",
+      "wrongExplanations": {
+        "1": "Pagar menos sube la rentabilidad, no la baja.",
+        "2": "Eso solo pasa comprando a 100.",
+        "3": "Cobra cupones cada año."
+      }
+    }
+  ],
+  "realWorld": "Cuando una empresa española emite bonos, la CNMV publica el folleto o el documento de admisión con el cupón, el vencimiento y los riesgos. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

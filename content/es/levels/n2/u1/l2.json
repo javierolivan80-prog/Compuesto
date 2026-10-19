@@ -1,0 +1,224 @@
+{
+  "id": "n2-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 1,
+  "title": "Cupón, nominal y precio",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el precio de un bono descontando sus flujos",
+    "Explicar cuándo un bono cotiza a la par, sobre la par o bajo la par"
+  ],
+  "concepts": ["cupon-bono", "precio-bono-tipos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Los flujos de un bono",
+      "text": "Un bono a 3 años con cupón del 4 % paga 4 al final de cada año y, el último, 100 más 4. Su precio es lo que valen hoy esos flujos, descontados a la rentabilidad que pide el mercado."
+    },
+    {
+      "type": "visual",
+      "component": "BondSeesaw",
+      "props": {
+        "coupon": 4,
+        "years": 5
+      }
+    },
+    {
+      "type": "card",
+      "term": "A la par",
+      "text": "Si el mercado pide lo mismo que paga el cupón, el bono vale 100: cotiza a la par. Si pide más, cotiza bajo la par; si pide menos, sobre la par. El precio se da en porcentaje del nominal."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u1-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "prompt": "Tienes {n} bonos de 1.000 € con un cupón del {c} %. ¿Cuánto cobras de cupones al año? (€)",
+      "answer": 200,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{n} * 1000 * {c} / 100",
+      "params": {
+        "n": {
+          "value": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} * 1000 * {c} / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "{n} × 1.000 × {c} % = {v} € al año."
+    },
+    {
+      "id": "n2-u1-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono a 2 años paga un cupón del 4 %. Si el mercado pide un 5 %, ¿cuál es su precio? (por cada 100, 2 decimales)",
+      "answer": 98.14,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "4 / 1.05 + 104 / 1.05 ^ 2",
+      "explanation": "4 / 1,05 + 104 / 1,05² = 3,81 + 94,33 = 98,14: bajo la par, porque paga menos de lo que pide el mercado.",
+      "hint": "Descuenta el cupón del año 1 y el cupón más el nominal del año 2."
+    },
+    {
+      "id": "n2-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono a 3 años paga un cupón del {c} %. Si el mercado pide un {y} %, ¿cuál es su precio? (por cada 100, 2 decimales)",
+      "answer": 102.78,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} / (1 + {y} / 100) + {c} / (1 + {y} / 100) ^ 2 + (100 + {c}) / (1 + {y} / 100) ^ 3",
+      "params": {
+        "c": {
+          "value": 5,
+          "min": 2,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "y": {
+          "value": 4,
+          "min": 2,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / (1 + {y} / 100) + {c} / (1 + {y} / 100) ^ 2 + (100 + {c}) / (1 + {y} / 100) ^ 3",
+          "decimals": 2
+        }
+      },
+      "explanation": "Tres flujos descontados al {y} %: {v}.",
+      "hint": "Cupón, cupón y cupón más 100, cada uno con su año."
+    },
+    {
+      "id": "n2-u1-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Mercado frente a cupón: ¿cómo cotiza el bono?",
+      "categories": ["Sobre la par", "A la par", "Bajo la par"],
+      "items": [
+        {
+          "text": "Cupón 4 %, el mercado pide 3 %",
+          "category": "Sobre la par"
+        },
+        {
+          "text": "Cupón 4 %, el mercado pide 4 %",
+          "category": "A la par"
+        },
+        {
+          "text": "Cupón 4 %, el mercado pide 6 %",
+          "category": "Bajo la par"
+        }
+      ],
+      "explanation": "Comparar lo que paga el bono con lo que pide el mercado basta para saber de qué lado de 100 queda."
+    },
+    {
+      "id": "n2-u1-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono cotiza a 103. ¿Qué sabes?",
+      "options": [
+        "Que su cupón es mayor que la rentabilidad que pide hoy el mercado",
+        "Que al vencimiento devolverá 103",
+        "Que paga un cupón del 3 %",
+        "Que su emisor tiene problemas"
+      ],
+      "answer": 0,
+      "explanation": "Sobre la par: paga más de lo que pide el mercado, y por eso se paga más de 100.",
+      "wrongExplanations": {
+        "1": "Al vencimiento devuelve el nominal: 100.",
+        "2": "El precio no dice el cupón.",
+        "3": "Si temiera impagos, cotizaría bajo la par."
+      }
+    },
+    {
+      "id": "n2-u1-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "statement": "Si un bono cotiza bajo la par, el emisor paga menos cupón del prometido.",
+      "answer": false,
+      "explanation": "Falso: el cupón no cambia. Lo que baja es el precio al que se compra y se vende el bono."
+    },
+    {
+      "id": "n2-u1-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono que cotiza a 100 cotiza a la ___.",
+      "answers": [["par"]],
+      "explanation": "A la par: precio igual al nominal."
+    },
+    {
+      "id": "n2-u1-l2-e8",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cupon-bono"],
+      "prompt": "Ordena lo que cobras con un bono a 3 años con cupón del 4 %, comprado al emitirse.",
+      "steps": [
+        "Pagas el precio al comprarlo",
+        "Cobras 4 al final del año 1",
+        "Cobras 4 al final del año 2",
+        "Cobras 104 al final del año 3: el último cupón y el nominal"
+      ],
+      "explanation": "Un pago al principio, cupones cada año y el nominal con el último cupón."
+    }
+  ],
+  "realWorld": "En la web del Tesoro y en la de BME (renta fija) verás bonos con su cupón, su vencimiento y su precio en porcentaje del nominal. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

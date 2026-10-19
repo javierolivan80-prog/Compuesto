@@ -1,0 +1,245 @@
+{
+  "id": "n2-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 1,
+  "title": "Del Tesoro a Naranjas: rating y diferencial",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir Letras, Bonos y Obligaciones del Estado",
+    "Explicar el rating y el diferencial de crédito de una empresa"
+  ],
+  "concepts": ["letras-bonos-tesoro", "rating-spread"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Letras, Bonos y Obligaciones",
+      "text": "El Tesoro Público financia al Estado con Letras (hasta 12 meses, sin cupón: se compran por menos de lo que se cobra al vencer), Bonos (3 y 5 años) y Obligaciones (10 años o más), con cupón anual. Su rentabilidad es la referencia de los tipos en España."
+    },
+    {
+      "type": "card",
+      "term": "Rating",
+      "text": "Las agencias de calificación registradas en la UE (S&P, Moody's, Fitch…) puntúan el riesgo de impago, de AAA, la mejor, hacia abajo. Desde BBB− (o Baa3) hacia arriba es grado de inversión; por debajo, alto rendimiento."
+    },
+    {
+      "type": "card",
+      "term": "Diferencial",
+      "text": "Una empresa paga la rentabilidad del Estado al mismo plazo más un diferencial por su riesgo de crédito. Se mide en puntos básicos: 100 pb = 1 punto. Peor rating, más diferencial; si el mercado teme impagos, los diferenciales se abren."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u1-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["letras-bonos-tesoro"],
+      "prompt": "Compras por {p} € una Letra del Tesoro que dentro de 12 meses te devolverá 1.000 €. ¿Qué rentabilidad obtienes? (%, 2 decimales)",
+      "answer": 2.04,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(1000 / {p} - 1) * 100",
+      "params": {
+        "p": {
+          "value": 980,
+          "min": 960,
+          "max": 985,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "(1000 / {p} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "No hay cupón: ganas la diferencia. 1.000 / {p} − 1 = {v} %."
+    },
+    {
+      "id": "n2-u1-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "Un bono de empresa a 5 años rinde un {e} % y el del Estado al mismo plazo un {s} %. ¿Cuál es el diferencial, en puntos básicos?",
+      "answer": 150,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({e} - {s}) * 100",
+      "params": {
+        "e": {
+          "value": 4.6,
+          "min": 3.5,
+          "max": 7,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "s": {
+          "value": 3.1,
+          "min": 2,
+          "max": 3.4,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({e} - {s}) * 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "({e} − {s}) × 100 = {v} puntos básicos."
+    },
+    {
+      "id": "n2-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "El Estado a 5 años rinde un {s} % y el mercado pide a una empresa {pb} puntos básicos de diferencial. ¿Qué rentabilidad le pide? (%, 2 decimales)",
+      "answer": 4.55,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{s} + {pb} / 100",
+      "params": {
+        "s": {
+          "value": 2.8,
+          "min": 2,
+          "max": 4,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "pb": {
+          "value": 175,
+          "min": 50,
+          "max": 400,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{s} + {pb} / 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{pb} pb = {pb} / 100 puntos: {s} + {pb} / 100 = {v} %."
+    },
+    {
+      "id": "n2-u1-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "¿Grado de inversión o alto rendimiento?",
+      "categories": ["Grado de inversión", "Alto rendimiento"],
+      "items": [
+        {
+          "text": "AA",
+          "category": "Grado de inversión"
+        },
+        {
+          "text": "BBB−",
+          "category": "Grado de inversión"
+        },
+        {
+          "text": "BB+",
+          "category": "Alto rendimiento"
+        },
+        {
+          "text": "B",
+          "category": "Alto rendimiento"
+        }
+      ],
+      "explanation": "La frontera está en BBB−: desde ahí hacia arriba, grado de inversión."
+    },
+    {
+      "id": "n2-u1-l4-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "Ordena los ratings de menos a más riesgo de impago.",
+      "steps": ["AAA", "AA", "A", "BBB", "BB"],
+      "explanation": "Cuantas menos letras A, más riesgo; por debajo de BBB−, alto rendimiento."
+    },
+    {
+      "id": "n2-u1-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "En una crisis, los diferenciales de las empresas se abren. ¿Por qué?",
+      "options": [
+        "Porque los inversores temen más impagos y piden más prima por el riesgo",
+        "Porque el Estado deja de emitir",
+        "Porque los cupones de los bonos ya emitidos suben",
+        "Porque las agencias cobran más"
+      ],
+      "answer": 0,
+      "explanation": "Más miedo a impagos, más prima: suben las rentabilidades de las empresas y bajan los precios de sus bonos.",
+      "wrongExplanations": {
+        "1": "El diferencial se mide frente al Estado, que sigue emitiendo.",
+        "2": "El cupón de un bono emitido es fijo.",
+        "3": "El diferencial lo pide el mercado, no la agencia."
+      }
+    },
+    {
+      "id": "n2-u1-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["rating-spread"],
+      "prompt": "Un diferencial de 1 punto porcentual son 100 puntos ___.",
+      "answers": [["básicos", "basicos"]],
+      "explanation": "100 puntos básicos = 1 punto porcentual."
+    },
+    {
+      "id": "n2-u1-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["letras-bonos-tesoro"],
+      "statement": "Las Letras del Tesoro pagan un cupón cada año.",
+      "answer": false,
+      "explanation": "Falso: no tienen cupón. Se compran por menos de lo que se cobra al vencimiento, y esa diferencia es la rentabilidad."
+    }
+  ],
+  "realWorld": "En la web del Tesoro Público verás los resultados de cada subasta de Letras, Bonos y Obligaciones; los ratings de las empresas que emiten, en sus folletos y en las webs de las agencias. Los tipos y el bono de Naranjas son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (precio, rentabilidad y riesgo de crédito de los bonos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Tesoro Público, los valores del Tesoro: Letras, Bonos y Obligaciones del Estado",
+      "url": "https://www.tesoro.es",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "ESMA, agencias de calificación crediticia registradas en la UE",
+      "url": "https://www.esma.europa.eu/credit-rating-agencies",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}
