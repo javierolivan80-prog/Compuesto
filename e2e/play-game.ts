@@ -51,7 +51,7 @@ export async function playGameLesson(
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: 'El fondo B' }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
-    await page.getByRole('radio', { name: /^Más a menudo/ }).click();
+    await page.getByRole('radio', { name: /^Bastante más a menudo/ }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: /^No:/ }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();

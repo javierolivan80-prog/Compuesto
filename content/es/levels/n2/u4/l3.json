@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "La campana",
-      "text": "La distribución normal es la campana de Gauss: simétrica alrededor de la media. Un 68 % de los datos quedan a menos de una desviación típica, y un 95 % a menos de dos. Fuera de dos quedan un 5 %, la mitad en cada cola."
+      "text": "La distribución normal es la campana de Gauss: simétrica alrededor de la media. Un 68 % de los datos quedan a menos de una desviación típica, y un 95 % a menos de dos. Fuera de dos queda aproximadamente un 5 %, la mitad en cada cola."
     },
     {
       "type": "visual",
@@ -32,7 +32,7 @@
     {
       "type": "card",
       "term": "Colas gordas",
-      "text": "En los mercados, los días y meses extremos pasan más a menudo de lo que dice la normal: crisis, pánicos, quiebras. Un modelo de riesgo que supone normalidad infravalora esas caídas."
+      "text": "En los mercados, los días y meses muy extremos (de tres desviaciones o más) pasan bastante más a menudo de lo que dice la normal: crisis, pánicos, quiebras. Un modelo de riesgo que supone normalidad infravalora esas caídas."
     }
   ],
   "exercises": [
@@ -43,7 +43,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["distribucion-normal"],
-      "prompt": "Rentabilidad media de {m} % al mes y desviación típica de {s} puntos. Si fuera normal, ¿cuál sería el límite superior del intervalo donde caen el 68 % de los meses? (%, 2 decimales)",
+      "prompt": "Rentabilidad media de {m} % al mes y desviación típica de {s} puntos. Si fuera normal, ¿cuál sería el límite superior del intervalo donde cae el 68 % de los meses? (%, 2 decimales)",
       "answer": 3.9,
       "unit": "%",
       "tolerance": 0.5,
@@ -80,7 +80,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["distribucion-normal"],
-      "prompt": "Con esa media de {m} % y desviación de {s} puntos, ¿por debajo de qué rentabilidad quedaría solo un 2,5 % de los meses? (%, 2 decimales)",
+      "prompt": "Con esa media de {m} % y desviación de {s} puntos, ¿por debajo de qué rentabilidad quedaría aproximadamente un 2,5 % de los meses (regla del 95 %)? (%, 2 decimales)",
       "answer": -6.3,
       "unit": "%",
       "tolerance": 0.5,
@@ -108,7 +108,7 @@
           "decimals": 2
         }
       },
-      "explanation": "Media menos dos desviaciones: {m} − 2 × {s} = {v} %. Por debajo queda la mitad del 5 %: un 2,5 %."
+      "explanation": "Media menos dos desviaciones: {m} − 2 × {s} = {v} %. Con la regla del 95 %, por debajo queda la mitad del 5 %; exactamente, un 2,3 % (el 2,5 % exacto está a 1,96 desviaciones)."
     },
     {
       "id": "n2-u4-l3-e3",
@@ -138,7 +138,7 @@
           "decimals": 2
         }
       },
-      "explanation": "{y} × 12 meses × 2,3 % = {v} meses, si fuera normal; con colas gordas, más."
+      "explanation": "{y} × 12 meses × 2,3 % = {v} meses, si fuera normal. Con colas gordas, a dos desviaciones sale algo parecido; la diferencia está en las caídas de tres o más."
     },
     {
       "id": "n2-u4-l3-e4",
@@ -224,7 +224,7 @@
       "situation": "Un analista dice: «Según la normal, una caída del 20 % en un día pasa una vez cada muchísimos miles de años, así que no hace falta prepararse».",
       "prompt": "¿Qué le respondes?",
       "options": [
-        "Que los mercados tienen colas gordas: caídas así han pasado en la historia más de lo que la normal permite, y hay que prepararse",
+        "Que los mercados tienen colas gordas: las caídas extremas pasan mucho más a menudo de lo que la normal permite, y hay que prepararse",
         "Que tiene razón: la normal es exacta",
         "Que solo pasa en bolsas pequeñas",
         "Que basta con mirar la media"
@@ -233,7 +233,7 @@
       "explanation": "Los modelos son útiles, pero las crisis llegan más a menudo de lo que dice la campana.",
       "wrongExplanations": {
         "1": "Es un modelo, y falla en las colas.",
-        "2": "Han pasado en grandes mercados.",
+        "2": "Las colas gordas son propias de los mercados en general, no solo de los pequeños.",
         "3": "La media no dice nada de los extremos."
       }
     }

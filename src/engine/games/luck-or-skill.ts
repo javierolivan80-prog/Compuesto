@@ -5,8 +5,9 @@ import { mulberry32 } from '../prng';
  * ilusión de control). Tres pasos:
  *   1. Media y volatilidad: doce rentabilidades mensuales de dos fondos con la misma media; eliges la media y cuál es
  *      más volátil (desviación típica).
- *   2. Colas: con la normal, una caída de más de dos desviaciones típicas pasa unos 2–3 meses de cada 100; en los
- *      datos de mercado (simulados con colas gordas) pasa más a menudo.
+ *   2. Colas: con la normal, una caída de más de tres desviaciones típicas pasa 1,3 meses de cada 1.000; con colas
+ *      gordas (una t de Student de 3 grados de libertad con la misma desviación típica), unas cinco veces más. A dos
+ *      desviaciones no hay más caídas: las colas gordas se notan en los extremos.
  *   3. Ilusión de control: 32 becarios lanzan una moneda cinco meses seguidos para «predecir» el mercado; casi
  *      siempre alguno acierta los cinco. ¿Es un genio?
  */
@@ -20,8 +21,6 @@ export interface LuckSetup {
   /** Rentabilidades mensuales (%) de los fondos A (tranquilo) y B (volátil), con la misma media. */
   a: number[];
   b: number[];
-  /** Meses de 100 con caída de más de 2 desviaciones típicas en los «datos» simulados con colas gordas. */
-  fatTailMonths: number;
   /** Becarios (de 32) que aciertan los cinco meses a cara o cruz en esta partida. */
   perfect: number;
 }
@@ -51,8 +50,6 @@ export function setupLuck(seed: number): LuckSetup {
   const target = [0.5, 0.6, 0.8][Math.abs(seed) % 3]!;
   const a = series(rnd, target, 1.5);
   const b = series(rnd, target, 6);
-  // colas gordas: entre 4 y 6 meses de cada 100, frente a los ~2,3 de la normal (una sola cola)
-  const fatTailMonths = 4 + Math.floor(rnd() * 3);
   let perfect = 0;
   for (let t = 0; t < TRADERS; t++) {
     let hits = 0;
@@ -60,11 +57,13 @@ export function setupLuck(seed: number): LuckSetup {
     if (hits === CALLS) perfect++;
   }
   // la partida necesita al menos un «genio»: si la moneda no lo da, hay uno (pasa ~64 % de las veces)
-  return { seed, a, b, fatTailMonths, perfect: Math.max(1, perfect) };
+  return { seed, a, b, perfect: Math.max(1, perfect) };
 }
 
-/** Meses de cada 100 con una caída de más de 2 desviaciones típicas si los rendimientos fueran normales. */
-export const NORMAL_TAIL = 2.3;
+/** Meses de cada 1.000 con una caída de más de 3 desviaciones típicas si las rentabilidades fueran normales. */
+export const NORMAL_TAIL = 1.3;
+/** Lo mismo con colas gordas: una t de Student de 3 grados de libertad reescalada a la misma desviación típica. */
+export const FAT_TAIL = 6.9;
 /** Becarios que, de media, aciertan cinco de cinco por puro azar: 32 × (1/2)^5. */
 export const EXPECTED_PERFECT = TRADERS * 0.5 ** CALLS;
 
@@ -120,7 +119,7 @@ export function luckValues(s: LuckSetup, a: LuckAnswer): Record<string, number> 
     min_b: Math.min(...s.b),
     max_b: Math.max(...s.b),
     normal_tail: NORMAL_TAIL,
-    fat_tail: s.fatTailMonths,
+    fat_tail: FAT_TAIL,
     traders: TRADERS,
     calls: CALLS,
     perfect: s.perfect,

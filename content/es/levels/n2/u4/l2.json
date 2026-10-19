@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "La desviación típica",
-      "text": "Mide cuánto se alejan los datos de su media. Se restan la media a cada dato, se elevan al cuadrado, se suman, se dividen entre n − 1 y se saca la raíz. En finanzas, la desviación típica de las rentabilidades se llama volatilidad."
+      "text": "Mide cuánto se alejan los datos de su media. Se resta la media a cada dato, se eleva cada diferencia al cuadrado, se suman, se divide la suma entre n − 1 y se saca la raíz. En finanzas, la desviación típica de las rentabilidades se llama volatilidad."
     },
     {
       "type": "example",
@@ -100,14 +100,14 @@
       "tags": [],
       "concepts": ["media-desviacion"],
       "prompt": "Un fondo tiene una volatilidad mensual de {v} %. ¿Cuál es aproximadamente su volatilidad anual? (%, 2 decimales)",
-      "answer": 11.85,
+      "answer": 8.66,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "{v} * 12 ^ 0.5",
       "params": {
         "v": {
-          "value": 3.42,
+          "value": 2.5,
           "min": 0.5,
           "max": 8,
           "step": 0.01,
@@ -155,8 +155,8 @@
       "answer": 0,
       "explanation": "La varianza está en unidades al cuadrado; la desviación típica, en las de los datos.",
       "wrongExplanations": {
-        "1": "La varianza ya es positiva.",
-        "2": "No es el objetivo.",
+        "1": "La varianza ya es positiva (o cero).",
+        "2": "No siempre la reduce: si la varianza es menor que 1, la raíz es mayor. Se saca para volver a las unidades de los datos.",
         "3": "Excel solo sigue la definición."
       }
     },
@@ -196,7 +196,7 @@
         "Que el segundo tuvo años mucho peores y mejores: si puede necesitar el dinero en un mal año, el primero encaja mejor",
         "Que son iguales porque rinden lo mismo",
         "Que el segundo es mejor porque se mueve más",
-        "Que la volatilidad no importa a largo plazo nunca"
+        "Que la volatilidad nunca importa a largo plazo"
       ],
       "answer": 0,
       "explanation": "Con la misma media, más volatilidad significa más riesgo de tener que vender en un mal momento. Los fondos y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",

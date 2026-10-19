@@ -7,6 +7,7 @@ import {
   mean,
   meanOptions,
   MONTHS,
+  FAT_TAIL,
   NORMAL_TAIL,
   setupLuck,
   stdev,
@@ -210,7 +211,10 @@ export function LuckGame({ seed, onDone }: Props) {
             ]}
             chosen={answer.tails}
             right="more"
-            why={t('luckGame.whyTails', { n: formatNumber(NORMAL_TAIL, 1), fat: s.fatTailMonths })}
+            why={t('luckGame.whyTails', {
+              n: formatNumber(NORMAL_TAIL, 1),
+              fat: formatNumber(FAT_TAIL, 1),
+            })}
             nextLabel={t('luckGame.next')}
             testId="lg-why"
             glow={glow}

@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Colas gordas",
-      "text": "Con una distribución normal, una caída de más de dos desviaciones típicas pasaría unos {normal_tail} meses de cada 100. En esta simulación pasó {fat_tail}: los mercados tienen más meses extremos de lo que dice la campana."
+      "text": "Con una distribución normal, una caída de más de tres desviaciones típicas pasaría unos {normal_tail} meses de cada 1.000. Con colas gordas y la misma volatilidad, unos {fat_tail}: los mercados tienen más meses extremos de lo que dice la campana."
     },
     {
       "type": "card",
@@ -211,7 +211,7 @@
       "wrongExplanations": {
         "1": "Menos desviación es menos volatilidad.",
         "2": "La media no dice nada del riesgo.",
-        "3": "Los fondos no tienen rating como los bonos; su volatilidad se mide con los datos."
+        "3": "Un rating no hace falta aquí: la volatilidad se mide directamente con las rentabilidades, y ya tienes las dos desviaciones típicas."
       }
     },
     {
@@ -267,8 +267,13 @@
       "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-19"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2017/653 (PRIIPs), anexo II: indicador resumido de riesgo",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2017/653/oj",
+      "date": "2026-10-19"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-04-30",
   "lastReviewed": "2026-10-19"
 }

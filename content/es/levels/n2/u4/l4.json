@@ -69,7 +69,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ilusion-control"],
-      "prompt": "Si {g} gestores aciertan o fallan al azar cada año, ¿cuántos aciertan 5 años seguidos, de media?",
+      "prompt": "Si {g} gestores aciertan o fallan cada año a cara o cruz (50/50), ¿cuántos aciertan 5 años seguidos, de media?",
       "answer": 31.25,
       "unit": "gestores",
       "tolerance": 0.5,
@@ -130,7 +130,7 @@
           "category": "Ilusión de control"
         },
         {
-          "text": "Comparar tus resultados con los de su índice",
+          "text": "Comparar tus resultados con los de un índice de referencia",
           "category": "Prudencia"
         }
       ],
@@ -178,7 +178,7 @@
       "concepts": ["ilusion-control"],
       "prompt": "Creer que controlas resultados que dependen del azar se llama ilusión de ___.",
       "answers": [["control"]],
-      "explanation": "Ilusión de control: el 🧠 de esta planta."
+      "explanation": "Ilusión de control: el sesgo de esta planta."
     },
     {
       "id": "n2-u4-l4-e8",
@@ -197,7 +197,7 @@
         "Que hay que esperar a que lo bata 4 años"
       ],
       "answer": 0,
-      "explanation": "La CNMV exige que la publicidad no induzca a error, y una racha corta no prueba habilidad.",
+      "explanation": "La normativa de publicidad de la CNMV (Circular 2/2020) exige que sea clara, imparcial y no engañosa, y una racha corta no prueba habilidad.",
       "wrongExplanations": {
         "1": "Puede inducir a error sobre lo que cabe esperar.",
         "2": "Ningún fondo de bolsa es seguro.",
@@ -205,14 +205,24 @@
       }
     }
   ],
-  "realWorld": "Las gestoras deben avisar en su publicidad de que las rentabilidades pasadas no garantizan las futuras. Los estudios de agencias como S&P (informes SPIVA) miden cuántos fondos activos baten a su índice a largo plazo.",
+  "realWorld": "Las gestoras deben avisar en su publicidad de que las rentabilidades pasadas no garantizan las futuras. Los informes SPIVA de S&P Dow Jones Indices miden cuántos fondos activos baten a su índice a largo plazo.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, Circular 2/2020, de 28 de octubre, sobre publicidad de los productos y servicios de inversión",
+      "url": "https://www.boe.es/eli/es/cir/2020/10/28/2",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2017/565, art. 44: información imparcial, clara y no engañosa y aviso sobre rentabilidades pasadas",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2017/565/oj",
+      "date": "2026-10-19"
     }
   ],
-  "verificarAntesDe": null,
+  "verificarAntesDe": "2027-04-30",
   "lastReviewed": "2026-10-19"
 }

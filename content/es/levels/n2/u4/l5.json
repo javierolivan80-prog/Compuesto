@@ -51,13 +51,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["distribucion-normal"],
-      "prompt": "Con media de 0,73 % y desviación de 2,30 al mes, ¿por debajo de qué rentabilidad quedaría un 2,5 % de los meses si fuera normal? (%, 2 decimales)",
+      "prompt": "Con media de 0,73 % y desviación de 2,30 al mes, ¿por debajo de qué rentabilidad quedaría aproximadamente un 2,5 % de los meses si fuera normal (regla del 95 %)? (%, 2 decimales)",
       "answer": -3.87,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "0.73 - 2 * 2.3",
-      "explanation": "0,73 − 2 × 2,30 = −3,87 %. Con colas gordas, peores meses llegarán más a menudo."
+      "explanation": "0,73 − 2 × 2,30 = −3,87 % (regla del 95 %). Con colas gordas, los meses mucho peores, de tres o más desviaciones, llegan más a menudo de lo que dice la normal."
     },
     {
       "id": "n2-u4-l5-e4",
@@ -93,7 +93,7 @@
           "category": "Riesgo"
         },
         {
-          "text": "Peor mes esperado en 2 de cada 100",
+          "text": "Rentabilidad que solo se empeora en unos 2,5 de cada 100 meses (−3,87 %)",
           "category": "Riesgo"
         },
         {
@@ -168,7 +168,7 @@
       "wrongExplanations": {
         "1": "Es la ilusión de control, en el jefe.",
         "2": "Tampoco se puede concluir que sea suerte.",
-        "3": "Con más riesgo, batir al índice es más fácil y no prueba habilidad."
+        "3": "Con el doble de volatilidad puede haberlo batido solo por asumir más riesgo: hay que comparar la rentabilidad con el riesgo asumido."
       }
     }
   ],

@@ -374,7 +374,7 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     min_b: [1, 1],
     max_b: [1, 1],
     normal_tail: [1, 1],
-    fat_tail: [0, 0],
+    fat_tail: [1, 1],
     traders: [0, 0],
     calls: [0, 0],
     perfect: [0, 0],

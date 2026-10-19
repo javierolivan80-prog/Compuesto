@@ -14,7 +14,7 @@ describe('¿Suerte o habilidad? (interfaz)', () => {
     await user.click(screen.getByRole('radio', { name: 'El fondo B' }));
     expect(screen.getByTestId('lg-why')).toHaveTextContent('3,42');
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
-    await user.click(screen.getByRole('radio', { name: /^Más a menudo/ }));
+    await user.click(screen.getByRole('radio', { name: /^Bastante más a menudo/ }));
     await user.click(screen.getByRole('button', { name: 'Siguiente' }));
     await user.click(screen.getByRole('radio', { name: /^No:/ }));
     expect(screen.getByTestId('lg-why')).toHaveTextContent('ilusión de control');

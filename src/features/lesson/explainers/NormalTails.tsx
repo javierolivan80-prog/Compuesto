@@ -39,18 +39,19 @@ export function NormalTails({ mean, sd, onInteract }: Props) {
     },
     {
       title: 'Colas gordas',
-      text: 'En los mercados, los meses extremos son más frecuentes de lo que dice la campana: las colas pesan más. Por eso los sustos llegan más a menudo de lo que el modelo normal promete.',
+      text: `Con la misma volatilidad, los mercados tienen más meses tranquilos y más meses extremos: la curva roja tiene más pico y colas más gordas. Una caída de más de tres desviaciones (por debajo de ${pct(mean - 3 * sd)}) pasa unas cinco veces más que en la normal.`,
     },
   ];
   const zs = Array.from({ length: 121 }, (_, i) => -4 + i / 15);
   const x = (z: number) => 20 + ((z + 4) / 8) * 280;
-  const y = (d: number) => 108 - (d / 0.45) * 96;
+  // escala por el pico de la t3 reescalada (≈ 0,64), más alto que el de la normal (≈ 0,40)
+  const y = (d: number) => 108 - (d / 0.66) * 96;
   const line = (f: (z: number) => number) => zs.map((z) => `${x(z)},${y(f(z))}`).join(' ');
   return (
     <Explainer
       explainerId="NormalTails"
       title={t('normalTails.title')}
-      description={`Media de ${pct(mean)} al mes y desviación típica de ${pct(sd)}: con una normal, el 68 % de los meses entre ${pct(mean - sd)} y ${pct(mean + sd)} y el 95 % entre ${pct(mean - 2 * sd)} y ${pct(mean + 2 * sd)}. Los mercados reales tienen más meses extremos.`}
+      description={`Media de ${pct(mean)} al mes y desviación típica de ${pct(sd)}: con una normal, el 68 % de los meses entre ${pct(mean - sd)} y ${pct(mean + sd)} y el 95 % entre ${pct(mean - 2 * sd)} y ${pct(mean + 2 * sd)}. Los mercados reales tienen más meses tranquilos y más meses extremos, más allá de tres desviaciones.`}
       steps={steps}
       onInteract={onInteract}
       render={(time) => {
@@ -74,7 +75,7 @@ export function NormalTails({ mean, sd, onInteract }: Props) {
               />
             )}
             <line x1={x(0)} x2={x(0)} y1="12" y2="108" stroke="var(--accent)" strokeWidth="2" />
-            {[-2, -1, 0, 1, 2].map((k) => (
+            {[-3, -2, 0, 2, 3].map((k) => (
               <text key={k} x={x(k)} y="124" textAnchor="middle" fill="var(--text-2)" fontSize="9">
                 {pct(mean + k * sd)}
               </text>

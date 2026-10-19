@@ -661,7 +661,7 @@
     "level": 2,
     "prerequisites": ["media-desviacion"],
     "unit": "n2-u4",
-    "description": "En una normal, un 68 % de los datos queda a menos de una desviación típica y un 95 % a menos de dos. Los mercados tienen colas gordas: los extremos pasan más a menudo."
+    "description": "En una normal, un 68 % de los datos queda a menos de una desviación típica y un 95 % a menos de dos. Los mercados tienen colas gordas: los extremos, de tres desviaciones o más, pasan bastante más a menudo."
   },
   {
     "id": "ilusion-control",

@@ -1230,13 +1230,13 @@
     "whyMean": "La media es la suma de los doce meses entre doce: {{m}} al mes.",
     "askVolatile": "El fondo B tiene la misma media, {{m}} al mes. ¿Cuál es más volátil?",
     "whyVolatile": "El B: su desviación típica es {{sb}} al mes, frente a {{sa}} del A. Con la misma media, el B tuvo meses de hasta {{minB}}: más riesgo para la misma rentabilidad.",
-    "briefTails": "Si las rentabilidades siguieran una distribución normal, una caída de más de dos desviaciones típicas sería rara.",
-    "askTails": "En los mercados, ¿con qué frecuencia pasan esas caídas?",
+    "briefTails": "Si las rentabilidades siguieran una distribución normal, una caída de más de tres desviaciones típicas sería rarísima.",
+    "askTails": "En los mercados, ¿con qué frecuencia pasan esas caídas extremas?",
     "tails": {
-      "normal": "Unos {{n}} meses de cada 100, lo que dice la normal",
-      "more": "Más a menudo de lo que dice la normal"
+      "normal": "Unos {{n}} meses de cada 1.000, lo que dice la normal",
+      "more": "Bastante más a menudo de lo que dice la normal"
     },
-    "whyTails": "Más a menudo: los mercados tienen colas gordas. En esta simulación pasan {{fat}} meses de cada 100, frente a los {{n}} de la normal. Por eso los modelos que suponen normalidad se quedan cortos en las crisis.",
+    "whyTails": "Bastante más: los mercados tienen colas gordas. Con una distribución de colas gordas y la misma volatilidad (una t de Student como la del explicador de esta unidad), pasan unos {{fat}} meses de cada 1.000, frente a los {{n}} de la normal. Ojo: a dos desviaciones no hay más caídas; las colas gordas se notan en los extremos.",
     "briefGenius": "{{traders}} becarios de Albufera apuestan cada mes, a cara o cruz, si la bolsa sube o baja. Tras {{calls}} meses, {{perfect}} ha acertado todos. Dice que tiene un método.",
     "askGenius": "¿Le darías dinero para gestionar por su racha?",
     "genius": {
