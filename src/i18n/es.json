@@ -966,5 +966,69 @@
   },
   "waccMix": {
     "title": "La mezcla del WACC"
+  },
+  "dcfGame": {
+    "title": "DCF Express",
+    "step": {
+      "market": "Reto 1 de 3 · qué descuenta el mercado",
+      "boss": "Reto 2 de 3 · el precio del jefe",
+      "committee": "Reto 3 de 3 · tu caso base ante el comité"
+    },
+    "briefMarket": "El DCF del modelo de Naranjas, con un WACC del {{wacc}} y un crecimiento a perpetuidad del {{g}}, da el valor de abajo. Pero la acción cotiza a {{price}}. Mueve solo el WACC hasta que el DCF valga lo que cotiza: es la rentabilidad que el mercado le pide.",
+    "briefBoss": "El jefe de la mesa quiere presentar a Naranjas a {{target}} por acción. Con el WACC del modelo ({{wacc}}), mueve solo el crecimiento a perpetuidad (g) hasta llegar a su precio.",
+    "briefCommittee": "Ahora, tu caso base. El comité aprueba si el valor queda entre {{lo}} y {{hi}} y cada hipótesis cumple sus reglas. Empiezas con unas hipótesis demasiado optimistas.",
+    "rules": "Reglas del comité",
+    "rule": {
+      "wacc": "WACC entre {{lo}} y {{hi}}",
+      "g": "Crecimiento a perpetuidad como mucho {{hi}}",
+      "margin": "Margen EBIT entre {{lo}} y {{hi}} sobre el plan"
+    },
+    "lever": {
+      "wacc": "WACC: {{v}}",
+      "g": "Crecimiento a perpetuidad (g): {{v}}",
+      "margin": "Margen EBIT sobre el plan: {{v}}"
+    },
+    "less": {
+      "wacc": "Bajar el WACC",
+      "g": "Bajar g",
+      "margin": "Bajar el margen"
+    },
+    "more": {
+      "wacc": "Subir el WACC",
+      "g": "Subir g",
+      "margin": "Subir el margen"
+    },
+    "perShare": "Valor por acción",
+    "stamp": "Aprobado",
+    "terminal": "Valor terminal",
+    "cascadeAria": "Valor actual de los flujos de 2026 a 2030: {{pv}} mil €. Valor actual del valor terminal: {{tv}} mil €, un {{share}} % del valor de empresa.",
+    "legend": "Barras verdes: los flujos de caja libres de 2026 a 2030, ya descontados. Bloque dorado: el valor terminal descontado, con su peso en el valor de empresa.",
+    "proposeWacc": "Proponer un WACC del {{v}}",
+    "proposeG": "Proponer g = {{v}}",
+    "whyMarket": "A {{price}}, el mercado descuenta los flujos de Naranjas a un {{wacc}}, más que el {{model}} del modelo: o le ve más riesgo, o espera menos caja de la que proyecta el plan.",
+    "whyBoss": "Con g = {{g}}, el DCF da {{value}}, y el valor terminal pasa a ser el {{share}} del valor de empresa.",
+    "askDefend": "¿Defenderías ante el comité un crecimiento a perpetuidad del {{g}}?",
+    "defend": {
+      "yes": "Sí: si el jefe lo pide, el número es el número",
+      "no": "No: ninguna empresa puede crecer para siempre más que la economía"
+    },
+    "defendNo": "Un {{g}} para siempre supera lo que el comité acepta ({{max}}, en torno al crecimiento nominal de la economía a largo plazo): a perpetuidad, la empresa acabaría siendo más grande que la economía. Y casi todo el valor vendría de esa hipótesis.",
+    "defendOk": "Un {{g}} está dentro de lo que el comité acepta ({{max}}).",
+    "present": "Presentar al comité",
+    "next": "Siguiente reto",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Acta del comité",
+    "row": {
+      "market": "WACC implícito en el precio",
+      "boss": "g para el precio del jefe",
+      "judgement": "Criterio con esa g",
+      "approved": "Caso base aprobado"
+    },
+    "great": "Comité impecable: sabes qué descuenta el mercado, cuánto pesa el valor terminal y qué hipótesis se pueden defender.",
+    "ok": "Bien encaminado: repasa el reto que fallaste.",
+    "bad": "Repasa cómo el WACC y g mueven el valor de un DCF.",
+    "debrief": "Ver qué ha pasado"
   }
 }

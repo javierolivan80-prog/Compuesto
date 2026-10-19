@@ -1,0 +1,39 @@
+/* DCF Express: panel, deslizadores y sello del comité. */
+.dg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.dg-range {
+  accent-color: var(--brand);
+}
+.dg-value {
+  position: relative;
+}
+.dg-stamp {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0.5rem;
+  border: 2px solid var(--bull);
+  border-radius: 6px;
+  padding: 0.125rem 0.5rem;
+  color: var(--bull);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: rotate(-8deg) scale(1.2);
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.dg-stamp.is-on {
+  opacity: 1;
+  transform: rotate(-8deg) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dg-stamp {
+    transform: rotate(-8deg);
+    transition: opacity 180ms linear;
+  }
+}

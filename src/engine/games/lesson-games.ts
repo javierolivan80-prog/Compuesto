@@ -37,6 +37,7 @@ import {
   setupCheap,
 } from './cheap-or-dear';
 import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
+import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -72,6 +73,7 @@ export const LESSON_GAMES = [
   'ratio-detective',
   'cheap-or-dear',
   'wacc-mix',
+  'dcf-express',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -265,6 +267,30 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     ke_best: [2, 2],
     kd_best: [2, 2],
   },
+  'dcf-express': {
+    price: [2, 2],
+    target: [2, 2],
+    wacc_model: [2, 2],
+    g_model: [1, 1],
+    fcff_5: [0, 0],
+    pv_fcff: [0, 0],
+    tv: [0, 0],
+    pv_tv: [0, 0],
+    ev: [0, 0],
+    net_debt: [0, 0],
+    equity: [0, 0],
+    value: [2, 2],
+    tv_share: [1, 1],
+    wacc_implied: [1, 1],
+    wacc_pick: [1, 1],
+    g_boss: [1, 1],
+    g_pick: [1, 1],
+    tv_share_boss: [1, 1],
+    final_wacc: [1, 1],
+    final_g: [1, 1],
+    final_margin: [1, 1],
+    final_value: [2, 2],
+  },
 };
 
 /**
@@ -398,6 +424,20 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         waccValues(setup, waccResult(setup, true, bestWeight(setup))),
         waccValues(setup, waccResult(setup, false, 20)),
+      ];
+    }
+    case 'dcf-express': {
+      // todo bien (caso base con el WACC de la rejilla), y nada tocado con la g del jefe defendida
+      const setup = setupDcf(seed);
+      const wacc = Math.round(BASE.wacc * 10) / 10;
+      return [
+        dcfValues(setup, {
+          wacc: impliedWacc(setup),
+          g: bossGrowth(setup),
+          defend: false,
+          final: { wacc, g: BASE.g, margin: 0 },
+        }),
+        dcfValues(setup, { wacc, g: BASE.g, defend: true, final: START_3 }),
       ];
     }
   }

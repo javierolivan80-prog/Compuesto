@@ -15,6 +15,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'cash-cycle': 120, // ventas de 64.000 con solo 5.000 de caja: el hueco más grande
   'ratio-detective': 1,
   'wacc-mix': 0,
+  'dcf-express': 0,
   'cheap-or-dear': 3, // precios con más dígitos y los tres veredictos
   'balance-builder': 203, // los importes de enero más altos (15.900 mil € entre las cinco operaciones)
 };
