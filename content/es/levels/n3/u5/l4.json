@@ -1,8 +1,8 @@
 {
   "id": "n3-u5-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 5,
   "title": "El coste de la deuda y el WACC",
@@ -13,7 +13,7 @@
     "Usar el WACC como rentabilidad mínima de un proyecto"
   ],
   "concepts": ["coste-deuda", "wacc", "estructura-capital"],
-  "companies": ["naranjas-del-turia"],
+  "companies": ["naranjas-del-turia", "mediterranea-de-navieras"],
   "historical": false,
   "intro": [
     {

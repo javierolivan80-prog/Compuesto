@@ -23,7 +23,7 @@ interface Props {
   onInteract?: (id: string) => void;
 }
 
-/** Pesos de la deuda que recorre: sin deuda, la estructura actual de Naranjas, el mínimo y demasiada deuda. */
+/** Pesos de la deuda que recorre: sin deuda, la estructura objetivo (la del sector) de Naranjas, el mínimo y demasiada deuda. */
 const WEIGHTS = [0, 20, 35, 60];
 const pct = (v: number) => `${formatNumber(v, 2)}\u00a0%`;
 

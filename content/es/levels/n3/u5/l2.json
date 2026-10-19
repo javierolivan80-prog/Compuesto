@@ -1,8 +1,8 @@
 {
   "id": "n3-u5-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 5,
   "title": "El CAPM: lo que piden los accionistas",
@@ -13,7 +13,7 @@
     "Distinguir el riesgo de mercado del riesgo que se puede diversificar"
   ],
   "concepts": ["capm-beta", "coste-capital"],
-  "companies": ["naranjas-del-turia"],
+  "companies": [],
   "historical": false,
   "intro": [
     {

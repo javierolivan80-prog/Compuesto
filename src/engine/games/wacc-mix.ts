@@ -2,7 +2,7 @@ import { mulberry32 } from '../prng';
 
 /*
  * «La mezcla de la financiación» (lección-juego de la planta 1, unidad «Coste de capital»): la directora financiera
- * de Naranjas pregunta cuánta deuda debería tener. Primero calculas su beta apalancada con su estructura actual
+ * de Naranjas pregunta cuánta deuda debería tener. Primero calculas su beta apalancada con su estructura objetivo (la del sector)
  * (Hamada); luego mueves el peso de la deuda y ves en vivo el coste del capital propio (CAPM), el coste de la deuda
  * después de impuestos y el WACC, hasta proponer la estructura que lo minimiza. La deuda es más barata y ahorra
  * impuestos, pero cada punto de deuda sube la beta y, pasado un umbral, los bancos cobran mucho más.

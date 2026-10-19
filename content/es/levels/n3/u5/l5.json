@@ -1,8 +1,8 @@
 {
   "id": "n3-u5-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 5,
   "title": "Jefe final: el WACC de Pirineo Energía",

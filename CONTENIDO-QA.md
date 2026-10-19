@@ -282,3 +282,21 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - q6 pasa a ser una pregunta de veredicto cara/barata con la banda del ±10 %.
 - Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier.
+
+## n3-u5 — Coste de capital: CAPM y WACC y lección-juego «La mezcla de la financiación» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios; ningún crítico.
+  - Mayores aplicados (11):
+    - un marcador `{best}` que se habría visto literal en un verdadero/falso;
+    - restas visibles mal redondeadas y variantes de repaso incoherentes en l1-e6;
+    - el 20 % de deuda pasa a ser la estructura objetivo del sector, como en el modelo DCF, y no la actual;
+    - betas y coste de la deuda coherentes con el caso hilo (l2-e7, l3-e4, l4-e4);
+    - dos `spot_the_error` con una sola línea defendible;
+    - distractor de q1.
+  - Menores aplicados (13): redacción de las tarjetas, ke con 4 decimales, art. 16 de la LIS con su matiz, fuente de la NIC 36, unidades de las betas, conceptos de las lecciones, distractores de q5 y el rationale de kd del modelo DCF.
+- **Hallazgo transversal:** a raíz del `{best}`, el validador rechaza ahora los marcadores en ejercicios sin `params`.
+  - Encontró el mismo fallo en n3-u1-l1-e7 y n3-u3-l1-e6, que se corrigen con texto fijo.
+  - El revisor los ha comprobado en la ronda 2.
+- **Ronda 2:** aprobada, con cuatro menores aplicados (companies de l2 y l4, comentarios internos y el enunciado de l1-e6 en el repaso).
+- Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier, incluido el art. 16 de la Ley 27/2014 (verificarAntesDe 2027-03-31).
