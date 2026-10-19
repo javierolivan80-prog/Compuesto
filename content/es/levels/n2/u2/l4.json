@@ -21,7 +21,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["duracion"],
-      "prompt": "La mesa de Albufera tiene un 60 % de su cartera en bonos con duración 1,93 y un 40 % en bonos con duración 8,44. ¿Cuál es la duración de la cartera? (2 decimales)",
+      "prompt": "La mesa de Albufera tiene un 60 % de su cartera en bonos con duración modificada 1,93 y un 40 % en bonos con duración modificada 8,44. ¿Cuál es la duración modificada de la cartera? (2 decimales)",
       "answer": 4.53,
       "tolerance": 0.5,
       "answerDecimals": 2,
@@ -35,7 +35,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["duracion"],
-      "prompt": "La cartera vale 50 millones de € y tiene una duración de 4,53. Si todos los tipos suben medio punto, ¿cuánto pierde, aproximadamente? (millones de €, 2 decimales)",
+      "prompt": "La cartera vale 50 millones de € y tiene una duración modificada de 4,53. Si todos los tipos suben medio punto, ¿cuánto pierde, aproximadamente? (millones de €, 2 decimales)",
       "answer": 1.13,
       "unit": "millones de €",
       "tolerance": 0.5,
@@ -50,7 +50,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["duracion"],
-      "prompt": "El jefe quiere que la cartera tenga una duración de 3. Si combina bonos de duración 1,93 y 8,44, ¿qué peso debe tener el de 8,44? (%, 1 decimal)",
+      "prompt": "El jefe quiere que la cartera tenga una duración modificada de 3. Si combina bonos de duración modificada 1,93 y 8,44, ¿qué peso debe tener el de 8,44? (%, 1 decimal)",
       "answer": 16.4,
       "unit": "%",
       "tolerance": 0.5,
@@ -103,7 +103,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["duracion", "curva-tipos"],
-      "prompt": "Con una subida de tipos a la vista, ¿qué haría la mesa?",
+      "prompt": "Con una subida de tipos a la vista, ¿cada operación reduce o aumenta el riesgo de tipos de la cartera?",
       "categories": ["Reduce el riesgo de tipos", "Aumenta el riesgo de tipos"],
       "items": [
         {
@@ -132,7 +132,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["convexidad"],
-      "statement": "A igualdad de duración, la mesa prefiere el bono con más convexidad.",
+      "statement": "A igualdad de duración y de rentabilidad, la mesa prefiere el bono con más convexidad.",
       "answer": true,
       "explanation": "Verdadero: con la misma duración, cae menos si suben los tipos y sube más si bajan."
     },
@@ -155,7 +155,7 @@
       "tags": [],
       "concepts": ["duracion", "curva-tipos"],
       "character": "jefe",
-      "situation": "El jefe propone alargar la duración de la cartera de 4,5 a 9 «porque los bonos largos rinden más». La curva es normal y la mesa espera subidas de tipos.",
+      "situation": "El jefe propone alargar la duración modificada de la cartera de 4,5 a 9 «porque los bonos largos rinden más». La curva es normal y la mesa espera subidas de tipos.",
       "prompt": "¿Qué le dices?",
       "options": [
         "Que el rendimiento extra no compensa el riesgo: con duración 9, cada punto de subida restaría un 9 % a la cartera, el doble que ahora",

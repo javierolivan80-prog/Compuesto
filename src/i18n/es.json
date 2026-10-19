@@ -1119,7 +1119,7 @@
     "check": "Comprobar",
     "why": {
       "long": {
-        "ok": "El bono a 30 años cae más de un 10 % con menos de un punto de subida: devuelve su dinero muy tarde, y cada punto de tipo pesa durante muchos años.",
+        "ok": "El bono a 30 años es tan sensible que basta algo más de medio punto de subida para que caiga más de un 10 %: devuelve su dinero muy tarde, y cada punto de tipo pesa durante muchos años.",
         "ko": "Aún no cae lo bastante. Sube el nivel, o empina la curva: el bono a 30 años es el que más reacciona."
       },
       "twist": {

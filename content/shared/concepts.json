@@ -543,7 +543,7 @@
     "level": 2,
     "prerequisites": ["precio-bono-tipos"],
     "unit": "n2-u2",
-    "description": "Plazo medio ponderado en que se cobra un bono (Macaulay). La modificada, Macaulay / (1 + TIR), es el % que cae el precio por cada punto que sube la rentabilidad. A más plazo y menos cupón, más duración."
+    "description": "Plazo medio ponderado en que se cobra un bono (Macaulay). La modificada, Macaulay / (1 + TIR), es el % aproximado que cae el precio por cada punto que sube la rentabilidad. A más plazo y menos cupón, más duración."
   },
   {
     "id": "convexidad",

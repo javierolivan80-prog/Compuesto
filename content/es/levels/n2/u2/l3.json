@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Duración de Macaulay",
-      "text": "Es el plazo medio en que cobras tu dinero: cada año pondera por lo que vale hoy el flujo de ese año. Un bono sin cupón tiene una duración igual a su plazo; con cupones, algo menor."
+      "text": "Es el plazo medio en que cobras tu dinero: cada año pesa según lo que vale hoy su flujo. Un bono sin cupón (cupón cero) tiene una duración igual a su plazo; con cupones, algo menor."
     },
     {
       "type": "visual",
@@ -150,7 +150,7 @@
           "category": "Menos duración"
         },
         {
-          "text": "Bono cupón cero a 10 años (frente a uno con cupones)",
+          "text": "Bono cupón cero a 10 años (frente a uno a 10 años con cupones)",
           "category": "Más duración"
         },
         {
@@ -167,7 +167,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["convexidad"],
-      "prompt": "Un bono con duración modificada 8,5 sube 1 punto de TIR y cae un 8,1 %, no un 8,5 %. ¿Por qué?",
+      "prompt": "La TIR de un bono con duración modificada 8,5 sube de golpe 1 punto y su precio cae un 8,1 %, no un 8,5 %. ¿Por qué?",
       "options": [
         "Por la convexidad: el precio es una curva, y cae algo menos de lo que dice la recta de la duración",
         "Porque la duración está mal calculada",
@@ -179,7 +179,7 @@
       "wrongExplanations": {
         "1": "La duración es correcta, pero solo aproxima.",
         "2": "El cupón es fijo.",
-        "3": "En un instante, el plazo no cambia."
+        "3": "La subida es de golpe: el plazo no ha cambiado."
       }
     },
     {

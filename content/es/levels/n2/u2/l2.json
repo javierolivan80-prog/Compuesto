@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Formas de la curva",
-      "text": "Normal: sube con el plazo, porque prestar más tiempo tiene más riesgo. Plana: todos los plazos rinden parecido. Invertida: los cortos rinden más que los largos, porque el mercado espera que los tipos bajen."
+      "text": "Normal: sube con el plazo, porque prestar más tiempo tiene más riesgo. Plana: todos los plazos rinden parecido. Invertida: los cortos rinden más que los largos; suele ser porque el mercado espera que los tipos bajen."
     },
     {
       "type": "card",
@@ -150,7 +150,7 @@
       "wrongExplanations": {
         "1": "El cupón de un bono no define la forma de la curva.",
         "2": "El BCE fija tipos oficiales a muy corto plazo; el resto lo marca el mercado.",
-        "3": "La forma de la curva del Estado no se explica por el impago de los cortos."
+        "3": "El riesgo de impago del Estado es bajo en todos los plazos; lo que crece con el plazo es la incertidumbre sobre inflación y tipos, y por eso se pide una prima."
       }
     },
     {
@@ -197,13 +197,13 @@
       "situation": "La curva de la deuda española pasa de una pendiente 10 − 2 de +120 pb a +20 pb en seis meses.",
       "prompt": "¿Qué le cuentas al comité?",
       "options": [
-        "Que la curva se ha aplanado mucho: el mercado espera menos crecimiento o tipos más bajos a largo plazo",
+        "Que la curva se ha aplanado mucho: suele leerse como que el mercado espera menos crecimiento o bajadas de tipos más adelante",
         "Que se ha empinado: el mercado es más optimista",
         "Que no ha cambiado nada: sigue positiva",
         "Que la deuda española ha bajado de rating"
       ],
       "answer": 0,
-      "explanation": "Pasar de 120 a 20 pb es un aplanamiento fuerte, aunque siga siendo positiva.",
+      "explanation": "Pasar de 120 a 20 pb es un aplanamiento fuerte, aunque siga siendo positiva. Puede venir de que suban los cortos, de que bajen los largos o de las dos cosas.",
       "wrongExplanations": {
         "1": "Empinar sería abrir la distancia, no cerrarla.",
         "2": "Ha cambiado mucho, aunque el signo sea el mismo.",

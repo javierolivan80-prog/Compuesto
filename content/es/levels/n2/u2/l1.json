@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "La curva de tipos",
-      "text": "La curva de tipos une la rentabilidad de cada plazo: hoy, del {y1} % a 1 año al {y30} % a 30 años. Normalmente sube con el plazo, porque prestar más tiempo pide más. Si los cortos rinden más que los largos, está invertida."
+      "text": "La curva de tipos une la rentabilidad de cada plazo: hoy, del {y1} % a 1 año al {y30} % a 30 años. Normalmente sube con el plazo, porque quien presta a más plazo pide más. Si los cortos rinden más que los largos, está invertida."
     },
     {
       "type": "card",
@@ -83,14 +83,14 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["duracion"],
-      "prompt": "Si sus tipos bajan {dy} puntos, ¿cuánto sube más o menos el precio de un bono con duración modificada {d}? (%, 2 decimales)",
+      "prompt": "La rentabilidad de un bono con duración modificada {dur_30} baja {dy} puntos. ¿Cuánto sube su precio, aproximadamente? (%, 2 decimales)",
       "answer": 18.16,
       "unit": "%",
       "tolerance": 1,
       "answerDecimals": 2,
-      "formula": "{d} * {dy}",
+      "formula": "{dur_30} * {dy}",
       "params": {
-        "d": {
+        "dur_30": {
           "value": 18.16,
           "min": 1,
           "max": 20,
@@ -107,11 +107,11 @@
       },
       "derived": {
         "v": {
-          "formula": "{d} * {dy}",
+          "formula": "{dur_30} * {dy}",
           "decimals": 2
         }
       },
-      "explanation": "Al revés también: ≈ {d} × {dy} = {v} %. Con la convexidad, la subida real es algo mayor."
+      "explanation": "Al revés también: ≈ {dur_30} × {dy} = {v} %. Con la convexidad, la subida real es algo mayor."
     },
     {
       "id": "n2-u2-l1-e3",

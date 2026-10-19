@@ -13,6 +13,9 @@ interface Props {
 }
 
 const PLAZOS = [2, 5, 10, 30];
+/** «1 punto», «0,5 puntos»: sin decimales si es entero. */
+const pts = (v: number) =>
+  `${formatNumber(v, Number.isInteger(v) ? 0 : 2)} ${v === 1 ? 'punto' : 'puntos'}`;
 const pct = (v: number, d = 1) => `${formatNumber(v, d)}\u00a0%`;
 
 /**
@@ -27,7 +30,7 @@ export function Duration({ yield: y, shock, onInteract }: Props) {
   }));
   const steps: ExplainerStep[] = rows.map((r) => ({
     title: `Bono a ${r.n} años`,
-    text: `Con ${formatNumber(shock, 1)} puntos más, cae un ${pct(r.fall)}. Su duración modificada, ${formatNumber(r.d, 2)}, lo anticipaba: ${formatNumber(r.d, 2)} × ${formatNumber(shock, 1)} ≈ ${pct(r.d * shock)}.`,
+    text: `Con ${pts(shock)} más cae un ${pct(r.fall)}. La duración modificada (${formatNumber(r.d, 2)}) anticipaba un ${pct(r.d * shock)}: cae algo menos por la convexidad, y la diferencia crece con el plazo.`,
   }));
   const max = Math.max(...rows.map((r) => r.fall));
   return (
@@ -37,7 +40,7 @@ export function Duration({ yield: y, shock, onInteract }: Props) {
       description={rows
         .map(
           (r) =>
-            `El bono a ${r.n} años cae un ${pct(r.fall)} con ${formatNumber(shock, 1)} puntos más; duración ${formatNumber(r.d, 2)}.`,
+            `El bono a ${r.n} años cae un ${pct(r.fall)} con ${pts(shock)} más; duración modificada ${formatNumber(r.d, 2)}.`,
         )
         .join(' ')}
       steps={steps}
