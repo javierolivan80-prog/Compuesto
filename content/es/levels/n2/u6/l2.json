@@ -42,20 +42,20 @@
       "prompt": "Una Letra paga 1.000 € dentro de {d} días. Con un tipo del {r} % y actual/360, ¿cuánto vale hoy? (€, 2 decimales)",
       "answer": 993.05,
       "unit": "€",
-      "tolerance": 0.5,
+      "tolerance": 0.002,
       "answerDecimals": 2,
       "formula": "1000 / (1 + {r} / 100 * {d} / 360)",
       "params": {
         "d": {
           "value": 90,
-          "min": 30,
+          "min": 90,
           "max": 360,
           "step": 30,
           "decimals": 0
         },
         "r": {
           "value": 2.8,
-          "min": 1,
+          "min": 2,
           "max": 5,
           "step": 0.1,
           "decimals": 1
@@ -202,7 +202,7 @@
       "tags": [],
       "concepts": ["mercado-monetario-repo"],
       "character": "rival",
-      "situation": "Hugo calcula los intereses de un depósito a 90 días al 3 % como 3 % × 90 / 365.",
+      "situation": "Hugo calcula los intereses de un depósito interbancario en euros a 90 días al 3 % como 3 % × 90 / 365.",
       "prompt": "¿Qué le corriges?",
       "options": [
         "Que en el mercado monetario del euro la convención habitual es actual/360, no 365: le salen algo menos de intereses de los que se pagan",
@@ -219,7 +219,7 @@
       }
     }
   ],
-  "realWorld": "El BCE publica cada día el €STR, y el Euríbor se publica cada día hábil; en las hipotecas a tipo variable verás el Euríbor a 12 meses más un diferencial. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "El BCE publica el €STR cada día hábil, y el Euríbor, que administra EMMI, también se publica cada día hábil; en las hipotecas a tipo variable verás el Euríbor a 12 meses más un diferencial. Los tipos, bancos y emisiones de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Fixed Income (mercado monetario, repo, bonos garantizados y titulizaciones)",
@@ -229,6 +229,11 @@
     {
       "title": "BCE, el tipo de interés a corto plazo del euro (€STR)",
       "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.es.html",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "EMMI (European Money Markets Institute), administrador del Euríbor: metodología y publicación",
+      "url": "https://www.emmi-benchmarks.eu/benchmarks/euribor/",
       "date": "2026-10-19"
     }
   ],

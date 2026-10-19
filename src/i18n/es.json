@@ -1322,7 +1322,7 @@
     "whyLoan": "{{collateral}} × (1 − {{haircut}}) = {{loan}}. El recorte protege al que presta por si la garantía pierde valor.",
     "briefInterest": "El préstamo de {{loan}} es a {{days}} día(s) al {{rate}} anual. En el mercado monetario del euro, los intereses se calculan con días reales entre 360.",
     "askInterest": "¿Cuántos euros de intereses paga por {{days}} día(s)?",
-    "whyInterest": "{{loan}} × {{rate}} × {{days}} / 360 = {{v}}. Al día siguiente, Albufera devuelve el dinero con los intereses y recupera sus bonos.",
+    "whyInterest": "{{loan}} × {{rate}} × {{days}} / 360 = {{v}}. Al vencer, Albufera devuelve el dinero con los intereses y recupera sus bonos.",
     "briefRecourse": "La tesorería también invierte el excedente de otros días. Duda entre una cédula hipotecaria de un banco y un bono de una titulización de hipotecas.",
     "askRecourse": "¿En cuál, si las hipotecas no bastan, puede además reclamar al banco que la emitió?",
     "instrument": {

@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "El repo",
-      "text": "Albufera entregó {collateral} millones de € en bonos del Estado y recibió {loan} millones: el valor menos un recorte del {haircut} %. Un repo es un préstamo con garantía: si no devuelve el dinero, el prestamista se queda con los bonos."
+      "text": "Albufera entregó {collateral} millones de € en bonos del Estado y recibió {loan} millones: el valor menos un recorte del {haircut} %. Un repo es un préstamo con garantía: si Albufera no devuelve el dinero, el prestamista se queda con los bonos."
     },
     {
       "type": "card",

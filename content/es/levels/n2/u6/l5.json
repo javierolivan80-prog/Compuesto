@@ -51,10 +51,10 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "El excedente del jueves lo invierte en una Letra que paga 1.000.000 € a 91 días al 2,9 %. ¿Cuánto paga hoy? (€, 0 decimales)",
+      "prompt": "El jueves invierte el excedente en una Letra que paga 1.000.000 € a 91 días al 2,9 %, con actual/360. ¿Cuánto paga por ella? (€, 0 decimales)",
       "answer": 992723,
       "unit": "€",
-      "tolerance": 0.5,
+      "tolerance": 0.001,
       "answerDecimals": 0,
       "formula": "1000000 / (1 + 0.029 * 91 / 360)",
       "explanation": "1.000.000 / (1 + 2,9 % × 91 / 360) = 992.723 €."
@@ -106,7 +106,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "Para financiarse 4 días con la mínima tasa, ¿qué conviene a la tesorería?",
+      "prompt": "Para financiarse 4 días al menor tipo de interés, ¿qué conviene a la tesorería?",
       "options": [
         "Un repo con bonos del Estado como garantía",
         "Un préstamo sin garantía",
@@ -128,7 +128,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["cedulas-titulizaciones"],
-      "statement": "A igual rentabilidad, una cédula hipotecaria ofrece más protección que un bono de titulización del mismo banco.",
+      "statement": "A igual rentabilidad, una cédula hipotecaria suele ofrecer más protección que un bono de titulización del mismo banco, porque da recurso al banco además de a la cartera.",
       "answer": true,
       "explanation": "Verdadero: la cédula da recurso al banco y a la cartera."
     },

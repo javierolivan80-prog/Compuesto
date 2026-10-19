@@ -82,7 +82,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "Y por 30 días al 3,5 % con actual/360, ¿cuántos euros de intereses sobre 48,5 millones? (€)",
+      "prompt": "Un repo de 48,5 millones de € a 30 días al 3,5 %, con actual/360. ¿Cuántos euros de intereses? (€)",
       "answer": 141458,
       "unit": "€",
       "tolerance": 0.5,
@@ -185,7 +185,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["mercado-monetario-repo"],
-      "statement": "En un repo hay que entregar bonos por más valor que el dinero que se recibe.",
+      "statement": "Con un recorte, en un repo se entregan bonos por más valor que el dinero que se recibe.",
       "answer": true,
       "explanation": "Verdadero: por el recorte."
     },

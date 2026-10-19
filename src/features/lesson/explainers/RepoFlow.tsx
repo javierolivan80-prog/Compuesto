@@ -12,7 +12,7 @@ interface Props {
 }
 
 const eur = (v: number) => formatEur(Math.round(v), 0);
-const pct = (v: number) => `${formatNumber(v, 1)}\u00a0%`;
+const pct = (v: number, d = 1) => `${formatNumber(v, d)}\u00a0%`;
 
 /**
  * Repo (ANIMACIONES §2, `RepoFlow`): hoy, los bonos van al prestamista y el dinero al prestatario; al vencer, el dinero
@@ -28,15 +28,15 @@ export function RepoFlow({ collateral, haircut, rate, days, onInteract }: Props)
     },
     {
       title: 'Hoy: el dinero',
-      text: `A cambio recibe ${eur(loan)}: el valor de los bonos menos un recorte del ${pct(haircut)}.`,
+      text: `A cambio recibe ${eur(loan)}: el valor de los bonos menos un recorte del ${pct(haircut, 0)}.`,
     },
     {
       title: 'Al vencer: devuelve',
-      text: `${days === 1 ? 'Al día siguiente' : `A los ${days} días`} devuelve ${eur(loan + interest)}: lo prestado más ${eur(interest)} de intereses (${pct(rate)} × ${days} / 360).`,
+      text: `${days === 1 ? 'Al día siguiente' : `A los ${days} días`} devuelve ${eur(loan + interest)}: lo prestado más ${eur(interest)} de intereses (${eur(loan)} × ${pct(rate)} × ${days} / 360).`,
     },
     {
       title: 'Al vencer: recupera',
-      text: 'Y recupera sus bonos. Si no pagara, el prestamista se quedaría con ellos: por eso el repo es tan barato y seguro.',
+      text: 'Y recupera sus bonos. Si no pagara, el prestamista se quedaría con ellos: por eso el repo es barato, porque el que presta corre poco riesgo.',
     },
   ];
   return (

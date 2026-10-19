@@ -3,6 +3,7 @@ import { act, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { App } from '../src/app/App';
+import { glossary } from '../src/content/library';
 import { getDb } from '../src/db/db';
 import { Repository } from '../src/db/repository';
 
@@ -132,7 +133,8 @@ describe('pantallas principales', () => {
   it('Glosario: busca por término o definición y abre la definición en una hoja', async () => {
     await open('#/despacho/glosario');
     const user = userEvent.setup();
-    expect(await screen.findByText('76 de 76 términos')).toBeInTheDocument();
+    const n = glossary().length; // los términos en borrador solo cuentan en desarrollo
+    expect(await screen.findByText(`${n} de ${n} términos`)).toBeInTheDocument();
     await user.type(screen.getByLabelText('Buscar un término'), 'inflacion'); // sin tilde
     expect(screen.getByRole('list', { name: 'Términos' })).toBeInTheDocument();
     expect(screen.getAllByRole('listitem').length).toBeGreaterThanOrEqual(2);
