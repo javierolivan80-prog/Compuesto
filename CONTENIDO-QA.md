@@ -366,3 +366,21 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** dos menores de redacción aplicados (referencia a «e3» y «costes corrientes» en los realWorld). Estado: `reviewed`.
 - Bloom del nivel N2: 60/115 de recordar/entender (52,2 %).
 - 🛑 Pendiente de la revisión de Javier, incluidos el régimen de traspasos y el tipo del 19 % (verificarAntesDe 2027-03-31).
+
+## n2-u4 — Riesgo y estadística y lección-juego «¿Suerte o habilidad?» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayor de fondo: las colas gordas se enseñaban a 2σ. Con la misma desviación típica, una distribución de colas gordas no tiene más masa a 2σ (tiene más pico); el exceso aparece a partir de unas 2,8σ.
+    - Se pasa a 3σ: 1,3 meses de cada 1.000 con la normal frente a 6,9 con una t3 reescalada, calculados y no sorteados.
+    - Se corrigen el motor, el juego, el explicador `NormalTails` (con el pico visible), las tarjetas y los ejercicios.
+  - Otros mayores aplicados:
+    - la regla del 95 % frente al 2,3 % exacto;
+    - un dato falso sobre ratings de fondos;
+    - fuentes normativas de publicidad (Circular 2/2020 de la CNMV, Reglamento Delegado 2017/565) y de PRIIPs.
+  - Menores aplicados (10).
+- **Ronda 2:** tres menores aplicados:
+  - sin mencionar la t de Student al jugador;
+  - el distractor de l3-e5;
+  - «curva discontinua» en vez de «roja».
+- Estado: `reviewed`. Bloom del nivel N2: 80/156 de recordar/entender (51,3 %).
+- 🛑 Pendiente de la revisión de Javier, incluidas las fuentes de publicidad (verificarAntesDe 2027-04-30).

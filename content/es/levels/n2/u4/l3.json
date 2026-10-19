@@ -1,8 +1,8 @@
 {
   "id": "n2-u4-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 4,
   "title": "La distribución normal y sus colas",
@@ -188,7 +188,7 @@
       "wrongExplanations": {
         "1": "Eso sería asimetría, no colas gordas.",
         "2": "Las colas hablan de extremos, no de la media.",
-        "3": "Al revés: caen más a menudo."
+        "3": "Falso: con colas gordas, las caídas extremas, de tres desviaciones o más, son más frecuentes que en la normal."
       }
     },
     {

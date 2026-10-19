@@ -1,0 +1,254 @@
+{
+  "id": "n2-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 5,
+  "title": "Divisas y tipo de cambio",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Leer y usar una cotización de divisas",
+    "Explicar qué mueve los tipos de cambio y cómo afectan a una empresa"
+  ],
+  "concepts": ["divisas"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cómo se cotiza",
+      "text": "Un par de divisas como EUR/USD = 1,10 dice cuántas unidades de la segunda (dólares) vale una de la primera (euro). Si sube, se aprecia la primera; si baja, se aprecia la segunda."
+    },
+    {
+      "type": "card",
+      "term": "Qué lo mueve",
+      "text": "Influyen, entre otras cosas, los tipos de interés de cada banco central, la inflación, el crecimiento y los flujos de capital: si los tipos de un país suben más que los de otro, su moneda suele atraer dinero y apreciarse."
+    },
+    {
+      "type": "example",
+      "text": "Naranjas vende zumo en EE. UU. por 1.000.000 $. Con el EUR/USD a 1,10 son 909.091 €; si sube a 1,20, solo 833.333 €. Un euro fuerte encarece sus ventas en dólares al pasarlas a euros."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u5-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Con el EUR/USD a {r}, ¿cuántos euros son {u} $? (€, 2 decimales)",
+      "answer": 4629.63,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{u} / {r}",
+      "params": {
+        "u": {
+          "value": 5000,
+          "min": 1000,
+          "max": 20000,
+          "step": 500,
+          "decimals": 0
+        },
+        "r": {
+          "value": 1.08,
+          "min": 0.9,
+          "max": 1.4,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{u} / {r}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{u} / {r} = {v} €."
+    },
+    {
+      "id": "n2-u5-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "El EUR/USD pasa de {a} a {b}. ¿Cuánto ha cambiado el valor del euro en dólares? (%, 2 decimales)",
+      "answer": 9.09,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({b} / {a} - 1) * 100",
+      "params": {
+        "a": {
+          "value": 1.1,
+          "min": 0.9,
+          "max": 1.19,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "b": {
+          "value": 1.2,
+          "min": 1.2,
+          "max": 1.4,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({b} / {a} - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "{b} / {a} − 1 = {v} %: el euro se ha apreciado."
+    },
+    {
+      "id": "n2-u5-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Naranjas vende {u} $ de zumo en EE. UU. Con el EUR/USD a {r}, ¿cuántos euros ingresa? (€)",
+      "answer": 833333,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{u} / {r}",
+      "params": {
+        "u": {
+          "value": 1000000,
+          "min": 200000,
+          "max": 3000000,
+          "step": 100000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 1.2,
+          "min": 0.9,
+          "max": 1.4,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{u} / {r}",
+          "decimals": 0
+        }
+      },
+      "explanation": "{u} / {r} = {v} €."
+    },
+    {
+      "id": "n2-u5-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "¿Qué suele apreciar una moneda y qué suele depreciarla?",
+      "categories": ["Suele apreciarla", "Suele depreciarla"],
+      "items": [
+        {
+          "text": "Su banco central sube tipos más que los demás",
+          "category": "Suele apreciarla"
+        },
+        {
+          "text": "Su inflación se dispara",
+          "category": "Suele depreciarla"
+        },
+        {
+          "text": "Entran capitales extranjeros a invertir en el país",
+          "category": "Suele apreciarla"
+        },
+        {
+          "text": "Su banco central baja tipos más que los demás",
+          "category": "Suele depreciarla"
+        }
+      ],
+      "explanation": "Tipos más altos y entradas de capital atraen demanda de la moneda; inflación alta y tipos bajos la debilitan. Son tendencias, no reglas exactas."
+    },
+    {
+      "id": "n2-u5-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "¿Por qué a Naranjas, que vende en dólares y paga sus costes en euros, le perjudica un euro fuerte?",
+      "options": [
+        "Porque cada dólar que ingresa vale menos euros",
+        "Porque paga más impuestos",
+        "Porque sus costes en euros suben",
+        "Porque vende menos zumo seguro"
+      ],
+      "answer": 0,
+      "explanation": "Sus ingresos en dólares se convierten en menos euros, y sus costes no bajan.",
+      "wrongExplanations": {
+        "1": "El tipo de cambio no cambia el impuesto.",
+        "2": "Sus costes en euros no cambian por el tipo de cambio.",
+        "3": "Puede vender lo mismo: lo que cambia es lo que vale en euros."
+      }
+    },
+    {
+      "id": "n2-u5-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "statement": "Si el EUR/USD baja de 1,20 a 1,10, el dólar se ha apreciado frente al euro.",
+      "answer": true,
+      "explanation": "Verdadero: ahora un euro compra menos dólares, así que el dólar vale más."
+    },
+    {
+      "id": "n2-u5-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Una empresa que cubre el riesgo de que se mueva el tipo de cambio hace una ___ de divisa.",
+      "answers": [["cobertura"]],
+      "explanation": "Cobertura: por ejemplo, fijando hoy el tipo al que cambiará los dólares que cobrará."
+    },
+    {
+      "id": "n2-u5-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "character": "mentora",
+      "situation": "Naranjas cobrará 1.000.000 $ dentro de seis meses y teme que el euro se aprecie.",
+      "prompt": "¿Qué le recomendarías estudiar?",
+      "options": [
+        "Cubrir ese cobro: fijar hoy el tipo de cambio al que convertirá los dólares, aunque renuncie a ganar si el dólar sube",
+        "No hacer nada: el tipo de cambio siempre vuelve",
+        "Comprar más dólares",
+        "Pedir al cliente que pague en dólares más tarde"
+      ],
+      "answer": 0,
+      "explanation": "Cubrir elimina la incertidumbre del cobro en euros; lo verás con derivados en plantas superiores.",
+      "wrongExplanations": {
+        "1": "No hay garantía de que vuelva, y menos en seis meses.",
+        "2": "Aumentaría su exposición al dólar.",
+        "3": "Retrasar el cobro no reduce el riesgo."
+      }
+    }
+  ],
+  "realWorld": "Las cuentas anuales de las cotizadas españolas con ventas fuera del euro explican en sus notas su exposición al tipo de cambio y cómo la cubren. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

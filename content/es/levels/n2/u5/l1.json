@@ -1,0 +1,260 @@
+{
+  "id": "n2-u5-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 5,
+  "order": 0,
+  "title": "Juego: el viaje del dólar",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Convertir entre euros y dólares con el EUR/USD",
+    "Explicar cómo el tipo de cambio cambia lo que ganas en euros y para qué sirve cubrirlo"
+  ],
+  "concepts": ["divisas"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "fx-trip",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "EUR/USD",
+      "text": "El EUR/USD dice cuántos dólares vale un euro. A {rate0}, tus {amount} € fueron {usd} $. Para pasar de euros a dólares se multiplica; de dólares a euros, se divide."
+    },
+    {
+      "type": "card",
+      "term": "El efecto divisa",
+      "text": "El ETF subió un {etf} % en dólares, hasta {usd_end} $. Pero el EUR/USD pasó a {rate1}: el dólar se depreció frente al euro y tus dólares valían {eur_end} €, solo un {eur_return} % más. En euros, la divisa pesa tanto como la bolsa."
+    },
+    {
+      "type": "card",
+      "term": "Cubrir la divisa",
+      "text": "Una clase cubierta neutraliza casi todo el efecto del tipo de cambio a cambio de un coste ({hedge_cost} % al año en el juego): habrías tenido {hedged_end} €. Cubrir no es ganar más: es elegir no apostar por la divisa."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u5-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Con el EUR/USD a {rate0}, ¿cuántos dólares compras con {amount} €?",
+      "answer": 11000,
+      "unit": "$",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{amount} * {rate0}",
+      "params": {
+        "amount": {
+          "value": 10000,
+          "min": 1000,
+          "max": 50000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "rate0": {
+          "value": 1.1,
+          "min": 0.9,
+          "max": 1.4,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{amount} * {rate0}",
+          "decimals": 0
+        }
+      },
+      "explanation": "{amount} × {rate0} = {v} $: se multiplica porque cada euro vale {rate0} dólares."
+    },
+    {
+      "id": "n2-u5-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Tienes {usd_end} $ y el EUR/USD está en {rate1}. ¿Cuántos euros son?",
+      "answer": 10083,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{usd_end} / {rate1}",
+      "params": {
+        "usd_end": {
+          "value": 12100,
+          "min": 5000,
+          "max": 20000,
+          "step": 100,
+          "decimals": 0
+        },
+        "rate1": {
+          "value": 1.2,
+          "min": 0.9,
+          "max": 1.4,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{usd_end} / {rate1}",
+          "decimals": 0
+        }
+      },
+      "explanation": "{usd_end} / {rate1} = {v} €: de dólares a euros se divide."
+    },
+    {
+      "id": "n2-u5-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Con la clase cubierta, el ETF sube un {etf} % y la cobertura cuesta un {hedge_cost} %. ¿Qué rentabilidad obtienes en euros, aproximadamente? (%, 1 decimal)",
+      "answer": 8.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{etf} - {hedge_cost}",
+      "params": {
+        "etf": {
+          "value": 10,
+          "min": 4,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "hedge_cost": {
+          "value": 1.5,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{etf} - {hedge_cost}",
+          "decimals": 1
+        }
+      },
+      "explanation": "{etf} − {hedge_cost} = {v} %, sin efecto de la divisa."
+    },
+    {
+      "id": "n2-u5-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Si inviertes en euros en un activo en dólares, ¿te favorece o te perjudica?",
+      "categories": ["Te favorece", "Te perjudica"],
+      "items": [
+        {
+          "text": "El EUR/USD baja de 1,10 a 1,00",
+          "category": "Te favorece"
+        },
+        {
+          "text": "El EUR/USD sube de 1,10 a 1,20",
+          "category": "Te perjudica"
+        },
+        {
+          "text": "El dólar se aprecia frente al euro",
+          "category": "Te favorece"
+        },
+        {
+          "text": "El euro se aprecia frente al dólar",
+          "category": "Te perjudica"
+        }
+      ],
+      "explanation": "Tienes dólares: te conviene que el dólar valga más euros, es decir, que el EUR/USD baje."
+    },
+    {
+      "id": "n2-u5-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "El EUR/USD sube de 1,10 a 1,20. ¿Qué ha pasado?",
+      "options": [
+        "El euro se ha apreciado: ahora compra más dólares",
+        "El dólar se ha apreciado",
+        "Los dos se han depreciado",
+        "No ha cambiado nada"
+      ],
+      "answer": 0,
+      "explanation": "Con cada euro compras 1,20 dólares en vez de 1,10: el euro vale más.",
+      "wrongExplanations": {
+        "1": "Al revés: el dólar vale menos euros.",
+        "2": "Un tipo de cambio compara dos monedas: si una sube, la otra baja.",
+        "3": "Ha cambiado lo que vale una moneda en la otra."
+      }
+    },
+    {
+      "id": "n2-u5-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "statement": "Una clase cubierta frente al dólar te protege si el dólar se deprecia, pero también te quita la ganancia si se aprecia.",
+      "answer": true,
+      "explanation": "Verdadero: la cobertura neutraliza el efecto de la divisa en las dos direcciones."
+    },
+    {
+      "id": "n2-u5-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Si el EUR/USD sube, el euro se ___ frente al dólar.",
+      "answers": [["aprecia"]],
+      "explanation": "Se aprecia: compra más dólares."
+    },
+    {
+      "id": "n2-u5-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "character": "rival",
+      "situation": "Hugo dice: «Mi ETF de bolsa americana ha subido un 10 % este año, así que he ganado un 10 %». El EUR/USD ha pasado de 1,10 a 1,20.",
+      "prompt": "¿Qué le contestas?",
+      "options": [
+        "Que en euros ha ganado mucho menos: el dólar se ha depreciado y se ha comido casi toda la subida",
+        "Que ha ganado más del 10 %, porque el euro está más fuerte",
+        "Que ha ganado exactamente un 10 %",
+        "Que el tipo de cambio solo importa al comprar"
+      ],
+      "answer": 0,
+      "explanation": "En euros, 1,10 / 1,20 × 1,10 = 1,008: apenas un 0,8 %. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Un euro más fuerte le perjudica: sus dólares valen menos euros.",
+        "2": "Eso sería en dólares.",
+        "3": "Importa también al vender, al volver a euros."
+      }
+    }
+  ],
+  "realWorld": "En la web del Banco Central Europeo se publican cada día los tipos de cambio de referencia del euro. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

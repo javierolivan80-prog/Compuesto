@@ -39,7 +39,7 @@ export function NormalTails({ mean, sd, onInteract }: Props) {
     },
     {
       title: 'Colas gordas',
-      text: `Con la misma volatilidad, los mercados tienen más meses tranquilos y más meses extremos: la curva roja tiene más pico y colas más gordas. Una caída de más de tres desviaciones (por debajo de ${pct(mean - 3 * sd)}) pasa unas cinco veces más que en la normal.`,
+      text: `Con la misma volatilidad, los mercados tienen más meses tranquilos y más meses extremos: la curva discontinua tiene más pico y colas más gordas. Una caída de más de tres desviaciones (por debajo de ${pct(mean - 3 * sd)}) pasa unas cinco veces más que en la normal.`,
     },
   ];
   const zs = Array.from({ length: 121 }, (_, i) => -4 + i / 15);

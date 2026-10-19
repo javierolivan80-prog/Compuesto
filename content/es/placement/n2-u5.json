@@ -1,0 +1,172 @@
+{
+  "id": "salto-n2-u5",
+  "unitId": "n2-u5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u5-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["divisas"],
+      "prompt": "EUR/USD a 1,25. ¿Cuántos dólares son 1.000 €?",
+      "options": ["1.250 $", "800 $", "1.000 $", "125 $"],
+      "answer": 0,
+      "explanation": "1.000 × 1,25.",
+      "wrongExplanations": {
+        "1": "Has dividido.",
+        "2": "Falta convertir.",
+        "3": "Falta un cero."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["divisas"],
+      "prompt": "El EUR/USD baja de 1,20 a 1,10. ¿Qué moneda se ha apreciado?",
+      "options": ["El dólar", "El euro", "Ninguna", "Las dos"],
+      "answer": 0,
+      "explanation": "Un euro compra menos dólares: el dólar vale más.",
+      "wrongExplanations": {
+        "1": "El euro se ha depreciado.",
+        "2": "Ha cambiado el valor relativo.",
+        "3": "Si una sube frente a la otra, la otra baja."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["divisas"],
+      "prompt": "Inviertes en euros en bolsa de EE. UU. ¿Qué te perjudica?",
+      "options": [
+        "Que el euro se aprecie frente al dólar",
+        "Que el dólar se aprecie",
+        "Que la bolsa suba",
+        "Nada"
+      ],
+      "answer": 0,
+      "explanation": "Tus dólares valen menos euros.",
+      "wrongExplanations": {
+        "1": "Eso te favorece.",
+        "2": "Eso te favorece.",
+        "3": "La divisa sí te afecta."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["materias-primas"],
+      "prompt": "¿Qué es el contango?",
+      "options": [
+        "Que los futuros más lejanos cuestan más que el precio actual",
+        "Que los futuros cuestan menos",
+        "Una comisión del ETC",
+        "Un impuesto"
+      ],
+      "answer": 0,
+      "explanation": "Y renovar en contango cuesta dinero.",
+      "wrongExplanations": {
+        "1": "Eso es backwardation.",
+        "2": "No es una comisión.",
+        "3": "No es un impuesto."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["materias-primas"],
+      "statement": "Un ETC de futuros de petróleo puede perder dinero aunque el precio del petróleo de hoy no se mueva.",
+      "answer": true,
+      "explanation": "Verdadero: por renovar futuros en contango."
+    },
+    {
+      "id": "salto-n2-u5-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cripto-mica"],
+      "prompt": "¿Qué hace MiCA?",
+      "options": [
+        "Regula a emisores y proveedores de servicios de criptoactivos en la UE",
+        "Garantiza el precio de bitcoin",
+        "Prohíbe los criptoactivos",
+        "Asegura tus criptoactivos como un depósito"
+      ],
+      "answer": 0,
+      "explanation": "Autorización y requisitos, no garantías de valor.",
+      "wrongExplanations": {
+        "1": "No garantiza precios.",
+        "2": "No los prohíbe.",
+        "3": "No hay fondo de garantía para criptoactivos."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cripto-mica"],
+      "prompt": "Un activo cae un 50 %. ¿Cuánto tiene que subir para recuperarse?",
+      "options": ["100 %", "50 %", "25 %", "200 %"],
+      "answer": 0,
+      "explanation": "De 50 a 100 hay que duplicar.",
+      "wrongExplanations": {
+        "1": "Subir un 50 % desde 50 deja 75.",
+        "2": "Mucho menos de lo necesario.",
+        "3": "Sería triplicar."
+      }
+    },
+    {
+      "id": "salto-n2-u5-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cripto-mica"],
+      "prompt": "Una plataforma promete un 2 % semanal garantizado. ¿Qué indica?",
+      "options": [
+        "Señal típica de fraude",
+        "Una buena inversión",
+        "Que está autorizada por MiCA",
+        "Que no tiene riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Rentabilidad alta y garantizada: desconfía y comprueba las advertencias de la CNMV.",
+      "wrongExplanations": {
+        "1": "No es creíble.",
+        "2": "La promesa no dice nada de su autorización.",
+        "3": "Todo lo contrario."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Reglamento (UE) 2023/1114 relativo a los mercados de criptoactivos (MiCA)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30"
+}

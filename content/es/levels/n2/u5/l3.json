@@ -1,0 +1,253 @@
+{
+  "id": "n2-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 5,
+  "title": "Materias primas",
+  "cfa": "alternative-investments",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar cómo se invierte en materias primas y qué riesgos tienen",
+    "Calcular el efecto de renovar futuros en contango"
+  ],
+  "concepts": ["materias-primas"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cómo se invierte",
+      "text": "Petróleo, gas, metales, cereales: casi nadie guarda barriles. Se invierte con futuros (contratos para comprar más adelante a un precio fijado hoy), con ETC que siguen esos futuros o con acciones de empresas productoras."
+    },
+    {
+      "type": "card",
+      "term": "Renovar futuros",
+      "text": "Un fondo de futuros tiene que venderlos antes de que venzan y comprar los siguientes. Si los siguientes son más caros (contango), pierde un poco en cada cambio; si son más baratos (backwardation), gana."
+    },
+    {
+      "type": "example",
+      "text": "Si cada mes el futuro siguiente cuesta un 2 % más, renovar 5 veces deja 100 × 0,98^5 ≈ 90,4 aunque el precio de hoy no se mueva: el fondo no sigue al precio del día."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u5-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "Un fondo de futuros pierde un {c} % en cada renovación por el contango. Tras {n} renovaciones, sin que se mueva el precio de hoy, ¿cuánto vale lo que era 100? (2 decimales)",
+      "answer": 90.39,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "100 * (1 - {c} / 100) ^ {n}",
+      "params": {
+        "c": {
+          "value": 2,
+          "min": 0.5,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "n": {
+          "value": 5,
+          "min": 2,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "100 * (1 - {c} / 100) ^ {n}",
+          "decimals": 2
+        }
+      },
+      "explanation": "100 × (1 − {c} %)^{n} = {v}."
+    },
+    {
+      "id": "n2-u5-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "Compras oro a {p} € la onza y sube un {r} %. ¿A cuánto está? (€)",
+      "answer": 2160,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{p} * (1 + {r} / 100)",
+      "params": {
+        "p": {
+          "value": 2000,
+          "min": 1000,
+          "max": 3000,
+          "step": 50,
+          "decimals": 0
+        },
+        "r": {
+          "value": 8,
+          "min": -20,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{p} * (1 + {r} / 100)",
+          "decimals": 0
+        }
+      },
+      "explanation": "{p} × (1 + {r} %) = {v} €."
+    },
+    {
+      "id": "n2-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "Un ETC de petróleo vale {p} € y cae un {r} %. ¿Cuánto vale ahora? (€, 2 decimales)",
+      "answer": 1425,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{p} * (1 - {r} / 100)",
+      "params": {
+        "p": {
+          "value": 1500,
+          "min": 500,
+          "max": 3000,
+          "step": 50,
+          "decimals": 0
+        },
+        "r": {
+          "value": 5,
+          "min": 1,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{p} * (1 - {r} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{p} × (1 − {r} %) = {v} €."
+    },
+    {
+      "id": "n2-u5-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "¿Contango o backwardation?",
+      "categories": ["Contango", "Backwardation"],
+      "items": [
+        {
+          "text": "El futuro a seis meses cuesta más que el actual",
+          "category": "Contango"
+        },
+        {
+          "text": "El futuro a seis meses cuesta menos que el actual",
+          "category": "Backwardation"
+        },
+        {
+          "text": "Al renovar, el fondo pierde un poco cada vez",
+          "category": "Contango"
+        },
+        {
+          "text": "Al renovar, el fondo gana un poco cada vez",
+          "category": "Backwardation"
+        }
+      ],
+      "explanation": "Contango: futuros más caros que el contado; backwardation: más baratos."
+    },
+    {
+      "id": "n2-u5-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "El precio del petróleo de hoy no se ha movido en un año, pero tu ETC de futuros ha perdido un 15 %. ¿Por qué puede ser?",
+      "options": [
+        "Por el coste de renovar futuros en contango",
+        "Porque el ETC cobra un 15 % de comisión",
+        "Porque el petróleo ha caído",
+        "Por el tipo de cambio del euro, seguro"
+      ],
+      "answer": 0,
+      "explanation": "Cada renovación compra futuros más caros: el ETC no sigue el precio del día.",
+      "wrongExplanations": {
+        "1": "Las comisiones de un ETC son mucho menores.",
+        "2": "El enunciado dice que no se ha movido.",
+        "3": "Podría influir, pero el efecto típico de un ETC de futuros es el de renovar."
+      }
+    },
+    {
+      "id": "n2-u5-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "statement": "Un ETC de futuros de una materia prima siempre replica exactamente su precio al contado.",
+      "answer": false,
+      "explanation": "Falso: la renovación de futuros (contango o backwardation) lo separa del precio del día."
+    },
+    {
+      "id": "n2-u5-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "Un contrato para comprar más adelante a un precio fijado hoy es un ___.",
+      "answers": [["futuro"]],
+      "explanation": "Un futuro: lo verás a fondo en la planta de derivados."
+    },
+    {
+      "id": "n2-u5-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "character": "rival",
+      "situation": "Hugo quiere meter sus ahorros en un ETC de gas natural «porque el gas solo puede subir».",
+      "prompt": "¿Qué le adviertes?",
+      "options": [
+        "Que las materias primas son muy volátiles, no generan flujos de caja y los ETC de futuros pierden en contango: no hay nada que «solo pueda subir»",
+        "Que tiene razón: el gas es un bien escaso",
+        "Que mejor compre gas físico",
+        "Que los ETC de materias primas no tienen riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Ningún precio solo puede subir, y menos el de una materia prima. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Escaso no significa que su precio solo suba.",
+        "2": "Almacenar gas no es práctico para un inversor.",
+        "3": "Tienen mucho riesgo."
+      }
+    }
+  ],
+  "realWorld": "Los folletos de los ETC explican cómo replican la materia prima (con futuros o con el activo físico, como el oro) y sus riesgos. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

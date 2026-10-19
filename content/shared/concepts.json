@@ -621,19 +621,25 @@
     "id": "materias-primas",
     "name": "Materias primas",
     "level": 2,
-    "prerequisites": ["mercado-secundario"]
+    "prerequisites": ["mercado-secundario"],
+    "unit": "n2-u5",
+    "description": "Se invierte en ellas sobre todo con futuros, ETC o acciones de productoras. No generan flujos de caja, son volátiles y, en contango, renovar futuros cuesta dinero."
   },
   {
     "id": "divisas",
     "name": "Divisas y tipo de cambio",
     "level": 2,
-    "prerequisites": ["mercado-secundario"]
+    "prerequisites": ["mercado-secundario"],
+    "unit": "n2-u5",
+    "description": "Un par como EUR/USD dice cuántas unidades de la segunda moneda vale una de la primera. El tipo de cambio cambia lo que ganas en euros con activos en otra moneda; cubrirlo neutraliza ese efecto a un coste."
   },
   {
     "id": "cripto-mica",
     "name": "Cripto y MiCA",
     "level": 2,
-    "prerequisites": ["riesgo-rentabilidad"]
+    "prerequisites": ["riesgo-rentabilidad"],
+    "unit": "n2-u5",
+    "description": "Criptoactivos: activos digitales muy volátiles, muchos sin emisor ni flujos de caja. MiCA regula en la UE a emisores y proveedores de servicios; no garantiza su valor."
   },
   {
     "id": "derivados-intro",

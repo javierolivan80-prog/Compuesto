@@ -1236,7 +1236,7 @@
       "normal": "Unos {{n}} meses de cada 1.000, lo que dice la normal",
       "more": "Bastante más a menudo de lo que dice la normal"
     },
-    "whyTails": "Bastante más: los mercados tienen colas gordas. Con una distribución de colas gordas y la misma volatilidad (una t de Student como la del explicador de esta unidad), pasan unos {{fat}} meses de cada 1.000, frente a los {{n}} de la normal. Ojo: a dos desviaciones no hay más caídas; las colas gordas se notan en los extremos.",
+    "whyTails": "Bastante más: los mercados tienen colas gordas. Con una distribución de colas gordas típica y la misma volatilidad pasan unos {{fat}} meses de cada 1.000, frente a los {{n}} de la normal. Ojo: a dos desviaciones no hay más caídas; las colas gordas se notan en los extremos.",
     "briefGenius": "{{traders}} becarios de Albufera apuestan cada mes, a cara o cruz, si la bolsa sube o baja. Tras {{calls}} meses, {{perfect}} ha acertado todos. Dice que tiene un método.",
     "askGenius": "¿Le darías dinero para gestionar por su racha?",
     "genius": {

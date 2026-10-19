@@ -1,0 +1,258 @@
+{
+  "id": "n2-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 5,
+  "title": "Criptoactivos y MiCA",
+  "cfa": "alternative-investments",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué son los criptoactivos y sus riesgos",
+    "Saber qué regula MiCA y qué no protege"
+  ],
+  "concepts": ["cripto-mica"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Criptoactivos",
+      "text": "Son activos digitales registrados en una cadena de bloques. Muchos, como bitcoin, no tienen emisor ni generan flujos de caja: su precio depende de lo que otros estén dispuestos a pagar, y es muy volátil."
+    },
+    {
+      "type": "card",
+      "term": "MiCA",
+      "text": "El Reglamento europeo MiCA regula a los emisores de criptoactivos y de stablecoins y a los proveedores de servicios (exchanges, custodios), que necesitan autorización. En España los supervisa la CNMV. MiCA no protege del riesgo de que el precio caiga."
+    },
+    {
+      "type": "card",
+      "term": "Custodia",
+      "text": "Si un exchange quiebra o pierde tus claves, puedes perder tus criptoactivos. Los depósitos bancarios tienen un fondo de garantía; los criptoactivos, no."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u5-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "Inviertes {i} € en un criptoactivo y cae un {r} %. ¿Cuánto te queda? (€)",
+      "answer": 4000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{i} * (1 - {r} / 100)",
+      "params": {
+        "i": {
+          "value": 5000,
+          "min": 1000,
+          "max": 20000,
+          "step": 500,
+          "decimals": 0
+        },
+        "r": {
+          "value": 20,
+          "min": 5,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{i} * (1 - {r} / 100)",
+          "decimals": 0
+        }
+      },
+      "explanation": "{i} × (1 − {r} %) = {v} €."
+    },
+    {
+      "id": "n2-u5-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "Tras caer un {r} %, ¿cuánto tendría que subir para volver al punto de partida? (%, 2 decimales)",
+      "answer": 25,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(1 / (1 - {r} / 100) - 1) * 100",
+      "params": {
+        "r": {
+          "value": 20,
+          "min": 5,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "(1 / (1 - {r} / 100) - 1) * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "1 / (1 − {r} %) − 1 = {v} %: tras una caída, hace falta una subida mayor para recuperarse."
+    },
+    {
+      "id": "n2-u5-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "Una stablecoin promete valer 1 €. Si llegara a cotizar a {p} €, ¿cuánto perdería quien tuviera {n} unidades? (€)",
+      "answer": 500,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{n} * (1 - {p})",
+      "params": {
+        "n": {
+          "value": 10000,
+          "min": 1000,
+          "max": 50000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 0.95,
+          "min": 0.5,
+          "max": 0.99,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} * (1 - {p})",
+          "decimals": 0
+        }
+      },
+      "explanation": "{n} × (1 − {p}) = {v} €: una promesa de valor estable no es una garantía."
+    },
+    {
+      "id": "n2-u5-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "¿Lo cubre MiCA o no te protege de ello?",
+      "categories": ["Lo regula MiCA", "No te protege"],
+      "items": [
+        {
+          "text": "Que un exchange necesite autorización para operar en la UE",
+          "category": "Lo regula MiCA"
+        },
+        {
+          "text": "Que el precio de bitcoin caiga un 50 %",
+          "category": "No te protege"
+        },
+        {
+          "text": "Requisitos a los emisores de stablecoins",
+          "category": "Lo regula MiCA"
+        },
+        {
+          "text": "Perder tu inversión por comprar en el peor momento",
+          "category": "No te protege"
+        }
+      ],
+      "explanation": "MiCA regula quién emite y quién presta servicios; no garantiza el valor de nada."
+    },
+    {
+      "id": "n2-u5-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "¿Por qué es tan difícil valorar bitcoin con las herramientas de esta carrera?",
+      "options": [
+        "Porque no genera flujos de caja que descontar ni tiene beneficios: no hay DCF ni PER posible",
+        "Porque cotiza en dólares",
+        "Porque su precio es secreto",
+        "Porque está prohibido calcularlo"
+      ],
+      "answer": 0,
+      "explanation": "Sin flujos de caja, su precio depende solo de la oferta y la demanda.",
+      "wrongExplanations": {
+        "1": "Muchos activos en dólares se valoran sin problema.",
+        "2": "Su precio es público.",
+        "3": "No hay tal prohibición."
+      }
+    },
+    {
+      "id": "n2-u5-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "statement": "Los criptoactivos que tienes en un exchange están cubiertos por el fondo de garantía de depósitos.",
+      "answer": false,
+      "explanation": "Falso: el fondo de garantía cubre depósitos bancarios, no criptoactivos."
+    },
+    {
+      "id": "n2-u5-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "El reglamento europeo de los mercados de criptoactivos se conoce por sus siglas: ___.",
+      "answers": [["MiCA", "mica", "MICA"]],
+      "explanation": "MiCA: Markets in Crypto-Assets."
+    },
+    {
+      "id": "n2-u5-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "character": "compliance",
+      "situation": "Un amigo te pasa un enlace a una plataforma de cripto que promete «un 2 % semanal garantizado».",
+      "prompt": "¿Qué haces antes de nada?",
+      "options": [
+        "Desconfiar de la rentabilidad garantizada y comprobar si la plataforma está autorizada y si la CNMV ha publicado advertencias sobre ella",
+        "Invertir poco para probar",
+        "Invertir mucho: un 2 % semanal es una oportunidad",
+        "Pedir a tu amigo que invierta por ti"
+      ],
+      "answer": 0,
+      "explanation": "Una rentabilidad alta garantizada es la señal típica de un fraude. Contenido educativo, no asesoramiento.",
+      "wrongExplanations": {
+        "1": "Con un fraude, también se pierde lo poco.",
+        "2": "Un 2 % semanal es más de un 180 % al año compuesto: no es creíble.",
+        "3": "No cambia nada."
+      }
+    }
+  ],
+  "realWorld": "La CNMV publica advertencias sobre entidades no autorizadas y el registro de proveedores de servicios de criptoactivos. La normativa evoluciona: compruébala antes de invertir.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Reglamento (UE) 2023/1114 relativo a los mercados de criptoactivos (MiCA)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CNMV, criptoactivos: advertencias y registro de proveedores de servicios",
+      "url": "https://www.cnmv.es",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

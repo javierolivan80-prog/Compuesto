@@ -139,6 +139,11 @@
           "id": "n2-u4",
           "name": "Riesgo y estadística",
           "concepts": ["media-desviacion", "distribucion-normal", "ilusion-control"]
+        },
+        {
+          "id": "n2-u5",
+          "name": "Divisas, materias primas y cripto",
+          "concepts": ["divisas", "materias-primas", "cripto-mica"]
         }
       ]
     },

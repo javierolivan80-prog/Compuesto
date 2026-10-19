@@ -1,0 +1,185 @@
+{
+  "id": "n2-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 5,
+  "title": "Jefe final: la cartera internacional",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": ["Medir el efecto de la divisa y de los activos alternativos en una cartera"],
+  "concepts": ["divisas", "materias-primas", "cripto-mica"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u5-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "Un cliente de Albufera invirtió 10.000 € en bolsa de EE. UU. con el EUR/USD a 1,08. ¿Cuántos dólares compró?",
+      "answer": 10800,
+      "unit": "$",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10000 * 1.08",
+      "explanation": "10.000 × 1,08 = 10.800 $."
+    },
+    {
+      "id": "n2-u5-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "La bolsa subió un 6 % en dólares y el EUR/USD pasó a 1,10. ¿Cuántos euros tiene? (€)",
+      "answer": 10407,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10800 * 1.06 / 1.1",
+      "explanation": "10.800 × 1,06 / 1,10 = 10.407 €: un 4,1 % en euros, menos que el 6 % por la apreciación del euro."
+    },
+    {
+      "id": "n2-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "prompt": "Además tiene un ETC de futuros que pierde un 1 % en cada una de 12 renovaciones al año, sin que se mueva el precio de hoy. ¿Cuánto vale lo que era 100? (2 decimales)",
+      "answer": 88.64,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "100 * 0.99 ^ 12",
+      "explanation": "100 × 0,99^12 = 88,64."
+    },
+    {
+      "id": "n2-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "Y 2.000 € en un criptoactivo que cayó un 60 %. ¿Cuánto tiene que subir para recuperar los 2.000 €? (%, 0 decimales)",
+      "answer": 150,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(1 / 0.4 - 1) * 100",
+      "explanation": "Quedan 800 €; para volver a 2.000 hace falta un +150 %."
+    },
+    {
+      "id": "n2-u5-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas", "materias-primas", "cripto-mica"],
+      "prompt": "¿Qué riesgo es propio de cada inversión?",
+      "categories": ["Divisa", "Renovación de futuros", "Custodia en un exchange"],
+      "items": [
+        {
+          "text": "Bolsa de EE. UU. sin cubrir",
+          "category": "Divisa"
+        },
+        {
+          "text": "ETC de petróleo",
+          "category": "Renovación de futuros"
+        },
+        {
+          "text": "Criptoactivos en una plataforma",
+          "category": "Custodia en un exchange"
+        }
+      ],
+      "explanation": "Cada vehículo añade un riesgo propio además del de precio."
+    },
+    {
+      "id": "n2-u5-l5-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["divisas"],
+      "prompt": "El cliente teme que el euro siga apreciándose frente al dólar. ¿Qué le propones para su bolsa de EE. UU.?",
+      "options": [
+        "Una clase cubierta frente al dólar",
+        "Comprar más dólares",
+        "Pasarlo todo a cripto",
+        "Nada: la divisa no afecta"
+      ],
+      "answer": 0,
+      "explanation": "La clase cubierta neutraliza casi todo el efecto de la divisa, a cambio de un coste.",
+      "wrongExplanations": {
+        "1": "Aumentaría su exposición al dólar.",
+        "2": "Cambia un riesgo por otro mayor.",
+        "3": "Ya vio que sí."
+      }
+    },
+    {
+      "id": "n2-u5-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["materias-primas"],
+      "statement": "Una materia prima no genera flujos de caja, así que no se puede valorar con un DCF como una empresa.",
+      "answer": true,
+      "explanation": "Verdadero: su precio depende de la oferta y la demanda, el almacenaje y las expectativas."
+    },
+    {
+      "id": "n2-u5-l5-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["cripto-mica"],
+      "prompt": "En España, el supervisor de los proveedores de servicios de criptoactivos según MiCA es la ___.",
+      "answers": [["CNMV", "cnmv"]],
+      "explanation": "La CNMV."
+    },
+    {
+      "id": "n2-u5-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["divisas", "materias-primas", "cripto-mica"],
+      "character": "mentora",
+      "situation": "El cliente quiere poner el 40 % de sus ahorros en criptoactivos y materias primas «para diversificar».",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que diversificar no es acumular activos muy volátiles: un peso tan alto en activos sin flujos de caja puede dominar todo el riesgo de la cartera",
+        "Que es una diversificación perfecta",
+        "Que el 40 % es poco",
+        "Que la cripto no tiene riesgo con MiCA"
+      ],
+      "answer": 0,
+      "explanation": "Diversificar busca que unos riesgos compensen otros, no sumar volatilidad. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Pueden caer a la vez y con fuerza.",
+        "2": "Es muchísimo para activos tan volátiles.",
+        "3": "MiCA no protege del precio."
+      }
+    }
+  ],
+  "realWorld": "Una cartera internacional bien hecha decide a propósito cuánta divisa, cuánta materia prima y cuánto activo alternativo asume. Los precios, tipos de cambio y productos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio) y Alternative Investments (materias primas y activos digitales)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Reglamento (UE) 2023/1114 relativo a los mercados de criptoactivos (MiCA)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}
