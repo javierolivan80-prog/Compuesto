@@ -27,8 +27,12 @@
       "text": "Influyen, entre otras cosas, los tipos de interés de cada banco central, la inflación, el crecimiento y los flujos de capital: si los tipos de un país suben más que los de otro, su moneda suele atraer dinero y apreciarse."
     },
     {
-      "type": "example",
-      "text": "Naranjas vende zumo en EE. UU. por 1.000.000 $. Con el EUR/USD a 1,10 son 909.091 €; si sube a 1,20, solo 833.333 €. Un euro fuerte encarece sus ventas en dólares al pasarlas a euros."
+      "type": "visual",
+      "component": "FxEffect",
+      "props": {
+        "rate0": 1.1,
+        "gain": 10
+      }
     }
   ],
   "exercises": [

@@ -753,3 +753,43 @@ test('¿suerte o habilidad?: captura y axe a 375 px en cada paso y lección comp
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('el viaje del dólar: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n2-u5-l1');
+  await expect(page.getByRole('heading', { name: 'El viaje del dólar' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('comprar');
+  await page.getByRole('radio').first().click();
+  await expect(page.getByTestId('xg-why')).toContainText('✗');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio', { name: /^Más/ }).click();
+  await scan('un-ano');
+  await page.screenshot({ path: 'docs/capturas/leccion-juego/dolar-375.png', fullPage: true });
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio', { name: /^La normal/ }).click();
+  await scan('cobertura');
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n2-u5-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n2/u5/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});

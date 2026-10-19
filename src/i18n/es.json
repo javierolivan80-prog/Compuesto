@@ -1305,5 +1305,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo el tipo de cambio cambia lo que ganas en euros.",
     "debrief": "Ver qué ha pasado"
+  },
+  "fxEffect": {
+    "title": "La misma subida, en dólares y en euros"
   }
 }

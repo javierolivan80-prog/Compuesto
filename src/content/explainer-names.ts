@@ -23,5 +23,6 @@ export const EXPLAINER_NAMES = [
   'Duration',
   'TerDrain',
   'NormalTails',
+  'FxEffect',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

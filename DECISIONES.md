@@ -668,3 +668,15 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - el Jefe final con el informe de riesgos de un fondo de Albufera.
 - **Conceptos:** `media-desviacion`, `distribucion-normal` e `ilusion-control`. El 📊 de la planta (PROMEDIO y DESVEST) entra en dos ejercicios de completar.
 - **Simplificaciones:** √12 supone meses independientes, y las colas gordas del juego se simulan (no son datos reales). Las dos cosas se dicen en el contenido.
+
+## 2026-10-19 — Unidad `n2-u5` «Divisas, materias primas y cripto» y juego «El viaje del dólar»
+
+- **Decisión:** cinco lecciones:
+  - el juego, nuevo, con ficha en `docs/specs/viaje-del-dolar.md`;
+  - divisas y tipo de cambio, con el explicador nuevo `FxEffect`, añadido al catálogo de ANIMACIONES (el único de divisas, `FxParity`, es de la planta de macro);
+  - materias primas (futuros, ETC, contango y backwardation);
+  - criptoactivos y MiCA;
+  - el Jefe final con la cartera internacional de un cliente.
+- **Conceptos:** `divisas`, `materias-primas` y `cripto-mica`.
+- **Componente:** el patrón de pregunta con explicación de las lecciones-juego pasa al kit como `AskStep` (lo usan «¿Suerte o habilidad?» y «El viaje del dólar»).
+- **Hechos que caducan:** MiCA (Reglamento (UE) 2023/1114) y el papel de la CNMV llevan fuente y `verificarAntesDe` 2027-04-30. 🛑 Javier debe contrastarlos.

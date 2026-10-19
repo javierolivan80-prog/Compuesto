@@ -146,6 +146,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/entre [−-]2,9\s% y 3,9\s%/);
     expect(text).toMatch(/entre [−-]6,3\s% y 7,3\s%/);
   });
+  it('FxEffect: un euro más fuerte reduce la ganancia en euros', () => {
+    render(<ExplainerBlock component="FxEffect" props={{ rate0: 1.1, gain: 10 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/1,20 un año después, en euros: \+0,8\s%/);
+    expect(text).toMatch(/1,00 un año después, en euros: \+21,0\s%/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock

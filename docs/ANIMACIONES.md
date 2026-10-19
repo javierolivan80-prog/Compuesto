@@ -71,6 +71,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `Duration` | Duración | El balancín con bonos de distintos plazos: los largos se mueven más | Plazo del bono |
 | `YieldCurve` | Curva de tipos | Curva elástica que se empina, aplana o invierte | Arrastrar la curva |
 | `FundVsEtf` | Fondo vs ETF | Una cesta que cotiza en continuo frente a otra con precio una vez al día | Ninguna |
+| `FxEffect` | Efecto divisa | Dos barras: la subida de un activo en dólares, fija, y la misma subida en euros, que cambia con el EUR/USD | Tipo de cambio un año después |
 | `TerDrain` | Comisiones (TER) | Dos curvas compuestas idénticas; una pierde un hilo dorado cada año por comisiones | TER |
 | `NormalTails` | Distribución normal y colas gordas | Histograma que se construye con caídas de bolas; las colas reales pesan más que la campana | Número de días |
 
