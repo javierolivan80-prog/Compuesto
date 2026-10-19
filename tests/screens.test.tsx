@@ -62,7 +62,12 @@ describe('pantallas principales', () => {
 
   it('Camino: 10 plantas, la más alta arriba, con estados y "Próximamente" explícito', async () => {
     await open('#/camino');
-    const building = await screen.findByRole('list', { name: 'Edificio de Albufera Partners' });
+    const building = await screen.findByRole(
+      'list',
+      { name: 'Edificio de Albufera Partners' },
+      // con todo el contenido cargado, bajo la carga de la batería completa tarda más de 1 s
+      { timeout: 5000 },
+    );
     const floors = within(building)
       .getAllByRole('listitem', { name: '' })
       .filter((li) => li.querySelector(':scope > details'));

@@ -314,3 +314,19 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** un mayor. El valor terminal por múltiplo se descontaba a 4,5 años; se pasa a 5, porque es un valor a 31/12 y no un flujo repartido en el año. Así se vuelve al 10,24 € del modelo de referencia, y l4-e2 explica las dos convenciones.
 - **Ronda 3:** aprobada. Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier.
+
+## n2-u1 — Bonos: cupón, precio y TIR y lección-juego «La emisión de Naranjas» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Las cifras estaban todas bien.
+  - Mayores aplicados (3):
+    - el Jefe final explicaba mal el coste de la deuda del 5 % de Pirineo (el coste es la rentabilidad de mercado, no el cupón);
+    - avisos que nombraban a Naranjas en lecciones sin Naranjas;
+    - la tolerancia del 0,5 % en los precios aceptaba métodos mal planteados (ahora 0,1 %).
+  - Menores aplicados (11):
+    - plazos del Tesoro formulados como definición más emisión actual;
+    - enunciados de l1-e8, l2-e8 y l5-e8 más precisos;
+    - l3-e3 ya no repite el ejemplo;
+    - el juego ya no atribuye al BCE el movimiento del tipo a 5 años;
+    - distractores de l2-e5, l4-e5 y q7.
+- **Ronda 2:** aprobada. Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier, incluidos los plazos de Letras, Bonos y Obligaciones en tesoro.es (verificarAntesDe 2027-04-30).
