@@ -589,3 +589,21 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Conceptos:** `multiplos` y `anclaje` (el 🧠 de la planta 1).
 - **Precios de hoy y comparables:** son ficticios y anónimos. `companies.json` no tiene cotizaciones; la cinta de la home usa precios inventados sin relación con las cuentas. Las lecciones lo recuerdan y no recomiendan.
 - **Simplificaciones:** valor de empresa = capitalización + deuda financiera − caja, sin minoritarios, arrendamientos ni otros ajustes; PER con el beneficio del último año.
+
+## 2026-10-19 — Unidad `n3-u5` «Coste de capital: CAPM y WACC», antes del DCF
+
+- **Orden:** la propuesta aprobada ponía el DCF Express antes que el coste de capital. Se invierte: el concepto `dcf` requiere `wacc` en el mapa de conceptos (TEMARIO §4), y descontar flujos sin saber de dónde sale la tasa contradice el dominio por prerrequisitos.
+- **Decisión:** cinco lecciones:
+  - el juego «La mezcla de la financiación» (`n3-u5-l1`, semilla 0: las hipótesis del modelo DCF de referencia de Naranjas);
+  - el CAPM;
+  - la beta apalancada y desapalancada (Hamada);
+  - el coste de la deuda y el WACC, con el explicador `WaccMix` (ya en el catálogo de ANIMACIONES);
+  - el Jefe final con el WACC de Pirineo Energía.
+- **Conceptos:** `capm-beta`, `coste-capital`, `beta-apalancada`, `coste-deuda`, `estructura-capital` y `wacc`.
+- **Simplificaciones:**
+  - Hamada con beta de la deuda nula;
+  - en el juego, el coste de la deuda sube con el cuadrado de lo que el peso de la deuda pasa de un umbral (ficha en `docs/specs/mezcla-financiacion.md`);
+  - la prima por tamaño se presenta como una hipótesis discutida;
+  - en el Jefe final se usa la deuda bruta para los pesos.
+- **Dato legal:** el límite de deducibilidad de gastos financieros (art. 16 de la Ley 27/2014) lleva la fuente del BOE y `verificarAntesDe` 2027-03-31.
+- **Producción:** la build de producción solo carga lecciones `reviewed` o `published`, así que `e2e/n3u5.spec.ts` (proyecto prod) pasa cuando la unidad está revisada.
