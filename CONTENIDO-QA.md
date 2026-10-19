@@ -398,3 +398,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada. Estado: `reviewed`.
 - Bloom del nivel N2: 99/197 de recordar/entender (50,3 %, justo).
 - 🛑 Pendiente de la revisión de Javier: comprobar en el BOE el artículo de la Ley 6/2023 que reparte la supervisión entre CNMV y Banco de España (el revisor lo dio de memoria).
+
+## n2-u6 — Mercado monetario, repo, cédulas y titulizaciones y lección-juego «Una noche en la tesorería» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - tolerancias de l2-e1 y l5-e3 tan estrechas que el error de base 365 y el descuento simple quedan fuera;
+    - l4-e2 y l4-e3 se entienden solos en el repaso (con los tramos en el enunciado);
+    - el explicador `RepoFlow` ya no llama «seguro» al repo: es barato porque el que presta corre poco riesgo.
+  - Menores aplicados (12): fórmula con el principal en `RepoFlow`, «Al vencer» en el juego, «sénior» con tilde, «tipo» en vez de «tasa», €STR «cada día hábil», fuentes de EMMI (Euríbor) y de la Ley 5/2015 (titulizaciones)…
+- **Ronda 2:** aprobada. Estado: `reviewed`.
+- Bloom del nivel N2: 120/239 de recordar/entender (50,2 %, sin margen: n2-u7 debe llevar más).
+- Test de salto: 8 preguntas, todas de reconocer. Queda pendiente para todo el N2 (tarea 2.12).
+- 🛑 Pendiente de la revisión de Javier (verificarAntesDe 2027-04-30).
