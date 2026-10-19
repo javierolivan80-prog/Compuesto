@@ -1085,5 +1085,65 @@
   },
   "bondSeesaw": {
     "title": "El balancín del precio y los tipos"
+  },
+  "curveGame": {
+    "title": "Curva de tipos",
+    "step": {
+      "long": "Reto 1 de 3 · el bono largo",
+      "twist": "Reto 2 de 3 · el corto baja y el largo sube",
+      "duration": "Reto 3 de 3 · cuánto cae"
+    },
+    "brief": {
+      "long": "Cinco bonos del Estado, todos emitidos hoy a la par con la curva de tipos de abajo. Mueve la curva hasta que el bono a 30 años caiga más de un 10 %.",
+      "twist": "Ahora, algo más fino: que el bono a 2 años baje y, a la vez, el de 30 años suba. Prueba a girar la curva.",
+      "duration": "Has visto que los bonos largos se mueven mucho más. Ahora, sin mover nada: si todos los tipos suben un punto, ¿cuánto cae el bono a 10 años?"
+    },
+    "lever": {
+      "level": "Nivel de los tipos: {{v}} puntos",
+      "slope": "Pendiente (largos frente a cortos): {{v}} puntos"
+    },
+    "less": {
+      "level": "Bajar todos los tipos",
+      "slope": "Aplanar la curva"
+    },
+    "more": {
+      "level": "Subir todos los tipos",
+      "slope": "Empinar la curva"
+    },
+    "chartAria": "Curva de tipos: {{list}}. Discontinua, la de hoy.",
+    "point": "{{m}} años al {{y}} %",
+    "years": "{{m}} a",
+    "legend": "Discontinua: la curva de hoy. Continua: la curva movida. Abajo, cada bono con su rentabilidad y su precio.",
+    "bonds": "Bonos y precios",
+    "bond": "Bono a {{m}} años",
+    "check": "Comprobar",
+    "why": {
+      "long": {
+        "ok": "El bono a 30 años cae más de un 10 % con menos de un punto de subida: devuelve su dinero muy tarde, y cada punto de tipo pesa durante muchos años.",
+        "ko": "Aún no cae lo bastante. Sube el nivel, o empina la curva: el bono a 30 años es el que más reacciona."
+      },
+      "twist": {
+        "ok": "Aplanar la curva sube los tipos cortos y baja los largos: el corto cae un poco y el largo sube mucho más.",
+        "ko": "Para que el corto baje y el largo suba, sus tipos tienen que moverse en sentido contrario: aplana la curva."
+      }
+    },
+    "askFall": "¿Cuánto cae, más o menos, el bono a 10 años?",
+    "fallOption": "Un {{v}} %",
+    "whyDuration": "Cae un {{v}} %. Es casi su duración modificada: el porcentaje que cae un bono por cada punto que sube su rentabilidad. A más plazo, más duración.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente reto",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Informe de la mesa de renta fija",
+    "row": {
+      "long": "Bono largo −10 %",
+      "twist": "Corto abajo, largo arriba",
+      "duration": "Caída del bono a 10 años"
+    },
+    "great": "Dominas la curva: nivel, pendiente y duración.",
+    "ok": "Bien encaminado: repasa el reto que fallaste.",
+    "bad": "Repasa cómo los plazos largos reaccionan más a los tipos.",
+    "debrief": "Ver qué ha pasado"
   }
 }

@@ -40,6 +40,7 @@ import { CheapGame } from '../games/CheapGame';
 import { WaccGame } from '../games/WaccGame';
 import { DcfGame } from '../games/DcfGame';
 import { BondGame } from '../games/BondGame';
+import { CurveGame } from '../games/CurveGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -203,6 +204,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'wacc-mix': WaccGame,
             'dcf-express': DcfGame,
             'bond-issue': BondGame,
+            'yield-curve': CurveGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

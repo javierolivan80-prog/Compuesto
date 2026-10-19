@@ -38,6 +38,7 @@ import {
 } from './cheap-or-dear';
 import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
 import { bondValues, required, setupBond } from './bond-issue';
+import { curveValues, fall10, setupCurve } from './yield-curve';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -76,6 +77,7 @@ export const LESSON_GAMES = [
   'wacc-mix',
   'dcf-express',
   'bond-issue',
+  'yield-curve',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -308,6 +310,34 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     tir_buy: [2, 2],
     par_price_after: [2, 2],
   },
+  'yield-curve': {
+    y1: [1, 1],
+    y2: [1, 1],
+    y5: [1, 1],
+    y10: [1, 1],
+    y30: [1, 1],
+    up_1: [2, 2],
+    up_2: [2, 2],
+    up_5: [2, 2],
+    up_10: [2, 2],
+    up_30: [2, 2],
+    dur_1: [2, 2],
+    dur_2: [2, 2],
+    dur_5: [2, 2],
+    dur_10: [2, 2],
+    dur_30: [2, 2],
+    first_level: [2, 2],
+    first_slope: [2, 2],
+    first_30: [2, 2],
+    second_level: [2, 2],
+    second_slope: [2, 2],
+    second_2: [2, 2],
+    second_30: [2, 2],
+    pick: [1, 1],
+    fall_10: [1, 1],
+    fall_30: [1, 1],
+    fall_2: [1, 1],
+  },
 };
 
 /**
@@ -468,6 +498,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           tir: Math.round((y + setup.shock) * 100) / 100,
         }),
         bondValues(setup, { coupon: 3, up: setup.shock > 0, tir: 3 }),
+      ];
+    }
+    case 'yield-curve': {
+      // los tres retos bien, y nada movido con la caída mal
+      const setup = setupCurve(seed);
+      const zero = { level: 0, slope: 0 };
+      return [
+        curveValues(setup, {
+          first: { level: 1, slope: 0 },
+          second: { level: 0, slope: -1 },
+          pick: fall10(setup),
+        }),
+        curveValues(setup, { first: zero, second: zero, pick: 0 }),
       ];
     }
   }

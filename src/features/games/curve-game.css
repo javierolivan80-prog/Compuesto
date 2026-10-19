@@ -1,0 +1,11 @@
+/* Curva de tipos: panel, deslizadores y filas de bonos. */
+.cg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.cg-range {
+  accent-color: var(--brand);
+}
+.cg-row:nth-child(odd) {
+  background: var(--surface-2);
+}
