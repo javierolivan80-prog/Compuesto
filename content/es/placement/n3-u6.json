@@ -53,7 +53,7 @@
       "wrongExplanations": {
         "1": "Falta restar el circulante.",
         "2": "El circulante resta, no suma.",
-        "3": "Falta restar el capex."
+        "3": "No has aplicado el impuesto: el FCFF parte de EBIT × (1 − t) = 750, no de 1.000."
       }
     },
     {

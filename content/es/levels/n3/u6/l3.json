@@ -245,7 +245,15 @@
       "tags": [],
       "concepts": ["dcf"],
       "prompt": "El flujo de caja libre para la empresa se descuenta al ___.",
-      "answers": [["WACC", "wacc"]],
+      "answers": [
+        [
+          "WACC",
+          "wacc",
+          "coste medio ponderado del capital",
+          "coste medio ponderado de capital",
+          "CMPC"
+        ]
+      ],
       "explanation": "Es el flujo para accionistas y bancos juntos."
     }
   ],

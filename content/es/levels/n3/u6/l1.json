@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Descontar y valor terminal",
-      "text": "Con el WACC del {wacc_model} %, los cinco flujos valen hoy {pv_fcff} mil €. Lo que vale la empresa después de 2030, el valor terminal, crece a perpetuidad un {g_model} %: {tv} mil €, {pv_tv} de hoy. Pesa un {tv_share} % del valor."
+      "text": "Con el WACC del {wacc_model} %, los cinco flujos valen hoy {pv_fcff} mil €. Lo que vale la empresa después de 2030, el valor terminal, crece a perpetuidad un {g_model} %: {tv} mil €, {pv_tv} mil € de hoy. Pesa un {tv_share} % del valor."
     },
     {
       "type": "card",
@@ -161,7 +161,7 @@
         "net_debt": {
           "value": -3385,
           "min": -10000,
-          "max": 10000,
+          "max": -500,
           "step": 1,
           "decimals": 0
         }
@@ -233,7 +233,7 @@
       "answer": 0,
       "explanation": "A perpetuidad, crecer más que el PIB nominal significa acabar siendo más grande que la economía. Y con g = 3,7 % el valor terminal pasa a pesar más del 80 %.",
       "wrongExplanations": {
-        "1": "Es más que el objetivo de inflación del BCE, del 2 %: ese es el problema.",
+        "1": "Un 3,7 % es más que la inflación objetivo del BCE (2 %). Superarla no es el problema: el tope es el crecimiento nominal de la economía a largo plazo, y el comité no acepta más de un 2,5 %.",
         "2": "Gordon admite cualquier g menor que el WACC.",
         "3": "El WACC no depende de g."
       }
@@ -277,6 +277,11 @@
     {
       "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
       "date": "2026-10-19"
     }
   ],

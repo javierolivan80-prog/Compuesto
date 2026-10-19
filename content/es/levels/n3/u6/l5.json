@@ -9,7 +9,7 @@
   "cfa": "equity",
   "estimatedMinutes": 5,
   "objectives": ["Hacer un DCF completo y presentarlo con criterio"],
-  "concepts": ["dcf", "van", "wacc"],
+  "concepts": ["dcf", "van"],
   "companies": ["pirineo-energia"],
   "historical": false,
   "intro": [],
@@ -20,7 +20,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["dcf"],
+      "concepts": ["dcf", "van"],
       "prompt": "El plan de Pirineo prevé un FCFF de 20.000 mil € en el año 1. Con su WACC del 6 % y mitad de año, ¿cuánto vale hoy? (miles de €)",
       "answer": 19426,
       "unit": "mil €",
@@ -102,7 +102,7 @@
       "tolerance": 0.5,
       "answerDecimals": 1,
       "formula": "416474 / 511381 * 100",
-      "explanation": "416.474 / 511.381 = 81,4 %: aún más que en Naranjas, porque su WACC es más bajo."
+      "explanation": "416.474 / 511.381 = 81,4 %: aún más que en Naranjas, porque su WACC − g es más pequeño (6 − 1,5 = 4,5 puntos frente a 6,27)."
     },
     {
       "id": "n3-u6-l5-e7",
@@ -117,7 +117,7 @@
         "Valor de empresa: 511.381 mil €.",
         "Suma la deuda financiera neta, 47.697: patrimonio de 559.078.",
         "Entre 40.000.000 de acciones: 13,98 €.",
-        "Cotiza a 9,50 €: un 47 % por debajo."
+        "Cotiza a 9,50 €: un 32 % por debajo."
       ],
       "errorIndex": 1,
       "explanation": "La deuda neta pertenece a los bancos: se resta. Patrimonio = 511.381 − 47.697 = 463.684 mil €; 11,59 € por acción."

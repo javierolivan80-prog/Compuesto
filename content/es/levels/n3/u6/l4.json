@@ -45,7 +45,7 @@
       "tags": [],
       "concepts": ["dcf"],
       "prompt": "Último FCFF {f} mil €, g {g} % y WACC {w} %. ¿Valor terminal por Gordon? (miles de €)",
-      "answer": 117890,
+      "answer": 108648,
       "unit": "mil €",
       "tolerance": 0.5,
       "answerDecimals": 0,
@@ -59,7 +59,7 @@
           "decimals": 2
         },
         "g": {
-          "value": 2,
+          "value": 1.5,
           "min": 1,
           "max": 3,
           "step": 0.5,
@@ -79,7 +79,7 @@
           "decimals": 0
         }
       },
-      "explanation": "{f} × (1 + {g} %) / ({w} % − {g} %) = {v} mil €."
+      "explanation": "{f} × (1 + {g} %) / ({w} % − {g} %) = {v} mil €. Con g = 2 % salía 117.890: medio punto de g mueve el valor terminal un 8,5 %."
     },
     {
       "id": "n3-u6-l4-e2",
@@ -141,21 +141,21 @@
       "tags": [],
       "concepts": ["dcf"],
       "prompt": "Valor actual de los flujos: {a}; del valor terminal: {b} (miles de €). ¿Qué peso tiene el valor terminal en el valor de empresa? (%, 1 decimal)",
-      "answer": 75.8,
+      "answer": 70,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 1,
       "formula": "{b} / ({a} + {b}) * 100",
       "params": {
         "a": {
-          "value": 26370,
+          "value": 30000,
           "min": 20000,
           "max": 35000,
           "step": 10,
           "decimals": 0
         },
         "b": {
-          "value": 82450,
+          "value": 70000,
           "min": 60000,
           "max": 100000,
           "step": 10,
@@ -185,7 +185,7 @@
         "Que el DCF no sirve para nada"
       ],
       "answer": 0,
-      "explanation": "Un punto de WACC mueve el precio casi un 30 %: por eso se presenta un rango.",
+      "explanation": "Un punto de WACC arriba o abajo del 8,27 % lleva el precio de 9,35 € a 8,12 € o a 11,05 €: entre un −13 % y un +18 %. Por eso se presenta un rango.",
       "wrongExplanations": {
         "1": "Escoger el extremo que conviene es sesgo, no análisis.",
         "2": "La media de dos extremos no sustituye a justificar la hipótesis central.",
@@ -221,13 +221,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["dcf"],
-      "prompt": "Con el valor terminal por múltiplo, el valor de empresa de Naranjas es de 119.455 mil €. Con una deuda financiera neta de −3.385 (caja neta) y 12.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
-      "answer": 10.24,
+      "prompt": "Con el valor terminal por múltiplo (138.501, que descontado a 4,5 años al 8,27 % son 96.865), el valor de empresa de Naranjas es 26.370 + 96.865 = 123.235 mil €. Con una deuda financiera neta de −3.385 mil € (caja neta) y 12.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
+      "answer": 10.55,
       "unit": "€",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "(119455 + 3385) / 12000",
-      "explanation": "(119.455 + 3.385) / 12.000 = 10,24 €, frente a 9,35 € por Gordon: los dos métodos dan un rango."
+      "formula": "(123235 + 3385) / 12000",
+      "explanation": "(123.235 + 3.385) / 12.000 = 10,55 €, frente a 9,35 € por Gordon: los dos métodos dan un rango."
     },
     {
       "id": "n3-u6-l4-e8",

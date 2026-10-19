@@ -201,10 +201,10 @@
       "concepts": ["van"],
       "prompt": "Ordena los pasos para calcular el VAN de un proyecto.",
       "steps": [
-        "Estimar la inversión y los flujos de caja de cada año",
-        "Elegir la tasa de descuento según el riesgo del proyecto",
+        "Estimar la inversión, los flujos de caja de cada año y la tasa según el riesgo",
         "Traer cada flujo a hoy con esa tasa",
-        "Sumar los flujos descontados y restar la inversión"
+        "Sumar los flujos descontados y restar la inversión",
+        "Aceptar el proyecto si el VAN es positivo"
       ],
       "explanation": "Flujos, tasa, descuento y suma: el mismo esquema que el DCF de una empresa entera."
     },

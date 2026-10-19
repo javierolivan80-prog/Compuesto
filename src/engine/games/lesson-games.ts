@@ -37,6 +37,7 @@ import {
   setupCheap,
 } from './cheap-or-dear';
 import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
+import { bondValues, required, setupBond } from './bond-issue';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -74,6 +75,7 @@ export const LESSON_GAMES = [
   'cheap-or-dear',
   'wacc-mix',
   'dcf-express',
+  'bond-issue',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -271,7 +273,7 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     price: [2, 2],
     target: [2, 2],
     wacc_model: [2, 2],
-    g_model: [1, 1],
+    g_model: [0, 1],
     fcff_5: [0, 0],
     pv_fcff: [0, 0],
     tv: [0, 0],
@@ -290,6 +292,21 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     final_g: [1, 1],
     final_margin: [1, 1],
     final_value: [2, 2],
+  },
+  'bond-issue': {
+    tesoro: [1, 1],
+    spread: [1, 1],
+    yield: [1, 1],
+    coupon: [1, 1],
+    price_issue: [2, 2],
+    raised: [0, 0],
+    coupon_cash: [2, 2],
+    shock: [1, 1],
+    new_yield: [1, 1],
+    price_after: [2, 2],
+    change: [2, 2],
+    tir_buy: [2, 2],
+    par_price_after: [2, 2],
   },
 };
 
@@ -438,6 +455,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           final: { wacc, g: BASE.g, margin: 0 },
         }),
         dcfValues(setup, { wacc, g: BASE.g, defend: true, final: START_3 }),
+      ];
+    }
+    case 'bond-issue': {
+      // todo bien (a la par), y el cupón inicial del 3 % con la dirección y la TIR mal
+      const setup = setupBond(seed);
+      const y = required(setup);
+      return [
+        bondValues(setup, {
+          coupon: y,
+          up: setup.shock < 0,
+          tir: Math.round((y + setup.shock) * 100) / 100,
+        }),
+        bondValues(setup, { coupon: 3, up: setup.shock > 0, tir: 3 }),
       ];
     }
   }
