@@ -1,0 +1,224 @@
+{
+  "id": "n2-u7-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "title": "Jefe final: la ventanilla",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Elegir entre pensiones, SOCIMI y derivados sabiendo qué riesgos y reglas tiene cada uno"
+  ],
+  "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"],
+  "companies": [],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u7-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Aportas 1.500 € a un plan de pensiones con un tipo marginal del 37 %. ¿Cuánto IRPF te ahorras este año? (€)",
+      "answer": 555,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1500 * 0.37",
+      "explanation": "1.500 × 37 % = 555 €."
+    },
+    {
+      "id": "n2-u7-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI gana 5 millones de € con alquileres y tiene 20 millones de acciones. ¿Cuál es el dividendo mínimo por acción por ese beneficio? (€, 2 decimales)",
+      "answer": 0.2,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "5 * 0.8 / 20",
+      "explanation": "5 × 80 % = 4 millones; entre 20 millones de acciones, 0,20 €."
+    },
+    {
+      "id": "n2-u7-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras un futuro sobre 20 unidades a 50 € y al vencer valen 46 €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
+      "answer": -80,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(46 - 50) * 20",
+      "explanation": "(46 − 50) × 20 = −80 €."
+    },
+    {
+      "id": "n2-u7-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras una call con strike 50 € y prima 3 €. Al vencer, la acción vale 48 €. ¿Cuál es tu resultado por acción? (€)",
+      "answer": -3,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "max(48 - 50, 0) - 3",
+      "explanation": "No ejerces (48 < 50): pierdes solo la prima, −3 €."
+    },
+    {
+      "id": "n2-u7-l6-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"],
+      "prompt": "¿Cuál es el principal inconveniente de cada producto?",
+      "categories": ["Liquidez limitada", "Pérdidas amplificadas", "Volatilidad de la bolsa"],
+      "items": [
+        {
+          "text": "Plan de pensiones",
+          "category": "Liquidez limitada"
+        },
+        {
+          "text": "Futuro sobre el IBEX",
+          "category": "Pérdidas amplificadas"
+        },
+        {
+          "text": "CFD apalancado",
+          "category": "Pérdidas amplificadas"
+        },
+        {
+          "text": "Acciones de una SOCIMI",
+          "category": "Volatilidad de la bolsa"
+        }
+      ],
+      "explanation": "El plan inmoviliza el dinero; los derivados apalancados amplifican; la SOCIMI cotiza."
+    },
+    {
+      "id": "n2-u7-l6-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "¿Cómo tributa el rescate de un plan de pensiones?",
+      "options": [
+        "Como rendimiento del trabajo, todo lo cobrado",
+        "Como ganancia patrimonial, solo la rentabilidad",
+        "No tributa",
+        "Al 19 % fijo"
+      ],
+      "answer": 0,
+      "explanation": "Rendimiento del trabajo, al tipo marginal.",
+      "wrongExplanations": {
+        "1": "Así tributa un fondo, no un plan.",
+        "2": "Tributa.",
+        "3": "Va a la base general, con la escala progresiva."
+      }
+    },
+    {
+      "id": "n2-u7-l6-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "Un banco te recomienda personalmente un producto. ¿Qué evaluación debe hacer?",
+      "options": [
+        "La de idoneidad: si encaja con tus objetivos, situación y tolerancia al riesgo",
+        "La de conveniencia solo",
+        "Ninguna",
+        "Un examen de matemáticas"
+      ],
+      "answer": 0,
+      "explanation": "Con asesoramiento, idoneidad.",
+      "wrongExplanations": {
+        "1": "La de conveniencia es sin asesoramiento.",
+        "2": "Debe evaluarte.",
+        "3": "Pregunta por conocimientos y situación, no examina."
+      }
+    },
+    {
+      "id": "n2-u7-l6-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "statement": "El comprador de una call nunca puede perder más que la prima que pagó.",
+      "answer": true,
+      "explanation": "Verdadero: si no le conviene, no ejerce."
+    },
+    {
+      "id": "n2-u7-l6-e9",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Si cumple sus requisitos, una SOCIMI tributa en el impuesto sobre sociedades al ___ %.",
+      "answers": [["0", "cero"]],
+      "explanation": "Al 0 % (Ley 11/2009, art. 9); tributan los accionistas al cobrar."
+    },
+    {
+      "id": "n2-u7-l6-e10",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"],
+      "character": "mentora",
+      "situation": "Javier tiene 25 años, un tipo marginal del 19 %, 6.000 € ahorrados y ninguna experiencia en derivados. Le ofrecen: un plan de pensiones, acciones de una SOCIMI y un CFD apalancado sobre el oro.",
+      "prompt": "¿Qué orden de prioridades es más sensato?",
+      "options": [
+        "Primero un colchón líquido; después, si quiere inmobiliario, la SOCIMI con una parte pequeña; el plan apenas le desgrava con un 19 %, y el CFD no le conviene sin experiencia",
+        "Todo al CFD, que es lo que más puede dar",
+        "Todo al plan de pensiones, por la desgravación",
+        "Repartir a partes iguales entre los tres"
+      ],
+      "answer": 0,
+      "explanation": "Liquidez primero, riesgo que se entiende después, y el producto complejo solo con conocimientos. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Puede perderlo todo muy rápido y no lo entiende.",
+        "2": "Desgrava poco con un 19 % y bloquea el dinero.",
+        "3": "Repartir no sustituye a pensar en liquidez y riesgo."
+      }
+    }
+  ],
+  "realWorld": "Antes de firmar cualquier producto, lee su documento de datos fundamentales y pregunta qué pasa en el peor caso. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BOE, Ley 35/2006 del IRPF, arts. 17.2.a) (prestaciones de planes de pensiones como rendimiento del trabajo), 51 y 52 (reducción por aportaciones y su límite de 1.500 € anuales)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 11/2009 de SOCIMI, arts. 3 (inversión), 4 (cotización), 6 (distribución de resultados) y 9 (régimen fiscal)",
+      "url": "https://www.boe.es/eli/es/l/2009/10/26/11/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 6/2023 de los Mercados de Valores y de los Servicios de Inversión (protección del inversor, evaluación de conveniencia e idoneidad)",
+      "url": "https://www.boe.es/eli/es/l/2023/03/17/6/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Derivatives y Alternative Investments (futuros, opciones e inmobiliario cotizado)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

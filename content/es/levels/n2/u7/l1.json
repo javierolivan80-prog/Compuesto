@@ -1,0 +1,276 @@
+{
+  "id": "n2-u7-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "order": 0,
+  "title": "Juego: el escaparate del banco",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ahorro fiscal de una aportación a un plan de pensiones",
+    "Aplicar el reparto mínimo de una SOCIMI y el resultado de un futuro",
+    "Distinguir productos complejos y no complejos"
+  ],
+  "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "bank-window",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "El plan de pensiones",
+      "text": "Aportaste {contribution} € y tu tipo marginal es del {marginal} %: tu base imponible baja {contribution} € y pagas {saving} € menos de IRPF este año. No es un regalo: al rescatar el plan, lo que cobres tributará como rendimiento del trabajo."
+    },
+    {
+      "type": "card",
+      "term": "SOCIMI y futuro",
+      "text": "La SOCIMI ganó {rent_profit} miles de € con alquileres y debe repartir al menos el 80 %: {min_dividend} miles. El futuro: compraste {units} unidades a {f0} € y al vencer valían {f1} €. Resultado: ({f1} − {f0}) × {units} = {pnl} €."
+    },
+    {
+      "type": "card",
+      "term": "Complejo o no",
+      "text": "Un depósito o un fondo UCITS corriente son productos no complejos. Un bono estructurado o un CFD apalancado son complejos: antes de vendértelos sin asesorarte, el banco debe evaluar si los entiendes (la evaluación de conveniencia)."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u7-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Aportas {contribution} € a un plan de pensiones (dentro del límite) y tu tipo marginal del IRPF es del {marginal} %, y no cambia. ¿Cuánto IRPF te ahorras este año? (€)",
+      "answer": 450,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{contribution} * {marginal} / 100",
+      "params": {
+        "contribution": {
+          "value": 1500,
+          "min": 300,
+          "max": 1500,
+          "step": 100,
+          "decimals": 0
+        },
+        "marginal": {
+          "value": 30,
+          "min": 19,
+          "max": 47,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{contribution} * {marginal} / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "{contribution} € × {marginal} % = {v} €: la aportación sale de la base, así que ahorras tu tipo marginal."
+    },
+    {
+      "id": "n2-u7-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI gana {rent_profit} miles de € con sus alquileres. ¿Cuánto debe repartir como mínimo en dividendos por ese beneficio? (miles de €)",
+      "answer": 800,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{rent_profit} * 0.8",
+      "params": {
+        "rent_profit": {
+          "value": 1000,
+          "min": 100,
+          "max": 5000,
+          "step": 100,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{rent_profit} * 0.8",
+          "decimals": 0
+        }
+      },
+      "explanation": "Al menos el 80 % del beneficio por alquileres: {rent_profit} × 0,8 = {v} miles de €."
+    },
+    {
+      "id": "n2-u7-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras un futuro sobre {units} unidades a {f0} € y al vencer el subyacente vale {f1} €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
+      "answer": 80,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({f1} - {f0}) * {units}",
+      "params": {
+        "units": {
+          "value": 10,
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "f0": {
+          "value": 100,
+          "min": 50,
+          "max": 200,
+          "step": 1,
+          "decimals": 0
+        },
+        "f1": {
+          "value": 108,
+          "min": 50,
+          "max": 200,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({f1} - {f0}) * {units}",
+          "decimals": 0
+        }
+      },
+      "explanation": "({f1} − {f0}) × {units} = {v} €. El comprador gana si el precio sube y pierde si baja."
+    },
+    {
+      "id": "n2-u7-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Complejo o no complejo, según la normativa de inversión?",
+      "categories": ["No complejo", "Complejo"],
+      "items": [
+        {
+          "text": "Acciones de una empresa que cotiza en bolsa",
+          "category": "No complejo"
+        },
+        {
+          "text": "Un fondo UCITS que replica un índice",
+          "category": "No complejo"
+        },
+        {
+          "text": "Un CFD sobre el oro con apalancamiento",
+          "category": "Complejo"
+        },
+        {
+          "text": "Un bono que paga un cupón solo si el IBEX no cae",
+          "category": "Complejo"
+        }
+      ],
+      "explanation": "Acciones cotizadas y fondos UCITS corrientes son no complejos; los derivados y los productos con condiciones difíciles de valorar, complejos."
+    },
+    {
+      "id": "n2-u7-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "¿Por qué el ahorro fiscal de un plan de pensiones se describe como un «diferimiento»?",
+      "options": [
+        "Porque lo que no pagas al aportar lo pagas en parte al rescatar: lo cobrado tributa como rendimiento del trabajo",
+        "Porque el dinero queda exento para siempre",
+        "Porque Hacienda te lo devuelve al jubilarte",
+        "Porque solo puedes aportar cada dos años"
+      ],
+      "answer": 0,
+      "explanation": "Aplazas el impuesto: ganas si al rescatar tu tipo marginal es menor que al aportar.",
+      "wrongExplanations": {
+        "1": "Al rescatar se tributa.",
+        "2": "No devuelve nada: al rescatar se paga.",
+        "3": "Se puede aportar cada año."
+      }
+    },
+    {
+      "id": "n2-u7-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "statement": "En un futuro, lo que gana el comprador lo pierde el vendedor.",
+      "answer": true,
+      "explanation": "Verdadero: sin contar comisiones, es un juego de suma cero entre las dos partes."
+    },
+    {
+      "id": "n2-u7-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "El equivalente de las SOCIMI en Estados Unidos son los ___.",
+      "answers": [["REIT", "REITs"]],
+      "explanation": "REIT: Real Estate Investment Trust."
+    },
+    {
+      "id": "n2-u7-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "character": "compliance",
+      "situation": "Un empleado de la oficina quiere vender un bono estructurado a un cliente que nunca ha invertido «porque paga un 8 %», sin hacerle ninguna pregunta.",
+      "prompt": "¿Qué le recuerda la compliance officer?",
+      "options": [
+        "Que es un producto complejo: antes debe evaluar si el cliente tiene conocimientos y experiencia para entenderlo, y advertirle si no",
+        "Que puede venderlo: el 8 % está garantizado",
+        "Que los productos complejos están prohibidos a particulares",
+        "Que solo hace falta que el cliente firme el contrato"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación de conveniencia protege al cliente de productos que no entiende. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Depende de condiciones sobre el índice: no está garantizado.",
+        "2": "No están prohibidos: hay que evaluar y advertir.",
+        "3": "Firmar no sustituye a la evaluación."
+      }
+    }
+  ],
+  "realWorld": "Cuando un banco te ofrece un producto, pide su documento de datos fundamentales (DFI o KID): resume qué es, sus costes y su indicador de riesgo. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Derivatives y Alternative Investments (futuros, opciones e inmobiliario cotizado)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 35/2006 del IRPF, arts. 17.2.a) (prestaciones de planes de pensiones como rendimiento del trabajo), 51 y 52 (reducción por aportaciones y su límite de 1.500 € anuales)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 11/2009 de SOCIMI, arts. 3 (inversión), 4 (cotización), 6 (distribución de resultados) y 9 (régimen fiscal)",
+      "url": "https://www.boe.es/eli/es/l/2009/10/26/11/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 6/2023 de los Mercados de Valores y de los Servicios de Inversión (protección del inversor, evaluación de conveniencia e idoneidad)",
+      "url": "https://www.boe.es/eli/es/l/2023/03/17/6/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

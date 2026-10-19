@@ -1,0 +1,236 @@
+{
+  "id": "n2-u7-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "title": "Derivados: futuros y opciones",
+  "cfa": "derivatives",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el resultado de un futuro y de una opción al vencimiento",
+    "Distinguir obligación (futuro) de derecho (opción)"
+  ],
+  "concepts": ["derivados-intro"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Derivado",
+      "text": "Un derivado es un contrato cuyo valor depende de otro activo, el subyacente: una acción, un índice, el petróleo. En un futuro, las dos partes se obligan a comprar y vender a un precio fijado hoy en una fecha futura. Lo que gana una, lo pierde la otra."
+    },
+    {
+      "type": "visual",
+      "component": "FuturePayoff",
+      "props": {
+        "price": 100,
+        "units": 10
+      }
+    },
+    {
+      "type": "card",
+      "term": "Opción",
+      "text": "Una opción de compra (call) da el derecho, no la obligación, de comprar a un precio fijado (el strike). Por ese derecho se paga una prima. Si al vencer el precio está por debajo del strike, no la ejerces y pierdes solo la prima."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u7-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Vendes un futuro sobre {u} unidades a 100 € y al vencer el subyacente vale {s} €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
+      "answer": -50,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(100 - {s}) * {u}",
+      "params": {
+        "u": {
+          "value": 10,
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 105,
+          "min": 80,
+          "max": 120,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "(100 - {s}) * {u}",
+          "decimals": 0
+        }
+      },
+      "explanation": "El vendedor gana si baja: (100 − {s}) × {u} = {v} €."
+    },
+    {
+      "id": "n2-u7-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras una call con strike 100 € pagando una prima de 4 €. Al vencer, la acción vale {s} €. ¿Cuál es tu resultado por acción, incluida la prima? (€)",
+      "answer": 6,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "max({s} - 100, 0) - 4",
+      "params": {
+        "s": {
+          "value": 110,
+          "min": 90,
+          "max": 130,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "max({s} - 100, 0) - 4",
+          "decimals": 0
+        }
+      },
+      "explanation": "Ejerces solo si {s} > 100: máx({s} − 100; 0) − 4 = {v} €."
+    },
+    {
+      "id": "n2-u7-l4-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "¿Es propio de un futuro o de una opción comprada?",
+      "categories": ["Futuro", "Opción comprada"],
+      "items": [
+        {
+          "text": "Obliga a las dos partes",
+          "category": "Futuro"
+        },
+        {
+          "text": "Se paga una prima al principio",
+          "category": "Opción comprada"
+        },
+        {
+          "text": "La pérdida máxima es la prima",
+          "category": "Opción comprada"
+        },
+        {
+          "text": "Puedes perder mucho más de lo que pusiste de garantía",
+          "category": "Futuro"
+        }
+      ],
+      "explanation": "El futuro es una obligación simétrica; la opción comprada, un derecho con pérdida limitada a la prima."
+    },
+    {
+      "id": "n2-u7-l4-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "¿Por qué se dice que los futuros están apalancados?",
+      "options": [
+        "Porque solo depositas una garantía pequeña, pero ganas o pierdes sobre el valor entero del contrato",
+        "Porque te prestan el dinero sin intereses",
+        "Porque siempre ganas el doble",
+        "Porque no tienen riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Una garantía del 10 % multiplica por 10 el efecto de cada movimiento sobre lo que has puesto.",
+      "wrongExplanations": {
+        "1": "No hay préstamo: es un contrato a plazo con garantías.",
+        "2": "El apalancamiento multiplica también las pérdidas.",
+        "3": "Precisamente tienen mucho."
+      }
+    },
+    {
+      "id": "n2-u7-l4-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "statement": "El comprador de una opción call está obligado a comprar al vencimiento aunque el precio haya caído.",
+      "answer": false,
+      "explanation": "Falso: tiene el derecho, no la obligación. Si no le conviene, no ejerce y pierde la prima."
+    },
+    {
+      "id": "n2-u7-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "Una aerolínea compra futuros de queroseno. ¿Para qué, normalmente?",
+      "options": [
+        "Para cubrirse: fija hoy el precio del combustible que usará y se protege de subidas",
+        "Para especular con que el queroseno baje",
+        "Para no tener que comprar queroseno nunca",
+        "Porque los futuros siempre dan beneficio"
+      ],
+      "answer": 0,
+      "explanation": "Cobertura: si el queroseno sube, lo que gana con el futuro compensa lo que paga de más.",
+      "wrongExplanations": {
+        "1": "Si baja, el futuro comprado pierde.",
+        "2": "Sigue necesitando combustible.",
+        "3": "Pueden dar pérdidas."
+      }
+    },
+    {
+      "id": "n2-u7-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "prompt": "El activo del que depende el valor de un derivado se llama ___.",
+      "answers": [["subyacente", "el subyacente", "activo subyacente"]],
+      "explanation": "Subyacente."
+    },
+    {
+      "id": "n2-u7-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["derivados-intro"],
+      "character": "jefe",
+      "situation": "Un cliente con una cartera de acciones del IBEX teme una caída fuerte el próximo mes, pero no quiere vender sus acciones.",
+      "prompt": "¿Qué le propone el jefe de la mesa como idea a estudiar?",
+      "options": [
+        "Cubrirse vendiendo futuros sobre el IBEX: si cae, lo que gana con los futuros compensa lo que pierde en las acciones",
+        "Comprar más futuros sobre el IBEX",
+        "Comprar calls sobre el IBEX",
+        "No hay forma de cubrirse sin vender"
+      ],
+      "answer": 0,
+      "explanation": "Una posición vendida en futuros gana cuando el índice baja. El coste: si sube, renuncia a esa subida. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Comprar futuros aumenta la exposición a la caída.",
+        "2": "Las calls ganan si sube, no si cae.",
+        "3": "Los derivados permiten cubrirse sin vender."
+      }
+    }
+  ],
+  "realWorld": "En España, los futuros y opciones sobre el IBEX 35 y sobre acciones se negocian en MEFF, el mercado de derivados de BME. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Derivatives y Alternative Investments (futuros, opciones e inmobiliario cotizado)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

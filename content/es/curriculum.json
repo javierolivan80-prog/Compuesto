@@ -149,6 +149,11 @@
           "id": "n2-u6",
           "name": "Mercado monetario, repo, cédulas y titulizaciones",
           "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"]
+        },
+        {
+          "id": "n2-u7",
+          "name": "Pensiones, SOCIMI, derivados y productos complejos",
+          "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"]
         }
       ]
     },

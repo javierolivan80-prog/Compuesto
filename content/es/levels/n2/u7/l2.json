@@ -1,0 +1,225 @@
+{
+  "id": "n2-u7-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "title": "Planes de pensiones",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ahorro fiscal de una aportación y lo que tributa el rescate",
+    "Explicar la liquidez limitada de un plan"
+  ],
+  "concepts": ["planes-pensiones"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Qué es",
+      "text": "Un plan de pensiones es un ahorro para la jubilación. Lo que aportas reduce tu base imponible del IRPF, con un límite general de 1.500 € al año en los planes individuales. A cambio, el dinero queda inmovilizado: en general solo se recupera al jubilarte o en casos tasados."
+    },
+    {
+      "type": "card",
+      "term": "El rescate",
+      "text": "Al rescatar, todo lo que cobras (aportaciones y rentabilidad) tributa como rendimiento del trabajo, a tu tipo marginal de ese año. Por eso el plan compensa más si al rescatar tu tipo es menor que al aportar."
+    },
+    {
+      "type": "example",
+      "text": "Aportas 1.000 € con un tipo marginal del 37 %: ahorras 370 €. Si al jubilarte rescatas esos 1.000 € con un tipo del 24 %, pagas 240 €. Ganas 130 € de impuestos, además de lo que rinda el dinero."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u7-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Aportas {c} € a un plan de pensiones y tu tipo marginal del IRPF es del {m} %. ¿Cuánto IRPF te ahorras este año? (€)",
+      "answer": 370,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{c} * {m} / 100",
+      "params": {
+        "c": {
+          "value": 1000,
+          "min": 100,
+          "max": 1500,
+          "step": 100,
+          "decimals": 0
+        },
+        "m": {
+          "value": 37,
+          "min": 19,
+          "max": 47,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} * {m} / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "{c} € × {m} % = {v} €."
+    },
+    {
+      "id": "n2-u7-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Aportaste 1.000 € al 37 % y los rescatas al jubilarte con un tipo marginal del {m2} %. Sin contar la rentabilidad, ¿cuánto ganas en impuestos (lo ahorrado al aportar menos lo pagado al rescatar)? (€)",
+      "answer": 130,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1000 * (37 - {m2}) / 100",
+      "params": {
+        "m2": {
+          "value": 24,
+          "min": 19,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "1000 * (37 - {m2}) / 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "1.000 × 37 % − 1.000 × {m2} % = {v} €."
+    },
+    {
+      "id": "n2-u7-l2-e3",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Ordena la vida fiscal de una aportación a un plan de pensiones.",
+      "steps": [
+        "Aportas al plan",
+        "Tu base imponible baja ese año",
+        "El dinero se invierte durante años",
+        "Rescatas al jubilarte",
+        "Lo cobrado tributa como rendimiento del trabajo"
+      ],
+      "explanation": "Primero desgravas; al final tributas."
+    },
+    {
+      "id": "n2-u7-l2-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "¿Cuándo compensa más fiscalmente un plan de pensiones?",
+      "options": [
+        "Cuando tu tipo marginal al aportar es mayor que al rescatar",
+        "Cuando al rescatar tienes más ingresos que al aportar",
+        "Siempre por igual",
+        "Cuando rescatas todo de golpe en un año de sueldo alto"
+      ],
+      "answer": 0,
+      "explanation": "Ahorras al tipo alto y pagas al tipo bajo.",
+      "wrongExplanations": {
+        "1": "Entonces pagarías al rescatar más de lo que ahorraste.",
+        "2": "Depende de los tipos de cada momento.",
+        "3": "Sumarlo a un sueldo alto sube el tipo al que tributa."
+      }
+    },
+    {
+      "id": "n2-u7-l2-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "statement": "El dinero de un plan de pensiones se puede sacar cuando quieras, como el de una cuenta corriente.",
+      "answer": false,
+      "explanation": "Falso: en general solo al jubilarte o en supuestos tasados (paro de larga duración, enfermedad grave o aportaciones con más de diez años de antigüedad)."
+    },
+    {
+      "id": "n2-u7-l2-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Al rescatar un plan de pensiones, ¿qué parte tributa en el IRPF?",
+      "options": [
+        "Todo lo que cobras, aportaciones y rentabilidad, como rendimiento del trabajo",
+        "Solo la rentabilidad, como en un fondo",
+        "Nada: ya tributó al aportar",
+        "Solo las aportaciones"
+      ],
+      "answer": 0,
+      "explanation": "Como las aportaciones redujeron la base, al rescatar tributa todo.",
+      "wrongExplanations": {
+        "1": "Eso es un fondo de inversión, no un plan.",
+        "2": "Al aportar no tributó: se redujo la base.",
+        "3": "También tributa la rentabilidad."
+      }
+    },
+    {
+      "id": "n2-u7-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "prompt": "El límite general de aportación a planes de pensiones individuales con reducción en el IRPF es de ___ € al año.",
+      "answers": [["1500", "1.500"]],
+      "explanation": "1.500 € al año (Ley 35/2006 del IRPF, art. 52, en su redacción vigente)."
+    },
+    {
+      "id": "n2-u7-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["planes-pensiones"],
+      "character": "mentora",
+      "situation": "Tu compañero becario, con un sueldo bajo y un tipo marginal del 19 %, quiere meter en un plan de pensiones todos sus ahorros, incluido el colchón para emergencias, «por la desgravación».",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que con un tipo del 19 % ahorra poco, y que el colchón debe estar disponible: el plan no se puede sacar cuando lo necesite",
+        "Que hace bien: cuanto más aporte, mejor",
+        "Que el plan está exento al rescatar",
+        "Que debería sacar el dinero cada año para volver a desgravar"
+      ],
+      "answer": 0,
+      "explanation": "La ventaja fiscal crece con el tipo marginal, y la liquidez del colchón es prioritaria. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Además, por encima del límite no desgrava.",
+        "2": "Tributa como rendimiento del trabajo.",
+        "3": "No se puede sacar cuando quieras."
+      }
+    }
+  ],
+  "realWorld": "En tu declaración de la renta verás las aportaciones a planes como una reducción de la base imponible general. Los límites y supuestos de liquidez cambian con las leyes de presupuestos: compruébalos en la AEAT. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BOE, Ley 35/2006 del IRPF, arts. 17.2.a) (prestaciones de planes de pensiones como rendimiento del trabajo), 51 y 52 (reducción por aportaciones y su límite de 1.500 € anuales)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Real Decreto Legislativo 1/2002, texto refundido de la Ley de Planes y Fondos de Pensiones, art. 8 (contingencias y supuestos de liquidez)",
+      "url": "https://www.boe.es/eli/es/rdlg/2002/11/29/1/con",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

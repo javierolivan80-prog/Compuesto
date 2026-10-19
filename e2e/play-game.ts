@@ -13,6 +13,13 @@ import { rightDiff, setupFunds, SITUATIONS } from '../src/engine/games/fund-fees
 import { mean as luckMean, setupLuck } from '../src/engine/games/luck-or-skill';
 import { dollars, rightCompare, setupFx } from '../src/engine/games/fx-trip';
 import { interest, loan, setupRepo } from '../src/engine/games/repo-night';
+import {
+  futurePnl,
+  minDividend,
+  PRODUCTS,
+  setupWindow,
+  taxSaving,
+} from '../src/engine/games/bank-window';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -26,6 +33,7 @@ import type { Ex } from './solver';
 const es = JSON.parse(readFileSync('src/i18n/es.json', 'utf8')) as {
   balanceGame: { side: Record<string, string>; item: Record<string, string> };
   cashGame: { opt: Record<string, Record<string, string>> };
+  windowGame: { product: Record<string, string> };
 };
 
 export type GameLesson = Lesson & { game: { kind: LessonGameKind; seed: number } };
@@ -56,6 +64,31 @@ export async function playGameLesson(
     await page.getByRole('radio', { name: new RegExp(`^${i}\\s€$`) }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: 'La cédula hipotecaria' }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'bank-window') {
+    // referencia 0: clasificar los productos, el ahorro del plan, el dividendo mínimo y el futuro
+    await expect(page.getByRole('heading', { name: 'El escaparate del banco' })).toBeVisible();
+    const setup = setupWindow(seed);
+    const product = es.windowGame.product;
+    for (const p of PRODUCTS)
+      await page
+        .getByRole('radiogroup', { name: product[p.id] })
+        .getByRole('radio', { name: p.complex ? 'Complejo' : 'No complejo', exact: true })
+        .click();
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const num = (v: number) => formatNumber(v).replace(/\./g, '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${num(taxSaving(setup))}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: new RegExp(`^${num(minDividend(setup) * 1000)}\\s€$`) })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const pnl = futurePnl(setup);
+    const sign = pnl > 0 ? '\\+' : pnl < 0 ? '−' : '';
+    await page
+      .getByRole('radio', { name: new RegExp(`^${sign}${num(Math.abs(pnl))}\\s€$`) })
+      .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

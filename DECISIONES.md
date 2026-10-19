@@ -692,3 +692,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Conceptos:** `mercado-monetario-repo` y `cedulas-titulizaciones`.
 - **Bloom de N2:** va muy justo (≈ 50 %), y el Jefe final lleva un verdadero/falso más para no bajar del mínimo. Las unidades que quedan de la planta 2 (pensiones, SOCIMI, productos complejos e introducción a derivados) deben cargar algo más de recordar y entender.
 - **Hechos que caducan:** el €STR del BCE y el régimen de bonos garantizados (Real Decreto-ley 24/2021) llevan fuente y `verificarAntesDe` 2027-04-30.
+
+## 2026-10-19 — Unidad `n2-u7` «Pensiones, SOCIMI, derivados y productos complejos» y juego «El escaparate del banco»
+
+- **Decisión:** seis lecciones, la última unidad de la planta 2:
+  - el juego, nuevo, con ficha en `docs/specs/escaparate-banco.md`;
+  - planes de pensiones (la reducción en la base y el rescate como rendimiento del trabajo: un diferimiento, no un regalo);
+  - SOCIMI y REIT (reparto mínimo del 80 % del beneficio por alquileres);
+  - derivados (futuros y opciones al vencimiento), con el explicador nuevo `FuturePayoff`, añadido al catálogo;
+  - productos complejos (MiFID II, conveniencia frente a idoneidad, avisos de la CNMV, KID con riesgo del 1 al 7);
+  - el Jefe final en la ventanilla del banco.
+- **Conceptos:** `planes-pensiones`, `socimi-reit`, `derivados-intro` y `productos-complejos`.
+- **Bloom de N2:** la unidad lleva 31/50 de recordar/entender (62 %) para dar margen al nivel, que queda en ≈ 52 %.
+- **Test de salto:** el esquema solo admite 8 preguntas de reconocer. Los tests con ejercicios de producir y el banco de 12 preguntas quedan en la tarea 2.12, para todos los niveles a la vez.
+- **Hechos que caducan:** el límite de 1.500 € (Ley 35/2006, art. 52), los supuestos de liquidez de los planes (RDL 1/2002, art. 8), el régimen de las SOCIMI (Ley 11/2009), MiFID II, la Ley 6/2023, la Circular 1/2018 de la CNMV y PRIIPs llevan fuente y `verificarAntesDe` 2027-04-30.

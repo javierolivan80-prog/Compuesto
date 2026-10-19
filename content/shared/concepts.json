@@ -613,13 +613,17 @@
     "id": "planes-pensiones",
     "name": "Planes de pensiones",
     "level": 2,
-    "prerequisites": ["tres-pilares"]
+    "prerequisites": ["tres-pilares"],
+    "unit": "n2-u7",
+    "description": "Ahorro para la jubilación: las aportaciones reducen la base del IRPF (límite general de 1.500 € al año) y el rescate tributa entero como rendimiento del trabajo. El dinero solo se recupera en supuestos tasados."
   },
   {
     "id": "socimi-reit",
     "name": "SOCIMI y REIT",
     "level": 2,
-    "prerequisites": ["accion"]
+    "prerequisites": ["accion"],
+    "unit": "n2-u7",
+    "description": "Sociedad cotizada de inmuebles en alquiler que tributa al 0 % en sociedades si reparte al menos el 80 % del beneficio por alquileres. En Estados Unidos, REIT."
   },
   {
     "id": "materias-primas",
@@ -649,13 +653,17 @@
     "id": "derivados-intro",
     "name": "Introducción a derivados",
     "level": 2,
-    "prerequisites": ["accion"]
+    "prerequisites": ["accion"],
+    "unit": "n2-u7",
+    "description": "Contratos cuyo valor depende de un subyacente. El futuro obliga a las dos partes (suma cero, apalancado); la opción comprada da un derecho a cambio de una prima, que es su pérdida máxima."
   },
   {
     "id": "productos-complejos",
     "name": "Productos complejos y avisos CNMV",
     "level": 2,
-    "prerequisites": ["derivados-intro"]
+    "prerequisites": ["derivados-intro"],
+    "unit": "n2-u7",
+    "description": "Derivados, CFD y productos con condiciones difíciles de valorar. Sin asesoramiento, el banco evalúa la conveniencia (si lo entiendes); con asesoramiento, la idoneidad. Avisos de la CNMV y KID con riesgo del 1 al 7."
   },
   {
     "id": "media-desviacion",

@@ -1,0 +1,177 @@
+{
+  "id": "salto-n2-u7",
+  "unitId": "n2-u7",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u7-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["planes-pensiones"],
+      "prompt": "Aportas 1.000 € a un plan con un tipo marginal del 30 %. ¿Cuánto IRPF te ahorras?",
+      "options": ["300 €", "1.000 €", "190 €", "30 €"],
+      "answer": 0,
+      "explanation": "1.000 × 30 %.",
+      "wrongExplanations": {
+        "1": "Eso es la aportación, no el ahorro.",
+        "2": "Eso sería con el 19 %.",
+        "3": "Te falta un cero."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["planes-pensiones"],
+      "prompt": "¿Cómo tributa el rescate de un plan de pensiones?",
+      "options": [
+        "Como rendimiento del trabajo",
+        "Como ganancia patrimonial",
+        "Está exento",
+        "Al 0 %"
+      ],
+      "answer": 0,
+      "explanation": "Todo lo cobrado, como rendimiento del trabajo.",
+      "wrongExplanations": {
+        "1": "Así tributa un fondo.",
+        "2": "Tributa.",
+        "3": "Tributa a tu tipo marginal."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q3",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI gana 10 millones con alquileres. ¿Dividendo mínimo por ese beneficio?",
+      "options": ["8 millones", "10 millones", "5 millones", "2 millones"],
+      "answer": 0,
+      "explanation": "Al menos el 80 %.",
+      "wrongExplanations": {
+        "1": "No tiene que repartirlo todo.",
+        "2": "Es el 80 %, no el 50 %.",
+        "3": "Eso es lo que puede retener."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q4",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["socimi-reit"],
+      "statement": "Una SOCIMI que cumple sus requisitos tributa al 0 % en el impuesto sobre sociedades.",
+      "answer": true,
+      "explanation": "Verdadero: tributan los accionistas al cobrar los dividendos."
+    },
+    {
+      "id": "salto-n2-u7-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras un futuro sobre 10 unidades a 100 € y al vencer valen 95 €. ¿Resultado?",
+      "options": ["−50 €", "+50 €", "−5 €", "−950 €"],
+      "answer": 0,
+      "explanation": "(95 − 100) × 10.",
+      "wrongExplanations": {
+        "1": "El comprador pierde si baja.",
+        "2": "Falta multiplicar por las unidades.",
+        "3": "Se pierde la diferencia, no el valor."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["derivados-intro"],
+      "prompt": "¿Qué diferencia una opción comprada de un futuro?",
+      "options": [
+        "La opción da un derecho a cambio de una prima; el futuro obliga a las dos partes",
+        "No hay diferencia",
+        "El futuro tiene prima y la opción no",
+        "La opción siempre gana"
+      ],
+      "answer": 0,
+      "explanation": "Derecho frente a obligación.",
+      "wrongExplanations": {
+        "1": "Son distintos.",
+        "2": "Es al revés.",
+        "3": "Puede perder la prima."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Cuál de estos es un producto complejo?",
+      "options": [
+        "Un CFD apalancado",
+        "Una acción del IBEX",
+        "Una Letra del Tesoro",
+        "Un fondo UCITS indexado"
+      ],
+      "answer": 0,
+      "explanation": "Los CFD son derivados apalancados.",
+      "wrongExplanations": {
+        "1": "Acción cotizada: no complejo.",
+        "2": "Instrumento del mercado monetario: no complejo.",
+        "3": "UCITS no estructurado: no complejo."
+      }
+    },
+    {
+      "id": "salto-n2-u7-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["productos-complejos"],
+      "prompt": "Si compras por tu cuenta un producto complejo, ¿qué evalúa el banco?",
+      "options": [
+        "La conveniencia: si lo entiendes",
+        "La idoneidad: si te encaja",
+        "Nada",
+        "Tu renta"
+      ],
+      "answer": 0,
+      "explanation": "Sin asesoramiento, conveniencia.",
+      "wrongExplanations": {
+        "1": "La idoneidad es con asesoramiento.",
+        "2": "Debe evaluarte.",
+        "3": "No es lo que mide."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "BOE, Ley 35/2006 del IRPF, arts. 17.2.a) (prestaciones de planes de pensiones como rendimiento del trabajo), 51 y 52 (reducción por aportaciones y su límite de 1.500 € anuales)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 11/2009 de SOCIMI, arts. 3 (inversión), 4 (cotización), 6 (distribución de resultados) y 9 (régimen fiscal)",
+      "url": "https://www.boe.es/eli/es/l/2009/10/26/11/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "EUR-Lex, Directiva 2014/65/UE (MiFID II), art. 25 (evaluación de idoneidad y conveniencia; instrumentos no complejos)",
+      "url": "https://eur-lex.europa.eu/eli/dir/2014/65/oj",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30"
+}

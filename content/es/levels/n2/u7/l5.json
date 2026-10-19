@@ -1,0 +1,231 @@
+{
+  "id": "n2-u7-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "title": "Productos complejos y avisos de la CNMV",
+  "cfa": "ethics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir productos complejos y no complejos",
+    "Explicar la evaluación de conveniencia e idoneidad y los avisos al inversor"
+  ],
+  "concepts": ["productos-complejos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Complejo o no",
+      "text": "La normativa europea (MiFID II) considera no complejos, entre otros, las acciones cotizadas, los bonos sencillos y los fondos UCITS no estructurados. Los derivados, los CFD y los productos con condiciones difíciles de valorar son complejos."
+    },
+    {
+      "type": "card",
+      "term": "Conveniencia e idoneidad",
+      "text": "Si te venden un producto complejo sin asesorarte, el banco hace la evaluación de conveniencia: si tienes conocimientos y experiencia para entenderlo. Si te asesora, hace la de idoneidad: si encaja con tus objetivos, tu situación financiera y tu tolerancia al riesgo."
+    },
+    {
+      "type": "card",
+      "term": "Los avisos",
+      "text": "Si el producto no te conviene, el banco debe advertírtelo antes de que lo compres. La CNMV exige además advertencias en algunos productos, como el aviso de que son difíciles de comprender. El documento de datos fundamentales (KID) resume el producto con un indicador de riesgo del 1 al 7."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u7-l5-e1",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Complejo o no complejo?",
+      "categories": ["No complejo", "Complejo"],
+      "items": [
+        {
+          "text": "Una Letra del Tesoro",
+          "category": "No complejo"
+        },
+        {
+          "text": "Un fondo UCITS de bolsa mundial",
+          "category": "No complejo"
+        },
+        {
+          "text": "Una opción sobre el IBEX",
+          "category": "Complejo"
+        },
+        {
+          "text": "Un CFD sobre divisas",
+          "category": "Complejo"
+        },
+        {
+          "text": "Un bono que se convierte en acciones si el emisor tiene problemas",
+          "category": "Complejo"
+        }
+      ],
+      "explanation": "Derivados, CFD y bonos con condiciones o conversiones son complejos; Letras y UCITS corrientes, no."
+    },
+    {
+      "id": "n2-u7-l5-e2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Qué evaluación corresponde a cada situación?",
+      "categories": ["Conveniencia", "Idoneidad"],
+      "items": [
+        {
+          "text": "Compras un CFD por tu cuenta en una plataforma",
+          "category": "Conveniencia"
+        },
+        {
+          "text": "El banco te recomienda una cartera personalizada",
+          "category": "Idoneidad"
+        },
+        {
+          "text": "Contratas la gestión de tu cartera",
+          "category": "Idoneidad"
+        },
+        {
+          "text": "Pides comprar un bono estructurado sin consejo",
+          "category": "Conveniencia"
+        }
+      ],
+      "explanation": "Sin asesoramiento, conveniencia (¿lo entiendes?); con asesoramiento o gestión, idoneidad (¿te encaja?)."
+    },
+    {
+      "id": "n2-u7-l5-e3",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "Ordena lo que pasa cuando pides comprar un producto complejo sin asesoramiento.",
+      "steps": [
+        "Pides el producto",
+        "El banco te pregunta por tus conocimientos y experiencia",
+        "Evalúa si te conviene",
+        "Si no te conviene, te lo advierte",
+        "Decides si sigues adelante"
+      ],
+      "explanation": "Primero la evaluación; si no conviene, la advertencia; la decisión final es tuya."
+    },
+    {
+      "id": "n2-u7-l5-e4",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "El indicador de riesgo del documento de datos fundamentales (KID) va del 1 al ___.",
+      "answers": [["7", "siete"]],
+      "explanation": "Del 1 (menos riesgo) al 7 (más riesgo), según el Reglamento PRIIPs."
+    },
+    {
+      "id": "n2-u7-l5-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Qué mide la evaluación de conveniencia?",
+      "options": [
+        "Si tienes conocimientos y experiencia para entender el producto",
+        "Si el producto va a dar beneficios",
+        "Si tienes dinero suficiente para pagarlo",
+        "Si el producto es legal"
+      ],
+      "answer": 0,
+      "explanation": "Conveniencia = ¿lo entiendes?",
+      "wrongExplanations": {
+        "1": "Nadie puede garantizarlo.",
+        "2": "Eso no es lo que mide.",
+        "3": "Todos los que se ofrecen lo son."
+      }
+    },
+    {
+      "id": "n2-u7-l5-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "statement": "Si el banco te advierte de que un producto complejo no te conviene, la ley te prohíbe comprarlo.",
+      "answer": false,
+      "explanation": "Falso: te lo advierte y la decisión es tuya, aunque debes dejar constancia de que lo sabes."
+    },
+    {
+      "id": "n2-u7-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Por qué un CFD apalancado es especialmente arriesgado para un inversor particular?",
+      "options": [
+        "Porque pequeños movimientos del precio pueden hacerle perder toda la garantía muy rápido",
+        "Porque no se puede vender",
+        "Porque solo lo venden bancos públicos",
+        "Porque garantiza un rendimiento fijo"
+      ],
+      "answer": 0,
+      "explanation": "Con apalancamiento, una caída pequeña del subyacente se come la garantía.",
+      "wrongExplanations": {
+        "1": "Se puede cerrar en cualquier momento.",
+        "2": "Lo venden muchas entidades.",
+        "3": "No garantiza nada."
+      }
+    },
+    {
+      "id": "n2-u7-l5-e8",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["productos-complejos"],
+      "character": "compliance",
+      "situation": "Tu tía, jubilada y sin experiencia, te enseña la oferta de un bono estructurado «con un 7 % si el IBEX no cae más de un 30 %», con un aviso de la CNMV de producto difícil de comprender y un indicador de riesgo de 6 sobre 7.",
+      "prompt": "¿Qué le aconsejas mirar antes de nada?",
+      "options": [
+        "Qué pasa si el IBEX cae más de un 30 %: cuánto puede perder, y si ese riesgo encaja con alguien que necesita su ahorro",
+        "Solo el 7 %: es mucho más que un depósito",
+        "Nada: si el banco lo vende, es seguro",
+        "El logotipo de la CNMV, que garantiza el producto"
+      ],
+      "answer": 0,
+      "explanation": "Los avisos y el indicador de riesgo están para leer el peor caso, no solo el cupón. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "El cupón alto paga un riesgo alto.",
+        "2": "Que se venda no lo hace seguro.",
+        "3": "La CNMV advierte; no garantiza."
+      }
+    }
+  ],
+  "realWorld": "En la web de la CNMV, la sección del inversor explica estos avisos, y en la ficha de cada fondo encontrarás su documento de datos fundamentales con el indicador de riesgo. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "EUR-Lex, Directiva 2014/65/UE (MiFID II), art. 25 (evaluación de idoneidad y conveniencia; instrumentos no complejos)",
+      "url": "https://eur-lex.europa.eu/eli/dir/2014/65/oj",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Ley 6/2023 de los Mercados de Valores y de los Servicios de Inversión (protección del inversor, evaluación de conveniencia e idoneidad)",
+      "url": "https://www.boe.es/eli/es/l/2023/03/17/6/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BOE, Circular 1/2018 de la CNMV, sobre advertencias relativas a instrumentos financieros",
+      "url": "https://www.boe.es/eli/es/cir/2018/03/12/1/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) 1286/2014 (PRIIPs): documento de datos fundamentales e indicador de riesgo",
+      "url": "https://eur-lex.europa.eu/eli/reg/2014/1286/oj",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}

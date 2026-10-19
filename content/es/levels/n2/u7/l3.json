@@ -1,0 +1,230 @@
+{
+  "id": "n2-u7-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 7,
+  "title": "SOCIMI y REIT",
+  "cfa": "alternative-investments",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es una SOCIMI y su obligación de reparto",
+    "Calcular el dividendo mínimo y la rentabilidad por dividendo"
+  ],
+  "concepts": ["socimi-reit"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "SOCIMI",
+      "text": "Una SOCIMI es una sociedad cotizada que invierte sobre todo en inmuebles para alquilar. Tributa al 0 % en el impuesto sobre sociedades si cumple sus requisitos; a cambio, debe repartir como dividendo al menos el 80 % del beneficio que obtiene de los alquileres."
+    },
+    {
+      "type": "card",
+      "term": "Por qué existe",
+      "text": "Permite invertir en inmobiliario comprando acciones en bolsa, con poco dinero y pudiendo vender cuando quieras, sin comprar un piso. El impuesto lo pagan los accionistas al cobrar los dividendos. En Estados Unidos, la figura equivalente es el REIT."
+    },
+    {
+      "type": "example",
+      "text": "Una SOCIMI gana 2 millones de € con alquileres: debe repartir al menos 1,6 millones. Si tiene 10 millones de acciones, son 0,16 € por acción como mínimo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u7-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI gana {b} millones de € con alquileres. ¿Cuánto debe repartir como mínimo en dividendos? (millones de €, 2 decimales)",
+      "answer": 1.6,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{b} * 0.8",
+      "params": {
+        "b": {
+          "value": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{b} * 0.8",
+          "decimals": 2
+        }
+      },
+      "explanation": "{b} × 80 % = {v} millones."
+    },
+    {
+      "id": "n2-u7-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI reparte 0,16 € por acción y su acción cotiza a {p} €. ¿Cuál es su rentabilidad por dividendo? (%, 2 decimales)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.16 / {p} * 100",
+      "params": {
+        "p": {
+          "value": 8,
+          "min": 4,
+          "max": 16,
+          "step": 0.5,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "0.16 / {p} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "0,16 / {p} = {v} %."
+    },
+    {
+      "id": "n2-u7-l3-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "¿Es una ventaja o un inconveniente de invertir en una SOCIMI frente a comprar un piso para alquilar?",
+      "categories": ["Ventaja", "Inconveniente"],
+      "items": [
+        {
+          "text": "Puedes invertir con poco dinero",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Puedes vender en bolsa cuando quieras",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Su cotización sube y baja con la bolsa",
+          "category": "Inconveniente"
+        },
+        {
+          "text": "No decides qué inmuebles se compran",
+          "category": "Inconveniente"
+        }
+      ],
+      "explanation": "Gana en liquidez y diversificación; cede control y añade la volatilidad de la bolsa."
+    },
+    {
+      "id": "n2-u7-l3-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "¿Qué recibe a cambio una SOCIMI por tener que repartir la mayor parte de su beneficio?",
+      "options": [
+        "Tributar al 0 % en el impuesto sobre sociedades si cumple los requisitos",
+        "Una garantía del Estado sobre sus inmuebles",
+        "No tener que cotizar en bolsa",
+        "Que sus accionistas no paguen impuestos por los dividendos"
+      ],
+      "answer": 0,
+      "explanation": "El impuesto se traslada del vehículo al accionista.",
+      "wrongExplanations": {
+        "1": "No hay garantía pública.",
+        "2": "Precisamente debe cotizar.",
+        "3": "Los accionistas sí tributan por los dividendos."
+      }
+    },
+    {
+      "id": "n2-u7-l3-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "statement": "Las acciones de una SOCIMI deben estar admitidas a negociación en un mercado, por ejemplo en BME Growth.",
+      "answer": true,
+      "explanation": "Verdadero: en un mercado regulado o en un sistema multilateral de negociación, como BME Growth."
+    },
+    {
+      "id": "n2-u7-l3-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Si suben mucho los tipos de interés, ¿qué suele pasar con la cotización de las SOCIMI?",
+      "options": [
+        "Suele caer: sus dividendos estables compiten con bonos que ahora pagan más, y su deuda cuesta más",
+        "Suele subir siempre",
+        "No le afecta: los alquileres no cambian",
+        "Se suspende su cotización"
+      ],
+      "answer": 0,
+      "explanation": "Como un bono, un flujo estable vale menos cuando los tipos suben.",
+      "wrongExplanations": {
+        "1": "Con tipos altos, los bonos le hacen competencia.",
+        "2": "Le afecta por la valoración y por el coste de su deuda.",
+        "3": "La cotización no se suspende por eso."
+      }
+    },
+    {
+      "id": "n2-u7-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "prompt": "Una SOCIMI debe repartir como mínimo el ___ % del beneficio que obtiene de los alquileres.",
+      "answers": [["80"]],
+      "explanation": "El 80 % (Ley 11/2009, art. 6)."
+    },
+    {
+      "id": "n2-u7-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["socimi-reit"],
+      "character": "rival",
+      "situation": "El becario rival dice que una SOCIMI con una rentabilidad por dividendo del 6 % es «mejor que un depósito al 3 %, porque paga el doble y es inmobiliario, que nunca baja».",
+      "prompt": "¿Qué le contestas?",
+      "options": [
+        "Que el dividendo no es fijo y la acción puede caer: comparas un activo con riesgo de bolsa con un depósito garantizado",
+        "Que tiene razón: el inmobiliario nunca baja",
+        "Que el depósito es peor porque tributa",
+        "Que la SOCIMI garantiza el 6 %"
+      ],
+      "answer": 0,
+      "explanation": "Más rentabilidad esperada viene con más riesgo: la cotización y el dividendo pueden bajar. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "El inmobiliario también cae, y la acción más.",
+        "2": "Los dos tributan.",
+        "3": "Reparte lo que gana; no garantiza nada."
+      }
+    }
+  ],
+  "realWorld": "En la web de BME Growth puedes ver las SOCIMI que cotizan y sus informes; en sus cuentas anuales, el beneficio por alquileres y el dividendo repartido. Los productos, bancos y cifras de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BOE, Ley 11/2009 de SOCIMI, arts. 3 (inversión), 4 (cotización), 6 (distribución de resultados) y 9 (régimen fiscal)",
+      "url": "https://www.boe.es/eli/es/l/2009/10/26/11/con",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Derivatives y Alternative Investments (futuros, opciones e inmobiliario cotizado)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": "2027-04-30",
+  "lastReviewed": "2026-10-19"
+}
