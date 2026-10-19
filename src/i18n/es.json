@@ -963,5 +963,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo la deuda cambia la beta y el coste de la financiación.",
     "debrief": "Ver qué ha pasado"
+  },
+  "waccMix": {
+    "title": "La mezcla del WACC"
   }
 }

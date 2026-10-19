@@ -73,6 +73,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     cash: z.number().min(0),
     ebitda: z.number().positive(),
   }),
+  WaccMix: z.object({
+    rf: z.number().min(0),
+    erp: z.number().positive(),
+    size: z.number().min(0),
+    betaU: z.number().positive(),
+    kd0: z.number().positive(),
+    threshold: z.number().min(0).max(70),
+  }),
   Leverage: z.object({
     goodRoa: z.number(),
     badRoa: z.number(),

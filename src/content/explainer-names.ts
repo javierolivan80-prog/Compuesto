@@ -17,5 +17,6 @@ export const EXPLAINER_NAMES = [
   'CashCycle',
   'Leverage',
   'EvBridge',
+  'WaccMix',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

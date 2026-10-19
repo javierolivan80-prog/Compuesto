@@ -18,6 +18,7 @@ import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
 import { ThreeStatements } from './ThreeStatements';
 import { TinVsTae } from './TinVsTae';
+import { WaccMix } from './WaccMix';
 
 type Registry = {
   [K in ExplainerName]: ComponentType<
@@ -42,6 +43,7 @@ const REGISTRY = {
   CashCycle,
   Leverage,
   EvBridge,
+  WaccMix,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

@@ -103,6 +103,19 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/427\.697/);
     expect(text).toMatch(/7,4/);
   });
+  it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
+    render(
+      <ExplainerBlock
+        component="WaccMix"
+        props={{ rf: 3.25, erp: 5.5, size: 2, betaU: 0.65, kd0: 4.5, threshold: 30 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/WACC 8,83/);
+    expect(text).toMatch(/WACC 8,27/);
+    expect(text).toMatch(/WACC 7,90/);
+    expect(text).toMatch(/WACC 9,59/);
+  });
   it('Leverage: la deuda amplifica el ROE arriba y abajo', () => {
     render(<ExplainerBlock component="Leverage" props={{ goodRoa: 12, badRoa: 2, rate: 5 }} />);
     const text = screen.getByRole('figure').textContent ?? '';
