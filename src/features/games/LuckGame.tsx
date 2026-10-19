@@ -17,7 +17,7 @@ import { t } from '../../i18n';
 import { formatNumber } from '../../lib/format';
 import { haptic, HAPTIC } from '../../lib/haptics';
 import { playSound } from '../../lib/sound';
-import { Glow, PopLayer, shake, usePops } from './kit';
+import { AskStep, PopLayer, shake, usePops } from './kit';
 import './luck-game.css';
 
 interface Props {
@@ -61,63 +61,6 @@ function Bars({ xs, label, scale }: { xs: number[]; label: string; scale: number
       </svg>
       <figcaption className="text-text-2 text-sm">{label}</figcaption>
     </figure>
-  );
-}
-
-/** Un paso con pregunta de opciones y, tras responder, su explicación. */
-function Ask<V extends string | number | boolean>({
-  question,
-  options,
-  chosen,
-  right,
-  why,
-  last,
-  glow,
-  onPick,
-  onNext,
-}: {
-  question: string;
-  options: { value: V; label: string }[];
-  chosen: V | undefined;
-  right: V;
-  why: string;
-  last: boolean;
-  glow: number;
-  onPick: (v: V) => void;
-  onNext: () => void;
-}) {
-  if (chosen === undefined)
-    return (
-      <div role="radiogroup" aria-label={question} className="grid gap-2">
-        <p className="font-medium">{question}</p>
-        {options.map((o) => (
-          <Button
-            key={String(o.value)}
-            role="radio"
-            aria-checked={false}
-            variant="secondary"
-            className="justify-start text-left"
-            onClick={() => onPick(o.value)}
-          >
-            {o.label}
-          </Button>
-        ))}
-      </div>
-    );
-  return (
-    <Glow pulse={glow} className="rounded-[var(--radius-md)]">
-      <div className="grid gap-3 p-1">
-        <p
-          role="status"
-          className={chosen === right ? 'text-bull' : 'text-bear'}
-          data-testid="lg-why"
-        >
-          {chosen === right ? '✓ ' : '✗ '}
-          {why}
-        </p>
-        <Button onClick={onNext}>{last ? t('luckGame.summary') : t('luckGame.next')}</Button>
-      </div>
-    </Glow>
   );
 }
 
@@ -217,19 +160,20 @@ export function LuckGame({ seed, onDone }: Props) {
           <Bars xs={s.a} label={t('luckGame.fundA')} scale={scale} />
           {step === 'volatile' && <Bars xs={s.b} label={t('luckGame.fundB')} scale={scale} />}
           {step === 'mean' ? (
-            <Ask<number>
+            <AskStep<number>
               question={t('luckGame.askMean')}
               options={meanOptions(s).map((o) => ({ value: o, label: pct(o) }))}
               chosen={answer.mean}
               right={goodMean}
               why={t('luckGame.whyMean', { m: pct(goodMean) })}
-              last={false}
+              nextLabel={t('luckGame.next')}
+              testId="lg-why"
               glow={glow}
               onPick={(v) => pick('mean', v, v === goodMean)}
               onNext={() => setStep('volatile')}
             />
           ) : (
-            <Ask<'a' | 'b'>
+            <AskStep<'a' | 'b'>
               question={t('luckGame.askVolatile', { m: pct(goodMean) })}
               options={(['a', 'b'] as const).map((v) => ({
                 value: v,
@@ -242,7 +186,8 @@ export function LuckGame({ seed, onDone }: Props) {
                 sb: pct(stdev(s.b)),
                 minB: pct(Math.min(...s.b), 1),
               })}
-              last={false}
+              nextLabel={t('luckGame.next')}
+              testId="lg-why"
               glow={glow}
               onPick={(v) => pick('volatile', v, v === moreVolatile)}
               onNext={() => setStep('tails')}
@@ -254,7 +199,7 @@ export function LuckGame({ seed, onDone }: Props) {
       {step === 'tails' && (
         <div className="grid gap-3">
           <p>{t('luckGame.briefTails')}</p>
-          <Ask<'normal' | 'more'>
+          <AskStep<'normal' | 'more'>
             question={t('luckGame.askTails')}
             options={[
               {
@@ -266,7 +211,8 @@ export function LuckGame({ seed, onDone }: Props) {
             chosen={answer.tails}
             right="more"
             why={t('luckGame.whyTails', { n: formatNumber(NORMAL_TAIL, 1), fat: s.fatTailMonths })}
-            last={false}
+            nextLabel={t('luckGame.next')}
+            testId="lg-why"
             glow={glow}
             onPick={(v) => pick('tails', v, v === 'more')}
             onNext={() => setStep('genius')}
@@ -277,7 +223,7 @@ export function LuckGame({ seed, onDone }: Props) {
       {step === 'genius' && (
         <div className="grid gap-3">
           <p>{t('luckGame.briefGenius', { traders: TRADERS, calls: CALLS, perfect: s.perfect })}</p>
-          <Ask<boolean>
+          <AskStep<boolean>
             question={t('luckGame.askGenius')}
             options={[
               { value: true, label: t('luckGame.genius.yes') },
@@ -286,7 +232,8 @@ export function LuckGame({ seed, onDone }: Props) {
             chosen={answer.genius}
             right={false}
             why={t('luckGame.whyGenius', { traders: TRADERS, calls: CALLS })}
-            last
+            nextLabel={t('luckGame.summary')}
+            testId="lg-why"
             glow={glow}
             onPick={(v) => pick('genius', v, !v)}
             onNext={() => setStep('done')}

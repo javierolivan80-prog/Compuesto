@@ -1,0 +1,5 @@
+/* El viaje del dólar: panel. */
+.xg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}

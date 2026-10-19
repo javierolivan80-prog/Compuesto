@@ -41,6 +41,7 @@ import { bondValues, required, setupBond } from './bond-issue';
 import { curveValues, fall10, setupCurve } from './yield-curve';
 import { fundValues, rightDiff, setupFunds, SITUATIONS } from './fund-fees';
 import { luckValues, mean as meanOf2, setupLuck } from './luck-or-skill';
+import { dollars, fxValues, rightCompare, setupFx } from './fx-trip';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -82,6 +83,7 @@ export const LESSON_GAMES = [
   'yield-curve',
   'fund-fees',
   'luck-or-skill',
+  'fx-trip',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -379,6 +381,20 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     expected_perfect: [0, 0],
     hits: [0, 0],
   },
+  'fx-trip': {
+    amount: [0, 0],
+    rate0: [2, 2],
+    rate1: [2, 2],
+    usd: [0, 0],
+    etf: [0, 0],
+    usd_end: [0, 0],
+    eur_end: [0, 0],
+    eur_return: [2, 2],
+    hedge_cost: [1, 1],
+    hedged_end: [0, 0],
+    hedged_return: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -577,6 +593,15 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         luckValues(setup, { mean: m, volatile: 'b', tails: 'more', genius: false }),
         luckValues(setup, { mean: 0, volatile: 'a', tails: 'normal', genius: true }),
+      ];
+    }
+    case 'fx-trip': {
+      // todo bien, y todo mal
+      const setup = setupFx(seed);
+      const right = rightCompare(setup);
+      return [
+        fxValues(setup, { dollars: Math.round(dollars(setup)), compare: right, hedge: true }),
+        fxValues(setup, { dollars: 0, compare: right === 'less' ? 'more' : 'less', hedge: false }),
       ];
     }
   }

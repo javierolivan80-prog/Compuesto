@@ -1264,5 +1264,46 @@
   },
   "normalTails": {
     "title": "La campana y sus colas"
+  },
+  "fxGame": {
+    "title": "El viaje del dólar",
+    "step": {
+      "buy": "Paso 1 de 3 · comprar dólares",
+      "year": "Paso 2 de 3 · un año después",
+      "hedge": "Paso 3 de 3 · cubrir la divisa"
+    },
+    "briefBuy": "Inviertes {{amount}} en un ETF de bolsa estadounidense que cotiza en dólares. Hoy el EUR/USD está en {{rate}}: cada euro vale {{rate}} dólares.",
+    "askDollars": "¿Cuántos dólares compras?",
+    "whyDollars": "{{amount}} × {{rate}} = {{usd}}. El EUR/USD dice cuántos dólares da un euro: para pasar de euros a dólares se multiplica.",
+    "briefYear": "Un año después, el ETF ha subido un {{etf}} en dólares. El EUR/USD ha pasado de {{rate0}} a {{rate1}}.",
+    "askCompare": "Medido en euros, ¿has ganado más o menos que ese {{etf}}?",
+    "compare": {
+      "more": "Más que un {{etf}}",
+      "less": "Menos que un {{etf}}"
+    },
+    "whyLess": "Tienes {{usdEnd}}, pero ahora cada euro cuesta {{rate1}} dólares: son {{eurEnd}}, un {{ret}}. El dólar se ha depreciado frente al euro y se ha comido casi toda la subida.",
+    "whyMore": "Tienes {{usdEnd}}, y ahora cada euro cuesta solo {{rate1}} dólares: son {{eurEnd}}, un {{ret}}. El dólar se ha apreciado y has ganado además por la divisa.",
+    "briefHedge": "El ETF tiene una clase cubierta frente al dólar: elimina casi todo el efecto de la divisa, a cambio de un coste de cobertura de un {{cost}} al año. Al comprar temes que el dólar se deprecie.",
+    "askHedge": "¿Qué clase eliges?",
+    "hedge": {
+      "yes": "La cubierta: pago un {{cost}} y me olvido de la divisa",
+      "no": "La normal: la divisa ya se arreglará"
+    },
+    "whyHedge": "Con la cubierta habrías tenido {{hedged}}: la subida del ETF menos el {{cost}} de coste, un {{ret}}. Cubrir no es gratis y renuncia a ganar si el dólar se aprecia, pero si temes que se deprecie es lo coherente.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Informe de divisa",
+    "row": {
+      "dollars": "Cambio a dólares",
+      "compare": "Efecto de la divisa",
+      "hedge": "Cobertura coherente"
+    },
+    "great": "Dominas el riesgo de divisa.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo el tipo de cambio cambia lo que ganas en euros.",
+    "debrief": "Ver qué ha pasado"
   }
 }
