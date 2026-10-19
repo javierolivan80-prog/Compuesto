@@ -1,0 +1,157 @@
+{
+  "id": "salto-n3-u6",
+  "unitId": "n3-u6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n3-u6-q1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["van"],
+      "prompt": "¿Cuánto valen hoy 1.100 € que cobrarás dentro de un año, al 10 %?",
+      "options": ["1.000 €", "990 €", "1.210 €", "1.100 €"],
+      "answer": 0,
+      "explanation": "1.100 / 1,10 = 1.000 €.",
+      "wrongExplanations": {
+        "1": "Has restado un 10 % de 1.100.",
+        "2": "Has capitalizado en vez de descontar.",
+        "3": "Falta descontar."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["van"],
+      "prompt": "Un proyecto cuesta 1.000 y sus flujos descontados suman 1.150. ¿VAN?",
+      "options": ["150", "1.150", "−150", "2.150"],
+      "answer": 0,
+      "explanation": "1.150 − 1.000 = 150: crea valor.",
+      "wrongExplanations": {
+        "1": "Falta restar la inversión.",
+        "2": "El signo está al revés.",
+        "3": "La inversión se resta, no se suma."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "EBIT 1.000, impuesto 25 %, amortización 200, capex 300 y aumento del circulante 50. ¿FCFF?",
+      "options": ["600", "650", "700", "850"],
+      "answer": 0,
+      "explanation": "750 + 200 − 300 − 50 = 600.",
+      "wrongExplanations": {
+        "1": "Falta restar el circulante.",
+        "2": "El circulante resta, no suma.",
+        "3": "Falta restar el capex."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q4",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "Último FCFF 100, g 2 % y WACC 7 %. ¿Valor terminal por Gordon?",
+      "options": ["2.040", "2.000", "1.457", "1.429"],
+      "answer": 0,
+      "explanation": "100 × 1,02 / 0,05 = 2.040.",
+      "wrongExplanations": {
+        "1": "Falta hacer crecer el flujo un año: 100 × 1,02.",
+        "2": "Has dividido entre el WACC sin restar g.",
+        "3": "Has dividido 100 entre el 7 %."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "¿A qué tasa se descuenta el flujo de caja libre para la empresa (FCFF)?",
+      "options": [
+        "Al WACC",
+        "Al coste del capital propio",
+        "Al tipo sin riesgo",
+        "Al coste de la deuda"
+      ],
+      "answer": 0,
+      "explanation": "Es caja para accionistas y bancos.",
+      "wrongExplanations": {
+        "1": "Ese es para los flujos del accionista.",
+        "2": "Ignora el riesgo del negocio.",
+        "3": "Solo es lo que piden los bancos."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "statement": "El crecimiento a perpetuidad de un DCF puede ser mayor que el WACC.",
+      "answer": false,
+      "explanation": "Falso: con g ≥ WACC, Gordon no tiene sentido (valor infinito o negativo)."
+    },
+    {
+      "id": "salto-n3-u6-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "Valor de empresa 500, deuda financiera neta 100 y 10 acciones. ¿Valor por acción?",
+      "options": ["40", "50", "60", "10"],
+      "answer": 0,
+      "explanation": "(500 − 100) / 10 = 40.",
+      "wrongExplanations": {
+        "1": "Falta restar la deuda neta.",
+        "2": "La deuda neta se resta, no se suma.",
+        "3": "Has dividido la deuda entre las acciones."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "En tu DCF el valor terminal pesa un 80 %. ¿Qué haces?",
+      "options": [
+        "Presentar una sensibilidad a WACC y g y contrastar con múltiplos",
+        "Nada: es lo normal y no importa",
+        "Alargar el plan a 30 años para que pese menos sin revisar nada más",
+        "Quitar el valor terminal"
+      ],
+      "answer": 0,
+      "explanation": "Si casi todo el valor viene de una hipótesis, hay que mostrar cuánto depende de ella.",
+      "wrongExplanations": {
+        "1": "Es habitual, pero precisamente por eso importa.",
+        "2": "Proyectar 30 años con detalle no da más certeza.",
+        "3": "Sin él, se ignora todo el valor después del plan."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null
+}

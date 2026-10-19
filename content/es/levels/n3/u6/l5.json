@@ -1,0 +1,182 @@
+{
+  "id": "n3-u6-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 6,
+  "title": "Jefe final: el DCF de Pirineo Energía",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": ["Hacer un DCF completo y presentarlo con criterio"],
+  "concepts": ["dcf", "van", "wacc"],
+  "companies": ["pirineo-energia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n3-u6-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "El plan de Pirineo prevé un FCFF de 20.000 mil € en el año 1. Con su WACC del 6 % y mitad de año, ¿cuánto vale hoy? (miles de €)",
+      "answer": 19426,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "20000 / 1.06 ^ 0.5",
+      "explanation": "20.000 / 1,06^0,5 = 19.426 mil €."
+    },
+    {
+      "id": "n3-u6-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Su último FCFF del plan es 24.000 mil €, con g = 1,5 % y WACC 6 %. ¿Valor terminal por Gordon? (miles de €)",
+      "answer": 541333,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "24000 * 1.015 / (0.06 - 0.015)",
+      "explanation": "24.000 × 1,015 / 0,045 = 541.333 mil €."
+    },
+    {
+      "id": "n3-u6-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Descontado a 4,5 años al 6 %, ¿cuánto vale hoy ese valor terminal de 541.333? (miles de €)",
+      "answer": 416474,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "541333 / 1.06 ^ 4.5",
+      "explanation": "541.333 / 1,06^4,5 = 541.333 / 1,2998 = 416.474 mil €."
+    },
+    {
+      "id": "n3-u6-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Los cinco flujos descontados suman 94.907. Con el valor terminal descontado de 416.474, ¿valor de empresa? (miles de €)",
+      "answer": 511381,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "94907 + 416474",
+      "explanation": "94.907 + 416.474 = 511.381 mil €."
+    },
+    {
+      "id": "n3-u6-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Con una deuda financiera neta de 47.697 mil € y 40.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
+      "answer": 11.59,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(511381 - 47697) / 40000",
+      "explanation": "(511.381 − 47.697) / 40.000 = 11,59 €."
+    },
+    {
+      "id": "n3-u6-l5-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "¿Qué peso tiene el valor terminal (416.474) en el valor de empresa (511.381)? (%, 1 decimal)",
+      "answer": 81.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "416474 / 511381 * 100",
+      "explanation": "416.474 / 511.381 = 81,4 %: aún más que en Naranjas, porque su WACC es más bajo."
+    },
+    {
+      "id": "n3-u6-l5-e7",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "character": "rival",
+      "prompt": "Hugo pasa del valor de empresa de Pirineo a su precio. ¿Dónde se equivoca?",
+      "lines": [
+        "Valor de empresa: 511.381 mil €.",
+        "Suma la deuda financiera neta, 47.697: patrimonio de 559.078.",
+        "Entre 40.000.000 de acciones: 13,98 €.",
+        "Cotiza a 9,50 €: un 47 % por debajo."
+      ],
+      "errorIndex": 1,
+      "explanation": "La deuda neta pertenece a los bancos: se resta. Patrimonio = 511.381 − 47.697 = 463.684 mil €; 11,59 € por acción."
+    },
+    {
+      "id": "n3-u6-l5-e8",
+      "type": "multiple_choice",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Con un WACC del 5 % el DCF de Pirineo da 15,21 €; con un 7 %, 9,29 €. Cotiza a 9,50 € y por múltiplos sale unos 13,6 €. ¿Qué presentas al comité?",
+      "options": [
+        "Un rango de valor con la sensibilidad al WACC, avisando de que el 81 % viene del valor terminal, y el contraste con los múltiplos",
+        "Que vale exactamente 11,59 € y hay que comprar",
+        "Que vale 15,21 €, el caso más favorable",
+        "Que el DCF no sirve con energía renovable"
+      ],
+      "answer": 0,
+      "explanation": "Un DCF tan dependiente del valor terminal y del WACC se presenta como un rango, contrastado con otros métodos. El plan y los precios son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Un punto concreto esconde cuánto depende de las hipótesis; y no es una recomendación.",
+        "2": "Elegir el extremo favorable es sesgo.",
+        "3": "Sirve; lo que pide es cuidado con las hipótesis."
+      }
+    },
+    {
+      "id": "n3-u6-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "character": "jefe",
+      "situation": "El jefe propone un crecimiento a perpetuidad del 4 % para Pirineo: «las renovables crecerán muchísimo».",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que ese crecimiento debe ir en los años del plan; a perpetuidad, un 4 % supera a la economía y, con un WACC del 6 %, dispara el valor terminal",
+        "Que tiene razón: el sector crece",
+        "Que mejor un 6 %, como el WACC",
+        "Que el crecimiento no afecta al valor"
+      ],
+      "answer": 0,
+      "explanation": "Con WACC − g = 2 %, el valor terminal se multiplica por más de dos frente a g = 1,5 %: casi todo el valor saldría de una hipótesis indefendible.",
+      "wrongExplanations": {
+        "1": "Que el sector crezca unos años no permite crecer más que la economía para siempre.",
+        "2": "Con g igual al WACC, Gordon da un valor infinito.",
+        "3": "Es lo que más lo mueve."
+      }
+    }
+  ],
+  "realWorld": "Con el DCF y los múltiplos ya tienes las dos patas de cualquier valoración de banco de inversión. El plan y los precios son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

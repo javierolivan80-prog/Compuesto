@@ -1030,5 +1030,8 @@
     "ok": "Bien encaminado: repasa el reto que fallaste.",
     "bad": "Repasa cómo el WACC y g mueven el valor de un DCF.",
     "debrief": "Ver qué ha pasado"
+  },
+  "dcfTimeTravel": {
+    "title": "El viaje de los flujos hacia hoy"
   }
 }

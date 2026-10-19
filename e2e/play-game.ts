@@ -6,6 +6,7 @@ import { bestPlan, setupCash } from '../src/engine/games/cash-cycle';
 import { setupDetective } from '../src/engine/games/ratio-detective';
 import { rightVerdict, setupCheap } from '../src/engine/games/cheap-or-dear';
 import { bestWeight, CURRENT, leveredBeta, setupWacc } from '../src/engine/games/wacc-mix';
+import { BASE, bossGrowth, impliedWacc, setupDcf, START_3 } from '../src/engine/games/dcf-express';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -38,6 +39,28 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'dcf-express') {
+    // referencia 0: WACC implícito, g del jefe sin defenderla y el caso base del modelo aprobado
+    await expect(page.getByRole('heading', { name: 'DCF Express' })).toBeVisible();
+    const setup = setupDcf(seed);
+    // mueve una palanca con sus botones −/+ (pasos de 0,1 en WACC y g, de 0,5 en el margen)
+    const move = async (from: number, to: number, step: number, less: string, more: string) => {
+      const n = Math.round((to - from) / step);
+      for (let i = 0; i < Math.abs(n); i++)
+        await page.getByRole('button', { name: n > 0 ? more : less }).click();
+    };
+    const wacc0 = Math.round(BASE.wacc * 10) / 10;
+    await move(wacc0, impliedWacc(setup), 0.1, 'Bajar el WACC', 'Subir el WACC');
+    await page.getByRole('button', { name: /^Proponer un WACC/ }).click();
+    await page.getByRole('button', { name: 'Siguiente reto' }).click();
+    await move(BASE.g, bossGrowth(setup), 0.1, 'Bajar g', 'Subir g');
+    await page.getByRole('button', { name: /^Proponer g/ }).click();
+    await page.getByRole('radio', { name: /^No:/ }).click();
+    await page.getByRole('button', { name: 'Siguiente reto' }).click();
+    await move(START_3.wacc, wacc0, 0.1, 'Bajar el WACC', 'Subir el WACC');
+    await move(START_3.g, BASE.g, 0.1, 'Bajar g', 'Subir g');
+    await move(START_3.margin, 0, 0.5, 'Bajar el margen', 'Subir el margen');
+    await page.getByRole('button', { name: 'Presentar al comité' }).click();
   } else if (kind === 'wacc-mix') {
     // referencia 0: la beta apalancada bien y la estructura con el WACC mínimo
     await expect(page.getByRole('heading', { name: 'La mezcla de la financiación' })).toBeVisible();

@@ -3,6 +3,7 @@ import { EXPLAINER_PROPS } from '../../../content/explainer-props';
 import type { ExplainerName } from '../../../content/explainer-names';
 import { CashCycle } from './CashCycle';
 import { CompoundCurve } from './CompoundCurve';
+import { DcfTimeTravel } from './DcfTimeTravel';
 import { EvBridge } from './EvBridge';
 import { ExDividend } from './ExDividend';
 import { IndexWeights } from './IndexWeights';
@@ -44,6 +45,7 @@ const REGISTRY = {
   Leverage,
   EvBridge,
   WaccMix,
+  DcfTimeTravel,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

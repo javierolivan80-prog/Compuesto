@@ -99,6 +99,11 @@
             "estructura-capital",
             "wacc"
           ]
+        },
+        {
+          "id": "n3-u6",
+          "name": "DCF: lo que vale una empresa",
+          "concepts": ["van", "dcf"]
         }
       ]
     },

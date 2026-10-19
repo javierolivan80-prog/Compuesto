@@ -1,0 +1,262 @@
+{
+  "id": "n3-u6-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 6,
+  "title": "El flujo de caja libre",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el flujo de caja libre para la empresa (FCFF) desde el EBIT",
+    "Explicar cada ajuste y por qué se descuenta al WACC"
+  ],
+  "concepts": ["dcf"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "FCFF",
+      "text": "Flujo de caja libre para la empresa = EBIT × (1 − t) + amortización − inversiones (capex) − aumento del circulante. Es la caja que queda para accionistas y bancos juntos: por eso se descuenta al WACC."
+    },
+    {
+      "type": "card",
+      "term": "Por qué cada ajuste",
+      "text": "La amortización se suma porque es un gasto que no sale de caja. El capex se resta aunque no esté en la cuenta de resultados. Y si clientes y existencias crecen más que los proveedores, el circulante se come caja."
+    },
+    {
+      "type": "card",
+      "term": "Mitad de año",
+      "text": "Los flujos llegan a lo largo del año, no el 31 de diciembre. Por eso muchos analistas descuentan cada uno a mitad de año: el del año 1 a 0,5 años, el del año 2 a 1,5… El valor sube un poco."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u6-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "EBIT {ebit}, amortización {da}, inversiones {capex} y aumento del circulante {nwc} (miles de €), con un impuesto del 25 %. ¿FCFF? (miles de €)",
+      "answer": 5655,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{ebit} * 0.75 + {da} - {capex} - {nwc}",
+      "params": {
+        "ebit": {
+          "value": 10713,
+          "min": 8000,
+          "max": 14000,
+          "step": 1,
+          "decimals": 0
+        },
+        "da": {
+          "value": 1828,
+          "min": 1000,
+          "max": 3000,
+          "step": 1,
+          "decimals": 0
+        },
+        "capex": {
+          "value": 3449,
+          "min": 2000,
+          "max": 5000,
+          "step": 1,
+          "decimals": 0
+        },
+        "nwc": {
+          "value": 759,
+          "min": 0,
+          "max": 1500,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "n": {
+          "formula": "{ebit} * 0.75",
+          "decimals": 2
+        },
+        "f": {
+          "formula": "{ebit} * 0.75 + {da} - {capex} - {nwc}",
+          "decimals": 0
+        }
+      },
+      "explanation": "{ebit} × 0,75 = {n}; + {da} − {capex} − {nwc} = {f} mil €.",
+      "hint": "EBIT × (1 − t) + amortización − capex − circulante."
+    },
+    {
+      "id": "n3-u6-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Con un EBIT de {ebit} mil € y un impuesto del 25 %, ¿cuál es el beneficio operativo después de impuestos (NOPAT)? (miles de €, 2 decimales)",
+      "answer": 9756.75,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{ebit} * 0.75",
+      "params": {
+        "ebit": {
+          "value": 13009,
+          "min": 8000,
+          "max": 15000,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "n": {
+          "formula": "{ebit} * 0.75",
+          "decimals": 2
+        }
+      },
+      "explanation": "{ebit} × (1 − 0,25) = {n}: el impuesto se calcula sobre el EBIT, como si no hubiera deuda; el ahorro fiscal de los intereses ya está en el WACC."
+    },
+    {
+      "id": "n3-u6-l3-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Al pasar del NOPAT al flujo de caja libre, ¿se suma o se resta?",
+      "categories": ["Se suma", "Se resta"],
+      "items": [
+        {
+          "text": "Amortización del año",
+          "category": "Se suma"
+        },
+        {
+          "text": "Compra de maquinaria (capex)",
+          "category": "Se resta"
+        },
+        {
+          "text": "Aumento de clientes pendientes de cobro",
+          "category": "Se resta"
+        },
+        {
+          "text": "Aumento de lo que se debe a proveedores",
+          "category": "Se suma"
+        }
+      ],
+      "explanation": "La amortización no sale de caja; el capex sí. Más clientes por cobrar retienen caja; deber más a proveedores la libera."
+    },
+    {
+      "id": "n3-u6-l3-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dcf", "wacc"],
+      "prompt": "¿Por qué el FCFF se descuenta al WACC y no al coste del capital propio?",
+      "options": [
+        "Porque es caja para accionistas y bancos a la vez, antes de pagar intereses",
+        "Porque el WACC siempre es más bajo",
+        "Porque el FCFF ya tiene restados los dividendos",
+        "Porque los bancos no cobran del FCFF"
+      ],
+      "answer": 0,
+      "explanation": "El flujo de todos los financiadores se descuenta al coste medio de todos ellos.",
+      "wrongExplanations": {
+        "1": "Que sea más bajo no lo justifica: hay que casar flujo y tasa.",
+        "2": "El FCFF va antes de dividendos e intereses.",
+        "3": "Precisamente cobran de él: por eso se usa el WACC."
+      }
+    },
+    {
+      "id": "n3-u6-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "El FCFF del año 2 es {f} mil €. Con mitad de año y un WACC del {w} %, ¿cuánto vale hoy? (miles de €)",
+      "answer": 5376,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{f} / (1 + {w} / 100) ^ 1.5",
+      "params": {
+        "f": {
+          "value": 6057,
+          "min": 4000,
+          "max": 9000,
+          "step": 1,
+          "decimals": 0
+        },
+        "w": {
+          "value": 8.27,
+          "min": 6,
+          "max": 11,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{f} / (1 + {w} / 100) ^ 1.5",
+          "decimals": 0
+        }
+      },
+      "explanation": "El año 2 se descuenta 1,5 años: {f} / (1 + {w} %)^1,5 = {v} mil €.",
+      "hint": "Año 2 → exponente 1,5."
+    },
+    {
+      "id": "n3-u6-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dcf"],
+      "statement": "Una empresa con beneficio puede tener un flujo de caja libre negativo.",
+      "answer": true,
+      "explanation": "Verdadero: si invierte mucho en maquinaria o su circulante crece deprisa, gasta más caja de la que genera."
+    },
+    {
+      "id": "n3-u6-l3-e7",
+      "type": "spot_the_error",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "character": "rival",
+      "prompt": "Hugo calcula el FCFF de Naranjas en 2029. ¿Dónde se equivoca?",
+      "lines": [
+        "EBIT: 12.493 mil €.",
+        "Después del 25 % de impuestos: 9.369,75.",
+        "Suma la amortización, 2.234, y resta las inversiones, 4.050.",
+        "Suma el aumento del circulante, 695: FCFF de 8.248,75."
+      ],
+      "errorIndex": 3,
+      "explanation": "Un aumento del circulante consume caja: se resta. FCFF = 9.369,75 + 2.234 − 4.050 − 695 = 6.858,75."
+    },
+    {
+      "id": "n3-u6-l3-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "El flujo de caja libre para la empresa se descuenta al ___.",
+      "answers": [["WACC", "wacc"]],
+      "explanation": "Es el flujo para accionistas y bancos juntos."
+    }
+  ],
+  "realWorld": "Los informes de análisis muestran el paso del EBIT al flujo de caja libre año a año; las cuentas anuales de las cotizadas, en el estado de flujos de efectivo, dejan ver las inversiones y el circulante de verdad.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

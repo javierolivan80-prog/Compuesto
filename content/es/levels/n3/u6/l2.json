@@ -1,0 +1,284 @@
+{
+  "id": "n3-u6-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 6,
+  "title": "Valor actual y VAN",
+  "cfa": "corporate-issuers",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Traer a hoy un flujo futuro con una tasa de descuento",
+    "Calcular el VAN de un proyecto y decidir con él"
+  ],
+  "concepts": ["van"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Valor actual",
+      "text": "Un euro dentro de un año vale menos que uno hoy: podrías invertirlo. Para traerlo a hoy se divide entre (1 + r) por cada año que falta. 100 € dentro de un año, al 8 %, valen 100 / 1,08 = 92,59 € hoy."
+    },
+    {
+      "type": "card",
+      "term": "VAN",
+      "text": "El valor actual neto suma los flujos de un proyecto traídos a hoy y resta la inversión inicial. Si es positivo, el proyecto rinde más que la tasa de descuento y crea valor; si es negativo, lo destruye."
+    },
+    {
+      "type": "example",
+      "text": "Una línea de envasado cuesta 2.500 mil € y dará 1.000 al año durante 3 años. Al 8 %: 1.000/1,08 + 1.000/1,08² + 1.000/1,08³ = 2.577. VAN = 2.577 − 2.500 = 77 mil €: crea valor."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u6-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "¿Cuánto valen hoy {c} € que cobrarás dentro de {n} años, con una tasa del {r} %? (€, 2 decimales)",
+      "answer": 793.83,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} / (1 + {r} / 100) ^ {n}",
+      "params": {
+        "c": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "r": {
+          "value": 8,
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / (1 + {r} / 100) ^ {n}",
+          "decimals": 2
+        }
+      },
+      "explanation": "{c} / (1 + {r} %)^{n} = {v} €.",
+      "hint": "Divide entre (1 + r) elevado al número de años."
+    },
+    {
+      "id": "n3-u6-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "Un proyecto cuesta {i} mil € y dará {c} mil € al año durante 3 años. Con una tasa del {r} %, ¿cuál es su VAN? (miles de €, 2 decimales)",
+      "answer": 77.1,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} / (1 + {r} / 100) + {c} / (1 + {r} / 100) ^ 2 + {c} / (1 + {r} / 100) ^ 3 - {i}",
+      "params": {
+        "i": {
+          "value": 2500,
+          "min": 2000,
+          "max": 3000,
+          "step": 100,
+          "decimals": 0
+        },
+        "c": {
+          "value": 1000,
+          "min": 800,
+          "max": 1200,
+          "step": 50,
+          "decimals": 0
+        },
+        "r": {
+          "value": 8,
+          "min": 5,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / (1 + {r} / 100) + {c} / (1 + {r} / 100) ^ 2 + {c} / (1 + {r} / 100) ^ 3 - {i}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Suma de los tres flujos descontados menos la inversión: {v} mil €. Positivo, crea valor; negativo, lo destruye.",
+      "hint": "Descuenta cada año por separado, suma y resta la inversión."
+    },
+    {
+      "id": "n3-u6-l2-e3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "Un proyecto tiene un VAN de −40 mil € descontado al WACC de la empresa. ¿Qué haces?",
+      "options": [
+        "Rechazarlo: rinde menos de lo que piden quienes lo financian",
+        "Aceptarlo: los flujos suman más que la inversión",
+        "Aceptarlo si se financia con deuda",
+        "Esperar a que el VAN sea cero"
+      ],
+      "answer": 0,
+      "explanation": "Un VAN negativo significa que, a la tasa exigida, el proyecto destruye valor.",
+      "wrongExplanations": {
+        "1": "Sumar sin descontar ignora el valor temporal del dinero.",
+        "2": "La forma de financiarlo no cambia lo que rinde el proyecto.",
+        "3": "El VAN no cambia esperando: depende de los flujos y la tasa."
+      }
+    },
+    {
+      "id": "n3-u6-l2-e4",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["van"],
+      "statement": "Cuanto más alta es la tasa de descuento, mayor es el valor actual de un flujo futuro.",
+      "answer": false,
+      "explanation": "Falso: una tasa más alta divide entre un número mayor, así que el valor actual baja."
+    },
+    {
+      "id": "n3-u6-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "Con la convención de mitad de año, un flujo de {c} € del año 1 se descuenta medio año. Al {r} %, ¿cuánto vale hoy? (€, 2 decimales)",
+      "answer": 962.25,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{c} / (1 + {r} / 100) ^ 0.5",
+      "params": {
+        "c": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "r": {
+          "value": 8,
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / (1 + {r} / 100) ^ 0.5",
+          "decimals": 2
+        }
+      },
+      "explanation": "{c} / (1 + {r} %)^0,5 = {v} €: los flujos llegan a lo largo del año, de media a su mitad."
+    },
+    {
+      "id": "n3-u6-l2-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "Ordena los pasos para calcular el VAN de un proyecto.",
+      "steps": [
+        "Estimar la inversión y los flujos de caja de cada año",
+        "Elegir la tasa de descuento según el riesgo del proyecto",
+        "Traer cada flujo a hoy con esa tasa",
+        "Sumar los flujos descontados y restar la inversión"
+      ],
+      "explanation": "Flujos, tasa, descuento y suma: el mismo esquema que el DCF de una empresa entera."
+    },
+    {
+      "id": "n3-u6-l2-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["van"],
+      "prompt": "Un flujo de {c} € al año para siempre, sin crecer, con una tasa del {r} %: ¿cuánto vale hoy? (€)",
+      "answer": 2000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{c} / ({r} / 100)",
+      "params": {
+        "c": {
+          "value": 100,
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "decimals": 0
+        },
+        "r": {
+          "value": 5,
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} / ({r} / 100)",
+          "decimals": 0
+        }
+      },
+      "explanation": "Una renta perpetua vale el flujo entre la tasa: {c} / {r} % = {v} €. Con crecimiento, es la fórmula de Gordon del valor terminal.",
+      "hint": "Divide el flujo entre la tasa en tanto por uno."
+    },
+    {
+      "id": "n3-u6-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["van"],
+      "character": "mentora",
+      "situation": "Naranjas duda entre dos líneas de envasado del mismo riesgo: A, con un VAN de 120 mil €, y B, con un VAN de 80 mil €. No puede hacer las dos.",
+      "prompt": "¿Cuál le recomiendas?",
+      "options": [
+        "La A: crea más valor a la misma tasa",
+        "La B: es la de VAN más bajo, y por tanto la más prudente",
+        "Ninguna: hasta que el VAN sea mayor que la inversión",
+        "Las dos a medias"
+      ],
+      "answer": 0,
+      "explanation": "Con el mismo riesgo y proyectos que se excluyen, se elige el de mayor VAN.",
+      "wrongExplanations": {
+        "1": "Un VAN más bajo no significa menos riesgo: el riesgo ya está en la tasa.",
+        "2": "El VAN ya descuenta la inversión: basta con que sea positivo.",
+        "3": "El enunciado dice que se excluyen."
+      }
+    }
+  ],
+  "realWorld": "Las empresas usan el VAN para decidir inversiones: nuevas plantas, compras de empresas o renovables. Es el mismo cálculo que harás con la empresa entera en el DCF.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

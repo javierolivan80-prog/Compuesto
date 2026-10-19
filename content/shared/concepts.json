@@ -821,7 +821,9 @@
     "id": "van",
     "name": "VAN",
     "level": 3,
-    "prerequisites": ["valor-temporal-dinero"]
+    "prerequisites": ["valor-temporal-dinero"],
+    "unit": "n3-u6",
+    "description": "Valor actual neto: los flujos de un proyecto traídos a hoy con su tasa de descuento, menos la inversión. Positivo, crea valor."
   },
   {
     "id": "tir-proyecto",
@@ -841,7 +843,9 @@
     "id": "dcf",
     "name": "DCF paso a paso",
     "level": 3,
-    "prerequisites": ["van", "flujos-caja", "wacc"]
+    "prerequisites": ["van", "flujos-caja", "wacc"],
+    "unit": "n3-u6",
+    "description": "Valorar una empresa por la caja que generará: flujos de caja libres del plan y valor terminal (Gordon o múltiplo), descontados al WACC; menos la deuda neta, entre las acciones. Se presenta con sensibilidad."
   },
   {
     "id": "coste-deuda",

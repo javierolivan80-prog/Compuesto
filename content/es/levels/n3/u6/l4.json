@@ -1,0 +1,278 @@
+{
+  "id": "n3-u6-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 6,
+  "title": "Valor terminal y sensibilidad",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el valor terminal por Gordon y por múltiplo",
+    "Leer una tabla de sensibilidad y presentar un rango"
+  ],
+  "concepts": ["dcf"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Gordon",
+      "text": "Después del plan, la empresa sigue. Valor terminal = FCFF del último año × (1 + g) / (WACC − g), con g el crecimiento a perpetuidad: como mucho, el de la economía a largo plazo. Se descuenta a hoy como un flujo más."
+    },
+    {
+      "type": "visual",
+      "component": "DcfTimeTravel",
+      "props": {
+        "fcff": [5654.75, 6057, 6460.75, 6858.75, 7246.75],
+        "wacc": 8.27,
+        "g": 2
+      }
+    },
+    {
+      "type": "card",
+      "term": "Múltiplo y sensibilidad",
+      "text": "El contraste: valor terminal = EBITDA del último año × un múltiplo EV/EBITDA de comparables. Como el valor terminal pesa tanto, se presenta una tabla de sensibilidad del precio al WACC y a g: un rango, no un número."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u6-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Último FCFF {f} mil €, g {g} % y WACC {w} %. ¿Valor terminal por Gordon? (miles de €)",
+      "answer": 117890,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{f} * (1 + {g} / 100) / ({w} / 100 - {g} / 100)",
+      "params": {
+        "f": {
+          "value": 7246.75,
+          "min": 5000,
+          "max": 9000,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "w": {
+          "value": 8.27,
+          "min": 6,
+          "max": 11,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{f} * (1 + {g} / 100) / ({w} / 100 - {g} / 100)",
+          "decimals": 0
+        }
+      },
+      "explanation": "{f} × (1 + {g} %) / ({w} % − {g} %) = {v} mil €."
+    },
+    {
+      "id": "n3-u6-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Un valor terminal de {tv} mil € se descuenta con el factor del último flujo (4,5 años, a mitad de año). Con un WACC del {w} %, ¿cuánto vale hoy? (miles de €)",
+      "answer": 82450,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{tv} / (1 + {w} / 100) ^ 4.5",
+      "params": {
+        "tv": {
+          "value": 117890,
+          "min": 80000,
+          "max": 160000,
+          "step": 10,
+          "decimals": 0
+        },
+        "w": {
+          "value": 8.27,
+          "min": 6,
+          "max": 11,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{tv} / (1 + {w} / 100) ^ 4.5",
+          "decimals": 0
+        }
+      },
+      "explanation": "{tv} / (1 + {w} %)^4,5 = {v} mil €. Es la convención del modelo de referencia; otros analistas descuentan el valor terminal a 5 años."
+    },
+    {
+      "id": "n3-u6-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "En 2030, Naranjas tendrá un EBIT de 13.009 y una amortización de 2.380 (miles de €). Con un múltiplo EV/EBITDA de salida de 9, ¿cuál es el valor terminal por múltiplo? (miles de €)",
+      "answer": 138501,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(13009 + 2380) * 9",
+      "explanation": "EBITDA = 13.009 + 2.380 = 15.389; × 9 = 138.501 mil €, más que por Gordon (117.890): el múltiplo implica más crecimiento."
+    },
+    {
+      "id": "n3-u6-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Valor actual de los flujos: {a}; del valor terminal: {b} (miles de €). ¿Qué peso tiene el valor terminal en el valor de empresa? (%, 1 decimal)",
+      "answer": 75.8,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{b} / ({a} + {b}) * 100",
+      "params": {
+        "a": {
+          "value": 26370,
+          "min": 20000,
+          "max": 35000,
+          "step": 10,
+          "decimals": 0
+        },
+        "b": {
+          "value": 82450,
+          "min": 60000,
+          "max": 100000,
+          "step": 10,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{b} / ({a} + {b}) * 100",
+          "decimals": 1
+        }
+      },
+      "explanation": "{b} / ({a} + {b}) = {s} %."
+    },
+    {
+      "id": "n3-u6-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "En la tabla de sensibilidad de Naranjas, con un WACC del 7,27 % el precio es 11,05 € y con un 9,27 %, 8,12 €. ¿Qué te dice?",
+      "options": [
+        "Que el valor es muy sensible al WACC: hay que presentar un rango y justificar bien la tasa",
+        "Que hay que escoger el valor más alto",
+        "Que el WACC no importa: la media es 9,59 €",
+        "Que el DCF no sirve para nada"
+      ],
+      "answer": 0,
+      "explanation": "Un punto de WACC mueve el precio casi un 30 %: por eso se presenta un rango.",
+      "wrongExplanations": {
+        "1": "Escoger el extremo que conviene es sesgo, no análisis.",
+        "2": "La media de dos extremos no sustituye a justificar la hipótesis central.",
+        "3": "Sirve para ver de qué depende el valor; por eso se acompaña de sensibilidad y múltiplos."
+      }
+    },
+    {
+      "id": "n3-u6-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "¿Qué le pasa al valor terminal por Gordon si g se acerca al WACC?",
+      "options": [
+        "Se dispara: el denominador (WACC − g) tiende a cero",
+        "Baja, porque crece menos",
+        "No cambia",
+        "Se vuelve igual al último flujo"
+      ],
+      "answer": 0,
+      "explanation": "Con WACC − g casi cero, el cociente se hace enorme: Gordon solo tiene sentido con g claramente por debajo del WACC.",
+      "wrongExplanations": {
+        "1": "Más g significa más valor, no menos.",
+        "2": "Depende de g directamente.",
+        "3": "Solo sería así si WACC − g valiera 1 + g."
+      }
+    },
+    {
+      "id": "n3-u6-l4-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Con el valor terminal por múltiplo, el valor de empresa de Naranjas es de 119.455 mil €. Con una deuda financiera neta de −3.385 (caja neta) y 12.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
+      "answer": 10.24,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(119455 + 3385) / 12000",
+      "explanation": "(119.455 + 3.385) / 12.000 = 10,24 €, frente a 9,35 € por Gordon: los dos métodos dan un rango."
+    },
+    {
+      "id": "n3-u6-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dcf"],
+      "statement": "En el DCF de Naranjas, el valor terminal vale más que los cinco años del plan juntos.",
+      "answer": true,
+      "explanation": "Verdadero: 82.450 frente a 26.370 mil € de hoy, un 76 % del valor de empresa."
+    },
+    {
+      "id": "n3-u6-l4-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "character": "rival",
+      "situation": "Hugo usa un crecimiento a perpetuidad del 5 % porque Naranjas ha crecido un 7 % al año en los últimos cinco.",
+      "prompt": "¿Qué le objetas?",
+      "options": [
+        "Que el crecimiento a perpetuidad es para siempre: no puede superar el de la economía a largo plazo, aunque los últimos años crezca más",
+        "Nada: si ha crecido un 7 %, un 5 % es prudente",
+        "Que debería usar el 7 %",
+        "Que g debe ser igual al WACC"
+      ],
+      "answer": 0,
+      "explanation": "El crecimiento rápido de unos años se recoge en el plan; el valor terminal supone una empresa madura.",
+      "wrongExplanations": {
+        "1": "Un 5 % a perpetuidad supera el crecimiento nominal de la economía a largo plazo.",
+        "2": "Aún peor: más lejos de lo que puede durar para siempre.",
+        "3": "Con g igual al WACC, Gordon da un valor infinito."
+      }
+    }
+  ],
+  "realWorld": "En los informes de los expertos independientes de las OPA verás tablas de sensibilidad como la de esta lección, y el contraste entre el valor terminal por Gordon y por múltiplo. El plan y los precios son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

@@ -607,3 +607,15 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - en el Jefe final se usa la deuda bruta para los pesos.
 - **Dato legal:** el límite de deducibilidad de gastos financieros (art. 16 de la Ley 27/2014) lleva la fuente del BOE y `verificarAntesDe` 2027-03-31.
 - **Producción:** la build de producción solo carga lecciones `reviewed` o `published`, así que `e2e/n3u5.spec.ts` (proyecto prod) pasa cuando la unidad está revisada.
+
+## 2026-10-19 — Unidad `n3-u6` «DCF: lo que vale una empresa»
+
+- **Decisión:** cinco lecciones:
+  - el juego «DCF Express» (`n3-u6-l1`, ficha 8 de JUEGOS, semilla 0 sobre el modelo DCF de referencia de Naranjas);
+  - valor actual y VAN;
+  - el flujo de caja libre (FCFF);
+  - el valor terminal (Gordon y múltiplo) y la sensibilidad, con el explicador `DcfTimeTravel` (ya en el catálogo de ANIMACIONES);
+  - el Jefe final con un DCF de Pirineo Energía, con el WACC del 6 % de la unidad anterior (redondeado) y un plan ficticio de FCFF de 20.000 a 24.000 mil €.
+- **Conceptos:** `van` y `dcf`. La TIR (`tir-proyecto`) queda para una unidad de presupuesto de capital.
+- **Diseño del juego:** el objetivo de la ficha («caer en el rango del comité») es el reto 3; antes van dos retos que enseñan lo esencial del DCF, el WACC implícito en el precio y el peso del valor terminal. Ficha en `docs/specs/dcf-express.md`.
+- **Convención:** el valor terminal se descuenta con el factor del último flujo a mitad de año (4,5 años), como el modelo de referencia; la l4 avisa de que otros analistas usan 5 años.

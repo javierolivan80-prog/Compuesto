@@ -1,0 +1,285 @@
+{
+  "id": "n3-u6-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 3,
+  "unit": 6,
+  "order": 0,
+  "title": "Juego: DCF Express",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Seguir un DCF de principio a fin: flujos, descuento, valor terminal y precio por acción",
+    "Ver cuánto pesan el WACC y el crecimiento a perpetuidad en el valor"
+  ],
+  "concepts": ["dcf"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "dcf-express",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Flujo de caja libre",
+      "text": "El DCF valora la caja que el negocio genera para quienes lo financian: el flujo de caja libre (FCFF), el beneficio operativo después de impuestos más la amortización, menos las inversiones y el aumento del circulante. El plan de Naranjas llega a {fcff_5} mil € en 2030."
+    },
+    {
+      "type": "card",
+      "term": "Descontar y valor terminal",
+      "text": "Con el WACC del {wacc_model} %, los cinco flujos valen hoy {pv_fcff} mil €. Lo que vale la empresa después de 2030, el valor terminal, crece a perpetuidad un {g_model} %: {tv} mil €, {pv_tv} de hoy. Pesa un {tv_share} % del valor."
+    },
+    {
+      "type": "card",
+      "term": "Del valor de empresa al precio",
+      "text": "Valor de empresa: {ev} mil €. Menos la deuda financiera neta, que es negativa porque tiene más caja que deuda ({net_debt}): {equity} mil € para los accionistas, {value} € por acción. Cotiza a {price} €: el mercado la descuenta a un {wacc_implied} %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n3-u6-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "En 2030, Naranjas tendrá un EBIT de 13.009, una amortización de 2.380, inversiones de 4.232 y un aumento del circulante de 658 (miles de €). Con un impuesto del 25 %, ¿cuál es su flujo de caja libre? (miles de €)",
+      "answer": 7247,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "13009 * 0.75 + 2380 - 4232 - 658",
+      "explanation": "13.009 × 0,75 + 2.380 − 4.232 − 658 = 9.756,75 + 2.380 − 4.890 = 7.246,75 mil €.",
+      "hint": "EBIT × (1 − t) + amortización − inversiones − aumento del circulante."
+    },
+    {
+      "id": "n3-u6-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Con la convención de mitad de año, el flujo de 2030 ({fcff_5} mil €) se descuenta 4,5 años. Con un WACC del {wacc_model} %, ¿cuánto vale hoy? (miles de €)",
+      "answer": 5068,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{fcff_5} / (1 + {wacc_model} / 100) ^ 4.5",
+      "params": {
+        "fcff_5": {
+          "value": 7246.75,
+          "min": 5000,
+          "max": 9000,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "wacc_model": {
+          "value": 8.27,
+          "min": 6,
+          "max": 11,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{fcff_5} / (1 + {wacc_model} / 100) ^ 4.5",
+          "decimals": 0
+        }
+      },
+      "explanation": "{fcff_5} / (1 + {wacc_model} %)^4,5 = {v} mil €: encoge porque llega dentro de años.",
+      "hint": "Divide entre (1 + WACC) elevado a 4,5."
+    },
+    {
+      "id": "n3-u6-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Valor terminal por Gordon: último flujo {fcff_5} mil €, crecimiento a perpetuidad {g_model} % y WACC {wacc_model} %. ¿Cuánto vale? (miles de €)",
+      "answer": 117890,
+      "unit": "mil €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{fcff_5} * (1 + {g_model} / 100) / ({wacc_model} / 100 - {g_model} / 100)",
+      "params": {
+        "fcff_5": {
+          "value": 7246.75,
+          "min": 5000,
+          "max": 9000,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "g_model": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "wacc_model": {
+          "value": 8.27,
+          "min": 6,
+          "max": 11,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{fcff_5} * (1 + {g_model} / 100) / ({wacc_model} / 100 - {g_model} / 100)",
+          "decimals": 0
+        }
+      },
+      "explanation": "{fcff_5} × (1 + {g_model} %) / ({wacc_model} % − {g_model} %) = {v} mil €.",
+      "hint": "Flujo del año siguiente entre (WACC − g)."
+    },
+    {
+      "id": "n3-u6-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Valor de empresa {ev} mil €, deuda financiera neta {net_debt} mil € (negativa: tiene caja neta) y 12.000.000 de acciones. ¿Valor por acción? (€, 2 decimales)",
+      "answer": 9.35,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({ev} - {net_debt}) / 12000",
+      "params": {
+        "ev": {
+          "value": 108819,
+          "min": 90000,
+          "max": 130000,
+          "step": 1,
+          "decimals": 0
+        },
+        "net_debt": {
+          "value": -3385,
+          "min": -10000,
+          "max": 10000,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "e": {
+          "formula": "{ev} - {net_debt}",
+          "decimals": 0
+        },
+        "v": {
+          "formula": "({ev} - {net_debt}) / 12000",
+          "decimals": 2
+        }
+      },
+      "explanation": "Patrimonio = valor de empresa − deuda neta = {ev} − ({net_debt}) = {e} mil €; entre 12.000 mil acciones, {v} €.",
+      "hint": "Resta la deuda neta (si es negativa, suma) y divide entre las acciones."
+    },
+    {
+      "id": "n3-u6-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Los cinco flujos descontados suman {pv_fcff} y el valor terminal descontado es {pv_tv} (miles de €). ¿Qué porcentaje del valor de empresa es valor terminal? (1 decimal)",
+      "answer": 75.8,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{pv_tv} / ({pv_fcff} + {pv_tv}) * 100",
+      "params": {
+        "pv_fcff": {
+          "value": 26370,
+          "min": 20000,
+          "max": 35000,
+          "step": 1,
+          "decimals": 0
+        },
+        "pv_tv": {
+          "value": 82450,
+          "min": 60000,
+          "max": 100000,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{pv_tv} / ({pv_fcff} + {pv_tv}) * 100",
+          "decimals": 1
+        }
+      },
+      "explanation": "{pv_tv} / ({pv_fcff} + {pv_tv}) = {s} %: la mayor parte del valor está después de los cinco años del plan."
+    },
+    {
+      "id": "n3-u6-l1-e6",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Para llegar a los 12 € que quería el jefe hacía falta un crecimiento a perpetuidad del 3,7 %. ¿Por qué el comité no lo aceptaría?",
+      "options": [
+        "Porque ninguna empresa puede crecer para siempre más que la economía, y casi todo el valor saldría de esa hipótesis",
+        "Porque un 3,7 % es menos que la inflación",
+        "Porque Gordon solo admite crecimientos enteros",
+        "Porque con más crecimiento el WACC baja"
+      ],
+      "answer": 0,
+      "explanation": "A perpetuidad, crecer más que el PIB nominal significa acabar siendo más grande que la economía. Y con g = 3,7 % el valor terminal pasa a pesar más del 80 %.",
+      "wrongExplanations": {
+        "1": "Es más que el objetivo de inflación del BCE, del 2 %: ese es el problema.",
+        "2": "Gordon admite cualquier g menor que el WACC.",
+        "3": "El WACC no depende de g."
+      }
+    },
+    {
+      "id": "n3-u6-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dcf"],
+      "statement": "Si el WACC sube un punto, el valor por acción que da el DCF sube.",
+      "answer": false,
+      "explanation": "Falso: los flujos se descuentan más y valen menos hoy. En el juego, con un WACC del 9,27 % en vez del 8,27 %, Naranjas pasa de 9,35 € a 8,12 €."
+    },
+    {
+      "id": "n3-u6-l1-e8",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["dcf"],
+      "prompt": "Naranjas cotiza a 7,50 € y tu DCF dice 9,35 €. ¿Qué concluyes?",
+      "options": [
+        "Que a ese precio el mercado le pide un 9,9 %: antes de decir que está barata hay que entender si ve más riesgo o espera menos caja que el plan",
+        "Que está barata: el DCF siempre tiene razón",
+        "Que el DCF está mal y hay que cambiar g hasta que dé 7,50 €",
+        "Que el mercado se equivoca y subirá a 9,35 € este año"
+      ],
+      "answer": 0,
+      "explanation": "El DCF es una opinión que depende de sus hipótesis; la diferencia con el precio es una pregunta, no una conclusión. El plan y los precios son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Un DCF solo vale lo que sus hipótesis.",
+        "2": "Ajustar la hipótesis para llegar al precio no explica nada.",
+        "3": "Nadie sabe cuándo, ni si, el precio llegará a un valor."
+      }
+    }
+  ],
+  "realWorld": "Los informes de los expertos independientes en las OPA, publicados en la web de la CNMV, incluyen DCF con su WACC, su crecimiento a perpetuidad y tablas de sensibilidad. El plan y los precios son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity Valuation y Corporate Issuers (valor actual, VAN, flujo de caja libre y DCF)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

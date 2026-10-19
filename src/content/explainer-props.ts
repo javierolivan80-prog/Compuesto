@@ -73,6 +73,13 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     cash: z.number().min(0),
     ebitda: z.number().positive(),
   }),
+  DcfTimeTravel: z
+    .object({
+      fcff: z.array(z.number().positive()).length(5),
+      wacc: z.number().positive().max(20),
+      g: z.number().min(0).max(5),
+    })
+    .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
   WaccMix: z.object({
     rf: z.number().min(0),
     erp: z.number().positive(),

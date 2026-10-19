@@ -1,0 +1,43 @@
+import { readFileSync } from 'node:fs';
+import { expect, test } from '@playwright/test';
+import { playLesson, type Lesson } from './play';
+import { playGameLesson, type GameLesson } from './play-game';
+import { completeOnboarding } from './solver';
+
+/* Unidad 6 del Nivel 3, planta 1 (DCF) jugada entera contra la build de producción. */
+
+const lessons: (Lesson & { game?: GameLesson['game'] })[] = [1, 2, 3, 4, 5].map((n) =>
+  JSON.parse(readFileSync(`content/es/levels/n3/u6/l${n}.json`, 'utf8')),
+);
+
+test('se completa la Unidad 6 del Nivel 3 entera y queda completada en el Camino', async ({
+  page,
+}) => {
+  test.setTimeout(240_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await completeOnboarding(page);
+
+  for (const l of lessons) {
+    await page.goto(`/#/leccion/${l.id}`);
+    await page.reload();
+    if (l.game) await playGameLesson(page, l as GameLesson);
+    else {
+      // el Jefe final no tiene teoría: empieza directamente por los ejercicios
+      if ((l as { intro?: unknown[] }).intro?.length)
+        await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
+      await playLesson(page, l);
+    }
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByTestId('xp-total')).toBeVisible();
+  }
+
+  await page.goto('/#/camino');
+  await page.reload();
+  await expect(page.getByRole('group', { name: /DCF: lo que vale una empresa/ })).toContainText(
+    '✓ Completada',
+  );
+  expect(errors).toEqual([]);
+});

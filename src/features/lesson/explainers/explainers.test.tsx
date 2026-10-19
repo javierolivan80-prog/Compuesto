@@ -103,6 +103,19 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/427\.697/);
     expect(text).toMatch(/7,4/);
   });
+  it('DcfTimeTravel: los flujos descontados más el valor terminal dan el valor de empresa del modelo', () => {
+    render(
+      <ExplainerBlock
+        component="DcfTimeTravel"
+        props={{ fcff: [5654.75, 6057, 6460.75, 6858.75, 7246.75], wacc: 8.2713, g: 2 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/26\.369/);
+    expect(text).toMatch(/117\.86\d/);
+    expect(text).toMatch(/108\.79\d/);
+    expect(text).toMatch(/76 %/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock
