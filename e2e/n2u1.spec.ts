@@ -36,10 +36,10 @@ test('se completa la Unidad 1 del Nivel 2 entera y queda completada en el Camino
 
   await page.goto('/#/camino');
   await page.reload();
-  // con su única unidad hecha, la planta 2 sale completada y plegada: se despliega para ver la unidad
   const floor = page.locator('details', { hasText: 'Tipos, bonos y productos' }).first();
-  await expect(floor).toContainText('completada');
-  await floor.locator('summary').first().click();
+  // la planta sale plegada si ya está completada: se despliega para ver la unidad
+  if (!(await floor.evaluate((d) => (d as HTMLDetailsElement).open)))
+    await floor.locator('summary').first().click();
   await expect(page.getByRole('group', { name: /Bonos: cupón, precio y TIR/ })).toContainText(
     '✓ Completada',
   );

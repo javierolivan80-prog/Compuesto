@@ -21,5 +21,6 @@ export const EXPLAINER_NAMES = [
   'DcfTimeTravel',
   'BondSeesaw',
   'Duration',
+  'TerDrain',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

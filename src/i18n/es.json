@@ -1206,5 +1206,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo se componen las comisiones y cómo funciona un traspaso.",
     "debrief": "Ver qué ha pasado"
+  },
+  "terDrain": {
+    "title": "El hilo que se llevan las comisiones"
   }
 }

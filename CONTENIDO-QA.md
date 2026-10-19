@@ -330,3 +330,19 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
     - distractores de l2-e5, l4-e5 y q7.
 - **Ronda 2:** aprobada. Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier, incluidos los plazos de Letras, Bonos y Obligaciones en tesoro.es (verificarAntesDe 2027-04-30).
+
+## n2-u2 — Duración y curva de tipos y lección-juego «Curva de tipos» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Las cifras estaban todas bien.
+  - Mayor aplicado: el explicador `Duration` llamaba «≈» a una diferencia de 2,3 puntos sin mencionar la convexidad. Ahora lo explica.
+  - Menores aplicados (13):
+    - ambigüedades en l3-e4, l3-e5, l4-e6 y l4-e7;
+    - «duración modificada» explícita en el Jefe final;
+    - l1-e2 con la cifra de la partida;
+    - matices en la curva invertida y en el aplanamiento;
+    - distractores de l2-e4 y q2;
+    - el texto del reto 1 del juego;
+    - la descripción de `duracion`.
+- **Ronda 2:** aprobada. Estado: `reviewed`.
+- Bloom del nivel N2: 40/74 de recordar/entender (54,1 %).
+- 🛑 Pendiente de la revisión de Javier.

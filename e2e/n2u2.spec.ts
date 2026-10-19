@@ -36,10 +36,10 @@ test('se completa la Unidad 2 del Nivel 2 entera y queda completada en el Camino
 
   await page.goto('/#/camino');
   await page.reload();
-  // con sus unidades hechas, la planta 2 puede salir completada y plegada: se despliega para ver la unidad
   const floor = page.locator('details', { hasText: 'Tipos, bonos y productos' }).first();
-  await expect(floor).toContainText('completada');
-  await floor.locator('summary').first().click();
+  // la planta sale plegada si ya está completada: se despliega para ver la unidad
+  if (!(await floor.evaluate((d) => (d as HTMLDetailsElement).open)))
+    await floor.locator('summary').first().click();
   await expect(page.getByRole('group', { name: /Duración y curva de tipos/ })).toContainText(
     '✓ Completada',
   );

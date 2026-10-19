@@ -1,8 +1,8 @@
 {
   "id": "n2-u2-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 2,
   "title": "La curva de tipos",
@@ -183,7 +183,7 @@
       "tags": [],
       "concepts": ["curva-tipos"],
       "prompt": "Ordena estas pendientes 10 − 2 de la curva más invertida a la más empinada.",
-      "steps": ["−80 pb", "−20 pb", "0 pb", "+60 pb", "+150 pb"],
+      "steps": ["−80 pb", "−20 pb", "Cero: plana", "+60 pb", "+150 pb"],
       "explanation": "De más negativa a más positiva."
     },
     {

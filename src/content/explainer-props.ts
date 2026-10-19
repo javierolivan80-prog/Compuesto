@@ -80,6 +80,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       g: z.number().min(0).max(5),
     })
     .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
+  TerDrain: z
+    .object({
+      amount: z.number().positive(),
+      gross: z.number().min(0).max(15),
+      terCheap: z.number().min(0).max(5),
+      terDear: z.number().min(0).max(5),
+    })
+    .refine((p) => p.terCheap < p.terDear, 'terCheap debe ser menor que terDear'),
   Duration: z.object({
     yield: z.number().min(0.5).max(10),
     shock: z.number().min(0.25).max(3),

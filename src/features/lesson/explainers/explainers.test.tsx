@@ -129,6 +129,17 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2 años cae un 1,9\s%/);
     expect(text).toMatch(/30 años cae un 17,\d\s%/);
   });
+  it('TerDrain: la diferencia por comisiones crece con los años', () => {
+    render(
+      <ExplainerBlock
+        component="TerDrain"
+        props={{ amount: 10000, gross: 6, terCheap: 0.2, terDear: 1.8 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/30 años/);
+    expect(text).toMatch(/8\.113/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock

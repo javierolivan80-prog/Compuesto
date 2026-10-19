@@ -20,6 +20,7 @@ import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
 import { ThreeStatements } from './ThreeStatements';
+import { TerDrain } from './TerDrain';
 import { TinVsTae } from './TinVsTae';
 import { WaccMix } from './WaccMix';
 
@@ -50,6 +51,7 @@ const REGISTRY = {
   DcfTimeTravel,
   BondSeesaw,
   Duration,
+  TerDrain,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */
