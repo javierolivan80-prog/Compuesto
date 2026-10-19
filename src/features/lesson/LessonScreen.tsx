@@ -39,6 +39,7 @@ import { RatioGame } from '../games/RatioGame';
 import { CheapGame } from '../games/CheapGame';
 import { WaccGame } from '../games/WaccGame';
 import { DcfGame } from '../games/DcfGame';
+import { BondGame } from '../games/BondGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -201,6 +202,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'cheap-or-dear': CheapGame,
             'wacc-mix': WaccGame,
             'dcf-express': DcfGame,
+            'bond-issue': BondGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

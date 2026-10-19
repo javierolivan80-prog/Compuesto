@@ -1033,5 +1033,54 @@
   },
   "dcfTimeTravel": {
     "title": "El viaje de los flujos hacia hoy"
+  },
+  "bondGame": {
+    "title": "La emisión de Naranjas",
+    "step": {
+      "coupon": "Paso 1 de 3 · el cupón",
+      "shock": "Paso 2 de 3 · un año después",
+      "tir": "Paso 3 de 3 · la TIR del comprador"
+    },
+    "brief": "Naranjas emite un bono a {{years}} años por {{amount}}, en bonos de 1.000 €. El Bono del Estado a 5 años rinde un {{tesoro}} y los inversores piden a Naranjas un diferencial de {{spread}}: un {{y}} en total. Elige el cupón anual para colocarlo a la par, a 100.",
+    "coupon": "Cupón anual: {{v}}",
+    "less": "Bajar el cupón",
+    "more": "Subir el cupón",
+    "price": "Precio de colocación (por 100)",
+    "raised": "Lo que capta Naranjas",
+    "yearly": "Cupones al año",
+    "vsPar": "Frente a la par (100)",
+    "atPar": "A la par",
+    "above": "{{v}} sobre la par",
+    "below": "{{v}} bajo la par",
+    "issue": "Emitir con un cupón del {{v}}",
+    "whyPar": "Con un cupón del {{c}}, igual a lo que piden los inversores ({{y}}), el bono se coloca a la par: Naranjas capta lo que quería.",
+    "whyLow": "Con un cupón del {{c}}, por debajo del {{y}} que piden los inversores, solo pagan {{p}} por cada 100: Naranjas capta menos de lo que necesita.",
+    "whyHigh": "Con un cupón del {{c}}, por encima del {{y}} que piden, los inversores pagan {{p}} por cada 100, pero Naranjas pagará de más durante cinco años.",
+    "newsUp": "Un año después, el BCE ha subido los tipos: la rentabilidad que piden a Naranjas pasa del {{y}} al {{ny}} (+{{d}}). Tu bono sigue pagando el mismo cupón.",
+    "newsDown": "Un año después, el BCE ha bajado los tipos: la rentabilidad que piden a Naranjas pasa del {{y}} al {{ny}} (−{{d}}). Tu bono sigue pagando el mismo cupón.",
+    "askDirection": "¿Qué le pasa al precio de tu bono en el mercado?",
+    "up": "▲ Sube",
+    "down": "▼ Baja",
+    "afterLabel": "Precio un año después",
+    "whyDown": "Baja a {{p}}: los bonos nuevos ya pagan un {{ny}}, así que nadie paga 100 por uno con un cupón del {{c}}. Precio y tipos van al revés.",
+    "whyUp": "Sube a {{p}}: los bonos nuevos solo pagan un {{ny}}, así que el tuyo, con un cupón del {{c}}, vale más. Precio y tipos van al revés.",
+    "tirBrief": "Un inversor compra tu bono a {{p}}. Le quedan {{n}} años con un cupón del {{c}} y cobrará 100 al vencimiento.",
+    "askTir": "¿Qué rentabilidad (TIR) obtiene si lo mantiene hasta el vencimiento?",
+    "whyTir": "Su TIR es {{tir}}: la rentabilidad que pide hoy el mercado. Comprando a {{p}} con un cupón del {{c}}, la diferencia hasta 100 al vencimiento compensa el cupón distinto.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Folleto cerrado",
+    "row": {
+      "par": "Colocado a la par",
+      "direction": "Dirección del precio",
+      "tir": "TIR del comprador"
+    },
+    "great": "Emisión impecable: cupón, precio y TIR bien entendidos.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo se relacionan cupón, precio y rentabilidad.",
+    "debrief": "Ver qué ha pasado"
   }
 }

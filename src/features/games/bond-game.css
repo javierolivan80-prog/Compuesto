@@ -1,0 +1,37 @@
+/* La emisión de Naranjas: panel, deslizador del cupón y medidor frente a la par. */
+.bg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.bg-range {
+  accent-color: var(--brand);
+}
+.bg-gauge {
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.bg-par {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: calc(50% - 1px);
+  width: 2px;
+  background: var(--text-2);
+}
+.bg-mark {
+  position: absolute;
+  inset: 0;
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bg-mark > span {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -6px;
+  width: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-mark {
+    transition: none;
+  }
+}
