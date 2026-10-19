@@ -1308,5 +1308,42 @@
   },
   "fxEffect": {
     "title": "La misma subida, en dólares y en euros"
+  },
+  "repoGame": {
+    "title": "Una noche en la tesorería",
+    "step": {
+      "repo": "Paso 1 de 3 · el repo",
+      "interest": "Paso 2 de 3 · los intereses",
+      "recourse": "Paso 3 de 3 · cédula o titulización"
+    },
+    "millions": "{{v}} millones de €",
+    "briefRepo": "Son las cinco de la tarde y la tesorería de Albufera necesita liquidez para esta noche. Tiene {{collateral}} en bonos del Estado. Otro banco le presta contra ellos con un repo, aplicando un recorte del {{haircut}} sobre su valor.",
+    "askLoan": "¿Cuánto le prestan?",
+    "whyLoan": "{{collateral}} × (1 − {{haircut}}) = {{loan}}. El recorte protege al que presta por si la garantía pierde valor.",
+    "briefInterest": "El préstamo de {{loan}} es a {{days}} día(s) al {{rate}} anual. En el mercado monetario del euro, los intereses se calculan con días reales entre 360.",
+    "askInterest": "¿Cuántos euros de intereses paga por {{days}} día(s)?",
+    "whyInterest": "{{loan}} × {{rate}} × {{days}} / 360 = {{v}}. Al día siguiente, Albufera devuelve el dinero con los intereses y recupera sus bonos.",
+    "briefRecourse": "La tesorería también invierte el excedente de otros días. Duda entre una cédula hipotecaria de un banco y un bono de una titulización de hipotecas.",
+    "askRecourse": "¿En cuál, si las hipotecas no bastan, puede además reclamar al banco que la emitió?",
+    "instrument": {
+      "cedula": "La cédula hipotecaria",
+      "titulizacion": "La titulización"
+    },
+    "whyRecourse": "La cédula es deuda del propio banco, respaldada además por su cartera de hipotecas: doble garantía. En una titulización, las hipotecas se venden a un fondo separado, y sus bonos cobran solo de esos préstamos.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la tesorería",
+    "row": {
+      "loan": "Préstamo con recorte",
+      "interest": "Intereses actual/360",
+      "recourse": "Recurso al emisor"
+    },
+    "great": "Tesorería impecable: repo, intereses y garantías bien entendidos.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo funcionan el repo y las garantías.",
+    "debrief": "Ver qué ha pasado"
   }
 }

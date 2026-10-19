@@ -44,6 +44,7 @@ import { CurveGame } from '../games/CurveGame';
 import { FundGame } from '../games/FundGame';
 import { LuckGame } from '../games/LuckGame';
 import { FxGame } from '../games/FxGame';
+import { RepoGame } from '../games/RepoGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -211,6 +212,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'fund-fees': FundGame,
             'luck-or-skill': LuckGame,
             'fx-trip': FxGame,
+            'repo-night': RepoGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

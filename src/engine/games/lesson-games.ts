@@ -42,6 +42,7 @@ import { curveValues, fall10, setupCurve } from './yield-curve';
 import { fundValues, rightDiff, setupFunds, SITUATIONS } from './fund-fees';
 import { luckValues, mean as meanOf2, setupLuck } from './luck-or-skill';
 import { dollars, fxValues, rightCompare, setupFx } from './fx-trip';
+import { interest, loan, repoValues, setupRepo } from './repo-night';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -84,6 +85,7 @@ export const LESSON_GAMES = [
   'fund-fees',
   'luck-or-skill',
   'fx-trip',
+  'repo-night',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -395,6 +397,16 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     hedged_return: [1, 1],
     hits: [0, 0],
   },
+  'repo-night': {
+    collateral: [0, 0],
+    haircut: [0, 0],
+    rate: [1, 1],
+    days: [0, 0],
+    loan: [2, 2],
+    interest: [0, 0],
+    repay: [0, 0],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -602,6 +614,14 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         fxValues(setup, { dollars: Math.round(dollars(setup)), compare: right, hedge: true }),
         fxValues(setup, { dollars: 0, compare: right === 'less' ? 'more' : 'less', hedge: false }),
+      ];
+    }
+    case 'repo-night': {
+      // todo bien, y todo mal
+      const setup = setupRepo(seed);
+      return [
+        repoValues(setup, { loan: loan(setup), interest: interest(setup), recourse: 'cedula' }),
+        repoValues(setup, { loan: 0, interest: 0, recourse: 'titulizacion' }),
       ];
     }
   }
