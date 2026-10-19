@@ -1,48 +1,35 @@
 {
   "id": "salto-n2-u3",
   "unitId": "n2-u3",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u3-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["fondos-inversion"],
-      "prompt": "Un fondo rinde un 7 % bruto y tiene un 1,5 % de gastos corrientes. ¿Neto?",
-      "options": ["5,5 %", "8,5 %", "7 %", "1,5 %"],
-      "answer": 0,
-      "explanation": "7 − 1,5 = 5,5 %.",
-      "wrongExplanations": {
-        "1": "Los gastos se restan.",
-        "2": "Falta restar los gastos.",
-        "3": "Son solo los gastos."
-      }
+      "type": "numeric_input",
+      "prompt": "Un fondo rinde un 7 % bruto y tiene unos gastos corrientes del 1,5 %. ¿Cuál es su rentabilidad neta aproximada? (%)",
+      "answer": 5.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "7 - 1.5",
+      "explanation": "7 − 1,5 = 5,5 %."
     },
     {
       "id": "salto-n2-u3-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["fondos-inversion"],
-      "prompt": "¿Qué es el valor liquidativo de un fondo?",
-      "options": [
-        "El precio de una participación, calculado una vez al día",
-        "La comisión de reembolso",
-        "Lo que cotiza en bolsa en cada momento",
-        "El dinero que aportaste"
-      ],
-      "answer": 0,
-      "explanation": "Patrimonio entre participaciones, una vez al día.",
-      "wrongExplanations": {
-        "1": "Es una comisión, no un precio.",
-        "2": "Eso es el precio de un ETF en bolsa; un fondo no cotiza.",
-        "3": "Eso es tu coste."
-      }
+      "type": "fill_blank",
+      "prompt": "El precio de una participación de un fondo, que se calcula una vez al día, es su valor ___.",
+      "answers": [["liquidativo"]],
+      "explanation": "El valor liquidativo: patrimonio del fondo entre participaciones."
     },
     {
       "id": "salto-n2-u3-q3",
@@ -101,20 +88,18 @@
     },
     {
       "id": "salto-n2-u3-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["traspasos-fondos"],
-      "prompt": "Ganancia de 2.000 € al vender un fondo, al 19 %. ¿Impuesto?",
-      "options": ["380 €", "2.000 €", "190 €", "3.800 €"],
-      "answer": 0,
-      "explanation": "2.000 × 19 % = 380 €.",
-      "wrongExplanations": {
-        "1": "Tributa un porcentaje, no toda la ganancia.",
-        "2": "Es la mitad.",
-        "3": "Has multiplicado por 1,9."
-      }
+      "type": "numeric_input",
+      "prompt": "Vendes un fondo con una ganancia de 2.000 €. Al 19 %, ¿cuánto pagas de IRPF? (€)",
+      "answer": 380,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "2000 * 0.19",
+      "explanation": "2.000 × 19 % = 380 €."
     },
     {
       "id": "salto-n2-u3-q7",
@@ -135,20 +120,90 @@
     },
     {
       "id": "salto-n2-u3-q8",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["fondos-inversion"],
-      "prompt": "Dos fondos rinden un 6 % bruto; uno cobra un 0,2 % de gastos y el otro un 1,8 %. Con 10.000 € a 20 años, ¿cuál es la diferencia final, aproximadamente?",
-      "options": ["Unos 8.100 €", "Unos 3.200 €", "Unos 20.900 €", "0 €"],
+      "type": "numeric_input",
+      "prompt": "Dos fondos rinden un 6 % bruto; uno tiene unos gastos del 0,2 % y otro del 1,8 %. Con 10.000 € a 20 años, ¿cuánto más acumula el barato? (€, 0 decimales)",
+      "answer": 8113,
+      "unit": "€",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "10000 * (1.058^20 - 1.042^20)",
+      "explanation": "10.000 × (1,058²⁰ − 1,042²⁰) ≈ 8.113 €: la comisión se compone año a año."
+    },
+    {
+      "id": "salto-n2-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondos-inversion"],
+      "prompt": "Un fondo tiene 50 millones de € de patrimonio y 4 millones de participaciones. ¿Cuál es su valor liquidativo? (€, 2 decimales)",
+      "answer": 12.5,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "50 / 4",
+      "explanation": "50 / 4 = 12,50 € por participación."
+    },
+    {
+      "id": "salto-n2-u3-q10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["etf", "fondos-inversion"],
+      "prompt": "¿Es propio de un fondo tradicional o de un ETF?",
+      "categories": ["Fondo tradicional", "ETF"],
+      "items": [
+        {
+          "text": "Se compra y vende en bolsa durante la sesión",
+          "category": "ETF"
+        },
+        {
+          "text": "Su precio se fija una vez al día",
+          "category": "Fondo tradicional"
+        },
+        {
+          "text": "En España permite traspasos sin tributar",
+          "category": "Fondo tradicional"
+        },
+        {
+          "text": "Al comprarlo pagas corretaje y horquilla",
+          "category": "ETF"
+        }
+      ],
+      "explanation": "El ETF cotiza como una acción; el fondo se suscribe al valor liquidativo y se traspasa."
+    },
+    {
+      "id": "salto-n2-u3-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["traspasos-fondos"],
+      "prompt": "Traspasas 10.000 € de un fondo con 2.000 € de ganancia a otro fondo de inversión. ¿Cuánto IRPF pagas ahora?",
+      "options": ["Nada: tributarás cuando vendas", "380 €", "1.900 €", "Una tasa fija de 19 €"],
       "answer": 0,
-      "explanation": "10.000 × 1,058^20 − 10.000 × 1,042^20 ≈ 30.883 − 22.770 ≈ 8.100 €: el coste se compone.",
+      "explanation": "El traspaso entre fondos aplaza el impuesto.",
       "wrongExplanations": {
-        "1": "Es sumar 1,6 puntos × 20 años sobre 10.000 € sin componer.",
-        "2": "Eso es lo que gana el fondo barato (30.883 − 10.000), no la diferencia entre los dos.",
-        "3": "Invierten igual, pero las comisiones no."
+        "1": "Eso pagarías si vendieras.",
+        "2": "Sería el 19 % del total, no de la ganancia, y tampoco toca ahora.",
+        "3": "No existe esa tasa."
       }
+    },
+    {
+      "id": "salto-n2-u3-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["etf"],
+      "statement": "Un ETF indexado suele tener unos gastos corrientes más bajos que un fondo de gestión activa.",
+      "answer": true,
+      "explanation": "Verdadero, en general: replicar un índice cuesta menos que gestionar activamente."
     }
   ],
   "sources": [

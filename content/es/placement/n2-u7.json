@@ -1,26 +1,24 @@
 {
   "id": "salto-n2-u7",
   "unitId": "n2-u7",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u7-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["planes-pensiones"],
-      "prompt": "Aportas 1.000 € a un plan con un tipo marginal del 30 %. ¿Cuánto IRPF te ahorras?",
-      "options": ["300 €", "1.000 €", "190 €", "30 €"],
-      "answer": 0,
-      "explanation": "1.000 × 30 %.",
-      "wrongExplanations": {
-        "1": "Eso es la aportación, no el ahorro.",
-        "2": "Eso sería con el 19 %.",
-        "3": "Te falta un cero."
-      }
+      "type": "numeric_input",
+      "prompt": "Aportas 1.000 € a un plan de pensiones (dentro del límite) con un tipo marginal del 30 %; supón que no cambia. ¿Cuánto IRPF te ahorras este año? (€)",
+      "answer": 300,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1000 * 0.3",
+      "explanation": "1.000 × 30 % = 300 €."
     },
     {
       "id": "salto-n2-u7-q2",
@@ -46,20 +44,18 @@
     },
     {
       "id": "salto-n2-u7-q3",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["socimi-reit"],
-      "prompt": "Una SOCIMI gana 10 millones con alquileres. ¿Dividendo mínimo por ese beneficio?",
-      "options": ["8 millones", "10 millones", "5 millones", "2 millones"],
-      "answer": 0,
-      "explanation": "Al menos el 80 %.",
-      "wrongExplanations": {
-        "1": "No tiene que repartirlo todo.",
-        "2": "Es el 80 %, no el 50 %.",
-        "3": "Eso es lo que puede retener."
-      }
+      "type": "numeric_input",
+      "prompt": "Una SOCIMI gana 10 millones de € con alquileres. ¿Cuánto debe repartir como mínimo en dividendos por ese beneficio? (millones de €)",
+      "answer": 8,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10 * 0.8",
+      "explanation": "Al menos el 80 %: 8 millones."
     },
     {
       "id": "salto-n2-u7-q4",
@@ -74,20 +70,18 @@
     },
     {
       "id": "salto-n2-u7-q5",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["derivados-intro"],
-      "prompt": "Compras un futuro sobre 10 unidades a 100 € y al vencer valen 95 €. ¿Resultado?",
-      "options": ["−50 €", "+50 €", "−5 €", "−950 €"],
-      "answer": 0,
-      "explanation": "(95 − 100) × 10.",
-      "wrongExplanations": {
-        "1": "El comprador pierde si baja.",
-        "2": "Falta multiplicar por las unidades.",
-        "3": "Se pierde la diferencia, no el valor."
-      }
+      "type": "numeric_input",
+      "prompt": "Compras un futuro sobre 10 unidades a 100 € y al vencer el subyacente vale 95 €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
+      "answer": -50,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(95 - 100) * 10",
+      "explanation": "(95 − 100) × 10 = −50 €."
     },
     {
       "id": "salto-n2-u7-q6",
@@ -135,25 +129,86 @@
     },
     {
       "id": "salto-n2-u7-q8",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["productos-complejos"],
-      "prompt": "Si compras por tu cuenta un producto complejo, ¿qué evalúa el banco?",
-      "options": [
-        "La conveniencia: si lo entiendes",
-        "La idoneidad: si te encaja",
-        "Nada",
-        "Tu renta"
+      "type": "fill_blank",
+      "prompt": "Si compras por tu cuenta un producto complejo, el banco evalúa si tienes conocimientos para entenderlo: es la evaluación de ___.",
+      "answers": [["conveniencia"]],
+      "explanation": "La de conveniencia; con asesoramiento, la de idoneidad."
+    },
+    {
+      "id": "salto-n2-u7-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["derivados-intro"],
+      "prompt": "Compras una call con strike 50 € pagando una prima de 2 €. Al vencer, la acción vale 57 €. ¿Cuál es tu resultado por acción, incluida la prima? (€)",
+      "answer": 5,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "MAX(57 - 50, 0) - 2",
+      "explanation": "Ejerces: 57 − 50 − 2 = 5 €."
+    },
+    {
+      "id": "salto-n2-u7-q10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["productos-complejos"],
+      "prompt": "¿Complejo o no complejo?",
+      "categories": ["No complejo", "Complejo"],
+      "items": [
+        {
+          "text": "Una Letra del Tesoro",
+          "category": "No complejo"
+        },
+        {
+          "text": "Acciones de una empresa cotizada",
+          "category": "No complejo"
+        },
+        {
+          "text": "Un CFD sobre el oro",
+          "category": "Complejo"
+        },
+        {
+          "text": "Una opción sobre el IBEX",
+          "category": "Complejo"
+        }
       ],
+      "explanation": "Los derivados son complejos; las Letras y las acciones cotizadas, no."
+    },
+    {
+      "id": "salto-n2-u7-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["planes-pensiones"],
+      "prompt": "¿Cuál es el límite general de aportación anual a planes de pensiones individuales con reducción en el IRPF?",
+      "options": ["1.500 €", "8.500 €", "10.000 €", "No hay límite"],
       "answer": 0,
-      "explanation": "Sin asesoramiento, conveniencia.",
+      "explanation": "1.500 € al año (Ley 35/2006, art. 52).",
       "wrongExplanations": {
-        "1": "La idoneidad es con asesoramiento.",
-        "2": "Debe evaluarte.",
-        "3": "No es lo que mide."
+        "1": "Es el aumento por contribuciones a planes de empleo, no el límite de los individuales.",
+        "2": "Es el límite conjunto con los planes de empleo.",
+        "3": "Hay límite."
       }
+    },
+    {
+      "id": "salto-n2-u7-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["socimi-reit"],
+      "statement": "Una SOCIMI debe repartir como dividendo al menos el 80 % del beneficio que obtiene de los alquileres.",
+      "answer": true,
+      "explanation": "Verdadero (Ley 11/2009, art. 6)."
     }
   ],
   "sources": [

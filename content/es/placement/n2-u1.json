@@ -1,26 +1,24 @@
 {
   "id": "salto-n2-u1",
   "unitId": "n2-u1",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u1-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["cupon-bono"],
-      "prompt": "Bono de 1.000 € con cupón del 3 %. ¿Cuánto cobras al año?",
-      "options": ["30 €", "3 €", "300 €", "1.030 €"],
-      "answer": 0,
-      "explanation": "3 % de 1.000 = 30 €.",
-      "wrongExplanations": {
-        "1": "El cupón es sobre 1.000, no sobre 100.",
-        "2": "Es el 30 %.",
-        "3": "Esa es la cantidad del último año, con el nominal."
-      }
+      "type": "numeric_input",
+      "prompt": "Un bono de 1.000 € de nominal paga un cupón anual del 3 %. ¿Cuánto cobras de cupón al año? (€)",
+      "answer": 30,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1000 * 0.03",
+      "explanation": "3 % de 1.000 = 30 €."
     },
     {
       "id": "salto-n2-u1-q2",
@@ -58,20 +56,18 @@
     },
     {
       "id": "salto-n2-u1-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["tir-bono"],
-      "prompt": "A un bono le queda un año, paga cupón de 4 y cotiza a 100. ¿Su TIR?",
-      "options": ["4 %", "0 %", "104 %", "4,2 %"],
-      "answer": 0,
-      "explanation": "104 / 100 − 1 = 4 %: a la par, TIR = cupón.",
-      "wrongExplanations": {
-        "1": "Cobras el cupón.",
-        "2": "Es lo que cobras, no la rentabilidad.",
-        "3": "Sería si cotizara por debajo de 100."
-      }
+      "type": "numeric_input",
+      "prompt": "A un bono le queda un año: pagará 104 (cupón de 4 más el nominal de 100) y hoy cotiza a 100. ¿Cuál es su TIR? (%)",
+      "answer": 4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(104 / 100 - 1) * 100",
+      "explanation": "Pagas 100 y recibes 104: un 4 %."
     },
     {
       "id": "salto-n2-u1-q5",
@@ -86,42 +82,29 @@
     },
     {
       "id": "salto-n2-u1-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["letras-bonos-tesoro"],
-      "prompt": "¿Qué valor del Tesoro no paga cupón?",
-      "options": [
-        "La Letra",
-        "El Bono a 5 años",
-        "La Obligación a 10 años",
-        "La Obligación a 30 años"
-      ],
-      "answer": 0,
-      "explanation": "Las Letras se compran al descuento.",
-      "wrongExplanations": {
-        "1": "Paga cupón anual.",
-        "2": "Paga cupón anual.",
-        "3": "Paga cupón anual."
-      }
+      "type": "fill_blank",
+      "prompt": "El valor del Tesoro a corto plazo que no paga cupón y se compra al descuento es la ___ del Tesoro.",
+      "answers": [["Letra", "letra"]],
+      "explanation": "La Letra del Tesoro: se compra por menos de su nominal y se cobra el nominal al vencer."
     },
     {
       "id": "salto-n2-u1-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["rating-spread"],
-      "prompt": "El Estado rinde un 3 % y una empresa un 4,25 %. ¿Diferencial?",
-      "options": ["125 pb", "1,25 pb", "425 pb", "12,5 pb"],
-      "answer": 0,
-      "explanation": "1,25 puntos = 125 puntos básicos.",
-      "wrongExplanations": {
-        "1": "1 punto son 100 pb.",
-        "2": "Es la rentabilidad de la empresa, no el diferencial.",
-        "3": "Has multiplicado por 10: 1 punto son 100 pb, así que 1,25 puntos son 125 pb."
-      }
+      "type": "numeric_input",
+      "prompt": "El bono del Estado rinde un 3 % y el de una empresa al mismo plazo, un 4,25 %. ¿Cuál es el diferencial? (puntos básicos)",
+      "answer": 125,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(4.25 - 3) * 100",
+      "explanation": "4,25 − 3 = 1,25 puntos = 125 pb."
     },
     {
       "id": "salto-n2-u1-q8",
@@ -139,6 +122,60 @@
         "2": "Es grado de inversión, pero no el último.",
         "3": "Es el mejor, no el último."
       }
+    },
+    {
+      "id": "salto-n2-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["precio-bono-tipos"],
+      "prompt": "Un bono cupón cero paga 1.000 € dentro de un año y el mercado pide un 5 %. ¿Cuánto vale hoy? (€, 2 decimales)",
+      "answer": 952.38,
+      "unit": "€",
+      "tolerance": 0.01,
+      "answerDecimals": 2,
+      "formula": "1000 / 1.05",
+      "explanation": "1.000 / 1,05 = 952,38 €."
+    },
+    {
+      "id": "salto-n2-u1-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["rating-spread"],
+      "prompt": "La diferencia entre la rentabilidad de un bono de empresa y la del Estado al mismo plazo se llama ___.",
+      "answers": [["diferencial", "spread"]],
+      "explanation": "El diferencial (spread): lo que se pide de más por el riesgo de la empresa."
+    },
+    {
+      "id": "salto-n2-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cupon-bono"],
+      "prompt": "Un bono cotiza a 95 y paga un cupón de 3 por cada 100 de nominal. ¿Cuál es su rentabilidad corriente (cupón / precio)?",
+      "options": ["3,16 %", "3 %", "2,85 %", "5 %"],
+      "answer": 0,
+      "explanation": "3 / 95 = 3,16 %.",
+      "wrongExplanations": {
+        "1": "Ese es el cupón sobre el nominal, no sobre el precio.",
+        "2": "Has multiplicado por 0,95 en vez de dividir.",
+        "3": "Es el descuento, no la rentabilidad."
+      }
+    },
+    {
+      "id": "salto-n2-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["letras-bonos-tesoro"],
+      "statement": "Los Bonos del Tesoro se emiten a plazos más largos que las Obligaciones del Tesoro.",
+      "answer": false,
+      "explanation": "Falso: los Bonos van a 3 y 5 años; las Obligaciones, a 10 años o más."
     }
   ],
   "sources": [

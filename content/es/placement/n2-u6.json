@@ -1,43 +1,39 @@
 {
   "id": "salto-n2-u6",
   "unitId": "n2-u6",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u6-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "20 millones en bonos con un recorte del 5 %. ¿Cuánto te prestan?",
-      "options": ["19 millones", "20 millones", "21 millones", "15 millones"],
-      "answer": 0,
-      "explanation": "20 × 0,95.",
-      "wrongExplanations": {
-        "1": "Falta el recorte.",
-        "2": "El recorte resta.",
-        "3": "Has restado 5 millones, no un 5 %."
-      }
+      "type": "numeric_input",
+      "prompt": "Entregas 20 millones de € en bonos con un recorte del 5 %. ¿Cuánto te prestan? (millones de €)",
+      "answer": 19,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "20 * (1 - 0.05)",
+      "explanation": "20 × 0,95 = 19 millones."
     },
     {
       "id": "salto-n2-u6-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "Un millón a 36 días al 3 %, con actual/360. ¿Intereses?",
-      "options": ["3.000 €", "30.000 €", "2.959 €", "300 €"],
-      "answer": 0,
-      "explanation": "1.000.000 × 3 % × 36 / 360 = 3.000 €.",
-      "wrongExplanations": {
-        "1": "Es un año entero.",
-        "2": "Es con 365.",
-        "3": "Falta un cero."
-      }
+      "type": "numeric_input",
+      "prompt": "Un préstamo de un millón de € a 36 días al 3 %, con actual/360. ¿Cuántos euros de intereses? (€)",
+      "answer": 3000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1000000 * 0.03 * 36 / 360",
+      "explanation": "1.000.000 × 3 % × 36 / 360 = 3.000 €."
     },
     {
       "id": "salto-n2-u6-q3",
@@ -63,20 +59,14 @@
     },
     {
       "id": "salto-n2-u6-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "¿Qué publica el BCE como tipo de referencia a un día del euro?",
-      "options": ["El €STR", "El Euríbor a 12 meses", "El IPC", "El bono alemán"],
-      "answer": 0,
-      "explanation": "El €STR.",
-      "wrongExplanations": {
-        "1": "Es a plazo, no a un día.",
-        "2": "Es inflación.",
-        "3": "Es un bono a largo."
-      }
+      "type": "fill_blank",
+      "prompt": "El tipo de referencia a un día del euro que publica el BCE se llama ___.",
+      "answers": [["€STR", "ESTR", "eSTR", "€str", "ester"]],
+      "explanation": "El €STR (euro short-term rate)."
     },
     {
       "id": "salto-n2-u6-q5",
@@ -91,20 +81,18 @@
     },
     {
       "id": "salto-n2-u6-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["cedulas-titulizaciones"],
-      "prompt": "Tramos: senior 70, mezzanine 20, equity 10. Pérdidas de 15. ¿Cuánto pierde el mezzanine?",
-      "options": ["5", "15", "0", "10"],
-      "answer": 0,
-      "explanation": "El equity absorbe 10; el mezzanine, los 5 restantes.",
-      "wrongExplanations": {
-        "1": "El equity absorbe primero 10.",
-        "2": "Las pérdidas superan al equity.",
-        "3": "Eso es lo que pierde el equity."
-      }
+      "type": "numeric_input",
+      "prompt": "Titulización con tramos senior 70, mezzanine 20 y equity 10 (millones). Si las pérdidas son de 15 millones, ¿cuánto pierde el mezzanine? (millones)",
+      "answer": 5,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "15 - 10",
+      "explanation": "El equity absorbe 10; el mezzanine, los 5 restantes."
     },
     {
       "id": "salto-n2-u6-q7",
@@ -144,6 +132,65 @@
         "2": "No es el principal.",
         "3": "Lo hay."
       }
+    },
+    {
+      "id": "salto-n2-u6-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "Una Letra paga 1.000 € dentro de 180 días y el tipo es del 3 %, con actual/360. ¿Cuánto vale hoy? (€, 2 decimales)",
+      "answer": 985.22,
+      "unit": "€",
+      "tolerance": 0.002,
+      "answerDecimals": 2,
+      "formula": "1000 / (1 + 0.03 * 180 / 360)",
+      "explanation": "1.000 / (1 + 3 % × 180 / 360) = 985,22 €."
+    },
+    {
+      "id": "salto-n2-u6-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cedulas-titulizaciones"],
+      "prompt": "En una titulización, el tramo que absorbe las primeras pérdidas se llama ___.",
+      "answers": [["equity", "tramo equity", "de primera pérdida"]],
+      "explanation": "El equity (o tramo de primera pérdida)."
+    },
+    {
+      "id": "salto-n2-u6-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-monetario-repo"],
+      "prompt": "¿Por qué un repo suele ser más barato que un préstamo sin garantía entre bancos?",
+      "options": [
+        "Porque el que presta tiene los bonos como garantía",
+        "Porque no tiene intereses",
+        "Porque dura más",
+        "Porque lo paga el banco central"
+      ],
+      "answer": 0,
+      "explanation": "La garantía reduce el riesgo del que presta, y con él el tipo.",
+      "wrongExplanations": {
+        "1": "Tiene intereses, aunque bajos.",
+        "2": "Suele ser muy corto.",
+        "3": "El banco central puede ser una de las partes, no quien paga."
+      }
+    },
+    {
+      "id": "salto-n2-u6-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cedulas-titulizaciones"],
+      "statement": "El tenedor de una cédula hipotecaria puede reclamar al banco emisor, además de cobrar de la cartera de hipotecas.",
+      "answer": true,
+      "explanation": "Verdadero: es la doble garantía de las cédulas."
     }
   ],
   "sources": [

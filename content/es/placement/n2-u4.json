@@ -1,65 +1,50 @@
 {
   "id": "salto-n2-u4",
   "unitId": "n2-u4",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u4-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["media-desviacion"],
-      "prompt": "Rentabilidades de 1 %, 2 % y 6 %. ¿Media?",
-      "options": ["3 %", "2 %", "9 %", "6 %"],
-      "answer": 0,
-      "explanation": "9 / 3 = 3 %.",
-      "wrongExplanations": {
-        "1": "Es la mediana.",
-        "2": "Es la suma.",
-        "3": "Es el máximo."
-      }
+      "type": "numeric_input",
+      "prompt": "Rentabilidades anuales del 1 %, 2 % y 6 %. ¿Cuál es la media? (%)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(1 + 2 + 6) / 3",
+      "explanation": "(1 + 2 + 6) / 3 = 3 %."
     },
     {
       "id": "salto-n2-u4-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["media-desviacion"],
-      "prompt": "¿Qué mide la desviación típica?",
-      "options": [
-        "Cuánto se alejan los datos de su media",
-        "El valor central",
-        "El dato más repetido",
-        "El máximo menos el mínimo"
-      ],
-      "answer": 0,
-      "explanation": "Es la medida de dispersión, la volatilidad.",
-      "wrongExplanations": {
-        "1": "Eso es la media o la mediana.",
-        "2": "Eso es la moda.",
-        "3": "Eso es el rango."
-      }
+      "type": "fill_blank",
+      "prompt": "La medida de cuánto se alejan los datos de su media se llama desviación ___.",
+      "answers": [["típica", "tipica", "estándar", "estandar"]],
+      "explanation": "La desviación típica (o estándar)."
     },
     {
       "id": "salto-n2-u4-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["media-desviacion"],
-      "prompt": "Volatilidad mensual del 2 %. ¿Anual aproximada?",
-      "options": ["6,93 %", "24 %", "2 %", "4 %"],
-      "answer": 0,
-      "explanation": "2 × √12 ≈ 6,93 %.",
-      "wrongExplanations": {
-        "1": "Se multiplica por la raíz de 12, no por 12.",
-        "2": "Falta anualizar.",
-        "3": "Has multiplicado por 2."
-      }
+      "type": "numeric_input",
+      "prompt": "Un fondo tiene una volatilidad mensual del 2 %. ¿Cuál es su volatilidad anual aproximada, multiplicando por la raíz de 12? (%, 2 decimales)",
+      "answer": 6.93,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2 * SQRT(12)",
+      "explanation": "2 × √12 = 6,93 %."
     },
     {
       "id": "salto-n2-u4-q4",
@@ -91,20 +76,18 @@
     },
     {
       "id": "salto-n2-u4-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ilusion-control"],
-      "prompt": "¿Probabilidad de acertar 4 veces seguidas algo 50/50?",
-      "options": ["6,25 %", "25 %", "12,5 %", "50 %"],
-      "answer": 0,
-      "explanation": "(1/2)^4 = 1/16.",
-      "wrongExplanations": {
-        "1": "Es 1/4: dos aciertos.",
-        "2": "Es 1/8: tres aciertos.",
-        "3": "Es un solo acierto."
-      }
+      "type": "numeric_input",
+      "prompt": "¿Qué probabilidad hay de acertar 4 veces seguidas algo que es 50/50? (%, 2 decimales)",
+      "answer": 6.25,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.5^4 * 100",
+      "explanation": "0,5⁴ = 1/16 = 6,25 %."
     },
     {
       "id": "salto-n2-u4-q7",
@@ -139,6 +122,64 @@
         "2": "La media no dice el riesgo.",
         "3": "La volatilidad lo dice."
       }
+    },
+    {
+      "id": "salto-n2-u4-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["distribucion-normal"],
+      "prompt": "Un fondo rinde de media un 8 % al año con una volatilidad del 10 %. Si sus rentabilidades fueran normales, el 68 % de los años estaría entre dos valores. ¿Cuál es el inferior? (%)",
+      "answer": -2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "8 - 10",
+      "explanation": "Media menos una desviación típica: 8 − 10 = −2 %."
+    },
+    {
+      "id": "salto-n2-u4-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ilusion-control"],
+      "prompt": "32 personas lanzan una moneda 5 veces para «predecir» el mercado. ¿Cuántas aciertan las 5 por puro azar, de media?",
+      "answer": 1,
+      "unit": "personas",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "32 * 0.5^5",
+      "explanation": "32 × (1/2)⁵ = 1."
+    },
+    {
+      "id": "salto-n2-u4-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["media-desviacion"],
+      "prompt": "Rentabilidades del 4 %, 4 % y 4 %. ¿Cuál es su desviación típica?",
+      "options": ["0 %", "4 %", "1 %", "12 %"],
+      "answer": 0,
+      "explanation": "Todos los datos son iguales a la media: no hay dispersión.",
+      "wrongExplanations": {
+        "1": "Esa es la media.",
+        "2": "No hay ninguna diferencia con la media.",
+        "3": "Esa es la suma."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ilusion-control"],
+      "statement": "Que un gestor gane al mercado cinco años seguidos demuestra que tiene habilidad.",
+      "answer": false,
+      "explanation": "Falso: entre miles de gestores, algunos lo lograrán por puro azar."
     }
   ],
   "sources": [

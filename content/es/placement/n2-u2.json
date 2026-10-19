@@ -1,9 +1,9 @@
 {
   "id": "salto-n2-u2",
   "unitId": "n2-u2",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n2-u2-q1",
@@ -24,20 +24,18 @@
     },
     {
       "id": "salto-n2-u2-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["curva-tipos"],
-      "prompt": "2 años al 2,5 % y 10 años al 3,4 %. ¿Pendiente 10 − 2?",
-      "options": ["90 pb", "0,9 pb", "−90 pb", "9 pb"],
-      "answer": 0,
-      "explanation": "0,9 puntos = 90 pb.",
-      "wrongExplanations": {
-        "1": "1 punto son 100 pb.",
-        "2": "El signo: el largo rinde más.",
-        "3": "Hay que multiplicar por 100, no por 10."
-      }
+      "type": "numeric_input",
+      "prompt": "El bono a 2 años rinde un 2,5 % y el de 10 años, un 3,4 %. ¿Cuál es la pendiente 10 − 2? (puntos básicos)",
+      "answer": 90,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(3.4 - 2.5) * 100",
+      "explanation": "3,4 − 2,5 = 0,9 puntos = 90 pb."
     },
     {
       "id": "salto-n2-u2-q3",
@@ -58,20 +56,18 @@
     },
     {
       "id": "salto-n2-u2-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["duracion"],
-      "prompt": "Duración modificada 6 y los tipos suben 0,5 puntos. ¿Caída aproximada?",
-      "options": ["3 %", "6 %", "0,5 %", "12 %"],
-      "answer": 0,
-      "explanation": "6 × 0,5 = 3 %.",
-      "wrongExplanations": {
-        "1": "Sería con 1 punto.",
-        "2": "Es la subida de tipos, no la caída.",
-        "3": "Has dividido en vez de multiplicar."
-      }
+      "type": "numeric_input",
+      "prompt": "Un bono tiene una duración modificada de 6 y los tipos suben 0,5 puntos. ¿Cuánto cae su precio, aproximadamente? (%)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "6 * 0.5",
+      "explanation": "6 × 0,5 = 3 %."
     },
     {
       "id": "salto-n2-u2-q5",
@@ -108,37 +104,83 @@
     },
     {
       "id": "salto-n2-u2-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["duracion"],
-      "prompt": "50 % en bonos de duración 2 y 50 % en bonos de duración 10. ¿Duración de la cartera?",
-      "options": ["6", "12", "8", "2"],
-      "answer": 0,
-      "explanation": "0,5 × 2 + 0,5 × 10 = 6.",
-      "wrongExplanations": {
-        "1": "Se pondera, no se suma.",
-        "2": "No es la media ponderada.",
-        "3": "Es la del bono corto."
-      }
+      "type": "numeric_input",
+      "prompt": "Una cartera tiene el 50 % en bonos de duración 2 y el 50 % en bonos de duración 10. ¿Cuál es su duración? (años)",
+      "answer": 6,
+      "unit": "años",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.5 * 2 + 0.5 * 10",
+      "explanation": "La media ponderada: 0,5 × 2 + 0,5 × 10 = 6."
     },
     {
       "id": "salto-n2-u2-q8",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["curva-tipos"],
-      "prompt": "Suben los tipos a 2 años y bajan los de 10. ¿Qué le pasa a la curva?",
-      "options": ["Se aplana", "Se empina", "Se desplaza en paralelo", "No cambia"],
+      "type": "fill_blank",
+      "prompt": "Si suben los tipos a 2 años y bajan los de 10 años, la curva se ___.",
+      "answers": [["aplana", "aplanó"]],
+      "explanation": "Se aplana: la diferencia entre el largo y el corto se reduce."
+    },
+    {
+      "id": "salto-n2-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["duracion"],
+      "prompt": "Un bono tiene una duración modificada de 8 y los tipos bajan 0,25 puntos. ¿Cuánto sube su precio, aproximadamente? (%)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "8 * 0.25",
+      "explanation": "8 × 0,25 = 2 %."
+    },
+    {
+      "id": "salto-n2-u2-q10",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["curva-tipos"],
+      "prompt": "Ordena estas curvas de menor a mayor pendiente (rentabilidad a 10 años menos rentabilidad a 2 años).",
+      "steps": ["Invertida: −50 pb", "Plana: sin pendiente", "Normal: +100 pb"],
+      "explanation": "De negativa a positiva: invertida, plana y normal."
+    },
+    {
+      "id": "salto-n2-u2-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["convexidad"],
+      "prompt": "Con el mismo cupón y la misma rentabilidad, ¿qué bono tiene más convexidad?",
+      "options": ["Uno a 30 años", "Uno a 2 años", "Una Letra a 3 meses", "Todos la misma"],
       "answer": 0,
-      "explanation": "Se cierra la distancia entre largo y corto.",
+      "explanation": "La convexidad crece con el plazo.",
       "wrongExplanations": {
-        "1": "Empinar abre la distancia.",
-        "2": "En paralelo, todos se moverían igual.",
-        "3": "Cambia su pendiente."
+        "1": "A 2 años la curvatura es pequeña.",
+        "2": "A 3 meses apenas hay convexidad.",
+        "3": "Depende del plazo y de los flujos."
       }
+    },
+    {
+      "id": "salto-n2-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["curva-tipos"],
+      "statement": "Una curva invertida significa que los plazos cortos rinden más que los largos.",
+      "answer": true,
+      "explanation": "Verdadero: la rentabilidad baja al alargar el plazo."
     }
   ],
   "sources": [
