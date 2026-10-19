@@ -30,12 +30,12 @@
     {
       "type": "card",
       "term": "SOCIMI y futuro",
-      "text": "La SOCIMI ganó {rent_profit} miles de € con alquileres y debe repartir al menos el 80 %: {min_dividend} miles. El futuro: compraste {units} unidades a {f0} € y al vencer valían {f1} €. Resultado: ({f1} − {f0}) × {units} = {pnl} €."
+      "text": "La SOCIMI ganó {rent_profit} miles de € con alquileres y debe repartir al menos el 80 %: {min_dividend} miles. El futuro: compraste un futuro sobre {units} unidades a {f0} € y al vencer valían {f1} €. Resultado: ({f1} − {f0}) × {units} = {pnl} €."
     },
     {
       "type": "card",
       "term": "Complejo o no",
-      "text": "Un depósito o un fondo UCITS corriente son productos no complejos. Un bono estructurado o un CFD apalancado son complejos: antes de vendértelos sin asesorarte, el banco debe evaluar si los entiendes (la evaluación de conveniencia)."
+      "text": "Una Letra del Tesoro o un fondo UCITS corriente son no complejos. Un bono estructurado o un CFD (contrato por diferencias: cobras o pagas la variación de un precio, con apalancamiento) son complejos: antes de vendértelos sin asesorarte, el banco debe evaluar si los entiendes (la evaluación de conveniencia)."
     }
   ],
   "exercises": [
@@ -113,12 +113,12 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["derivados-intro"],
-      "prompt": "Compras un futuro sobre {units} unidades a {f0} € y al vencer el subyacente vale {f1} €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
+      "prompt": "Compras un futuro sobre {units} unidades a 100 € y al vencer el subyacente vale {f1} €. ¿Cuánto ganas (positivo) o pierdes (negativo)? (€)",
       "answer": 80,
       "unit": "€",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "({f1} - {f0}) * {units}",
+      "formula": "({f1} - 100) * {units}",
       "params": {
         "units": {
           "value": 10,
@@ -127,28 +127,21 @@
           "step": 1,
           "decimals": 0
         },
-        "f0": {
-          "value": 100,
-          "min": 50,
-          "max": 200,
-          "step": 1,
-          "decimals": 0
-        },
         "f1": {
           "value": 108,
-          "min": 50,
-          "max": 200,
+          "min": 85,
+          "max": 115,
           "step": 1,
           "decimals": 0
         }
       },
       "derived": {
         "v": {
-          "formula": "({f1} - {f0}) * {units}",
+          "formula": "({f1} - 100) * {units}",
           "decimals": 0
         }
       },
-      "explanation": "({f1} − {f0}) × {units} = {v} €. El comprador gana si el precio sube y pierde si baja."
+      "explanation": "({f1} − 100) × {units} = {v} €. El comprador gana si el precio sube y pierde si baja."
     },
     {
       "id": "n2-u7-l1-e4",
@@ -231,7 +224,7 @@
       "tags": [],
       "concepts": ["productos-complejos"],
       "character": "compliance",
-      "situation": "Un empleado de la oficina quiere vender un bono estructurado a un cliente que nunca ha invertido «porque paga un 8 %», sin hacerle ninguna pregunta.",
+      "situation": "Un empleado de la oficina quiere vender un bono estructurado que paga un 8 % si el IBEX no cae a un cliente que nunca ha invertido, «porque paga un 8 %», sin hacerle ninguna pregunta.",
       "prompt": "¿Qué le recuerda la compliance officer?",
       "options": [
         "Que es un producto complejo: antes debe evaluar si el cliente tiene conocimientos y experiencia para entenderlo, y advertirle si no",

@@ -90,7 +90,7 @@
           "decimals": 2
         }
       },
-      "explanation": "0,16 / {p} = {v} %."
+      "explanation": "0,16 / {p} × 100 = {v} %."
     },
     {
       "id": "n2-u7-l3-e3",

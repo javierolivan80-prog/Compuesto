@@ -39,7 +39,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["planes-pensiones"],
-      "prompt": "Aportas {c} € a un plan de pensiones y tu tipo marginal del IRPF es del {m} %. ¿Cuánto IRPF te ahorras este año? (€)",
+      "prompt": "Aportas {c} € a un plan de pensiones (dentro del límite) y tu tipo marginal del IRPF es del {m} %; supón que no cambia. ¿Cuánto IRPF te ahorras este año? (€)",
       "answer": 370,
       "unit": "€",
       "tolerance": 0.5,
@@ -110,7 +110,7 @@
       "steps": [
         "Aportas al plan",
         "Tu base imponible baja ese año",
-        "El dinero se invierte durante años",
+        "En los años siguientes, el dinero se invierte",
         "Rescatas al jubilarte",
         "Lo cobrado tributa como rendimiento del trabajo"
       ],

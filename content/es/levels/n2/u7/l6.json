@@ -23,7 +23,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["planes-pensiones"],
-      "prompt": "Aportas 1.500 € a un plan de pensiones con un tipo marginal del 37 %. ¿Cuánto IRPF te ahorras este año? (€)",
+      "prompt": "Aportas 1.500 € a un plan de pensiones (dentro del límite) con un tipo marginal del 37 %; supón que no cambia. ¿Cuánto IRPF te ahorras este año? (€)",
       "answer": 555,
       "unit": "€",
       "tolerance": 0.5,
@@ -169,7 +169,7 @@
       "concepts": ["socimi-reit"],
       "prompt": "Si cumple sus requisitos, una SOCIMI tributa en el impuesto sobre sociedades al ___ %.",
       "answers": [["0", "cero"]],
-      "explanation": "Al 0 % (Ley 11/2009, art. 9); tributan los accionistas al cobrar."
+      "explanation": "Al 0 % (Ley 11/2009, art. 9), con gravámenes especiales en casos concretos; tributan los accionistas al cobrar."
     },
     {
       "id": "n2-u7-l6-e10",
@@ -179,7 +179,7 @@
       "tags": [],
       "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"],
       "character": "mentora",
-      "situation": "Javier tiene 25 años, un tipo marginal del 19 %, 6.000 € ahorrados y ninguna experiencia en derivados. Le ofrecen: un plan de pensiones, acciones de una SOCIMI y un CFD apalancado sobre el oro.",
+      "situation": "Tu compañero becario tiene 25 años, un tipo marginal del 19 %, 6.000 € ahorrados y ninguna experiencia en derivados. Le ofrecen: un plan de pensiones, acciones de una SOCIMI y un CFD apalancado sobre el oro.",
       "prompt": "¿Qué orden de prioridades es más sensato?",
       "options": [
         "Primero un colchón líquido; después, si quiere inmobiliario, la SOCIMI con una parte pequeña; el plan apenas le desgrava con un 19 %, y el CFD no le conviene sin experiencia",

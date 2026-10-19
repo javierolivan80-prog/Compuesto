@@ -110,11 +110,14 @@ export function fillText(
   s: string,
   scope: Record<string, number>,
   formats: Record<string, Format>,
+  typographic = true,
 ): string {
   return s.replace(MARKER, (_, name: string) => {
     const v = scope[name];
     if (v === undefined) throw new Error(`Marcador sin definir: {${name}}`);
-    return nf(formats[name] ?? [0, 0]).format(v);
+    // el signo menos tipográfico, como en el resto de la app (Intl es-ES escribe el guion)
+    const out = nf(formats[name] ?? [0, 0]).format(v);
+    return typographic ? out.replace('-', '\u2212') : out;
   });
 }
 
@@ -135,7 +138,7 @@ function fillCell(raw: CellInput, scope: Record<string, number>, formats: Record
     if (v === undefined) throw new Error(`Marcador sin definir: {${only[1]}}`);
     return v;
   }
-  return raw.trim().startsWith('=') ? fillFormula(raw, scope) : fillText(raw, scope, formats);
+  return raw.trim().startsWith('=') ? fillFormula(raw, scope) : fillText(raw, scope, formats, false);
 }
 
 const sheetValue = (cells: Record<string, CellInput>, target: string, formula: string) => {

@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Derivado",
-      "text": "Un derivado es un contrato cuyo valor depende de otro activo, el subyacente: una acción, un índice, el petróleo. En un futuro, las dos partes se obligan a comprar y vender a un precio fijado hoy en una fecha futura. Lo que gana una, lo pierde la otra."
+      "text": "Un derivado es un contrato cuyo valor depende de otro activo, el subyacente. En un futuro, las dos partes se obligan a comprar y vender a un precio fijado hoy. No pagas su valor entero: depositas una garantía (por ejemplo, el 10 %), pero ganas o pierdes sobre el valor entero. Eso es el apalancamiento."
     },
     {
       "type": "visual",
@@ -101,7 +101,7 @@
           "decimals": 0
         }
       },
-      "explanation": "Ejerces solo si {s} > 100: máx({s} − 100; 0) − 4 = {v} €."
+      "explanation": "Ejerces solo si el precio supera el strike de 100 €: máx({s} − 100; 0) − 4 = {v} €."
     },
     {
       "id": "n2-u7-l4-e3",
@@ -228,6 +228,11 @@
     {
       "title": "CFA Institute, CFA Program Level I: Derivatives y Alternative Investments (futuros, opciones e inmobiliario cotizado)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "BME, MEFF: mercado español de derivados (futuros y opciones sobre el IBEX 35 y sobre acciones)",
+      "url": "https://www.meff.es",
       "date": "2026-10-19"
     }
   ],

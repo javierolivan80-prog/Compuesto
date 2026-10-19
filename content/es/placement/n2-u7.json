@@ -70,7 +70,7 @@
       "concepts": ["socimi-reit"],
       "statement": "Una SOCIMI que cumple sus requisitos tributa al 0 % en el impuesto sobre sociedades.",
       "answer": true,
-      "explanation": "Verdadero: tributan los accionistas al cobrar los dividendos."
+      "explanation": "Verdadero (art. 9 de la Ley 11/2009), salvo gravámenes especiales en casos concretos; tributan los accionistas al cobrar los dividendos."
     },
     {
       "id": "salto-n2-u7-q5",

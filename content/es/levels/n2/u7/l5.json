@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Complejo o no",
-      "text": "La normativa europea (MiFID II) considera no complejos, entre otros, las acciones cotizadas, los bonos sencillos y los fondos UCITS no estructurados. Los derivados, los CFD y los productos con condiciones difíciles de valorar son complejos."
+      "text": "La normativa europea (MiFID II) considera no complejos, entre otros, las acciones cotizadas, los bonos sencillos y los fondos UCITS no estructurados. Los derivados y los productos con condiciones difíciles de valorar son complejos. Un CFD (contrato por diferencias) es un derivado: cobras o pagas la variación del precio de un activo sin comprarlo, con apalancamiento."
     },
     {
       "type": "card",
@@ -142,7 +142,7 @@
       "wrongExplanations": {
         "1": "Nadie puede garantizarlo.",
         "2": "Eso no es lo que mide.",
-        "3": "Todos los que se ofrecen lo son."
+        "3": "El test no comprueba eso; que la entidad esté autorizada se mira en los registros de la CNMV."
       }
     },
     {
@@ -186,7 +186,7 @@
       "tags": [],
       "concepts": ["productos-complejos"],
       "character": "compliance",
-      "situation": "Tu tía, jubilada y sin experiencia, te enseña la oferta de un bono estructurado «con un 7 % si el IBEX no cae más de un 30 %», con un aviso de la CNMV de producto difícil de comprender y un indicador de riesgo de 6 sobre 7.",
+      "situation": "Tu tía, jubilada y sin experiencia, te enseña la oferta de un bono estructurado «con un 7 % si el IBEX no cae más de un 30 %», con la advertencia que exige la CNMV («producto difícil de comprender») y un indicador de riesgo de 6 sobre 7.",
       "prompt": "¿Qué le aconsejas mirar antes de nada?",
       "options": [
         "Qué pasa si el IBEX cae más de un 30 %: cuánto puede perder, y si ese riesgo encaja con alguien que necesita su ahorro",
@@ -223,6 +223,11 @@
     {
       "title": "EUR-Lex, Reglamento (UE) 1286/2014 (PRIIPs): documento de datos fundamentales e indicador de riesgo",
       "url": "https://eur-lex.europa.eu/eli/reg/2014/1286/oj",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "EUR-Lex, Reglamento Delegado (UE) 2017/653, anexo II: indicador resumido de riesgo (clases 1 a 7)",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2017/653/oj",
       "date": "2026-10-19"
     }
   ],

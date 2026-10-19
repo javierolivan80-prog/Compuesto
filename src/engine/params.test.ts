@@ -254,3 +254,11 @@ describe('decimales fijos', () => {
     expect((instantiate(t).exercise as { prompt: string }).prompt).toContain('al 5,00 %');
   });
 });
+
+describe('signo de los negativos en los textos', () => {
+  it('fillText escribe el menos tipográfico; las celdas de hoja conservan el guion', () => {
+    expect(fillText('Resultado: {v} €', { v: -80 }, { v: [0, 0] })).toBe('Resultado: −80 €');
+    expect(fillText('{v}', { v: -1234.5 }, { v: [1, 1] })).toBe('\u22121.234,5');
+    expect(fillText('{v}', { v: -80 }, { v: [0, 0] }, false)).toBe('-80');
+  });
+});

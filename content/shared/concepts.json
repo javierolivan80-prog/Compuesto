@@ -623,7 +623,7 @@
     "level": 2,
     "prerequisites": ["accion"],
     "unit": "n2-u7",
-    "description": "Sociedad cotizada de inmuebles en alquiler que tributa al 0 % en sociedades si reparte al menos el 80 % del beneficio por alquileres. En Estados Unidos, REIT."
+    "description": "Sociedad cotizada de inmuebles en alquiler que tributa al 0 % en sociedades si cumple sus requisitos, entre ellos repartir al menos el 80 % del beneficio por alquileres. En Estados Unidos, REIT."
   },
   {
     "id": "materias-primas",
@@ -663,7 +663,7 @@
     "level": 2,
     "prerequisites": ["derivados-intro"],
     "unit": "n2-u7",
-    "description": "Derivados, CFD y productos con condiciones difíciles de valorar. Sin asesoramiento, el banco evalúa la conveniencia (si lo entiendes); con asesoramiento, la idoneidad. Avisos de la CNMV y KID con riesgo del 1 al 7."
+    "description": "Derivados (como los CFD, contratos por diferencias apalancados) y productos con condiciones difíciles de valorar. Sin asesoramiento, el banco evalúa la conveniencia (si lo entiendes); con asesoramiento, la idoneidad. Avisos de la CNMV y KID con riesgo del 1 al 7."
   },
   {
     "id": "media-desviacion",
