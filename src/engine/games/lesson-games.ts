@@ -43,6 +43,14 @@ import { fundValues, rightDiff, setupFunds, SITUATIONS } from './fund-fees';
 import { luckValues, mean as meanOf2, setupLuck } from './luck-or-skill';
 import { dollars, fxValues, rightCompare, setupFx } from './fx-trip';
 import { interest, loan, repoValues, setupRepo } from './repo-night';
+import {
+  futurePnl,
+  minDividend,
+  PRODUCTS,
+  setupWindow,
+  taxSaving,
+  windowValues,
+} from './bank-window';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -86,6 +94,7 @@ export const LESSON_GAMES = [
   'luck-or-skill',
   'fx-trip',
   'repo-night',
+  'bank-window',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -407,6 +416,18 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     repay: [0, 0],
     hits: [0, 0],
   },
+  'bank-window': {
+    contribution: [0, 0],
+    marginal: [0, 0],
+    saving: [0, 0],
+    rent_profit: [0, 0],
+    min_dividend: [0, 0],
+    f0: [0, 0],
+    f1: [0, 0],
+    units: [0, 0],
+    pnl: [0, 0],
+    complex_hits: [0, 0],
+  },
 };
 
 /**
@@ -622,6 +643,24 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         repoValues(setup, { loan: loan(setup), interest: interest(setup), recourse: 'cedula' }),
         repoValues(setup, { loan: 0, interest: 0, recourse: 'titulizacion' }),
+      ];
+    }
+    case 'bank-window': {
+      // todo bien, y todo mal
+      const setup = setupWindow(seed);
+      return [
+        windowValues(setup, {
+          complex: PRODUCTS.map((p) => p.complex),
+          saving: taxSaving(setup),
+          dividend: minDividend(setup),
+          pnl: futurePnl(setup),
+        }),
+        windowValues(setup, {
+          complex: PRODUCTS.map((p) => !p.complex),
+          saving: 0,
+          dividend: 0,
+          pnl: 0,
+        }),
       ];
     }
   }

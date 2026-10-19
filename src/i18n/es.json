@@ -1348,5 +1348,56 @@
   },
   "repoFlow": {
     "title": "El viaje de ida y vuelta del repo"
+  },
+  "windowGame": {
+    "title": "El escaparate del banco",
+    "step": {
+      "complex": "Paso 1 de 4 · ¿complejo o no?",
+      "pension": "Paso 2 de 4 · el plan de pensiones",
+      "socimi": "Paso 3 de 4 · la SOCIMI",
+      "future": "Paso 4 de 4 · el futuro"
+    },
+    "briefComplex": "En la oficina de un banco ficticio te enseñan cuatro productos. Antes de nada, ¿cuáles son complejos según la normativa de inversión?",
+    "product": {
+      "deposit": "Un depósito a plazo fijo a un año",
+      "ucits": "Un fondo indexado de bolsa europea (UCITS)",
+      "autocall": "Un bono estructurado que paga un 8 % si el IBEX no cae, y se cancela si sube",
+      "cfd": "Un CFD apalancado sobre el oro"
+    },
+    "productWhy": {
+      "deposit": "No complejo: sabes lo que cobrarás y cuándo.",
+      "ucits": "No complejo: los fondos UCITS se consideran, en general, no complejos (salvo los estructurados).",
+      "autocall": "Complejo: su rentabilidad depende de condiciones sobre un índice que no es fácil valorar.",
+      "cfd": "Complejo: es un derivado apalancado; puedes perder más rápido de lo que esperas."
+    },
+    "complex": "Complejo",
+    "simple": "No complejo",
+    "check": "Comprobar",
+    "briefPension": "El banco te ofrece un plan de pensiones. Aportas {{c}} este año y tu tipo marginal del IRPF es del {{m}}. La aportación reduce tu base imponible general.",
+    "askSaving": "¿Cuánto IRPF te ahorras este año, aproximadamente?",
+    "whySaving": "{{c}} × {{m}} = {{v}}. Pero no es un regalo: al rescatar el plan, lo que cobres tributará como rendimiento del trabajo.",
+    "briefSocimi": "También te proponen acciones de una SOCIMI, una sociedad cotizada que alquila inmuebles. Este año gana {{p}} con sus alquileres.",
+    "askDividend": "¿Cuánto debe repartir como mínimo en dividendos por ese beneficio?",
+    "whyDividend": "Al menos el 80 % del beneficio por alquileres: {{v}}. A cambio, la SOCIMI tiene un régimen fiscal especial.",
+    "briefFuture": "Por último, un futuro sobre un índice ficticio: compras {{units}} unidades a {{f0}} € y al vencer el índice está en {{f1}} €.",
+    "askPnl": "¿Cuánto ganas o pierdes?",
+    "whyPnl": "({{f1}} − {{f0}}) × {{units}} = {{v}}. El comprador del futuro gana si el precio sube y pierde si baja, sin poner al principio el valor entero.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "hitsOf": "{{n}} de {{total}}",
+    "doneTitle": "Antes de firmar",
+    "row": {
+      "complex": "Productos bien clasificados",
+      "pension": "Ahorro del plan",
+      "socimi": "Dividendo mínimo",
+      "future": "Resultado del futuro"
+    },
+    "great": "Impecable: sabes qué te venden antes de firmar.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa los productos y sus reglas antes de firmar nada.",
+    "debrief": "Ver qué ha pasado"
   }
 }

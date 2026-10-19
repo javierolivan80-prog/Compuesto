@@ -1,0 +1,5 @@
+/* El escaparate del banco: panel. */
+.wn-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}

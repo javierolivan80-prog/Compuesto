@@ -22,6 +22,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'luck-or-skill': 0,
   'fx-trip': 0,
   'repo-night': 0,
+  'bank-window': 0,
   'cheap-or-dear': 3, // precios con más dígitos y los tres veredictos
   'balance-builder': 203, // los importes de enero más altos (15.900 mil € entre las cinco operaciones)
 };
