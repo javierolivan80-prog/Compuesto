@@ -40,6 +40,21 @@ const exerciseBase = {
   interview: z.boolean().optional(),
   explanation: text,
   hint: text.optional(),
+  /** Cifra que sale de un modelo de referencia (tarea 2.10): content:validate comprueba que coinciden. */
+  modelRef: z
+    .object({
+      /** id del modelo en /content/shared/models. */
+      model: slug,
+      /** Ruta con puntos hasta el número, p. ej. "valuation.gordon.pricePerShare" o "fcff.0.fcff". */
+      path: z.string().regex(/^[A-Za-z0-9_]+(\.[A-Za-z0-9_]+)*$/, 'ruta con puntos'),
+      /** Versión del modelo con la que se comprobó la cifra: si el modelo sube, content:check lo avisa. */
+      version: z.number().int().min(1),
+      /** Factor que pasa la cifra del modelo a la unidad del ejercicio (p. ej. 0,001 de miles a millones). */
+      scale: z.number().positive().optional(),
+      /** Tolerancia relativa en %; por defecto, la del ejercicio. */
+      tolerance: z.number().min(0).optional(),
+    })
+    .optional(),
 };
 
 /* ---------- Ejercicios paramétricos (TEMARIO §6, tarea 2.9) ---------- */
@@ -366,6 +381,23 @@ export const sourceSchema = z.object({
   url: z.string().url(),
   date: isoDay.optional(),
 });
+
+/** Modelo de referencia (/content/shared/models, skill `modelo-referencia`): lo que el contenido necesita leer. */
+export const modelSchema = z
+  .object({
+    id: slug,
+    version: z.number().int().min(1),
+    status: z.enum(STATUSES),
+    sources: z
+      .array(
+        z.object({ tipo: text, referencia: text, url: z.string().url().optional() }).passthrough(),
+      )
+      .min(1, 'un modelo cita al menos una fuente'),
+    /** Hipótesis; el merger model las reparte entre `acquirer`, `target` y `deal`. */
+    assumptions: z.record(z.string(), z.unknown()).optional(),
+  })
+  .passthrough();
+export type ReferenceModel = z.infer<typeof modelSchema>;
 
 export const lessonSchema = z.object({
   id: slug,

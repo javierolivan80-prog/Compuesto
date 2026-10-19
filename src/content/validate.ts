@@ -26,11 +26,13 @@ import {
   glossarySchema,
   gamesDataSchema,
   lessonSchema,
+  modelSchema,
   placementSchema,
   type Concept,
   type Exercise,
   type Lesson,
   type Placement,
+  type ReferenceModel,
 } from './schemas';
 
 export type Severity = 'error' | 'warning';
@@ -59,6 +61,8 @@ export interface ContentBundle {
   realCompanies?: string[];
   /** id → estado de lo ya publicado (ids-lock.json). */
   idsLock?: Record<string, string>;
+  /** content/shared/models/*.json (modelos de referencia, tarea 2.10). */
+  models?: RawFile[];
 }
 
 const PERCENT_MIN_PRODUCE = 0.4;
@@ -844,7 +848,112 @@ export function validateContent(b: ContentBundle): {
   }
 
   issues.push(...checkBloom(lessons));
+  issues.push(...checkModelRefs(lessons, b.models ?? []));
   return { issues, lessons, concepts, placements };
+}
+
+/** Número en la ruta con puntos de un objeto (los segmentos numéricos indexan listas); undefined si no hay. */
+export function resolveModelPath(obj: unknown, path: string): unknown {
+  let cur: unknown = obj;
+  for (const k of path.split('.')) {
+    if (cur === null || typeof cur !== 'object') return undefined;
+    cur = Array.isArray(cur)
+      ? /^\d+$/.test(k)
+        ? cur[Number(k)]
+        : undefined
+      : (cur as Record<string, unknown>)[k];
+  }
+  return cur;
+}
+
+/** Modelos de referencia válidos y ejercicios con `modelRef` que coinciden con ellos (tarea 2.10). */
+function checkModelRefs(lessons: Lesson[], files: RawFile[]): Issue[] {
+  const issues: Issue[] = [];
+  const models = new Map<string, { model: ReferenceModel; data: unknown }>();
+  for (const f of files) {
+    const r = modelSchema.safeParse(f.data);
+    if (!r.success) {
+      issues.push(...zodIssues(f.path, r.error));
+      continue;
+    }
+    if (models.has(r.data.id))
+      issues.push({
+        severity: 'error',
+        code: 'id-duplicado',
+        where: f.path,
+        message: `Modelo repetido: ${r.data.id}`,
+      });
+    models.set(r.data.id, { model: r.data, data: f.data });
+  }
+  for (const l of lessons)
+    for (const e of l.exercises) {
+      const ref = e.modelRef;
+      if (!ref) continue;
+      const where = `${l.id} › ${e.id}`;
+      const bad = (code: string, message: string) =>
+        issues.push({ severity: 'error', code, where, message });
+      if (e.type !== 'numeric_input') {
+        bad('modelref-tipo', 'modelRef solo se admite en numeric_input');
+        continue;
+      }
+      const m = models.get(ref.model);
+      if (!m) {
+        bad('modelref-modelo', `El modelo "${ref.model}" no existe en content/shared/models`);
+        continue;
+      }
+      if (l.status === 'published' && m.model.status === 'draft')
+        bad(
+          'modelref-draft',
+          `Un ejercicio publicado no puede citar el modelo "${ref.model}" en draft`,
+        );
+      if (ref.version > m.model.version)
+        bad(
+          'modelref-version',
+          `Cita la versión ${ref.version} y el modelo va por la ${m.model.version}`,
+        );
+      const v = resolveModelPath(m.data, ref.path);
+      if (typeof v !== 'number' || !Number.isFinite(v)) {
+        bad('modelref-ruta', `La ruta "${ref.path}" no lleva a un número en "${ref.model}"`);
+        continue;
+      }
+      const expected = v * (ref.scale ?? 1);
+      if (e.params && Object.keys(e.params).length > 0) {
+        bad(
+          'modelref-parametrico',
+          'Un ejercicio con modelRef no puede ser paramétrico: su cifra es la del modelo',
+        );
+        continue;
+      }
+      const tol = ref.tolerance ?? e.tolerance;
+      const diff = Math.abs(e.answer - expected);
+      if (diff > (Math.abs(expected) * tol) / 100 + 1e-9)
+        bad(
+          'modelref-cifra',
+          `La respuesta ${e.answer} no coincide con ${ref.model} › ${ref.path} = ${expected} (tolerancia ${tol} %)`,
+        );
+    }
+  return issues;
+}
+
+/** Ejercicios que citan una versión anterior de su modelo (para `content:check`). */
+export function staleModelRefs(
+  lessons: Lesson[],
+  files: RawFile[],
+): { exerciseId: string; model: string; cited: number; current: number }[] {
+  const current = new Map<string, number>();
+  for (const f of files) {
+    const r = modelSchema.safeParse(f.data);
+    if (r.success) current.set(r.data.id, r.data.version);
+  }
+  return lessons.flatMap((l) =>
+    l.exercises.flatMap((e) => {
+      const ref = e.modelRef;
+      const now = ref && current.get(ref.model);
+      return ref && now !== undefined && ref.version < now
+        ? [{ exerciseId: e.id, model: ref.model, cited: ref.version, current: now }]
+        : [];
+    }),
+  );
 }
 
 /** id → status de lo que ya está reviewed/published, para escribir ids-lock.json. */

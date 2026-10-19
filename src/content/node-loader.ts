@@ -37,5 +37,6 @@ export function loadContent(root = 'content'): ContentBundle {
     curriculum: readJson(join(root, 'es/curriculum.json')),
     lessons: [...jsonFiles(root, 'es/levels'), ...jsonFiles(root, 'es/tracks')],
     placements: jsonFiles(root, 'es/placement'),
+    models: jsonFiles(root, 'shared/models'),
   };
 }

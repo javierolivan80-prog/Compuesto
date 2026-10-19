@@ -8,6 +8,8 @@ import {
   checkExercise,
   conceptCycles,
   findExpiring,
+  resolveModelPath,
+  staleModelRefs,
   validateContent,
   type ContentBundle,
 } from './validate';
@@ -585,5 +587,67 @@ describe('ejercicios paramétricos (tarea 2.9)', () => {
     expect(messages({ ...ss, solution: '=B1/(B1-150)', expected: 100 / -50 }).join()).toMatch(
       /Semilla/,
     );
+  });
+});
+
+describe('modelRef contra los modelos de referencia (tarea 2.10)', () => {
+  const dcf = JSON.parse(
+    readFileSync('content/shared/models/naranjas-del-turia-dcf.json', 'utf8'),
+  ) as { version: number; valuation: { gordon: { pricePerShare: number } } };
+  const price = dcf.valuation.gordon.pricePerShare;
+  /** La lección válida con su tercer ejercicio (numérico) atado al precio por acción del DCF. */
+  const withRef = (
+    ref: Record<string, unknown>,
+    answer = Math.round(price * 100) / 100,
+    status?: string,
+  ) => {
+    const l = structuredClone(fixture('valid-lesson')) as {
+      status: string;
+      reviewedBy: string[];
+      exercises: Record<string, unknown>[];
+    };
+    const e = l.exercises[2]!;
+    delete e.params;
+    delete e.derived;
+    Object.assign(e, { answer, tolerance: 0.5, modelRef: ref });
+    if (status) Object.assign(l, { status, reviewedBy: ['subagente', 'humano'] });
+    return l;
+  };
+  const ok = {
+    model: 'naranjas-del-turia-dcf',
+    path: 'valuation.gordon.pricePerShare',
+    version: 1,
+  };
+  const refCodes = (l: unknown) =>
+    codes(validateContent(bundle([l]))).filter((c) => c.startsWith('modelref'));
+
+  it('los modelos del repositorio pasan el esquema y una cifra correcta no da error', () => {
+    expect(codes(validateContent(base)).filter((c) => c.startsWith('modelref'))).toEqual([]);
+    expect(refCodes(withRef(ok))).toEqual([]);
+  });
+  it('ruta inexistente', () => {
+    expect(refCodes(withRef({ ...ok, path: 'valuation.gordon.noExiste' }))).toEqual([
+      'modelref-ruta',
+    ]);
+    expect(refCodes(withRef({ ...ok, path: 'fcff.99.fcff' }))).toEqual(['modelref-ruta']);
+  });
+  it('cifra desviada (y la escala y la tolerancia propias)', () => {
+    expect(refCodes(withRef(ok, price * 1.1))).toEqual(['modelref-cifra']);
+    expect(refCodes(withRef({ ...ok, scale: 100 }, Math.round(price * 100)))).toEqual([]);
+    expect(refCodes(withRef({ ...ok, tolerance: 20 }, price * 1.1))).toEqual([]);
+  });
+  it('modelo inexistente, versión futura y modelo en draft desde un ejercicio publicado', () => {
+    expect(refCodes(withRef({ ...ok, model: 'no-existe' }))).toEqual(['modelref-modelo']);
+    expect(refCodes(withRef({ ...ok, version: dcf.version + 1 }))).toEqual(['modelref-version']);
+    expect(refCodes(withRef(ok, undefined, 'published'))).toContain('modelref-draft');
+  });
+  it('content:check lista los ejercicios que citan una versión anterior del modelo', () => {
+    const l = lessonSchema.parse(withRef(ok));
+    const bumped = { ...dcf, version: dcf.version + 1 };
+    expect(staleModelRefs([l], [{ path: 'm.json', data: bumped }])).toEqual([
+      { exerciseId: 'n1-u4-l2-e3', model: ok.model, cited: 1, current: dcf.version + 1 },
+    ]);
+    expect(staleModelRefs([l], base.models ?? [])).toEqual([]);
+    expect(resolveModelPath({ a: [{ b: 3 }] }, 'a.0.b')).toBe(3);
   });
 });

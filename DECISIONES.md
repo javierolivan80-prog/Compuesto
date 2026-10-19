@@ -725,3 +725,23 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - la elección es determinista por tarjeta y día (hash FNV de `variante:<id>#<día>`);
   - la respuesta se guarda con el ejercicio mostrado y califica la tarjeta original.
 - **Alcance:** la variante solo se aplica a las tarjetas vencidas. El refuerzo, Mis errores y la práctica por tema muestran el ejercicio tal cual.
+
+## 2026-10-19 — Tarea 2.10: `modelRef` con validación contra los modelos de referencia
+
+- **Campo:** `modelRef` es opcional en cualquier ejercicio: `{ model, path, version, scale?, tolerance? }`.
+  - `path`: ruta con puntos; los segmentos numéricos indexan listas, p. ej. `fcff.0.fcff`.
+  - `scale`: pasa la cifra del modelo, en miles de €, a la unidad del ejercicio.
+  - `tolerance`: tolerancia relativa en %. Por defecto, la del ejercicio.
+- **Dónde se admite:** solo en `numeric_input` no paramétricos. Una cifra que sale del modelo no puede cambiar en el repaso, y los demás tipos no tienen una única respuesta numérica con la que comparar.
+- **`version` es obligatoria en el `modelRef`.** Así `content:check` sabe qué ejercicios citan una versión anterior del modelo; los lista y sale con 1. Citar una versión posterior a la del modelo es un error de `content:validate`.
+- **Esquema de los modelos (`modelSchema`):** exige `id`, `version`, `status` y `sources` (con `tipo` y `referencia`, el formato que ya usan los JSON generados), con `passthrough` para el resto. Diferencias con el enunciado de la tarea:
+  - `assumptions` es opcional, porque el merger model reparte sus hipótesis entre `acquirer`, `target` y `deal`;
+  - no se exige `results`, porque el DCF y el 3 estados guardan los resultados en `valuation` y `projection`.
+- **Errores de `content:validate`:**
+  - `modelref-modelo`: el modelo no existe;
+  - `modelref-ruta`: la ruta no lleva a un número;
+  - `modelref-cifra`: la respuesta no coincide con el modelo;
+  - `modelref-draft`: un ejercicio publicado cita un modelo en draft;
+  - `modelref-version`;
+  - `modelref-tipo`;
+  - `modelref-parametrico`.
