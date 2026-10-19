@@ -5,6 +5,7 @@ import { BondSeesaw } from './BondSeesaw';
 import { CashCycle } from './CashCycle';
 import { CompoundCurve } from './CompoundCurve';
 import { DcfTimeTravel } from './DcfTimeTravel';
+import { Duration } from './Duration';
 import { EvBridge } from './EvBridge';
 import { ExDividend } from './ExDividend';
 import { IndexWeights } from './IndexWeights';
@@ -48,6 +49,7 @@ const REGISTRY = {
   WaccMix,
   DcfTimeTravel,
   BondSeesaw,
+  Duration,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

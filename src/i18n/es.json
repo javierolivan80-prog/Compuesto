@@ -1115,7 +1115,7 @@
     "years": "{{m}} a",
     "legend": "Discontinua: la curva de hoy. Continua: la curva movida. Abajo, cada bono con su rentabilidad y su precio.",
     "bonds": "Bonos y precios",
-    "bond": "Bono a {{m}} años",
+    "bond": "Bono a {{m}} {{u}}",
     "check": "Comprobar",
     "why": {
       "long": {
@@ -1144,6 +1144,11 @@
     "great": "Dominas la curva: nivel, pendiente y duración.",
     "ok": "Bien encaminado: repasa el reto que fallaste.",
     "bad": "Repasa cómo los plazos largos reaccionan más a los tipos.",
-    "debrief": "Ver qué ha pasado"
+    "debrief": "Ver qué ha pasado",
+    "year": "año",
+    "yearsWord": "años"
+  },
+  "duration": {
+    "title": "Plazo y caída: la duración"
   }
 }

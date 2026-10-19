@@ -123,6 +123,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/al 4,0\s%.*vale 100,00/);
     expect(text).toMatch(/al 6,0\s%.*vale 91,58/);
   });
+  it('Duration: a más plazo, más caída con la misma subida', () => {
+    render(<ExplainerBlock component="Duration" props={{ yield: 3, shock: 1 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/2 años cae un 1,9\s%/);
+    expect(text).toMatch(/30 años cae un 17,\d\s%/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock

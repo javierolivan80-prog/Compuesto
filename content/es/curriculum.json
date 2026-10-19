@@ -124,6 +124,11 @@
             "letras-bonos-tesoro",
             "rating-spread"
           ]
+        },
+        {
+          "id": "n2-u2",
+          "name": "Duración y curva de tipos",
+          "concepts": ["curva-tipos", "duracion", "convexidad"]
         }
       ]
     },

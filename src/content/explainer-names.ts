@@ -20,5 +20,6 @@ export const EXPLAINER_NAMES = [
   'WaccMix',
   'DcfTimeTravel',
   'BondSeesaw',
+  'Duration',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

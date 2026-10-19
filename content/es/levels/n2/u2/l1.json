@@ -1,0 +1,236 @@
+{
+  "id": "n2-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: curva de tipos",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar qué es la curva de tipos y cómo se empina, se aplana o se invierte",
+    "Relacionar el plazo de un bono con cuánto cae su precio cuando suben los tipos (duración)"
+  ],
+  "concepts": ["curva-tipos", "duracion"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "yield-curve",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "La curva de tipos",
+      "text": "La curva de tipos une la rentabilidad de cada plazo: hoy, del {y1} % a 1 año al {y30} % a 30 años. Normalmente sube con el plazo, porque prestar más tiempo pide más. Si los cortos rinden más que los largos, está invertida."
+    },
+    {
+      "type": "card",
+      "term": "Los largos se mueven más",
+      "text": "Con un punto más en todos los plazos, el bono a 2 años cae un {fall_2} % y el de 30 años, un {fall_30} %: devuelve su dinero mucho más tarde, así que cada punto pesa durante muchos más años."
+    },
+    {
+      "type": "card",
+      "term": "Duración",
+      "text": "La duración modificada resume esa sensibilidad: cuánto % cae el precio por cada punto que sube la rentabilidad. El bono a 10 años tiene {dur_10}: con un punto más cae casi eso, un {fall_10} %. Algo menos, por la convexidad."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u2-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Un bono tiene una duración modificada de {dur_10} y su rentabilidad sube {dy} puntos. ¿Cuánto cae su precio, aproximadamente? (%, 2 decimales)",
+      "answer": 8.44,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{dur_10} * {dy}",
+      "params": {
+        "dur_10": {
+          "value": 8.44,
+          "min": 1,
+          "max": 20,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "dy": {
+          "value": 1,
+          "min": 0.25,
+          "max": 2,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{dur_10} * {dy}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Caída ≈ duración × subida = {dur_10} × {dy} = {v} %. Es una aproximación: la caída real es algo menor por la convexidad.",
+      "hint": "Multiplica la duración por los puntos que sube."
+    },
+    {
+      "id": "n2-u2-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Si sus tipos bajan {dy} puntos, ¿cuánto sube más o menos el precio de un bono con duración modificada {d}? (%, 2 decimales)",
+      "answer": 18.16,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{d} * {dy}",
+      "params": {
+        "d": {
+          "value": 18.16,
+          "min": 1,
+          "max": 20,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "dy": {
+          "value": 1,
+          "min": 0.25,
+          "max": 2,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{d} * {dy}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Al revés también: ≈ {d} × {dy} = {v} %. Con la convexidad, la subida real es algo mayor."
+    },
+    {
+      "id": "n2-u2-l1-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "¿La curva se empina o se aplana?",
+      "categories": ["Se empina", "Se aplana"],
+      "items": [
+        {
+          "text": "Bajan los tipos a 2 años y suben los de 30",
+          "category": "Se empina"
+        },
+        {
+          "text": "Suben los tipos a 2 años y bajan los de 30",
+          "category": "Se aplana"
+        },
+        {
+          "text": "Todos suben, pero los largos más",
+          "category": "Se empina"
+        },
+        {
+          "text": "Todos suben, pero los cortos más",
+          "category": "Se aplana"
+        }
+      ],
+      "explanation": "Empinar es abrir la distancia entre largos y cortos; aplanar, cerrarla."
+    },
+    {
+      "id": "n2-u2-l1-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Todos los tipos suben un punto. ¿Qué bono del Estado cae más?",
+      "options": ["El de 30 años", "El de 1 año", "El de 5 años", "Todos caen lo mismo"],
+      "answer": 0,
+      "explanation": "El plazo más largo tiene la mayor duración: cada punto le afecta durante más años.",
+      "wrongExplanations": {
+        "1": "Es el que menos cae: devuelve su dinero enseguida.",
+        "2": "Cae más que el de 1 año, pero mucho menos que el de 30.",
+        "3": "La caída depende de la duración de cada uno."
+      }
+    },
+    {
+      "id": "n2-u2-l1-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "statement": "Si la curva está invertida, los bonos cortos rinden más que los largos.",
+      "answer": true,
+      "explanation": "Verdadero: es lo que significa invertida, lo contrario de lo habitual."
+    },
+    {
+      "id": "n2-u2-l1-e6",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "Cuando los tipos a corto plazo superan a los de largo plazo, la curva está ___.",
+      "answers": [["invertida"]],
+      "explanation": "Invertida: los plazos cortos rinden más que los largos."
+    },
+    {
+      "id": "n2-u2-l1-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Ordena estos bonos del Estado de menos a más duración.",
+      "steps": [
+        "Bono a 1 año",
+        "Bono a 2 años",
+        "Bono a 5 años",
+        "Bono a 10 años",
+        "Bono a 30 años"
+      ],
+      "explanation": "Con cupones parecidos, a más plazo, más duración."
+    },
+    {
+      "id": "n2-u2-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "character": "mentora",
+      "situation": "Un cliente de Albufera teme que suban los tipos el año que viene y quiere que su cartera de bonos sufra lo menos posible.",
+      "prompt": "¿Qué le propones?",
+      "options": [
+        "Bonos a corto plazo: tienen menos duración y caen menos si suben los tipos",
+        "Bonos a 30 años: pagan más",
+        "Mantener los largos: el cupón es fijo",
+        "Da igual el plazo: todos caen lo mismo"
+      ],
+      "answer": 0,
+      "explanation": "Menos duración, menos sensibilidad. A cambio, si los tipos bajan, también ganará menos. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Rinden más, pero con una subida de tipos son los que más caen.",
+        "2": "El cupón fijo es precisamente lo que hace caer el precio cuando suben los tipos.",
+        "3": "La caída crece con la duración."
+      }
+    }
+  ],
+  "realWorld": "Las agencias de noticias financieras publican cada día la curva de tipos de la deuda española y alemana; la diferencia a 10 años entre ambas es la prima de riesgo. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (curva de tipos, duración y convexidad)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

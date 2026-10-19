@@ -1,0 +1,242 @@
+{
+  "id": "n2-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 2,
+  "title": "Duración y convexidad",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la duración de Macaulay y la modificada de un bono sencillo",
+    "Usar la duración para estimar cambios de precio y explicar la convexidad"
+  ],
+  "concepts": ["duracion", "convexidad"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Duración de Macaulay",
+      "text": "Es el plazo medio en que cobras tu dinero: cada año pondera por lo que vale hoy el flujo de ese año. Un bono sin cupón tiene una duración igual a su plazo; con cupones, algo menor."
+    },
+    {
+      "type": "visual",
+      "component": "Duration",
+      "props": {
+        "yield": 3,
+        "shock": 1
+      }
+    },
+    {
+      "type": "card",
+      "term": "Modificada y convexidad",
+      "text": "Duración modificada = Macaulay / (1 + TIR): el % que cae el precio por cada punto de subida. Es una recta; el precio real es una curva convexa, así que cae algo menos y sube algo más de lo que dice la duración."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u2-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Un bono a 2 años con cupón del 4 % y TIR del 4 % vale 100. El flujo del año 1 vale hoy 3,85 y el del año 2, 96,15. ¿Cuál es su duración de Macaulay? (años, 2 decimales)",
+      "answer": 1.96,
+      "unit": "años",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(1 * 3.85 + 2 * 96.15) / 100",
+      "explanation": "(1 × 3,85 + 2 × 96,15) / 100 = 1,96 años: casi todo el dinero llega al final.",
+      "hint": "Multiplica cada año por el valor de su flujo y divide entre el precio."
+    },
+    {
+      "id": "n2-u2-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Un bono tiene una duración de Macaulay de {m} años y una TIR del {y} %. ¿Cuál es su duración modificada? (2 decimales)",
+      "answer": 2.72,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{m} / (1 + {y} / 100)",
+      "params": {
+        "m": {
+          "value": 2.86,
+          "min": 1,
+          "max": 20,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "y": {
+          "value": 5,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{m} / (1 + {y} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{m} / (1 + {y} %) = {v}."
+    },
+    {
+      "id": "n2-u2-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Un bono vale {p} y tiene una duración modificada de {d}. Si su rentabilidad sube {dy} puntos, ¿cuál será más o menos su precio? (2 decimales)",
+      "answer": 91.47,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{p} * (1 - {d} * {dy} / 100)",
+      "params": {
+        "p": {
+          "value": 100,
+          "min": 90,
+          "max": 110,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "d": {
+          "value": 8.53,
+          "min": 1,
+          "max": 20,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "dy": {
+          "value": 1,
+          "min": 0.25,
+          "max": 2,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{p} * (1 - {d} * {dy} / 100)",
+          "decimals": 2
+        }
+      },
+      "explanation": "{p} × (1 − {d} × {dy} %) = {v}. Por la convexidad, el precio real quedará algo por encima."
+    },
+    {
+      "id": "n2-u2-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "¿Qué bono de cada pareja tiene más duración?",
+      "categories": ["Más duración", "Menos duración"],
+      "items": [
+        {
+          "text": "Bono a 10 años con cupón del 1 % (frente a uno del 6 %)",
+          "category": "Más duración"
+        },
+        {
+          "text": "Bono a 10 años con cupón del 6 % (frente a uno del 1 %)",
+          "category": "Menos duración"
+        },
+        {
+          "text": "Bono cupón cero a 10 años (frente a uno con cupones)",
+          "category": "Más duración"
+        },
+        {
+          "text": "Bono a 3 años (frente a uno a 10)",
+          "category": "Menos duración"
+        }
+      ],
+      "explanation": "Más plazo y menos cupón alejan el cobro del dinero: más duración."
+    },
+    {
+      "id": "n2-u2-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["convexidad"],
+      "prompt": "Un bono con duración modificada 8,5 sube 1 punto de TIR y cae un 8,1 %, no un 8,5 %. ¿Por qué?",
+      "options": [
+        "Por la convexidad: el precio es una curva, y cae algo menos de lo que dice la recta de la duración",
+        "Porque la duración está mal calculada",
+        "Porque el cupón sube",
+        "Porque el bono se acerca al vencimiento"
+      ],
+      "answer": 0,
+      "explanation": "La duración es una aproximación lineal; la convexidad juega a favor del inversor en las dos direcciones.",
+      "wrongExplanations": {
+        "1": "La duración es correcta, pero solo aproxima.",
+        "2": "El cupón es fijo.",
+        "3": "En un instante, el plazo no cambia."
+      }
+    },
+    {
+      "id": "n2-u2-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion"],
+      "statement": "Un bono cupón cero tiene una duración de Macaulay igual a su plazo.",
+      "answer": true,
+      "explanation": "Verdadero: solo hay un flujo, al final, así que el plazo medio es el plazo."
+    },
+    {
+      "id": "n2-u2-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["convexidad"],
+      "prompt": "La curva entre el precio de un bono y su rentabilidad es ___: por eso la duración solo es una aproximación.",
+      "answers": [["convexa"]],
+      "explanation": "Convexa: se curva hacia arriba."
+    },
+    {
+      "id": "n2-u2-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["duracion", "convexidad"],
+      "character": "rival",
+      "situation": "Hugo dice: «Este bono tiene duración 8,5. Si los tipos bajan 2 puntos, sube exactamente un 17 %».",
+      "prompt": "¿Qué le corriges?",
+      "options": [
+        "Que sube unos 17 % según la duración, pero algo más en realidad, por la convexidad; con movimientos grandes la aproximación empeora",
+        "Nada: la duración es exacta",
+        "Que bajaría un 17 %",
+        "Que sube un 8,5 % sea cual sea el movimiento"
+      ],
+      "answer": 0,
+      "explanation": "La duración da la recta; la convexidad añade una mejora que crece con el tamaño del movimiento.",
+      "wrongExplanations": {
+        "1": "Es una aproximación de primer orden.",
+        "2": "Si bajan los tipos, el precio sube.",
+        "3": "La duración se multiplica por los puntos que se mueve el tipo."
+      }
+    }
+  ],
+  "realWorld": "Los folletos de los fondos de renta fija informan de la duración de su cartera: es la cifra que dice cuánto puede caer el fondo si suben los tipos. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (curva de tipos, duración y convexidad)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

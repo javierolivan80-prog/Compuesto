@@ -633,3 +633,13 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Bloom de N2** (≥ 50 % recordar/entender): los numéricos son de aplicar, y los ejercicios de producir de entender o recordar (clasificar, ordenar, completar) equilibran la mezcla.
 - **Hechos que caducan:** los plazos de los valores del Tesoro y la escala de rating llevan fuente (Tesoro Público y ESMA) y `verificarAntesDe` 2027-04-30.
   - 🛑 Javier debe contrastarlos en tesoro.es: Letras de 3, 6, 9 y 12 meses; Bonos a 3 y 5 años; Obligaciones a 10, 15, 30 y 50 años.
+
+## 2026-10-19 — Unidad `n2-u2` «Duración y curva de tipos» y juego «Curva de tipos»
+
+- **Decisión:** cuatro lecciones:
+  - el juego «Curva de tipos» (ficha 13 de JUEGOS, semilla 0 con curva normal);
+  - la curva de tipos (formas y pendiente 10 − 2);
+  - duración y convexidad, con el explicador `Duration` (ya en el catálogo);
+  - el Jefe final con la cartera de bonos de la mesa de Albufera (duración de cartera e inmunización sencilla).
+- **Conceptos:** `curva-tipos`, `duracion` y `convexidad`. La curva cupón cero, el bootstrapping y los forwards quedan para una unidad posterior.
+- **Juego, simplificación:** la curva se mueve con dos palancas (nivel y pendiente) en lugar de arrastrarla con el dedo. Es accesible por teclado y cumple el núcleo de la ficha; el arrastre con física de cuerda queda anotado como mejora en `docs/specs/curva-de-tipos.md`.

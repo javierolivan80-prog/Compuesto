@@ -1,0 +1,152 @@
+{
+  "id": "salto-n2-u2",
+  "unitId": "n2-u2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u2-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["curva-tipos"],
+      "prompt": "El bono a 2 años rinde un 3,5 % y el de 10 años un 2,9 %. ¿Cómo está la curva?",
+      "options": ["Invertida", "Normal", "Plana", "Empinada"],
+      "answer": 0,
+      "explanation": "El corto rinde más que el largo.",
+      "wrongExplanations": {
+        "1": "En la normal el largo rinde más.",
+        "2": "Hay 60 pb de diferencia.",
+        "3": "Empinada sería una normal con mucha pendiente."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["curva-tipos"],
+      "prompt": "2 años al 2,5 % y 10 años al 3,4 %. ¿Pendiente 10 − 2?",
+      "options": ["90 pb", "0,9 pb", "−90 pb", "9 pb"],
+      "answer": 0,
+      "explanation": "0,9 puntos = 90 pb.",
+      "wrongExplanations": {
+        "1": "1 punto son 100 pb.",
+        "2": "El signo: el largo rinde más.",
+        "3": "Falta multiplicar por 100, no por 10."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["duracion"],
+      "prompt": "Con la misma subida de tipos, ¿qué bono cae más?",
+      "options": ["El de 30 años", "El de 2 años", "El de 5 años", "Todos igual"],
+      "answer": 0,
+      "explanation": "Más plazo, más duración.",
+      "wrongExplanations": {
+        "1": "Es el que menos cae.",
+        "2": "Cae menos que el de 30.",
+        "3": "Depende de la duración."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["duracion"],
+      "prompt": "Duración modificada 6 y los tipos suben 0,5 puntos. ¿Caída aproximada?",
+      "options": ["3 %", "6 %", "0,5 %", "12 %"],
+      "answer": 0,
+      "explanation": "6 × 0,5 = 3 %.",
+      "wrongExplanations": {
+        "1": "Sería con 1 punto.",
+        "2": "Es la subida de tipos, no la caída.",
+        "3": "Has dividido en vez de multiplicar."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["duracion"],
+      "statement": "Un bono cupón cero a 7 años tiene una duración de Macaulay de 7 años.",
+      "answer": true,
+      "explanation": "Verdadero: un solo flujo, al final."
+    },
+    {
+      "id": "salto-n2-u2-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["convexidad"],
+      "prompt": "Por la convexidad, cuando bajan los tipos un bono sube…",
+      "options": [
+        "Algo más de lo que dice la duración",
+        "Algo menos de lo que dice la duración",
+        "Exactamente lo que dice la duración",
+        "Nada"
+      ],
+      "answer": 0,
+      "explanation": "La curva precio-tipo juega a favor en las dos direcciones.",
+      "wrongExplanations": {
+        "1": "Al revés: la convexidad hace que suba más, no menos.",
+        "2": "La duración solo es una aproximación.",
+        "3": "Si bajan los tipos, sube el precio."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["duracion"],
+      "prompt": "50 % en bonos de duración 2 y 50 % en bonos de duración 10. ¿Duración de la cartera?",
+      "options": ["6", "12", "8", "2"],
+      "answer": 0,
+      "explanation": "0,5 × 2 + 0,5 × 10 = 6.",
+      "wrongExplanations": {
+        "1": "Se pondera, no se suma.",
+        "2": "No es la media ponderada.",
+        "3": "Es la del bono corto."
+      }
+    },
+    {
+      "id": "salto-n2-u2-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["curva-tipos"],
+      "prompt": "Suben los tipos a 2 años y bajan los de 10. ¿Qué le pasa a la curva?",
+      "options": ["Se aplana", "Se empina", "Se desplaza en paralelo", "No cambia"],
+      "answer": 0,
+      "explanation": "Se cierra la distancia entre largo y corto.",
+      "wrongExplanations": {
+        "1": "Empinar abre la distancia.",
+        "2": "En paralelo, todos se moverían igual.",
+        "3": "Cambia su pendiente."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (curva de tipos, duración y convexidad)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null
+}

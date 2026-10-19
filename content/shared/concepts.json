@@ -515,7 +515,9 @@
     "id": "curva-tipos",
     "name": "Curva de tipos",
     "level": 2,
-    "prerequisites": ["tir-bono"]
+    "prerequisites": ["tir-bono"],
+    "unit": "n2-u2",
+    "description": "La rentabilidad de cada plazo: normal (sube con el plazo), plana o invertida. Su pendiente (10 − 2 años, en pb) resume lo que espera el mercado."
   },
   {
     "id": "curva-cupon-cero",
@@ -539,13 +541,17 @@
     "id": "duracion",
     "name": "Duración",
     "level": 2,
-    "prerequisites": ["precio-bono-tipos"]
+    "prerequisites": ["precio-bono-tipos"],
+    "unit": "n2-u2",
+    "description": "Plazo medio ponderado en que se cobra un bono (Macaulay). La modificada, Macaulay / (1 + TIR), es el % que cae el precio por cada punto que sube la rentabilidad. A más plazo y menos cupón, más duración."
   },
   {
     "id": "convexidad",
     "name": "Convexidad",
     "level": 2,
-    "prerequisites": ["duracion"]
+    "prerequisites": ["duracion"],
+    "unit": "n2-u2",
+    "description": "La relación precio-rentabilidad es una curva: el precio cae algo menos y sube algo más de lo que dice la duración, y la diferencia crece con el tamaño del movimiento."
   },
   {
     "id": "rating-spread",

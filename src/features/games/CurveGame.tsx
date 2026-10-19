@@ -33,8 +33,11 @@ type Key = keyof Levers;
 const GRID = { level: LEVEL_GRID, slope: SLOPE_GRID } as const;
 const ZERO: Levers = { level: 0, slope: 0 };
 const pct = (v: number, d = 2) => `${formatNumber(v, d)}\u00a0%`;
-const signed = (v: number, d = 2) =>
-  `${v > 0 ? '+' : v < 0 ? '−' : ''}${formatNumber(Math.abs(v), d)}`;
+/** Con signo; lo que redondea a cero sale sin signo (nunca «−0,00»). */
+const signed = (v: number, d = 2) => {
+  const r = Number(v.toFixed(d));
+  return `${r > 0 ? '+' : r < 0 ? '−' : ''}${formatNumber(Math.abs(r), d)}`;
+};
 
 /** Una palanca de la curva: deslizador con botones −/+ (alternativa al arrastre). */
 function Lever({
@@ -260,7 +263,12 @@ export function CurveGame({ seed, onDone }: Props) {
                   key={m}
                   className="cg-row flex flex-wrap items-baseline justify-between gap-x-3 rounded-[6px] px-1"
                 >
-                  <span>{t('curveGame.bond', { m })}</span>
+                  <span>
+                    {t('curveGame.bond', {
+                      m,
+                      u: t(m === 1 ? 'curveGame.year' : 'curveGame.yearsWord'),
+                    })}
+                  </span>
                   <span className="flex flex-wrap gap-x-3">
                     <span className="whitespace-nowrap">{pct(ys[i]!)}</span>
                     <span

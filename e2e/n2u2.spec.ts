@@ -1,0 +1,47 @@
+import { readFileSync } from 'node:fs';
+import { expect, test } from '@playwright/test';
+import { playLesson, type Lesson } from './play';
+import { playGameLesson, type GameLesson } from './play-game';
+import { completeOnboarding } from './solver';
+
+/* Unidad 2 del Nivel 2, planta 2 (Duración y curva) jugada entera contra la build de producción. */
+
+const lessons: (Lesson & { game?: GameLesson['game'] })[] = [1, 2, 3, 4].map((n) =>
+  JSON.parse(readFileSync(`content/es/levels/n2/u2/l${n}.json`, 'utf8')),
+);
+
+test('se completa la Unidad 2 del Nivel 2 entera y queda completada en el Camino', async ({
+  page,
+}) => {
+  test.setTimeout(240_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await completeOnboarding(page);
+
+  for (const l of lessons) {
+    await page.goto(`/#/leccion/${l.id}`);
+    await page.reload();
+    if (l.game) await playGameLesson(page, l as GameLesson);
+    else {
+      // el Jefe final no tiene teoría: empieza directamente por los ejercicios
+      if ((l as { intro?: unknown[] }).intro?.length)
+        await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
+      await playLesson(page, l);
+    }
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByTestId('xp-total')).toBeVisible();
+  }
+
+  await page.goto('/#/camino');
+  await page.reload();
+  // con sus unidades hechas, la planta 2 puede salir completada y plegada: se despliega para ver la unidad
+  const floor = page.locator('details', { hasText: 'Tipos, bonos y productos' }).first();
+  await expect(floor).toContainText('completada');
+  await floor.locator('summary').first().click();
+  await expect(page.getByRole('group', { name: /Duración y curva de tipos/ })).toContainText(
+    '✓ Completada',
+  );
+  expect(errors).toEqual([]);
+});

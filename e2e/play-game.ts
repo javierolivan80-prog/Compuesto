@@ -8,6 +8,7 @@ import { rightVerdict, setupCheap } from '../src/engine/games/cheap-or-dear';
 import { bestWeight, CURRENT, leveredBeta, setupWacc } from '../src/engine/games/wacc-mix';
 import { BASE, bossGrowth, impliedWacc, setupDcf, START_3 } from '../src/engine/games/dcf-express';
 import { required, setupBond } from '../src/engine/games/bond-issue';
+import { fall10, setupCurve } from '../src/engine/games/yield-curve';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -40,6 +41,23 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'yield-curve') {
+    // referencia 0: +1 punto en todos los plazos, aplanar 1 punto y la caída buena del bono a 10 años
+    await expect(page.getByRole('heading', { name: 'Curva de tipos' })).toBeVisible();
+    for (let i = 0; i < 4; i++)
+      await page.getByRole('button', { name: 'Subir todos los tipos' }).click();
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await page.getByRole('button', { name: 'Siguiente reto' }).click();
+    for (let i = 0; i < 4; i++)
+      await page.getByRole('button', { name: 'Aplanar la curva' }).click();
+    await page.getByRole('button', { name: 'Comprobar' }).click();
+    await page.getByRole('button', { name: 'Siguiente reto' }).click();
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^Un ${formatNumber(fall10(setupCurve(seed)), 1)}\\s%$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'bond-issue') {
     // referencia 0: cupón a la par, dirección del precio y TIR bien (el cupón empieza en el 3 %)
     await expect(page.getByRole('heading', { name: 'La emisión de Naranjas' })).toBeVisible();

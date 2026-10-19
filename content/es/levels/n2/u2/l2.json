@@ -1,0 +1,224 @@
+{
+  "id": "n2-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 2,
+  "title": "La curva de tipos",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Leer la forma de una curva de tipos y medir su pendiente",
+    "Explicar qué suelen anticipar una curva normal, plana o invertida"
+  ],
+  "concepts": ["curva-tipos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Formas de la curva",
+      "text": "Normal: sube con el plazo, porque prestar más tiempo tiene más riesgo. Plana: todos los plazos rinden parecido. Invertida: los cortos rinden más que los largos, porque el mercado espera que los tipos bajen."
+    },
+    {
+      "type": "card",
+      "term": "La pendiente",
+      "text": "Se suele medir como la diferencia entre el tipo a 10 años y el de 2 años, en puntos básicos. Positiva, curva normal; negativa, invertida. A menudo se lee una curva invertida como señal de que el mercado teme una recesión."
+    },
+    {
+      "type": "example",
+      "text": "Si el bono a 2 años rinde un 2,4 % y el de 10 años un 3,2 %, la pendiente es 3,2 − 2,4 = 0,8 puntos: 80 puntos básicos. Curva normal."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u2-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "El bono a 10 años rinde un {l} % y el de 2 años un {c} %. ¿Cuál es la pendiente 10 − 2, en puntos básicos?",
+      "answer": 80,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({l} - {c}) * 100",
+      "params": {
+        "l": {
+          "value": 3.2,
+          "min": 2.5,
+          "max": 4.5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "c": {
+          "value": 2.4,
+          "min": 1.5,
+          "max": 2.4,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({l} - {c}) * 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "({l} − {c}) × 100 = {v} pb: positiva, curva normal."
+    },
+    {
+      "id": "n2-u2-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "El bono a 2 años rinde un {c} % y el de 10 años un {l} %. ¿Cuál es la pendiente 10 − 2, en puntos básicos?",
+      "answer": -60,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({l} - {c}) * 100",
+      "params": {
+        "c": {
+          "value": 3.4,
+          "min": 3,
+          "max": 4.5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "l": {
+          "value": 2.8,
+          "min": 2,
+          "max": 2.9,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({l} - {c}) * 100",
+          "decimals": 0
+        }
+      },
+      "explanation": "({l} − {c}) × 100 = {v} pb: negativa, curva invertida."
+    },
+    {
+      "id": "n2-u2-l2-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "¿Qué forma tiene cada curva?",
+      "categories": ["Normal", "Plana", "Invertida"],
+      "items": [
+        {
+          "text": "1 año al 2,2 %, 10 años al 3,2 %",
+          "category": "Normal"
+        },
+        {
+          "text": "1 año al 3 %, 10 años al 3 %",
+          "category": "Plana"
+        },
+        {
+          "text": "1 año al 3,4 %, 10 años al 2,8 %",
+          "category": "Invertida"
+        }
+      ],
+      "explanation": "Se compara el largo con el corto: más arriba, normal; igual, plana; más abajo, invertida."
+    },
+    {
+      "id": "n2-u2-l2-e4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "¿Por qué la curva normal sube con el plazo?",
+      "options": [
+        "Porque prestar a más plazo tiene más riesgo e incertidumbre y se pide una prima",
+        "Porque los bonos largos pagan siempre menos cupón",
+        "Porque el BCE fija todos los plazos",
+        "Porque los bonos cortos no tienen riesgo de impago"
+      ],
+      "answer": 0,
+      "explanation": "Inflación, tipos futuros, impago: a más plazo, más cosas pueden pasar, y se pide más.",
+      "wrongExplanations": {
+        "1": "El cupón de un bono no define la forma de la curva.",
+        "2": "El BCE fija tipos oficiales a muy corto plazo; el resto lo marca el mercado.",
+        "3": "La forma de la curva del Estado no se explica por el impago de los cortos."
+      }
+    },
+    {
+      "id": "n2-u2-l2-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "statement": "Una curva invertida suele indicar que el mercado espera que los tipos bajen en el futuro.",
+      "answer": true,
+      "explanation": "Verdadero: si se esperan tipos más bajos, prestar a largo hoy rinde menos que renovar a corto."
+    },
+    {
+      "id": "n2-u2-l2-e6",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "Una curva en la que todos los plazos rinden casi lo mismo se llama ___.",
+      "answers": [["plana"]],
+      "explanation": "Plana: la pendiente es casi cero."
+    },
+    {
+      "id": "n2-u2-l2-e7",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "Ordena estas pendientes 10 − 2 de la curva más invertida a la más empinada.",
+      "steps": ["−80 pb", "−20 pb", "0 pb", "+60 pb", "+150 pb"],
+      "explanation": "De más negativa a más positiva."
+    },
+    {
+      "id": "n2-u2-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "character": "jefe",
+      "situation": "La curva de la deuda española pasa de una pendiente 10 − 2 de +120 pb a +20 pb en seis meses.",
+      "prompt": "¿Qué le cuentas al comité?",
+      "options": [
+        "Que la curva se ha aplanado mucho: el mercado espera menos crecimiento o tipos más bajos a largo plazo",
+        "Que se ha empinado: el mercado es más optimista",
+        "Que no ha cambiado nada: sigue positiva",
+        "Que la deuda española ha bajado de rating"
+      ],
+      "answer": 0,
+      "explanation": "Pasar de 120 a 20 pb es un aplanamiento fuerte, aunque siga siendo positiva.",
+      "wrongExplanations": {
+        "1": "Empinar sería abrir la distancia, no cerrarla.",
+        "2": "Ha cambiado mucho, aunque el signo sea el mismo.",
+        "3": "La pendiente no mide el rating."
+      }
+    }
+  ],
+  "realWorld": "En la web del Banco de España y en la prensa financiera verás la curva de la deuda pública y su pendiente. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (curva de tipos, duración y convexidad)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

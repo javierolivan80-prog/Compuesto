@@ -1,0 +1,185 @@
+{
+  "id": "n2-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 2,
+  "title": "Jefe final: la cartera de bonos de Albufera",
+  "cfa": "fixed-income",
+  "estimatedMinutes": 5,
+  "objectives": ["Medir el riesgo de tipos de una cartera de bonos y decidir con la curva"],
+  "concepts": ["duracion", "convexidad", "curva-tipos"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u2-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "La mesa de Albufera tiene un 60 % de su cartera en bonos con duración 1,93 y un 40 % en bonos con duración 8,44. ¿Cuál es la duración de la cartera? (2 decimales)",
+      "answer": 4.53,
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.6 * 1.93 + 0.4 * 8.44",
+      "explanation": "La duración de una cartera es la media ponderada: 0,6 × 1,93 + 0,4 × 8,44 = 4,53."
+    },
+    {
+      "id": "n2-u2-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "La cartera vale 50 millones de € y tiene una duración de 4,53. Si todos los tipos suben medio punto, ¿cuánto pierde, aproximadamente? (millones de €, 2 decimales)",
+      "answer": 1.13,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "50 * 4.53 * 0.5 / 100",
+      "explanation": "50 × 4,53 × 0,5 % = 1,13 millones de €."
+    },
+    {
+      "id": "n2-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "El jefe quiere que la cartera tenga una duración de 3. Si combina bonos de duración 1,93 y 8,44, ¿qué peso debe tener el de 8,44? (%, 1 decimal)",
+      "answer": 16.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(3 - 1.93) / (8.44 - 1.93) * 100",
+      "explanation": "w × 8,44 + (1 − w) × 1,93 = 3 → w = (3 − 1,93) / (8,44 − 1,93) = 16,4 %.",
+      "hint": "Plantea la media ponderada igual a 3 y despeja el peso."
+    },
+    {
+      "id": "n2-u2-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["curva-tipos"],
+      "prompt": "El bono a 2 años rinde un 2,4 % y el de 10 años un 3,2 %. Si la pendiente 10 − 2 pasa a 30 pb y el de 2 años no se mueve, ¿a cuánto rinde el de 10 años? (%, 1 decimal)",
+      "answer": 2.7,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2.4 + 30 / 100",
+      "explanation": "2,4 + 0,3 = 2,7 %: la curva se ha aplanado bajando el largo."
+    },
+    {
+      "id": "n2-u2-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "Si la curva se aplana porque baja el tipo a 10 años, ¿qué parte de la cartera gana más?",
+      "options": [
+        "Los bonos largos: su tipo baja y tienen más duración",
+        "Los bonos a 2 años",
+        "Ninguna: aplanar no cambia precios",
+        "Toda la cartera pierde"
+      ],
+      "answer": 0,
+      "explanation": "Baja el tipo largo, sube el precio de los bonos largos, y mucho por su duración.",
+      "wrongExplanations": {
+        "1": "Su tipo no se mueve en este caso.",
+        "2": "Cambian los precios de los bonos cuyo tipo se mueve.",
+        "3": "Al bajar un tipo, el precio sube."
+      }
+    },
+    {
+      "id": "n2-u2-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["duracion", "curva-tipos"],
+      "prompt": "Con una subida de tipos a la vista, ¿qué haría la mesa?",
+      "categories": ["Reduce el riesgo de tipos", "Aumenta el riesgo de tipos"],
+      "items": [
+        {
+          "text": "Vender bonos a 30 años y comprar a 2",
+          "category": "Reduce el riesgo de tipos"
+        },
+        {
+          "text": "Comprar bonos cupón cero a 20 años",
+          "category": "Aumenta el riesgo de tipos"
+        },
+        {
+          "text": "Bajar la duración de la cartera de 4,5 a 3",
+          "category": "Reduce el riesgo de tipos"
+        },
+        {
+          "text": "Pasar de un bono con cupón alto a uno con cupón bajo al mismo plazo",
+          "category": "Aumenta el riesgo de tipos"
+        }
+      ],
+      "explanation": "Lo que baja la duración reduce el riesgo; lo que la sube, lo aumenta."
+    },
+    {
+      "id": "n2-u2-l4-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["convexidad"],
+      "statement": "A igualdad de duración, la mesa prefiere el bono con más convexidad.",
+      "answer": true,
+      "explanation": "Verdadero: con la misma duración, cae menos si suben los tipos y sube más si bajan."
+    },
+    {
+      "id": "n2-u2-l4-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["duracion"],
+      "prompt": "La duración de una cartera de bonos es la media ___ de las duraciones de sus bonos.",
+      "answers": [["ponderada"]],
+      "explanation": "Ponderada por el peso de cada bono en la cartera."
+    },
+    {
+      "id": "n2-u2-l4-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["duracion", "curva-tipos"],
+      "character": "jefe",
+      "situation": "El jefe propone alargar la duración de la cartera de 4,5 a 9 «porque los bonos largos rinden más». La curva es normal y la mesa espera subidas de tipos.",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que el rendimiento extra no compensa el riesgo: con duración 9, cada punto de subida restaría un 9 % a la cartera, el doble que ahora",
+        "Que tiene razón: más rentabilidad es mejor",
+        "Que la duración no importa si se mantienen los bonos",
+        "Que hay que pasar a duración 30"
+      ],
+      "answer": 0,
+      "explanation": "Alargar duración antes de una subida esperada multiplica las pérdidas; el rendimiento extra de la curva normal es pequeño frente a eso. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Más rentabilidad con más riesgo no es mejor sin más.",
+        "2": "La mesa valora su cartera a precio de mercado cada día.",
+        "3": "Aún más riesgo."
+      }
+    }
+  ],
+  "realWorld": "Las mesas de renta fija de los bancos fijan límites de duración y de riesgo de tipos para sus carteras. Los tipos y los bonos de los ejemplos son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (curva de tipos, duración y convexidad)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}
