@@ -39,6 +39,7 @@ import {
 import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
 import { bondValues, required, setupBond } from './bond-issue';
 import { curveValues, fall10, setupCurve } from './yield-curve';
+import { fundValues, rightDiff, setupFunds, SITUATIONS } from './fund-fees';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -78,6 +79,7 @@ export const LESSON_GAMES = [
   'dcf-express',
   'bond-issue',
   'yield-curve',
+  'fund-fees',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -338,6 +340,27 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     fall_30: [1, 1],
     fall_2: [1, 1],
   },
+  'fund-fees': {
+    gross: [1, 1],
+    ter_dear: [1, 1],
+    ter_cheap: [1, 1],
+    net_dear: [1, 1],
+    net_cheap: [1, 1],
+    years: [0, 0],
+    initial: [0, 0],
+    final_dear: [0, 0],
+    final_cheap: [0, 0],
+    diff: [0, 0],
+    value: [0, 0],
+    gain: [0, 0],
+    tax_rate: [0, 0],
+    tax: [0, 0],
+    reinvested: [0, 0],
+    end_transfer: [0, 0],
+    end_sell: [0, 0],
+    end_gap: [0, 0],
+    vehicle_hits: [0, 0],
+  },
 };
 
 /**
@@ -511,6 +534,22 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           pick: fall10(setup),
         }),
         curveValues(setup, { first: zero, second: zero, pick: 0 }),
+      ];
+    }
+    case 'fund-fees': {
+      // todo bien, y todo mal (diferencia ingenua, vehículos al revés y vender)
+      const setup = setupFunds(seed);
+      return [
+        fundValues(setup, {
+          diff: rightDiff(setup),
+          vehicles: SITUATIONS.map((x) => x.right),
+          transfer: true,
+        }),
+        fundValues(setup, {
+          diff: 0,
+          vehicles: SITUATIONS.map((x) => (x.right === 'etf' ? 'fund' : 'etf')),
+          transfer: false,
+        }),
       ];
     }
   }

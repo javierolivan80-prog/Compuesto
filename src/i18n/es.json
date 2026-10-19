@@ -1150,5 +1150,61 @@
   },
   "duration": {
     "title": "Plazo y caída: la duración"
+  },
+  "fundGame": {
+    "title": "Dos fondos, veinte años",
+    "step": {
+      "fees": "Paso 1 de 3 · la comisión que no ves",
+      "vehicle": "Paso 2 de 3 · ¿fondo o ETF?",
+      "switch": "Paso 3 de 3 · cambiarte de fondo"
+    },
+    "briefFees": "Inviertes {{amount}} durante {{years}} años. Dos fondos compran lo mismo y rinden un {{gross}} bruto al año. Solo cambian sus gastos corrientes: el caro cobra un {{dear}} al año y el barato, un {{cheap}}.",
+    "askDiff": "Al cabo de {{years}} años, ¿cuánto más tendrás con el barato?",
+    "about": "Unos {{v}}",
+    "raceAria": "En {{years}} años, el fondo barato llega a {{cheap}} y el caro a {{dear}}.",
+    "yearN": "Año {{n}}",
+    "legend": "Continua: el fondo barato ({{cheap}} de gastos). Discontinua: el caro ({{dear}}).",
+    "whyFees": "El barato llega a {{cheap}} y el caro a {{dear}}: {{diff}} de diferencia. La comisión se cobra cada año sobre todo lo acumulado, así que su efecto también se compone.",
+    "briefVehicle": "Un fondo de inversión y un ETF pueden invertir en lo mismo, pero se compran y se venden distinto. ¿Qué encaja mejor en cada caso?",
+    "situation": {
+      "intraday": "Quieres comprar a media sesión, a un precio concreto.",
+      "switchFree": "Quieres poder cambiar de fondo más adelante sin pagar impuestos todavía.",
+      "stockBroker": "Quieres comprarlo desde tu cuenta de valores, como una acción.",
+      "periodic": "Quieres aportar 100 € al mes de forma automática, sin pagar corretaje en cada compra."
+    },
+    "situationWhy": {
+      "intraday": "El ETF cotiza en bolsa durante toda la sesión; el fondo tiene un único valor liquidativo al día.",
+      "switchFree": "En España, los traspasos entre fondos de inversión no tributan hasta que vendes; los ETF quedan fuera de ese régimen.",
+      "stockBroker": "El ETF se compra y se vende en bolsa con tu bróker, como una acción.",
+      "periodic": "Muchas gestoras permiten aportaciones periódicas automáticas a sus fondos; cada compra de un ETF suele pagar corretaje."
+    },
+    "vehicle": {
+      "fund": "Fondo",
+      "etf": "ETF"
+    },
+    "check": "Comprobar",
+    "briefSwitch": "Han pasado unos años: tu fondo caro vale {{value}}, con {{gain}} de ganancia. Quieres pasarte al barato. Si vendes, pagas IRPF sobre la ganancia (en el ejemplo, un {{rate}}).",
+    "askSwitch": "¿Cómo te cambias?",
+    "optTransfer": "Traspaso: la gestora mueve el dinero de un fondo a otro",
+    "optSell": "Vendo el fondo, cobro y compro el barato",
+    "endTransfer": "Traspasando, dentro de {{years}} años",
+    "endSell": "Vendiendo y comprando, dentro de {{years}} años",
+    "whySwitch": "Al vender pagas {{tax}} ya y reinviertes menos. Con el traspaso, la ganancia tributará cuando vendas de verdad, pero mientras tanto ese dinero sigue trabajando: {{gap}} más en {{years}} años, antes de los impuestos de ese día.",
+    "transfer": "Traspaso",
+    "sell": "Venta",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "hitsOf": "{{n}} de {{total}}",
+    "doneTitle": "Informe para el cliente",
+    "row": {
+      "diff": "Coste de las comisiones",
+      "vehicle": "¿Fondo o ETF?",
+      "switch": "Cómo te cambiaste"
+    },
+    "great": "Impecable: comisiones, vehículo y fiscalidad, bien vistos.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo se componen las comisiones y cómo funciona un traspaso.",
+    "debrief": "Ver qué ha pasado"
   }
 }
