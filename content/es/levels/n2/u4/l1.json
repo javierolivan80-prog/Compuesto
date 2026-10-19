@@ -1,0 +1,274 @@
+{
+  "id": "n2-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 4,
+  "order": 0,
+  "title": "Juego: ¿suerte o habilidad?",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir la media de la volatilidad de unas rentabilidades",
+    "Reconocer las colas gordas y la ilusión de control"
+  ],
+  "concepts": ["media-desviacion", "distribucion-normal", "ilusion-control"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "luck-or-skill",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Media y volatilidad",
+      "text": "Los dos fondos rindieron de media un {mean_a} % al mes, pero el A con una desviación típica de {sd_a} puntos y el B con {sd_b}: el B tuvo meses de hasta un {min_b} %. Misma media, mucho más riesgo."
+    },
+    {
+      "type": "card",
+      "term": "Colas gordas",
+      "text": "Con una distribución normal, una caída de más de dos desviaciones típicas pasaría unos {normal_tail} meses de cada 100. En esta simulación pasó {fat_tail}: los mercados tienen más meses extremos de lo que dice la campana."
+    },
+    {
+      "type": "card",
+      "term": "Ilusión de control",
+      "text": "De {traders} becarios lanzando una moneda durante {calls} meses, de media uno acierta todo: {traders} × (1/2)^{calls} = {expected_perfect}. Ver un método donde solo hay azar es la ilusión de control."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u4-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "Un fondo rindió {a} %, {b} %, {c} %, {d} % y {e} % en cinco meses. ¿Cuál es su media mensual? (%, 2 decimales)",
+      "answer": 0.8,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({a} + {b} + {c} + {d} + {e}) / 5",
+      "params": {
+        "a": {
+          "value": 1.2,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "b": {
+          "value": -0.4,
+          "min": -2,
+          "max": -0.1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "c": {
+          "value": 2,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "d": {
+          "value": 0.8,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "e": {
+          "value": 0.4,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "m": {
+          "formula": "({a} + {b} + {c} + {d} + {e}) / 5",
+          "decimals": 2
+        }
+      },
+      "explanation": "Se suman los cinco meses y se divide entre cinco: {m} %."
+    },
+    {
+      "id": "n2-u4-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "El fondo B tiene una media de {mean_b} % al mes y una desviación típica de {sd_b} puntos. ¿Cuál es el límite inferior del intervalo de una desviación típica alrededor de la media? (%, 2 decimales)",
+      "answer": -2.92,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{mean_b} - {sd_b}",
+      "params": {
+        "mean_b": {
+          "value": 0.5,
+          "min": 0.3,
+          "max": 1,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "sd_b": {
+          "value": 3.42,
+          "min": 2,
+          "max": 6,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{mean_b} - {sd_b}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Media menos una desviación: {mean_b} − {sd_b} = {v} %."
+    },
+    {
+      "id": "n2-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "Si {n} personas lanzan una moneda cinco veces, ¿cuántas, de media, sacarán cinco caras seguidas?",
+      "answer": 2,
+      "unit": "personas",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{n} * 0.5 ^ 5",
+      "params": {
+        "n": {
+          "value": 64,
+          "min": 32,
+          "max": 320,
+          "step": 32,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} * 0.5 ^ 5",
+          "decimals": 2
+        }
+      },
+      "explanation": "{n} × (1/2)^5 = {n} / 32 = {v}: con suficiente gente, alguien acierta todo por azar."
+    },
+    {
+      "id": "n2-u4-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "¿Mide dónde está el centro de los datos o cuánto se dispersan?",
+      "categories": ["El centro", "La dispersión"],
+      "items": [
+        {
+          "text": "La media",
+          "category": "El centro"
+        },
+        {
+          "text": "La mediana",
+          "category": "El centro"
+        },
+        {
+          "text": "La desviación típica",
+          "category": "La dispersión"
+        },
+        {
+          "text": "La varianza",
+          "category": "La dispersión"
+        }
+      ],
+      "explanation": "Media y mediana resumen el centro; varianza y desviación típica, cuánto se alejan los datos de él."
+    },
+    {
+      "id": "n2-u4-l1-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "Dos fondos rinden un 0,5 % de media al mes. A tiene una desviación típica de 0,85 puntos y B de 3,42. ¿Cuál es más arriesgado?",
+      "options": [
+        "El B: sus resultados se alejan mucho más de la media",
+        "El A: su desviación es menor",
+        "Los dos igual: tienen la misma media",
+        "No se puede saber sin el rating"
+      ],
+      "answer": 0,
+      "explanation": "La desviación típica mide la volatilidad: con la misma media, el B da sustos mayores.",
+      "wrongExplanations": {
+        "1": "Menos desviación es menos volatilidad.",
+        "2": "La media no dice nada del riesgo.",
+        "3": "Los fondos no tienen rating como los bonos; su volatilidad se mide con los datos."
+      }
+    },
+    {
+      "id": "n2-u4-l1-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "statement": "En una distribución normal, alrededor del 95 % de los datos quedan a menos de dos desviaciones típicas de la media.",
+      "answer": true,
+      "explanation": "Verdadero: un 68 % a menos de una y un 95 % a menos de dos."
+    },
+    {
+      "id": "n2-u4-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "En Excel en español, la desviación típica de una muestra se calcula con la función ___.",
+      "answers": [["DESVEST", "DESVEST.M", "desvest", "desvest.m"]],
+      "explanation": "DESVEST (o DESVEST.M); la media, con PROMEDIO."
+    },
+    {
+      "id": "n2-u4-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "character": "rival",
+      "situation": "Hugo enseña que su cartera ha batido al IBEX 35 tres meses seguidos: «tengo el mercado pillado».",
+      "prompt": "¿Qué le contestas?",
+      "options": [
+        "Que tres meses es muy poco para distinguir habilidad de suerte: a cara o cruz pasa una de cada ocho veces",
+        "Que tiene razón: tres de tres no es casualidad",
+        "Que con tres meses ya puede gestionar dinero de clientes",
+        "Que el IBEX 35 no se puede batir nunca"
+      ],
+      "answer": 0,
+      "explanation": "(1/2)^3 = 1/8: con muchos becarios probando, varios lo consiguen por azar.",
+      "wrongExplanations": {
+        "1": "Es justo la ilusión de control.",
+        "2": "Un historial tan corto no prueba nada.",
+        "3": "Se puede batir algún periodo; lo difícil es hacerlo de forma sostenida y por un método."
+      }
+    }
+  ],
+  "realWorld": "Los documentos de datos fundamentales de los fondos muestran su indicador de riesgo, que se calcula en parte con la volatilidad de sus rentabilidades. Los fondos y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

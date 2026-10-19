@@ -211,7 +211,9 @@ export function LuckGame({ seed, onDone }: Props) {
 
       {(step === 'mean' || step === 'volatile') && (
         <div className="grid gap-3">
-          <p>{t('luckGame.briefStats', { n: MONTHS })}</p>
+          <p>
+            {t(step === 'mean' ? 'luckGame.briefStats' : 'luckGame.briefStatsB', { n: MONTHS })}
+          </p>
           <Bars xs={s.a} label={t('luckGame.fundA')} scale={scale} />
           {step === 'volatile' && <Bars xs={s.b} label={t('luckGame.fundB')} scale={scale} />}
           {step === 'mean' ? (

@@ -1,0 +1,218 @@
+{
+  "id": "n2-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 4,
+  "title": "Suerte, habilidad e ilusión de control",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la probabilidad de una racha por azar",
+    "Reconocer la ilusión de control y pedir más pruebas antes de creer en una racha"
+  ],
+  "concepts": ["ilusion-control"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ilusión de control",
+      "text": "Es creer que controlamos o predecimos lo que en realidad depende del azar. En los mercados lleva a operar de más, a confiar en rachas cortas y a atribuir a nuestro talento lo que fue suerte."
+    },
+    {
+      "type": "card",
+      "term": "La racha por azar",
+      "text": "La probabilidad de acertar n veces seguidas algo que es 50/50 es (1/2)^n: 5 seguidas, un 3,1 %. Parece poco, pero entre muchas personas probando, alguna lo consigue casi seguro."
+    },
+    {
+      "type": "example",
+      "text": "Con 1.000 gestores lanzando monedas cada año, unos 31 aciertan 5 años seguidos (1.000 × 3,1 %). Ninguno tiene un método; son la suerte de una muestra grande."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u4-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "¿Qué probabilidad hay de acertar {n} veces seguidas algo que es 50/50? (%, 2 decimales)",
+      "answer": 3.13,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.5 ^ {n} * 100",
+      "params": {
+        "n": {
+          "value": 5,
+          "min": 3,
+          "max": 7,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "0.5 ^ {n} * 100",
+          "decimals": 2
+        }
+      },
+      "explanation": "(1/2)^{n} = {v} %."
+    },
+    {
+      "id": "n2-u4-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "Si {g} gestores aciertan o fallan al azar cada año, ¿cuántos aciertan 5 años seguidos, de media?",
+      "answer": 31.25,
+      "unit": "gestores",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{g} * 0.5 ^ 5",
+      "params": {
+        "g": {
+          "value": 1000,
+          "min": 500,
+          "max": 5000,
+          "step": 100,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{g} * 0.5 ^ 5",
+          "decimals": 2
+        }
+      },
+      "explanation": "{g} × (1/2)^5 = {v}: sin ningún método."
+    },
+    {
+      "id": "n2-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "¿Y qué probabilidad hay de acertar 10 veces seguidas a cara o cruz? (%, 3 decimales)",
+      "answer": 0.098,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "0.5 ^ 10 * 100",
+      "explanation": "(1/2)^10 = 1/1.024 = 0,098 %: rarísimo para una persona, pero no en millones de inversores."
+    },
+    {
+      "id": "n2-u4-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "¿Indica ilusión de control o prudencia?",
+      "categories": ["Ilusión de control", "Prudencia"],
+      "items": [
+        {
+          "text": "Operar más tras una racha de aciertos",
+          "category": "Ilusión de control"
+        },
+        {
+          "text": "Pedir un historial largo y un método explicable antes de confiar en un gestor",
+          "category": "Prudencia"
+        },
+        {
+          "text": "Creer que tus operaciones salen bien porque tú las eliges",
+          "category": "Ilusión de control"
+        },
+        {
+          "text": "Comparar tus resultados con los de su índice",
+          "category": "Prudencia"
+        }
+      ],
+      "explanation": "La prudencia separa resultado de método y mira muestras largas."
+    },
+    {
+      "id": "n2-u4-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "Un fondo presume de ser el mejor de su categoría el último año. ¿Qué te dice eso de su gestor?",
+      "options": [
+        "Poco: con muchos fondos, alguno queda primero por azar cada año",
+        "Que es el mejor gestor del mercado",
+        "Que lo será también el año que viene",
+        "Que no tiene riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Un año es una muestra pequeña; hace falta ver mucho más tiempo y entender cómo invierte.",
+      "wrongExplanations": {
+        "1": "Un año no basta para saberlo.",
+        "2": "Ser el primero un año no garantiza repetir.",
+        "3": "La rentabilidad no dice nada del riesgo."
+      }
+    },
+    {
+      "id": "n2-u4-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "statement": "Si alguien acierta 5 de 5 a cara o cruz, es más probable que acierte la sexta.",
+      "answer": false,
+      "explanation": "Falso: cada lanzamiento sigue siendo 50/50; la racha no cambia la moneda."
+    },
+    {
+      "id": "n2-u4-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "Creer que controlas resultados que dependen del azar se llama ilusión de ___.",
+      "answers": [["control"]],
+      "explanation": "Ilusión de control: el 🧠 de esta planta."
+    },
+    {
+      "id": "n2-u4-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "character": "compliance",
+      "situation": "Un comercial quiere anunciar un fondo con «el gestor que ha batido al mercado 3 años seguidos».",
+      "prompt": "¿Qué le advierte la compliance officer?",
+      "options": [
+        "Que rentabilidades pasadas no garantizan las futuras, y que tres años puede ser suerte: el anuncio no debe sugerir lo contrario",
+        "Que es un mensaje perfecto",
+        "Que basta con añadir que el fondo es seguro",
+        "Que hay que esperar a que lo bata 4 años"
+      ],
+      "answer": 0,
+      "explanation": "La CNMV exige que la publicidad no induzca a error, y una racha corta no prueba habilidad.",
+      "wrongExplanations": {
+        "1": "Puede inducir a error sobre lo que cabe esperar.",
+        "2": "Ningún fondo de bolsa es seguro.",
+        "3": "El problema es el mensaje, no el número de años."
+      }
+    }
+  ],
+  "realWorld": "Las gestoras deben avisar en su publicidad de que las rentabilidades pasadas no garantizan las futuras. Los estudios de agencias como S&P (informes SPIVA) miden cuántos fondos activos baten a su índice a largo plazo.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

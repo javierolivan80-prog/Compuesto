@@ -1,0 +1,251 @@
+{
+  "id": "n2-u4-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 4,
+  "title": "La distribución normal y sus colas",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Usar la regla del 68 % y el 95 % de la normal",
+    "Explicar por qué los mercados tienen colas gordas"
+  ],
+  "concepts": ["distribucion-normal"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "La campana",
+      "text": "La distribución normal es la campana de Gauss: simétrica alrededor de la media. Un 68 % de los datos quedan a menos de una desviación típica, y un 95 % a menos de dos. Fuera de dos quedan un 5 %, la mitad en cada cola."
+    },
+    {
+      "type": "visual",
+      "component": "NormalTails",
+      "props": {
+        "mean": 0.5,
+        "sd": 3.4
+      }
+    },
+    {
+      "type": "card",
+      "term": "Colas gordas",
+      "text": "En los mercados, los días y meses extremos pasan más a menudo de lo que dice la normal: crisis, pánicos, quiebras. Un modelo de riesgo que supone normalidad infravalora esas caídas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n2-u4-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "Rentabilidad media de {m} % al mes y desviación típica de {s} puntos. Si fuera normal, ¿cuál sería el límite superior del intervalo donde caen el 68 % de los meses? (%, 2 decimales)",
+      "answer": 3.9,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{m} + {s}",
+      "params": {
+        "m": {
+          "value": 0.5,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "s": {
+          "value": 3.4,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{m} + {s}",
+          "decimals": 2
+        }
+      },
+      "explanation": "68 %: media ± una desviación. {m} + {s} = {v} %."
+    },
+    {
+      "id": "n2-u4-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "Con esa media de {m} % y desviación de {s} puntos, ¿por debajo de qué rentabilidad quedaría solo un 2,5 % de los meses? (%, 2 decimales)",
+      "answer": -6.3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{m} - 2 * {s}",
+      "params": {
+        "m": {
+          "value": 0.5,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "s": {
+          "value": 3.4,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{m} - 2 * {s}",
+          "decimals": 2
+        }
+      },
+      "explanation": "Media menos dos desviaciones: {m} − 2 × {s} = {v} %. Por debajo queda la mitad del 5 %: un 2,5 %."
+    },
+    {
+      "id": "n2-u4-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "Si un mes cae por debajo de dos desviaciones un 2,3 % de las veces, ¿cuántos meses así esperarías en {y} años? (2 decimales)",
+      "answer": 2.76,
+      "unit": "meses",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{y} * 12 * 0.023",
+      "params": {
+        "y": {
+          "value": 10,
+          "min": 5,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{y} * 12 * 0.023",
+          "decimals": 2
+        }
+      },
+      "explanation": "{y} × 12 meses × 2,3 % = {v} meses, si fuera normal; con colas gordas, más."
+    },
+    {
+      "id": "n2-u4-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "¿Lo predice bien la normal o lo subestima?",
+      "categories": ["Lo describe bien", "Lo subestima"],
+      "items": [
+        {
+          "text": "Que la mayoría de los meses estén cerca de la media",
+          "category": "Lo describe bien"
+        },
+        {
+          "text": "La frecuencia de los cracs bursátiles",
+          "category": "Lo subestima"
+        },
+        {
+          "text": "Que el reparto sea más o menos simétrico en meses normales",
+          "category": "Lo describe bien"
+        },
+        {
+          "text": "Las caídas de más de cuatro desviaciones",
+          "category": "Lo subestima"
+        }
+      ],
+      "explanation": "La normal sirve para el día a día; en las colas, los mercados son más extremos."
+    },
+    {
+      "id": "n2-u4-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "¿Qué significa que los mercados tengan «colas gordas»?",
+      "options": [
+        "Que los movimientos extremos son más frecuentes que en una normal",
+        "Que suben más de lo que bajan",
+        "Que su media es muy alta",
+        "Que nunca caen más de dos desviaciones"
+      ],
+      "answer": 0,
+      "explanation": "Las colas de la distribución, los extremos, pesan más que en la campana.",
+      "wrongExplanations": {
+        "1": "Eso sería asimetría, no colas gordas.",
+        "2": "Las colas hablan de extremos, no de la media.",
+        "3": "Al revés: caen más a menudo."
+      }
+    },
+    {
+      "id": "n2-u4-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "statement": "Un modelo de riesgo que supone rentabilidades normales tiende a infravalorar la probabilidad de las crisis.",
+      "answer": true,
+      "explanation": "Verdadero: por las colas gordas, los extremos pasan más de lo que el modelo espera."
+    },
+    {
+      "id": "n2-u4-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "A la distribución normal también se la llama campana de ___.",
+      "answers": [["Gauss", "gauss"]],
+      "explanation": "Campana de Gauss."
+    },
+    {
+      "id": "n2-u4-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "character": "jefe",
+      "situation": "Un analista dice: «Según la normal, una caída del 20 % en un día pasa una vez cada muchísimos miles de años, así que no hace falta prepararse».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que los mercados tienen colas gordas: caídas así han pasado en la historia más de lo que la normal permite, y hay que prepararse",
+        "Que tiene razón: la normal es exacta",
+        "Que solo pasa en bolsas pequeñas",
+        "Que basta con mirar la media"
+      ],
+      "answer": 0,
+      "explanation": "Los modelos son útiles, pero las crisis llegan más a menudo de lo que dice la campana.",
+      "wrongExplanations": {
+        "1": "Es un modelo, y falla en las colas.",
+        "2": "Han pasado en grandes mercados.",
+        "3": "La media no dice nada de los extremos."
+      }
+    }
+  ],
+  "realWorld": "Los informes de riesgo de los bancos y gestoras complementan la volatilidad con pruebas de estrés: escenarios extremos que la normal casi descarta.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

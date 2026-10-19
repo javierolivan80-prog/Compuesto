@@ -134,6 +134,11 @@
           "id": "n2-u3",
           "name": "Fondos, ETF y comisiones",
           "concepts": ["fondos-inversion", "etf", "traspasos-fondos"]
+        },
+        {
+          "id": "n2-u4",
+          "name": "Riesgo y estadística",
+          "concepts": ["media-desviacion", "distribucion-normal", "ilusion-control"]
         }
       ]
     },

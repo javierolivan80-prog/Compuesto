@@ -657,3 +657,14 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - el régimen de traspasos (art. 94 de la Ley del IRPF) y la exclusión general de los ETF;
   - el primer tramo de la base del ahorro (19 % hasta 6.000 €, art. 66).
   - Llevan la fuente del BOE y `verificarAntesDe` 2027-03-31. 🛑 Javier debe contrastarlos.
+
+## 2026-10-19 — Unidad `n2-u4` «Riesgo y estadística» y juego «¿Suerte o habilidad?»
+
+- **Decisión:** cinco lecciones:
+  - el juego, nuevo, con ficha en `docs/specs/suerte-o-habilidad.md`;
+  - media y desviación típica, con la volatilidad anualizada por √12;
+  - la normal y sus colas, con el explicador `NormalTails` (ya en el catálogo);
+  - suerte, habilidad e ilusión de control (el 🧠 de la planta 2);
+  - el Jefe final con el informe de riesgos de un fondo de Albufera.
+- **Conceptos:** `media-desviacion`, `distribucion-normal` e `ilusion-control`. El 📊 de la planta (PROMEDIO y DESVEST) entra en dos ejercicios de completar.
+- **Simplificaciones:** √12 supone meses independientes, y las colas gordas del juego se simulan (no son datos reales). Las dos cosas se dicen en el contenido.

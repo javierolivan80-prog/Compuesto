@@ -1,0 +1,185 @@
+{
+  "id": "n2-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 2,
+  "unit": 4,
+  "title": "Jefe final: el informe de riesgos",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": ["Medir el riesgo de un fondo y juzgar una racha con criterio"],
+  "concepts": ["media-desviacion", "distribucion-normal", "ilusion-control"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n2-u4-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "Un fondo de Albufera rindió 1,8 %, −2,6 %, 3,1 %, 0,4 %, −1,2 % y 2,9 % en seis meses. ¿Media mensual? (%, 2 decimales)",
+      "answer": 0.73,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "(1.8 - 2.6 + 3.1 + 0.4 - 1.2 + 2.9) / 6",
+      "explanation": "4,4 / 6 = 0,73 %."
+    },
+    {
+      "id": "n2-u4-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "Su desviación típica mensual es 2,30 puntos. ¿Volatilidad anual aproximada? (%, 2 decimales)",
+      "answer": 7.97,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2.3 * 12 ^ 0.5",
+      "explanation": "2,30 × √12 = 7,97 %."
+    },
+    {
+      "id": "n2-u4-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "Con media de 0,73 % y desviación de 2,30 al mes, ¿por debajo de qué rentabilidad quedaría un 2,5 % de los meses si fuera normal? (%, 2 decimales)",
+      "answer": -3.87,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.73 - 2 * 2.3",
+      "explanation": "0,73 − 2 × 2,30 = −3,87 %. Con colas gordas, peores meses llegarán más a menudo."
+    },
+    {
+      "id": "n2-u4-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ilusion-control"],
+      "prompt": "El gestor ha batido a su índice 4 años seguidos. Si fuera 50/50 cada año, ¿qué probabilidad tendría? (%, 2 decimales)",
+      "answer": 6.25,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.5 ^ 4 * 100",
+      "explanation": "(1/2)^4 = 6,25 %: entre muchos gestores, varios lo consiguen por azar."
+    },
+    {
+      "id": "n2-u4-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["media-desviacion", "distribucion-normal"],
+      "prompt": "¿Qué dato del informe mide qué?",
+      "categories": ["Rentabilidad", "Riesgo"],
+      "items": [
+        {
+          "text": "Media mensual del 0,73 %",
+          "category": "Rentabilidad"
+        },
+        {
+          "text": "Volatilidad anual del 7,97 %",
+          "category": "Riesgo"
+        },
+        {
+          "text": "Peor mes esperado en 2 de cada 100",
+          "category": "Riesgo"
+        },
+        {
+          "text": "Rentabilidad acumulada del año",
+          "category": "Rentabilidad"
+        }
+      ],
+      "explanation": "Media y acumulada miden lo que gana; volatilidad y peores meses, lo que puede perder."
+    },
+    {
+      "id": "n2-u4-l5-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["distribucion-normal"],
+      "prompt": "¿Por qué el informe añade una prueba de estrés con una caída del 25 %, aunque la normal la haga casi imposible?",
+      "options": [
+        "Por las colas gordas: las caídas extremas pasan más de lo que dice la normal",
+        "Porque la normal está mal calculada",
+        "Porque el fondo va a caer un 25 % seguro",
+        "Porque lo exige el cupón"
+      ],
+      "answer": 0,
+      "explanation": "El estrés cubre lo que el modelo normal infravalora.",
+      "wrongExplanations": {
+        "1": "La cuenta está bien; lo que falla es el supuesto de normalidad.",
+        "2": "Es un escenario, no una predicción.",
+        "3": "Un fondo no tiene cupón."
+      }
+    },
+    {
+      "id": "n2-u4-l5-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "statement": "Dos fondos con la misma media pueden tener riesgos muy distintos.",
+      "answer": true,
+      "explanation": "Verdadero: la media no dice nada de la volatilidad."
+    },
+    {
+      "id": "n2-u4-l5-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["media-desviacion"],
+      "prompt": "En finanzas, la desviación típica de las rentabilidades se llama ___.",
+      "answers": [["volatilidad"]],
+      "explanation": "Volatilidad."
+    },
+    {
+      "id": "n2-u4-l5-e9",
+      "type": "scenario",
+      "difficulty": 4,
+      "bloom": "evaluar",
+      "tags": [],
+      "concepts": ["ilusion-control", "media-desviacion"],
+      "character": "jefe",
+      "situation": "El jefe quiere duplicar el dinero que gestiona un becario que ha batido al índice 4 años seguidos, con una volatilidad el doble que la del índice.",
+      "prompt": "¿Qué le recomiendas?",
+      "options": [
+        "Pedir más historial, entender su método y comparar su rentabilidad con el riesgo extra que asume, antes de darle más dinero",
+        "Duplicarlo ya: cuatro años lo demuestran",
+        "Quitárselo todo: ha tenido suerte seguro",
+        "Ignorar la volatilidad: lo que importa es batir al índice"
+      ],
+      "answer": 0,
+      "explanation": "Cuatro años al azar pasan un 6,25 % de las veces, y con el doble de volatilidad puede haber ganado solo por asumir más riesgo. Los fondos y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Es la ilusión de control, en el jefe.",
+        "2": "Tampoco se puede concluir que sea suerte.",
+        "3": "Con más riesgo, batir al índice es más fácil y no prueba habilidad."
+      }
+    }
+  ],
+  "realWorld": "Un buen informe de riesgos combina volatilidad, peores escenarios y el contexto del historial. Los fondos y sus rentabilidades son ficticios, como todo el universo de Compuesto: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null,
+  "lastReviewed": "2026-10-19"
+}

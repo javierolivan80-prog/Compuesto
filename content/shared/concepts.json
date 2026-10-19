@@ -651,19 +651,25 @@
     "id": "media-desviacion",
     "name": "Media y desviación típica",
     "level": 2,
-    "prerequisites": ["porcentajes"]
+    "prerequisites": ["porcentajes"],
+    "unit": "n2-u4",
+    "description": "La media resume el centro de unas rentabilidades; la desviación típica (volatilidad), cuánto se alejan de ella. La volatilidad anual es aproximadamente la mensual por √12."
   },
   {
     "id": "distribucion-normal",
     "name": "Distribución normal y colas gordas",
     "level": 2,
-    "prerequisites": ["media-desviacion"]
+    "prerequisites": ["media-desviacion"],
+    "unit": "n2-u4",
+    "description": "En una normal, un 68 % de los datos queda a menos de una desviación típica y un 95 % a menos de dos. Los mercados tienen colas gordas: los extremos pasan más a menudo."
   },
   {
     "id": "ilusion-control",
     "name": "Ilusión de control",
     "level": 2,
-    "prerequisites": ["fomo-manada"]
+    "prerequisites": ["fomo-manada"],
+    "unit": "n2-u4",
+    "description": "Creer que controlamos o predecimos lo que depende del azar. Las rachas cortas son frecuentes por pura suerte: (1/2)^n entre muchos que lo intentan."
   },
   {
     "id": "etica-estandares",

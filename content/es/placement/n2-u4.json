@@ -1,0 +1,152 @@
+{
+  "id": "salto-n2-u4",
+  "unitId": "n2-u4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n2-u4-q1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["media-desviacion"],
+      "prompt": "Rentabilidades de 1 %, 2 % y 6 %. ¿Media?",
+      "options": ["3 %", "2 %", "9 %", "6 %"],
+      "answer": 0,
+      "explanation": "9 / 3 = 3 %.",
+      "wrongExplanations": {
+        "1": "Es la mediana.",
+        "2": "Es la suma.",
+        "3": "Es el máximo."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["media-desviacion"],
+      "prompt": "¿Qué mide la desviación típica?",
+      "options": [
+        "Cuánto se alejan los datos de su media",
+        "El valor central",
+        "El dato más repetido",
+        "El máximo menos el mínimo"
+      ],
+      "answer": 0,
+      "explanation": "Es la medida de dispersión, la volatilidad.",
+      "wrongExplanations": {
+        "1": "Eso es la media o la mediana.",
+        "2": "Eso es la moda.",
+        "3": "Eso es el rango."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q3",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["media-desviacion"],
+      "prompt": "Volatilidad mensual del 2 %. ¿Anual aproximada?",
+      "options": ["6,93 %", "24 %", "2 %", "4 %"],
+      "answer": 0,
+      "explanation": "2 × √12 ≈ 6,93 %.",
+      "wrongExplanations": {
+        "1": "Se multiplica por la raíz de 12, no por 12.",
+        "2": "Falta anualizar.",
+        "3": "Has multiplicado por 2."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["distribucion-normal"],
+      "prompt": "En una normal, ¿qué parte de los datos queda a menos de una desviación típica de la media?",
+      "options": ["Un 68 %", "Un 95 %", "Un 50 %", "Un 99,7 %"],
+      "answer": 0,
+      "explanation": "68 % a una; 95 % a dos; 99,7 % a tres.",
+      "wrongExplanations": {
+        "1": "Es a dos desviaciones.",
+        "2": "Es la mitad a cada lado de la media.",
+        "3": "Es a tres desviaciones."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["distribucion-normal"],
+      "statement": "Los mercados tienen más movimientos extremos de los que predice la normal.",
+      "answer": true,
+      "explanation": "Verdadero: colas gordas."
+    },
+    {
+      "id": "salto-n2-u4-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ilusion-control"],
+      "prompt": "¿Probabilidad de acertar 4 veces seguidas algo 50/50?",
+      "options": ["6,25 %", "25 %", "12,5 %", "50 %"],
+      "answer": 0,
+      "explanation": "(1/2)^4 = 1/16.",
+      "wrongExplanations": {
+        "1": "Es 1/4: dos aciertos.",
+        "2": "Es 1/8: tres aciertos.",
+        "3": "Es un solo acierto."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ilusion-control"],
+      "prompt": "Un amigo acierta tres operaciones seguidas y decide multiplicar su apuesta. ¿Qué sesgo puede tener?",
+      "options": ["Ilusión de control", "Aversión a las pérdidas", "Anclaje", "Ninguno"],
+      "answer": 0,
+      "explanation": "Atribuye a su habilidad una racha corta.",
+      "wrongExplanations": {
+        "1": "Eso es sufrir más por perder que disfrutar por ganar.",
+        "2": "Eso es quedarse pegado a un número.",
+        "3": "Tres aciertos no prueban un método."
+      }
+    },
+    {
+      "id": "salto-n2-u4-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["media-desviacion"],
+      "prompt": "Dos fondos rinden lo mismo de media; uno con volatilidad del 5 % y otro del 20 %. ¿Cuál tiene más riesgo?",
+      "options": ["El del 20 %", "El del 5 %", "Igual", "No se puede saber"],
+      "answer": 0,
+      "explanation": "Más volatilidad, más dispersión de resultados.",
+      "wrongExplanations": {
+        "1": "Es el más estable.",
+        "2": "La media no dice el riesgo.",
+        "3": "La volatilidad lo dice."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (estadística descriptiva, distribución normal) y Behavioral Finance (sesgos)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    }
+  ],
+  "verificarAntesDe": null
+}

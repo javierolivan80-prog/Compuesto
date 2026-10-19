@@ -1259,7 +1259,8 @@
     "great": "Impecable: sabes medir el riesgo y no confundir suerte con habilidad.",
     "ok": "Bien encaminado: repasa lo que fallaste.",
     "bad": "Repasa media, desviación típica y el papel del azar.",
-    "debrief": "Ver qué ha pasado"
+    "debrief": "Ver qué ha pasado",
+    "briefStatsB": "Arriba, el fondo A; debajo, el fondo B en los mismos {{n}} meses (cada barra, un mes)."
   },
   "normalTails": {
     "title": "La campana y sus colas"
