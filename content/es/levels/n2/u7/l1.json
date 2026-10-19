@@ -1,8 +1,8 @@
 {
   "id": "n2-u7-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 2,
   "unit": 7,
   "order": 0,
@@ -30,7 +30,7 @@
     {
       "type": "card",
       "term": "SOCIMI y futuro",
-      "text": "La SOCIMI ganó {rent_profit} miles de € con alquileres y debe repartir al menos el 80 %: {min_dividend} miles. El futuro: compraste un futuro sobre {units} unidades a {f0} € y al vencer valían {f1} €. Resultado: ({f1} − {f0}) × {units} = {pnl} €."
+      "text": "La SOCIMI ganó {rent_profit} miles de € con alquileres y debe repartir al menos el 80 %: {min_dividend} miles. Y el futuro: lo compraste sobre {units} unidades a {f0} € y al vencer el subyacente valía {f1} €. Resultado: ({f1} − {f0}) × {units} = {pnl} €."
     },
     {
       "type": "card",
@@ -224,7 +224,7 @@
       "tags": [],
       "concepts": ["productos-complejos"],
       "character": "compliance",
-      "situation": "Un empleado de la oficina quiere vender un bono estructurado que paga un 8 % si el IBEX no cae a un cliente que nunca ha invertido, «porque paga un 8 %», sin hacerle ninguna pregunta.",
+      "situation": "Un empleado de la oficina quiere vender a un cliente que nunca ha invertido un bono estructurado que paga un 8 % si el IBEX no cae, «porque paga mucho», sin hacerle ninguna pregunta.",
       "prompt": "¿Qué le recuerda la compliance officer?",
       "options": [
         "Que es un producto complejo: antes debe evaluar si el cliente tiene conocimientos y experiencia para entenderlo, y advertirle si no",

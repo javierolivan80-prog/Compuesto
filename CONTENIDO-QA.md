@@ -411,3 +411,20 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - Bloom del nivel N2: 120/239 de recordar/entender (50,2 %, sin margen: n2-u7 debe llevar más).
 - Test de salto: 8 preguntas, todas de reconocer. Queda pendiente para todo el N2 (tarea 2.12).
 - 🛑 Pendiente de la revisión de Javier (verificarAntesDe 2027-04-30).
+
+## n2-u7 — Pensiones, SOCIMI, derivados y productos complejos y lección-juego «El escaparate del banco» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios. Comprobó a mano los 50 ejercicios y los hechos legales (art. 52 y 17.2.a LIRPF, art. 8.8 TRLPFP, Ley 11/2009 arts. 4, 6 y 9, MiFID II art. 25, Circular 1/2018, PRIIPs, MEFF): todo correcto.
+  - Mayores aplicados:
+    - la garantía y el apalancamiento de los futuros se enseñan en l4 antes de evaluarlos;
+    - el CFD se define en l1, en l5 y en concepts.json.
+  - Menores aplicados (15):
+    - signo menos tipográfico en los textos paramétricos (`fillText`);
+    - el futuro de l1-e3 se mueve ±15 %;
+    - el depósito ya no se presenta como instrumento MiFID;
+    - matices de la SOCIMI (gravámenes especiales);
+    - fuentes del Reglamento Delegado 2017/653 y de MEFF;
+    - «tu compañero becario» en vez de «Javier»…
+- **Ronda 2:** aprobada, con dos retoques de redacción en l1 ya aplicados. Estado: `reviewed`.
+- Bloom del nivel N2: 151/289 de recordar/entender (52,2 %).
+- 🛑 Pendiente de la revisión de Javier: comprobar en el BOE el límite de 1.500 € y los supuestos de liquidez vigentes, y el texto exacto de la advertencia de la Circular 1/2018 (verificarAntesDe 2027-04-30).

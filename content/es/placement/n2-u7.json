@@ -2,8 +2,8 @@
   "id": "salto-n2-u7",
   "unitId": "n2-u7",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n2-u7-q1",
