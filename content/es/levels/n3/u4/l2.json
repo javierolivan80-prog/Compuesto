@@ -28,7 +28,7 @@
     },
     {
       "type": "example",
-      "text": "Naranjas en 2025: resultado del ejercicio 7.233 mil € y 12.000.000 de acciones, un BPA de 0,60 €. A 11,09 € por acción, su capitalización es 133.080 mil € y su PER, 18,4. Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación."
+      "text": "Naranjas en 2025: resultado del ejercicio 7.233 mil € y 12.000.000 de acciones, un BPA de 0,60 €. A 11,09 € por acción, su capitalización es 133.080 mil € y su PER, 18,4 (con el BPA sin redondear; con 0,60 € saldría 18,5). Precios de hoy ficticios, como todo el universo de Compuesto: no es una recomendación."
     }
   ],
   "exercises": [
@@ -90,7 +90,7 @@
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "1 / 18.4 * 100",
-      "explanation": "1 / 18,4 = 5,43 %: por cada 100 € pagados, la empresa gana 5,43 € al año."
+      "explanation": "1 / 18,4 = 0,0543 = 5,43 %: por cada 100 € pagados, la empresa gana 5,43 € al año."
     },
     {
       "id": "n3-u4-l2-e5",

@@ -25,10 +25,10 @@
       "type": "visual",
       "component": "EvBridge",
       "props": {
-        "cap": 380000,
-        "debt": 102000,
-        "cash": 54303,
-        "ebitda": 58167
+        "cap": 133080,
+        "debt": 12000,
+        "cash": 15385,
+        "ebitda": 11776
       }
     },
     {

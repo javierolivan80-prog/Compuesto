@@ -183,18 +183,18 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["multiplos"],
-      "prompt": "¿Por qué conviene contrastar el PER con el EV/EBITDA cuando una empresa tiene mucha deuda, como Pirineo Energía?",
+      "prompt": "¿Por qué conviene contrastar el PER con el EV/EBITDA cuando una empresa tiene deuda (Pirineo) y otra caja neta (Naranjas)?",
       "options": [
-        "Porque el EV/EBITDA no depende de cuánta deuda tenga: mira el negocio entero, antes de intereses",
+        "Porque el EV/EBITDA apenas depende de cómo se financie: mira el negocio entero, antes de intereses",
         "Porque el PER no se puede calcular si hay deuda",
-        "Porque el EV/EBITDA siempre da un valor más alto",
+        "Porque el EV/EBITDA siempre da un múltiplo más alto que el PER",
         "Porque el EBITDA incluye los dividendos"
       ],
       "answer": 0,
       "explanation": "El PER usa el beneficio después de intereses, así que dos empresas iguales con distinta deuda tienen PER distintos. El EV y el EBITDA son de accionistas y acreedores a la vez.",
       "wrongExplanations": {
         "1": "Se puede calcular; lo que pasa es que la deuda lo distorsiona.",
-        "2": "Con Pirineo da menos, precisamente porque hay que restar su deuda.",
+        "2": "No: suele dar un número más bajo, porque el EBITDA va antes de amortización, intereses e impuestos y es mayor que el beneficio neto; con Pirineo, 7,35 frente a 12,2.",
         "3": "El EBITDA es un resultado de explotación; los dividendos no entran."
       }
     },

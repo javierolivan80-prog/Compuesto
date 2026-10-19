@@ -36,6 +36,7 @@ import {
   rightVerdict,
   setupCheap,
 } from './cheap-or-dear';
+import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
 import { setupTakeover, takeoverResult, takeoverValues } from './takeover-rumor';
@@ -70,6 +71,7 @@ export const LESSON_GAMES = [
   'cash-cycle',
   'ratio-detective',
   'cheap-or-dear',
+  'wacc-mix',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -243,6 +245,26 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     median_hits: [0, 0],
     verdict_hits: [0, 0],
   },
+  'wacc-mix': {
+    rf: [2, 2],
+    erp: [2, 2],
+    size: [0, 0],
+    beta_u: [2, 2],
+    tax: [0, 0],
+    weight: [0, 0],
+    de: [2, 2],
+    beta_l: [4, 4],
+    ke: [2, 2],
+    kd: [2, 2],
+    kd_after: [3, 3],
+    wacc: [2, 2],
+    pick: [0, 0],
+    wacc_pick: [2, 2],
+    best: [0, 0],
+    wacc_best: [2, 2],
+    ke_best: [2, 2],
+    kd_best: [2, 2],
+  },
 };
 
 /**
@@ -368,6 +390,14 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
       return [
         cheapValues(setup, cheapResult(setup, right)),
         cheapValues(setup, cheapResult(setup, wrong)),
+      ];
+    }
+    case 'wacc-mix': {
+      // el mínimo con la beta bien, y la estructura de hoy con la beta mal
+      const setup = setupWacc(seed);
+      return [
+        waccValues(setup, waccResult(setup, true, bestWeight(setup))),
+        waccValues(setup, waccResult(setup, false, 20)),
       ];
     }
   }

@@ -37,6 +37,7 @@ import { BalanceGame } from '../games/BalanceGame';
 import { CashGame } from '../games/CashGame';
 import { RatioGame } from '../games/RatioGame';
 import { CheapGame } from '../games/CheapGame';
+import { WaccGame } from '../games/WaccGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -197,6 +198,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'cash-cycle': CashGame,
             'ratio-detective': RatioGame,
             'cheap-or-dear': CheapGame,
+            'wacc-mix': WaccGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

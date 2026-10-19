@@ -75,19 +75,25 @@
     },
     {
       "id": "salto-n3-u4-q5",
-      "type": "multiple_choice",
+      "type": "multi_select",
       "difficulty": 3,
-      "bloom": "analizar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["multiplos"],
-      "prompt": "¿Qué múltiplo compara mejor dos empresas iguales con deuda muy distinta?",
-      "options": ["EV/EBITDA", "PER", "Precio por acción", "Dividendo por acción"],
-      "answer": 0,
-      "explanation": "El EV/EBITDA mira el negocio entero, antes de cómo se financia.",
+      "prompt": "¿Cuáles son buenos comparables para valorar una cadena española de tiendas de hogar y deporte?",
+      "options": [
+        "Otra cadena europea de tiendas de hogar",
+        "Una cadena de artículos deportivos de tamaño parecido",
+        "Una eléctrica renovable",
+        "Una productora de zumos",
+        "Una gestora de capital riesgo"
+      ],
+      "answers": [0, 1],
+      "explanation": "Mismo negocio: comercio minorista, con márgenes, rotación y riesgo parecidos.",
       "wrongExplanations": {
-        "1": "El PER cambia con los intereses.",
-        "2": "No compara nada.",
-        "3": "Depende de la política de dividendos."
+        "2": "Otro sector: márgenes y rotación muy distintos.",
+        "3": "Es un fabricante, no un minorista.",
+        "4": "Otro negocio por completo."
       }
     },
     {
@@ -133,7 +139,7 @@
         "Ninguno: no se puede valorar"
       ],
       "answer": 0,
-      "explanation": "Con pérdidas el PER no tiene sentido; el EBITDA o las ventas siguen siendo positivos.",
+      "explanation": "Con pérdidas el PER no tiene sentido; las ventas siguen siendo positivas y el EBITDA a menudo también. Si el EBITDA es negativo, se usa EV/ventas.",
       "wrongExplanations": {
         "1": "Con beneficio negativo, el PER no sirve.",
         "2": "Puede no pagar dividendo.",

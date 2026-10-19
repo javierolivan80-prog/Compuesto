@@ -912,7 +912,7 @@
       "fair": "Cotiza a {{price}} y los comparables dicen {{value}}: {{gap}} %. Dentro de un 10 % arriba o abajo: en precio.",
       "dear": "Cotiza a {{price}} y los comparables dicen {{value}}: {{gap}} %. Más de un 10 % por encima: cara, salvo que crezca más que sus comparables."
     },
-    "debtNote": "El EV/EBITDA da menos que el PER porque Pirineo tiene mucha deuda: el valor de empresa es de accionistas y acreedores, y hay que restarle la deuda neta.",
+    "debtNote": "Para pasar del valor de empresa al precio por acción se resta la deuda financiera neta, porque el EV incluye lo que corresponde a los acreedores. El múltiplo EV/EBITDA suele ser más bajo que el PER porque el EBITDA va antes de amortización, intereses e impuestos.",
     "next": "Siguiente empresa",
     "summary": "Ver el resumen",
     "hit": "¡Bien visto!",
@@ -927,5 +927,41 @@
   },
   "evBridge": {
     "title": "Del valor de las acciones al valor de empresa"
+  },
+  "waccGame": {
+    "title": "La mezcla de la financiación",
+    "step": {
+      "beta": "Paso 1 de 2 · la beta de Naranjas hoy",
+      "mix": "Paso 2 de 2 · cuánta deuda",
+      "reveal": "Paso 2 de 2 · el resultado"
+    },
+    "brief": "La directora financiera de Naranjas quiere saber si le conviene más o menos deuda. Hoy se financia con un {{w}} % de deuda. Datos: tipo sin riesgo {{rf}}, prima de mercado {{erp}}, prima por tamaño {{size}}, beta desapalancada del negocio {{betaU}} y coste de la deuda antes de impuestos {{kd}}; tipo del impuesto sobre sociedades, 25 %.",
+    "askBeta": "Con un {{w}} % de deuda, ¿cuál es su beta apalancada?",
+    "betaWhy": "Hamada: beta apalancada = beta desapalancada × (1 + (1 − 25 %) × D/E) = {{betaU}} × (1 + 0,75 × {{de}}) = {{betaL}}. Con ella, el CAPM da un coste del capital propio de {{ke}}.",
+    "next": "Siguiente",
+    "mixIntro": "Mueve el peso de la deuda y mira cómo cambian la beta, el coste del capital propio, el de la deuda y el WACC. Propón la estructura con el WACC más bajo.",
+    "weight": "Deuda: {{w}} % de la financiación",
+    "less": "Menos deuda",
+    "more": "Más deuda",
+    "beta": "Beta apalancada",
+    "ke": "Coste del capital propio",
+    "kd": "Coste de la deuda después de impuestos",
+    "wacc": "WACC",
+    "propose": "Proponer un {{w}} % de deuda",
+    "curvesAria": "El WACC baja con algo de deuda y sube con mucha. El mínimo está en un {{best}} % de deuda, con un WACC del {{wacc}} %. Tu propuesta: {{pick}} %, con un WACC del {{waccPick}} %.",
+    "legend": "Línea continua: WACC. Discontinua: coste del capital propio. Punteada: coste de la deuda después de impuestos. Círculo relleno: el mínimo; hueco: tu propuesta.",
+    "atMin": "Has dado con el mínimo: un {{w}} % de deuda, con un WACC del {{wacc}}.",
+    "offMin": "Con un {{w}} % de deuda te quedas {{gap}} puntos por encima del mínimo, que está en un {{best}} % (WACC del {{wacc}}).",
+    "why": "Al principio la deuda abarata la financiación: cuesta menos que el capital propio y sus intereses ahorran impuestos. Pero cada punto de deuda sube la beta y, a partir de cierto nivel, los bancos cobran mucho más: el WACC vuelve a subir.",
+    "summary": "Ver el resumen",
+    "hit": "¡Bien!",
+    "doneTitle": "Informe para la directora financiera",
+    "today": "WACC hoy, con un {{w}} % de deuda",
+    "yours": "Con tu propuesta ({{w}} %)",
+    "min": "El mínimo ({{w}} %)",
+    "great": "Perfecto: beta bien apalancada y estructura óptima. La directora financiera toma nota.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo la deuda cambia la beta y el coste de la financiación.",
+    "debrief": "Ver qué ha pasado"
   }
 }

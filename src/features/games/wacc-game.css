@@ -1,0 +1,8 @@
+/* La mezcla de la financiación: panel y deslizador del peso de la deuda. */
+.wg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.wg-range {
+  accent-color: var(--brand);
+}

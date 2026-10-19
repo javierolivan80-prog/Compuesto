@@ -99,7 +99,7 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["multiplos"],
-      "prompt": "Cotiza a 3,99 € y los comparables dicen 5,70 €. ¿Cuánto cotiza por debajo, en %? (1 decimal)",
+      "prompt": "Cotiza a 3,99 € y los comparables dicen 5,70 €. ¿Cuánto cotiza por debajo de los 5,70 €, en % de ese valor? (1 decimal)",
       "answer": 30.0,
       "unit": "%",
       "tolerance": 0.5,
@@ -140,7 +140,7 @@
       "categories": ["PER", "EV/EBITDA"],
       "items": [
         {
-          "text": "Capitalización",
+          "text": "Beneficio por acción (BPA)",
           "category": "PER"
         },
         {
