@@ -1,8 +1,8 @@
 {
   "id": "n3-u4-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 4,
   "order": 0,
@@ -194,7 +194,7 @@
       "explanation": "El PER usa el beneficio después de intereses, así que dos empresas iguales con distinta deuda tienen PER distintos. El EV y el EBITDA son de accionistas y acreedores a la vez.",
       "wrongExplanations": {
         "1": "Se puede calcular; lo que pasa es que la deuda lo distorsiona.",
-        "2": "No: suele dar un número más bajo, porque el EBITDA va antes de amortización, intereses e impuestos y es mayor que el beneficio neto; con Pirineo, 7,35 frente a 12,2.",
+        "2": "No: suele dar un número más bajo, porque el EBITDA va antes de amortización, intereses e impuestos y es mayor que el beneficio neto; con Naranjas, 11,01 frente a 18,48.",
         "3": "El EBITDA es un resultado de explotación; los dividendos no entran."
       }
     },

@@ -2,8 +2,8 @@
   "id": "salto-n3-u4",
   "unitId": "n3-u4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n3-u4-q1",
@@ -98,14 +98,25 @@
     },
     {
       "id": "salto-n3-u4-q6",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["multiplos"],
-      "statement": "Un PER más alto que el de sus comparables puede estar justificado si la empresa crece más o tiene menos riesgo.",
-      "answer": true,
-      "explanation": "Verdadero: el mercado paga más por más crecimiento y menos riesgo."
+      "prompt": "Una acción cotiza a 18 €, su beneficio por acción es 1 € y el PER mediano de sus comparables es 15. Si dentro de un ±10 % del valor está «en precio», ¿cómo está?",
+      "options": [
+        "Cara: cotiza un 20 % por encima de los 15 € que dicen sus comparables",
+        "Barata: su PER es más bajo que 20",
+        "En precio: la diferencia es pequeña",
+        "Barata: cotiza un 20 % por debajo"
+      ],
+      "answer": 0,
+      "explanation": "Valor = 1 × 15 = 15 €; 18 / 15 − 1 = +20 %, fuera de la banda del ±10 %: cara frente a sus comparables.",
+      "wrongExplanations": {
+        "1": "Su PER es 18, más alto que el 15 de referencia.",
+        "2": "Un 20 % queda fuera de la banda del ±10 %.",
+        "3": "Cotiza por encima, no por debajo."
+      }
     },
     {
       "id": "salto-n3-u4-q7",

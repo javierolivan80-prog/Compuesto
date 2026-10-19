@@ -1,8 +1,8 @@
 {
   "id": "n3-u4-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 4,
   "title": "Comparables y el sesgo de anclaje",
@@ -94,10 +94,10 @@
       "tags": [],
       "concepts": ["anclaje"],
       "character": "rival",
-      "situation": "Hugo compró acciones a 12 € y hoy cotizan a 9 €. «No vendo hasta recuperar los 12», dice.",
+      "situation": "Hugo compró Tramuntana a 5,20 € y hoy cotiza a 3,99 €. «Cuando vuelva a 5,20, vendo», dice.",
       "prompt": "¿Qué sesgo tiene y qué pregunta debería hacerse?",
       "options": [
-        "Anclaje al precio de compra: debería preguntarse si hoy, a 9 €, compraría esas acciones",
+        "Anclaje al precio de compra: debería preguntarse si hoy, a 3,99 €, compraría esas acciones",
         "Exceso de confianza: debería comprar más",
         "Ninguno: vender con pérdidas siempre es un error",
         "FOMO: debería esperar a que suban todas"
@@ -105,7 +105,7 @@
       "answer": 0,
       "explanation": "Su precio de compra no cambia lo que vale la empresa. La decisión correcta mira hacia delante.",
       "wrongExplanations": {
-        "1": "El problema es el ancla de los 12 €, no la confianza.",
+        "1": "El problema es el ancla de los 5,20 €, no la confianza.",
         "2": "A veces vender con pérdidas es lo correcto: lo pasado no vuelve.",
         "3": "El FOMO es miedo a quedarse fuera de una subida, no aferrarse a un precio."
       }

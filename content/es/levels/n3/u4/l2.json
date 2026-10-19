@@ -1,8 +1,8 @@
 {
   "id": "n3-u4-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 4,
   "title": "El PER y el beneficio por acción",
@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Por qué un PER es alto o bajo",
-      "text": "El mercado paga más PER por las empresas que espera que crezcan más, con un beneficio más estable o que necesitan invertir menos para crecer. Su inverso, el beneficio ÷ precio, es la rentabilidad por beneficio."
+      "text": "El mercado paga más PER por las empresas que espera que crezcan más, con un beneficio más estable o que necesitan invertir menos para crecer; si suben los tipos de interés, el beneficio futuro vale menos hoy y los PER bajan. Su inverso, el beneficio ÷ precio, es la rentabilidad por beneficio."
     },
     {
       "type": "example",

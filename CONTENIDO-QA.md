@@ -263,3 +263,22 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
     - fuente del CFA Institute añadida.
 - **Ronda 2:** aprobada, con tres menores aplicados: dos explicaciones con cifras del repaso y los metadatos de `companies`. Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier.
+
+## n3-u4 — Múltiplos: ¿cara o barata? y lección-juego «¿Cara o barata?» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Aplicados:
+    - la nota de deuda del juego ya no afirma cuál de los dos valores sale mayor;
+    - l1-e7 (por qué contrastar PER y EV/EBITDA con deuda y con caja neta);
+    - l5-e8 clasifica el BPA, no la capitalización;
+    - base del porcentaje en l5-e6;
+    - ejemplo y e4 de l2 (PER con el BPA sin redondear);
+    - q8 (EV/ventas si el EBITDA también es negativo);
+    - q5 pasa a ser una elección múltiple de comparables.
+- **Ronda 2:** aprobada, con cuatro menores aplicados:
+  - la tarjeta del PER explica el efecto de los tipos de interés;
+  - l1-e7 usa cifras de Naranjas;
+  - el escenario de anclaje de l4 ya no copia el ejemplo;
+  - q6 pasa a ser una pregunta de veredicto cara/barata con la banda del ±10 %.
+- Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier.
