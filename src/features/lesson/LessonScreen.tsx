@@ -42,6 +42,7 @@ import { DcfGame } from '../games/DcfGame';
 import { BondGame } from '../games/BondGame';
 import { CurveGame } from '../games/CurveGame';
 import { FundGame } from '../games/FundGame';
+import { LuckGame } from '../games/LuckGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -207,6 +208,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'bond-issue': BondGame,
             'yield-curve': CurveGame,
             'fund-fees': FundGame,
+            'luck-or-skill': LuckGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

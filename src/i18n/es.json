@@ -1209,5 +1209,56 @@
   },
   "terDrain": {
     "title": "El hilo que se llevan las comisiones"
+  },
+  "luckGame": {
+    "title": "¿Suerte o habilidad?",
+    "step": {
+      "mean": "Paso 1 de 4 · la media",
+      "volatile": "Paso 2 de 4 · la volatilidad",
+      "tails": "Paso 3 de 4 · las colas",
+      "genius": "Paso 4 de 4 · el genio"
+    },
+    "briefStats": "El fondo A rindió esto en los últimos {{n}} meses (cada barra, un mes).",
+    "fundA": "Fondo A: rentabilidad de cada mes",
+    "fundB": "Fondo B: rentabilidad de cada mes",
+    "fund": {
+      "a": "El fondo A",
+      "b": "El fondo B"
+    },
+    "barsAria": "{{label}}: {{list}} %.",
+    "askMean": "¿Cuál es su rentabilidad media mensual?",
+    "whyMean": "La media es la suma de los doce meses entre doce: {{m}} al mes.",
+    "askVolatile": "El fondo B tiene la misma media, {{m}} al mes. ¿Cuál es más volátil?",
+    "whyVolatile": "El B: su desviación típica es {{sb}} al mes, frente a {{sa}} del A. Con la misma media, el B tuvo meses de hasta {{minB}}: más riesgo para la misma rentabilidad.",
+    "briefTails": "Si las rentabilidades siguieran una distribución normal, una caída de más de dos desviaciones típicas sería rara.",
+    "askTails": "En los mercados, ¿con qué frecuencia pasan esas caídas?",
+    "tails": {
+      "normal": "Unos {{n}} meses de cada 100, lo que dice la normal",
+      "more": "Más a menudo de lo que dice la normal"
+    },
+    "whyTails": "Más a menudo: los mercados tienen colas gordas. En esta simulación pasan {{fat}} meses de cada 100, frente a los {{n}} de la normal. Por eso los modelos que suponen normalidad se quedan cortos en las crisis.",
+    "briefGenius": "{{traders}} becarios de Albufera apuestan cada mes, a cara o cruz, si la bolsa sube o baja. Tras {{calls}} meses, {{perfect}} ha acertado todos. Dice que tiene un método.",
+    "askGenius": "¿Le darías dinero para gestionar por su racha?",
+    "genius": {
+      "yes": "Sí: cinco de cinco no puede ser casualidad",
+      "no": "No: con tantos lanzando monedas, alguno acierta todo por azar"
+    },
+    "whyGenius": "Con {{traders}} personas y {{calls}} aciertos seguidos, de media una lo consigue por pura suerte: 32 × (1/2)⁵ = 1. Creer que controlas lo que es azar es la ilusión de control. Para juzgar a un gestor hace falta mucho más historial y entender su método.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Informe de riesgos",
+    "row": {
+      "mean": "Media",
+      "volatile": "Volatilidad",
+      "tails": "Colas gordas",
+      "genius": "Ilusión de control"
+    },
+    "great": "Impecable: sabes medir el riesgo y no confundir suerte con habilidad.",
+    "ok": "Bien encaminado: repasa lo que fallaste.",
+    "bad": "Repasa media, desviación típica y el papel del azar.",
+    "debrief": "Ver qué ha pasado"
   }
 }

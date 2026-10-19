@@ -1,0 +1,5 @@
+/* ¿Suerte o habilidad?: panel. */
+.lg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}

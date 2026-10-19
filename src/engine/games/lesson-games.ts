@@ -40,6 +40,7 @@ import { waccResult, waccValues, bestWeight, setupWacc } from './wacc-mix';
 import { bondValues, required, setupBond } from './bond-issue';
 import { curveValues, fall10, setupCurve } from './yield-curve';
 import { fundValues, rightDiff, setupFunds, SITUATIONS } from './fund-fees';
+import { luckValues, mean as meanOf2, setupLuck } from './luck-or-skill';
 import { BASE, bossGrowth, dcfValues, impliedWacc, setupDcf, START_3 } from './dcf-express';
 import { cheapestBroker, dividendResult, dividendValues, setupDividend } from './dividend-day';
 import { ipoResult, ipoValues, outcomeAt, PRICES, setupIpo } from './ipo-book';
@@ -80,6 +81,7 @@ export const LESSON_GAMES = [
   'bond-issue',
   'yield-curve',
   'fund-fees',
+  'luck-or-skill',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -361,6 +363,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     end_gap: [0, 0],
     vehicle_hits: [0, 0],
   },
+  'luck-or-skill': {
+    mean_a: [2, 2],
+    mean_b: [2, 2],
+    sd_a: [2, 2],
+    sd_b: [2, 2],
+    min_a: [1, 1],
+    min_b: [1, 1],
+    max_b: [1, 1],
+    normal_tail: [1, 1],
+    fat_tail: [0, 0],
+    traders: [0, 0],
+    calls: [0, 0],
+    perfect: [0, 0],
+    expected_perfect: [0, 0],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -550,6 +568,15 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           vehicles: SITUATIONS.map((x) => (x.right === 'etf' ? 'fund' : 'etf')),
           transfer: false,
         }),
+      ];
+    }
+    case 'luck-or-skill': {
+      // todo bien, y todo mal
+      const setup = setupLuck(seed);
+      const m = Math.round(meanOf2(setup.a) * 100) / 100;
+      return [
+        luckValues(setup, { mean: m, volatile: 'b', tails: 'more', genius: false }),
+        luckValues(setup, { mean: 0, volatile: 'a', tails: 'normal', genius: true }),
       ];
     }
   }
