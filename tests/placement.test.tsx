@@ -137,13 +137,13 @@ describe('PlacementScreen', () => {
     expect(await screen.findByRole('heading', { name: 'Unidad dominada' })).toBeInTheDocument();
   });
 
-  it('cada banco tiene 8 preguntas y cubre todos los conceptos de su unidad', () => {
+  it('cada banco tiene 12 preguntas (u 8 si es antiguo) y su primera fase cubre todos los conceptos de su unidad', () => {
     const concepts = unitConcepts();
     for (const unit of Object.keys(concepts)) {
       const b = getPlacement(unit);
       if (!b) continue;
-      expect(b.questions, unit).toHaveLength(8);
-      expect(new Set(b.questions.flatMap((q) => q.concepts)), unit).toEqual(
+      expect([8, 12], unit).toContain(b.questions.length);
+      expect(new Set(b.questions.slice(0, 8).flatMap((q) => q.concepts)), unit).toEqual(
         new Set(concepts[unit]),
       );
     }
