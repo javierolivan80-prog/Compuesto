@@ -198,7 +198,7 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["traspasos-fondos"],
-      "prompt": "Pasar el dinero de un fondo a otro sin reembolsarlo se llama ___.",
+      "prompt": "Pasar el dinero de un fondo a otro sin que llegue a tu cuenta, y sin tributar en ese momento, se llama ___.",
       "answers": [["traspaso"]],
       "explanation": "Traspaso: lo ordena el partícipe a la gestora de destino."
     },
@@ -235,7 +235,7 @@
       "date": "2026-10-19"
     },
     {
-      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y arts. 66 y 76 (escalas estatal y autonómica de la base del ahorro)",
       "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
       "date": "2026-10-19"
     }

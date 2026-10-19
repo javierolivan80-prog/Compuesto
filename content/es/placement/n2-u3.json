@@ -40,7 +40,7 @@
       "explanation": "Patrimonio entre participaciones, una vez al día.",
       "wrongExplanations": {
         "1": "Es una comisión, no un precio.",
-        "2": "Eso es un ETF.",
+        "2": "Eso es el precio de un ETF en bolsa; un fondo no cotiza.",
         "3": "Eso es tu coste."
       }
     },
@@ -94,7 +94,7 @@
       "answer": 0,
       "explanation": "El régimen de traspasos no se aplica a los ETF.",
       "wrongExplanations": {
-        "1": "No es así.",
+        "1": "El régimen de traspasos excluye en general a los ETF, sea cual sea el importe o el plazo.",
         "2": "La gestora no cambia el tratamiento.",
         "3": "Con pérdidas no hay impuesto que aplazar, pero tampoco es un traspaso."
       }
@@ -137,22 +137,17 @@
       "id": "salto-n2-u3-q8",
       "type": "multiple_choice",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["fondos-inversion"],
-      "prompt": "Dos fondos invierten igual; uno cobra un 1,6 % más al año. ¿Qué pasa con la diferencia a 20 años?",
-      "options": [
-        "Se hace mucho mayor que 1,6 × 20 puntos, porque se compone",
-        "Es exactamente 32 puntos",
-        "Desaparece",
-        "Depende solo del primer año"
-      ],
+      "prompt": "Dos fondos rinden un 6 % bruto; uno cobra un 0,2 % de gastos y el otro un 1,8 %. Con 10.000 € a 20 años, ¿cuál es la diferencia final, aproximadamente?",
+      "options": ["Unos 8.100 €", "Unos 3.200 €", "Unos 20.900 €", "0 €"],
       "answer": 0,
-      "explanation": "El coste se compone como la rentabilidad.",
+      "explanation": "10.000 × 1,058^20 − 10.000 × 1,042^20 ≈ 30.883 − 22.770 ≈ 8.100 €: el coste se compone.",
       "wrongExplanations": {
-        "1": "Eso ignora el interés compuesto.",
-        "2": "Se acumula, no desaparece.",
-        "3": "Se cobra cada año."
+        "1": "Es sumar 1,6 puntos × 20 años sobre 10.000 € sin componer.",
+        "2": "Eso es lo que gana el fondo barato (30.883 − 10.000), no la diferencia entre los dos.",
+        "3": "Invierten igual, pero las comisiones no."
       }
     }
   ],
@@ -163,7 +158,7 @@
       "date": "2026-10-19"
     },
     {
-      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y arts. 66 y 76 (escalas estatal y autonómica de la base del ahorro)",
       "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
       "date": "2026-10-19"
     }

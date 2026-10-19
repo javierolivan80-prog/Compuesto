@@ -1174,7 +1174,7 @@
     },
     "situationWhy": {
       "intraday": "El ETF cotiza en bolsa durante toda la sesión; el fondo tiene un único valor liquidativo al día.",
-      "switchFree": "En España, los traspasos entre fondos de inversión no tributan hasta que vendes; los ETF quedan fuera de ese régimen.",
+      "switchFree": "En España, los traspasos entre fondos de inversión no tributan hasta que reembolsas; los ETF, en general, quedan fuera de ese régimen.",
       "stockBroker": "El ETF se compra y se vende en bolsa con tu bróker, como una acción.",
       "periodic": "Muchas gestoras permiten aportaciones periódicas automáticas a sus fondos; cada compra de un ETF suele pagar corretaje."
     },

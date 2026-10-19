@@ -147,7 +147,7 @@
       "categories": ["Fondo", "ETF"],
       "items": [
         {
-          "text": "Un valor liquidativo al día",
+          "text": "Compras y vendes al valor liquidativo del día",
           "category": "Fondo"
         },
         {
@@ -220,7 +220,7 @@
       "situation": "Hugo quiere pasar su dinero de un fondo caro a otro barato: «vendo, cobro, y luego compro el otro».",
       "prompt": "¿Qué le aconsejas?",
       "options": [
-        "Que pida un traspaso: no tributa ahora y no pierde días fuera del mercado",
+        "Que pida un traspaso: no tributa ahora y todo el importe, sin restar impuestos, pasa al fondo nuevo",
         "Que venda: así paga los impuestos y se olvida",
         "Que espere a que el fondo caro baje",
         "Que no cambie: las comisiones dan igual"
@@ -230,7 +230,7 @@
       "wrongExplanations": {
         "1": "Pagar antes significa reinvertir menos.",
         "2": "Esperar no cambia las comisiones que paga mientras tanto.",
-        "3": "Ya has visto que no."
+        "3": "En el juego viste que 1,6 puntos al año suponían miles de euros en 20 años."
       }
     }
   ],
@@ -247,7 +247,7 @@
       "date": "2026-10-19"
     },
     {
-      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y arts. 66 y 76 (escalas estatal y autonómica de la base del ahorro)",
       "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
       "date": "2026-10-19"
     }

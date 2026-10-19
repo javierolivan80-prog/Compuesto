@@ -81,7 +81,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["fondos-inversion", "etf"],
-      "prompt": "¿Qué coste es de cada vehículo en este plan?",
+      "prompt": "En este plan, el ETF paga 3 € de corretaje por compra. ¿Qué es propio de cada vehículo?",
       "categories": ["Del fondo indexado", "Del ETF"],
       "items": [
         {
@@ -93,7 +93,7 @@
           "category": "Del ETF"
         },
         {
-          "text": "Aportación periódica automática sin corretaje",
+          "text": "Aportación periódica automática sin corretaje en este plan",
           "category": "Del fondo indexado"
         },
         {
@@ -143,9 +143,9 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["fondos-inversion"],
-      "prompt": "Los costes anuales de un fondo aparecen como gastos ___ en su documento de datos fundamentales.",
+      "prompt": "Los costes anuales de un fondo aparecen como costes ___ en su documento de datos fundamentales.",
       "answers": [["corrientes"]],
-      "explanation": "Gastos corrientes."
+      "explanation": "Costes corrientes (antes, gastos corrientes)."
     },
     {
       "id": "n2-u3-l5-e9",
@@ -153,7 +153,7 @@
       "difficulty": 4,
       "bloom": "evaluar",
       "tags": [],
-      "concepts": ["fondos-inversion", "traspasos-fondos"],
+      "concepts": ["fondos-inversion", "traspasos-fondos", "etf"],
       "character": "mentora",
       "situation": "El cliente pregunta: «¿Y si me paso a un ETF del mismo índice, con aún menos gastos?». Aporta 200 € al mes y piensa cambiar de fondo alguna vez más.",
       "prompt": "¿Qué le recomiendas valorar?",
@@ -168,7 +168,7 @@
       "wrongExplanations": {
         "1": "Los gastos corrientes no son el único coste.",
         "2": "Existen y son lo que acaba de proponerle.",
-        "3": "Ya vio cuánto le cuesta."
+        "3": "En e3 viste que el fondo caro le costaría unos 6.300 € en 15 años."
       }
     }
   ],
@@ -185,7 +185,7 @@
       "date": "2026-10-19"
     },
     {
-      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y art. 66 (tipos de la base del ahorro)",
+      "title": "BOE, Ley 35/2006 del IRPF: art. 94 (traspasos entre instituciones de inversión colectiva) y arts. 66 y 76 (escalas estatal y autonómica de la base del ahorro)",
       "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
       "date": "2026-10-19"
     }

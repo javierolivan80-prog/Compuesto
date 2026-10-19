@@ -9,7 +9,7 @@
   "cfa": "portfolio-management",
   "estimatedMinutes": 5,
   "objectives": [
-    "Explicar qué es un ETF y cómo replica un índice",
+    "Explicar qué es un ETF y en qué se diferencia de la gestión activa",
     "Comparar los costes de un ETF y de un fondo"
   ],
   "concepts": ["etf"],
@@ -83,7 +83,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["etf"],
-      "prompt": "Si haces esa compra de {c} € 12 veces al año, ¿qué porcentaje de 24.000 € invertidos se va en costes de compra? (%, 2 decimales)",
+      "prompt": "Cada compra de 2.000 € de un ETF te cuesta {c} € entre corretaje y horquilla. Si compras 12 veces al año (24.000 € en total), ¿qué porcentaje se va en costes de compra? (%, 2 decimales)",
       "answer": 0.35,
       "unit": "%",
       "tolerance": 1.5,
@@ -191,7 +191,7 @@
       "wrongExplanations": {
         "1": "Es un gasto corriente, aparte.",
         "2": "Eso es el corretaje.",
-        "3": "Eso se llama error de seguimiento."
+        "3": "Eso es la diferencia de seguimiento frente al índice."
       }
     },
     {
@@ -212,8 +212,8 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["etf"],
-      "prompt": "Un fondo que copia un índice en lugar de intentar ganarle se llama fondo ___.",
-      "answers": [["indexado"]],
+      "prompt": "Un fondo que copia un índice en lugar de intentar batirlo se llama fondo ___.",
+      "answers": [["indexado", "pasivo", "de gestión pasiva"]],
       "explanation": "Indexado (o de gestión pasiva)."
     },
     {
