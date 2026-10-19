@@ -1,8 +1,8 @@
 {
   "id": "n3-u6-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 3,
   "unit": 6,
   "title": "Valor terminal y sensibilidad",
@@ -116,7 +116,7 @@
           "decimals": 0
         }
       },
-      "explanation": "{tv} / (1 + {w} %)^4,5 = {v} mil €. Es la convención del modelo de referencia; otros analistas descuentan el valor terminal a 5 años."
+      "explanation": "{tv} / (1 + {w} %)^4,5 = {v} mil €. Gordon se descuenta con el factor del último flujo (4,5 años) porque parte de un flujo; el valor por múltiplo, a 5 años, porque es un valor a 31/12."
     },
     {
       "id": "n3-u6-l4-e3",
@@ -221,13 +221,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["dcf"],
-      "prompt": "Con el valor terminal por múltiplo (138.501, que descontado a 4,5 años al 8,27 % son 96.865), el valor de empresa de Naranjas es 26.370 + 96.865 = 123.235 mil €. Con una deuda financiera neta de −3.385 mil € (caja neta) y 12.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
-      "answer": 10.55,
+      "prompt": "Con el valor terminal por múltiplo (138.501, que descontado a 5 años al 8,27 % son 93.091: el múltiplo da el valor a 31/12/2030, no un flujo repartido en el año), el valor de empresa de Naranjas es 26.370 + 93.091 = 119.461 mil €. Con una deuda financiera neta de −3.385 mil € (caja neta) y 12.000.000 de acciones, ¿valor por acción? (€, 2 decimales)",
+      "answer": 10.24,
       "unit": "€",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "(123235 + 3385) / 12000",
-      "explanation": "(123.235 + 3.385) / 12.000 = 10,55 €, frente a 9,35 € por Gordon: los dos métodos dan un rango."
+      "formula": "(119461 + 3385) / 12000",
+      "explanation": "(119.461 + 3.385) / 12.000 = 10,24 €, frente a 9,35 € por Gordon: los dos métodos dan un rango."
     },
     {
       "id": "n3-u6-l4-e8",

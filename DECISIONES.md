@@ -618,4 +618,4 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - el Jefe final con un DCF de Pirineo Energía, con el WACC del 6 % de la unidad anterior (redondeado) y un plan ficticio de FCFF de 20.000 a 24.000 mil €.
 - **Conceptos:** `van` y `dcf`. La TIR (`tir-proyecto`) queda para una unidad de presupuesto de capital.
 - **Diseño del juego:** el objetivo de la ficha («caer en el rango del comité») es el reto 3; antes van dos retos que enseñan lo esencial del DCF, el WACC implícito en el precio y el peso del valor terminal. Ficha en `docs/specs/dcf-express.md`.
-- **Convención:** el valor terminal se descuenta con el factor del último flujo a mitad de año (4,5 años), como el modelo de referencia; la l4 avisa de que otros analistas usan 5 años.
+- **Convención:** el valor terminal por Gordon se descuenta con el factor del último flujo a mitad de año (4,5 años), porque parte de un flujo. El valor por múltiplo se descuenta a 5 años, porque es un valor a 31/12/2030. Las dos convenciones son las del modelo de referencia (revisión, ronda 2).

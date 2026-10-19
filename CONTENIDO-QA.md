@@ -300,3 +300,17 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada, con cuatro menores aplicados (companies de l2 y l4, comentarios internos y el enunciado de l1-e6 en el repaso).
 - Estado: `reviewed`.
 - 🛑 Pendiente de la revisión de Javier, incluido el art. 16 de la Ley 27/2014 (verificarAntesDe 2027-03-31).
+
+## n3-u6 — DCF: lo que vale una empresa y lección-juego «DCF Express» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Crítico aplicado: la sensibilidad de l4-e5 decía que «un punto de WACC mueve el precio casi un 30 %». Son −13 % y +18 %.
+  - Mayores aplicados (5):
+    - la explicación del distractor de la inflación del BCE (con su fuente);
+    - el signo de la deuda neta en las variantes de l1-e4;
+    - dos respuestas defendibles en l5-e7 y en el orden de l2-e6;
+    - el distractor 850 de q3.
+  - Menores aplicados (6): conceptos del Jefe final, WACC − g en l5-e6, unidades y formato de g, sinónimos de WACC, cifras nuevas en l4-e1 y l4-e4.
+- **Ronda 2:** un mayor. El valor terminal por múltiplo se descontaba a 4,5 años; se pasa a 5, porque es un valor a 31/12 y no un flujo repartido en el año. Así se vuelve al 10,24 € del modelo de referencia, y l4-e2 explica las dos convenciones.
+- **Ronda 3:** aprobada. Estado: `reviewed`.
+- 🛑 Pendiente de la revisión de Javier.
