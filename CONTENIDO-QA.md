@@ -384,3 +384,17 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - «curva discontinua» en vez de «roja».
 - Estado: `reviewed`. Bloom del nivel N2: 80/156 de recordar/entender (51,3 %).
 - 🛑 Pendiente de la revisión de Javier, incluidas las fuentes de publicidad (verificarAntesDe 2027-04-30).
+
+## n2-u5 — Divisas, materias primas y cripto y lección-juego «El viaje del dólar» (19/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Crítico aplicado: el ejemplo de contango multiplicaba por 0,98 por un futuro «un 2 % más caro» (sería 1/1,02). Ahora dice «pierde un 2 % en cada renovación», como el ejercicio.
+  - Mayores aplicados:
+    - en España, la CNMV supervisa a los proveedores de servicios de criptoactivos y el Banco de España a los emisores de stablecoins, con la fuente de la Ley 6/2023;
+    - ETC definido (título de deuda, con riesgo de emisor) y añadido al glosario;
+    - futuro frente a forward;
+    - parámetro negativo de l3-e2.
+  - Menores aplicados (13): custodia en MiCA, reembolso a la par de las stablecoins, sinónimos, textos para pérdidas en el juego y el explicador, fuente del BCE, Bloom de l5-e6…
+- **Ronda 2:** aprobada. Estado: `reviewed`.
+- Bloom del nivel N2: 99/197 de recordar/entender (50,3 %, justo).
+- 🛑 Pendiente de la revisión de Javier: comprobar en el BOE el artículo de la Ley 6/2023 que reparte la supervisión entre CNMV y Banco de España (el revisor lo dio de memoria).

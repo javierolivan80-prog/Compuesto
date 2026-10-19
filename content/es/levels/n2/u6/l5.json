@@ -134,6 +134,17 @@
     },
     {
       "id": "n2-u6-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["mercado-monetario-repo"],
+      "statement": "Si suben los recortes de los repos, con la misma garantía se consigue menos dinero.",
+      "answer": true,
+      "explanation": "Verdadero: lo prestado es la garantía menos el recorte."
+    },
+    {
+      "id": "n2-u6-l5-e9",
       "type": "fill_blank",
       "difficulty": 1,
       "bloom": "recordar",
@@ -144,7 +155,7 @@
       "explanation": "Actual/360."
     },
     {
-      "id": "n2-u6-l5-e9",
+      "id": "n2-u6-l5-e10",
       "type": "scenario",
       "difficulty": 4,
       "bloom": "evaluar",

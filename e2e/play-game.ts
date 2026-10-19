@@ -12,6 +12,7 @@ import { fall10, setupCurve } from '../src/engine/games/yield-curve';
 import { rightDiff, setupFunds, SITUATIONS } from '../src/engine/games/fund-fees';
 import { mean as luckMean, setupLuck } from '../src/engine/games/luck-or-skill';
 import { dollars, rightCompare, setupFx } from '../src/engine/games/fx-trip';
+import { interest, loan, setupRepo } from '../src/engine/games/repo-night';
 import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/dividend-day';
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
@@ -44,6 +45,18 @@ export async function playGameLesson(
     await expect(page.getByRole('heading', { name: 'La compra grande' })).toBeVisible();
     await page.getByRole('button', { name: /^Lo que queda/ }).click();
     await page.getByRole('button', { name: /^Comprar \d+ a mercado$/ }).click();
+  } else if (kind === 'repo-night') {
+    // referencia 0: el préstamo, los intereses y la cédula
+    await expect(page.getByRole('heading', { name: 'Una noche en la tesorería' })).toBeVisible();
+    const setup = setupRepo(seed);
+    const l = formatNumber(loan(setup), 2);
+    await page.getByRole('radio', { name: new RegExp(`^${l} millones`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const i = formatNumber(interest(setup)).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${i}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: 'La cédula hipotecaria' }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura
     await expect(page.getByRole('heading', { name: 'El viaje del dólar' })).toBeVisible();

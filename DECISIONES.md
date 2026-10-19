@@ -680,3 +680,15 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Conceptos:** `divisas`, `materias-primas` y `cripto-mica`.
 - **Componente:** el patrón de pregunta con explicación de las lecciones-juego pasa al kit como `AskStep` (lo usan «¿Suerte o habilidad?» y «El viaje del dólar»).
 - **Hechos que caducan:** MiCA (Reglamento (UE) 2023/1114) y el papel de la CNMV llevan fuente y `verificarAntesDe` 2027-04-30. 🛑 Javier debe contrastarlos.
+
+## 2026-10-19 — Unidad `n2-u6` «Mercado monetario, repo, cédulas y titulizaciones» y juego «Una noche en la tesorería»
+
+- **Decisión:** cinco lecciones:
+  - el juego, nuevo, con ficha en `docs/specs/noche-tesoreria.md`;
+  - el mercado monetario (€STR, Euríbor, Letras con actual/360);
+  - el repo por dentro, con el explicador nuevo `RepoFlow`, añadido al catálogo;
+  - cédulas y titulizaciones (reparto de pérdidas por tramos);
+  - el Jefe final con un lunes en la tesorería.
+- **Conceptos:** `mercado-monetario-repo` y `cedulas-titulizaciones`.
+- **Bloom de N2:** va muy justo (≈ 50 %), y el Jefe final lleva un verdadero/falso más para no bajar del mínimo. Las unidades que quedan de la planta 2 (pensiones, SOCIMI, productos complejos e introducción a derivados) deben cargar algo más de recordar y entender.
+- **Hechos que caducan:** el €STR del BCE y el régimen de bonos garantizados (Real Decreto-ley 24/2021) llevan fuente y `verificarAntesDe` 2027-04-30.
