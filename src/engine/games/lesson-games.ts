@@ -254,7 +254,7 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     weight: [0, 0],
     de: [2, 2],
     beta_l: [4, 4],
-    ke: [2, 2],
+    ke: [4, 4],
     kd: [2, 2],
     kd_after: [3, 3],
     wacc: [2, 2],

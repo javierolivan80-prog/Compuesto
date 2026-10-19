@@ -238,7 +238,7 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["ratios"],
-      "prompt": "El margen neto de Tramuntana ({tra_margin} %) es mucho menor que el de Naranjas ({nar_margin} %). ¿Por qué su ROE ({tra_roe} %) no es tan inferior?",
+      "prompt": "En 2025, el margen neto de Tramuntana (4,22 %) es mucho menor que el de Naranjas (12,28 %). ¿Por qué su ROE (15,09 %) no es tan inferior?",
       "options": [
         "Porque rota su activo mucho más y se financia con más deuda",
         "Porque paga menos impuestos",
@@ -246,7 +246,7 @@
         "Porque cobra más tarde a sus clientes"
       ],
       "answer": 0,
-      "explanation": "DuPont: el bajo margen se compensa con más rotación ({tra_turnover} frente a {nar_turnover}) y más apalancamiento ({tra_leverage} frente a {nar_leverage}).",
+      "explanation": "DuPont: el bajo margen se compensa con más rotación (1,86 frente a 1,07) y más apalancamiento (1,92 frente a 1,45).",
       "wrongExplanations": {
         "1": "Los impuestos ya están dentro del margen neto.",
         "2": "Un activo mayor, con las mismas ventas, bajaría la rotación y el ROE.",

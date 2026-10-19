@@ -45,7 +45,7 @@ export function WaccMix({ rf, erp, size, betaU, kd0, threshold, onInteract }: Pr
     title: r.w === 0 ? 'Sin deuda' : `Un ${r.w}\u00a0% de deuda`,
     text:
       i === 0
-        ? `Todo es capital propio: beta ${formatNumber(r.beta, 2)}, coste del capital ${pct(r.ke)}, y el WACC es ese mismo ${pct(r.wacc)}.`
+        ? `Todo es capital propio: beta ${formatNumber(r.beta, 2)}, coste del capital propio ${pct(r.ke)}, y el WACC es ese mismo ${pct(r.wacc)}.`
         : i === 3
           ? `Demasiada deuda: los bancos cobran un ${pct(costOfDebt(s, r.w))} antes de impuestos y el capital propio pide un ${pct(r.ke)}. El WACC sube a ${pct(r.wacc)}.`
           : `La deuda cuesta un ${pct(r.kd)} después de impuestos y pesa más; el capital propio sube a ${pct(r.ke)} (beta ${formatNumber(r.beta, 2)}). WACC: ${pct(r.wacc)}.`,

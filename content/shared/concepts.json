@@ -849,7 +849,7 @@
     "level": 3,
     "prerequisites": ["impuesto-sociedades", "emision-bonos"],
     "unit": "n3-u5",
-    "description": "Lo que costaría hoy endeudarse, por su ahorro fiscal: kd × (1 − t)."
+    "description": "Lo que costaría hoy endeudarse, neto del ahorro fiscal de los intereses: kd × (1 − t)."
   },
   {
     "id": "beta-apalancada",

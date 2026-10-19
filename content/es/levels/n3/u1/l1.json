@@ -247,12 +247,12 @@
       "tags": [],
       "concepts": ["balance"],
       "character": "rival",
-      "situation": "Hugo Ferrer, el otro becario, mira tu balance de enero: «Naranjas ha ganado {margin} con la venta del zumo, así que tiene {margin} más en la caja».",
+      "situation": "Hugo Ferrer, el otro becario, mira tu balance de enero: «Naranjas ha ganado dinero con la venta del zumo, así que ese beneficio ya está en la caja».",
       "prompt": "¿Qué le contestas?",
       "options": [
-        "Que no: la venta fue a crédito, así que sube clientes en {sale}; la caja no se mueve hasta que el cliente pague",
+        "Que no: la venta fue a crédito, así que suben los clientes por el precio de venta; la caja no se mueve hasta que el cliente pague",
         "Que sí: todo beneficio entra en la caja el mismo día",
-        "Que la caja sube {sale}, el precio completo de la venta",
+        "Que la caja sube por el precio completo de la venta",
         "Que el beneficio baja la caja, porque hay que pagar el zumo"
       ],
       "answer": 0,

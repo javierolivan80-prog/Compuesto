@@ -935,7 +935,7 @@
       "mix": "Paso 2 de 2 · cuánta deuda",
       "reveal": "Paso 2 de 2 · el resultado"
     },
-    "brief": "La directora financiera de Naranjas quiere saber si le conviene más o menos deuda. Hoy se financia con un {{w}} % de deuda. Datos: tipo sin riesgo {{rf}}, prima de mercado {{erp}}, prima por tamaño {{size}}, beta desapalancada del negocio {{betaU}} y coste de la deuda antes de impuestos {{kd}}; tipo del impuesto sobre sociedades, 25 %.",
+    "brief": "La directora financiera de Naranjas quiere saber si le conviene más o menos deuda. Su estructura objetivo, la del sector, es un {{w}} % de deuda. Datos: tipo sin riesgo {{rf}}, prima de mercado {{erp}}, prima por tamaño {{size}}, beta desapalancada del negocio {{betaU}} y coste de la deuda antes de impuestos {{kd}}; tipo del impuesto sobre sociedades, 25 %.",
     "askBeta": "Con un {{w}} % de deuda, ¿cuál es su beta apalancada?",
     "betaWhy": "Hamada: beta apalancada = beta desapalancada × (1 + (1 − 25 %) × D/E) = {{betaU}} × (1 + 0,75 × {{de}}) = {{betaL}}. Con ella, el CAPM da un coste del capital propio de {{ke}}.",
     "next": "Siguiente",
@@ -956,7 +956,7 @@
     "summary": "Ver el resumen",
     "hit": "¡Bien!",
     "doneTitle": "Informe para la directora financiera",
-    "today": "WACC hoy, con un {{w}} % de deuda",
+    "today": "WACC con la estructura objetivo ({{w}} %)",
     "yours": "Con tu propuesta ({{w}} %)",
     "min": "El mínimo ({{w}} %)",
     "great": "Perfecto: beta bien apalancada y estructura óptima. La directora financiera toma nota.",

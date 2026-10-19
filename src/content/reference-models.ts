@@ -110,7 +110,7 @@ const WACC_RATIONALE = {
     'Hipótesis: beta desapalancada de procesado de alimentos en Europa (Damodaran, Betas by Sector). Verificar.',
   targetDebtToCapital:
     'Estructura objetivo del sector (hipótesis), no la actual (Naranjas tiene caja neta).',
-  preTaxCostOfDebt: 'Coste histórico de su préstamo (4,5 %).',
+  preTaxCostOfDebt: 'Coste al que se financiaría hoy (hipótesis: 4,5 %, en línea con su préstamo).',
 };
 
 const TERMINAL_GROWTH = 0.02;

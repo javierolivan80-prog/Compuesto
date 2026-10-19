@@ -13,7 +13,7 @@
     "Calcular la beta apalancada, el coste del capital propio, el de la deuda después de impuestos y el WACC",
     "Explicar por qué el WACC baja con algo de deuda y sube con demasiada"
   ],
-  "concepts": ["wacc", "beta-apalancada", "coste-capital", "coste-deuda"],
+  "concepts": ["wacc", "beta-apalancada", "coste-capital", "coste-deuda", "estructura-capital"],
   "companies": ["naranjas-del-turia"],
   "historical": false,
   "game": {
@@ -24,12 +24,12 @@
     {
       "type": "card",
       "term": "Beta apalancada",
-      "text": "La beta del negocio, sin deuda, era {beta_u}. Con un {weight} % de deuda (deuda entre capital propio, D/E = {de}), los accionistas cobran después de los bancos y cargan más riesgo: beta apalancada = {beta_u} × (1 + 0,75 × {de}) = {beta_l}."
+      "text": "La beta del negocio, sin deuda, es {beta_u}. Con la estructura objetivo, la deuda es un {weight} % de la financiación: D/E = {weight} / (100 − {weight}) = {de}. Los accionistas cobran después de los bancos y cargan más riesgo: beta apalancada = {beta_u} × (1 + 0,75 × {de}) = {beta_l}."
     },
     {
       "type": "card",
       "term": "Lo que cuesta cada parte",
-      "text": "Los accionistas piden, por CAPM: {rf} + {beta_l} × {erp} + {size} de prima por tamaño = {ke} %. Los bancos cobran un {kd} %, pero los intereses rebajan el impuesto sobre sociedades: {kd} × (1 − 0,25) = {kd_after} % después de impuestos."
+      "text": "Los accionistas piden, por CAPM más una prima por tamaño: {rf} % + {beta_l} × {erp} % + {size} % = {ke} %. Los bancos cobran un {kd} %, pero los intereses rebajan el impuesto sobre sociedades: {kd} × (1 − 0,25) = {kd_after} % después de impuestos."
     },
     {
       "type": "card",
@@ -82,7 +82,6 @@
       "concepts": ["beta-apalancada"],
       "prompt": "Beta desapalancada {beta_u}, D/E = {de} e impuesto sobre sociedades del 25 %. ¿Cuál es la beta apalancada? (2 decimales)",
       "answer": 0.77,
-      "unit": "veces",
       "tolerance": 1.5,
       "answerDecimals": 2,
       "formula": "{beta_u} * (1 + 0.75 * {de})",
@@ -213,7 +212,7 @@
           "min": 7,
           "max": 12,
           "step": 0.0001,
-          "decimals": 2
+          "decimals": 4
         },
         "kd_after": {
           "value": 3.375,
@@ -239,9 +238,9 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["wacc"],
-      "prompt": "Con el {weight} % de deuda de hoy, el WACC de Naranjas es {wacc} %; con un {best} %, {wacc_best} %. ¿Cuántos puntos baja? (2 decimales)",
+      "prompt": "Con la estructura objetivo, un {weight} % de deuda, el WACC de Naranjas es {wacc} %; con un {best} %, {wacc_best} %. ¿Cuántos puntos porcentuales baja? (2 decimales)",
       "answer": 0.38,
-      "unit": "puntos",
+      "unit": "puntos porcentuales",
       "tolerance": 3,
       "answerDecimals": 2,
       "formula": "{wacc} - {wacc_best}",
@@ -249,30 +248,30 @@
         "weight": {
           "value": 20,
           "min": 10,
-          "max": 40,
+          "max": 25,
           "step": 5,
           "decimals": 0
         },
         "wacc": {
           "value": 8.2714,
-          "min": 6,
+          "min": 8,
           "max": 11,
           "step": 0.0001,
-          "decimals": 2
+          "decimals": 4
         },
         "best": {
           "value": 35,
-          "min": 0,
-          "max": 70,
+          "min": 30,
+          "max": 50,
           "step": 5,
           "decimals": 0
         },
         "wacc_best": {
           "value": 7.8953,
           "min": 6,
-          "max": 11,
+          "max": 7.95,
           "step": 0.0001,
-          "decimals": 2
+          "decimals": 4
         }
       },
       "derived": {
@@ -314,14 +313,19 @@
       "concepts": ["wacc"],
       "statement": "Como la deuda es más barata que el capital propio, cuanta más deuda tenga una empresa, más bajo será siempre su WACC.",
       "answer": false,
-      "explanation": "Falso. Cada punto de deuda sube la beta y, a partir de cierto nivel, los bancos cobran mucho más por el riesgo de impago: en el juego, por encima del {best} % el WACC vuelve a subir."
+      "explanation": "Falso. Cada punto de deuda sube la beta y, a partir de cierto nivel, los bancos cobran mucho más por el riesgo de impago: en el juego, por encima de un 35 % de deuda el WACC vuelve a subir."
     }
   ],
-  "realWorld": "Las cuentas anuales de las cotizadas recogen la tasa de descuento con la que prueban el deterioro de sus activos, que suele construirse como un WACC. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "Las cotizadas informan en sus cuentas anuales de la tasa de descuento con la que prueban el deterioro de sus activos (NIC 36), que suele partir de un WACC. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "IFRS Foundation, NIC 36 Deterioro del valor de los activos, párr. 134 (información sobre la tasa de descuento)",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-36-impairment-of-assets/",
       "date": "2026-10-19"
     }
   ],

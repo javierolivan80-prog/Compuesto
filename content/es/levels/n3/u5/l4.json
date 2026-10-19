@@ -129,7 +129,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["coste-deuda"],
-      "prompt": "Pirineo pidió un préstamo al 3 % hace seis años. Hoy sus bonos cotizan con una rentabilidad del 5,5 %. ¿Qué coste de la deuda usas, antes de impuestos?",
+      "prompt": "Mediterránea de Navieras pidió un préstamo al 3 % hace seis años. Hoy sus bonos cotizan con una rentabilidad del 5,5 %. ¿Qué coste de la deuda usas, antes de impuestos?",
       "options": [
         "El 5,5 %: lo que le costaría endeudarse hoy",
         "El 3 %: lo que paga de verdad",
@@ -157,7 +157,7 @@
       "tolerance": 0.5,
       "answerDecimals": 2,
       "formula": "0.65 * 10.27 + 0.35 * 4.65 * 0.75",
-      "explanation": "0,65 × 10,27 + 0,35 × 4,65 × 0,75 = 6,68 + 1,22 = 7,90 %: el mínimo que encontraste en el juego."
+      "explanation": "0,65 × 10,27 + 0,35 × 4,65 × 0,75 = 6,68 + 1,22 = 7,90 %: el mínimo del juego."
     },
     {
       "id": "n3-u5-l4-e6",
@@ -246,7 +246,7 @@
       }
     }
   ],
-  "realWorld": "En España, los gastos financieros netos solo son deducibles hasta el 30 % del beneficio operativo del ejercicio, con un mínimo de un millón de euros (art. 16 de la Ley del Impuesto sobre Sociedades): con mucha deuda, el escudo fiscal deja de crecer. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
+  "realWorld": "En España, en general, los gastos financieros netos se deducen en el ejercicio hasta el 30 % del beneficio operativo (definido en la ley), con un mínimo de un millón de euros; el exceso puede deducirse en años siguientes (art. 16 de la Ley 27/2014). Con mucha deuda, el escudo fiscal del año deja de crecer. Las hipótesis (tipo sin riesgo, prima de mercado, betas) son ilustrativas, como todo el universo de Compuesto: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Corporate Issuers (coste de capital: CAPM, beta apalancada y WACC)",

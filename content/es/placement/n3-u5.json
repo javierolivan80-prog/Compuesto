@@ -18,7 +18,7 @@
       "explanation": "3 + 1,2 × 5 = 9 %.",
       "wrongExplanations": {
         "1": "Has usado beta 1.",
-        "2": "Has multiplicado la beta por el tipo sin riesgo.",
+        "2": "Te falta sumar el tipo sin riesgo: 1,2 × 5 = 6 %.",
         "3": "Has multiplicado todo por la beta."
       }
     },
@@ -86,13 +86,13 @@
       "tags": ["test-de-salto"],
       "concepts": ["wacc"],
       "prompt": "E/V 60 % con ke 10 %; D/V 40 % con kd 5 % antes de impuestos (t = 25 %). ¿WACC?",
-      "options": ["7,5 %", "8 %", "7,5 % sin impuestos", "9 %"],
+      "options": ["7,5 %", "8 %", "6,25 %", "6,88 %"],
       "answer": 0,
       "explanation": "0,6 × 10 + 0,4 × 3,75 = 6 + 1,5 = 7,5 %.",
       "wrongExplanations": {
         "1": "Falta el ahorro fiscal: 0,6 × 10 + 0,4 × 5 = 8 %.",
-        "2": "Sin impuestos saldría 8 %, no 7,5 %.",
-        "3": "No es la media ponderada."
+        "2": "Has invertido los pesos: 0,4 × 10 + 0,6 × 3,75.",
+        "3": "Es la media simple de 10 y 3,75: hay que ponderar por los pesos."
       }
     },
     {

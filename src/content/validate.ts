@@ -112,7 +112,15 @@ export const PARAM_SEEDS = 100;
 
 /** Comprobaciones de un ejercicio: las de siempre y, si tiene `params`, las de la plantilla y 100 variantes. */
 export function checkExercise(e: Exercise, strict: boolean): Issue[] {
-  return isParametric(e) ? checkParametric(e, strict) : checkConcrete(e, strict);
+  if (isParametric(e)) return checkParametric(e, strict);
+  // sin params nadie rellena los marcadores (ni las cifras de una lección-juego): se verían literales
+  const loose = markersOf(JSON.stringify(e)).map<Issue>((m) => ({
+    severity: 'error',
+    code: 'params',
+    where: e.id,
+    message: `Marcador {${m}} en un ejercicio sin params: se vería literal (solo se rellenan los parámetros declarados)`,
+  }));
+  return [...loose, ...checkConcrete(e, strict)];
 }
 
 function checkParametric(e: ParametricExercise, strict: boolean): Issue[] {

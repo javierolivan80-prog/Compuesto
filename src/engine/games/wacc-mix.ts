@@ -12,7 +12,7 @@ import { mulberry32 } from '../prng';
 export const TAX = 0.25;
 /** Pesos de la deuda que se pueden elegir: de 0 a 70 % de 5 en 5. */
 export const WEIGHTS: readonly number[] = Array.from({ length: 15 }, (_, i) => i * 5);
-/** Estructura actual de Naranjas: un 20 % de deuda (D/E = 0,25). */
+/** Estructura objetivo (la del sector) del modelo DCF de Naranjas: un 20 % de deuda (D/E = 0,25). */
 export const CURRENT = 20;
 
 export interface WaccSetup {

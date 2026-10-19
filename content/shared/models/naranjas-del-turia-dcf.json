@@ -67,7 +67,7 @@
     "sizePremium": "Hipótesis discutida: prima por tamaño y baja liquidez de una cotizada pequeña. Muchos manuales la cuestionan; el ejercicio enseña a defenderla o quitarla.",
     "unleveredBeta": "Hipótesis: beta desapalancada de procesado de alimentos en Europa (Damodaran, Betas by Sector). Verificar.",
     "targetDebtToCapital": "Estructura objetivo del sector (hipótesis), no la actual (Naranjas tiene caja neta).",
-    "preTaxCostOfDebt": "Coste histórico de su préstamo (4,5 %).",
+    "preTaxCostOfDebt": "Coste al que se financiaría hoy (hipótesis: 4,5 %, en línea con su préstamo).",
     "terminalGrowth": "g = 2 %, igual al objetivo de inflación del BCE (crecimiento real nulo a perpetuidad): conservador y por debajo del PIB nominal a largo plazo, que es el tope razonable.",
     "exitMultiple": "Contraste por múltiplo EV/EBITDA de salida (hipótesis de comparables del sector).",
     "netDebt": "Deuda 12.000 − caja 15.385 = −3.385: caja neta, que suma al valor del patrimonio. Simplificación: toda la caja se trata como no operativa; en el LBO se retienen 3.000 como caja mínima."

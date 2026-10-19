@@ -42,7 +42,6 @@
       "concepts": ["beta-apalancada"],
       "prompt": "Beta desapalancada {bu}, D/E = {de} e impuesto del 25 %. ¿Beta apalancada? (2 decimales)",
       "answer": 1.1,
-      "unit": "veces",
       "tolerance": 1.5,
       "answerDecimals": 2,
       "formula": "{bu} * (1 + 0.75 * {de})",
@@ -79,7 +78,6 @@
       "concepts": ["beta-apalancada"],
       "prompt": "Un comparable tiene una beta (apalancada) de {bl}, D/E = {de} e impuesto del 25 %. ¿Su beta desapalancada? (2 decimales)",
       "answer": 0.83,
-      "unit": "veces",
       "tolerance": 1.5,
       "answerDecimals": 2,
       "formula": "{bl} / (1 + 0.75 * {de})",
@@ -145,13 +143,12 @@
       "bloom": "analizar",
       "tags": [],
       "concepts": ["beta-apalancada"],
-      "prompt": "Las betas desapalancadas de tres comparables de Naranjas son 0,55 · 0,70 · 0,62. Con su mediana y la estructura objetivo de Naranjas (D/E = 0,25, impuesto del 25 %), ¿cuál es su beta apalancada? (2 decimales)",
-      "answer": 0.74,
-      "unit": "veces",
+      "prompt": "Las betas desapalancadas de tres comparables de Naranjas son 0,58 · 0,72 · 0,65. Con su mediana y la estructura objetivo de Naranjas (D/E = 0,25, impuesto del 25 %), ¿cuál es su beta apalancada? (2 decimales)",
+      "answer": 0.77,
       "tolerance": 1.5,
       "answerDecimals": 2,
-      "formula": "0.62 * (1 + 0.75 * 0.25)",
-      "explanation": "Mediana 0,62; reapalancada: 0,62 × (1 + 0,75 × 0,25) = 0,62 × 1,1875 = 0,74.",
+      "formula": "0.65 * (1 + 0.75 * 0.25)",
+      "explanation": "Mediana 0,65; reapalancada: 0,65 × (1 + 0,75 × 0,25) = 0,65 × 1,1875 = 0,77: la beta de Naranjas en el modelo DCF.",
       "hint": "Primero la mediana; luego Hamada."
     },
     {
@@ -216,7 +213,7 @@
         "La beta desapalancada del sector es 0,65.",
         "Con un 30 % de deuda, D/E = 30 / 70 = 0,43.",
         "Beta apalancada = 0,65 × (1 + 0,43) = 0,93.",
-        "Con un 3,25 % sin riesgo y un 5,5 % de prima, su coste del capital propio es 8,37 % antes de la prima por tamaño."
+        "Con esa beta calculará el coste del capital propio por CAPM."
       ],
       "errorIndex": 2,
       "explanation": "Se ha olvidado del impuesto: 0,65 × (1 + 0,75 × 0,43) = 0,86. Los intereses ahorran impuestos y la deuda carga algo menos a los accionistas."
