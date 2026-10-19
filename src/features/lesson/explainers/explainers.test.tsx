@@ -116,6 +116,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/108\.79\d/);
     expect(text).toMatch(/76 %/);
   });
+  it('BondSeesaw: sube el tipo, baja el precio; a la par con el tipo igual al cupón', () => {
+    render(<ExplainerBlock component="BondSeesaw" props={{ coupon: 4, years: 5 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/al 3,0\s%.*vale 104,58/);
+    expect(text).toMatch(/al 4,0\s%.*vale 100,00/);
+    expect(text).toMatch(/al 6,0\s%.*vale 91,58/);
+  });
   it('WaccMix: el WACC baja con algo de deuda y sube con demasiada', () => {
     render(
       <ExplainerBlock

@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react';
 import { EXPLAINER_PROPS } from '../../../content/explainer-props';
 import type { ExplainerName } from '../../../content/explainer-names';
+import { BondSeesaw } from './BondSeesaw';
 import { CashCycle } from './CashCycle';
 import { CompoundCurve } from './CompoundCurve';
 import { DcfTimeTravel } from './DcfTimeTravel';
@@ -46,6 +47,7 @@ const REGISTRY = {
   EvBridge,
   WaccMix,
   DcfTimeTravel,
+  BondSeesaw,
 } as unknown as Registry;
 
 /** Dibuja el explicador citado en el JSON de la lección (`{type:'visual', component, props}`). */

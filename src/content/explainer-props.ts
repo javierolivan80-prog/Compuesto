@@ -80,6 +80,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       g: z.number().min(0).max(5),
     })
     .refine((p) => p.wacc > p.g, 'El WACC debe ser mayor que g'),
+  BondSeesaw: z.object({
+    coupon: z.number().min(2).max(10),
+    years: z.number().int().min(1).max(30),
+  }),
   WaccMix: z.object({
     rf: z.number().min(0),
     erp: z.number().positive(),

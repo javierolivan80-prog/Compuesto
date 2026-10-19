@@ -1082,5 +1082,8 @@
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo se relacionan cupón, precio y rentabilidad.",
     "debrief": "Ver qué ha pasado"
+  },
+  "bondSeesaw": {
+    "title": "El balancín del precio y los tipos"
   }
 }
