@@ -1,31 +1,20 @@
 {
   "id": "salto-n1-u3",
   "unitId": "n1-u3",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u3-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["bme"],
-      "prompt": "BME es…",
-      "options": [
-        "Un índice bursátil",
-        "Un banco comercial",
-        "El operador de las bolsas y mercados españoles",
-        "El organismo supervisor"
-      ],
-      "answer": 2,
-      "explanation": "BME gestiona los mercados; supervisa la CNMV.",
-      "wrongExplanations": {
-        "0": "Un índice es, por ejemplo, el IBEX 35.",
-        "1": "No capta depósitos.",
-        "3": "Esa función es de la CNMV."
-      }
+      "type": "fill_blank",
+      "prompt": "El operador de las bolsas y mercados españoles se conoce por sus siglas: ___.",
+      "answers": [["BME"]],
+      "explanation": "BME (Bolsas y Mercados Españoles); la CNMV supervisa."
     },
     {
       "id": "salto-n1-u3-q2",
@@ -51,14 +40,18 @@
     },
     {
       "id": "salto-n1-u3-q3",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["ibex-35"],
-      "statement": "Un índice bursátil mide la evolución conjunta de un grupo de acciones.",
-      "answer": true,
-      "explanation": "Resume cómo se comporta un mercado."
+      "type": "numeric_input",
+      "prompt": "El IBEX 35 cierra un día a 11.000 puntos y al siguiente a 11.220. ¿Cuánto ha subido? (%)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(11220 / 11000 - 1) * 100",
+      "explanation": "220 / 11.000 = 2 %."
     },
     {
       "id": "salto-n1-u3-q4",
@@ -101,42 +94,43 @@
     },
     {
       "id": "salto-n1-u3-q6",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
-      "concepts": ["indices-mundiales"],
-      "prompt": "¿Cuál es un índice de grandes empresas de Estados Unidos?",
-      "options": ["IBEX 35", "S&P 500", "Nikkei 225", "Euro Stoxx 50"],
-      "answer": 1,
-      "explanation": "El S&P 500 agrupa 500 grandes empresas estadounidenses.",
-      "wrongExplanations": {
-        "0": "Es español.",
-        "2": "Es japonés.",
-        "3": "Es de la zona euro."
-      }
+      "concepts": ["indices-mundiales", "ibex-35"],
+      "type": "categorize",
+      "prompt": "¿De dónde es cada índice?",
+      "categories": ["España", "EE. UU.", "Zona euro"],
+      "items": [
+        {
+          "text": "IBEX 35",
+          "category": "España"
+        },
+        {
+          "text": "S&P 500",
+          "category": "EE. UU."
+        },
+        {
+          "text": "Euro Stoxx 50",
+          "category": "Zona euro"
+        },
+        {
+          "text": "Nasdaq 100",
+          "category": "EE. UU."
+        }
+      ],
+      "explanation": "Cada índice resume las grandes empresas de su mercado."
     },
     {
       "id": "salto-n1-u3-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["otc"],
-      "prompt": "Un mercado OTC es aquel en el que las operaciones se cierran…",
-      "options": [
-        "Directamente entre las partes, fuera de un mercado organizado",
-        "En la bolsa de Madrid",
-        "Solo por el Estado",
-        "Solo en euros"
-      ],
-      "answer": 0,
-      "explanation": "OTC significa \"over the counter\": a medida entre las partes.",
-      "wrongExplanations": {
-        "1": "La bolsa de Madrid es un mercado organizado, lo contrario de un OTC.",
-        "2": "Un OTC es privado entre partes, no una operación estatal.",
-        "3": "La moneda no define un OTC."
-      }
+      "type": "fill_blank",
+      "prompt": "Las operaciones que se cierran directamente entre las partes, fuera de un mercado organizado, se llaman ___ (siglas en inglés).",
+      "answers": [["OTC"]],
+      "explanation": "OTC: over the counter."
     },
     {
       "id": "salto-n1-u3-q8",
@@ -148,6 +142,65 @@
       "statement": "El Euro Stoxx 50 agrupa grandes empresas de la zona euro.",
       "answer": true,
       "explanation": "Es un índice de referencia europeo."
+    },
+    {
+      "id": "salto-n1-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ibex-35"],
+      "prompt": "Un índice ponderado por capitalización tiene dos empresas: A capitaliza 300 millones y B, 100 millones. Si A sube un 10 % y B no se mueve, ¿cuánto sube el índice? (%, 1 decimal)",
+      "answer": 7.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "300 * 0.10 / 400 * 100",
+      "explanation": "A pesa 300 / 400 = 75 %: 75 % × 10 % = 7,5 %."
+    },
+    {
+      "id": "salto-n1-u3-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["bme-growth"],
+      "prompt": "El mercado de BME para pymes en expansión, con requisitos adaptados, se llama BME ___.",
+      "answers": [["Growth"]],
+      "explanation": "BME Growth."
+    },
+    {
+      "id": "salto-n1-u3-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["otc"],
+      "prompt": "¿Qué riesgo es más típico de una operación OTC que de una en un mercado organizado?",
+      "options": [
+        "Que la otra parte no cumpla (riesgo de contraparte)",
+        "Que el precio cambie",
+        "Que haya que pagar impuestos",
+        "Que la operación sea pública"
+      ],
+      "answer": 0,
+      "explanation": "Sin cámara que garantice, dependes de que la otra parte cumpla.",
+      "wrongExplanations": {
+        "1": "El precio cambia en cualquier mercado.",
+        "2": "Los impuestos no dependen de eso.",
+        "3": "Al contrario: suelen ser menos transparentes."
+      }
+    },
+    {
+      "id": "salto-n1-u3-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["bme"],
+      "statement": "La CNMV es la empresa que gestiona la Bolsa de Madrid.",
+      "answer": false,
+      "explanation": "Falso: la gestiona BME; la CNMV la supervisa."
     }
   ],
   "sources": [],

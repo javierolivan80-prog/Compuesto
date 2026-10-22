@@ -1,26 +1,20 @@
 {
   "id": "salto-n1-u1",
   "unitId": "n1-u1",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u1-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["empresa"],
-      "prompt": "Una sociedad anónima (S.A.) es una empresa cuyo capital se divide en…",
-      "options": ["Bonos", "Depósitos", "Acciones", "Letras"],
-      "answer": 2,
-      "explanation": "El capital de una S.A. está dividido en acciones.",
-      "wrongExplanations": {
-        "0": "Los bonos son deuda, no capital.",
-        "1": "Son productos bancarios.",
-        "3": "Las letras son deuda pública a corto plazo."
-      }
+      "type": "fill_blank",
+      "prompt": "El capital de una sociedad anónima (S.A.) se divide en ___.",
+      "answers": [["acciones"]],
+      "explanation": "En acciones: cada una es una parte del capital."
     },
     {
       "id": "salto-n1-u1-q2",
@@ -57,25 +51,18 @@
     },
     {
       "id": "salto-n1-u1-q4",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["capitalizacion"],
-      "prompt": "Una empresa tiene 10 millones de acciones a 5 € cada una. Su capitalización bursátil es…",
-      "options": [
-        "15 millones de euros",
-        "2 millones de euros",
-        "5 millones de euros",
-        "50 millones de euros"
-      ],
-      "answer": 3,
-      "explanation": "10.000.000 × 5 € = 50.000.000 €.",
-      "wrongExplanations": {
-        "0": "Se multiplica, no se suma.",
-        "1": "Se multiplica el número de acciones por el precio.",
-        "2": "Eso es solo el precio por 1 millón."
-      }
+      "type": "numeric_input",
+      "prompt": "Una empresa tiene 10 millones de acciones a 5 € cada una. ¿Cuál es su capitalización bursátil? (millones de €)",
+      "answer": 50,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10 * 5",
+      "explanation": "10.000.000 × 5 € = 50 millones de €."
     },
     {
       "id": "salto-n1-u1-q5",
@@ -96,36 +83,29 @@
     },
     {
       "id": "salto-n1-u1-q6",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["free-float"],
-      "prompt": "El free float es…",
-      "options": [
-        "El dividendo anual",
-        "La parte de las acciones que cotiza libremente en el mercado",
-        "El precio medio del año",
-        "El número de empleados"
-      ],
-      "answer": 1,
-      "explanation": "Excluye lo que está en manos de socios estables.",
-      "wrongExplanations": {
-        "0": "Eso es el dividendo.",
-        "2": "No es un precio.",
-        "3": "No tiene relación."
-      }
+      "type": "fill_blank",
+      "prompt": "La parte de las acciones de una empresa cotizada que se negocia libremente en el mercado se llama ___.",
+      "answers": [["free float", "free-float", "capital flotante"]],
+      "explanation": "El free float (capital flotante): excluye a los socios estables."
     },
     {
       "id": "salto-n1-u1-q7",
-      "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["free-float"],
-      "statement": "Si un único socio estable posee el 60 % de las acciones, el free float no puede superar el 40 %.",
-      "answer": true,
-      "explanation": "Ese 60 % no se negocia libremente: queda como máximo el 40 %."
+      "type": "numeric_input",
+      "prompt": "Un socio estable tiene el 60 % de las acciones y otro el 15 %; el resto está en manos de inversores que compran y venden. ¿Cuál es el free float? (%)",
+      "answer": 25,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "100 - 60 - 15",
+      "explanation": "100 − 60 − 15 = 25 %."
     },
     {
       "id": "salto-n1-u1-q8",
@@ -148,6 +128,78 @@
         "1": "Cotizar no implica estar libre de deudas.",
         "2": "Las empresas cotizadas pagan impuestos."
       }
+    },
+    {
+      "id": "salto-n1-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capitalizacion"],
+      "prompt": "Una empresa cotiza a 12 € y tiene 25 millones de acciones. ¿Cuál es su capitalización bursátil? (millones de €)",
+      "answer": 300,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "12 * 25",
+      "explanation": "12 × 25 millones = 300 millones de €."
+    },
+    {
+      "id": "salto-n1-u1-q10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["accion"],
+      "prompt": "¿Es un derecho del accionista?",
+      "categories": ["Derecho del accionista", "No lo es"],
+      "items": [
+        {
+          "text": "Cobrar los dividendos que acuerde la junta",
+          "category": "Derecho del accionista"
+        },
+        {
+          "text": "Votar en la junta general",
+          "category": "Derecho del accionista"
+        },
+        {
+          "text": "Que le devuelvan lo invertido si la empresa quiebra",
+          "category": "No lo es"
+        },
+        {
+          "text": "Cobrar un interés fijo cada año",
+          "category": "No lo es"
+        }
+      ],
+      "explanation": "El accionista es dueño: vota y cobra dividendos si se reparten, pero no tiene nada garantizado."
+    },
+    {
+      "id": "salto-n1-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capitalizacion"],
+      "prompt": "Una empresa capitaliza 2.000 millones de € y tiene 100 millones de acciones. ¿A qué precio cotiza cada acción?",
+      "options": ["20 €", "200 €", "2 €", "0,05 €"],
+      "answer": 0,
+      "explanation": "2.000 / 100 = 20 €.",
+      "wrongExplanations": {
+        "1": "Sobra un cero.",
+        "2": "Falta un cero.",
+        "3": "Has dividido al revés."
+      }
+    },
+    {
+      "id": "salto-n1-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["empresa"],
+      "statement": "Todas las sociedades anónimas cotizan en bolsa.",
+      "answer": false,
+      "explanation": "Falso: la mayoría no cotiza; cotizar exige admitir sus acciones a negociación en un mercado."
     }
   ],
   "sources": [],

@@ -1,26 +1,24 @@
 {
   "id": "salto-n1-u5",
   "unitId": "n1-u5",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u5-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["comisiones"],
-      "prompt": "Compras 100 acciones a 10 € con una comisión del 0,2 %. ¿Cuánto pagas de comisión?",
-      "options": ["20 €", "0,2 €", "2 €", "0,02 €"],
+      "type": "numeric_input",
+      "prompt": "Compras 100 acciones a 10 € con una comisión del 0,2 %. ¿Cuánto pagas de comisión? (€)",
       "answer": 2,
-      "explanation": "1.000 € × 0,2 % = 2 €.",
-      "wrongExplanations": {
-        "0": "Eso sería un 2 %.",
-        "1": "Eso sería un 0,02 %.",
-        "3": "Es demasiado pequeña."
-      }
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "100 * 10 * 0.002",
+      "explanation": "1.000 € × 0,2 % = 2 €."
     },
     {
       "id": "salto-n1-u5-q2",
@@ -68,37 +66,33 @@
     },
     {
       "id": "salto-n1-u5-q4",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["rentabilidad-dividendo"],
-      "prompt": "Una acción cotiza a 20 € y paga 1 € de dividendo anual. Su rentabilidad por dividendo es…",
-      "options": ["20 %", "1 %", "0,05 %", "5 %"],
-      "answer": 3,
-      "explanation": "1 / 20 = 0,05 = 5 %.",
-      "wrongExplanations": {
-        "0": "Se divide dividendo entre precio: 1/20.",
-        "1": "1 € es el dividendo en euros, no un porcentaje; hay que dividir entre el precio (1/20 = 5 %).",
-        "2": "0,05 es el resultado en tanto por uno; en porcentaje son 5 %."
-      }
+      "type": "numeric_input",
+      "prompt": "Una acción cotiza a 20 € y paga 1 € de dividendo al año. ¿Cuál es su rentabilidad por dividendo? (%)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1 / 20 * 100",
+      "explanation": "1 / 20 = 5 %."
     },
     {
       "id": "salto-n1-u5-q5",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["rentabilidad-total"],
-      "prompt": "Compras a 50 €, vendes a 55 € y cobras 2 € de dividendo. La rentabilidad total es…",
-      "options": ["10 %", "4 %", "14 %", "7 %"],
-      "answer": 2,
-      "explanation": "(5 + 2) / 50 = 14 %.",
-      "wrongExplanations": {
-        "0": "Solo cuenta la revalorización (5/50); falta el dividendo.",
-        "1": "Es solo la rentabilidad por dividendo (2/50); falta la revalorización.",
-        "3": "7 € es la ganancia en euros; hay que dividir entre 50 €."
-      }
+      "type": "numeric_input",
+      "prompt": "Compras a 50 €, vendes a 55 € y por el camino cobras 2 € de dividendo. ¿Cuál es la rentabilidad total? (%)",
+      "answer": 14,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(55 - 50 + 2) / 50 * 100",
+      "explanation": "(5 + 2) / 50 = 14 %."
     },
     {
       "id": "salto-n1-u5-q6",
@@ -113,25 +107,14 @@
     },
     {
       "id": "salto-n1-u5-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["irpf-ganancias"],
-      "prompt": "Si vendes acciones con beneficio, en el IRPF esa ganancia se considera…",
-      "options": [
-        "Ganancia patrimonial",
-        "Rendimiento del trabajo",
-        "Rendimiento de una actividad económica",
-        "Exenta siempre"
-      ],
-      "answer": 0,
-      "explanation": "La venta con beneficio es ganancia patrimonial.",
-      "wrongExplanations": {
-        "1": "No procede de un empleo.",
-        "2": "Solo lo sería con medios y organización propios, un caso excepcional; la venta de acciones por un particular es ganancia patrimonial.",
-        "3": "Tributa."
-      }
+      "type": "fill_blank",
+      "prompt": "Si vendes acciones con beneficio, en el IRPF esa ganancia se considera una ganancia ___.",
+      "answers": [["patrimonial"]],
+      "explanation": "Ganancia patrimonial, que tributa en la base del ahorro."
     },
     {
       "id": "salto-n1-u5-q8",
@@ -143,6 +126,64 @@
       "statement": "Los costes de operar en bolsa incluyen la comisión, el canon de bolsa y la horquilla.",
       "answer": true,
       "explanation": "Son costes explícitos e implícitos."
+    },
+    {
+      "id": "salto-n1-u5-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["irpf-ganancias"],
+      "prompt": "Vendes acciones con una ganancia de 3.000 €. Si tributa al 19 %, ¿cuánto pagas de IRPF? (€)",
+      "answer": 570,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3000 * 0.19",
+      "explanation": "3.000 × 19 % = 570 €."
+    },
+    {
+      "id": "salto-n1-u5-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-dividendo"],
+      "prompt": "Una acción cotiza a 25 € y paga un dividendo de 0,75 € al año. ¿Cuál es su rentabilidad por dividendo? (%)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.75 / 25 * 100",
+      "explanation": "0,75 / 25 = 3 %."
+    },
+    {
+      "id": "salto-n1-u5-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dividendo"],
+      "prompt": "Cobras un dividendo de una empresa española. ¿Qué retención a cuenta del IRPF se aplica normalmente?",
+      "options": ["19 %", "21 %", "0 %", "15 %"],
+      "answer": 0,
+      "explanation": "El 19 %, a cuenta de lo que pagues en la declaración.",
+      "wrongExplanations": {
+        "1": "No es la retención general.",
+        "2": "Los dividendos llevan retención.",
+        "3": "No es la española."
+      }
+    },
+    {
+      "id": "salto-n1-u5-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["broker-espana"],
+      "statement": "La CNMV publica un registro de las entidades autorizadas para prestar servicios de inversión en España.",
+      "answer": true,
+      "explanation": "Verdadero: conviene comprobarlo antes de abrir una cuenta."
     }
   ],
   "sources": [

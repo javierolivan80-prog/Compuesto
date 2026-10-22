@@ -1,31 +1,20 @@
 {
   "id": "salto-n1-u6",
   "unitId": "n1-u6",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u6-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["ampliacion-capital"],
-      "prompt": "En una ampliación de capital con aportaciones, la empresa…",
-      "options": [
-        "Recompra sus acciones",
-        "Reparte dividendos",
-        "Emite acciones nuevas para captar fondos",
-        "Se fusiona con otra empresa"
-      ],
-      "answer": 2,
-      "explanation": "Se emiten acciones nuevas.",
-      "wrongExplanations": {
-        "0": "Eso reduce capital.",
-        "1": "Eso es otra operación.",
-        "3": "No es una fusión."
-      }
+      "type": "fill_blank",
+      "prompt": "La operación en la que la empresa emite acciones nuevas para captar fondos es una ___ de capital.",
+      "answers": [["ampliación", "ampliacion"]],
+      "explanation": "Una ampliación de capital."
     },
     {
       "id": "salto-n1-u6-q2",
@@ -62,25 +51,18 @@
     },
     {
       "id": "salto-n1-u6-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["split"],
-      "prompt": "En un split 2 por 1, un accionista con 100 acciones a 40 € pasa a tener…",
-      "options": [
-        "100 acciones a 20 €",
-        "200 acciones a 40 €",
-        "50 acciones a 80 €",
-        "200 acciones a 20 €"
-      ],
-      "answer": 3,
-      "explanation": "El valor total no cambia: 4.000 €.",
-      "wrongExplanations": {
-        "0": "Perdería la mitad del valor.",
-        "1": "Duplicaría su valor sin motivo.",
-        "2": "Eso sería un contrasplit."
-      }
+      "type": "numeric_input",
+      "prompt": "En un split 2 por 1, tienes 100 acciones a 40 €. ¿Cuántas acciones tienes después?",
+      "answer": 200,
+      "unit": "acciones",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "100 * 2",
+      "explanation": "Doble de acciones a la mitad de precio: 200 a 20 €."
     },
     {
       "id": "salto-n1-u6-q5",
@@ -95,47 +77,29 @@
     },
     {
       "id": "salto-n1-u6-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["recompra-acciones"],
-      "prompt": "Si una empresa recompra sus propias acciones para amortizarlas…",
-      "options": [
-        "Aumenta su capital social",
-        "Se reduce el número de acciones en circulación",
-        "Emite más acciones",
-        "Cambia de nombre"
-      ],
-      "answer": 1,
-      "explanation": "Al amortizar, hay menos acciones.",
-      "wrongExplanations": {
-        "0": "Lo reduce.",
-        "2": "Es lo contrario.",
-        "3": "No tiene relación."
-      }
+      "type": "numeric_input",
+      "prompt": "Una empresa con 100 millones de acciones recompra y amortiza 5 millones. Con el mismo beneficio de 50 millones de €, ¿cuál es su nuevo beneficio por acción? (€, 2 decimales)",
+      "answer": 0.53,
+      "unit": "€",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "50 / 95",
+      "explanation": "50 / 95 = 0,53 €: antes era 0,50 €."
     },
     {
       "id": "salto-n1-u6-q7",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["opa"],
-      "prompt": "Una OPA es…",
-      "options": [
-        "Una oferta pública dirigida a los accionistas para comprar sus acciones",
-        "Una emisión de bonos",
-        "Un dividendo",
-        "Un contrato de seguro"
-      ],
-      "answer": 0,
-      "explanation": "La lanza un oferente a un precio determinado.",
-      "wrongExplanations": {
-        "1": "No es deuda.",
-        "2": "No reparte beneficio.",
-        "3": "No tiene relación."
-      }
+      "type": "fill_blank",
+      "prompt": "La oferta pública dirigida a los accionistas de una cotizada para comprar sus acciones se abrevia ___.",
+      "answers": [["OPA"]],
+      "explanation": "OPA: oferta pública de adquisición."
     },
     {
       "id": "salto-n1-u6-q8",
@@ -153,6 +117,64 @@
       ],
       "answers": [0, 1],
       "explanation": "Se dirige al público accionista y puede pagarse en efectivo o en valores."
+    },
+    {
+      "id": "salto-n1-u6-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["derechos-suscripcion"],
+      "prompt": "Una ampliación ofrece 1 acción nueva por cada 4 antiguas. Tienes 400 acciones. ¿Cuántas acciones nuevas puedes suscribir?",
+      "answer": 100,
+      "unit": "acciones",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "400 / 4",
+      "explanation": "400 / 4 = 100."
+    },
+    {
+      "id": "salto-n1-u6-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["split"],
+      "prompt": "Un contrasplit de 1 por 10: tienes 1.000 acciones a 0,50 €. ¿A qué precio queda cada acción? (€)",
+      "answer": 5,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.50 * 10",
+      "explanation": "Diez veces menos acciones a diez veces el precio: 100 acciones a 5 €."
+    },
+    {
+      "id": "salto-n1-u6-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["opa"],
+      "prompt": "Una OPA ofrece 12 € por acción cuando la acción cotizaba a 10 €. ¿Qué prima ofrece?",
+      "options": ["20 %", "2 %", "12 %", "17 %"],
+      "answer": 0,
+      "explanation": "(12 − 10) / 10 = 20 %.",
+      "wrongExplanations": {
+        "1": "Son 2 € sobre 10.",
+        "2": "Es el precio, no la prima.",
+        "3": "Has dividido entre 12."
+      }
+    },
+    {
+      "id": "salto-n1-u6-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ampliacion-capital"],
+      "statement": "Si no acudes a una ampliación de capital con acciones nuevas, tu porcentaje en la empresa se diluye.",
+      "answer": true,
+      "explanation": "Verdadero: hay más acciones y tú tienes las mismas."
     }
   ],
   "sources": [],

@@ -1,48 +1,31 @@
 {
   "id": "salto-n1-u2",
   "unitId": "n1-u2",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u2-q1",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-primario"],
-      "prompt": "¿Dónde recibe la empresa el dinero de una emisión de acciones nuevas?",
-      "options": [
-        "En el mercado secundario",
-        "En el mercado de divisas",
-        "En el mercado primario",
-        "En ninguno"
-      ],
-      "answer": 2,
-      "explanation": "En el primario la empresa emite y cobra.",
-      "wrongExplanations": {
-        "0": "Ahí se negocian valores ya emitidos entre inversores.",
-        "1": "Ahí se negocian monedas, no acciones.",
-        "3": "La empresa sí recibe el dinero en el primario."
-      }
+      "type": "fill_blank",
+      "prompt": "El mercado en el que la empresa emite valores nuevos y recibe el dinero se llama mercado ___.",
+      "answers": [["primario"]],
+      "explanation": "El primario: la empresa emite y cobra."
     },
     {
       "id": "salto-n1-u2-q2",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-secundario"],
-      "prompt": "Cuando compras acciones a otro inversor en bolsa, la operación ocurre en el mercado…",
-      "options": ["Primario", "Secundario", "De divisas", "Monetario"],
-      "answer": 1,
-      "explanation": "En el secundario se negocian valores ya emitidos.",
-      "wrongExplanations": {
-        "0": "El primario es la emisión original.",
-        "2": "Se negocian monedas, no acciones.",
-        "3": "El monetario es de deuda a muy corto plazo."
-      }
+      "type": "fill_blank",
+      "prompt": "Cuando compras acciones a otro inversor en bolsa, la operación ocurre en el mercado ___.",
+      "answers": [["secundario"]],
+      "explanation": "El secundario: se negocian valores ya emitidos."
     },
     {
       "id": "salto-n1-u2-q3",
@@ -57,25 +40,14 @@
     },
     {
       "id": "salto-n1-u2-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["opv"],
-      "prompt": "Una OPV (oferta pública de venta) es…",
-      "options": [
-        "Una oferta de compra de acciones dirigida a los accionistas",
-        "Un dividendo especial",
-        "Una ampliación de capital entre accionistas",
-        "Un ofrecimiento al público de acciones ya existentes, típico de una salida a bolsa"
-      ],
-      "answer": 3,
-      "explanation": "En la OPV los actuales dueños venden acciones al público.",
-      "wrongExplanations": {
-        "0": "Eso es una OPA, no una OPV.",
-        "1": "No es un reparto de beneficios.",
-        "2": "Es una oferta al público."
-      }
+      "type": "fill_blank",
+      "prompt": "La oferta al público de acciones ya existentes, típica de una salida a bolsa, se abrevia ___.",
+      "answers": [["OPV"]],
+      "explanation": "OPV: oferta pública de venta."
     },
     {
       "id": "salto-n1-u2-q5",
@@ -101,25 +73,32 @@
     },
     {
       "id": "salto-n1-u2-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["mercado-primario"],
-      "prompt": "¿Cuál es un ejemplo de operación en el mercado primario?",
-      "options": [
-        "Comprar acciones a otro inversor",
-        "Una empresa emite bonos nuevos y los coloca entre inversores",
-        "Vender un bono a otro inversor antes de que venza",
-        "Comprar un ETF en bolsa a otro inversor"
+      "concepts": ["mercado-primario", "mercado-secundario"],
+      "type": "categorize",
+      "prompt": "¿Ocurre en el mercado primario o en el secundario?",
+      "categories": ["Primario", "Secundario"],
+      "items": [
+        {
+          "text": "Una empresa emite bonos nuevos",
+          "category": "Primario"
+        },
+        {
+          "text": "Compras acciones del IBEX a otro inversor",
+          "category": "Secundario"
+        },
+        {
+          "text": "Una ampliación de capital con acciones nuevas",
+          "category": "Primario"
+        },
+        {
+          "text": "Vendes tus bonos antes de su vencimiento",
+          "category": "Secundario"
+        }
       ],
-      "answer": 1,
-      "explanation": "En el primario la emisión es nueva.",
-      "wrongExplanations": {
-        "0": "Eso es secundario.",
-        "2": "Eso es secundario.",
-        "3": "Eso es una operación del mercado secundario."
-      }
+      "explanation": "Si la empresa emite y cobra, es el primario; si se negocian valores ya emitidos, el secundario."
     },
     {
       "id": "salto-n1-u2-q7",
@@ -148,6 +127,71 @@
       ],
       "answers": [0, 1],
       "explanation": "Sale a un mercado, ofrece acciones y debe informar más, no menos."
+    },
+    {
+      "id": "salto-n1-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["opv", "mercado-primario"],
+      "prompt": "En una salida a bolsa se colocan 20 millones de acciones a 8 €: 15 millones son acciones nuevas que emite la empresa y 5 millones las venden sus dueños. ¿Cuánto dinero recibe la empresa? (millones de €)",
+      "answer": 120,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "15 * 8",
+      "explanation": "Solo cobra por las nuevas: 15 × 8 = 120 millones; los 40 restantes van a los dueños que venden."
+    },
+    {
+      "id": "salto-n1-u2-q10",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["opv"],
+      "prompt": "Ordena los pasos típicos de una salida a bolsa.",
+      "steps": [
+        "La empresa decide salir y elige a los bancos colocadores",
+        "La CNMV aprueba el folleto",
+        "Los bancos recogen la demanda de los inversores",
+        "Se fija el precio y se reparten las acciones",
+        "Las acciones empiezan a cotizar"
+      ],
+      "explanation": "Preparación, folleto aprobado, demanda, precio y estreno en bolsa."
+    },
+    {
+      "id": "salto-n1-u2-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-secundario"],
+      "prompt": "Una acción del IBEX cae un 10 % en un día. ¿Cuánto dinero pierde la empresa en su caja por esa caída?",
+      "options": [
+        "Nada directamente: pierden valor los accionistas",
+        "El 10 % de su caja",
+        "El 10 % de sus ventas",
+        "Lo que valgan las acciones vendidas ese día"
+      ],
+      "answer": 0,
+      "explanation": "En el secundario cambian de manos acciones ya emitidas: la caja de la empresa no se mueve.",
+      "wrongExplanations": {
+        "1": "El precio en bolsa no sale de su caja.",
+        "2": "Las ventas no dependen de la cotización del día.",
+        "3": "Ese dinero va de un inversor a otro."
+      }
+    },
+    {
+      "id": "salto-n1-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["mercado-primario"],
+      "statement": "En una ampliación de capital, el dinero que ponen los inversores va a la empresa.",
+      "answer": true,
+      "explanation": "Verdadero: es una emisión en el mercado primario."
     }
   ],
   "sources": [],

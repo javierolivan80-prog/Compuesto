@@ -1,9 +1,9 @@
 {
   "id": "salto-n1-u4",
   "unitId": "n1-u4",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n1-u4-q1",
@@ -29,25 +29,18 @@
     },
     {
       "id": "salto-n1-u4-q2",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["horquilla"],
-      "prompt": "La horquilla (bid-ask) es…",
-      "options": [
-        "El dividendo",
-        "La diferencia entre el mejor precio de compra y el mejor precio de venta",
-        "La comisión del bróker",
-        "La variación diaria del precio"
-      ],
-      "answer": 1,
-      "explanation": "Es el diferencial entre lo que se ofrece y lo que se pide.",
-      "wrongExplanations": {
-        "0": "No tiene relación.",
-        "2": "Es un coste distinto.",
-        "3": "Eso es la variación, no la horquilla."
-      }
+      "type": "numeric_input",
+      "prompt": "La mejor orden de compra está a 10,00 € y la mejor de venta, a 10,04 €. ¿Cuál es la horquilla? (€, 2 decimales)",
+      "answer": 0.04,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "10.04 - 10.00",
+      "explanation": "10,04 − 10,00 = 0,04 €."
     },
     {
       "id": "salto-n1-u4-q3",
@@ -73,14 +66,14 @@
     },
     {
       "id": "salto-n1-u4-q4",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["orden-mercado"],
-      "statement": "Una orden de mercado prioriza la ejecución sobre el precio.",
-      "answer": true,
-      "explanation": "Se ejecuta al mejor precio disponible en ese momento."
+      "type": "fill_blank",
+      "prompt": "La orden que se ejecuta enseguida al mejor precio disponible, sin fijar un precio, es la orden ___.",
+      "answers": [["de mercado", "a mercado", "mercado"]],
+      "explanation": "La orden de mercado: prima la ejecución sobre el precio."
     },
     {
       "id": "salto-n1-u4-q5",
@@ -106,36 +99,25 @@
     },
     {
       "id": "salto-n1-u4-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["subastas"],
-      "prompt": "La subasta de apertura sirve para…",
-      "options": [
-        "Repartir dividendos",
-        "Fijar el precio con el que se abre la sesión",
-        "Cerrar el mercado",
-        "Emitir acciones"
-      ],
-      "answer": 1,
-      "explanation": "Concentra órdenes para fijar un precio de apertura.",
-      "wrongExplanations": {
-        "0": "No tiene relación.",
-        "2": "La subasta de cierre fija el precio de cierre; la de apertura, el de apertura.",
-        "3": "No emite nada."
-      }
+      "type": "fill_blank",
+      "prompt": "La fase en la que se acumulan órdenes sin cruzarse para fijar el precio con el que abre la sesión es la ___ de apertura.",
+      "answers": [["subasta"]],
+      "explanation": "La subasta de apertura."
     },
     {
       "id": "salto-n1-u4-q7",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["fomo-manada"],
-      "statement": "El FOMO es el miedo a perderse una subida, que lleva a comprar porque otros lo hacen.",
-      "answer": true,
-      "explanation": "Es un sesgo ligado al efecto manada."
+      "type": "fill_blank",
+      "prompt": "El miedo a perderse una subida, que lleva a comprar porque otros lo hacen, se conoce por sus siglas en inglés: ___.",
+      "answers": [["FOMO"]],
+      "explanation": "FOMO: fear of missing out."
     },
     {
       "id": "salto-n1-u4-q8",
@@ -158,6 +140,83 @@
         "1": "La deuda de la empresa no se mide con la horquilla.",
         "2": "Con el mercado cerrado no hay horquilla que medir."
       }
+    },
+    {
+      "id": "salto-n1-u4-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["horquilla", "liquidez"],
+      "prompt": "La mejor compra está a 9,98 € y la mejor venta, a 10,02 €. ¿Cuánto es la horquilla en porcentaje del precio medio? (%, 1 decimal)",
+      "answer": 0.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(10.02 - 9.98) / 10 * 100",
+      "explanation": "0,04 / 10,00 = 0,4 %."
+    },
+    {
+      "id": "salto-n1-u4-q10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["orden-mercado", "orden-limitada"],
+      "prompt": "¿Es propio de una orden de mercado o de una orden limitada?",
+      "categories": ["Orden de mercado", "Orden limitada"],
+      "items": [
+        {
+          "text": "Garantiza el precio máximo que pagas",
+          "category": "Orden limitada"
+        },
+        {
+          "text": "Se ejecuta enseguida si hay contrapartida",
+          "category": "Orden de mercado"
+        },
+        {
+          "text": "Puede quedarse sin ejecutar",
+          "category": "Orden limitada"
+        },
+        {
+          "text": "En un valor poco líquido puede salir muy cara",
+          "category": "Orden de mercado"
+        }
+      ],
+      "explanation": "La de mercado asegura la ejecución; la limitada, el precio."
+    },
+    {
+      "id": "salto-n1-u4-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez"],
+      "prompt": "¿Qué acción suele tener más liquidez?",
+      "options": [
+        "Una gran empresa del IBEX 35",
+        "Una pequeña empresa de BME Growth",
+        "Una empresa que no cotiza",
+        "Todas igual"
+      ],
+      "answer": 0,
+      "explanation": "Las grandes cotizadas mueven mucho volumen cada día.",
+      "wrongExplanations": {
+        "1": "Suele negociarse mucho menos.",
+        "2": "Si no cotiza, no hay mercado donde venderla.",
+        "3": "La liquidez varía mucho."
+      }
+    },
+    {
+      "id": "salto-n1-u4-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas", "formacion-precios"],
+      "statement": "En la subasta de apertura, el precio que se fija es el que permite cruzar el mayor número de acciones.",
+      "answer": true,
+      "explanation": "Verdadero: se busca el precio de máximo volumen negociado."
     }
   ],
   "sources": [],
