@@ -159,8 +159,8 @@
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["factoring-confirming"],
-      "prompt": "El servicio por el que el banco paga a tus proveedores por ti, y tú le pagas al vencimiento, se llama ___.",
-      "answers": [["confirming"]],
+      "prompt": "El servicio con el que el banco gestiona los pagos a tus proveedores y les permite cobrar antes, mientras tú pagas en tu plazo, se llama ___.",
+      "answers": [["confirming", "el confirming", "confirming bancario"]],
       "explanation": "Confirming: lo contrata quien paga; el factoring, quien cobra."
     },
     {

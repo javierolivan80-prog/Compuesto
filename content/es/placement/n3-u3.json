@@ -159,14 +159,18 @@
     },
     {
       "id": "salto-n3-u3-q10",
-      "type": "fill_blank",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["calidad-beneficio"],
-      "prompt": "El flujo de explotación dividido entre el beneficio neto se llama conversión en ___.",
-      "answers": [["caja", "efectivo"]],
-      "explanation": "Conversión en caja: cuánto del beneficio se cobra de verdad."
+      "prompt": "Beneficio neto 8.000 y flujo de explotación 4.800 (miles de €). ¿Cuántas veces convierte el beneficio en caja? (veces, 1 decimal)",
+      "answer": 0.6,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "4800 / 8000",
+      "explanation": "4.800 / 8.000 = 0,6: por debajo de 1, parte del beneficio no se está cobrando."
     },
     {
       "id": "salto-n3-u3-q11",
@@ -175,10 +179,10 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ratios"],
-      "prompt": "Margen neto del 10 %, rotación del activo de 1 y apalancamiento de 2. ¿ROE?",
-      "options": ["20 %", "10 %", "12 %", "5 %"],
+      "prompt": "Margen neto del 6 %, rotación del activo de 1,5 y apalancamiento de 2,2. ¿ROE por DuPont?",
+      "options": ["19,8 %", "9 %", "9,7 %", "4,1 %"],
       "answer": 0,
-      "explanation": "10 % × 1 × 2 = 20 %.",
+      "explanation": "6 % × 1,5 × 2,2 = 19,8 %.",
       "wrongExplanations": {
         "1": "Falta el apalancamiento.",
         "2": "Has sumado en lugar de multiplicar.",

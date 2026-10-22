@@ -120,7 +120,7 @@
       "concepts": ["anclaje"],
       "type": "fill_blank",
       "prompt": "«Compré a 12 € y no vendo hasta recuperarlos»: fijarse en un precio de referencia que no dice nada del valor es el sesgo de ___.",
-      "answers": [["anclaje"]],
+      "answers": [["anclaje", "anchoring", "efecto anclaje"]],
       "explanation": "Anclaje: lo que pagaste no cambia lo que vale hoy."
     },
     {

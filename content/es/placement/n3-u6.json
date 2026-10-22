@@ -154,14 +154,18 @@
     },
     {
       "id": "salto-n3-u6-q10",
-      "type": "fill_blank",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["dcf"],
-      "prompt": "En un DCF, el valor de todos los flujos posteriores al último año proyectado se llama valor ___.",
-      "answers": [["terminal", "residual"]],
-      "explanation": "Valor terminal (o residual)."
+      "prompt": "En un DCF, los flujos descontados del plan suman 300 y el valor terminal descontado, 700 (millones de €). ¿Qué peso tiene el valor terminal en el valor de empresa? (%)",
+      "answer": 70,
+      "unit": "%",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "700 / (300 + 700) * 100",
+      "explanation": "700 / 1.000 = 70 %: casi todo el valor depende de la perpetuidad."
     },
     {
       "id": "salto-n3-u6-q11",
