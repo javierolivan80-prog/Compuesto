@@ -1,26 +1,24 @@
 {
   "id": "salto-n3-u5",
   "unitId": "n3-u5",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u5-q1",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["capm-beta", "coste-capital"],
-      "prompt": "Tipo sin riesgo 3 %, beta 1,2 y prima de mercado 5 %. ¿Coste del capital propio por CAPM?",
-      "options": ["9 %", "8 %", "6 %", "9,6 %"],
-      "answer": 0,
-      "explanation": "3 + 1,2 × 5 = 9 %.",
-      "wrongExplanations": {
-        "1": "Has usado beta 1.",
-        "2": "Te falta sumar el tipo sin riesgo: 1,2 × 5 = 6 %.",
-        "3": "Has multiplicado todo por la beta."
-      }
+      "type": "numeric_input",
+      "prompt": "Tipo sin riesgo del 3 %, beta de 1,2 y prima de mercado del 5 %. ¿Coste del capital propio por CAPM? (%)",
+      "answer": 9,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3 + 1.2 * 5",
+      "explanation": "3 + 1,2 × 5 = 9 %."
     },
     {
       "id": "salto-n3-u5-q2",
@@ -46,54 +44,48 @@
     },
     {
       "id": "salto-n3-u5-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["beta-apalancada"],
-      "prompt": "Beta desapalancada 0,8, D/E 0,5 e impuesto del 25 %. ¿Beta apalancada?",
-      "options": ["1,10", "1,20", "0,80", "0,58"],
-      "answer": 0,
-      "explanation": "0,8 × (1 + 0,75 × 0,5) = 1,10.",
-      "wrongExplanations": {
-        "1": "Falta el (1 − t).",
-        "2": "Esa es la desapalancada.",
-        "3": "Has desapalancado en vez de apalancar."
-      }
+      "type": "numeric_input",
+      "prompt": "Beta desapalancada 0,8, D/E de 0,5 e impuesto del 25 %. ¿Beta apalancada? (2 decimales)",
+      "answer": 1.1,
+      "unit": "beta",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.8 * (1 + 0.75 * 0.5)",
+      "explanation": "0,8 × (1 + 0,75 × 0,5) = 1,10."
     },
     {
       "id": "salto-n3-u5-q4",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["coste-deuda"],
-      "prompt": "Deuda al 6 % e impuesto del 25 %. ¿Coste después de impuestos?",
-      "options": ["4,5 %", "6 %", "7,5 %", "1,5 %"],
-      "answer": 0,
-      "explanation": "6 × 0,75 = 4,5 %.",
-      "wrongExplanations": {
-        "1": "Falta el ahorro fiscal.",
-        "2": "El impuesto abarata la deuda, no la encarece.",
-        "3": "Ese es el ahorro, no el coste."
-      }
+      "type": "numeric_input",
+      "prompt": "Deuda al 6 % e impuesto del 25 %. ¿Coste de la deuda después de impuestos? (%, 1 decimal)",
+      "answer": 4.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "6 * 0.75",
+      "explanation": "6 × 0,75 = 4,5 %."
     },
     {
       "id": "salto-n3-u5-q5",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["wacc"],
-      "prompt": "E/V 60 % con ke 10 %; D/V 40 % con kd 5 % antes de impuestos (t = 25 %). ¿WACC?",
-      "options": ["7,5 %", "8 %", "6,25 %", "6,88 %"],
-      "answer": 0,
-      "explanation": "0,6 × 10 + 0,4 × 3,75 = 6 + 1,5 = 7,5 %.",
-      "wrongExplanations": {
-        "1": "Falta el ahorro fiscal: 0,6 × 10 + 0,4 × 5 = 8 %.",
-        "2": "Has invertido los pesos: 0,4 × 10 + 0,6 × 3,75.",
-        "3": "Es la media simple de 10 y 3,75: hay que ponderar por los pesos."
-      }
+      "type": "numeric_input",
+      "prompt": "E/V 60 % con ke del 10 %; D/V 40 % con kd del 5 % antes de impuestos (t = 25 %). ¿WACC? (%, 1 decimal)",
+      "answer": 7.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "0.6 * 10 + 0.4 * 5 * 0.75",
+      "explanation": "0,6 × 10 + 0,4 × 3,75 = 7,5 %."
     },
     {
       "id": "salto-n3-u5-q6",
@@ -144,6 +136,69 @@
         "2": "Tiene que superar el WACC, no el tipo sin riesgo.",
         "3": "También hay que pagar a los accionistas."
       }
+    },
+    {
+      "id": "salto-n3-u5-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-beta", "coste-capital"],
+      "prompt": "Tipo sin riesgo del 2,5 %, beta de 0,8 y prima de mercado del 6 %. ¿Coste del capital propio por CAPM? (%, 1 decimal)",
+      "answer": 7.3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2.5 + 0.8 * 6",
+      "explanation": "2,5 + 0,8 × 6 = 7,3 %."
+    },
+    {
+      "id": "salto-n3-u5-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["wacc"],
+      "prompt": "E/V 70 % con ke del 9 %; D/V 30 % con kd del 4 % antes de impuestos (t = 25 %). ¿WACC? (%, 2 decimales)",
+      "answer": 7.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.7 * 9 + 0.3 * 4 * 0.75",
+      "explanation": "0,7 × 9 + 0,3 × 3 = 7,20 %."
+    },
+    {
+      "id": "salto-n3-u5-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["estructura-capital"],
+      "prompt": "Al pasar de no tener deuda a tener algo de deuda, ¿por qué suele bajar el WACC?",
+      "options": [
+        "Porque la deuda es más barata que el capital y sus intereses desgravan",
+        "Porque baja el riesgo de los accionistas",
+        "Porque la beta pasa a ser cero",
+        "Porque desaparece el impuesto"
+      ],
+      "answer": 0,
+      "explanation": "La deuda cuesta menos y su escudo fiscal la abarata más; con demasiada, el riesgo de quiebra lo invierte.",
+      "wrongExplanations": {
+        "1": "Con deuda, el riesgo de los accionistas sube.",
+        "2": "La beta apalancada sube.",
+        "3": "El impuesto sigue."
+      }
+    },
+    {
+      "id": "salto-n3-u5-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-beta"],
+      "statement": "Una acción con beta 1,5 tiende a moverse, de media, un 50 % más que el mercado.",
+      "answer": true,
+      "explanation": "Verdadero: si el mercado sube un 10 %, se espera que suba un 15 %, de media."
     }
   ],
   "sources": [

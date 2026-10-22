@@ -1,9 +1,9 @@
 {
   "id": "salto-n3-u1",
   "unitId": "n3-u1",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u1-q1",
@@ -24,54 +24,48 @@
     },
     {
       "id": "salto-n3-u1-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["pyg"],
-      "prompt": "En 2021: ingresos 44.520; coste de ventas 27.602; otros gastos de explotación 8.014; amortización 1.440. ¿Resultado de explotación?",
-      "options": ["7.464", "8.904", "16.918", "5.294"],
-      "answer": 0,
-      "explanation": "44.520 − 27.602 − 8.014 − 1.440 = 7.464.",
-      "wrongExplanations": {
-        "1": "Te has olvidado de restar la amortización.",
-        "2": "Solo has restado el coste de ventas.",
-        "3": "Ese es el resultado del ejercicio, tras intereses e impuestos."
-      }
+      "type": "numeric_input",
+      "prompt": "En 2021: ingresos 44.520; coste de ventas 27.602; otros gastos de explotación 8.014; amortización 1.440 (miles de €). ¿Resultado de explotación? (miles de €)",
+      "answer": 7464,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "44520 - 27602 - 8014 - 1440",
+      "explanation": "44.520 − 27.602 − 8.014 − 1.440 = 7.464."
     },
     {
       "id": "salto-n3-u1-q3",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["flujos-caja"],
-      "prompt": "En 2022 una empresa gana 5.782, con una amortización de 1.501. Clientes sube 586, existencias sube 423 y proveedores sube 303. ¿Flujo de explotación (método indirecto)?",
-      "options": ["6.577", "3.575", "8.595", "7.283"],
-      "answer": 0,
-      "explanation": "5.782 + 1.501 − 586 − 423 + 303 = 6.577.",
-      "wrongExplanations": {
-        "1": "La amortización se suma, no se resta: no es salida de dinero.",
-        "2": "Los aumentos de clientes y existencias restan: es dinero que no ha entrado.",
-        "3": "Te falta restar los aumentos de clientes y existencias y sumar el de proveedores."
-      }
+      "type": "numeric_input",
+      "prompt": "En 2022 una empresa gana 5.782, con una amortización de 1.501. Clientes sube 586, existencias sube 423 y proveedores sube 303 (miles de €). ¿Flujo de explotación por el método indirecto? (miles de €)",
+      "answer": 6577,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "5782 + 1501 - 586 - 423 + 303",
+      "explanation": "5.782 + 1.501 − 586 − 423 + 303 = 6.577."
     },
     {
       "id": "salto-n3-u1-q4",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["conexion-estados"],
-      "prompt": "Con el beneficio de cada año sumado a las reservas: reservas iniciales 17.743; resultado del ejercicio 5.782; dividendos 2.602. ¿Reservas finales?",
-      "options": ["20.923", "26.127", "23.525", "15.141"],
-      "answer": 0,
-      "explanation": "17.743 + 5.782 − 2.602 = 20.923.",
-      "wrongExplanations": {
-        "1": "Has sumado los dividendos en lugar de restarlos.",
-        "2": "Te falta restar los dividendos.",
-        "3": "El resultado del ejercicio suma: es beneficio que se queda en la empresa."
-      }
+      "type": "numeric_input",
+      "prompt": "El beneficio de cada año se suma a las reservas: reservas iniciales 17.743; resultado del ejercicio 5.782; dividendos 2.602 (miles de €). ¿Reservas finales? (miles de €)",
+      "answer": 20923,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "17743 + 5782 - 2602",
+      "explanation": "17.743 + 5.782 − 2.602 = 20.923."
     },
     {
       "id": "salto-n3-u1-q5",
@@ -119,20 +113,18 @@
     },
     {
       "id": "salto-n3-u1-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["flujos-caja"],
-      "prompt": "En 2022 el flujo de explotación fue +6.577, el de inversión −2.200 y el de financiación −2.602. ¿Cuánto varió la caja?",
-      "options": ["+1.775", "+11.379", "+4.377", "−1.775"],
-      "answer": 0,
-      "explanation": "6.577 − 2.200 − 2.602 = 1.775: la caja pasó de 5.152 a 6.927.",
-      "wrongExplanations": {
-        "1": "Has sumado los tres sin signo.",
-        "2": "Te falta restar la financiación.",
-        "3": "El signo: la caja sube."
-      }
+      "type": "numeric_input",
+      "prompt": "En 2022 el flujo de explotación fue +6.577, el de inversión −2.200 y el de financiación −2.602 (miles de €). ¿Cuánto varió la caja? (miles de €)",
+      "answer": 1775,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "6577 - 2200 - 2602",
+      "explanation": "6.577 − 2.200 − 2.602 = 1.775: la caja sube."
     },
     {
       "id": "salto-n3-u1-q8",
@@ -155,6 +147,83 @@
         "2": "Es una deuda: pasivo no corriente.",
         "3": "Es patrimonio neto."
       }
+    },
+    {
+      "id": "salto-n3-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pyg"],
+      "prompt": "Ingresos 30.000, coste de ventas 18.000, otros gastos de explotación 5.000, amortización 1.000 y gastos financieros 500 (miles de €). Con un impuesto del 25 %, ¿cuál es el beneficio neto? (miles de €)",
+      "answer": 4125,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "(30000 - 18000 - 5000 - 1000 - 500) * 0.75",
+      "explanation": "Resultado antes de impuestos 5.500; menos el 25 %: 4.125."
+    },
+    {
+      "id": "salto-n3-u1-q10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["flujos-caja"],
+      "prompt": "¿En qué bloque del estado de flujos de efectivo va cada movimiento?",
+      "categories": ["Explotación", "Inversión", "Financiación"],
+      "items": [
+        {
+          "text": "Cobros de clientes",
+          "category": "Explotación"
+        },
+        {
+          "text": "Compra de una máquina",
+          "category": "Inversión"
+        },
+        {
+          "text": "Pago de dividendos",
+          "category": "Financiación"
+        },
+        {
+          "text": "Devolución de un préstamo",
+          "category": "Financiación"
+        }
+      ],
+      "explanation": "La actividad del día a día es explotación; los activos a largo, inversión; y lo que se da o recibe de accionistas y prestamistas, financiación."
+    },
+    {
+      "id": "salto-n3-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["conexion-estados"],
+      "prompt": "Una empresa gana 1.000 y no reparte dividendos. ¿Qué pasa en su balance?",
+      "options": [
+        "El patrimonio neto sube 1.000",
+        "El pasivo sube 1.000",
+        "La caja sube exactamente 1.000",
+        "No cambia nada"
+      ],
+      "answer": 0,
+      "explanation": "El resultado del ejercicio forma parte del patrimonio neto.",
+      "wrongExplanations": {
+        "1": "El beneficio no es una deuda.",
+        "2": "Beneficio y caja no coinciden: hay cobros pendientes, amortizaciones…",
+        "3": "El patrimonio neto cambia."
+      }
+    },
+    {
+      "id": "salto-n3-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["balance"],
+      "statement": "En el balance, el activo es siempre igual al pasivo más el patrimonio neto.",
+      "answer": true,
+      "explanation": "Verdadero: es la ecuación fundamental del balance."
     }
   ],
   "sources": [

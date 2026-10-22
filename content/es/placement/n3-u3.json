@@ -1,60 +1,54 @@
 {
   "id": "salto-n3-u3",
   "unitId": "n3-u3",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u3-q1",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ratios"],
-      "prompt": "Pirineo Energía en 2025 ganó un 29,5 % de sus ventas y rotó su activo 0,40 veces con un apalancamiento de 1,7. ¿ROE aproximado?",
-      "options": ["20 %", "29,5 %", "12 %", "50 %"],
-      "answer": 0,
-      "explanation": "29,5 % × 0,40 × 1,7 ≈ 20 %.",
-      "wrongExplanations": {
-        "1": "Ese es solo el margen neto.",
-        "2": "Margen × rotación es el ROA (11,8 %); falta el apalancamiento.",
-        "3": "Has sumado o multiplicado de más."
-      }
+      "type": "numeric_input",
+      "prompt": "Pirineo Energía en 2025 ganó un 29,5 % de sus ventas y rotó su activo 0,40 veces, con un apalancamiento (activo / patrimonio neto) de 1,7. ¿Cuál fue su ROE por DuPont? (%, 1 decimal)",
+      "answer": 20.1,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "29.5 * 0.40 * 1.7",
+      "explanation": "29,5 % × 0,40 × 1,7 = 20,1 %."
     },
     {
       "id": "salto-n3-u3-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ratios"],
-      "prompt": "Resultado de explotación 9.334 y amortización 1.672. ¿EBITDA?",
-      "options": ["11.006", "7.662", "9.334", "15.606"],
-      "answer": 0,
-      "explanation": "9.334 + 1.672 = 11.006.",
-      "wrongExplanations": {
-        "1": "La amortización se suma, no se resta.",
-        "2": "Ese es el resultado de explotación.",
-        "3": "Revisa la suma."
-      }
+      "type": "numeric_input",
+      "prompt": "Resultado de explotación 9.334 y amortización 1.672 (miles de €). ¿EBITDA? (miles de €)",
+      "answer": 11006,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "9334 + 1672",
+      "explanation": "9.334 + 1.672 = 11.006."
     },
     {
       "id": "salto-n3-u3-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ratios"],
-      "prompt": "Deuda con bancos 10.000 y caja 11.989. ¿Deuda financiera neta?",
-      "options": ["−1.989 (caja neta)", "21.989", "1.989", "10.000"],
-      "answer": 0,
-      "explanation": "10.000 − 11.989 = −1.989.",
-      "wrongExplanations": {
-        "1": "La caja se resta.",
-        "2": "El signo: tiene más caja que deuda.",
-        "3": "Falta restar la caja."
-      }
+      "type": "numeric_input",
+      "prompt": "Deuda con bancos 10.000 y caja 11.989 (miles de €). ¿Deuda financiera neta? (miles de €; negativa si hay caja neta)",
+      "answer": -1989,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "10000 - 11989",
+      "explanation": "10.000 − 11.989 = −1.989: caja neta."
     },
     {
       "id": "salto-n3-u3-q4",
@@ -113,20 +107,18 @@
     },
     {
       "id": "salto-n3-u3-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["calidad-beneficio"],
-      "prompt": "Beneficio 6.646 y flujo de explotación 7.417. ¿Conversión en caja?",
-      "options": ["1,12", "0,90", "0,77", "1,00"],
-      "answer": 0,
-      "explanation": "7.417 / 6.646 = 1,12.",
-      "wrongExplanations": {
-        "1": "Has invertido la división.",
-        "2": "Revisa la división.",
-        "3": "No son iguales."
-      }
+      "type": "numeric_input",
+      "prompt": "Beneficio neto 6.646 y flujo de explotación 7.417 (miles de €). ¿Conversión en caja (flujo de explotación / beneficio)? (veces, 2 decimales)",
+      "answer": 1.12,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "7417 / 6646",
+      "explanation": "7.417 / 6.646 = 1,12."
     },
     {
       "id": "salto-n3-u3-q8",
@@ -149,6 +141,60 @@
         "2": "Es una conversión sana.",
         "3": "Más amortización por más inversión es normal."
       }
+    },
+    {
+      "id": "salto-n3-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Deuda financiera neta 20.000 y EBITDA 8.000 (miles de €). ¿Ratio deuda neta / EBITDA? (veces, 1 decimal)",
+      "answer": 2.5,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "20000 / 8000",
+      "explanation": "20.000 / 8.000 = 2,5 veces."
+    },
+    {
+      "id": "salto-n3-u3-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["calidad-beneficio"],
+      "prompt": "El flujo de explotación dividido entre el beneficio neto se llama conversión en ___.",
+      "answers": [["caja", "efectivo"]],
+      "explanation": "Conversión en caja: cuánto del beneficio se cobra de verdad."
+    },
+    {
+      "id": "salto-n3-u3-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ratios"],
+      "prompt": "Margen neto del 10 %, rotación del activo de 1 y apalancamiento de 2. ¿ROE?",
+      "options": ["20 %", "10 %", "12 %", "5 %"],
+      "answer": 0,
+      "explanation": "10 % × 1 × 2 = 20 %.",
+      "wrongExplanations": {
+        "1": "Falta el apalancamiento.",
+        "2": "Has sumado en lugar de multiplicar.",
+        "3": "Has dividido por el apalancamiento."
+      }
+    },
+    {
+      "id": "salto-n3-u3-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["calidad-beneficio"],
+      "statement": "Si los clientes crecen mucho más rápido que las ventas varios años seguidos, la calidad del beneficio puede ser dudosa.",
+      "answer": true,
+      "explanation": "Verdadero: puede haber ventas que no se cobran o que se adelantan."
     }
   ],
   "sources": [

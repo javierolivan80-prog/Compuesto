@@ -1,26 +1,24 @@
 {
   "id": "salto-n3-u4",
   "unitId": "n3-u4",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u4-q1",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["multiplos"],
-      "prompt": "Una acción cotiza a 9 € y su beneficio por acción es 0,60 €. ¿PER?",
-      "options": ["15", "5,4", "0,07", "9,6"],
-      "answer": 0,
-      "explanation": "9 / 0,60 = 15.",
-      "wrongExplanations": {
-        "1": "Has multiplicado.",
-        "2": "Has dividido al revés.",
-        "3": "Has sumado."
-      }
+      "type": "numeric_input",
+      "prompt": "Una acción cotiza a 9 € y su beneficio por acción es de 0,60 €. ¿Cuál es su PER? (veces)",
+      "answer": 15,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "9 / 0.60",
+      "explanation": "9 / 0,60 = 15."
     },
     {
       "id": "salto-n3-u4-q2",
@@ -41,37 +39,33 @@
     },
     {
       "id": "salto-n3-u4-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["multiplos"],
-      "prompt": "Capitalización 200.000, deuda 50.000 y caja 20.000 (miles de €). ¿Valor de empresa?",
-      "options": ["230.000", "270.000", "170.000", "200.000"],
-      "answer": 0,
-      "explanation": "200.000 + 50.000 − 20.000 = 230.000.",
-      "wrongExplanations": {
-        "1": "La caja resta.",
-        "2": "La deuda suma.",
-        "3": "Falta la deuda neta."
-      }
+      "type": "numeric_input",
+      "prompt": "Capitalización 200.000, deuda 50.000 y caja 20.000 (miles de €). ¿Valor de empresa? (miles de €)",
+      "answer": 230000,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "200000 + 50000 - 20000",
+      "explanation": "200.000 + 50.000 − 20.000 = 230.000."
     },
     {
       "id": "salto-n3-u4-q4",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["multiplos"],
-      "prompt": "EBITDA 30.000, EV/EBITDA de referencia 8, deuda neta 40.000 y 10.000.000 de acciones (cifras en miles de €). ¿Valor por acción?",
-      "options": ["20 €", "24 €", "16 €", "28 €"],
-      "answer": 0,
-      "explanation": "EV 240.000 − 40.000 = 200.000 mil € / 10 millones = 20 €.",
-      "wrongExplanations": {
-        "1": "Falta restar la deuda neta.",
-        "2": "Has restado la deuda dos veces.",
-        "3": "La deuda neta resta, no suma."
-      }
+      "type": "numeric_input",
+      "prompt": "EBITDA 30.000, EV/EBITDA de referencia 8, deuda neta 40.000 (miles de €) y 10 millones de acciones. ¿Valor por acción? (€)",
+      "answer": 20,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(30000 * 8 - 40000) / 10000",
+      "explanation": "EV 240.000 − 40.000 = 200.000 miles de € entre 10 millones de acciones = 20 €."
     },
     {
       "id": "salto-n3-u4-q5",
@@ -120,20 +114,14 @@
     },
     {
       "id": "salto-n3-u4-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["anclaje"],
-      "prompt": "«Compré a 12 € y no vendo hasta recuperarlos.» ¿Qué sesgo es?",
-      "options": ["Anclaje", "FOMO", "Exceso de confianza", "Efecto manada"],
-      "answer": 0,
-      "explanation": "El precio de compra es un ancla que no cambia lo que vale la acción.",
-      "wrongExplanations": {
-        "1": "El FOMO es miedo a perderse una subida.",
-        "2": "Es otro sesgo: sobrevalorar lo que sabes.",
-        "3": "Es seguir a la mayoría."
-      }
+      "type": "fill_blank",
+      "prompt": "«Compré a 12 € y no vendo hasta recuperarlos»: fijarse en un precio de referencia que no dice nada del valor es el sesgo de ___.",
+      "answers": [["anclaje"]],
+      "explanation": "Anclaje: lo que pagaste no cambia lo que vale hoy."
     },
     {
       "id": "salto-n3-u4-q8",
@@ -156,6 +144,69 @@
         "2": "Puede no pagar dividendo.",
         "3": "Se puede, con otros múltiplos o con un DCF."
       }
+    },
+    {
+      "id": "salto-n3-u4-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "Una empresa tiene un valor de empresa de 120.000 y un EBITDA de 15.000 (miles de €). ¿Cuál es su EV/EBITDA? (veces)",
+      "answer": 8,
+      "unit": "veces",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "120000 / 15000",
+      "explanation": "120.000 / 15.000 = 8."
+    },
+    {
+      "id": "salto-n3-u4-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "El PER de referencia de los comparables es 12 y el beneficio por acción de la empresa, 1,50 €. ¿Qué precio implica? (€)",
+      "answer": 18,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "12 * 1.5",
+      "explanation": "12 × 1,50 = 18 €."
+    },
+    {
+      "id": "salto-n3-u4-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "prompt": "¿Por qué se suele usar la mediana de los múltiplos de los comparables y no la media?",
+      "options": [
+        "Porque un valor extremo no la mueve",
+        "Porque siempre es más alta",
+        "Porque es más fácil de calcular",
+        "Porque lo exige la CNMV"
+      ],
+      "answer": 0,
+      "explanation": "Un comparable raro (por ejemplo, un PER de 60) dispara la media, no la mediana.",
+      "wrongExplanations": {
+        "1": "Puede ser más alta o más baja.",
+        "2": "No es la razón.",
+        "3": "No hay tal norma."
+      }
+    },
+    {
+      "id": "salto-n3-u4-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["multiplos"],
+      "statement": "El PER se calcula dividiendo el valor de empresa entre el beneficio neto.",
+      "answer": false,
+      "explanation": "Falso: es el precio entre el beneficio por acción (o la capitalización entre el beneficio neto)."
     }
   ],
   "sources": [

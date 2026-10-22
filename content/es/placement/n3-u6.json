@@ -1,26 +1,24 @@
 {
   "id": "salto-n3-u6",
   "unitId": "n3-u6",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u6-q1",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["van"],
-      "prompt": "¿Cuánto valen hoy 1.100 € que cobrarás dentro de un año, al 10 %?",
-      "options": ["1.000 €", "990 €", "1.210 €", "1.100 €"],
-      "answer": 0,
-      "explanation": "1.100 / 1,10 = 1.000 €.",
-      "wrongExplanations": {
-        "1": "Has restado un 10 % de 1.100.",
-        "2": "Has capitalizado en vez de descontar.",
-        "3": "Falta descontar."
-      }
+      "type": "numeric_input",
+      "prompt": "¿Cuánto valen hoy 1.100 € que cobrarás dentro de un año, con una tasa del 10 %? (€)",
+      "answer": 1000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "1100 / 1.1",
+      "explanation": "1.100 / 1,10 = 1.000 €."
     },
     {
       "id": "salto-n3-u6-q2",
@@ -41,37 +39,33 @@
     },
     {
       "id": "salto-n3-u6-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["dcf"],
-      "prompt": "EBIT 1.000, impuesto 25 %, amortización 200, capex 300 y aumento del circulante 50. ¿FCFF?",
-      "options": ["600", "650", "700", "850"],
-      "answer": 0,
-      "explanation": "750 + 200 − 300 − 50 = 600.",
-      "wrongExplanations": {
-        "1": "Falta restar el circulante.",
-        "2": "El circulante resta, no suma.",
-        "3": "No has aplicado el impuesto: el FCFF parte de EBIT × (1 − t) = 750, no de 1.000."
-      }
+      "type": "numeric_input",
+      "prompt": "EBIT 1.000, impuesto del 25 %, amortización 200, capex 300 y aumento del circulante 50 (miles de €). ¿Flujo de caja libre para la empresa (FCFF)? (miles de €)",
+      "answer": 600,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "1000 * 0.75 + 200 - 300 - 50",
+      "explanation": "750 + 200 − 300 − 50 = 600."
     },
     {
       "id": "salto-n3-u6-q4",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["dcf"],
-      "prompt": "Último FCFF 100, g 2 % y WACC 7 %. ¿Valor terminal por Gordon?",
-      "options": ["2.040", "2.000", "1.457", "1.429"],
-      "answer": 0,
-      "explanation": "100 × 1,02 / 0,05 = 2.040.",
-      "wrongExplanations": {
-        "1": "Falta hacer crecer el flujo un año: 100 × 1,02.",
-        "2": "Has dividido entre el WACC sin restar g.",
-        "3": "Has dividido 100 entre el 7 %."
-      }
+      "type": "numeric_input",
+      "prompt": "Último FCFF 100, crecimiento a perpetuidad del 2 % y WACC del 7 % (FCFF en miles de €). ¿Valor terminal por Gordon? (miles de €)",
+      "answer": 2040,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "100 * 1.02 / 0.05",
+      "explanation": "100 × 1,02 / 0,05 = 2.040."
     },
     {
       "id": "salto-n3-u6-q5",
@@ -108,20 +102,18 @@
     },
     {
       "id": "salto-n3-u6-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["dcf"],
-      "prompt": "Valor de empresa 500, deuda financiera neta 100 y 10 acciones. ¿Valor por acción?",
-      "options": ["40", "50", "60", "10"],
-      "answer": 0,
-      "explanation": "(500 − 100) / 10 = 40.",
-      "wrongExplanations": {
-        "1": "Falta restar la deuda neta.",
-        "2": "La deuda neta se resta, no se suma.",
-        "3": "Has dividido la deuda entre las acciones."
-      }
+      "type": "numeric_input",
+      "prompt": "Valor de empresa 500 y deuda financiera neta 100 (millones de €), y 10 millones de acciones. ¿Valor por acción? (€)",
+      "answer": 40,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(500 - 100) / 10",
+      "explanation": "(500 − 100) / 10 = 40."
     },
     {
       "id": "salto-n3-u6-q8",
@@ -144,6 +136,60 @@
         "2": "Proyectar 30 años con detalle no da más certeza.",
         "3": "Sin él, se ignora todo el valor después del plan."
       }
+    },
+    {
+      "id": "salto-n3-u6-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["van"],
+      "prompt": "Un proyecto cuesta 1.000 € hoy y paga 600 € dentro de un año y 600 € dentro de dos. Con una tasa del 10 %, ¿cuál es su VAN? (€, 2 decimales)",
+      "answer": 41.32,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "-1000 + 600 / 1.1 + 600 / 1.1^2",
+      "explanation": "−1.000 + 545,45 + 495,87 = 41,32."
+    },
+    {
+      "id": "salto-n3-u6-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "En un DCF, el valor de todos los flujos posteriores al último año proyectado se llama valor ___.",
+      "answers": [["terminal", "residual"]],
+      "explanation": "Valor terminal (o residual)."
+    },
+    {
+      "id": "salto-n3-u6-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dcf"],
+      "prompt": "Si sube el WACC y nada más cambia, el valor de la empresa en el DCF…",
+      "options": ["Baja", "Sube", "No cambia", "Depende del EBITDA"],
+      "answer": 0,
+      "explanation": "Los flujos se descuentan a una tasa mayor: valen menos hoy.",
+      "wrongExplanations": {
+        "1": "Al revés: descontar más resta valor.",
+        "2": "La tasa cambia el valor presente.",
+        "3": "Con todo lo demás igual, solo cambia la tasa."
+      }
+    },
+    {
+      "id": "salto-n3-u6-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["van"],
+      "statement": "Un VAN positivo significa que el proyecto rinde más que la tasa de descuento.",
+      "answer": true,
+      "explanation": "Verdadero: crea valor por encima de lo que se exige."
     }
   ],
   "sources": [

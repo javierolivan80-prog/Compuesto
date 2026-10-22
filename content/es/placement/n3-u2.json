@@ -1,77 +1,69 @@
 {
   "id": "salto-n3-u2",
   "unitId": "n3-u2",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n3-u2-q1",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
-      "prompt": "A 31/12/2022: clientes 7.904, existencias 5.717 y proveedores 4.084. ¿NOF?",
-      "options": ["9.537", "17.705", "13.621", "−1.897"],
-      "answer": 0,
-      "explanation": "7.904 + 5.717 − 4.084 = 9.537.",
-      "wrongExplanations": {
-        "1": "Los proveedores restan, no suman.",
-        "2": "Te has dejado los proveedores.",
-        "3": "Has restado las existencias: suman."
-      }
+      "type": "numeric_input",
+      "prompt": "A 31/12/2022: clientes 7.904, existencias 5.717 y proveedores 4.084 (miles de €). ¿Cuáles son sus necesidades operativas de fondos (NOF)? (miles de €)",
+      "answer": 9537,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "7904 + 5717 - 4084",
+      "explanation": "7.904 + 5.717 − 4.084 = 9.537."
     },
     {
       "id": "salto-n3-u2-q2",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
-      "prompt": "Ventas de 48.082 y clientes de 7.904. ¿Días de cobro?",
-      "options": ["60 días", "16 días", "59,2 días", "6,1 días"],
-      "answer": 0,
-      "explanation": "7.904 / 48.082 × 365 = 60,0 días.",
-      "wrongExplanations": {
-        "1": "Has olvidado multiplicar por 365: 16 % es la proporción.",
-        "2": "Has usado un año de 360 días; aquí se cuenta con 365.",
-        "3": "Has invertido la división: ventas ÷ clientes es la rotación de clientes (veces al año), no los días."
-      }
+      "type": "numeric_input",
+      "prompt": "Ventas de 48.082 y clientes de 7.904 (miles de €). ¿Cuántos días de cobro tiene, con un año de 365 días? (días)",
+      "answer": 60,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "7904 / 48082 * 365",
+      "explanation": "7.904 / 48.082 × 365 = 60 días."
     },
     {
       "id": "salto-n3-u2-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
-      "prompt": "Días de cobro 60, de existencias 70 y de pago 50. ¿Ciclo de caja?",
-      "options": ["80 días", "180 días", "40 días", "60 días"],
-      "answer": 0,
-      "explanation": "70 + 60 − 50 = 80.",
-      "wrongExplanations": {
-        "1": "Los días de pago restan.",
-        "2": "Los días de existencias suman.",
-        "3": "Ese es solo el plazo de cobro."
-      }
+      "type": "numeric_input",
+      "prompt": "Días de cobro 60, de existencias 70 y de pago 50. ¿Cuál es el ciclo de caja? (días)",
+      "answer": 80,
+      "unit": "días",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "60 + 70 - 50",
+      "explanation": "70 + 60 − 50 = 80 días."
     },
     {
       "id": "salto-n3-u2-q4",
-      "type": "multiple_choice",
       "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ciclo-caja"],
-      "prompt": "Caja 6.927, clientes 7.904, existencias 5.717 y proveedores 4.084 (sin deuda a corto). ¿Fondo de maniobra?",
-      "options": ["16.464", "9.537", "24.632", "20.548"],
-      "answer": 0,
-      "explanation": "20.548 de activo corriente − 4.084 de pasivo corriente = 16.464.",
-      "wrongExplanations": {
-        "1": "Esas son las NOF, sin la caja.",
-        "2": "Has sumado los proveedores.",
-        "3": "Es el activo corriente: falta restar el pasivo corriente."
-      }
+      "type": "numeric_input",
+      "prompt": "Caja 6.927, clientes 7.904, existencias 5.717 y proveedores 4.084, sin deuda a corto (miles de €). ¿Fondo de maniobra? (miles de €)",
+      "answer": 16464,
+      "unit": "miles de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "6927 + 7904 + 5717 - 4084",
+      "explanation": "20.548 de activo corriente − 4.084 de pasivo corriente = 16.464."
     },
     {
       "id": "salto-n3-u2-q5",
@@ -144,6 +136,65 @@
         "2": "30 días es el máximo para frescos y perecederos; el general es 60.",
         "3": "Es imperativo: no se puede pactar más."
       }
+    },
+    {
+      "id": "salto-n3-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Coste de ventas 36.500 y existencias 6.000 (miles de €). ¿Cuántos días de existencias tiene, con un año de 365 días? (días)",
+      "answer": 60,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "6000 / 36500 * 365",
+      "explanation": "6.000 / 36.500 × 365 = 60 días."
+    },
+    {
+      "id": "salto-n3-u2-q10",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["factoring-confirming"],
+      "prompt": "El servicio por el que el banco paga a tus proveedores por ti, y tú le pagas al vencimiento, se llama ___.",
+      "answers": [["confirming"]],
+      "explanation": "Confirming: lo contrata quien paga; el factoring, quien cobra."
+    },
+    {
+      "id": "salto-n3-u2-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-caja"],
+      "prompt": "Una empresa duplica sus ventas en un año y cobra a 90 días. ¿Qué le suele pasar?",
+      "options": [
+        "Necesita financiar más NOF: puede quedarse sin caja aunque gane dinero",
+        "Le sobra caja",
+        "Sus NOF bajan",
+        "Nada: las ventas siempre traen caja enseguida"
+      ],
+      "answer": 0,
+      "explanation": "Más ventas a 90 días son más clientes pendientes de cobro que hay que financiar.",
+      "wrongExplanations": {
+        "1": "La caja llega 90 días después.",
+        "2": "Suben con las ventas.",
+        "3": "Cobra a 90 días."
+      }
+    },
+    {
+      "id": "salto-n3-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["factoring-confirming"],
+      "statement": "Con el factoring sin recurso, el riesgo de que el cliente no pague pasa a la entidad de factoring.",
+      "answer": true,
+      "explanation": "Verdadero: sin recurso, la entidad no puede reclamarte si el cliente no paga."
     }
   ],
   "sources": [
