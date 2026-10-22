@@ -2,8 +2,8 @@
   "id": "salto-n0-u2",
   "unitId": "n0-u2",
   "version": 2,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n0-u2-q1",
@@ -50,7 +50,7 @@
       "difficulty": 1,
       "bloom": "entender",
       "tags": ["test-de-salto"],
-      "concepts": ["tae"],
+      "concepts": ["tin"],
       "statement": "El TIN de un préstamo incluye sus comisiones de apertura.",
       "answer": false,
       "explanation": "Falso: el TIN es el tipo nominal, sin comisiones; la TAE sí las incluye."
@@ -127,9 +127,9 @@
       "concepts": ["alquilar-vs-comprar"],
       "prompt": "¿Qué debe incluir una comparación honesta entre alquilar y comprar una vivienda?",
       "options": [
-        "La cuota, el IBI y la comunidad, pero no la entrada",
-        "El alquiler y la comunidad, pero no el mantenimiento",
-        "El precio y la revalorización esperada, sin los gastos",
+        "La cuota, el IBI y la comunidad",
+        "El alquiler y la comunidad",
+        "El precio y la revalorización esperada",
         "La entrada, los impuestos, el mantenimiento y el coste de oportunidad"
       ],
       "answer": 3,

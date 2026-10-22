@@ -73,7 +73,7 @@
       "concepts": ["creacion-dinero"],
       "statement": "Cuando un banco concede un préstamo, el importe puede acabar como un depósito en el sistema bancario.",
       "answer": true,
-      "explanation": "Ese depósito puede volver a prestarse en parte."
+      "explanation": "Verdadero: el préstamo se abona como un depósito en la cuenta del cliente y, si lo gasta, pasa a otra cuenta del sistema."
     },
     {
       "id": "salto-n0-u4-q5",
@@ -205,7 +205,7 @@
       "date": "2026-10-22"
     },
     {
-      "title": "BOE, Real Decreto 439/2007, Reglamento del IRPF, art. 101 (tipo de retención del 19 %)",
+      "title": "BOE, Real Decreto 439/2007, Reglamento del IRPF, art. 90 (retención del 19 % sobre rendimientos del capital mobiliario)",
       "url": "https://www.boe.es/eli/es/rd/2007/03/30/439/con",
       "date": "2026-10-22"
     }

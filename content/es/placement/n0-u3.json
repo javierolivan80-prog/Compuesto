@@ -2,8 +2,8 @@
   "id": "salto-n0-u3",
   "unitId": "n0-u3",
   "version": 2,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n0-u3-q1",
@@ -94,7 +94,7 @@
         "Una financiación al 0 % de TAE"
       ],
       "answer": 2,
-      "explanation": "Las tarjetas revolving tienen TAE muy altas.",
+      "explanation": "Aplazar el pago de una tarjeta de crédito suele tener una TAE muy alta, muy por encima de una hipoteca o un préstamo de estudios.",
       "wrongExplanations": {
         "0": "Suele tener tipos mucho más bajos.",
         "1": "Su tipo suele ser reducido.",

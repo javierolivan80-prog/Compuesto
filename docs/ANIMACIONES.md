@@ -93,6 +93,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 ### Nivel 4 — Macro y banca
 | Explicador | Concepto | Qué se mueve | Manipulación |
 |---|---|---|---|
+| `DataSurprise` | Sorpresa de un dato macro | El dato cae por debajo, en línea o por encima del consenso y la rentabilidad a 2 años baja, no se mueve o sube | Paso a paso (dato) |
 | `RateTransmission` | Transmisión de la política monetaria | El BCE sube el tipo y se encadenan Euríbor → hipotecas → consumo → precios | Tipo oficial |
 | `QeBalance` | QE/QT | El balance del banco central se infla comprando bonos y baja los tipos largos | Compras |
 | `BankBalance` | Margen de intereses | Depósitos que entran a un tipo y préstamos que salen a otro; la diferencia se acumula | Tipos |

@@ -1458,6 +1458,9 @@
     "bad": "Repasa cómo se calculan y cómo se leen los datos macro.",
     "debrief": "Ver qué ha pasado"
   },
+  "dataSurprise": {
+    "title": "El dato frente a lo esperado"
+  },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"
   }

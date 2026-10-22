@@ -163,6 +163,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/9\.800\.000/);
     expect(text).toMatch(/9\.800\.871/);
   });
+  it('DataSurprise: lo que mueve el bono es la sorpresa, no el nivel', () => {
+    render(<ExplainerBlock component="DataSurprise" props={{ consensus: 2.9 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/un 2,6\s%, hay menos inflación/);
+    expect(text).toMatch(/un 3,2\s%, la sorpresa es al alza/);
+  });
   it('FuturePayoff: el comprador gana si sube y el vendedor lo contrario', () => {
     render(<ExplainerBlock component="FuturePayoff" props={{ price: 100, units: 10 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

@@ -84,6 +84,9 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     price: z.number().min(20),
     units: z.number().int().positive().max(1000),
   }),
+  DataSurprise: z.object({
+    consensus: z.number().min(-2).max(15),
+  }),
   RepoFlow: z.object({
     collateral: z.number().positive(),
     haircut: z.number().min(0).max(50),

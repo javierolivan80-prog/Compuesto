@@ -20,6 +20,7 @@ import { NormalTails } from './NormalTails';
 import { OrderBook } from './OrderBook';
 import { PrimarySecondary } from './PrimarySecondary';
 import { RepoFlow } from './RepoFlow';
+import { DataSurprise } from './DataSurprise';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -59,6 +60,7 @@ const REGISTRY = {
   NormalTails,
   FxEffect,
   RepoFlow,
+  DataSurprise,
   FuturePayoff,
 } as unknown as Registry;
 

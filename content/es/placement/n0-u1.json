@@ -102,7 +102,7 @@
       "id": "salto-n0-u1-q7",
       "type": "true_false_swipe",
       "difficulty": 1,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["regla-del-72"],
       "statement": "La regla del 72 da una aproximación del tiempo que tarda en duplicarse un capital, no el valor exacto.",
@@ -166,7 +166,7 @@
       "prompt": "Tu depósito rinde un 1,5 % y la inflación es del 4 %. ¿Cuál es la rentabilidad real aproximada? (%)",
       "answer": -2.5,
       "unit": "%",
-      "tolerance": 4,
+      "tolerance": 5,
       "answerDecimals": 1,
       "formula": "1.5 - 4",
       "explanation": "1,5 − 4 = −2,5 %: pierdes poder adquisitivo (la fórmula exacta da −2,40 %)."
