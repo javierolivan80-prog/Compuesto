@@ -44,6 +44,14 @@ import { luckValues, mean as meanOf2, setupLuck } from './luck-or-skill';
 import { dollars, fxValues, rightCompare, setupFx } from './fx-trip';
 import { interest, loan, repoValues, setupRepo } from './repo-night';
 import {
+  macroValues,
+  rightBondMove,
+  rightCycle,
+  setupMacro,
+  unemploymentRate,
+  yoy,
+} from './macro-day';
+import {
   futurePnl,
   minDividend,
   PRODUCTS,
@@ -95,6 +103,7 @@ export const LESSON_GAMES = [
   'fx-trip',
   'repo-night',
   'bank-window',
+  'macro-day',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -428,6 +437,18 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     pnl: [0, 0],
     complex_hits: [0, 0],
   },
+  'macro-day': {
+    cpi_prev: [1, 1],
+    cpi_now: [1, 1],
+    cpi_yoy: [1, 1],
+    consensus: [1, 1],
+    surprise: [1, 1],
+    pmi: [1, 1],
+    active: [0, 2],
+    unemployed: [0, 2],
+    unemployment_rate: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -661,6 +682,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           dividend: 0,
           pnl: 0,
         }),
+      ];
+    }
+    case 'macro-day': {
+      // todo bien, y todo mal
+      const setup = setupMacro(seed);
+      return [
+        macroValues(setup, {
+          yoy: yoy(setup),
+          bond: rightBondMove(setup),
+          cycle: rightCycle(setup),
+          rate: unemploymentRate(setup),
+        }),
+        macroValues(setup, { yoy: 0, bond: 'flat', cycle: 'expansion', rate: 0 }),
       ];
     }
   }

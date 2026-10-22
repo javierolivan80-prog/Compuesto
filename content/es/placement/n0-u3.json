@@ -30,7 +30,7 @@
     {
       "id": "salto-n0-u3-q2",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["presupuesto"],
       "type": "numeric_input",
@@ -90,7 +90,7 @@
       "options": [
         "Una hipoteca",
         "Un préstamo de estudios a tipo bajo",
-        "El saldo aplazado de una tarjeta revolving",
+        "El pago aplazado de una tarjeta de crédito",
         "Una financiación al 0 % de TAE"
       ],
       "answer": 2,
@@ -109,7 +109,7 @@
       "concepts": ["sesgo-presente"],
       "type": "fill_blank",
       "prompt": "La tendencia a preferir una recompensa inmediata aunque sea menor que una futura se llama sesgo del ___.",
-      "answers": [["presente"]],
+      "answers": [["presente", "sesgo del presente"]],
       "explanation": "El sesgo del presente."
     },
     {
@@ -120,8 +120,8 @@
       "concepts": ["celdas-suma"],
       "type": "fill_blank",
       "prompt": "En una hoja de cálculo, la fórmula que suma los valores de A1 a A3 es =___(A1:A3).",
-      "answers": [["SUMA"]],
-      "explanation": "=SUMA(A1:A3)."
+      "answers": [["SUMA", "SUM"]],
+      "explanation": "=SUMA(A1:A3) (en Excel en inglés, SUM)."
     },
     {
       "id": "salto-n0-u3-q8",

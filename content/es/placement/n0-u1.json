@@ -48,10 +48,10 @@
       "prompt": "Un depósito rinde un 3 % y la inflación es del 2 %. ¿Cuál es la rentabilidad real aproximada? (%)",
       "answer": 1,
       "unit": "%",
-      "tolerance": 0.5,
+      "tolerance": 2.5,
       "answerDecimals": 0,
       "formula": "3 - 2",
-      "explanation": "Real ≈ nominal − inflación = 3 − 2 = 1 %."
+      "explanation": "Real ≈ nominal − inflación = 3 − 2 = 1 % (la fórmula exacta, 1,03 / 1,02 − 1, da 0,98 %)."
     },
     {
       "id": "salto-n0-u1-q4",
@@ -105,9 +105,9 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["regla-del-72"],
-      "statement": "Según la regla del 72, con un 8 % anual el capital se duplica en unos 9 años.",
+      "statement": "La regla del 72 da una aproximación del tiempo que tarda en duplicarse un capital, no el valor exacto.",
       "answer": true,
-      "explanation": "72 / 8 = 9 años (aproximadamente)."
+      "explanation": "Verdadero: 72 / tipo es una aproximación muy útil para tipos moderados."
     },
     {
       "id": "salto-n0-u1-q8",
@@ -158,20 +158,18 @@
     },
     {
       "id": "salto-n0-u1-q11",
-      "type": "multiple_choice",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["tipo-real-nominal", "poder-adquisitivo"],
-      "prompt": "Tu sueldo sube un 2 % y la inflación es del 4 %. ¿Qué le pasa a tu poder adquisitivo?",
-      "options": ["Baja, aproximadamente un 2 %", "Sube un 2 %", "Sube un 6 %", "No cambia"],
-      "answer": 0,
-      "explanation": "2 − 4 = −2 %: con más euros compras menos cosas.",
-      "wrongExplanations": {
-        "1": "El sueldo sube menos que los precios.",
-        "2": "Has sumado la inflación.",
-        "3": "Los precios suben más que el sueldo."
-      }
+      "concepts": ["tipo-real-nominal"],
+      "prompt": "Tu depósito rinde un 1,5 % y la inflación es del 4 %. ¿Cuál es la rentabilidad real aproximada? (%)",
+      "answer": -2.5,
+      "unit": "%",
+      "tolerance": 4,
+      "answerDecimals": 1,
+      "formula": "1.5 - 4",
+      "explanation": "1,5 − 4 = −2,5 %: pierdes poder adquisitivo (la fórmula exacta da −2,40 %)."
     },
     {
       "id": "salto-n0-u1-q12",

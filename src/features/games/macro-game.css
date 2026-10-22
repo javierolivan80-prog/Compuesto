@@ -1,0 +1,9 @@
+/* El día del dato: panel y pizarra del dato frente al consenso. */
+.mg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.mg-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

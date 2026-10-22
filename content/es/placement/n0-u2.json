@@ -15,7 +15,7 @@
       "prompt": "El TIN es…",
       "options": [
         "El coste total anual incluyendo comisiones",
-        "El índice al que se ligan las hipotecas variables",
+        "El tipo de interés que fija el BCE",
         "El tipo de interés nominal anual, sin incluir comisiones",
         "La cuota mensual del préstamo"
       ],
@@ -23,7 +23,7 @@
       "explanation": "El TIN es el tipo nominal: no incluye comisiones ni capitalización.",
       "wrongExplanations": {
         "0": "Eso es la TAE.",
-        "1": "Eso es el Euríbor.",
+        "1": "El BCE fija los tipos oficiales; el TIN lo pacta el banco contigo.",
         "3": "La cuota es lo que pagas cada mes; el TIN es un tipo."
       }
     },
@@ -51,14 +51,14 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["tae"],
-      "statement": "La TAE incluye las comisiones del préstamo; el TIN no.",
-      "answer": true,
-      "explanation": "La TAE suma comisiones y capitalización al tipo nominal."
+      "statement": "El TIN de un préstamo incluye sus comisiones de apertura.",
+      "answer": false,
+      "explanation": "Falso: el TIN es el tipo nominal, sin comisiones; la TAE sí las incluye."
     },
     {
       "id": "salto-n0-u2-q4",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["prestamo"],
       "type": "numeric_input",
@@ -93,7 +93,14 @@
       "concepts": ["hipoteca"],
       "type": "fill_blank",
       "prompt": "Un préstamo cuya devolución se garantiza con un inmueble se llama ___.",
-      "answers": [["hipoteca", "préstamo hipotecario", "prestamo hipotecario"]],
+      "answers": [
+        [
+          "hipoteca",
+          "préstamo hipotecario",
+          "crédito hipotecario",
+          "préstamo con garantía hipotecaria"
+        ]
+      ],
       "explanation": "Una hipoteca: si no pagas, el banco puede ejecutar la garantía."
     },
     {
@@ -120,10 +127,10 @@
       "concepts": ["alquilar-vs-comprar"],
       "prompt": "¿Qué debe incluir una comparación honesta entre alquilar y comprar una vivienda?",
       "options": [
-        "Solo la cuota hipotecaria y el IBI",
-        "Solo el alquiler y la comunidad",
-        "Solo el precio de la vivienda y su revalorización",
-        "Entrada, impuestos, mantenimiento y coste de oportunidad, además de cuota y alquiler"
+        "La cuota, el IBI y la comunidad, pero no la entrada",
+        "El alquiler y la comunidad, pero no el mantenimiento",
+        "El precio y la revalorización esperada, sin los gastos",
+        "La entrada, los impuestos, el mantenimiento y el coste de oportunidad"
       ],
       "answer": 3,
       "explanation": "Comprar implica entrada, impuestos, mantenimiento y coste de oportunidad.",
@@ -197,6 +204,17 @@
       "explanation": "Falso: el tipo fijo no depende del Euríbor."
     }
   ],
-  "sources": [],
-  "verificarAntesDe": null
+  "sources": [
+    {
+      "title": "BOE, Circular 5/2012 del Banco de España, sobre transparencia de los servicios bancarios (TAE)",
+      "url": "https://www.boe.es/eli/es/cir/2012/06/27/5/con",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "BOE, Orden EHA/2899/2011 de transparencia y protección del cliente de servicios bancarios",
+      "url": "https://www.boe.es/eli/es/o/2011/10/28/eha2899/con",
+      "date": "2026-10-22"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
 }

@@ -30,7 +30,7 @@
     {
       "id": "salto-n0-u4-q2",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["banco"],
       "type": "numeric_input",
@@ -115,7 +115,7 @@
       "tags": ["test-de-salto"],
       "concepts": ["fgd"],
       "type": "numeric_input",
-      "prompt": "Tienes 130.000 € en depósitos a tu nombre en un mismo banco. Si el banco quiebra, ¿cuánto te cubre el Fondo de Garantía de Depósitos? (€)",
+      "prompt": "Tienes 130.000 € en depósitos a tu nombre en el banco A. Si el banco A quiebra, ¿cuánto te cubre el Fondo de Garantía de Depósitos? (€)",
       "answer": 100000,
       "unit": "€",
       "tolerance": 0,
@@ -190,19 +190,24 @@
       "concepts": ["creacion-dinero"],
       "statement": "El dinero de los depósitos de un banco está guardado entero en su caja fuerte.",
       "answer": false,
-      "explanation": "Falso: el banco presta buena parte; solo guarda una reserva."
+      "explanation": "Falso: los depósitos son una deuda del banco con sus clientes. Solo guarda una pequeña parte en efectivo y reservas; el resto de su balance son préstamos y otros activos."
     }
   ],
   "sources": [
     {
-      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito (RDL 16/2011): garantía de 100.000 € por titular y entidad",
-      "url": "https://www.fgd.es/",
-      "date": "2026-10-15"
+      "title": "BOE, Real Decreto 2606/1996 sobre fondos de garantía de depósitos, art. 7 (100.000 € por depositante y entidad)",
+      "url": "https://www.boe.es/eli/es/rd/1996/12/20/2606/con",
+      "date": "2026-10-22"
     },
     {
-      "title": "Ley 35/2006 del IRPF (rendimientos del capital mobiliario y ganancias patrimoniales) — Agencia Tributaria",
-      "url": "https://sede.agenciatributaria.gob.es/",
-      "date": "2026-10-15"
+      "title": "BOE, Ley 35/2006 del IRPF, art. 101 (retenciones)",
+      "url": "https://www.boe.es/eli/es/l/2006/11/28/35/con",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "BOE, Real Decreto 439/2007, Reglamento del IRPF, art. 101 (tipo de retención del 19 %)",
+      "url": "https://www.boe.es/eli/es/rd/2007/03/30/439/con",
+      "date": "2026-10-22"
     }
   ],
   "verificarAntesDe": "2027-10-15"

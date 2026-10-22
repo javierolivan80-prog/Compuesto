@@ -1400,6 +1400,64 @@
     "bad": "Repasa los productos y sus reglas antes de firmar nada.",
     "debrief": "Ver qué ha pasado"
   },
+  "macroGame": {
+    "title": "El día del dato",
+    "step": {
+      "cpi": "Paso 1 de 4 · el IPC",
+      "surprise": "Paso 2 de 4 · la sorpresa",
+      "pmi": "Paso 3 de 4 · el PMI",
+      "jobs": "Paso 4 de 4 · el paro"
+    },
+    "millions": "{{v}} millones",
+    "briefCpi": "Son las nueve de la mañana en la mesa de Albufera y sale el IPC de una economía ficticia. El índice de precios estaba hace un año en {{prev}} y hoy está en {{now}}.",
+    "askCpi": "¿Cuál es la inflación interanual?",
+    "whyCpi": "({{now}} / {{prev}} − 1) × 100 = {{v}}. La tasa interanual compara con el mismo mes del año anterior; restar los puntos del índice no da un porcentaje.",
+    "briefSurprise": "Los analistas esperaban otra cifra: el consenso. En la pantalla de la mesa, el dato frente a lo esperado.",
+    "board": {
+      "consensus": "Consenso",
+      "actual": "Dato",
+      "surprise": "Sorpresa"
+    },
+    "askBond": "¿Qué hace en ese momento la rentabilidad del bono a 2 años?",
+    "bond": {
+      "up": "Sube",
+      "down": "Baja",
+      "flat": "No se mueve: el dato ya se conocía"
+    },
+    "whyBond": {
+      "up": "La inflación sale {{surprise}} puntos por encima de lo esperado: el mercado da más probabilidad a que el banco central suba tipos, y la rentabilidad a 2 años sube (el precio del bono baja). Lo que mueve el precio es la sorpresa, no el nivel del dato.",
+      "down": "La inflación sale {{surprise}} puntos por debajo de lo esperado: el mercado da menos probabilidad a subidas de tipos, y la rentabilidad a 2 años baja (el precio del bono sube). Lo que mueve el precio es la sorpresa, no el nivel del dato."
+    },
+    "briefPmi": "Después sale el PMI manufacturero, una encuesta a los gerentes de compras de las empresas: {{pmi}}.",
+    "askPmi": "¿Qué dice de la industria?",
+    "cycle": {
+      "expansion": "Está en expansión",
+      "contraction": "Está en contracción"
+    },
+    "whyPmi": {
+      "expansion": "{{pmi}} está por encima de 50, la línea que separa la expansión de la contracción: más gerentes ven mejorar la actividad que empeorar.",
+      "contraction": "{{pmi}} está por debajo de 50, la línea que separa la expansión de la contracción: más gerentes ven empeorar la actividad que mejorar."
+    },
+    "briefJobs": "Por último, la encuesta de empleo: {{active}} de personas activas, de las que {{unemployed}} están en paro.",
+    "askJobs": "¿Cuál es la tasa de paro?",
+    "whyJobs": "{{unemployed}} / {{active}} = {{v}}. La tasa de paro se calcula sobre la población activa (ocupados más parados), no sobre los ocupados.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la mañana",
+    "row": {
+      "cpi": "Inflación interanual",
+      "surprise": "Reacción a la sorpresa",
+      "pmi": "Lectura del PMI",
+      "jobs": "Tasa de paro"
+    },
+    "great": "Mañana redonda: lees los datos como en una mesa de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo se calculan y cómo se leen los datos macro.",
+    "debrief": "Ver qué ha pasado"
+  },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"
   }

@@ -45,9 +45,9 @@
       "tags": ["test-de-salto"],
       "concepts": ["pensiones-publicas"],
       "type": "fill_blank",
-      "prompt": "El sistema público de pensiones español, en el que las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy, es un sistema de ___.",
+      "prompt": "El sistema público de pensiones español, financiado con las cotizaciones sociales, es un sistema de ___.",
       "answers": [["reparto"]],
-      "explanation": "De reparto."
+      "explanation": "De reparto: las cotizaciones de hoy pagan las pensiones de hoy."
     },
     {
       "id": "salto-n0-u5-q4",
@@ -72,7 +72,7 @@
           "category": "Tercer pilar"
         },
         {
-          "text": "Tus ahorros en fondos de inversión",
+          "text": "Un fondo de inversión con el que ahorras para tu jubilación",
           "category": "Tercer pilar"
         }
       ],
@@ -80,25 +80,18 @@
     },
     {
       "id": "salto-n0-u5-q5",
-      "type": "multiple_choice",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["tres-pilares"],
-      "prompt": "Un plan de pensiones individual que contratas tú pertenece al pilar…",
-      "options": [
-        "Primero (público)",
-        "Segundo (empresa)",
-        "Tercero (ahorro individual)",
-        "Ninguno"
-      ],
-      "answer": 2,
-      "explanation": "El ahorro individual es el tercer pilar.",
-      "wrongExplanations": {
-        "0": "El primero es la pensión pública.",
-        "1": "El segundo es el que ofrece la empresa.",
-        "3": "Es el tercero."
-      }
+      "concepts": ["seguros-basicos"],
+      "type": "numeric_input",
+      "prompt": "Un daño de 8.000 € tiene una probabilidad del 5 % al año. ¿Cuál es la pérdida esperada anual? (€)",
+      "answer": 400,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "8000 * 0.05",
+      "explanation": "8.000 × 5 % = 400 €: lo que, de media, cuesta ese riesgo cada año."
     },
     {
       "id": "salto-n0-u5-q6",
@@ -117,7 +110,7 @@
       "answer": 1,
       "explanation": "Riesgo y rentabilidad esperada van juntos.",
       "wrongExplanations": {
-        "0": "No existe tal relación.",
+        "0": "Es al revés: más rentabilidad esperada suele implicar más riesgo, no menos.",
         "2": "Sí la tiene: a más rentabilidad esperada, más riesgo.",
         "3": "Las inversiones de más rentabilidad suelen no garantizarlo."
       }
@@ -156,7 +149,7 @@
           "category": "Se puede asegurar"
         },
         {
-          "text": "Que tu inversión rinda menos de lo esperado",
+          "text": "Que las acciones que ya tienes bajen en bolsa",
           "category": "No se puede asegurar"
         }
       ],
@@ -184,13 +177,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["riesgo-rentabilidad"],
-      "prompt": "Inviertes la mitad de tu dinero en un depósito al 2 % y la otra mitad en un fondo que ese año rinde un 8 %. ¿Qué rentabilidad obtienes en total? (%)",
-      "answer": 5,
+      "prompt": "Una inversión rinde un +10 %, un −4 % y un +6 % en tres años. ¿Cuál es su rentabilidad media aritmética? (%)",
+      "answer": 4,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "0.5 * 2 + 0.5 * 8",
-      "explanation": "La media ponderada: 0,5 × 2 + 0,5 × 8 = 5 %."
+      "formula": "(10 - 4 + 6) / 3",
+      "explanation": "(10 − 4 + 6) / 3 = 4 %."
     },
     {
       "id": "salto-n0-u5-q11",
@@ -223,7 +216,7 @@
       "concepts": ["riesgo-rentabilidad"],
       "statement": "Que una inversión haya subido mucho el último año garantiza que seguirá subiendo.",
       "answer": false,
-      "explanation": "Falso: la rentabilidad pasada no garantiza la futura; más rentabilidad esperada siempre viene con más riesgo."
+      "explanation": "Falso: la rentabilidad pasada no garantiza la futura; una acción puede subir un año y caer el siguiente."
     }
   ],
   "sources": [
