@@ -166,13 +166,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["divisas"],
-      "prompt": "Tienes 5.000 $ en un fondo y el EUR/USD pasa de 1,25 a 1,00. ¿Cuántos euros vale ahora? (€)",
-      "answer": 5000,
+      "prompt": "Tienes 5.000 $ en un fondo y el EUR/USD pasa de 1,25 a 1,10. ¿Cuántos euros vale ahora? (€, 0 decimales)",
+      "answer": 4545,
       "unit": "€",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "5000 / 1",
-      "explanation": "5.000 / 1,00 = 5.000 €; antes eran 4.000 €."
+      "formula": "5000 / 1.1",
+      "explanation": "5.000 / 1,10 = 4.545 €; antes eran 5.000 / 1,25 = 4.000 €: el dólar se ha apreciado y tu fondo vale más en euros."
     },
     {
       "id": "salto-n2-u5-q12",
