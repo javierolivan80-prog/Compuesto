@@ -428,3 +428,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada, con dos retoques de redacción en l1 ya aplicados. Estado: `reviewed`.
 - Bloom del nivel N2: 151/289 de recordar/entender (52,2 %).
 - 🛑 Pendiente de la revisión de Javier: comprobar en el BOE el límite de 1.500 € y los supuestos de liquidez vigentes, y el texto exacto de la advertencia de la Circular 1/2018 (verificarAntesDe 2027-04-30).
+
+## Bancos de salto de 12 preguntas (tarea 2.12, 22/10/2026)
+
+- **N2 (7 bancos):**
+  - Ronda 1: cambios en n2-u1 (q10, que no aceptaba el término de la lección y ya aparecía en q7), n2-u2 (q8 ambigua, q10 demasiado fácil, q11 sobre algo que no se enseña) y n2-u3 (q11 revelada por q4).
+  - Ronda 2: tres ajustes (q10 de n2-u1 con «alto rendimiento», tipo final de n2-u5-q11 que daba por buena la respuesta sin convertir, explicación de n2-u7-q10).
+  - Ronda 3: aprobados. Estado: `reviewed`.
+- **N3 (6 bancos):**
+  - Ronda 1: q10 de n3-u3 y de n3-u6 se respondían copiando de la primera fase; un distractor de n3-u3-q11 tenía una explicación falsa; faltaban variantes en algunos huecos.
+  - Ronda 2: aprobados tras añadir beta-apalancada a n3-u5-q9. Estado: `reviewed`.
+- **N1 (6 bancos):** la ronda 1 encontró preguntas reveladas por la primera fase (n1-u2-q12, n1-u3-q1, q8, q10 y q12, n1-u4-q10, n1-u5-q12) y fuentes que faltaban o no coincidían con las lecciones. Ronda 2 en curso.
+- **N0 (5 bancos):** en revisión.
+

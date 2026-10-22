@@ -762,3 +762,13 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Repaso:**
   - Las preguntas de un test de salto crean tarjeta solo si la unidad se saltó. Vencen a los 7 días del salto (`SKIP_CHECK_DAYS`), tanto los aciertos como los fallos. Esto vale también para los saltos anteriores a esta tarea, porque la proyección se recalcula desde los eventos.
   - El catálogo del repaso incluye las preguntas de los tests de salto. No entran en el examen de la unidad ni sirven de variante de otras tarjetas.
+
+## 2026-10-22 — Tarea 2.12: bancos de salto de 12 preguntas (contenido) y corrección de huecos
+
+- **Bancos ampliados:** los 24 bancos (N0–N3) pasan a la versión 2 con 12 preguntas.
+  - En cada uno, 4 de las 8 preguntas originales se convierten a producir (`numeric_input`, `fill_blank` o `categorize`) y conservan su id.
+  - Se añaden q9–q12: 2 de producir y 2 de reconocer.
+  - Resultado: 6/12 de producir, y la primera fase cubre todos los conceptos.
+- **Revisión:** el revisor buscó, además de exactitud, que el texto de la primera fase no revele ninguna respuesta de la segunda y que la segunda tenga un nivel comparable. Con eso se rehicieron varias preguntas.
+- **`normalizeText`:** ignora los puntos de las siglas («O.P.V.» = «OPV») y un artículo inicial («el confirming» = «confirming»). Los puntos entre cifras no se tocan. Así no hace falta enumerar estas variantes en cada `fill_blank`.
+- **Generadores:** los antiguos (`/tmp/claude-0/gen/n*.py`) ya no sobrescriben un banco de versión ≥ 2. Los bancos nuevos salen de `salto_n0.py` a `salto_n3.py`.
