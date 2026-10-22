@@ -2,8 +2,8 @@
   "id": "salto-n3-u5",
   "unitId": "n3-u5",
   "version": 2,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n3-u5-q1",
@@ -140,10 +140,10 @@
     {
       "id": "salto-n3-u5-q9",
       "type": "numeric_input",
-      "difficulty": 2,
+      "difficulty": 3,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["capm-beta", "coste-capital"],
+      "concepts": ["capm-beta", "coste-capital", "beta-apalancada"],
       "prompt": "Beta desapalancada 0,9, D/E de 0,4 e impuesto del 25 %; tipo sin riesgo del 3 % y prima de mercado del 5 %. ¿Coste del capital propio por CAPM con la beta reapalancada? (%, 2 decimales)",
       "answer": 8.85,
       "unit": "%",
