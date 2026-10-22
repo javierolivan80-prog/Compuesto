@@ -438,6 +438,14 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **N3 (6 bancos):**
   - Ronda 1: q10 de n3-u3 y de n3-u6 se respondían copiando de la primera fase; un distractor de n3-u3-q11 tenía una explicación falsa; faltaban variantes en algunos huecos.
   - Ronda 2: aprobados tras añadir beta-apalancada a n3-u5-q9. Estado: `reviewed`.
-- **N1 (6 bancos):** la ronda 1 encontró preguntas reveladas por la primera fase (n1-u2-q12, n1-u3-q1, q8, q10 y q12, n1-u4-q10, n1-u5-q12) y fuentes que faltaban o no coincidían con las lecciones. Ronda 2 en curso.
-- **N0 (5 bancos):** en revisión.
+- **N1 (6 bancos):**
+  - Ronda 1: preguntas reveladas por la primera fase (n1-u2-q12, n1-u3-q1, q8, q10 y q12, n1-u4-q10, n1-u5-q12) y fuentes que faltaban o no coincidían con las lecciones.
+  - Ronda 2: dos filtraciones más (n1-u3-q10 y n1-u5-q11).
+  - Ronda 3: aprobados. Estado: `reviewed`.
+- **N0 (5 bancos):**
+  - Ronda 1: q3 de n0-u1 rechazaba la rentabilidad real exacta; varias preguntas daban la respuesta de la segunda fase; la explicación de n0-u4-q12 contradecía la lección sobre creación de dinero; n0-u5-q10 preguntaba algo que no se enseñaba.
+  - Ronda 2: la tolerancia de n0-u1-q11 rechazaba el valor exacto por la coma flotante; la fuente de n0-u4 citaba el artículo 101 del RIRPF en vez del 90.
+  - Ronda 3: aprobados. Estado: `reviewed`.
+- e2e de producción del camino 6 + segunda fase (`e2e/placement.spec.ts`): pasa.
+- 🛑 Pendiente de la revisión de Javier, sobre todo las fuentes normativas añadidas (Circular 5/2012, Orden EHA/2899/2011, RD 2606/1996, RIRPF art. 90).
 
