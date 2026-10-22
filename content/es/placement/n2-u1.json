@@ -145,9 +145,9 @@
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["rating-spread"],
-      "prompt": "La diferencia entre la rentabilidad de un bono de empresa y la del Estado al mismo plazo se llama ___.",
-      "answers": [["diferencial", "spread"]],
-      "explanation": "El diferencial (spread): lo que se pide de más por el riesgo de la empresa."
+      "prompt": "Los bonos con un rating por debajo de BBB− se llaman de alto rendimiento o de grado ___.",
+      "answers": [["especulativo", "grado especulativo"]],
+      "explanation": "De grado especulativo (high yield): por debajo del grado de inversión."
     },
     {
       "id": "salto-n2-u1-q11",

@@ -163,7 +163,7 @@
           "category": "ETF"
         },
         {
-          "text": "Su precio se fija una vez al día",
+          "text": "Se suscribe y reembolsa directamente con la gestora",
           "category": "Fondo tradicional"
         },
         {
@@ -179,20 +179,18 @@
     },
     {
       "id": "salto-n2-u3-q11",
-      "type": "multiple_choice",
+      "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["traspasos-fondos"],
-      "prompt": "Traspasas 10.000 € de un fondo con 2.000 € de ganancia a otro fondo de inversión. ¿Cuánto IRPF pagas ahora?",
-      "options": ["Nada: tributarás cuando vendas", "380 €", "1.900 €", "Una tasa fija de 19 €"],
-      "answer": 0,
-      "explanation": "El traspaso entre fondos aplaza el impuesto.",
-      "wrongExplanations": {
-        "1": "Eso pagarías si vendieras.",
-        "2": "Sería el 19 % del total, no de la ganancia, y tampoco toca ahora.",
-        "3": "No existe esa tasa."
-      }
+      "prompt": "Traspasas un fondo con 2.000 € de ganancia a otro fondo. Años después vendes el nuevo con una ganancia total acumulada de 3.000 €. Al 19 %, ¿cuánto IRPF pagas al vender? (€)",
+      "answer": 570,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3000 * 0.19",
+      "explanation": "El traspaso arrastra la ganancia: tributas por los 3.000 € al vender, 570 €."
     },
     {
       "id": "salto-n2-u3-q12",

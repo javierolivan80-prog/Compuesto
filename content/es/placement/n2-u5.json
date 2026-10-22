@@ -89,7 +89,7 @@
       "concepts": ["cripto-mica"],
       "type": "fill_blank",
       "prompt": "El reglamento europeo que regula a los emisores y proveedores de servicios de criptoactivos se llama ___.",
-      "answers": [["MiCA", "Mica", "MICA"]],
+      "answers": [["MiCA", "Reglamento MiCA", "Markets in Crypto-Assets"]],
       "explanation": "MiCA, el Reglamento (UE) 2023/1114."
     },
     {
@@ -161,20 +161,18 @@
     },
     {
       "id": "salto-n2-u5-q11",
-      "type": "multiple_choice",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["divisas"],
-      "prompt": "Tienes un fondo de bolsa estadounidense en dólares y el dólar se aprecia frente al euro. Medido en euros, tu fondo…",
-      "options": ["Vale más", "Vale menos", "No cambia", "Depende del IBEX"],
-      "answer": 0,
-      "explanation": "Cada dólar vale ahora más euros.",
-      "wrongExplanations": {
-        "1": "Eso pasaría si el dólar se depreciara.",
-        "2": "El tipo de cambio sí cambia su valor en euros.",
-        "3": "El IBEX no tiene relación."
-      }
+      "prompt": "Tienes 5.000 $ en un fondo y el EUR/USD pasa de 1,25 a 1,00. ¿Cuántos euros vale ahora? (€)",
+      "answer": 5000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "5000 / 1",
+      "explanation": "5.000 / 1,00 = 5.000 €; antes eran 4.000 €."
     },
     {
       "id": "salto-n2-u5-q12",

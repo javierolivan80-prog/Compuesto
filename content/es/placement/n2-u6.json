@@ -65,7 +65,7 @@
       "concepts": ["mercado-monetario-repo"],
       "type": "fill_blank",
       "prompt": "El tipo de referencia a un día del euro que publica el BCE se llama ___.",
-      "answers": [["€STR", "ESTR", "eSTR", "€str", "ester"]],
+      "answers": [["€STR", "ESTR", "€STER", "ester", "euro short-term rate"]],
       "explanation": "El €STR (euro short-term rate)."
     },
     {
@@ -140,13 +140,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["mercado-monetario-repo"],
-      "prompt": "Una Letra paga 1.000 € dentro de 180 días y el tipo es del 3 %, con actual/360. ¿Cuánto vale hoy? (€, 2 decimales)",
-      "answer": 985.22,
+      "prompt": "Una Letra paga 1.000 € dentro de 90 días y el tipo es del 4 %, con actual/360. ¿Cuánto vale hoy? (€, 2 decimales)",
+      "answer": 990.1,
       "unit": "€",
       "tolerance": 0.002,
       "answerDecimals": 2,
-      "formula": "1000 / (1 + 0.03 * 180 / 360)",
-      "explanation": "1.000 / (1 + 3 % × 180 / 360) = 985,22 €."
+      "formula": "1000 / (1 + 0.04 * 90 / 360)",
+      "explanation": "1.000 / (1 + 4 % × 90 / 360) = 990,10 €."
     },
     {
       "id": "salto-n2-u6-q10",
@@ -156,7 +156,16 @@
       "tags": ["test-de-salto"],
       "concepts": ["cedulas-titulizaciones"],
       "prompt": "En una titulización, el tramo que absorbe las primeras pérdidas se llama ___.",
-      "answers": [["equity", "tramo equity", "de primera pérdida"]],
+      "answers": [
+        [
+          "equity",
+          "tramo equity",
+          "de primera pérdida",
+          "primera pérdida",
+          "tramo de primera pérdida",
+          "first loss"
+        ]
+      ],
       "explanation": "El equity (o tramo de primera pérdida)."
     },
     {
@@ -188,9 +197,9 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["cedulas-titulizaciones"],
-      "statement": "El tenedor de una cédula hipotecaria puede reclamar al banco emisor, además de cobrar de la cartera de hipotecas.",
+      "statement": "Una cédula hipotecaria suele rendir menos que un bono sin garantía del mismo banco.",
       "answer": true,
-      "explanation": "Verdadero: es la doble garantía de las cédulas."
+      "explanation": "Verdadero: su doble garantía la hace más segura, y se paga con menos rentabilidad."
     }
   ],
   "sources": [

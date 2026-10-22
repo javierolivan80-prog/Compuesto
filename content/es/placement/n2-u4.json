@@ -160,14 +160,14 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["media-desviacion"],
-      "prompt": "Rentabilidades del 4 %, 4 % y 4 %. ¿Cuál es su desviación típica?",
-      "options": ["0 %", "4 %", "1 %", "12 %"],
+      "prompt": "Fondo A: 4 %, 4 % y 4 %. Fondo B: 0 %, 4 % y 8 %. Tienen la misma media. ¿Cuál tiene más desviación típica?",
+      "options": ["El B", "El A", "Los dos la misma", "No se puede saber sin más años"],
       "answer": 0,
-      "explanation": "Todos los datos son iguales a la media: no hay dispersión.",
+      "explanation": "El B se aleja de su media (4 %) y el A no se aleja nada: su desviación típica es 0.",
       "wrongExplanations": {
-        "1": "Esa es la media.",
-        "2": "No hay ninguna diferencia con la media.",
-        "3": "Esa es la suma."
+        "1": "El A no se mueve de su media.",
+        "2": "Misma media no es misma dispersión.",
+        "3": "Con estos datos ya se calcula."
       }
     },
     {

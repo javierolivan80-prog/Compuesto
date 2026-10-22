@@ -164,15 +164,15 @@
       "categories": ["No complejo", "Complejo"],
       "items": [
         {
-          "text": "Una Letra del Tesoro",
+          "text": "Un bono sencillo del Estado",
           "category": "No complejo"
         },
         {
-          "text": "Acciones de una empresa cotizada",
+          "text": "Un fondo UCITS que replica un índice",
           "category": "No complejo"
         },
         {
-          "text": "Un CFD sobre el oro",
+          "text": "Un bono que se convierte en acciones si el emisor tiene problemas",
           "category": "Complejo"
         },
         {
@@ -206,9 +206,9 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["socimi-reit"],
-      "statement": "Una SOCIMI debe repartir como dividendo al menos el 80 % del beneficio que obtiene de los alquileres.",
+      "statement": "Las acciones de una SOCIMI deben estar admitidas a negociación en un mercado regulado o en un sistema multilateral, como BME Growth.",
       "answer": true,
-      "explanation": "Verdadero (Ley 11/2009, art. 6)."
+      "explanation": "Verdadero (Ley 11/2009, art. 4)."
     }
   ],
   "sources": [

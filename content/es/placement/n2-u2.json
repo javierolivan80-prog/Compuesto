@@ -61,7 +61,7 @@
       "tags": ["test-de-salto"],
       "concepts": ["duracion"],
       "type": "numeric_input",
-      "prompt": "Un bono tiene una duración modificada de 6 y los tipos suben 0,5 puntos. ¿Cuánto cae su precio, aproximadamente? (%)",
+      "prompt": "Un bono tiene una duración modificada de 6 y los tipos suben 0,5 puntos. ¿Cuánto cae su precio, aproximadamente? (%, en positivo)",
       "answer": 3,
       "unit": "%",
       "tolerance": 0.5,
@@ -124,8 +124,8 @@
       "tags": ["test-de-salto"],
       "concepts": ["curva-tipos"],
       "type": "fill_blank",
-      "prompt": "Si suben los tipos a 2 años y bajan los de 10 años, la curva se ___.",
-      "answers": [["aplana", "aplanó"]],
+      "prompt": "Partiendo de una curva normal, si suben un poco los tipos a 2 años y bajan un poco los de 10 años, la curva se ___.",
+      "answers": [["aplana"]],
       "explanation": "Se aplana: la diferencia entre el largo y el corto se reduce."
     },
     {
@@ -147,12 +147,17 @@
       "id": "salto-n2-u2-q10",
       "type": "order_steps",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["curva-tipos"],
       "prompt": "Ordena estas curvas de menor a mayor pendiente (rentabilidad a 10 años menos rentabilidad a 2 años).",
-      "steps": ["Invertida: −50 pb", "Plana: sin pendiente", "Normal: +100 pb"],
-      "explanation": "De negativa a positiva: invertida, plana y normal."
+      "steps": [
+        "2 años al 3,0 % · 10 años al 2,6 %",
+        "2 años al 2,8 % · 10 años al 2,8 %",
+        "2 años al 2,5 % · 10 años al 2,9 %",
+        "2 años al 2,2 % · 10 años al 3,1 %"
+      ],
+      "explanation": "Pendientes de −40, 0, +40 y +90 pb."
     },
     {
       "id": "salto-n2-u2-q11",
@@ -161,14 +166,14 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["convexidad"],
-      "prompt": "Con el mismo cupón y la misma rentabilidad, ¿qué bono tiene más convexidad?",
-      "options": ["Uno a 30 años", "Uno a 2 años", "Una Letra a 3 meses", "Todos la misma"],
+      "prompt": "Los tipos suben 1 punto y la duración estima que el precio de un bono cae un 6 %. Por la convexidad, el precio real cae…",
+      "options": ["Algo menos del 6 %", "Algo más del 6 %", "Exactamente un 6 %", "Sube"],
       "answer": 0,
-      "explanation": "La convexidad crece con el plazo.",
+      "explanation": "La convexidad amortigua las caídas y amplía las subidas.",
       "wrongExplanations": {
-        "1": "A 2 años la curvatura es pequeña.",
-        "2": "A 3 meses apenas hay convexidad.",
-        "3": "Depende del plazo y de los flujos."
+        "1": "Es al revés: la curva del precio queda por encima de la recta de la duración.",
+        "2": "La duración es solo una aproximación lineal.",
+        "3": "Con tipos al alza, el precio baja."
       }
     },
     {
@@ -178,9 +183,9 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["curva-tipos"],
-      "statement": "Una curva invertida significa que los plazos cortos rinden más que los largos.",
+      "statement": "Si bajan los tipos a 2 años y los de 10 años no se mueven, la curva se empina.",
       "answer": true,
-      "explanation": "Verdadero: la rentabilidad baja al alargar el plazo."
+      "explanation": "Verdadero: aumenta la diferencia entre el largo y el corto."
     }
   ],
   "sources": [
