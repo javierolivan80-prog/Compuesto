@@ -472,7 +472,11 @@ describe('tests de salto (validación)', () => {
     expect(placementCodes(late)).toContain('concepto-sin-cubrir');
   });
   it('una pregunta con un concepto de otra unidad es un error, y todo concepto de la unidad debe estar cubierto', () => {
-    const r = withPlacement((p) => (p.questions[0].concepts = ['inflacion']));
+    // el TIN solo aparece en q1 y q3: se sustituye en las dos
+    const r = withPlacement((p) => {
+      p.questions[0].concepts = ['inflacion'];
+      p.questions[2].concepts = ['tae'];
+    });
     expect(placementCodes(r)).toEqual(['concepto-ajeno', 'concepto-sin-cubrir']);
   });
   it('published exige revisión humana; la unidad debe existir; el id debe llevar el prefijo de la unidad', () => {
