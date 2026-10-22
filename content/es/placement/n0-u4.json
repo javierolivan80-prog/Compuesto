@@ -1,9 +1,9 @@
 {
   "id": "salto-n0-u4",
   "unitId": "n0-u4",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n0-u4-q1",
@@ -29,14 +29,18 @@
     },
     {
       "id": "salto-n0-u4-q2",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["banco"],
-      "statement": "Un banco comercial capta depósitos y concede préstamos.",
-      "answer": true,
-      "explanation": "Es la base de su actividad: intermediar entre ahorradores y prestatarios."
+      "type": "numeric_input",
+      "prompt": "Un banco presta 100.000 € al 5 % y paga un 1 % por los depósitos con los que lo financia. ¿Cuál es su margen de intereses anual? (€)",
+      "answer": 4000,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "100000 * (0.05 - 0.01)",
+      "explanation": "5.000 − 1.000 = 4.000 €."
     },
     {
       "id": "salto-n0-u4-q3",
@@ -73,25 +77,14 @@
     },
     {
       "id": "salto-n0-u4-q5",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["deposito"],
-      "prompt": "Un depósito a plazo fijo es…",
-      "options": [
-        "Una acción del banco",
-        "Un seguro de vida",
-        "Dinero que entregas al banco por un plazo a cambio de un interés pactado",
-        "Un fondo de inversión"
-      ],
-      "answer": 2,
-      "explanation": "Se pacta plazo e interés de antemano.",
-      "wrongExplanations": {
-        "0": "Una acción da propiedad, no un interés pactado.",
-        "1": "Es un producto distinto.",
-        "3": "El fondo no garantiza un interés pactado."
-      }
+      "type": "fill_blank",
+      "prompt": "El depósito en el que pactas de antemano un plazo y un interés se llama depósito a ___ fijo.",
+      "answers": [["plazo"]],
+      "explanation": "Depósito a plazo fijo."
     },
     {
       "id": "salto-n0-u4-q6",
@@ -117,42 +110,87 @@
     },
     {
       "id": "salto-n0-u4-q7",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["fgd"],
-      "prompt": "El Fondo de Garantía de Depósitos protege los depósitos de cada titular en cada entidad hasta…",
-      "options": ["100.000 euros", "10.000 euros", "1.000.000 de euros", "Sin límite"],
-      "answer": 0,
-      "explanation": "La garantía es de 100.000 € por titular y entidad.",
-      "wrongExplanations": {
-        "1": "El límite es mayor.",
-        "2": "El límite es menor.",
-        "3": "Sí hay límite."
-      }
+      "type": "numeric_input",
+      "prompt": "Tienes 130.000 € en depósitos a tu nombre en un mismo banco. Si el banco quiebra, ¿cuánto te cubre el Fondo de Garantía de Depósitos? (€)",
+      "answer": 100000,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "MIN(130000, 100000)",
+      "explanation": "Hasta 100.000 € por titular y entidad."
     },
     {
       "id": "salto-n0-u4-q8",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["irpf-intereses"],
-      "prompt": "En el IRPF, los intereses de un depósito bancario se consideran…",
-      "options": [
-        "Rendimientos del trabajo",
-        "Ganancias patrimoniales por venta",
-        "Rentas exentas siempre",
-        "Rendimientos del capital mobiliario"
-      ],
-      "answer": 3,
-      "explanation": "Los intereses tributan como rendimientos del capital mobiliario.",
+      "type": "fill_blank",
+      "prompt": "En el IRPF, los intereses de un depósito bancario son rendimientos del capital ___.",
+      "answers": [["mobiliario"]],
+      "explanation": "Rendimientos del capital mobiliario, en la base del ahorro."
+    },
+    {
+      "id": "salto-n0-u4-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["irpf-intereses"],
+      "prompt": "Un depósito te da 500 € de intereses y el banco retiene un 19 %. ¿Cuánto te abona? (€)",
+      "answer": 405,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "500 * (1 - 0.19)",
+      "explanation": "500 − 95 = 405 €."
+    },
+    {
+      "id": "salto-n0-u4-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["deposito"],
+      "prompt": "Un depósito de 10.000 € a un año paga un 2,5 %. ¿Cuántos euros de intereses brutos cobras al vencer? (€)",
+      "answer": 250,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "10000 * 0.025",
+      "explanation": "10.000 × 2,5 % = 250 €."
+    },
+    {
+      "id": "salto-n0-u4-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["fgd"],
+      "prompt": "Tienes 80.000 € en el banco A y 80.000 € en el banco B, todo a tu nombre. Si quiebran los dos, ¿cuánto te cubre el Fondo de Garantía de Depósitos en total?",
+      "options": ["160.000 €", "100.000 €", "80.000 €", "0 €"],
+      "answer": 0,
+      "explanation": "El límite de 100.000 € se aplica por titular y por entidad: cada banco queda cubierto entero.",
       "wrongExplanations": {
-        "0": "Provienen del ahorro, no de un empleo.",
-        "1": "No hay venta de un activo.",
-        "2": "Tributan, no están exentos."
+        "1": "El límite es por entidad, no total.",
+        "2": "Cada banco está cubierto por separado.",
+        "3": "Los depósitos están cubiertos."
       }
+    },
+    {
+      "id": "salto-n0-u4-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["creacion-dinero"],
+      "statement": "El dinero de los depósitos de un banco está guardado entero en su caja fuerte.",
+      "answer": false,
+      "explanation": "Falso: el banco presta buena parte; solo guarda una reserva."
     }
   ],
   "sources": [

@@ -89,7 +89,7 @@
       "concepts": ["free-float"],
       "type": "fill_blank",
       "prompt": "La parte de las acciones de una empresa cotizada que se negocia libremente en el mercado se llama ___.",
-      "answers": [["free float", "free-float", "capital flotante"]],
+      "answers": [["free float", "free-float", "freefloat", "capital flotante"]],
       "explanation": "El free float (capital flotante): excluye a los socios estables."
     },
     {
@@ -163,7 +163,7 @@
           "category": "Derecho del accionista"
         },
         {
-          "text": "Que le devuelvan lo invertido si la empresa quiebra",
+          "text": "Decidir el sueldo de los empleados",
           "category": "No lo es"
         },
         {

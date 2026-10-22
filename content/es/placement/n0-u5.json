@@ -1,9 +1,9 @@
 {
   "id": "salto-n0-u5",
   "unitId": "n0-u5",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n0-u5-q1",
@@ -29,58 +29,54 @@
     },
     {
       "id": "salto-n0-u5-q2",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["seguros-basicos"],
-      "statement": "Un seguro transfiere a la aseguradora el riesgo de un gasto grande e improbable a cambio de una prima.",
-      "answer": true,
-      "explanation": "La prima es el precio de transferir ese riesgo."
+      "type": "fill_blank",
+      "prompt": "En un seguro, el precio que pagas a la aseguradora por transferirle un riesgo se llama ___.",
+      "answers": [["prima"]],
+      "explanation": "La prima."
     },
     {
       "id": "salto-n0-u5-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["pensiones-publicas"],
-      "prompt": "El sistema público de pensiones español es, principalmente, de…",
-      "options": [
-        "Reparto: las cotizaciones actuales financian las pensiones actuales",
-        "Capitalización individual",
-        "Ahorro voluntario",
-        "Beneficencia"
-      ],
-      "answer": 0,
-      "explanation": "Las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy.",
-      "wrongExplanations": {
-        "1": "En la capitalización cada persona ahorra para sí misma.",
-        "2": "El sistema público es obligatorio.",
-        "3": "Es un sistema principalmente contributivo: se financia con cotizaciones."
-      }
+      "type": "fill_blank",
+      "prompt": "El sistema público de pensiones español, en el que las cotizaciones de quienes trabajan hoy pagan las pensiones de hoy, es un sistema de ___.",
+      "answers": [["reparto"]],
+      "explanation": "De reparto."
     },
     {
       "id": "salto-n0-u5-q4",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["tres-pilares"],
-      "prompt": "¿Cuáles son los tres pilares de la jubilación?",
-      "options": [
-        "Hipoteca, seguro y depósito",
-        "Bolsa, renta fija y oro",
-        "Sueldo, bonus y herencia",
-        "Pensión pública, planes de empresa y ahorro individual"
+      "type": "categorize",
+      "prompt": "¿A qué pilar de la jubilación pertenece cada cosa?",
+      "categories": ["Primer pilar", "Segundo pilar", "Tercer pilar"],
+      "items": [
+        {
+          "text": "La pensión de jubilación de la Seguridad Social",
+          "category": "Primer pilar"
+        },
+        {
+          "text": "Un plan de pensiones que te ofrece tu empresa",
+          "category": "Segundo pilar"
+        },
+        {
+          "text": "Un plan de pensiones individual que contratas tú",
+          "category": "Tercer pilar"
+        },
+        {
+          "text": "Tus ahorros en fondos de inversión",
+          "category": "Tercer pilar"
+        }
       ],
-      "answer": 3,
-      "explanation": "Primer pilar público, segundo de empresa, tercero individual.",
-      "wrongExplanations": {
-        "0": "No son pilares de jubilación.",
-        "1": "Son tipos de activos, no pilares.",
-        "2": "No son un sistema de previsión."
-      }
+      "explanation": "Público, de empresa e individual."
     },
     {
       "id": "salto-n0-u5-q5",
@@ -139,20 +135,95 @@
     },
     {
       "id": "salto-n0-u5-q8",
-      "type": "multi_select",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["seguros-basicos"],
-      "prompt": "¿Qué riesgos se pueden transferir a una aseguradora a cambio de una prima?",
-      "options": [
-        "Un incendio en tu vivienda",
-        "Daños a terceros causados con tu coche",
-        "Una hospitalización",
-        "Que tu inversión rinda menos de lo esperado"
+      "type": "categorize",
+      "prompt": "¿Se puede transferir a una aseguradora?",
+      "categories": ["Se puede asegurar", "No se puede asegurar"],
+      "items": [
+        {
+          "text": "Un incendio en tu vivienda",
+          "category": "Se puede asegurar"
+        },
+        {
+          "text": "Daños a terceros causados con tu coche",
+          "category": "Se puede asegurar"
+        },
+        {
+          "text": "Una hospitalización",
+          "category": "Se puede asegurar"
+        },
+        {
+          "text": "Que tu inversión rinda menos de lo esperado",
+          "category": "No se puede asegurar"
+        }
       ],
-      "answers": [0, 1, 2],
-      "explanation": "Se aseguran sucesos de daño o responsabilidad; el riesgo de mercado de una inversión no es asegurable así."
+      "explanation": "Se aseguran sucesos de daño o responsabilidad; el riesgo de mercado de una inversión, no."
+    },
+    {
+      "id": "salto-n0-u5-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["seguros-basicos"],
+      "prompt": "Tu seguro de hogar tiene una franquicia de 150 €. Un siniestro cubierto te causa un daño de 1.000 €. ¿Cuánto te paga la aseguradora? (€)",
+      "answer": 850,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "1000 - 150",
+      "explanation": "1.000 − 150 de franquicia = 850 €."
+    },
+    {
+      "id": "salto-n0-u5-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["riesgo-rentabilidad"],
+      "prompt": "Inviertes la mitad de tu dinero en un depósito al 2 % y la otra mitad en un fondo que ese año rinde un 8 %. ¿Qué rentabilidad obtienes en total? (%)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.5 * 2 + 0.5 * 8",
+      "explanation": "La media ponderada: 0,5 × 2 + 0,5 × 8 = 5 %."
+    },
+    {
+      "id": "salto-n0-u5-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["pensiones-publicas"],
+      "prompt": "¿Por qué el envejecimiento de la población presiona un sistema de pensiones de reparto?",
+      "options": [
+        "Porque hay menos cotizantes por cada pensionista",
+        "Porque las pensiones bajan con la edad",
+        "Porque los jóvenes no cotizan",
+        "Porque el dinero de cada uno está invertido en bolsa"
+      ],
+      "answer": 0,
+      "explanation": "Con más pensionistas y menos trabajadores, las cotizaciones cubren menos.",
+      "wrongExplanations": {
+        "1": "No bajan con la edad.",
+        "2": "Sí cotizan.",
+        "3": "En el reparto no hay una cuenta invertida por persona."
+      }
+    },
+    {
+      "id": "salto-n0-u5-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["riesgo-rentabilidad"],
+      "statement": "Que una inversión haya subido mucho el último año garantiza que seguirá subiendo.",
+      "answer": false,
+      "explanation": "Falso: la rentabilidad pasada no garantiza la futura; más rentabilidad esperada siempre viene con más riesgo."
     }
   ],
   "sources": [

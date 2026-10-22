@@ -30,7 +30,7 @@
     {
       "id": "salto-n1-u4-q2",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["horquilla"],
       "type": "numeric_input",
@@ -72,7 +72,7 @@
       "concepts": ["orden-mercado"],
       "type": "fill_blank",
       "prompt": "La orden que se ejecuta enseguida al mejor precio disponible, sin fijar un precio, es la orden ___.",
-      "answers": [["de mercado", "a mercado", "mercado"]],
+      "answers": [["de mercado", "a mercado", "mercado", "por lo mejor"]],
       "explanation": "La orden de mercado: prima la ejecución sobre el precio."
     },
     {
@@ -158,32 +158,18 @@
     },
     {
       "id": "salto-n1-u4-q10",
-      "type": "categorize",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["orden-mercado", "orden-limitada"],
-      "prompt": "¿Es propio de una orden de mercado o de una orden limitada?",
-      "categories": ["Orden de mercado", "Orden limitada"],
-      "items": [
-        {
-          "text": "Garantiza el precio máximo que pagas",
-          "category": "Orden limitada"
-        },
-        {
-          "text": "Se ejecuta enseguida si hay contrapartida",
-          "category": "Orden de mercado"
-        },
-        {
-          "text": "Puede quedarse sin ejecutar",
-          "category": "Orden limitada"
-        },
-        {
-          "text": "En un valor poco líquido puede salir muy cara",
-          "category": "Orden de mercado"
-        }
-      ],
-      "explanation": "La de mercado asegura la ejecución; la limitada, el precio."
+      "concepts": ["orden-mercado", "formacion-precios"],
+      "prompt": "Lanzas una orden de compra a mercado de 300 acciones. En venta hay 100 a 10,00 €, 100 a 10,05 € y 200 a 10,10 €. ¿A qué precio medio compras? (€, 2 decimales)",
+      "answer": 10.05,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "(100 * 10 + 100 * 10.05 + 100 * 10.10) / 300",
+      "explanation": "Barre los tres niveles: (1.000 + 1.005 + 1.010) / 300 = 10,05 €."
     },
     {
       "id": "salto-n1-u4-q11",

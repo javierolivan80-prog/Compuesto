@@ -118,14 +118,14 @@
     },
     {
       "id": "salto-n1-u5-q8",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["comisiones"],
-      "statement": "Los costes de operar en bolsa incluyen la comisión, el canon de bolsa y la horquilla.",
+      "type": "true_false_swipe",
+      "statement": "Los costes de operar en bolsa incluyen la comisión del bróker y la horquilla.",
       "answer": true,
-      "explanation": "Son costes explícitos e implícitos."
+      "explanation": "Son un coste explícito y otro implícito."
     },
     {
       "id": "salto-n1-u5-q9",
@@ -148,14 +148,14 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["rentabilidad-dividendo"],
-      "prompt": "Una acción cotiza a 25 € y paga un dividendo de 0,75 € al año. ¿Cuál es su rentabilidad por dividendo? (%)",
-      "answer": 3,
-      "unit": "%",
-      "tolerance": 0.5,
+      "concepts": ["dividendo"],
+      "prompt": "Tienes 200 acciones y la empresa paga un dividendo de 0,50 € brutos por acción, con una retención del 19 %. ¿Cuánto llega a tu cuenta? (€)",
+      "answer": 81,
+      "unit": "€",
+      "tolerance": 0,
       "answerDecimals": 0,
-      "formula": "0.75 / 25 * 100",
-      "explanation": "0,75 / 25 = 3 %."
+      "formula": "200 * 0.5 * (1 - 0.19)",
+      "explanation": "100 € brutos menos 19 € de retención = 81 €."
     },
     {
       "id": "salto-n1-u5-q11",
@@ -176,22 +176,26 @@
     },
     {
       "id": "salto-n1-u5-q12",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["broker-espana"],
-      "statement": "La CNMV publica un registro de las entidades autorizadas para prestar servicios de inversión en España.",
-      "answer": true,
-      "explanation": "Verdadero: conviene comprobarlo antes de abrir una cuenta."
+      "concepts": ["comisiones"],
+      "prompt": "Tu bróker cobra el 0,10 % del importe con un mínimo de 6 €. Compras acciones por 2.500 €. ¿Cuánto pagas de comisión? (€)",
+      "answer": 6,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "MAX(2500 * 0.001, 6)",
+      "explanation": "El 0,10 % serían 2,50 €, por debajo del mínimo: pagas 6 €."
     }
   ],
   "sources": [
     {
-      "title": "Ley 35/2006 del IRPF (rendimientos del capital mobiliario y ganancias patrimoniales) — Agencia Tributaria",
-      "url": "https://sede.agenciatributaria.gob.es/",
+      "title": "BOE: Ley 35/2006 del IRPF, arts. 25, 66, 76 y 101",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
       "date": "2026-10-15"
     }
   ],
-  "verificarAntesDe": "2027-10-15"
+  "verificarAntesDe": "2027-03-31"
 }

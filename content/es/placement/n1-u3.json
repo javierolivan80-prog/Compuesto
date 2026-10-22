@@ -12,7 +12,7 @@
       "tags": ["test-de-salto"],
       "concepts": ["bme"],
       "type": "fill_blank",
-      "prompt": "El operador de las bolsas y mercados españoles se conoce por sus siglas: ___.",
+      "prompt": "La empresa que gestiona las bolsas españolas y el mercado continuo se conoce por sus siglas: ___.",
       "answers": [["BME"]],
       "explanation": "BME (Bolsas y Mercados Españoles); la CNMV supervisa."
     },
@@ -41,7 +41,7 @@
     {
       "id": "salto-n1-u3-q3",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["ibex-35"],
       "type": "numeric_input",
@@ -100,7 +100,7 @@
       "concepts": ["indices-mundiales", "ibex-35"],
       "type": "categorize",
       "prompt": "¿De dónde es cada índice?",
-      "categories": ["España", "EE. UU.", "Zona euro"],
+      "categories": ["España", "EE. UU.", "Alemania"],
       "items": [
         {
           "text": "IBEX 35",
@@ -111,8 +111,8 @@
           "category": "EE. UU."
         },
         {
-          "text": "Euro Stoxx 50",
-          "category": "Zona euro"
+          "text": "DAX 40",
+          "category": "Alemania"
         },
         {
           "text": "Nasdaq 100",
@@ -164,10 +164,10 @@
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
-      "concepts": ["bme-growth"],
-      "prompt": "El mercado de BME para pymes en expansión, con requisitos adaptados, se llama BME ___.",
-      "answers": [["Growth"]],
-      "explanation": "BME Growth."
+      "concepts": ["bme"],
+      "prompt": "El sistema electrónico que conecta las cuatro bolsas españolas y en el que cotizan las grandes empresas se llama mercado ___.",
+      "answers": [["continuo"]],
+      "explanation": "El mercado continuo."
     },
     {
       "id": "salto-n1-u3-q11",
@@ -198,11 +198,27 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["bme"],
-      "statement": "La CNMV es la empresa que gestiona la Bolsa de Madrid.",
-      "answer": false,
-      "explanation": "Falso: la gestiona BME; la CNMV la supervisa."
+      "statement": "BME forma parte desde 2020 de un grupo suizo de mercados, SIX.",
+      "answer": true,
+      "explanation": "Verdadero: SIX compró BME en 2020."
     }
   ],
-  "sources": [],
-  "verificarAntesDe": null
+  "sources": [
+    {
+      "title": "BME: horarios y fases de negociación del mercado continuo",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Sociedad de Bolsas / BME: Normas técnicas del IBEX 35",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Indices",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "BME Growth: mercado para empresas en expansión",
+      "url": "https://www.bmegrowth.es/",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
 }

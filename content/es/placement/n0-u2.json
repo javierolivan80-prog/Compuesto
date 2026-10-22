@@ -1,9 +1,9 @@
 {
   "id": "salto-n0-u2",
   "unitId": "n0-u2",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n0-u2-q1",
@@ -57,81 +57,59 @@
     },
     {
       "id": "salto-n0-u2-q4",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["prestamo"],
-      "prompt": "En un préstamo, la cuota es…",
-      "options": [
-        "Solo los intereses",
-        "Solo el capital",
-        "La comisión de apertura",
-        "La cantidad periódica que se paga, con intereses y parte del capital"
-      ],
-      "answer": 3,
-      "explanation": "La cuota combina intereses y amortización del capital.",
-      "wrongExplanations": {
-        "0": "La cuota incluye también devolución de capital.",
-        "1": "También incluye intereses.",
-        "2": "La apertura se paga una vez, no es la cuota."
-      }
+      "type": "numeric_input",
+      "prompt": "Un préstamo de 10.000 € al 6 % anual se paga en cuotas mensuales, con un tipo mensual del 0,5 %. ¿Cuántos euros de intereses se pagan en la primera cuota? (€)",
+      "answer": 50,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10000 * 0.005",
+      "explanation": "10.000 × 0,5 % = 50 €."
     },
     {
       "id": "salto-n0-u2-q5",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["cuadro-amortizacion"],
-      "prompt": "En un préstamo con cuota constante (sistema francés), la parte de cada cuota que va a intereses a lo largo del tiempo…",
-      "options": ["Aumenta", "Se mantiene", "Disminuye", "Desaparece en el primer año"],
-      "answer": 2,
-      "explanation": "Cada cuota amortiza algo de capital: el saldo baja y los intereses también.",
-      "wrongExplanations": {
-        "0": "Al amortizar capital, el saldo baja y con él los intereses.",
-        "1": "Solo la cuota total es constante, no su reparto.",
-        "3": "Los intereses existen hasta la última cuota."
-      }
+      "type": "numeric_input",
+      "prompt": "La cuota mensual de un préstamo es de 300 € y este mes los intereses son 80 €. ¿Cuánto capital amortizas este mes? (€)",
+      "answer": 220,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "300 - 80",
+      "explanation": "300 − 80 = 220 € de capital."
     },
     {
       "id": "salto-n0-u2-q6",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["hipoteca"],
-      "prompt": "¿Qué es una hipoteca?",
-      "options": [
-        "Un seguro para la vivienda",
-        "Un préstamo cuya devolución se garantiza con un inmueble",
-        "Un impuesto sobre la vivienda",
-        "Una subvención del Estado"
-      ],
-      "answer": 1,
-      "explanation": "En la hipoteca, el inmueble sirve de garantía del préstamo.",
-      "wrongExplanations": {
-        "0": "Un seguro es otro contrato.",
-        "2": "Los impuestos son distintos (IBI, etc.).",
-        "3": "No es una ayuda: hay que devolverla."
-      }
+      "type": "fill_blank",
+      "prompt": "Un préstamo cuya devolución se garantiza con un inmueble se llama ___.",
+      "answers": [["hipoteca", "préstamo hipotecario", "prestamo hipotecario"]],
+      "explanation": "Una hipoteca: si no pagas, el banco puede ejecutar la garantía."
     },
     {
       "id": "salto-n0-u2-q7",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["euribor"],
-      "prompt": "Si el Euríbor sube y tu hipoteca es a tipo variable referenciada a él, tu cuota…",
-      "options": ["Tiende a subir en la próxima revisión", "Baja", "No cambia nunca", "Se cancela"],
-      "answer": 0,
-      "explanation": "En una hipoteca variable el interés es Euríbor + diferencial.",
-      "wrongExplanations": {
-        "1": "Con un índice más alto, el interés sube, no baja.",
-        "2": "En una hipoteca variable la cuota se revisa con el índice.",
-        "3": "No se cancela nada: cambia el interés aplicado."
-      }
+      "type": "numeric_input",
+      "prompt": "Una hipoteca variable tiene un diferencial del 0,8 %. Si el Euríbor está en el 2,5 %, ¿qué tipo pagas? (%, 1 decimal)",
+      "answer": 3.3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2.5 + 0.8",
+      "explanation": "Euríbor + diferencial = 2,5 + 0,8 = 3,3 %."
     },
     {
       "id": "salto-n0-u2-q8",
@@ -154,6 +132,69 @@
         "1": "Hay que compararlo con todos los costes de comprar, no solo con una parte.",
         "2": "Ignora la financiación, los gastos y el coste de oportunidad."
       }
+    },
+    {
+      "id": "salto-n0-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["tae"],
+      "prompt": "Un préstamo tiene un TIN del 12 % anual con pagos mensuales (un 1 % al mes) y no tiene comisiones. ¿Cuál es su TAE? (%, 2 decimales)",
+      "answer": 12.68,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "(1.01^12 - 1) * 100",
+      "explanation": "(1,01¹² − 1) = 12,68 %: los intereses mensuales se capitalizan."
+    },
+    {
+      "id": "salto-n0-u2-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["alquilar-vs-comprar"],
+      "prompt": "Una vivienda cuesta 200.000 €. Pagas una entrada del 20 % y, además, un 10 % del precio en impuestos y gastos. ¿Cuánto dinero necesitas ahorrado antes de firmar? (€)",
+      "answer": 60000,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "200000 * (0.2 + 0.1)",
+      "explanation": "40.000 de entrada + 20.000 de impuestos y gastos = 60.000 €."
+    },
+    {
+      "id": "salto-n0-u2-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["tin", "tae"],
+      "prompt": "Préstamo A: TIN del 5 % y TAE del 6,2 %. Préstamo B: TIN del 5,5 % y TAE del 5,7 %. Mismo importe y plazo. ¿Cuál es más barato?",
+      "options": [
+        "El B, porque tiene menor TAE",
+        "El A, porque tiene menor TIN",
+        "Cuestan lo mismo",
+        "No se puede saber"
+      ],
+      "answer": 0,
+      "explanation": "La TAE incluye las comisiones: es la que permite comparar.",
+      "wrongExplanations": {
+        "1": "El TIN no recoge las comisiones.",
+        "2": "Sus TAE son distintas.",
+        "3": "La TAE basta para compararlos."
+      }
+    },
+    {
+      "id": "salto-n0-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["euribor"],
+      "statement": "En una hipoteca a tipo fijo, la cuota cambia cuando sube el Euríbor.",
+      "answer": false,
+      "explanation": "Falso: el tipo fijo no depende del Euríbor."
     }
   ],
   "sources": [],

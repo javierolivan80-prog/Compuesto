@@ -13,14 +13,26 @@ const banks: Record<string, Bank> = Object.fromEntries(
   }),
 );
 
-/** Hace el test de una unidad: `wrongCount` preguntas a propósito mal, el resto bien. */
-async function takeTest(page: Page, unitId: string, wrongCount = 0) {
+/**
+ * Hace el test de una unidad: `wrongCount` preguntas de la primera fase a propósito mal, el resto bien.
+ * Con 6 de 8 aparece la segunda fase: si se pasa `secondWrong`, se juega con ese número de fallos.
+ */
+async function takeTest(page: Page, unitId: string, wrongCount = 0, secondWrong?: number) {
   const bank = banks[unitId]!;
   await page.getByRole('button', { name: 'Empezar el test' }).click();
-  for (let i = 0; i < bank.questions.length; i++) {
+  for (let i = 0; i < 8; i++) {
     await expect(page.getByText(`Pregunta ${i + 1} de 8`).first()).toBeVisible();
-    const q = await currentExercise(page, bank.questions);
+    const q = await currentExercise(page, bank.questions.slice(0, 8));
     await solve(page, q, i < wrongCount);
+    await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
+  }
+  if (secondWrong === undefined) return;
+  await expect(page.getByTestId('placement-first')).toContainText('6 de 8');
+  await page.getByRole('button', { name: 'Seguir con la segunda fase' }).click();
+  for (let i = 0; i < 4; i++) {
+    await expect(page.getByText(`Segunda fase · Pregunta ${i + 1} de 4`).first()).toBeVisible();
+    const q = await currentExercise(page, bank.questions.slice(8));
+    await solve(page, q, i < secondWrong);
     await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
   }
 }
@@ -86,12 +98,22 @@ test('test de salto aprobado: unidad marcada como dominada, persiste y no se rep
   ).toBeDisabled();
 });
 
-test('test de salto suspendido (6 de 8 = 75 %): no se marca y se ofrece estudiar la unidad', async ({
+test('6 de 8 y 3 de 4 en la segunda fase: la unidad queda dominada (tarea 2.12)', async ({
+  page,
+}) => {
+  await ready(page);
+  await page.goto('/#/salto/n0-u3');
+  await takeTest(page, 'n0-u3', 2, 1);
+  await expect(page.getByRole('heading', { name: 'Unidad dominada' })).toBeVisible();
+  await expect(page.getByTestId('placement-second')).toHaveText('Segunda fase: 3 de 4');
+});
+
+test('test de salto suspendido (6 de 8 y 2 de 4): no se marca y se ofrece estudiar la unidad', async ({
   page,
 }) => {
   await ready(page);
   await page.goto('/#/salto/n0-u1');
-  await takeTest(page, 'n0-u1', 2);
+  await takeTest(page, 'n0-u1', 2, 2);
   await expect(page.getByRole('heading', { name: 'Todavía no' })).toBeVisible();
   await expect(page.getByTestId('placement-score')).toHaveText('6 de 8 · 75 %');
   await page.getByRole('button', { name: 'Estudiar la unidad' }).click();

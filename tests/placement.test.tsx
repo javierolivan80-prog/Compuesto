@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Dexie from 'dexie';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -44,7 +44,26 @@ async function answerQuestion(
     const bad = q.options.findIndex((_, i) => !q.answers.includes(i));
     for (const i of wrong ? [bad] : q.answers)
       await user.click(screen.getByRole('checkbox', { name: q.options[i]! }));
-  }
+  } else if (q.type === 'fill_blank') {
+    await user.type(screen.getByRole('textbox'), wrong ? 'zzz' : q.answers[0]![0]!);
+  } else if (q.type === 'numeric_input') {
+    const v = wrong ? q.answer * 3 + 7 : q.answer;
+    await user.type(
+      screen.getByRole('textbox', { name: /Tu respuesta/ }),
+      String(v).replace('.', ','),
+    );
+  } else if (q.type === 'categorize') {
+    for (const [i, it] of q.items.entries()) {
+      const other = q.categories.find((c) => c !== it.category)!;
+      const pick = wrong && i === 0 ? other : it.category;
+      const group = screen.getByRole('group', { name: it.text });
+      await user.click(
+        within(group).getByRole('button', {
+          name: new RegExp(`${pick.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
+        }),
+      );
+    }
+  } else throw new Error(`Tipo sin respuesta en el test: ${q.type}`);
   await user.click(screen.getByRole('button', { name: 'Siguiente' }));
 }
 
@@ -63,7 +82,7 @@ async function runTest(wrongCount: number) {
     </RepoProvider>,
   );
   await user.click(screen.getByRole('button', { name: 'Empezar el test' }));
-  for (const [i, q] of bank.questions.entries()) {
+  for (const [i, q] of bank.questions.slice(0, 8).entries()) {
     await waitFor(() =>
       expect(
         screen.getByText(`Pregunta ${i + 1} de 8`, { selector: 'p[data-num]' }),
@@ -124,8 +143,9 @@ describe('PlacementScreen', () => {
     ).toBeInTheDocument();
   });
 
-  it('6 de 8 (75 %) no aprueba: no se guarda unit_skipped y se ofrece estudiar', async () => {
-    await runTest(2);
+  it('6 de 8 (75 %) y prefieres estudiar: no se guarda unit_skipped y se ofrece estudiar', async () => {
+    const { user } = await runTest(2);
+    await user.click(await screen.findByRole('button', { name: 'Prefiero estudiar la unidad' }));
     expect(await screen.findByRole('heading', { name: 'Todavía no' })).toBeInTheDocument();
     expect(screen.getByTestId('placement-score')).toHaveTextContent('6 de 8 · 75 %');
     expect((await repo.allEvents()).some((e) => e.type === 'unit_skipped')).toBe(false);
@@ -142,7 +162,7 @@ describe('PlacementScreen', () => {
     for (const unit of Object.keys(concepts)) {
       const b = getPlacement(unit);
       if (!b) continue;
-      expect([8, 12], unit).toContain(b.questions.length);
+      expect(b.questions, unit).toHaveLength(12);
       expect(new Set(b.questions.slice(0, 8).flatMap((q) => q.concepts)), unit).toEqual(
         new Set(concepts[unit]),
       );
@@ -166,14 +186,7 @@ describe('PlacementScreen', () => {
 });
 
 describe('PlacementScreen en dos fases (tarea 2.12)', () => {
-  // banco de 12: las 8 reales y 4 de reserva (copias con otro id) para la segunda fase
-  const bank12 = {
-    ...bank,
-    questions: [
-      ...bank.questions,
-      ...bank.questions.slice(0, 4).map((q) => ({ ...q, id: `${q.id}-r` })),
-    ],
-  };
+  const bank12 = bank;
   async function run(firstWrong: number, secondWrong: number) {
     const user = userEvent.setup();
     const onDone = vi.fn();

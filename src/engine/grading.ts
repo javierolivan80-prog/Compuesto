@@ -99,14 +99,20 @@ const ko = (extra: Partial<GradeResult> = {}): GradeResult => ({
 
 /** minúsculas, sin tildes, sin espacios sobrantes ni puntuación final. */
 export function normalizeText(s: string): string {
-  return s
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .trim()
-    .replace(/[.,;:!?]+$/g, '')
-    .trim();
+  return (
+    s
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/[.,;:!?]+$/g, '')
+      // siglas con puntos: «O.P.V.» = «OPV»
+      .replace(/(\p{L})\.(?=\p{L})/gu, '$1')
+      // un artículo al principio no cambia la respuesta: «el confirming» = «confirming»
+      .replace(/^(el|la|los|las|un|una|unos|unas) (?=\S)/, '')
+      .trim()
+  );
 }
 
 export function isEmptyAnswer(a: Answer): boolean {

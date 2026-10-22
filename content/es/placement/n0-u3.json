@@ -1,9 +1,9 @@
 {
   "id": "salto-n0-u3",
   "unitId": "n0-u3",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n0-u3-q1",
@@ -29,36 +29,33 @@
     },
     {
       "id": "salto-n0-u3-q2",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["presupuesto"],
-      "statement": "La capacidad de ahorro mensual es lo que queda de los ingresos después de restar los gastos.",
-      "answer": true,
-      "explanation": "Ahorro = ingresos − gastos."
+      "type": "numeric_input",
+      "prompt": "Ingresas 1.800 € al mes y gastas 1.450 €. ¿Cuál es tu capacidad de ahorro mensual? (€)",
+      "answer": 350,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "1800 - 1450",
+      "explanation": "1.800 − 1.450 = 350 €."
     },
     {
       "id": "salto-n0-u3-q3",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["fondo-emergencia"],
-      "prompt": "¿Para qué sirve un fondo de emergencia?",
-      "options": [
-        "Para cubrir imprevistos sin endeudarte",
-        "Para invertir en bolsa",
-        "Para pagar las vacaciones",
-        "Para comprar un coche"
-      ],
-      "answer": 0,
-      "explanation": "Es una reserva de liquidez para imprevistos.",
-      "wrongExplanations": {
-        "1": "Un fondo de emergencia no debe asumir riesgo de pérdida.",
-        "2": "Las vacaciones son un gasto planificable.",
-        "3": "Es un colchón, no una partida de compra."
-      }
+      "type": "numeric_input",
+      "prompt": "Tus gastos esenciales son 1.200 € al mes y quieres un fondo de emergencia de 6 meses. ¿Cuánto necesitas? (€)",
+      "answer": 7200,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "1200 * 6",
+      "explanation": "1.200 × 6 = 7.200 €."
     },
     {
       "id": "salto-n0-u3-q4",
@@ -106,36 +103,25 @@
     },
     {
       "id": "salto-n0-u3-q6",
-      "type": "true_false_swipe",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["sesgo-presente"],
-      "statement": "El sesgo del presente lleva a preferir una recompensa inmediata aunque sea menor que una futura.",
-      "answer": true,
-      "explanation": "Es la tendencia a sobrevalorar lo inmediato."
+      "type": "fill_blank",
+      "prompt": "La tendencia a preferir una recompensa inmediata aunque sea menor que una futura se llama sesgo del ___.",
+      "answers": [["presente"]],
+      "explanation": "El sesgo del presente."
     },
     {
       "id": "salto-n0-u3-q7",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["celdas-suma"],
-      "prompt": "En una hoja de cálculo, ¿qué hace =SUMA(A1:A3)?",
-      "options": [
-        "Suma los valores de A1, A2 y A3",
-        "Multiplica A1 por A3",
-        "Cuenta cuántas celdas hay",
-        "Calcula la media"
-      ],
-      "answer": 0,
-      "explanation": "SUMA añade todos los valores del rango.",
-      "wrongExplanations": {
-        "1": "Multiplicar sería =A1*A3.",
-        "2": "Contar sería =CONTAR(A1:A3).",
-        "3": "La media sería =PROMEDIO(A1:A3)."
-      }
+      "type": "fill_blank",
+      "prompt": "En una hoja de cálculo, la fórmula que suma los valores de A1 a A3 es =___(A1:A3).",
+      "answers": [["SUMA"]],
+      "explanation": "=SUMA(A1:A3)."
     },
     {
       "id": "salto-n0-u3-q8",
@@ -153,6 +139,69 @@
         "1": "No hay error: la referencia sigue siendo válida.",
         "2": "No se borra nada."
       }
+    },
+    {
+      "id": "salto-n0-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["celdas-suma"],
+      "prompt": "En una hoja de cálculo, A1 = 120 €, A2 = 80 € y A3 = 50 €. ¿Qué valor muestra =SUMA(A1:A3)/2? (€)",
+      "answer": 125,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "(120 + 80 + 50) / 2",
+      "explanation": "250 / 2 = 125."
+    },
+    {
+      "id": "salto-n0-u3-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["presupuesto"],
+      "prompt": "Con la regla 50/30/20 y unos ingresos netos de 2.000 € al mes, ¿cuánto destinarías al ahorro y a amortizar deuda extra? (€)",
+      "answer": 400,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "2000 * 0.2",
+      "explanation": "El 20 % de 2.000 = 400 €."
+    },
+    {
+      "id": "salto-n0-u3-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["fondo-emergencia"],
+      "prompt": "¿Dónde conviene guardar el fondo de emergencia?",
+      "options": [
+        "En una cuenta o depósito con acceso rápido y sin riesgo",
+        "En acciones, para que rinda más",
+        "En un plan de pensiones",
+        "En criptomonedas"
+      ],
+      "answer": 0,
+      "explanation": "Tiene que estar disponible y no perder valor cuando lo necesites.",
+      "wrongExplanations": {
+        "1": "Pueden caer justo cuando lo necesitas.",
+        "2": "No se puede sacar cuando quieras.",
+        "3": "Son muy volátiles."
+      }
+    },
+    {
+      "id": "salto-n0-u3-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["sesgo-presente"],
+      "statement": "Automatizar una transferencia al ahorro nada más cobrar ayuda a combatir el sesgo del presente.",
+      "answer": true,
+      "explanation": "Verdadero: ahorras antes de tener la tentación de gastar."
     }
   ],
   "sources": [],

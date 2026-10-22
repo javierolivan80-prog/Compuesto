@@ -415,7 +415,9 @@ describe('tests de salto (validación)', () => {
     const r = withPlacement((p) => p.questions.pop());
     expect(placementCodes(r)).toEqual(['esquema']);
     expect(r.issues[0]!.message).toContain('12 preguntas');
-    expect(withPlacement(() => {}).issues.map((i) => i.code)).toContain('banco-antiguo');
+    expect(
+      withPlacement((p) => (p.questions = p.questions.slice(0, 8))).issues.map((i) => i.code),
+    ).toContain('banco-antiguo');
   });
   it('un banco de 12 exige ≥ 50 % de producir y que la primera fase cubra todos los conceptos', () => {
     type Q = (typeof real)['questions'][number];
@@ -431,17 +433,34 @@ describe('tests de salto (validación)', () => {
       explanation: 'x',
     });
     // 8 originales (reconocer) + 4 de producir: 4/12 < 50 %
-    const r = withPlacement((p) => p.questions.push(...p.questions.slice(0, 4).map(fill)));
+    const r = withPlacement((p) => {
+      // 12 preguntas con solo 4 de producir: las demás pasan a verdadero/falso
+      let produce = 0;
+      p.questions = p.questions.map((q: Q, i: number) => {
+        if (['multiple_choice', 'true_false_swipe', 'multi_select'].includes(q.type)) return q;
+        if (++produce <= 4) return q;
+        return {
+          ...fill(q, i),
+          type: 'true_false_swipe',
+          statement: 'Afirmación',
+          answer: true,
+          prompt: undefined,
+          answers: undefined,
+        };
+      });
+    });
     expect(placementCodes(r)).toEqual(['mezcla']);
     expect(r.issues.map((i) => i.code)).not.toContain('banco-antiguo');
     // 6 de producir en la primera fase y 4 en la segunda: vale
     const ok = withPlacement((p) => {
+      p.questions = p.questions.slice(0, 8);
       const extra = p.questions.slice(0, 4).map(fill);
       p.questions = [...p.questions.slice(0, 2), ...p.questions.slice(2).map(fill), ...extra];
     });
     expect(placementCodes(ok)).toEqual([]);
     // si un concepto solo aparece en la segunda fase, falla
     const late = withPlacement((p) => {
+      p.questions = p.questions.slice(0, 8);
       const extra = p.questions.map(fill);
       p.questions = [
         ...extra

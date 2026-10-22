@@ -1,9 +1,9 @@
 {
   "id": "salto-n0-u1",
   "unitId": "n0-u1",
-  "version": 1,
-  "status": "reviewed",
-  "reviewedBy": ["subagente"],
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
   "questions": [
     {
       "id": "salto-n0-u1-q1",
@@ -40,71 +40,63 @@
     },
     {
       "id": "salto-n0-u1-q3",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["tipo-real-nominal"],
-      "prompt": "Un depósito rinde un 3 % y la inflación es del 2 %. La rentabilidad real es aproximadamente…",
-      "options": ["+1 %", "−1 %", "5 %", "0 %"],
-      "answer": 0,
-      "explanation": "Rentabilidad real ≈ nominal − inflación = 3 − 2 = +1 %.",
-      "wrongExplanations": {
-        "1": "Sería −1 % si la inflación fuera del 4 %; aquí 3 − 2 = +1.",
-        "2": "No se suman: se resta la inflación.",
-        "3": "Solo sería 0 % si rentabilidad e inflación coincidieran."
-      }
+      "type": "numeric_input",
+      "prompt": "Un depósito rinde un 3 % y la inflación es del 2 %. ¿Cuál es la rentabilidad real aproximada? (%)",
+      "answer": 1,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "3 - 2",
+      "explanation": "Real ≈ nominal − inflación = 3 − 2 = 1 %."
     },
     {
       "id": "salto-n0-u1-q4",
-      "type": "multiple_choice",
       "difficulty": 1,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["porcentajes"],
-      "prompt": "Un precio de 200 € sube un 10 %. ¿Cuánto cuesta ahora?",
-      "options": ["210 €", "202 €", "190 €", "220 €"],
-      "answer": 3,
-      "explanation": "200 × 1,10 = 220 €.",
-      "wrongExplanations": {
-        "0": "Un 10 % de 200 son 20 €, no 10 €.",
-        "1": "Eso sería un 1 %.",
-        "2": "Eso sería una bajada del 5 %, no una subida del 10 %."
-      }
+      "type": "numeric_input",
+      "prompt": "Un precio de 200 € sube un 10 %. ¿Cuánto cuesta ahora? (€)",
+      "answer": 220,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "200 * 1.1",
+      "explanation": "200 × 1,10 = 220 €."
     },
     {
       "id": "salto-n0-u1-q5",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["interes-simple"],
-      "prompt": "Con interés simple al 5 % anual, los intereses totales de 1.000 € durante 2 años son…",
-      "options": ["102,50 €", "50 €", "100 €", "110 €"],
-      "answer": 2,
-      "explanation": "Interés simple: 1.000 × 5 % × 2 = 100 €.",
-      "wrongExplanations": {
-        "0": "102,50 € son los intereses con interés compuesto (50 € + 52,50 €), no con simple.",
-        "1": "Eso es solo el interés de un año.",
-        "3": "Con simple son 50 € cada año: 100 € en dos, no 110 €."
-      }
+      "type": "numeric_input",
+      "prompt": "Con interés simple al 5 % anual, ¿cuántos euros de intereses dan 1.000 € en 2 años? (€)",
+      "answer": 100,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "1000 * 0.05 * 2",
+      "explanation": "1.000 × 5 % × 2 = 100 €."
     },
     {
       "id": "salto-n0-u1-q6",
-      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["interes-compuesto"],
-      "prompt": "1.000 € al 5 % de interés compuesto durante 2 años valen al final…",
-      "options": ["1.100 €", "1.102,50 €", "1.050 €", "1.200 €"],
-      "answer": 1,
-      "explanation": "1.000 × 1,05² = 1.102,50 €.",
-      "wrongExplanations": {
-        "0": "Eso sería con interés simple (50 € cada año).",
-        "2": "Eso es el valor tras un solo año.",
-        "3": "No corresponde a ningún cálculo con un 5 % en dos años."
-      }
+      "type": "numeric_input",
+      "prompt": "1.000 € al 5 % de interés compuesto durante 2 años. ¿Cuánto tienes al final? (€, 2 decimales)",
+      "answer": 1102.5,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 2,
+      "formula": "1000 * 1.05^2",
+      "explanation": "1.000 × 1,05² = 1.102,50 €."
     },
     {
       "id": "salto-n0-u1-q7",
@@ -133,6 +125,64 @@
       ],
       "answers": [0, 1],
       "explanation": "Hoy se puede invertir y, además, la inflación reduce lo que compra el euro futuro."
+    },
+    {
+      "id": "salto-n0-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["regla-del-72"],
+      "prompt": "Según la regla del 72, ¿en cuántos años se duplica aproximadamente un capital al 6 % anual? (años)",
+      "answer": 12,
+      "unit": "años",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "72 / 6",
+      "explanation": "72 / 6 = 12 años."
+    },
+    {
+      "id": "salto-n0-u1-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["interes-compuesto"],
+      "prompt": "Inviertes 2.000 € al 4 % de interés compuesto durante 3 años. ¿Cuánto tienes al final? (€, 2 decimales)",
+      "answer": 2249.73,
+      "unit": "€",
+      "tolerance": 0,
+      "answerDecimals": 2,
+      "formula": "2000 * 1.04^3",
+      "explanation": "2.000 × 1,04³ = 2.249,73 €."
+    },
+    {
+      "id": "salto-n0-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["tipo-real-nominal", "poder-adquisitivo"],
+      "prompt": "Tu sueldo sube un 2 % y la inflación es del 4 %. ¿Qué le pasa a tu poder adquisitivo?",
+      "options": ["Baja, aproximadamente un 2 %", "Sube un 2 %", "Sube un 6 %", "No cambia"],
+      "answer": 0,
+      "explanation": "2 − 4 = −2 %: con más euros compras menos cosas.",
+      "wrongExplanations": {
+        "1": "El sueldo sube menos que los precios.",
+        "2": "Has sumado la inflación.",
+        "3": "Los precios suben más que el sueldo."
+      }
+    },
+    {
+      "id": "salto-n0-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["interes-compuesto"],
+      "statement": "Con interés compuesto, los intereses de cada año también generan intereses.",
+      "answer": true,
+      "explanation": "Verdadero: por eso el capital crece cada vez más deprisa."
     }
   ],
   "sources": [],

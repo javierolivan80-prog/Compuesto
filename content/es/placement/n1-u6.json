@@ -13,8 +13,8 @@
       "concepts": ["ampliacion-capital"],
       "type": "fill_blank",
       "prompt": "La operación en la que la empresa emite acciones nuevas para captar fondos es una ___ de capital.",
-      "answers": [["ampliación", "ampliacion"]],
-      "explanation": "Una ampliación de capital."
+      "answers": [["ampliación", "aumento"]],
+      "explanation": "Una ampliación (o aumento) de capital."
     },
     {
       "id": "salto-n1-u6-q2",
@@ -78,7 +78,7 @@
     {
       "id": "salto-n1-u6-q6",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["recompra-acciones"],
       "type": "numeric_input",
@@ -160,7 +160,7 @@
       "answer": 0,
       "explanation": "(12 − 10) / 10 = 20 %.",
       "wrongExplanations": {
-        "1": "Son 2 € sobre 10.",
+        "1": "La diferencia son 2 €, no un 2 %: hay que dividirla entre 10 €.",
         "2": "Es el precio, no la prima.",
         "3": "Has dividido entre 12."
       }

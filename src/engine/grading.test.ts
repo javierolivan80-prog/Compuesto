@@ -162,6 +162,12 @@ describe('fill_blank', () => {
   it('vacío si todos los huecos están en blanco', () => {
     expect(grade(fb, { type: 'fill_blank', values: ['', '  '] }).empty).toBe(true);
     expect(normalizeText('  Interés, ')).toBe('interes');
+    // siglas con puntos y artículos iniciales (bancos de salto, tarea 2.12)
+    expect(normalizeText('O.P.V.')).toBe('opv');
+    expect(normalizeText('el confirming')).toBe('confirming');
+    expect(normalizeText('La Letra')).toBe('letra');
+    expect(normalizeText('1.500')).toBe('1.500'); // los puntos entre cifras no se tocan
+    expect(normalizeText('la')).toBe('la'); // un artículo solo no se borra
   });
 });
 

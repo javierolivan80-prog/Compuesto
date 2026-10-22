@@ -164,36 +164,51 @@
       "id": "salto-n1-u2-q11",
       "type": "multiple_choice",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "recordar",
       "tags": ["test-de-salto"],
-      "concepts": ["mercado-secundario"],
-      "prompt": "Una acción del IBEX cae un 10 % en un día. ¿Cuánto dinero pierde la empresa en su caja por esa caída?",
+      "concepts": ["opv"],
+      "prompt": "¿Cómo se llama la oferta al público de acciones nuevas que emite la empresa?",
       "options": [
-        "Nada directamente: pierden valor los accionistas",
-        "El 10 % de su caja",
-        "El 10 % de sus ventas",
-        "Lo que valgan las acciones vendidas ese día"
+        "OPS (oferta pública de suscripción)",
+        "OPV (oferta pública de venta)",
+        "OPA (oferta pública de adquisición)",
+        "Split"
       ],
       "answer": 0,
-      "explanation": "En el secundario cambian de manos acciones ya emitidas: la caja de la empresa no se mueve.",
+      "explanation": "En la OPS la empresa emite y cobra; en la OPV venden los dueños actuales.",
       "wrongExplanations": {
-        "1": "El precio en bolsa no sale de su caja.",
-        "2": "Las ventas no dependen de la cotización del día.",
-        "3": "Ese dinero va de un inversor a otro."
+        "1": "En la OPV se venden acciones que ya existen.",
+        "2": "La OPA es una oferta para comprar acciones.",
+        "3": "El split solo divide las acciones existentes."
       }
     },
     {
       "id": "salto-n1-u2-q12",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["mercado-primario"],
-      "statement": "En una ampliación de capital, el dinero que ponen los inversores va a la empresa.",
-      "answer": true,
-      "explanation": "Verdadero: es una emisión en el mercado primario."
+      "concepts": ["mercado-primario", "mercado-secundario"],
+      "prompt": "Una empresa amplía capital con 4 millones de acciones nuevas a 6 € y, el mismo día, sus accionistas venden en bolsa 10 millones de acciones a 6 €. ¿Cuánto dinero recibe la empresa? (millones de €)",
+      "answer": 24,
+      "unit": "millones de €",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "4 * 6",
+      "explanation": "Solo lo del primario: 4 × 6 = 24 millones; lo negociado en bolsa va de un inversor a otro."
     }
   ],
-  "sources": [],
-  "verificarAntesDe": null
+  "sources": [
+    {
+      "title": "CNMV: folletos y ofertas públicas de valores",
+      "url": "https://www.cnmv.es/portal/Inversor/Inversor.aspx",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) 2017/1129 sobre el folleto",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/1129/oj",
+      "date": "2026-10-22"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
 }

@@ -92,10 +92,11 @@ export async function solve(page: Page, e: Ex, wrong = false) {
       await page
         .getByRole('textbox')
         .first()
-        .fill((e.answers as string[][])[0]![0]!);
+        .fill(wrong ? 'zzz' : (e.answers as string[][])[0]![0]!);
       break;
     case 'numeric_input': {
-      const a = (e as unknown as { answer: number }).answer;
+      const right = (e as unknown as { answer: number }).answer;
+      const a = wrong ? right * 3 + 7 : right;
       await page.getByRole('textbox', { name: /Tu respuesta/ }).fill(String(a).replace('.', ','));
       break;
     }
@@ -114,13 +115,16 @@ export async function solve(page: Page, e: Ex, wrong = false) {
       }
       break;
     case 'categorize':
-      for (const it of e.items!)
+      for (const [i, it] of e.items!.entries()) {
+        // a propósito mal: el primer elemento va a otra categoría
+        const cat = wrong && i === 0 ? e.categories!.find((c) => c !== it.category)! : it.category;
         await page
           .getByRole('group', { name: it.text, ...exact })
           .getByRole('button', {
-            name: new RegExp(`${it.category.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
+            name: new RegExp(`${cat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
           })
           .click();
+      }
       break;
     case 'spot_the_error': {
       const idx = wrong ? (e.errorIndex === 0 ? 1 : 0) : (e.errorIndex as number);
