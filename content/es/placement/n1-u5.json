@@ -164,14 +164,19 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["dividendo"],
-      "prompt": "Cobras un dividendo de una empresa española. ¿Qué retención a cuenta del IRPF se aplica normalmente?",
-      "options": ["19 %", "21 %", "0 %", "15 %"],
+      "prompt": "¿En qué parte del IRPF tributan los dividendos que cobras?",
+      "options": [
+        "En la base del ahorro",
+        "En la base general, como el sueldo",
+        "No tributan: ya pagó la empresa",
+        "Solo en el impuesto sobre sociedades"
+      ],
       "answer": 0,
-      "explanation": "El 19 %, a cuenta de lo que pagues en la declaración.",
+      "explanation": "Los dividendos son rendimientos del capital mobiliario y van a la base del ahorro.",
       "wrongExplanations": {
-        "1": "No es la retención general.",
-        "2": "Los dividendos llevan retención.",
-        "3": "No es la española."
+        "1": "El sueldo va a la general; los dividendos, a la del ahorro.",
+        "2": "El accionista tributa por lo que cobra.",
+        "3": "Ese lo paga la empresa por su beneficio; tú tributas por el dividendo."
       }
     },
     {

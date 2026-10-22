@@ -205,6 +205,12 @@
       "explanation": "Verdadero: se busca el precio de máximo volumen negociado."
     }
   ],
-  "sources": [],
-  "verificarAntesDe": null
+  "sources": [
+    {
+      "title": "BME: Circular de Contratación y guía de negociación del SIBE (subastas y reglas de fijación de precio)",
+      "url": "https://www.bolsasymercados.es/bme-exchange/es/Reglamentacion",
+      "date": "2026-10-15"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
 }

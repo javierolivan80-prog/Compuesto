@@ -121,7 +121,7 @@
       "prompt": "¿Qué rasgos tiene una salida a bolsa?",
       "options": [
         "La empresa pasa a cotizar en un mercado",
-        "Se ofrecen acciones al público",
+        "Normalmente se ofrecen acciones al público",
         "La empresa deja de tener accionistas",
         "La empresa deja de dar información"
       ],
@@ -162,25 +162,14 @@
     },
     {
       "id": "salto-n1-u2-q11",
-      "type": "multiple_choice",
+      "type": "fill_blank",
       "difficulty": 2,
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["opv"],
-      "prompt": "¿Cómo se llama la oferta al público de acciones nuevas que emite la empresa?",
-      "options": [
-        "OPS (oferta pública de suscripción)",
-        "OPV (oferta pública de venta)",
-        "OPA (oferta pública de adquisición)",
-        "Split"
-      ],
-      "answer": 0,
-      "explanation": "En la OPS la empresa emite y cobra; en la OPV venden los dueños actuales.",
-      "wrongExplanations": {
-        "1": "En la OPV se venden acciones que ya existen.",
-        "2": "La OPA es una oferta para comprar acciones.",
-        "3": "El split solo divide las acciones existentes."
-      }
+      "prompt": "La oferta al público de acciones nuevas que emite la empresa para captar dinero se abrevia ___.",
+      "answers": [["OPS"]],
+      "explanation": "OPS: oferta pública de suscripción; en la OPV venden los dueños actuales."
     },
     {
       "id": "salto-n1-u2-q12",

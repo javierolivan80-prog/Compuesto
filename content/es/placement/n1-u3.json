@@ -160,14 +160,18 @@
     },
     {
       "id": "salto-n1-u3-q10",
-      "type": "fill_blank",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["bme"],
-      "prompt": "El sistema electrónico que conecta las cuatro bolsas españolas y en el que cotizan las grandes empresas se llama mercado ___.",
-      "answers": [["continuo"]],
-      "explanation": "El mercado continuo."
+      "concepts": ["ibex-35"],
+      "prompt": "El IBEX 35 cierra a 12.500 puntos y al día siguiente cae un 4 %. ¿A cuántos puntos cierra? (puntos)",
+      "answer": 12000,
+      "unit": "puntos",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "12500 * (1 - 0.04)",
+      "explanation": "12.500 × 0,96 = 12.000 puntos."
     },
     {
       "id": "salto-n1-u3-q11",
