@@ -1,8 +1,8 @@
 {
   "id": "n4-u2-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 2,
   "title": "La Fed",

@@ -463,3 +463,18 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom del nivel N4 en esta unidad: 31/50 de aplicar o analizar. e2e de producción `n4u1.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier, sobre todo las URL de metodología del INE (verificarAntesDe 2027-06-30).
 
+## n4-u2 — Bancos centrales: BCE, Fed y QE y lección-juego «La reunión del BCE» (23/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Crítico aplicado: l3-e2 pedía 2 decimales y corregía con 1. El validador tiene ahora la regla `decimales`, que solo detectó este caso en todo el contenido.
+  - Mayores aplicados:
+    - «desde 2024» pasa a «confirmado en marzo de 2024» (15 pb desde septiembre);
+    - la tarjeta de la hipoteca de l1 y un ejercicio que repetía su respuesta;
+    - la deuda de Naranjas del Turia como hipótesis de refinanciación, porque en companies.json es a tipo fijo;
+    - la cobertura de la primera fase del test de salto;
+    - las pendientes irreales de l5-e1.
+  - Menores: fuentes del BCE, el BOE, la NY Fed (10 años − 3 meses) y FRED; el concepto duración; el Bloom de l5-e6; «Apenas se mueve».
+- **Ronda 2:** el test de salto había perdido la sorpresa y la deuda en dólares de su primera fase. Corregido.
+- **Ronda 3:** aprobada. Estado: `reviewed`. e2e de producción `n4u2.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: abrir las URL de las fuentes del BCE (estadísticas y calendario en .es.html; APP, PEPP y el comunicado de 2024 en .en.html). El autor y el revisor no tenían red.
+

@@ -2,8 +2,8 @@
   "id": "salto-n4-u2",
   "unitId": "n4-u2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n4-u2-q1",
@@ -66,7 +66,7 @@
           "category": "BCE"
         }
       ],
-      "explanation": "El BCE mira el IPCA; la Fed, el PCE y además el empleo, y fija un rango para los fondos federales."
+      "explanation": "El BCE mira el IPCA y orienta su política con el tipo de la facilidad de depósito; la Fed, el PCE y además el empleo, y fija un rango para los fondos federales."
     },
     {
       "id": "salto-n4-u2-q4",
