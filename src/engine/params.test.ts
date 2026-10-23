@@ -262,3 +262,33 @@ describe('signo de los negativos en los textos', () => {
     expect(fillText('{v}', { v: -80 }, { v: [0, 0] }, false)).toBe('-80');
   });
 });
+
+describe('derivados redondeados (revisión de n4-u1)', () => {
+  it('la fórmula usa el derivado tal como se muestra, no el valor sin redondear', () => {
+    const e = exerciseSchema.parse({
+      id: 'x',
+      type: 'numeric_input',
+      difficulty: 2,
+      bloom: 'aplicar',
+      concepts: ['ipc'],
+      prompt: 'De {a} a {b}: ¿crecimiento?',
+      answer: 4.44,
+      unit: '%',
+      tolerance: 0.5,
+      answerDecimals: 2,
+      formula: '({b} / {a} - 1) * 100',
+      explanation: '{b} / {a}',
+      params: {
+        a: { value: 810, min: 800, max: 820, step: 10 },
+        g: { value: 4.5, min: 4, max: 5, step: 0.5, decimals: 1 },
+      },
+      derived: { b: { formula: '{a} * (1 + {g} / 100)', decimals: 0 } },
+    });
+    const r = instantiate(e, undefined, { a: 810, g: 4.5 });
+    expect(r.exercise.type === 'numeric_input' && r.exercise.prompt).toBe(
+      'De 810 a 846: ¿crecimiento?',
+    );
+    // 846 / 810 − 1 = 4,44 %, no 4,5 % (846,45 sin redondear)
+    expect(r.exercise.type === 'numeric_input' && r.exercise.answer).toBe(4.44);
+  });
+});

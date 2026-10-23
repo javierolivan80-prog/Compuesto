@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Subyacente y armonizado",
-      "text": "La inflación subyacente quita los alimentos no elaborados y la energía, muy volátiles: muestra la tendencia. El IPC armonizado (IPCA) usa la misma metodología en toda la zona euro; es el que mira el BCE, cuyo objetivo es el 2 % a medio plazo."
+      "text": "La inflación subyacente quita los alimentos no elaborados y la energía, muy volátiles: muestra la tendencia. El IPC armonizado (IPCA) usa la misma metodología en toda la zona euro; es el que mira el BCE, cuyo objetivo es el 2 % simétrico a medio plazo."
     },
     {
       "type": "card",
@@ -40,11 +40,11 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ipc"],
-      "prompt": "El IPC estaba en {p0} hace un año y hoy está en {p1}. ¿Cuál es la inflación interanual? (%, 1 decimal)",
-      "answer": 3,
+      "prompt": "El IPC estaba en {p0} hace un año y hoy está en {p1}. ¿Cuál es la inflación interanual? (%, 2 decimales)",
+      "answer": 3.05,
       "unit": "%",
-      "tolerance": 2,
-      "answerDecimals": 1,
+      "tolerance": 1,
+      "answerDecimals": 2,
       "formula": "({p1} / {p0} - 1) * 100",
       "explanation": "({p1} / {p0} − 1) × 100 = {v} %.",
       "params": {
@@ -57,7 +57,7 @@
         },
         "g": {
           "value": 3,
-          "min": -1,
+          "min": 1,
           "max": 8,
           "step": 0.1,
           "decimals": 1
@@ -70,7 +70,7 @@
         },
         "v": {
           "formula": "({p1} / {p0} - 1) * 100",
-          "decimals": 1
+          "decimals": 2
         }
       }
     },
@@ -207,7 +207,7 @@
       "id": "n4-u1-l2-e8",
       "type": "scenario",
       "difficulty": 3,
-      "bloom": "analizar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["ipc"],
       "character": "mentora",
@@ -220,7 +220,7 @@
         "Que el IPC ya no se publica"
       ],
       "answer": 0,
-      "explanation": "Menos inflación es desinflación, no deflación. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "explanation": "Menos inflación es desinflación, no deflación.",
       "wrongExplanations": {
         "1": "Siguen subiendo, un 3 %.",
         "2": "Lo que baja es el ritmo de subida.",
@@ -232,7 +232,7 @@
   "sources": [
     {
       "title": "INE, Índice de Precios de Consumo (IPC) e IPC armonizado: metodología e inflación subyacente",
-      "url": "https://www.ine.es/",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176802&menu=ultiDatos&idp=1254735976607",
       "date": "2026-10-23"
     },
     {

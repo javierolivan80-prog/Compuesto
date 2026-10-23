@@ -51,6 +51,7 @@ import {
   unemploymentRate,
   yoy,
 } from './macro-day';
+import { ecbValues, extraInterest, rightFx, RIGHT_QE, setupEcb, taylor } from './ecb-meeting';
 import {
   futurePnl,
   minDividend,
@@ -104,6 +105,7 @@ export const LESSON_GAMES = [
   'repo-night',
   'bank-window',
   'macro-day',
+  'ecb-meeting',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -449,6 +451,20 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     unemployment_rate: [1, 1],
     hits: [0, 0],
   },
+  'ecb-meeting': {
+    neutral: [0, 1],
+    inflation: [0, 1],
+    target: [0, 0],
+    taylor: [1, 2],
+    priced_bp: [0, 0],
+    move_bp: [0, 0],
+    surprise_bp: [0, 0],
+    principal: [0, 0],
+    euribor0: [0, 2],
+    euribor1: [0, 2],
+    extra_interest: [0, 0],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -695,6 +711,24 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           rate: unemploymentRate(setup),
         }),
         macroValues(setup, { yoy: 0, bond: 'flat', cycle: 'expansion', rate: 0 }),
+      ];
+    }
+    case 'ecb-meeting': {
+      // todo bien, y todo mal
+      const setup = setupEcb(seed);
+      return [
+        ecbValues(setup, {
+          taylor: taylor(setup),
+          fx: rightFx(setup),
+          extra: extraInterest(setup),
+          qe: RIGHT_QE,
+        }),
+        ecbValues(setup, {
+          taylor: 0,
+          fx: rightFx(setup) === 'up' ? 'down' : 'up',
+          extra: 0,
+          qe: 'none',
+        }),
       ];
     }
   }

@@ -959,7 +959,7 @@
     "level": 4,
     "prerequisites": ["inflacion"],
     "unit": "n4-u1",
-    "description": "El IPC mide el precio de una cesta de consumo; la inflación es su variación interanual. La subyacente quita energía y alimentos no elaborados; el BCE mira el IPCA, con un objetivo del 2 % a medio plazo."
+    "description": "El IPC mide el precio de una cesta de consumo; la inflación es su variación interanual. La subyacente quita energía y alimentos no elaborados; el BCE mira el IPCA, con un objetivo del 2 % simétrico a medio plazo."
   },
   {
     "id": "paro-pmi",

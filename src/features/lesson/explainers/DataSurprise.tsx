@@ -23,7 +23,7 @@ export function DataSurprise({ consensus, onInteract }: Props) {
   const steps: ExplainerStep[] = [
     {
       title: 'Por debajo',
-      text: `El consenso espera un ${pct(consensus)}. Si el dato sale en un ${pct(consensus - 0.3)}, hay menos inflación de la esperada: el mercado ve menos subidas de tipos y la rentabilidad del bono a 2 años baja.`,
+      text: `El consenso espera un ${pct(consensus)}. Si el dato sale en un ${pct(consensus - 0.3)}, hay menos inflación de la esperada: el mercado ve menos subidas de tipos y la rentabilidad del bono a 2 años suele bajar.`,
     },
     {
       title: 'En línea',
@@ -31,7 +31,7 @@ export function DataSurprise({ consensus, onInteract }: Props) {
     },
     {
       title: 'Por encima',
-      text: `Si sale en un ${pct(consensus + 0.3)}, la sorpresa es al alza: la rentabilidad a 2 años sube y el precio del bono baja.`,
+      text: `Si sale en un ${pct(consensus + 0.3)}, la sorpresa es al alza: la rentabilidad a 2 años suele subir y el precio del bono, bajar.`,
     },
     {
       title: 'La regla',

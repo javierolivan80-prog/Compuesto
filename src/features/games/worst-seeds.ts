@@ -24,6 +24,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'repo-night': 0,
   'bank-window': 0,
   'macro-day': 0,
+  'ecb-meeting': 0,
   'cheap-or-dear': 3, // precios con más dígitos y los tres veredictos
   'balance-builder': 203, // los importes de enero más altos (15.900 mil € entre las cinco operaciones)
 };

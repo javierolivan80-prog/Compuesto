@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "EPA y paro registrado",
-      "text": "En España hay dos medidas del paro: la EPA del INE, una encuesta trimestral que sigue criterios internacionales, y el paro registrado del SEPE, mensual, que cuenta a los inscritos como demandantes de empleo. No coinciden."
+      "text": "En España hay dos medidas del paro: la EPA del INE, una encuesta trimestral que sigue criterios internacionales, y el paro registrado del SEPE, mensual, que cuenta a los demandantes de empleo inscritos sin trabajo, con algunas exclusiones. No coinciden."
     },
     {
       "type": "card",
@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "PMI",
-      "text": "El PMI es una encuesta a los gerentes de compras de las empresas. Por encima de 50, la mayoría ve mejorar la actividad (expansión); por debajo, empeorar (contracción). Sale a principios de mes, antes que el PIB, y por eso se mira mucho."
+      "text": "El PMI es una encuesta a los responsables de compras de las empresas. Por encima de 50, más empresas ven mejorar la actividad que empeorar (expansión); por debajo, al revés (contracción). Sale a principios de mes, antes que el PIB, y por eso se mira mucho."
     }
   ],
   "exercises": [
@@ -80,15 +80,15 @@
       "prompt": "Hay {a} millones de activos y {pob} millones de personas de 16 años o más. ¿Cuál es la tasa de actividad? (%, 1 decimal)",
       "answer": 58.5,
       "unit": "%",
-      "tolerance": 0.5,
+      "tolerance": 0.2,
       "answerDecimals": 1,
       "formula": "{a} / {pob} * 100",
       "explanation": "{a} / {pob} = {v} %.",
       "params": {
-        "a": {
-          "value": 24,
-          "min": 15,
-          "max": 30,
+        "t": {
+          "value": 58.5,
+          "min": 50,
+          "max": 62,
           "step": 0.5,
           "decimals": 1
         },
@@ -101,6 +101,10 @@
         }
       },
       "derived": {
+        "a": {
+          "formula": "{pob} * {t} / 100",
+          "decimals": 2
+        },
         "v": {
           "formula": "{a} / {pob} * 100",
           "decimals": 1
@@ -159,7 +163,7 @@
           "category": "Ocupado"
         },
         {
-          "text": "No trabaja y busca empleo activamente",
+          "text": "No trabaja, busca empleo activamente y podría empezar ya",
           "category": "Parado"
         },
         {
@@ -234,7 +238,7 @@
         "Porque los parados cuentan como ocupados"
       ],
       "answer": 0,
-      "explanation": "La tasa puede bajar porque el denominador y los parados caen. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "explanation": "La tasa puede bajar porque el denominador y los parados caen.",
       "wrongExplanations": {
         "1": "Los ocupados bajan.",
         "2": "Pasa cuando cae la población activa.",
@@ -246,7 +250,7 @@
   "sources": [
     {
       "title": "INE, Encuesta de Población Activa (EPA): definiciones de ocupado, parado e inactivo",
-      "url": "https://www.ine.es/",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=ultiDatos&idp=1254735976595",
       "date": "2026-10-23"
     },
     {
@@ -255,8 +259,13 @@
       "date": "2026-10-23"
     },
     {
-      "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
-      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "title": "S&P Global, metodología del PMI (índice de difusión, umbral de 50)",
+      "url": "https://www.pmi.spglobal.com/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BLS, calendario del informe Employment Situation (empleo de EE. UU.)",
+      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
       "date": "2026-10-23"
     }
   ],

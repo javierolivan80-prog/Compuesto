@@ -143,7 +143,7 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["pib"],
-      "prompt": "El PIB crece un 0,6 % en un trimestre. Anualizado, ¿cuánto sería? (%, 2 decimales)",
+      "prompt": "El PIB crece un 0,6 % en un trimestre. Si creciera igual cuatro trimestres seguidos, ¿cuánto crecería en el año? (%, 2 decimales)",
       "answer": 2.42,
       "unit": "%",
       "tolerance": 0.3,
@@ -158,13 +158,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["calendario-macro"],
-      "prompt": "Tres analistas esperan un PIB trimestral del 0,3 %, 0,4 % y 0,5 %. ¿Cuál es el consenso? (%, 1 decimal)",
-      "answer": 0.4,
-      "unit": "%",
-      "tolerance": 0.5,
-      "answerDecimals": 1,
-      "formula": "(0.3 + 0.4 + 0.5) / 3",
-      "explanation": "La media: 0,4 %."
+      "prompt": "El consenso esperaba un PIB trimestral del 0,4 % y el dato sale en el 0,7 %. ¿De cuántos puntos básicos es la sorpresa? (pb)",
+      "answer": 30,
+      "unit": "pb",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "(0.7 - 0.4) * 100",
+      "explanation": "(0,7 − 0,4) × 100 = 30 pb."
     },
     {
       "id": "salto-n4-u1-q11",
@@ -185,14 +185,25 @@
     },
     {
       "id": "salto-n4-u1-q12",
-      "type": "true_false_swipe",
+      "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
-      "concepts": ["ipc"],
-      "statement": "Si la inflación baja del 4 % al 2 %, los precios bajan.",
-      "answer": false,
-      "explanation": "Falso: siguen subiendo, más despacio."
+      "concepts": ["paro-pmi"],
+      "prompt": "¿Qué cuenta el paro registrado del SEPE?",
+      "options": [
+        "Los demandantes de empleo inscritos sin trabajo, con algunas exclusiones",
+        "Una encuesta trimestral a hogares",
+        "Todas las personas sin trabajo, busquen o no",
+        "Solo a quienes cobran prestación"
+      ],
+      "answer": 0,
+      "explanation": "Es un registro administrativo mensual; la EPA es la encuesta.",
+      "wrongExplanations": {
+        "1": "Eso es la EPA.",
+        "2": "Quien no busca empleo no cuenta como parado.",
+        "3": "Incluye también a quien no cobra prestación."
+      }
     }
   ],
   "sources": [

@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "El calendario",
-      "text": "Cada semana tiene su calendario macro: IPC, PIB, empleo, PMI y las reuniones de los bancos centrales. Para cada dato hay un consenso, la media de lo que esperan los analistas. El precio ya incorpora ese consenso."
+      "text": "Cada semana tiene su calendario macro: IPC, PIB, empleo, PMI y las reuniones de los bancos centrales. Para cada dato hay un consenso, el valor central (normalmente la mediana) de lo que esperan los analistas. El precio ya incorpora ese consenso."
     },
     {
       "type": "visual",
@@ -57,15 +57,19 @@
           "step": 0.1,
           "decimals": 1
         },
-        "d": {
-          "value": 0.6,
-          "min": -0.5,
-          "max": 1.5,
+        "s": {
+          "value": 0.2,
+          "min": -0.3,
+          "max": 0.3,
           "step": 0.1,
           "decimals": 1
         }
       },
       "derived": {
+        "d": {
+          "formula": "{c} + {s}",
+          "decimals": 1
+        },
         "v": {
           "formula": "({d} - {c}) * 100",
           "decimals": 0
@@ -93,23 +97,17 @@
           "max": 5,
           "step": 0.1,
           "decimals": 1
-        },
-        "b": {
-          "value": 3,
-          "min": 1,
-          "max": 5,
-          "step": 0.1,
-          "decimals": 1
-        },
-        "c": {
-          "value": 3.1,
-          "min": 1,
-          "max": 5,
-          "step": 0.1,
-          "decimals": 1
         }
       },
       "derived": {
+        "b": {
+          "formula": "{a} + 0.2",
+          "decimals": 1
+        },
+        "c": {
+          "formula": "{a} + 0.3",
+          "decimals": 1
+        },
         "v": {
           "formula": "({a} + {b} + {c}) / 3",
           "decimals": 2
@@ -203,7 +201,7 @@
       "bloom": "recordar",
       "tags": [],
       "concepts": ["calendario-macro"],
-      "prompt": "La media de lo que esperan los analistas para un dato se llama ___.",
+      "prompt": "El valor central de lo que esperan los analistas para un dato se llama ___.",
       "answers": [["consenso"]],
       "explanation": "El consenso."
     },
@@ -224,7 +222,7 @@
         "Que hay que operar según el último titular"
       ],
       "answer": 0,
-      "explanation": "El sesgo de narrativa da sensación de comprensión sin poder de predicción. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "explanation": "El sesgo de narrativa da sensación de comprensión sin poder de predicción.",
       "wrongExplanations": {
         "1": "Explican cualquier cosa, luego no explican nada.",
         "2": "Influye, pero según lo esperado.",
@@ -240,8 +238,13 @@
       "date": "2026-10-23"
     },
     {
-      "title": "BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo (IPCA)",
-      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "title": "BCE, calendario de reuniones de política monetaria",
+      "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BLS, calendario del informe Employment Situation (empleo de EE. UU.)",
+      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
       "date": "2026-10-23"
     }
   ],

@@ -40,7 +40,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pib"],
-      "prompt": "El PIB nominal crece un {n} % y el deflactor (los precios) un {d} %. ¿Cuánto crece aproximadamente el PIB real? (%, 1 decimal)",
+      "prompt": "El PIB nominal crece un {n} % y el deflactor (los precios) un {d} %. Con la aproximación real ≈ nominal − precios, ¿cuánto crece el PIB real? (%, 1 decimal)",
       "answer": 2,
       "unit": "%",
       "tolerance": 3,
@@ -77,11 +77,11 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pib"],
-      "prompt": "El PIB real fue de {a} miles de millones de € el año pasado y de {b} este año. ¿Cuánto ha crecido? (%, 1 decimal)",
+      "prompt": "El PIB real fue de {a} miles de millones de € el año pasado y de {b} este año. ¿Cuánto ha crecido? (%, 2 decimales)",
       "answer": 2.5,
       "unit": "%",
-      "tolerance": 2,
-      "answerDecimals": 1,
+      "tolerance": 1,
+      "answerDecimals": 2,
       "formula": "({b} / {a} - 1) * 100",
       "explanation": "{b} / {a} − 1 = {v} %.",
       "params": {
@@ -94,7 +94,7 @@
         },
         "g": {
           "value": 2.5,
-          "min": -3,
+          "min": 1,
           "max": 5,
           "step": 0.1,
           "decimals": 1
@@ -103,11 +103,11 @@
       "derived": {
         "b": {
           "formula": "{a} * (1 + {g} / 100)",
-          "decimals": 0
+          "decimals": 1
         },
         "v": {
           "formula": "({b} / {a} - 1) * 100",
-          "decimals": 1
+          "decimals": 2
         }
       }
     },
@@ -128,7 +128,7 @@
       "params": {
         "q": {
           "value": 0.5,
-          "min": 0.1,
+          "min": 0.4,
           "max": 1.5,
           "step": 0.1,
           "decimals": 1
@@ -174,16 +174,16 @@
       "id": "n4-u1-l3-e5",
       "type": "multiple_choice",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["pib"],
       "prompt": "El PIB real cae un 0,2 % en un trimestre y un 0,1 % en el siguiente. ¿Cómo se suele llamar?",
-      "options": ["Recesión técnica", "Expansión", "Estancamiento con crecimiento", "Inflación"],
+      "options": ["Recesión técnica", "Expansión", "Desaceleración", "Inflación"],
       "answer": 0,
       "explanation": "Dos trimestres seguidos de caída.",
       "wrongExplanations": {
         "1": "El PIB cae.",
-        "2": "No crece: cae.",
+        "2": "Desacelerar es crecer menos, no caer.",
         "3": "La inflación son los precios, no la producción."
       }
     },
@@ -220,13 +220,13 @@
       "situation": "Las importaciones suben y un titular dice que «las importaciones restan al PIB, así que son malas para la economía».",
       "prompt": "¿Qué le respondes?",
       "options": [
-        "Que se restan porque ya están contadas en el consumo y la inversión: no significan que el país produzca menos",
+        "Que se restan porque ya están dentro del consumo, la inversión, el gasto público y las exportaciones: no significan que el país produzca menos",
         "Que es cierto: importar siempre empobrece",
         "Que las importaciones suman al PIB",
         "Que el PIB no tiene en cuenta el comercio exterior"
       ],
       "answer": 0,
-      "explanation": "La resta evita contar dos veces lo producido fuera. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "explanation": "Se restan porque ya están dentro de C, I, G y X y no son producción del país.",
       "wrongExplanations": {
         "1": "Comprar fuera no reduce lo producido dentro.",
         "2": "Se restan.",
@@ -238,7 +238,7 @@
   "sources": [
     {
       "title": "INE, Contabilidad Nacional Trimestral de España (PIB)",
-      "url": "https://www.ine.es/",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
       "date": "2026-10-23"
     },
     {

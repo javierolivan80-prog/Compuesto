@@ -183,7 +183,8 @@ export function instantiate(
     Object.entries(params).map(([k, p]) => [k, [p.fixed ? p.decimals : 0, p.decimals] as const]),
   );
   for (const [k, d] of Object.entries(e.derived ?? {})) {
-    scope[k] = evaluateNumber(fillFormula(d.formula, scope));
+    // redondeado como se muestra: las fórmulas siguientes usan la cifra que ve el usuario
+    scope[k] = roundTo(evaluateNumber(fillFormula(d.formula, scope)), d.decimals);
     formats[k] = [d.decimals, d.decimals];
   }
   const text = (s: string) => fillText(s, scope, formats);

@@ -1422,13 +1422,13 @@
     "bond": {
       "up": "Sube",
       "down": "Baja",
-      "flat": "No se mueve: el dato ya se conocía"
+      "flat": "No se mueve: ya estaba en el precio"
     },
     "whyBond": {
       "up": "La inflación sale {{surprise}} puntos por encima de lo esperado: el mercado da más probabilidad a que el banco central suba tipos, y la rentabilidad a 2 años sube (el precio del bono baja). Lo que mueve el precio es la sorpresa, no el nivel del dato.",
       "down": "La inflación sale {{surprise}} puntos por debajo de lo esperado: el mercado da menos probabilidad a subidas de tipos, y la rentabilidad a 2 años baja (el precio del bono sube). Lo que mueve el precio es la sorpresa, no el nivel del dato."
     },
-    "briefPmi": "Después sale el PMI manufacturero, una encuesta a los gerentes de compras de las empresas: {{pmi}}.",
+    "briefPmi": "Después sale el PMI manufacturero, una encuesta a los responsables de compras de las empresas: {{pmi}}.",
     "askPmi": "¿Qué dice de la industria?",
     "cycle": {
       "expansion": "Está en expansión",
@@ -1456,6 +1456,71 @@
     "great": "Mañana redonda: lees los datos como en una mesa de verdad.",
     "ok": "Bien encaminado: repasa el paso que fallaste.",
     "bad": "Repasa cómo se calculan y cómo se leen los datos macro.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "ecbGame": {
+    "title": "La reunión del BCE",
+    "step": {
+      "taylor": "Paso 1 de 4 · la regla de Taylor",
+      "decision": "Paso 2 de 4 · la decisión",
+      "mortgage": "Paso 3 de 4 · la transmisión",
+      "qe": "Paso 4 de 4 · las compras de bonos"
+    },
+    "bp": "{{v}} pb",
+    "briefTaylor": "Día de reunión del BCE en una economía ficticia. Antes del anuncio, tu mentora te pide una referencia: la regla de Taylor simplificada. Tipo = tipo neutral real + inflación + 0,5 × (inflación − objetivo). El tipo neutral real es del {{neutral}}, la inflación del {{inflation}} y el objetivo del {{target}}.",
+    "askTaylor": "¿Qué tipo sugiere la regla?",
+    "whyTaylor": "{{neutral}} + {{inflation}} + 0,5 × ({{inflation}} − {{target}}) = {{v}}. La regla suma la inflación al tipo neutral y añade la mitad de la brecha con el objetivo: con la inflación por encima del objetivo, pide tipos más altos.",
+    "priced": {
+      "hold": "El mercado descontaba que el BCE mantuviera los tipos.",
+      "hike": "El mercado descontaba una subida de {{bp}}."
+    },
+    "move": {
+      "hold": "Llega el comunicado: el BCE mantiene los tipos.",
+      "hike": "Llega el comunicado: el BCE sube los tipos {{bp}}.",
+      "cut": "Llega el comunicado: el BCE baja los tipos {{bp}}."
+    },
+    "board": {
+      "priced": "Descontado",
+      "move": "Decisión",
+      "surprise": "Sorpresa"
+    },
+    "askFx": "¿Qué hace el euro frente al dólar?",
+    "fx": {
+      "up": "Se aprecia",
+      "down": "Se deprecia",
+      "flat": "No se mueve"
+    },
+    "whyFx": {
+      "up": "El BCE hace {{surprise}} más de lo que descontaba el mercado: los tipos del euro quedan más altos de lo esperado, el euro atrae más dinero y se aprecia frente al dólar, a igualdad de lo demás. Lo que mueve el precio es la sorpresa, no la decisión.",
+      "down": "El BCE hace {{surprise}} menos de lo que descontaba el mercado: los tipos del euro quedan más bajos de lo esperado y el euro se deprecia frente al dólar, a igualdad de lo demás. Lo que mueve el precio es la sorpresa, no la decisión.",
+      "flat": "El BCE hace justo lo que descontaba el mercado: la decisión ya estaba en el precio y el euro apenas se mueve. Lo que mueve el precio es la sorpresa, no la decisión."
+    },
+    "briefMortgage": "En la otra punta de la ciudad, una familia tiene una hipoteca variable de {{principal}} al Euríbor + {{spread}}. En la revisión anual, el Euríbor pasa del {{e0}} al {{e1}}.",
+    "askMortgage": "¿Cuánto sube, aproximadamente, el interés del primer año?",
+    "whyMortgage": "{{principal}} × ({{e1}} − {{e0}}) = {{v}} más al año. El diferencial no cambia, así que solo cuenta la subida del Euríbor. Es aproximado porque el principal baja a medida que se amortiza.",
+    "briefQe": "Meses después, la economía se enfría y el BCE lanza un programa de compras: compra bonos del Estado en el mercado (QE, expansión cuantitativa).",
+    "askQe": "¿Qué les pasa al precio del bono a 10 años y a su rentabilidad?",
+    "qe": {
+      "priceUp": "El precio sube y la rentabilidad baja",
+      "priceDown": "El precio baja y la rentabilidad sube",
+      "none": "No les afecta"
+    },
+    "whyQe": "Un comprador enorme aumenta la demanda de bonos: su precio sube y, como el cupón es fijo, la rentabilidad baja. Así el QE abarata la financiación a largo plazo cuando el tipo oficial ya no puede bajar mucho más.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la reunión",
+    "row": {
+      "taylor": "Regla de Taylor",
+      "fx": "Reacción del euro",
+      "mortgage": "Transmisión a la hipoteca",
+      "qe": "Efecto del QE"
+    },
+    "great": "Reunión redonda: lees al banco central como en una mesa de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo decide el banco central y cómo llega su decisión a los mercados.",
     "debrief": "Ver qué ha pasado"
   },
   "dataSurprise": {

@@ -20,6 +20,7 @@ import {
   unemploymentRate,
   yoy,
 } from '../src/engine/games/macro-day';
+import { extraInterest, rightFx, setupEcb, taylor } from '../src/engine/games/ecb-meeting';
 import {
   futurePnl,
   minDividend,
@@ -116,6 +117,24 @@ export async function playGameLesson(
     await page
       .getByRole('radio', { name: new RegExp(`^${p1(unemploymentRate(setup))}\\s%$`) })
       .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'ecb-meeting') {
+    // referencia 0: la regla de Taylor, la reacción del euro, la subida de la hipoteca y el QE
+    await expect(page.getByRole('heading', { name: 'La reunión del BCE' })).toBeVisible();
+    const setup = setupEcb(seed);
+    const tr = taylor(setup);
+    const digits = Number.isInteger(tr) ? 0 : Number.isInteger(Math.round(tr * 100) / 10) ? 1 : 2;
+    await page
+      .getByRole('radio', { name: new RegExp(`^${formatNumber(tr, digits)}\\s%$`) })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const fx = { up: 'Se aprecia', down: 'Se deprecia', flat: 'No se mueve' } as const;
+    await page.getByRole('radio', { name: fx[rightFx(setup)], exact: true }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const extra = formatNumber(extraInterest(setup)).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${extra}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: 'El precio sube y la rentabilidad baja' }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

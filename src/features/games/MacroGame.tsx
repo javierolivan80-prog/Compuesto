@@ -38,7 +38,10 @@ const mill = (v: number) => t('macroGame.millions', { v: formatNumber(v, 2) });
 function Board({ consensus, actual }: { consensus: number; actual: number }) {
   const diff = Math.round((actual - consensus) * 10) / 10;
   return (
-    <dl className="mg-board grid grid-cols-[repeat(auto-fit,minmax(min(100%,5.5rem),1fr))] gap-2 rounded-[var(--radius-sm)] border p-3" data-num>
+    <dl
+      className="mg-board grid grid-cols-[repeat(auto-fit,minmax(min(100%,5.5rem),1fr))] gap-2 rounded-[var(--radius-sm)] border p-3"
+      data-num
+    >
       <div>
         <dt className="text-text-2 text-sm">{t('macroGame.board.consensus')}</dt>
         <dd className="text-xl">{pct(consensus)}</dd>
@@ -181,7 +184,7 @@ export function MacroGame({ seed, onDone }: Props) {
             chosen={answer.bond}
             right={rightBondMove(s)}
             why={t(`macroGame.whyBond.${rightBondMove(s)}`, {
-              surprise: signed(surprise(s)),
+              surprise: formatNumber(Math.abs(surprise(s)), 1),
             })}
             nextLabel={t('macroGame.next')}
             glow={glow}

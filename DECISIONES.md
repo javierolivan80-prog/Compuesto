@@ -786,3 +786,11 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Bloom de N4:** el nivel exige ≥ 50 % de aplicar o analizar, y la unidad lleva 33/50.
 - **Test de salto:** nace con 12 preguntas, 7 de ellas de producir.
 - **Cifras de la economía:** son ficticias. Las fuentes (INE, SEPE, BCE) cubren definiciones y metodología, con `verificarAntesDe` 2027-06-30.
+
+## 2026-10-23 — Juego «La reunión del BCE» (`ecb-meeting`) para la unidad `n4-u2`
+
+- **Solo código:** motor, interfaz, textos y pruebas, con el mismo patrón que «El día del dato». Ficha en `docs/specs/reunion-bce.md`. El contenido de las lecciones de la unidad se escribe aparte.
+- **Cuatro pasos:** regla de Taylor simplificada, reacción del euro a la sorpresa frente a lo descontado, subida de una hipoteca variable al Euríbor + 1 % y efecto del QE en el bono a 10 años.
+- **Inflación igual al objetivo:** se excluye del sorteo, porque la regla y la opción «sin brecha» coincidirían.
+- **Reacción del euro:** tres respuestas fijas (`up`, `down`, `flat`) con la etiqueta «No se mueve» para `flat`; la explicación aclara que, sin sorpresa, apenas se mueve.
+- **Semilla del peor caso:** 0.

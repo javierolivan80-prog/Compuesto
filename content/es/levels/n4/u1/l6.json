@@ -8,9 +8,13 @@
   "title": "Jefe final: la mañana de los datos",
   "cfa": "economics",
   "estimatedMinutes": 5,
-  "objectives": ["Leer una mañana completa de datos macro"],
+  "objectives": [
+    "Calcular la inflación interanual, el crecimiento real y anualizado y la sorpresa frente al consenso",
+    "Calcular las tasas de paro y de actividad y distinguir EPA y paro registrado",
+    "Leer el PMI y reconocer el sesgo de narrativa"
+  ],
   "concepts": ["ipc", "pib", "paro-pmi", "calendario-macro", "sesgo-narrativa"],
-  "companies": [],
+  "companies": ["naranjas-del-turia"],
   "historical": false,
   "intro": [],
   "exercises": [
@@ -81,7 +85,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pib"],
-      "prompt": "El PIB crece un 0,8 % en un trimestre. Anualizado, ¿cuánto sería? (%, 2 decimales)",
+      "prompt": "El PIB crece un 0,8 % en un trimestre. Si creciera igual cuatro trimestres seguidos, ¿cuánto crecería en el año? (%, 2 decimales)",
       "answer": 3.24,
       "unit": "%",
       "tolerance": 0.3,
@@ -93,19 +97,19 @@
       "id": "n4-u1-l6-e6",
       "type": "categorize",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["paro-pmi", "pib", "ipc"],
       "prompt": "¿Qué dato es cada uno?",
-      "categories": ["Actividad", "Precios", "Empleo"],
+      "categories": ["Producción y ciclo", "Precios", "Empleo"],
       "items": [
         {
           "text": "El PMI",
-          "category": "Actividad"
+          "category": "Producción y ciclo"
         },
         {
           "text": "El PIB trimestral",
-          "category": "Actividad"
+          "category": "Producción y ciclo"
         },
         {
           "text": "El IPC subyacente",
@@ -116,51 +120,62 @@
           "category": "Empleo"
         }
       ],
-      "explanation": "Actividad, precios y empleo: los tres bloques del calendario."
+      "explanation": "Producción y ciclo, precios y empleo: los tres bloques del calendario."
     },
     {
       "id": "n4-u1-l6-e7",
-      "type": "multiple_choice",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": [],
-      "concepts": ["calendario-macro"],
-      "prompt": "¿Por qué un dato en línea con el consenso suele mover poco el mercado?",
-      "options": [
-        "Porque el precio ya lo incorporaba",
-        "Porque el mercado está cerrado",
-        "Porque los datos no importan",
-        "Porque el consenso es siempre exacto"
-      ],
-      "answer": 0,
-      "explanation": "Lo esperado ya está en el precio.",
-      "wrongExplanations": {
-        "1": "Se publica en horario de mercado.",
-        "2": "Importan, cuando sorprenden.",
-        "3": "Muchas veces falla."
-      }
-    },
-    {
-      "id": "n4-u1-l6-e8",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": [],
-      "concepts": ["ipc"],
-      "statement": "La inflación subyacente incluye la energía.",
-      "answer": false,
-      "explanation": "Falso: la excluye, junto con los alimentos no elaborados."
-    },
-    {
-      "id": "n4-u1-l6-e9",
       "type": "fill_blank",
       "difficulty": 1,
       "bloom": "recordar",
       "tags": [],
+      "concepts": ["sesgo-narrativa"],
+      "prompt": "Creer que la historia que se cuenta después de un movimiento del mercado es su causa segura es el sesgo de ___.",
+      "answers": [["narrativa"]],
+      "explanation": "El sesgo de narrativa."
+    },
+    {
+      "id": "n4-u1-l6-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
       "concepts": ["paro-pmi"],
-      "prompt": "La encuesta trimestral del INE que mide el paro en España se llama ___ (siglas).",
-      "answers": [["EPA"]],
-      "explanation": "EPA: Encuesta de Población Activa."
+      "prompt": "Hay 23,4 millones de activos y 40 millones de personas de 16 años o más. ¿Tasa de actividad? (%, 1 decimal)",
+      "answer": 58.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "23.4 / 40 * 100",
+      "explanation": "23,4 / 40 = 58,5 %."
+    },
+    {
+      "id": "n4-u1-l6-e9",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "¿Es propio de la EPA o del paro registrado?",
+      "categories": ["EPA (INE)", "Paro registrado (SEPE)"],
+      "items": [
+        {
+          "text": "Encuesta trimestral a hogares",
+          "category": "EPA (INE)"
+        },
+        {
+          "text": "Cuenta a los demandantes inscritos en las oficinas de empleo",
+          "category": "Paro registrado (SEPE)"
+        },
+        {
+          "text": "Sigue los criterios internacionales de la OIT",
+          "category": "EPA (INE)"
+        },
+        {
+          "text": "Se publica cada mes",
+          "category": "Paro registrado (SEPE)"
+        }
+      ],
+      "explanation": "Son dos medidas distintas y no coinciden."
     },
     {
       "id": "n4-u1-l6-e10",
@@ -179,7 +194,7 @@
         "Que el titular decide el precio"
       ],
       "answer": 0,
-      "explanation": "Expectativas primero; historias después. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "explanation": "Expectativas primero; historias después.",
       "wrongExplanations": {
         "1": "Un buen dato esperado no sorprende, y puede hacer temer subidas de tipos.",
         "2": "Influye según la sorpresa.",
@@ -187,7 +202,7 @@
       }
     }
   ],
-  "realWorld": "Elige una semana con IPC y empleo y apunta el consenso antes del dato: compara después la reacción del mercado con la sorpresa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "realWorld": "Para Naranjas del Turia, un IPC alto encarece la energía y el transporte de sus naranjas, y un PMI de la zona euro en contracción anticipa menos demanda de sus clientes: así la macro llega a sus cuentas. Elige una semana con IPC y empleo, apunta el consenso antes del dato y compara después la reacción con la sorpresa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
@@ -196,12 +211,12 @@
     },
     {
       "title": "INE, Índice de Precios de Consumo (IPC) e IPC armonizado: metodología e inflación subyacente",
-      "url": "https://www.ine.es/",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176802&menu=ultiDatos&idp=1254735976607",
       "date": "2026-10-23"
     },
     {
       "title": "INE, Encuesta de Población Activa (EPA): definiciones de ocupado, parado e inactivo",
-      "url": "https://www.ine.es/",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=ultiDatos&idp=1254735976595",
       "date": "2026-10-23"
     }
   ],
