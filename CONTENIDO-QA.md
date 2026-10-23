@@ -449,3 +449,17 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - e2e de producción del camino 6 + segunda fase (`e2e/placement.spec.ts`): pasa.
 - 🛑 Pendiente de la revisión de Javier, sobre todo las fuentes normativas añadidas (Circular 5/2012, Orden EHA/2899/2011, RD 2606/1996, RIRPF art. 90).
 
+## n4-u1 — Los datos que mueven el mercado y lección-juego «El día del dato» (23/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Crítico: en el repaso, el motor usaba en las fórmulas los derivados sin redondear y rechazaba respuestas correctas. Ahora `params.ts` usa el valor tal como se muestra, con su test, y `content:validate` sigue limpio en todo el contenido.
+  - Mayores aplicados:
+    - las tarjetas del juego ya no dan las respuestas;
+    - real ≈ nominal − precios y «anualizado» quedan explicitados;
+    - la definición del PMI corregida (índice de difusión);
+    - el Jefe final y el test de salto cubren todos los objetivos.
+  - Menores: fuentes concretas (INE, SEPE, S&P Global, BLS, BCE), «2 % simétrico», consenso como valor central, Bloom ajustado y Naranjas del Turia en el cierre.
+- **Ronda 2:** causalidad del IPC en el realWorld de l6 y un ejercicio que lea el PMI en el Jefe final.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom del nivel N4 en esta unidad: 31/50 de aplicar o analizar. e2e de producción `n4u1.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier, sobre todo las URL de metodología del INE (verificarAntesDe 2027-06-30).
+
