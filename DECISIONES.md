@@ -794,3 +794,18 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Inflación igual al objetivo:** se excluye del sorteo, porque la regla y la opción «sin brecha» coincidirían.
 - **Reacción del euro:** tres respuestas fijas (`up`, `down`, `flat`) con la etiqueta «No se mueve» para `flat`; la explicación aclara que, sin sorpresa, apenas se mueve.
 - **Semilla del peor caso:** 0.
+
+## 2026-10-23 — Unidad `n4-u2` «Bancos centrales: BCE, Fed y QE» (draft) y explicador `RateTransmission`
+
+- **Seis lecciones:**
+  - el juego «La reunión del BCE», cuyos ejercicios piden pasos nuevos con tus cifras (la regla con un punto más de inflación, el interés total con el diferencial, otra sorpresa, la subida mensual);
+  - el BCE: mandato simétrico del 2 % con el IPCA, los tres tipos oficiales, reuniones cada seis semanas y transmisión, con el explicador nuevo `RateTransmission` y el préstamo variable de Naranjas del Turia;
+  - la Fed: doble mandato, PCE, rango objetivo, FOMC y efecto del dólar en los emergentes;
+  - QE y QT: balance, duración, APP y PEPP a nivel intuitivo;
+  - la curva: pendiente 10 años − 2 años, inversión como patrón histórico y no como ley, y regla de Taylor simplificada;
+  - el Jefe final, con 10 ejercicios.
+- **Conceptos:** `bce`, `fed`, `qe-qt` e `inversion-curva`, con descripción y `unit: n4-u2`.
+- **Bloom de N4:** cada lección supera el 50 % de aplicar o analizar (7, 5, 5, 5, 7 de 8 y 7 de 10).
+- **Test de salto:** nace con 12 preguntas, 7 de ellas de producir.
+- **`RateTransmission`:** props `rate` (tipo oficial, %) y `rise` (puntos). La cuota de la hipoteca ficticia (150.000 € a 25 años al Euríbor + 1 %) usa `monthlyPayment`; el Euríbor del ejemplo parte del tipo oficial para simplificar. Consumo y precios se describen con «suele», sin cifras.
+- **Cifras:** los tipos de todos los ejemplos son ficticios. Las fuentes (BCE, Fed, Banco de España, Reserva Federal de Nueva York) cubren definiciones, marco operativo y calendario, con `verificarAntesDe` 2027-06-30. Las URL no se pudieron abrir desde el entorno (sin red) y quedan para la revisión.

@@ -21,6 +21,7 @@ import { OrderBook } from './OrderBook';
 import { PrimarySecondary } from './PrimarySecondary';
 import { RepoFlow } from './RepoFlow';
 import { DataSurprise } from './DataSurprise';
+import { RateTransmission } from './RateTransmission';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -61,6 +62,7 @@ const REGISTRY = {
   FxEffect,
   RepoFlow,
   DataSurprise,
+  RateTransmission,
   FuturePayoff,
 } as unknown as Registry;
 

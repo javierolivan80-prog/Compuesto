@@ -981,25 +981,33 @@
     "id": "bce",
     "name": "BCE y política monetaria",
     "level": 4,
-    "prerequisites": ["ipc"]
+    "prerequisites": ["ipc"],
+    "unit": "n4-u2",
+    "description": "Banco central de la zona euro. Objetivo: inflación del 2 % simétrico a medio plazo, medida con el IPCA. Tres tipos oficiales (depósito, operaciones principales y facilidad marginal); desde 2024 orienta su política con el de depósito. Se reúne cada seis semanas y su decisión llega a los precios por el Euríbor, el crédito y el consumo."
   },
   {
     "id": "fed",
     "name": "Fed",
     "level": 4,
-    "prerequisites": ["bce"]
+    "prerequisites": ["bce"],
+    "unit": "n4-u2",
+    "description": "Banco central de EE. UU. Doble mandato: máximo empleo y estabilidad de precios (2 %, medida con el PCE). El FOMC fija un rango objetivo para los fondos federales en 8 reuniones al año; sus sorpresas mueven el dólar y a los emergentes endeudados en dólares."
   },
   {
     "id": "qe-qt",
     "name": "QE y QT",
     "level": 4,
-    "prerequisites": ["bce"]
+    "prerequisites": ["bce"],
+    "unit": "n4-u2",
+    "description": "QE: el banco central compra bonos, su balance crece y bajan las rentabilidades largas. QT: deja de reinvertir lo que vence o vende, y el balance se reduce. En el BCE, los programas APP y PEPP."
   },
   {
     "id": "inversion-curva",
     "name": "Inversión de la curva de tipos",
     "level": 4,
-    "prerequisites": ["curva-tipos"]
+    "prerequisites": ["curva-tipos"],
+    "unit": "n4-u2",
+    "description": "Pendiente 10 años − 2 años negativa: el corto rinde más que el largo. Suele reflejar que se esperan bajadas de tipos; ha precedido a varias recesiones, pero es un patrón histórico, no una ley."
   },
   {
     "id": "ciclo-economico",

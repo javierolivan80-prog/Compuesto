@@ -1,0 +1,256 @@
+{
+  "id": "n4-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "title": "El BCE y su política",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar el mandato del BCE y sus tres tipos oficiales",
+    "Seguir la transmisión de una subida de tipos hasta los precios y calcular su efecto en una deuda a tipo variable"
+  ],
+  "concepts": ["bce"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Mandato del BCE",
+      "text": "El objetivo principal del BCE es la estabilidad de precios: una inflación del 2 % a medio plazo, medida con el IPCA de la zona euro. Es simétrico: quedarse por debajo preocupa igual que pasarse. El Consejo de Gobierno decide la política monetaria en reuniones cada seis semanas."
+    },
+    {
+      "type": "card",
+      "term": "Los tres tipos oficiales",
+      "text": "Facilidad de depósito: lo que cobran los bancos por dejar dinero en el BCE a un día. Operaciones principales de financiación: lo que pagan por pedirle prestado a una semana. Facilidad marginal de crédito: el más alto, para préstamos a un día. Desde 2024, el BCE orienta su política con el tipo de depósito."
+    },
+    {
+      "type": "visual",
+      "component": "RateTransmission",
+      "props": {
+        "rate": 2,
+        "rise": 0.5
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u2-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Naranjas del Turia tiene un préstamo de {d} millones de € a tipo variable, al Euríbor + {s} % (cifras ficticias). En la revisión, el Euríbor sube {r} puntos. Aproximando con el préstamo pendiente durante todo el año, ¿cuánto sube su gasto anual por intereses? (miles de €, 1 decimal)",
+      "answer": 45,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{d} * 1000 * {r} / 100",
+      "explanation": "{d} millones × {r} % = {answer} miles de €: el diferencial no cambia, solo la subida del Euríbor.",
+      "params": {
+        "d": {
+          "value": 9,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 1.5,
+          "min": 1,
+          "max": 2.5,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "r": {
+          "value": 0.5,
+          "min": 0.25,
+          "max": 1,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "character": "mentora"
+    },
+    {
+      "id": "n4-u2-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Desde septiembre de 2024, el tipo de las operaciones principales de financiación está 15 pb por encima del de la facilidad de depósito, y el de la facilidad marginal de crédito, 25 pb por encima del de las operaciones principales. Si el tipo de depósito fuera del {d} % (cifra ficticia), ¿cuál sería el de la facilidad marginal de crédito? (%, 2 decimales)",
+      "answer": 2.4,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{d} + 0.15 + 0.25",
+      "explanation": "{d} % + 0,15 + 0,25 = {answer} %.",
+      "params": {
+        "d": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 0.25,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l2-e3",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Ordena cómo suele llegar a los precios una subida del tipo oficial del BCE.",
+      "steps": [
+        "El BCE sube el tipo de la facilidad de depósito",
+        "El Euríbor sube",
+        "Suben las cuotas de las hipotecas variables al revisarse",
+        "Las familias suelen consumir menos",
+        "La inflación suele bajar, con retraso"
+      ],
+      "explanation": "Tipo oficial → Euríbor → cuotas → consumo → precios. Cada eslabón tarda; el último, varios trimestres."
+    },
+    {
+      "id": "n4-u2-l2-e4",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "El BCE mide su objetivo de inflación con el índice de precios de consumo ___ de la zona euro (IPCA).",
+      "answers": [["armonizado"]],
+      "explanation": "Armonizado: la misma metodología en todos los países del euro."
+    },
+    {
+      "id": "n4-u2-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "¿A qué tipo oficial del BCE corresponde cada descripción?",
+      "categories": [
+        "Facilidad de depósito",
+        "Operaciones principales de financiación",
+        "Facilidad marginal de crédito"
+      ],
+      "items": [
+        {
+          "text": "Remunera el dinero que los bancos dejan en el BCE a un día",
+          "category": "Facilidad de depósito"
+        },
+        {
+          "text": "Préstamos del BCE a los bancos a una semana",
+          "category": "Operaciones principales de financiación"
+        },
+        {
+          "text": "Préstamos a un día al tipo más alto de los tres",
+          "category": "Facilidad marginal de crédito"
+        },
+        {
+          "text": "El tipo con el que el BCE orienta su política desde 2024",
+          "category": "Facilidad de depósito"
+        }
+      ],
+      "explanation": "Depósito, el más bajo y el que orienta la política; operaciones principales, en medio; facilidad marginal, el más alto."
+    },
+    {
+      "id": "n4-u2-l2-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "El BCE sube el tipo de la facilidad de depósito. ¿Qué préstamo de una familia suele notarlo antes?",
+      "options": [
+        "Una hipoteca variable que se revisa este mes con el Euríbor",
+        "Una hipoteca a tipo fijo firmada hace cinco años",
+        "Un préstamo de coche a tipo fijo ya firmado",
+        "Ninguno: los tipos oficiales solo afectan a los bancos"
+      ],
+      "answer": 0,
+      "explanation": "El Euríbor sigue al tipo oficial y la hipoteca variable lo recoge en su siguiente revisión.",
+      "wrongExplanations": {
+        "1": "Un tipo fijo ya firmado no cambia.",
+        "2": "También es fijo: no cambia.",
+        "3": "Llegan a las familias a través del Euríbor y del precio del crédito."
+      }
+    },
+    {
+      "id": "n4-u2-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["bce"],
+      "character": "mentora",
+      "situation": "El BCE sube hoy los tipos y un cliente de Albufera Partners dice: «Perfecto, el mes que viene la inflación ya habrá bajado».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que la transmisión tarda: primero se mueven el Euríbor y las cuotas, después el consumo, y la inflación suele reaccionar con varios trimestres de retraso",
+        "Que tiene razón: la inflación baja al mes siguiente",
+        "Que la subida hará subir la inflación",
+        "Que los tipos del BCE no influyen en la inflación"
+      ],
+      "answer": 0,
+      "explanation": "La política monetaria actúa con retraso; por eso el BCE mira la inflación a medio plazo.",
+      "wrongExplanations": {
+        "1": "La cadena tarda trimestres.",
+        "2": "Encarecer el crédito frena la demanda: tiende a bajarla.",
+        "3": "Influyen a través del crédito y el consumo."
+      }
+    },
+    {
+      "id": "n4-u2-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "statement": "Se prevé una inflación del 1,5 % a medio plazo en la zona euro. Como el objetivo del BCE es simétrico, esa desviación le preocupa tanto como una previsión del 2,5 %.",
+      "answer": true,
+      "explanation": "Verdadero: las dos se alejan medio punto del 2 %, una por debajo y otra por encima."
+    }
+  ],
+  "realWorld": "En la web del BCE están los tres tipos oficiales vigentes y el calendario de reuniones; el Banco de España publica el Euríbor con el que se revisan las hipotecas variables. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, estrategia de política monetaria: estabilidad de precios, objetivo del 2 % simétrico a medio plazo (IPCA)",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, tipos de interés oficiales: facilidad de depósito, operaciones principales de financiación y facilidad marginal de crédito",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, comunicado de 13 de marzo de 2024 sobre el marco operativo: la política se orienta con el tipo de la facilidad de depósito; diferencial de 15 pb con las operaciones principales desde el 18 de septiembre de 2024",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, calendario de reuniones de política monetaria del Consejo de Gobierno (cada seis semanas)",
+      "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, el mecanismo de transmisión de la política monetaria",
+      "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, Portal del Cliente Bancario: tipos de interés oficiales de referencia (Euríbor) y préstamos a tipo variable",
+      "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/productoservici/relacionados/tiposinteres/",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

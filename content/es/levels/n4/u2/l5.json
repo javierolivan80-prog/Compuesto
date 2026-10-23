@@ -1,0 +1,251 @@
+{
+  "id": "n4-u2-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "title": "La curva y su inversión",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la pendiente 10 años − 2 años e interpretar su inversión como patrón, no como ley",
+    "Aplicar la regla de Taylor simplificada"
+  ],
+  "concepts": ["inversion-curva", "bce"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Pendiente",
+      "text": "La pendiente de la curva se suele medir como la rentabilidad a 10 años menos la de 2 años. Normalmente es positiva: prestar a más plazo exige más rentabilidad. Si es negativa, la curva está invertida: el bono a 2 años rinde más que el de 10."
+    },
+    {
+      "type": "card",
+      "term": "Inversión",
+      "text": "El tramo corto sigue de cerca a los tipos oficiales; el largo, lo que se espera de los tipos futuros. Una curva invertida suele indicar que el mercado espera bajadas, a menudo por miedo a una recesión. En EE. UU. ha precedido a varias recesiones, con retrasos variables, pero es un patrón histórico, no una ley."
+    },
+    {
+      "type": "card",
+      "term": "Regla de Taylor",
+      "text": "Una referencia para el tipo oficial: tipo = tipo neutral real + inflación + 0,5 × (inflación − objetivo). Esta versión simplificada omite la brecha de producción. No es lo que decide el banco central: sirve para ver si sus tipos parecen altos o bajos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u2-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "El bono a 10 años rinde un {a} % y el de 2 años, un {b} % (cifras ficticias). ¿Cuál es la pendiente 10 años − 2 años? (pb, negativa si la curva está invertida)",
+      "answer": -40,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({a} - {b}) * 100",
+      "explanation": "({a} − {b}) × 100 = {answer} pb.",
+      "params": {
+        "a": {
+          "value": 3,
+          "min": 2,
+          "max": 5,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "b": {
+          "value": 3.4,
+          "min": 1.5,
+          "max": 5,
+          "step": 0.05,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Con la regla de Taylor simplificada, tipo = neutral + inflación + 0,5 × (inflación − objetivo), ¿qué tipo sugiere con un tipo neutral real del {n} %, una inflación del {i} % y un objetivo del 2 %? (%, 2 decimales)",
+      "answer": 4.45,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{n} + {i} + 0.5 * ({i} - 2)",
+      "explanation": "{n} + {i} + 0,5 × ({i} − 2) = {answer} %.",
+      "params": {
+        "n": {
+          "value": 0.5,
+          "min": 0,
+          "max": 2,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "i": {
+          "value": 3.3,
+          "min": 0.5,
+          "max": 5.7,
+          "step": 0.4,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "La pendiente 10 años − 2 años es de {s0} pb. El mercado empieza a esperar bajadas de tipos: la rentabilidad a 2 años cae {d2} pb y la de 10 años, 10 pb. ¿Cuál es la nueva pendiente? (pb, negativa si sigue invertida)",
+      "answer": 10,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{s0} + {d2} - 10",
+      "explanation": "{s0} + {d2} − 10 = {answer} pb: si el tramo corto cae más que el largo, la pendiente sube.",
+      "params": {
+        "s0": {
+          "value": -40,
+          "min": -80,
+          "max": 40,
+          "step": 10,
+          "decimals": 0
+        },
+        "d2": {
+          "value": 60,
+          "min": 30,
+          "max": 100,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l5-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "¿Cómo es la curva en cada caso, mirando el tramo de 2 a 10 años?",
+      "categories": ["Positiva", "Plana", "Invertida"],
+      "items": [
+        {
+          "text": "10 años al 3,2 % y 2 años al 2,1 %",
+          "category": "Positiva"
+        },
+        {
+          "text": "10 años al 3,0 % y 2 años al 3,0 %",
+          "category": "Plana"
+        },
+        {
+          "text": "10 años al 2,8 % y 2 años al 3,5 %",
+          "category": "Invertida"
+        },
+        {
+          "text": "Pendiente 10 años − 2 años de −40 pb",
+          "category": "Invertida"
+        },
+        {
+          "text": "Pendiente 10 años − 2 años de +120 pb",
+          "category": "Positiva"
+        }
+      ],
+      "explanation": "Pendiente = 10 años − 2 años: positiva, cero o negativa."
+    },
+    {
+      "id": "n4-u2-l5-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "La curva 10 años − 2 años de EE. UU. lleva seis meses invertida. ¿Qué conclusión es la más correcta?",
+      "options": [
+        "Históricamente ha precedido a varias recesiones, pero no garantiza una ni dice cuándo llegaría",
+        "Habrá una recesión en los próximos seis meses con seguridad",
+        "No significa nada: la curva no tiene relación con la economía",
+        "La Fed está obligada a bajar los tipos de inmediato"
+      ],
+      "answer": 0,
+      "explanation": "Es un patrón histórico con retrasos variables y alguna falsa alarma.",
+      "wrongExplanations": {
+        "1": "No es una ley ni tiene un plazo fijo.",
+        "2": "Refleja lo que se espera de los tipos y del crecimiento.",
+        "3": "La curva no obliga a la Fed a nada."
+      }
+    },
+    {
+      "id": "n4-u2-l5-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "statement": "Si la pendiente 10 años − 2 años pasa de −30 pb a +20 pb, la curva ha dejado de estar invertida.",
+      "answer": true,
+      "explanation": "Verdadero: la pendiente vuelve a ser positiva."
+    },
+    {
+      "id": "n4-u2-l5-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "Cuando la rentabilidad a 2 años supera a la de 10 años, se dice que la curva de tipos está ___.",
+      "answers": [["invertida"]],
+      "explanation": "Invertida."
+    },
+    {
+      "id": "n4-u2-l5-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "character": "rival",
+      "situation": "La curva 10 años − 2 años se acaba de invertir y el becario rival dice: «Esto es una recesión segura: hay que venderlo todo ya».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que es un patrón histórico, no una ley: ha dado falsas alarmas y el retraso hasta una recesión ha variado mucho, así que no basta por sí sola para decidir",
+        "Que tiene razón: la inversión garantiza una caída de la bolsa al día siguiente",
+        "Que una curva invertida es siempre una buena noticia para la bolsa",
+        "Que la curva solo importa a los bancos"
+      ],
+      "answer": 0,
+      "explanation": "Una señal útil para vigilar, no una regla automática para operar.",
+      "wrongExplanations": {
+        "1": "Ni garantiza la recesión ni marca el momento.",
+        "2": "Tampoco: suele reflejar miedo a una desaceleración.",
+        "3": "Interesa a todo el mercado: resume lo que se espera de los tipos."
+      }
+    }
+  ],
+  "realWorld": "Los bancos centrales y los medios financieros publican a diario las rentabilidades a 2 y a 10 años; la Reserva Federal de Nueva York mantiene un modelo de probabilidad de recesión basado en la pendiente de la curva. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator (pendiente 10 años − 3 meses y 10 años − 2 años, recesiones de EE. UU.)",
+      "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, Policy Rules and How Policymakers Use Them (regla de Taylor)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

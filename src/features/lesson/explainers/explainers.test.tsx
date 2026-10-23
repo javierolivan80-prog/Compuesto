@@ -169,6 +169,14 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/un 2,6\s%, hay menos inflación/);
     expect(text).toMatch(/un 3,2\s%, la sorpresa es al alza/);
   });
+  it('RateTransmission: del tipo oficial a la cuota, el consumo y los precios', () => {
+    render(<ExplainerBlock component="RateTransmission" props={{ rate: 2, rise: 0.5 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/del 2\s% al 2,5\s%/);
+    expect(text).toMatch(/la cuota pasa de 711\s€ a 751\s€ al mes, 40\s€ más/);
+    expect(text).toMatch(/suelen gastar menos/);
+    expect(text).toMatch(/los precios suelen subir más despacio/);
+  });
   it('FuturePayoff: el comprador gana si sube y el vendedor lo contrario', () => {
     render(<ExplainerBlock component="FuturePayoff" props={{ price: 100, units: 10 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

@@ -26,6 +26,7 @@ export const EXPLAINER_NAMES = [
   'FxEffect',
   'RepoFlow',
   'DataSurprise',
+  'RateTransmission',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

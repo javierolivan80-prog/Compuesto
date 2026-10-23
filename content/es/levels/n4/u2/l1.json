@@ -1,0 +1,288 @@
+{
+  "id": "n4-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: la reunión del BCE",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar la regla de Taylor simplificada y medir la sorpresa de una decisión frente a lo descontado",
+    "Calcular cómo llega una subida del Euríbor a una hipoteca variable y relacionar el QE con los préstamos a tipo fijo"
+  ],
+  "concepts": ["bce", "qe-qt"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "ecb-meeting",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "La regla de Taylor",
+      "text": "Acertaste {hits} de 4. Con un tipo neutral real del {neutral} %, una inflación del {inflation} % y un objetivo del {target} %, la regla simplificada pedía {neutral} + {inflation} + 0,5 × ({inflation} − {target}) = {taylor} %. Es una referencia para el tipo oficial, no lo que el banco central está obligado a decidir."
+    },
+    {
+      "type": "card",
+      "term": "Lo descontado",
+      "text": "El mercado descontaba un movimiento de {priced_bp} pb y el BCE decidió {move_bp} pb: la sorpresa, decisión menos lo descontado, fue de {surprise_bp} pb. Lo que ya se esperaba está en el precio: el euro reacciona a la sorpresa, no a la decisión."
+    },
+    {
+      "type": "card",
+      "term": "Transmisión y QE",
+      "text": "La hipoteca de {principal} € al Euríbor + 1 % pasó del {euribor0} % al {euribor1} %: unos {extra_interest} € más de interés el primer año, porque solo cambia el Euríbor. Y cuando el banco central compra bonos (QE), su precio sube y su rentabilidad baja."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u2-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "El tipo neutral real es del {neutral} % y el objetivo de inflación, del 2 %. La inflación sube 1 punto, del {inflation} % al {inf2} %. Con la regla de Taylor simplificada, tipo = neutral + inflación + 0,5 × (inflación − objetivo), ¿qué tipo sugiere ahora? (%, 2 decimales)",
+      "answer": 6,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{neutral} + {inf2} + 0.5 * ({inf2} - 2)",
+      "explanation": "{neutral} + {inf2} + 0,5 × ({inf2} − 2) = {answer} %: un punto más de inflación pide 1,5 puntos más de tipo.",
+      "params": {
+        "neutral": {
+          "value": 1,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "inflation": {
+          "value": 3,
+          "min": 1.5,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "inf2": {
+          "formula": "{inflation} + 1",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Una hipoteca variable de {principal} € al Euríbor + 1 % se revisa con el Euríbor en el {euribor1} %. Aproximando con el principal pendiente durante todo el año, ¿cuánto interés paga en total el primer año tras la revisión, contando el diferencial? (€)",
+      "answer": 6750,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{principal} * ({euribor1} + 1) / 100",
+      "explanation": "{principal} × ({euribor1} % + 1 %) = {answer} €: el diferencial también se paga.",
+      "params": {
+        "principal": {
+          "value": 150000,
+          "min": 100000,
+          "max": 200000,
+          "step": 50000,
+          "decimals": 0
+        },
+        "euribor1": {
+          "value": 3.5,
+          "min": 3.25,
+          "max": 3.75,
+          "step": 0.25,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "El BCE decidió un movimiento de {move_bp} pb (negativo si baja los tipos). Si el mercado hubiera descontado una subida de 100 pb, ¿de cuántos puntos básicos habría sido la sorpresa, decisión menos lo descontado? (pb, negativa si hace menos de lo descontado)",
+      "answer": -50,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{move_bp} - 100",
+      "explanation": "{move_bp} − 100 = {answer} pb: menos subida de la descontada.",
+      "params": {
+        "move_bp": {
+          "value": 50,
+          "min": -25,
+          "max": 75,
+          "step": 25,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Una hipoteca variable de {principal} € al Euríbor + 1 % se revisa y el Euríbor pasa del {euribor0} % al {euribor1} %. Aproximando la subida del interés del año como principal × subida del Euríbor, sin contar la amortización, ¿cuánto sube de media la cuota cada mes durante ese año? (€, 2 decimales)",
+      "answer": 62.5,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{principal} * ({euribor1} - {euribor0}) / 100 / 12",
+      "explanation": "{principal} × ({euribor1} % − {euribor0} %) / 12 = {answer} € al mes.",
+      "params": {
+        "principal": {
+          "value": 150000,
+          "min": 100000,
+          "max": 200000,
+          "step": 50000,
+          "decimals": 0
+        },
+        "euribor0": {
+          "value": 3,
+          "min": 2,
+          "max": 3,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "euribor1": {
+          "value": 3.5,
+          "min": 3.25,
+          "max": 3.75,
+          "step": 0.25,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "A igualdad de lo demás, ¿qué suele hacer el euro frente al dólar el día de la decisión?",
+      "categories": ["Se aprecia", "Se deprecia", "Apenas se mueve"],
+      "items": [
+        {
+          "text": "Se descontaba una subida de 25 pb y el BCE sube 50 pb",
+          "category": "Se aprecia"
+        },
+        {
+          "text": "Se descontaba una subida de 50 pb y el BCE sube 25 pb",
+          "category": "Se deprecia"
+        },
+        {
+          "text": "Se descontaba una subida de 25 pb y el BCE sube 25 pb",
+          "category": "Apenas se mueve"
+        },
+        {
+          "text": "Se descontaba que mantuviera los tipos y el BCE los baja 25 pb",
+          "category": "Se deprecia"
+        }
+      ],
+      "explanation": "Manda la sorpresa: tipos más altos de lo esperado atraen dinero al euro; más bajos, lo alejan; sin sorpresa, ya estaba en el precio."
+    },
+    {
+      "id": "n4-u2-l1-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "El BCE compra bonos a largo plazo y la rentabilidad del bono a 10 años baja. ¿Qué préstamo se abarata más directamente?",
+      "options": [
+        "Una hipoteca nueva a tipo fijo a 20 años",
+        "Una hipoteca variable ya firmada que se revisa con el Euríbor a 12 meses",
+        "Un préstamo a tipo fijo ya firmado",
+        "Ninguno: las compras de bonos no afectan a los préstamos"
+      ],
+      "answer": 0,
+      "explanation": "Los préstamos nuevos a tipo fijo y a largo plazo se fijan mirando las rentabilidades largas, que el QE empuja a la baja.",
+      "wrongExplanations": {
+        "1": "El Euríbor a 12 meses sigue sobre todo a los tipos oficiales y a lo que se espera de ellos, no a la rentabilidad a 10 años.",
+        "2": "Un tipo fijo ya firmado no cambia.",
+        "3": "Afectan a través de las rentabilidades a largo plazo."
+      }
+    },
+    {
+      "id": "n4-u2-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["bce"],
+      "statement": "Con la regla de Taylor simplificada, si la inflación está por debajo del objetivo, el tipo que sugiere es menor que la suma del tipo neutral y la inflación.",
+      "answer": true,
+      "explanation": "Verdadero: el término 0,5 × (inflación − objetivo) es negativo y resta."
+    },
+    {
+      "id": "n4-u2-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["bce"],
+      "character": "jefe",
+      "situation": "El BCE sube 25 pb, justo lo que descontaba el mercado, pero el comunicado da a entender que no habrá más subidas este año, cuando el mercado esperaba otras dos. El euro se deprecia y tu compañero becario dice que el mercado se ha equivocado.",
+      "prompt": "¿Qué le responde el jefe de la mesa?",
+      "options": [
+        "Que la sorpresa está en el futuro: el mercado esperaba más subidas y ya no las ve, así que los tipos esperados del euro bajan",
+        "Que el euro tendría que haberse apreciado porque el BCE ha subido los tipos",
+        "Que el euro solo reacciona a la decisión del día",
+        "Que es imposible: sin sorpresa en la decisión, el euro no puede moverse"
+      ],
+      "answer": 0,
+      "explanation": "El precio descuenta toda la senda de tipos esperada; un comunicado que la rebaja es una sorpresa a la baja aunque la decisión del día coincida.",
+      "wrongExplanations": {
+        "1": "La subida ya estaba en el precio; lo nuevo es que habrá menos subidas.",
+        "2": "También reacciona a lo que se espera de las próximas reuniones.",
+        "3": "La sorpresa puede estar en lo que anuncia para el futuro."
+      }
+    }
+  ],
+  "realWorld": "El BCE publica cada decisión con un comunicado y una rueda de prensa; los analistas leen tanto la decisión como las pistas sobre las próximas reuniones. Si tienes una hipoteca variable, su revisión te dirá cuánto te llega cada subida. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Reserva Federal, Policy Rules and How Policymakers Use Them (regla de Taylor)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, estrategia de política monetaria: estabilidad de precios, objetivo del 2 % simétrico a medio plazo (IPCA)",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, el mecanismo de transmisión de la política monetaria",
+      "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, Portal del Cliente Bancario: tipos de interés oficiales de referencia (Euríbor) y préstamos a tipo variable",
+      "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/productoservici/relacionados/tiposinteres/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, programa de compras de activos (APP)",
+      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.es.html",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

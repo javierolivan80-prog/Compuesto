@@ -1,0 +1,272 @@
+{
+  "id": "n4-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "title": "QE y QT",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar cómo el QE baja las rentabilidades largas y qué es la QT",
+    "Calcular el efecto de las compras y de la QT en el balance y en el precio de un bono"
+  ],
+  "concepts": ["qe-qt"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Expansión cuantitativa",
+      "text": "En la expansión cuantitativa (QE), el banco central compra bonos en el mercado y los paga creando reservas para los bancos. Más demanda de bonos sube su precio y baja su rentabilidad, sobre todo a largo plazo. Se usa cuando el tipo oficial ya está cerca de cero y hace falta más estímulo."
+    },
+    {
+      "type": "card",
+      "term": "El balance",
+      "text": "Los bonos comprados van al activo del balance del banco central; las reservas creadas, a su pasivo. Con QE, el balance crece. En el endurecimiento cuantitativo (QT) hace lo contrario: deja de reinvertir lo que vence o vende bonos, y el balance se reduce."
+    },
+    {
+      "type": "card",
+      "term": "APP y PEPP",
+      "text": "El BCE ha tenido dos grandes programas de compras: el APP, que en 2015 empezó a comprar deuda pública a gran escala, y el PEPP, lanzado en 2020 por la pandemia y más flexible. Ya no hace compras netas en ninguno y ha dejado de reinvertir lo que vence: su balance se reduce."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u2-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "Un bono a 10 años tiene una duración modificada de {dm}. Tras un anuncio de QE, su rentabilidad baja {b} pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 2 decimales)",
+      "answer": 2.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{dm} * {bp}",
+      "explanation": "{b} pb = {bp} puntos; {dm} × {bp} = {answer}: el precio sube un {answer} %.",
+      "params": {
+        "dm": {
+          "value": 8,
+          "min": 4,
+          "max": 9,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "b": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 10,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "bp": {
+          "formula": "{b} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "El balance de un banco central es de {a} miles de millones de € (cifra ficticia). Compra {c} miles de millones en bonos cada mes durante {m} meses y no vende ninguno ni le vence ninguno. ¿Cuál es su balance al final? (miles de millones de €)",
+      "answer": 4720,
+      "unit": "miles de millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{a} + {c} * {m}",
+      "explanation": "{a} + {c} × {m} = {answer} miles de millones.",
+      "params": {
+        "a": {
+          "value": 4000,
+          "min": 2000,
+          "max": 6000,
+          "step": 100,
+          "decimals": 0
+        },
+        "c": {
+          "value": 60,
+          "min": 20,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        },
+        "m": {
+          "value": 12,
+          "min": 6,
+          "max": 24,
+          "step": 6,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "El balance de un banco central es de {a} miles de millones de € (cifra ficticia). Cada año le vencen {v} miles de millones en bonos y, en plena QT, no los reinvierte ni compra otros. Sin más cambios, ¿en qué porcentaje se habrá reducido el balance al cabo de {n} años? (%, 2 decimales)",
+      "answer": 13.33,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{v} * {n} / {a} * 100",
+      "explanation": "{v} × {n} / {a} = {answer} %.",
+      "params": {
+        "a": {
+          "value": 6000,
+          "min": 4000,
+          "max": 8000,
+          "step": 500,
+          "decimals": 0
+        },
+        "v": {
+          "value": 400,
+          "min": 200,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        },
+        "n": {
+          "value": 2,
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l4-e4",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "Cuando el banco central deja de reinvertir los bonos que le vencen, o los vende, para reducir su balance, se habla de endurecimiento ___ (QT).",
+      "answers": [["cuantitativo"]],
+      "explanation": "Endurecimiento cuantitativo (quantitative tightening)."
+    },
+    {
+      "id": "n4-u2-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "¿Es QE o QT?",
+      "categories": ["QE", "QT"],
+      "items": [
+        {
+          "text": "Compra bonos y su balance crece",
+          "category": "QE"
+        },
+        {
+          "text": "Deja de reinvertir los bonos que le vencen",
+          "category": "QT"
+        },
+        {
+          "text": "Tiende a bajar las rentabilidades largas",
+          "category": "QE"
+        },
+        {
+          "text": "Vende bonos que tenía en el balance",
+          "category": "QT"
+        }
+      ],
+      "explanation": "QE amplía el balance comprando; QT lo reduce dejando vencer o vendiendo."
+    },
+    {
+      "id": "n4-u2-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "Un banco central quiere bajar las rentabilidades a largo plazo, pero su tipo oficial ya está en el 0 %. ¿Qué puede hacer?",
+      "options": [
+        "Comprar bonos a largo plazo en el mercado (QE)",
+        "Vender los bonos de su balance (QT)",
+        "Subir el tipo oficial",
+        "Nada: sin bajar el tipo oficial no puede influir en los tipos largos"
+      ],
+      "answer": 0,
+      "explanation": "Con el tipo oficial cerca de cero, el QE actúa directamente sobre los tipos largos.",
+      "wrongExplanations": {
+        "1": "Vender bonos tiende a subir sus rentabilidades.",
+        "2": "Subir el tipo oficial endurece la política.",
+        "3": "Puede, comprando bonos."
+      }
+    },
+    {
+      "id": "n4-u2-l4-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "statement": "Cuando un banco central hace QE, crecen las reservas de los bancos en el pasivo de su balance.",
+      "answer": true,
+      "explanation": "Verdadero: paga los bonos con reservas que crea; los bonos van al activo y las reservas, al pasivo."
+    },
+    {
+      "id": "n4-u2-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "character": "rival",
+      "situation": "Tras años de QE, el BCE anuncia que dejará de reinvertir los bonos que le vencen. El becario rival dice: «Como no toca los tipos oficiales, la rentabilidad del bono a 10 años no se moverá».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que se retira un comprador muy grande: a igualdad de lo demás, la rentabilidad a 10 años tiende a subir aunque los tipos oficiales no cambien",
+        "Que tiene razón: solo los tipos oficiales mueven los bonos",
+        "Que la rentabilidad bajará porque el balance se reduce",
+        "Que la QT solo afecta a las acciones"
+      ],
+      "answer": 0,
+      "explanation": "El QE bajaba las rentabilidades largas con su demanda; la QT retira esa demanda.",
+      "wrongExplanations": {
+        "1": "El balance también mueve los tipos largos.",
+        "2": "Menos demanda de bonos baja su precio y sube su rentabilidad.",
+        "3": "Afecta sobre todo a los bonos, y a través de ellos al resto."
+      }
+    }
+  ],
+  "realWorld": "El BCE publica cada semana su estado financiero y en su web explica el APP y el PEPP; la Fed hace lo mismo con su balance. Fíjate en cómo se mueve el bono a 10 años cuando anuncian cambios en las compras. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, programa de compras de activos (APP)",
+      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, programa de compras de emergencia frente a la pandemia (PEPP)",
+      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo del tipo de los fondos federales",
+      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

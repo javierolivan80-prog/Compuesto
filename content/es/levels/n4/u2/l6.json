@@ -1,0 +1,219 @@
+{
+  "id": "n4-u2-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "title": "Jefe final: el día de la reunión",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Aplicar la regla de Taylor, medir la sorpresa de una decisión y su efecto en una hipoteca variable",
+    "Distinguir los tipos oficiales del BCE y el mandato y el rango de la Fed",
+    "Calcular el efecto del QE en un bono y la pendiente de la curva"
+  ],
+  "concepts": ["bce", "fed", "qe-qt", "inversion-curva"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n4-u2-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Con la regla de Taylor simplificada, tipo = neutral + inflación + 0,5 × (inflación − objetivo), ¿qué tipo sugiere con un tipo neutral real del 1,5 %, una inflación del 2,6 % y un objetivo del 2 %? (%, 2 decimales)",
+      "answer": 4.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "1.5 + 2.6 + 0.5 * (2.6 - 2)",
+      "explanation": "1,5 + 2,6 + 0,5 × 0,6 = 4,4 %."
+    },
+    {
+      "id": "n4-u2-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "El mercado descontaba que el BCE bajara los tipos 25 pb y los baja 50 pb. Con las bajadas en negativo, ¿de cuántos puntos básicos es la sorpresa, decisión menos lo descontado? (pb)",
+      "answer": -25,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "-50 - (-25)",
+      "explanation": "−50 − (−25) = −25 pb: más bajada de la esperada."
+    },
+    {
+      "id": "n4-u2-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Una hipoteca variable de 180.000 € al Euríbor + 0,9 % se revisa y el Euríbor pasa del 2,6 % al 3,1 %. Aproximando con el principal pendiente durante todo el año, ¿cuánto sube el interés del primer año? (€)",
+      "answer": 900,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "180000 * (3.1 - 2.6) / 100",
+      "explanation": "180.000 × 0,5 % = 900 €: el diferencial no cambia."
+    },
+    {
+      "id": "n4-u2-l6-e4",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["bce"],
+      "prompt": "Ordena los tres tipos oficiales del BCE de menor a mayor.",
+      "steps": [
+        "Facilidad de depósito",
+        "Operaciones principales de financiación",
+        "Facilidad marginal de crédito"
+      ],
+      "explanation": "Depósito, operaciones principales y facilidad marginal: el pasillo de tipos."
+    },
+    {
+      "id": "n4-u2-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "El rango objetivo de los fondos federales está en el 3,75–4,00 % (cifras ficticias) y el FOMC lo baja 25 pb. ¿Cuál es el nuevo límite inferior? (%, 2 decimales)",
+      "answer": 3.5,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "3.75 - 0.25",
+      "explanation": "3,75 − 0,25 = 3,50 %."
+    },
+    {
+      "id": "n4-u2-l6-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "¿Con qué índice mide la Fed su objetivo de inflación del 2 %?",
+      "options": [
+        "El índice de precios del gasto en consumo personal (PCE)",
+        "El IPCA de la zona euro",
+        "El PMI",
+        "El PIB nominal"
+      ],
+      "answer": 0,
+      "explanation": "La Fed usa el PCE.",
+      "wrongExplanations": {
+        "1": "Ese es el del BCE.",
+        "2": "El PMI es una encuesta de actividad.",
+        "3": "El PIB nominal mide la producción a precios corrientes."
+      }
+    },
+    {
+      "id": "n4-u2-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "prompt": "Un bono tiene una duración modificada de 7. Tras un anuncio de QE, su rentabilidad baja 40 pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 1 decimal)",
+      "answer": 2.8,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "7 * 0.4",
+      "explanation": "7 × 0,40 = 2,8 %."
+    },
+    {
+      "id": "n4-u2-l6-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["qe-qt"],
+      "statement": "En el endurecimiento cuantitativo (QT), el balance del banco central crece.",
+      "answer": false,
+      "explanation": "Falso: en la QT el balance se reduce; crece con el QE."
+    },
+    {
+      "id": "n4-u2-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["inversion-curva"],
+      "prompt": "El bono a 10 años rinde un 2,9 % y el de 2 años, un 3,3 % (cifras ficticias). ¿Cuál es la pendiente 10 años − 2 años? (pb, negativa si la curva está invertida)",
+      "answer": -40,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(2.9 - 3.3) * 100",
+      "explanation": "2,9 − 3,3 = −0,4 puntos = −40 pb: curva invertida."
+    },
+    {
+      "id": "n4-u2-l6-e10",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["bce"],
+      "character": "jefe",
+      "situation": "El BCE se reúne mañana y el mercado descuenta una subida de 25 pb. El becario rival quiere comprar euros hoy «porque el BCE va a subir».",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que esa subida ya está en el precio: el euro se moverá si el BCE hace más o menos de lo descontado, o si cambia lo que anuncia para el futuro",
+        "Que es una ganancia segura: toda subida aprecia el euro",
+        "Que el euro siempre se deprecia cuando el BCE sube",
+        "Que el BCE no influye en el euro"
+      ],
+      "answer": 0,
+      "explanation": "Lo descontado no da ventaja; lo que mueve el precio es la sorpresa.",
+      "wrongExplanations": {
+        "1": "Si la subida ya se espera, no hay sorpresa que aprecie el euro.",
+        "2": "Depende de la sorpresa, no de la decisión.",
+        "3": "Sí influye, a través de los tipos esperados."
+      }
+    }
+  ],
+  "realWorld": "Para Naranjas del Turia, cada reunión del BCE llega a su préstamo a tipo variable a través del Euríbor, y el QE o la QT mueven el coste de los bonos que pueda emitir. Elige la próxima reunión del BCE, apunta lo que descuenta el mercado y compara después la reacción del euro con la sorpresa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, tipos de interés oficiales: facilidad de depósito, operaciones principales de financiación y facilidad marginal de crédito",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, calendario de reuniones de política monetaria del Consejo de Gobierno (cada seis semanas)",
+      "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, Statement on Longer-Run Goals and Monetary Policy Strategy (doble mandato; inflación del 2 % medida con el PCE)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo del tipo de los fondos federales",
+      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator (pendiente 10 años − 3 meses y 10 años − 2 años, recesiones de EE. UU.)",
+      "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

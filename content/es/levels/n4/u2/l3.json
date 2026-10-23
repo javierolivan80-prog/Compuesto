@@ -1,0 +1,274 @@
+{
+  "id": "n4-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 2,
+  "title": "La Fed",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar el doble mandato de la Fed y su rango objetivo",
+    "Calcular el efecto de un dólar más fuerte en un país emergente endeudado en dólares"
+  ],
+  "concepts": ["fed"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Doble mandato",
+      "text": "La Reserva Federal (Fed), el banco central de EE. UU., tiene un doble mandato: máximo empleo y estabilidad de precios. Define la estabilidad como una inflación del 2 % a largo plazo, medida con el índice de precios del gasto en consumo personal (PCE), no con el IPC."
+    },
+    {
+      "type": "card",
+      "term": "Fondos federales",
+      "text": "La Fed fija un rango objetivo de 25 pb de ancho para el tipo de los fondos federales, al que los bancos se prestan reservas a un día (por ejemplo, 3,25–3,50 %, cifra ficticia). Lo decide el FOMC, su comité de mercado abierto, en 8 reuniones programadas al año."
+    },
+    {
+      "type": "card",
+      "term": "Dólar y emergentes",
+      "text": "Si la Fed sube más de lo esperado, el dólar suele apreciarse: los activos en dólares rinden más y atraen capital. Los países emergentes con deuda en dólares lo notan, porque necesitan más moneda local para pagarla, y el capital suele salir de ellos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u2-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "El rango objetivo de los fondos federales está en el {lo}–{hi} % (cifras ficticias) y el FOMC lo sube 50 pb. ¿Cuál es el nuevo límite superior? (%, 2 decimales)",
+      "answer": 4.75,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{hi} + 0.5",
+      "explanation": "{hi} % + 0,50 = {answer} %: se mueven los dos límites.",
+      "params": {
+        "lo": {
+          "value": 4,
+          "min": 1,
+          "max": 5,
+          "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "hi": {
+          "formula": "{lo} + 0.25",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "Una empresa de un país emergente debe {d} millones de $. El dólar pasa de costar {a} a {b} unidades de moneda local. ¿Cuántos millones de moneda local más necesita para devolver la deuda? (millones, 2 decimales)",
+      "answer": 90,
+      "unit": "millones",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{d} * ({b} - {a})",
+      "explanation": "{d} × ({b} − {a}) = {answer} millones más.",
+      "params": {
+        "d": {
+          "value": 50,
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "decimals": 0
+        },
+        "a": {
+          "value": 18,
+          "min": 10,
+          "max": 25,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{a} * (1 + {g} / 100)",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u2-l3-e3",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "El comité de la Fed que decide los tipos, con 8 reuniones programadas al año, se llama ___.",
+      "answers": [["FOMC"]],
+      "explanation": "El FOMC (Federal Open Market Committee)."
+    },
+    {
+      "id": "n4-u2-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["fed", "bce"],
+      "prompt": "¿Es propio del BCE, de la Fed o de los dos?",
+      "categories": ["BCE", "Fed", "Los dos"],
+      "items": [
+        {
+          "text": "Doble mandato: máximo empleo y estabilidad de precios",
+          "category": "Fed"
+        },
+        {
+          "text": "Mide su objetivo con el IPCA",
+          "category": "BCE"
+        },
+        {
+          "text": "Mide su objetivo con el PCE",
+          "category": "Fed"
+        },
+        {
+          "text": "Objetivo de inflación del 2 %",
+          "category": "Los dos"
+        },
+        {
+          "text": "Fija un rango objetivo de 25 pb de ancho",
+          "category": "Fed"
+        }
+      ],
+      "explanation": "Los dos apuntan al 2 %, pero con índices distintos; la Fed tiene además el empleo en su mandato y fija un rango."
+    },
+    {
+      "id": "n4-u2-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "El mercado descontaba que el FOMC subiera 50 pb y sube 25 pb. ¿Qué suele hacer el dólar, a igualdad de lo demás?",
+      "options": [
+        "Depreciarse: sube menos de lo esperado",
+        "Apreciarse: la Fed ha subido los tipos",
+        "No moverse: la subida ya estaba descontada",
+        "Apreciarse siempre que la Fed se reúne"
+      ],
+      "answer": 0,
+      "explanation": "Manda la sorpresa: −25 pb frente a lo descontado.",
+      "wrongExplanations": {
+        "1": "La subida de 50 ya estaba en el precio; llega menos.",
+        "2": "Lo descontado eran 50 pb, no 25.",
+        "3": "Depende de la sorpresa."
+      }
+    },
+    {
+      "id": "n4-u2-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["fed"],
+      "character": "jefe",
+      "situation": "En la cartera de la mesa hay bonos de una empresa de un país emergente que vende en su moneda local y tiene casi toda su deuda en dólares. La Fed sube los tipos con fuerza y el dólar se aprecia un 15 % frente a esa moneda.",
+      "prompt": "¿Qué riesgo señala el jefe de la mesa?",
+      "options": [
+        "Que su deuda pesa más en moneda local mientras sus ingresos no cambian: sube el riesgo de que no pueda pagar",
+        "Ninguno: sus ingresos están en moneda local, así que el dólar no le afecta",
+        "Que mejora: un dólar fuerte abarata su deuda",
+        "Que solo afecta a las empresas de EE. UU."
+      ],
+      "answer": 0,
+      "explanation": "Ingresos en moneda local y deuda en dólares: el desajuste de divisas hace que un dólar fuerte encarezca su deuda.",
+      "wrongExplanations": {
+        "1": "Justo por eso le afecta: paga en dólares con ingresos en moneda local.",
+        "2": "La encarece: necesita más moneda local por dólar.",
+        "3": "Llega a cualquiera con deuda en dólares."
+      }
+    },
+    {
+      "id": "n4-u2-l3-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["fed"],
+      "statement": "La Fed mide su objetivo de inflación del 2 % con el IPC, igual que el BCE con el IPCA.",
+      "answer": false,
+      "explanation": "Falso: la Fed usa el índice de precios del gasto en consumo personal (PCE)."
+    },
+    {
+      "id": "n4-u2-l3-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["fed"],
+      "prompt": "Un dólar costaba {a} unidades de una moneda emergente y ahora cuesta {b}. ¿Cuánto se ha apreciado el dólar frente a esa moneda? (%, 2 decimales)",
+      "answer": 10,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({b} / {a} - 1) * 100",
+      "explanation": "({b} / {a} − 1) × 100 = {answer} %.",
+      "params": {
+        "a": {
+          "value": 18,
+          "min": 10,
+          "max": 25,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{a} * (1 + {g} / 100)",
+          "decimals": 2
+        }
+      }
+    }
+  ],
+  "realWorld": "La Fed publica su calendario del FOMC, cada comunicado y, en cuatro reuniones al año, las previsiones de sus miembros. Cuando el dólar se mueve con fuerza, mira cómo reaccionan las bolsas y las divisas de los emergentes. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Reserva Federal, Statement on Longer-Run Goals and Monetary Policy Strategy (doble mandato; inflación del 2 % medida con el PCE)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, calendario de reuniones del FOMC (8 reuniones programadas al año)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo del tipo de los fondos federales",
+      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

@@ -1526,6 +1526,9 @@
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
+  "rateTransmission": {
+    "title": "Del tipo oficial a los precios"
+  },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"
   }

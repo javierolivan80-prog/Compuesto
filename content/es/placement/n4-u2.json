@@ -1,0 +1,246 @@
+{
+  "id": "salto-n4-u2",
+  "unitId": "n4-u2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n4-u2-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["bce"],
+      "prompt": "Con la regla de Taylor simplificada, tipo = neutral + inflación + 0,5 × (inflación − objetivo), ¿qué tipo sugiere con un tipo neutral real del 0,5 %, una inflación del 3,4 % y un objetivo del 2 %? (%, 2 decimales)",
+      "answer": 4.6,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "0.5 + 3.4 + 0.5 * (3.4 - 2)",
+      "explanation": "0,5 + 3,4 + 0,5 × 1,4 = 4,6 %."
+    },
+    {
+      "id": "salto-n4-u2-q2",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["bce"],
+      "prompt": "Desde 2024, el BCE orienta su política monetaria con el tipo de la facilidad de ___.",
+      "answers": [["depósito", "deposito"]],
+      "explanation": "La facilidad de depósito."
+    },
+    {
+      "id": "salto-n4-u2-q3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["fed", "bce"],
+      "prompt": "¿Es propio del BCE o de la Fed?",
+      "categories": ["BCE", "Fed"],
+      "items": [
+        {
+          "text": "Doble mandato: máximo empleo y estabilidad de precios",
+          "category": "Fed"
+        },
+        {
+          "text": "Mide su objetivo de inflación con el IPCA",
+          "category": "BCE"
+        },
+        {
+          "text": "Mide su objetivo de inflación con el PCE",
+          "category": "Fed"
+        }
+      ],
+      "explanation": "El BCE mira el IPCA; la Fed, el PCE y además el empleo."
+    },
+    {
+      "id": "salto-n4-u2-q4",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["fed"],
+      "prompt": "La Fed sube los tipos más de lo que esperaba el mercado. ¿Qué suele pasar, a igualdad de lo demás?",
+      "options": [
+        "El dólar se aprecia y a los emergentes con deuda en dólares les cuesta más pagarla",
+        "El dólar se deprecia y la deuda en dólares de los emergentes se abarata",
+        "Nada: el mercado solo reacciona a lo esperado",
+        "El dólar se aprecia, pero la deuda en dólares de los emergentes se abarata"
+      ],
+      "answer": 0,
+      "explanation": "Tipos más altos de lo esperado atraen capital al dólar; quien debe dólares necesita más moneda local.",
+      "wrongExplanations": {
+        "1": "Una sorpresa al alza suele apreciar el dólar.",
+        "2": "Lo esperado ya está en el precio; reacciona a la sorpresa.",
+        "3": "Un dólar más caro encarece esa deuda."
+      }
+    },
+    {
+      "id": "salto-n4-u2-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["qe-qt"],
+      "prompt": "Un bono tiene una duración modificada de 6. Tras un anuncio de QE, su rentabilidad baja 50 pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 1 decimal)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "6 * 0.5",
+      "explanation": "6 × 0,50 = 3 %."
+    },
+    {
+      "id": "salto-n4-u2-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["qe-qt"],
+      "statement": "En el endurecimiento cuantitativo (QT), el banco central deja de reinvertir los bonos que le vencen o los vende, y su balance se reduce.",
+      "answer": true,
+      "explanation": "Verdadero: es lo contrario del QE."
+    },
+    {
+      "id": "salto-n4-u2-q7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["inversion-curva"],
+      "prompt": "El bono a 10 años rinde un 3,1 % y el de 2 años, un 2,6 % (cifras ficticias). ¿Cuál es la pendiente 10 años − 2 años? (pb, negativa si la curva está invertida)",
+      "answer": 50,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(3.1 - 2.6) * 100",
+      "explanation": "3,1 − 2,6 = 0,5 puntos = 50 pb."
+    },
+    {
+      "id": "salto-n4-u2-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["inversion-curva"],
+      "prompt": "La curva 10 años − 2 años se invierte. ¿Qué afirmación es correcta?",
+      "options": [
+        "Ha precedido a varias recesiones, pero es un patrón histórico, no una ley",
+        "Garantiza una recesión en los doce meses siguientes",
+        "Significa que el bono a 10 años rinde más que el de 2 años",
+        "No tiene ninguna relación con lo que se espera de los tipos"
+      ],
+      "answer": 0,
+      "explanation": "Señal útil, con retrasos variables y falsas alarmas.",
+      "wrongExplanations": {
+        "1": "No hay garantía ni plazo fijo.",
+        "2": "Es al revés: el de 2 años rinde más.",
+        "3": "Suele reflejar que se esperan bajadas de tipos."
+      }
+    },
+    {
+      "id": "salto-n4-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["bce"],
+      "prompt": "Una hipoteca variable de 120.000 € al Euríbor + 1 % se revisa y el Euríbor sube 0,75 puntos. Aproximando con el principal pendiente durante todo el año, ¿cuánto sube el interés del primer año? (€)",
+      "answer": 900,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "120000 * 0.75 / 100",
+      "explanation": "120.000 × 0,75 % = 900 €."
+    },
+    {
+      "id": "salto-n4-u2-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["fed"],
+      "prompt": "El rango objetivo de los fondos federales está en el 4,25–4,50 % (cifras ficticias) y el FOMC lo sube 25 pb. ¿Cuál es el nuevo límite superior? (%, 2 decimales)",
+      "answer": 4.75,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "4.5 + 0.25",
+      "explanation": "4,50 + 0,25 = 4,75 %."
+    },
+    {
+      "id": "salto-n4-u2-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["qe-qt"],
+      "prompt": "¿Qué programa de compras lanzó el BCE en 2020 por la pandemia?",
+      "options": ["El PEPP", "El APP", "El FOMC", "La facilidad marginal de crédito"],
+      "answer": 0,
+      "explanation": "El PEPP, más flexible que el APP.",
+      "wrongExplanations": {
+        "1": "El APP empezó a comprar deuda pública a gran escala en 2015.",
+        "2": "El FOMC es el comité de la Fed.",
+        "3": "Es uno de los tres tipos oficiales del BCE."
+      }
+    },
+    {
+      "id": "salto-n4-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["bce"],
+      "statement": "El Consejo de Gobierno del BCE celebra reuniones de política monetaria cada seis semanas.",
+      "answer": true,
+      "explanation": "Verdadero: unas ocho al año, según el calendario que publica el BCE."
+    }
+  ],
+  "sources": [
+    {
+      "title": "BCE, estrategia de política monetaria (objetivo del 2 % simétrico, IPCA)",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, comunicado de 13 de marzo de 2024 sobre el marco operativo (tipo de la facilidad de depósito)",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, calendario de reuniones de política monetaria",
+      "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, programa de compras de emergencia frente a la pandemia (PEPP)",
+      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.es.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, Statement on Longer-Run Goals and Monetary Policy Strategy (doble mandato, PCE)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo de los fondos federales",
+      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator",
+      "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, Policy Rules and How Policymakers Use Them (regla de Taylor)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}
