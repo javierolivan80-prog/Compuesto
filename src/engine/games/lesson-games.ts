@@ -53,6 +53,14 @@ import {
 } from './macro-day';
 import { ecbValues, extraInterest, rightFx, RIGHT_QE, setupEcb, taylor } from './ecb-meeting';
 import {
+  nextRatio,
+  phaseOf,
+  premiumValues,
+  sectorFor,
+  setupPremium,
+  spreadBp,
+} from './risk-premium';
+import {
   futurePnl,
   minDividend,
   PRODUCTS,
@@ -106,6 +114,7 @@ export const LESSON_GAMES = [
   'bank-window',
   'macro-day',
   'ecb-meeting',
+  'risk-premium',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -465,6 +474,23 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     extra_interest: [0, 0],
     hits: [0, 0],
   },
+  'risk-premium': {
+    growth: [1, 1],
+    potential: [1, 1],
+    infl_prev: [1, 1],
+    infl_now: [1, 1],
+    pmi: [1, 1],
+    spain: [2, 2],
+    bund: [2, 2],
+    spread_bp: [0, 0],
+    debt: [0, 0],
+    gdp: [0, 0],
+    deficit: [0, 0],
+    nominal_growth: [0, 1],
+    debt_ratio0: [1, 1],
+    debt_ratio1: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -728,6 +754,21 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           fx: rightFx(setup) === 'up' ? 'down' : 'up',
           extra: 0,
           qe: 'none',
+        }),
+      ];
+    }
+    case 'risk-premium': {
+      // todo bien, y todo mal
+      const setup = setupPremium(seed);
+      const phase = phaseOf(setup);
+      const sector = sectorFor(phase);
+      return [
+        premiumValues(setup, { phase, sector, spread: spreadBp(setup), ratio: nextRatio(setup) }),
+        premiumValues(setup, {
+          phase: phase === 'boom' ? 'recession' : 'boom',
+          sector: sector === 'cyclical' ? 'defensive' : 'cyclical',
+          spread: 0,
+          ratio: 0,
         }),
       ];
     }

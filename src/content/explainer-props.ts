@@ -91,6 +91,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  RiskPremiumGap: z.object({
+    bund: z.number().min(0).max(6),
+    spread: z.number().int().min(0).max(600),
+  }),
   RepoFlow: z.object({
     collateral: z.number().positive(),
     haircut: z.number().min(0).max(50),

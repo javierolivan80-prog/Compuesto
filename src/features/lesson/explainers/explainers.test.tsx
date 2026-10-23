@@ -177,6 +177,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/suelen gastar menos/);
     expect(text).toMatch(/los precios suelen subir más despacio/);
   });
+  it('RiskPremiumGap: el hueco entre el Bund y el bono español, y lo que cuesta ensancharlo', () => {
+    render(<ExplainerBlock component="RiskPremiumGap" props={{ bund: 2.6, spread: 85 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/el bono español, un 3,45\s%: la prima de riesgo es de 85\s?pb/);
+    expect(text).toMatch(/a 185\s?pb/);
+    expect(text).toMatch(/unos 10 millones más de intereses al año/);
+  });
   it('FuturePayoff: el comprador gana si sube y el vendedor lo contrario', () => {
     render(<ExplainerBlock component="FuturePayoff" props={{ price: 100, units: 10 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

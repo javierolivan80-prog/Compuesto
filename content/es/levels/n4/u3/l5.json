@@ -1,0 +1,277 @@
+{
+  "id": "n4-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 3,
+  "title": "Correlación y diversificación",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular e interpretar una correlación entre −1 y 1 sin confundirla con causalidad",
+    "Aplicar la correlación a la diversificación de una cartera"
+  ],
+  "concepts": ["correlacion"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Correlación",
+      "text": "La correlación mide, de −1 a 1, si dos series se mueven juntas. Cerca de 1: suelen subir y bajar a la vez. Cerca de −1: si una sube, la otra suele bajar. Cerca de 0: sin relación lineal. Es la covarianza (si se alejan a la vez de su media) dividida entre el producto de sus desviaciones típicas."
+    },
+    {
+      "type": "card",
+      "term": "No es causalidad",
+      "text": "Que dos series se muevan juntas no significa que una cause la otra: puede haber una causa común, como el ciclo económico, o pura casualidad. Ahí acecha el sesgo de narrativa: ver la correlación y contar una historia que la explique como si fuera segura."
+    },
+    {
+      "type": "card",
+      "term": "Diversificación",
+      "text": "Combinar activos con correlación baja o negativa reduce el riesgo: cuando uno cae, el otro no suele caer igual. Con correlación 1 no se diversifica nada: la volatilidad de la cartera es la media ponderada de las volatilidades. Ojo: en las crisis, las correlaciones suelen subir y la diversificación protege menos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u3-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "La covarianza entre las rentabilidades mensuales de dos acciones ficticias es {cov} (en %²) y sus desviaciones típicas son del {sa} % y del {sb} %. ¿Cuál es su correlación? (2 decimales; negativa si se mueven en sentido contrario)",
+      "answer": 0.7,
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{cov} / ({sa} * {sb})",
+      "explanation": "{cov} / ({sa} × {sb}) = {answer}.",
+      "params": {
+        "rho": {
+          "value": 0.7,
+          "min": -0.8,
+          "max": 0.7,
+          "step": 0.3,
+          "decimals": 1
+        },
+        "sa": {
+          "value": 4,
+          "min": 3,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "sb": {
+          "value": 2.5,
+          "min": 2,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "cov": {
+          "formula": "{rho} * {sa} * {sb}",
+          "decimals": 3
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "Dos fondos ficticios tienen una correlación de {rho} y desviaciones típicas del {sa} % y del {sb} %. ¿Cuál es su covarianza? (en %², 3 decimales; negativa si la correlación lo es)",
+      "answer": 4.8,
+      "unit": "%²",
+      "tolerance": 0.1,
+      "answerDecimals": 3,
+      "formula": "{rho} * {sa} * {sb}",
+      "explanation": "Covarianza = correlación × desviación de A × desviación de B = {rho} × {sa} × {sb} = {answer}.",
+      "params": {
+        "rho": {
+          "value": 0.4,
+          "min": -0.8,
+          "max": 0.7,
+          "step": 0.3,
+          "decimals": 1
+        },
+        "sa": {
+          "value": 4,
+          "min": 3,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "sb": {
+          "value": 3,
+          "min": 2,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "Una cartera tiene el {w} % en el activo A, con una volatilidad del {sa} %, y el resto en el activo B, con una volatilidad del {sb} %. Si su correlación es 1, ¿cuál es la volatilidad de la cartera? (%, 1 decimal)",
+      "answer": 16,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "({w} * {sa} + (100 - {w}) * {sb}) / 100",
+      "explanation": "Con correlación 1 no se diversifica: media ponderada, {w} % × {sa} + {rest} % × {sb} = {answer} %.",
+      "params": {
+        "w": {
+          "value": 60,
+          "min": 20,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        },
+        "sa": {
+          "value": 20,
+          "min": 15,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 10,
+          "min": 5,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "rest": {
+          "formula": "100 - {w}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l5-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "¿Qué indica cada correlación entre dos series?",
+      "categories": [
+        "Suelen moverse juntas",
+        "Suelen moverse en sentido contrario",
+        "Sin relación lineal clara"
+      ],
+      "items": [
+        {
+          "text": "0,92",
+          "category": "Suelen moverse juntas"
+        },
+        {
+          "text": "−0,85",
+          "category": "Suelen moverse en sentido contrario"
+        },
+        {
+          "text": "0,03",
+          "category": "Sin relación lineal clara"
+        },
+        {
+          "text": "0,78",
+          "category": "Suelen moverse juntas"
+        },
+        {
+          "text": "−0,60",
+          "category": "Suelen moverse en sentido contrario"
+        }
+      ],
+      "explanation": "Cerca de 1, juntas; cerca de −1, en sentido contrario; cerca de 0, sin relación lineal."
+    },
+    {
+      "id": "n4-u3-l5-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "Tienes una cartera con el activo A y vas a añadir otro activo con su misma volatilidad. Ordena las opciones de la que más reduce el riesgo a la que menos, según su correlación con A.",
+      "steps": ["Correlación −0,8", "Correlación −0,2", "Correlación 0,3", "Correlación 0,9"],
+      "explanation": "Cuanto más baja la correlación, más se compensan las caídas y más baja el riesgo de la cartera."
+    },
+    {
+      "id": "n4-u3-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["correlacion", "sesgo-narrativa"],
+      "character": "mentora",
+      "situation": "El becario rival descubre que, en los últimos veinte años, el IBEX 35 y las ventas de coches en España tienen una correlación de 0,8. Concluye: «Cuando sube el IBEX, la gente compra coches porque se siente rica».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que la correlación no demuestra la causa: los dos pueden moverse con el ciclo económico, y su historia es una narrativa a posteriori",
+        "Que tiene razón: una correlación de 0,8 demuestra la causa",
+        "Que es al revés: comprar coches hace subir el IBEX",
+        "Que una correlación de 0,8 significa que no hay relación"
+      ],
+      "answer": 0,
+      "explanation": "Una causa común, el ciclo, puede mover a las dos. Para hablar de causa hace falta mucho más que una correlación.",
+      "wrongExplanations": {
+        "1": "Una correlación alta, por sí sola, no demuestra causa.",
+        "2": "Tampoco se puede concluir la causa en sentido contrario.",
+        "3": "0,8 es una relación alta."
+      }
+    },
+    {
+      "id": "n4-u3-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "Tienes el activo A y quieres reducir el riesgo añadiendo otro activo con su misma volatilidad. ¿Cuál eliges?",
+      "options": [
+        "Uno con correlación −0,5 con A",
+        "Uno con correlación 0,3 con A",
+        "Uno con correlación 0,9 con A",
+        "Uno con correlación 1 con A"
+      ],
+      "answer": 0,
+      "explanation": "Cuanto más baja la correlación, más se compensan los movimientos.",
+      "wrongExplanations": {
+        "1": "Diversifica algo, pero menos que uno con correlación negativa.",
+        "2": "Se mueve casi igual que A: diversifica muy poco.",
+        "3": "Con correlación 1 no se diversifica nada."
+      }
+    },
+    {
+      "id": "n4-u3-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "statement": "En las crisis, las correlaciones entre acciones suelen bajar, así que la diversificación protege más que en tiempos normales.",
+      "answer": false,
+      "explanation": "Falso: en las crisis las correlaciones suelen subir y la diversificación protege menos de lo esperado."
+    }
+  ],
+  "realWorld": "Muchos folletos y fichas de fondos explican que diversifican entre activos poco correlacionados; desconfía de cualquier titular que tome una correlación por una causa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (ciclo económico, política fiscal) y Quantitative Methods (correlación)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

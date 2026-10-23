@@ -815,3 +815,14 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - La etiqueta de `ecbGame.fx.flat` pasa a «Apenas se mueve».
   - Regla nueva en `content:validate` (código `decimales`): si el enunciado de un `numeric_input` pide N decimales, `answerDecimals` vale N; sin `answerDecimals` cuenta el valor por defecto (2). Solo saltó `n4-u2-l3-e2`.
   - `duracion` no entra en el test de salto, porque sus conceptos tienen que ser de la unidad (`concepto-ajeno`).
+
+## 2026-10-23 — n4-u3 «Ciclo, política fiscal y prima de riesgo» (draft) y lección-juego «La prima de riesgo»
+- **Juego `risk-premium`** (ficha en `docs/specs/prima-riesgo.md`), con cuatro pasos sobre `AskStep`: fase del ciclo, rotación sectorial, prima frente al Bund y deuda/PIB del año siguiente.
+  - **Regla de fase, determinista y explicada en pantalla:** si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (> 50, desaceleración; < 50, recesión). Es una simplificación didáctica, no una definición oficial de ciclo.
+  - La semilla sortea primero la fase y luego datos coherentes con ella; las semillas 0–80 cubren las cuatro.
+  - La rotación se corrige con la fase real: un fallo en el paso 1 no arrastra al 2.
+  - Rangos: prima de 55 a 245 pb; deuda/PIB entre el 60 y el 120 % en todas las opciones. El PIB solo puede valer 1.000 o 1.200 (miles de millones), para que el déficit sorteado (10–60) sea realista en el repaso con cualquier combinación.
+- **Explicador `RiskPremiumGap`:** props `bund` (%) y `spread` (pb). El ensanchamiento de 100 pb y su coste sobre 1.000 millones de deuda nueva son fijos; las causas se describen con «suele», sin cifras.
+- **Dinámica de la deuda:** se enseña con la aproximación deuda/PIB × (1 + r) / (1 + g) sin déficit primario, a nivel intuitivo.
+- **Bloom de N4:** 7, 5, 6, 6 y 7 de 8, y 8 de 10 de aplicar o analizar. Test de salto: 12 preguntas, 9 de producir (5 en la primera fase).
+- **Fuentes:** CEPR, INE, Banco de España, AIReF, Eurostat, Comisión Europea y BCE, con `verificarAntesDe` 2027-06-30. Las URL no se pudieron abrir (sin red) y quedan para la revisión. Todas las cifras de los ejemplos son ficticias.

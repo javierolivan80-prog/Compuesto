@@ -1523,11 +1523,88 @@
     "bad": "Repasa cómo decide el banco central y cómo llega su decisión a los mercados.",
     "debrief": "Ver qué ha pasado"
   },
+  "riskGame": {
+    "title": "La prima de riesgo",
+    "step": {
+      "phase": "Paso 1 de 4 · la fase del ciclo",
+      "sector": "Paso 2 de 4 · la rotación sectorial",
+      "spread": "Paso 3 de 4 · la prima de riesgo",
+      "debt": "Paso 4 de 4 · la deuda pública"
+    },
+    "briefPhase": "Lunes en la mesa de Albufera Partners. Llegan los datos de un país ficticio y el jefe de la mesa quiere saber en qué fase del ciclo está. La regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión).",
+    "board": {
+      "growth": "PIB real",
+      "potential": "Potencial",
+      "inflation": "Inflación",
+      "pmi": "PMI",
+      "spain": "España 10 años",
+      "bund": "Bund 10 años",
+      "debt": "Deuda",
+      "gdp": "PIB nominal",
+      "deficit": "Déficit del año",
+      "nominal": "Crecimiento nominal"
+    },
+    "units": "Miles de millones de € (cifras ficticias)",
+    "askPhase": "¿En qué fase está la economía?",
+    "phase": {
+      "expansion": "Expansión",
+      "boom": "Auge (sobrecalentamiento)",
+      "slowdown": "Desaceleración",
+      "recession": "Recesión"
+    },
+    "whyPhase": {
+      "expansion": "El crecimiento del PIB real ({{growth}}) supera su potencial ({{potential}}) y la inflación baja del {{prev}} al {{now}}: la economía crece con fuerza sin recalentarse. Es la expansión.",
+      "boom": "El crecimiento del PIB real ({{growth}}) supera su potencial ({{potential}}) y la inflación sube del {{prev}} al {{now}}: la economía va más deprisa de lo que puede sostener. Es el auge, o sobrecalentamiento.",
+      "slowdown": "El crecimiento del PIB real ({{growth}}) queda por debajo de su potencial ({{potential}}), pero el PMI ({{pmi}}) sigue por encima de 50: la actividad aún crece, cada vez más despacio. Es la desaceleración.",
+      "recession": "El crecimiento del PIB real ({{growth}}) queda por debajo de su potencial ({{potential}}) y el PMI ({{pmi}}) está por debajo de 50: la actividad se contrae. Es la recesión."
+    },
+    "askSector": "En esta fase, ¿qué empresas suelen ir mejor en bolsa?",
+    "sector": {
+      "cyclical": "Las cíclicas: industria, construcción, ocio",
+      "defensive": "Las defensivas: alimentación, eléctricas, salud"
+    },
+    "phaseIn": {
+      "expansion": "En la expansión",
+      "boom": "En el auge",
+      "slowdown": "En la desaceleración",
+      "recession": "En la recesión"
+    },
+    "whySector": {
+      "cyclical": "{{phase}}, las ventas de las cíclicas, que dependen mucho de la actividad, suelen crecer más deprisa: suelen ir mejor que las defensivas. Es una tendencia histórica, no una regla fija.",
+      "defensive": "{{phase}}, la demanda de alimentación, electricidad o medicinas apenas cae, mientras las cíclicas pierden ventas: las defensivas suelen aguantar mejor. Es una tendencia histórica, no una regla fija."
+    },
+    "briefSpread": "El bono a 10 años de España rinde un {{spain}} y el Bund alemán a 10 años, un {{bund}}. La prima de riesgo es lo que paga España de más frente a Alemania, en puntos básicos (1 punto porcentual = 100 pb).",
+    "askSpread": "¿Cuál es la prima de riesgo?",
+    "bp": "{{v}} pb",
+    "whySpread": "({{spain}} − {{bund}}) × 100 = {{v}}. Se mide frente al Bund porque Alemania es la referencia de menor riesgo de la zona euro: cuanto más alta es la prima, más riesgo ve el mercado en la deuda española.",
+    "briefDebt": "La deuda pública del país es de {{debt}} y su PIB nominal, de {{gdp}}. Este año tendrá un déficit de {{deficit}}, que se suma a la deuda, y el PIB nominal crecerá un {{g}}.",
+    "askDebt": "¿Cuál será la deuda/PIB al final del año?",
+    "whyDebt": "({{debt}} + {{deficit}}) / ({{gdp}} × (1 + {{g}})) = {{v}}, desde el {{r0}} de partida. El déficit sube la deuda, pero el crecimiento del PIB agranda el denominador: por eso el ratio puede bajar aunque la deuda suba.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la mesa",
+    "row": {
+      "phase": "Fase del ciclo",
+      "sector": "Rotación sectorial",
+      "spread": "Prima de riesgo",
+      "debt": "Deuda/PIB"
+    },
+    "great": "Lectura redonda: ciclo, sectores, prima y deuda, como en una mesa de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo se lee el ciclo y cómo se miden la prima de riesgo y la deuda/PIB.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
   "rateTransmission": {
     "title": "Del tipo oficial a los precios"
+  },
+  "riskPremiumGap": {
+    "title": "La prima de riesgo, de cerca"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

@@ -1,0 +1,273 @@
+{
+  "id": "n4-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 3,
+  "title": "El ciclo y la rotación sectorial",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir las cuatro fases del ciclo económico",
+    "Relacionar cada fase con los sectores que suelen ir mejor y calcular el efecto de una rotación en una cartera"
+  ],
+  "concepts": ["ciclo-economico"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Las cuatro fases",
+      "text": "Expansión: el PIB real crece por encima de su potencial sin tensar los precios. Auge o sobrecalentamiento: crece tanto que la inflación sube. Desaceleración: sigue creciendo, pero por debajo del potencial. Recesión: la actividad se contrae; dos trimestres seguidos de caída del PIB se llaman recesión técnica."
+    },
+    {
+      "type": "card",
+      "term": "Cíclicas y defensivas",
+      "text": "Las empresas cíclicas venden mucho más cuando la economía va bien y mucho menos cuando va mal: industria, construcción, automóvil, ocio. Las defensivas venden casi lo mismo en cualquier fase: alimentación, eléctricas, salud. En bolsa, las cíclicas suelen ir mejor en expansión y auge; las defensivas, aguantar mejor en desaceleración y recesión."
+    },
+    {
+      "type": "card",
+      "term": "Rotación sectorial",
+      "text": "Mover la cartera de unos sectores a otros según la fase del ciclo se llama rotación sectorial. Es una tendencia histórica, no una regla: la bolsa suele anticiparse a la economía, así que las cíclicas pueden empezar a subir antes de que termine la recesión."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u3-l2-e1",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "¿Es una empresa cíclica o defensiva?",
+      "categories": ["Cíclica", "Defensiva"],
+      "items": [
+        {
+          "text": "Fabricante de automóviles",
+          "category": "Cíclica"
+        },
+        {
+          "text": "Cadena de supermercados",
+          "category": "Defensiva"
+        },
+        {
+          "text": "Constructora",
+          "category": "Cíclica"
+        },
+        {
+          "text": "Eléctrica",
+          "category": "Defensiva"
+        },
+        {
+          "text": "Laboratorio farmacéutico",
+          "category": "Defensiva"
+        },
+        {
+          "text": "Cadena de hoteles",
+          "category": "Cíclica"
+        }
+      ],
+      "explanation": "Las cíclicas dependen de que la gente gaste y las empresas inviertan; la comida, la luz y las medicinas se compran en cualquier fase."
+    },
+    {
+      "id": "n4-u3-l2-e2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
+      "items": [
+        {
+          "text": "PIB +2,8 % (potencial 2 %), inflación del 2,4 % al 2,1 %, PMI 54,0",
+          "category": "Expansión"
+        },
+        {
+          "text": "PIB +3,4 % (potencial 2 %), inflación del 2,8 % al 3,5 %, PMI 57,2",
+          "category": "Auge (sobrecalentamiento)"
+        },
+        {
+          "text": "PIB +1,1 % (potencial 2 %), PMI 51,3",
+          "category": "Desaceleración"
+        },
+        {
+          "text": "PIB −0,4 % (potencial 1,5 %), PMI 47,5",
+          "category": "Recesión"
+        }
+      ],
+      "explanation": "Primero se compara el PIB con su potencial; después, la inflación (por encima) o el PMI (por debajo)."
+    },
+    {
+      "id": "n4-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Una cartera de {a} € tiene el {w0} % en empresas cíclicas y el resto en defensivas. Ante una desaceleración, quieres dejar solo el {w1} % en cíclicas. ¿Cuántos € de cíclicas vendes para comprar defensivas? (€)",
+      "answer": 30000,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{a} * ({w0} - {w1}) / 100",
+      "explanation": "{a} × ({w0} % − {w1} %) = {answer} €.",
+      "params": {
+        "a": {
+          "value": 100000,
+          "min": 50000,
+          "max": 200000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "w0": {
+          "value": 70,
+          "min": 60,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        },
+        "w1": {
+          "value": 40,
+          "min": 30,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "En una recesión ficticia, las cíclicas caen un {c} % y las defensivas, un {d} %. Una cartera tiene el {w} % en cíclicas y el resto en defensivas. ¿Cuánto cae la cartera? (%, 2 decimales)",
+      "answer": 15.5,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({w} * {c} + (100 - {w}) * {d}) / 100",
+      "explanation": "{w} % × {c} + {rest} % × {d} = {answer} %: la media ponderada de las dos caídas.",
+      "params": {
+        "c": {
+          "value": 20,
+          "min": 15,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 5,
+          "min": 2,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "w": {
+          "value": 70,
+          "min": 30,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "rest": {
+          "formula": "100 - {w}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l2-e5",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Mover la cartera de unos sectores a otros según la fase del ciclo se llama rotación ___.",
+      "answers": [["sectorial"]],
+      "explanation": "Rotación sectorial."
+    },
+    {
+      "id": "n4-u3-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "character": "mentora",
+      "situation": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). Llegan los datos de un país ficticio: el PIB real crece un 0,8 % con un potencial del 1,5 %, la inflación aún sube y el PMI marca 51,2. El becario rival dice que el país está en recesión.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que es una desaceleración: crece por debajo de su potencial, pero el PMI por encima de 50 dice que la actividad aún crece",
+        "Que tiene razón: crecer por debajo del potencial es estar en recesión",
+        "Que es un auge, porque la inflación sube",
+        "Que es una expansión, porque el PIB crece"
+      ],
+      "answer": 0,
+      "explanation": "Por debajo del potencial decide el PMI, y 51,2 está por encima de 50: la economía aún crece, cada vez más despacio.",
+      "wrongExplanations": {
+        "1": "Recesión es que la actividad se contraiga; aquí aún crece.",
+        "2": "La inflación solo decide cuando el PIB crece por encima del potencial.",
+        "3": "Crece, pero por debajo de su potencial: no es expansión."
+      }
+    },
+    {
+      "id": "n4-u3-l2-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "statement": "Naranjas del Turia cultiva y vende cítricos y zumos: es más bien defensiva, así que en una recesión sus ventas suelen caer menos que las de una constructora.",
+      "answer": true,
+      "explanation": "Verdadero: la demanda de alimentos apenas depende del ciclo; la construcción, mucho. Es una tendencia, no una garantía."
+    },
+    {
+      "id": "n4-u3-l2-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "La economía sigue en recesión, pero las acciones cíclicas llevan dos meses subiendo. ¿Cuál es la explicación más probable?",
+      "options": [
+        "La bolsa suele anticiparse: descuenta la recuperación antes de que llegue a los datos",
+        "Es imposible: las cíclicas solo suben en expansión",
+        "Las cíclicas se han vuelto defensivas",
+        "La recesión ha terminado ya, aunque los datos digan lo contrario"
+      ],
+      "answer": 0,
+      "explanation": "Los precios miran adelante: si el mercado espera la recuperación, las cíclicas suben antes de que acabe la recesión.",
+      "wrongExplanations": {
+        "1": "La rotación es una tendencia, no una regla, y la bolsa se adelanta.",
+        "2": "Un sector no cambia de naturaleza por unos meses de subidas.",
+        "3": "Los datos dicen que sigue; lo que cambia es lo que espera el mercado."
+      }
+    }
+  ],
+  "realWorld": "Los índices sectoriales de la bolsa (bancos, construcción, eléctricas, consumo) muestran la rotación: compara cómo se comportan cuando el INE publica un PIB peor de lo esperado. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Contabilidad Nacional Trimestral de España: PIB trimestral en volumen y a precios corrientes",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (ciclo económico, política fiscal) y Quantitative Methods (correlación)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

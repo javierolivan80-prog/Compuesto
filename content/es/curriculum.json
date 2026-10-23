@@ -173,6 +173,11 @@
           "id": "n4-u2",
           "name": "Bancos centrales: BCE, Fed y QE",
           "concepts": ["bce", "fed", "qe-qt", "inversion-curva"]
+        },
+        {
+          "id": "n4-u3",
+          "name": "Ciclo, política fiscal y prima de riesgo",
+          "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo", "correlacion"]
         }
       ]
     },

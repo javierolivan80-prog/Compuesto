@@ -1,0 +1,308 @@
+{
+  "id": "n4-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 3,
+  "title": "Política fiscal, déficit y deuda",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el déficit y la deuda sobre el PIB y compararlos con las referencias del Pacto de Estabilidad",
+    "Explicar a nivel intuitivo la dinámica de la deuda con r − g"
+  ],
+  "concepts": ["politica-fiscal"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Déficit y deuda",
+      "text": "El déficit público es lo que el Estado gasta en un año por encima de lo que ingresa; la deuda pública, todo lo que debe. Cada déficit suma deuda. Los dos se miden sobre el PIB: el Pacto de Estabilidad y Crecimiento de la UE fija como referencias un 3 % de déficit y un 60 % de deuda."
+    },
+    {
+      "type": "card",
+      "term": "Política fiscal",
+      "text": "La política fiscal son los impuestos y el gasto público. Expansiva: gastar más o cobrar menos para impulsar la economía, a costa de más déficit; se suele usar en las recesiones. Contractiva: lo contrario. Los estabilizadores automáticos actúan solos: en una recesión baja la recaudación y sube el gasto en prestaciones por desempleo."
+    },
+    {
+      "type": "card",
+      "term": "La dinámica: r − g",
+      "text": "El déficit primario es el déficit sin contar los intereses de la deuda. Sin déficit primario, la deuda/PIB sube si el tipo medio de la deuda (r) supera el crecimiento nominal del PIB (g), y baja si g supera a r. Aproximación: deuda/PIB siguiente = deuda/PIB × (1 + r) / (1 + g)."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u3-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene un PIB nominal de {gdp} miles de millones de € y un déficit de {def} miles de millones. ¿Cuál es su déficit en % del PIB? (%, 2 decimales)",
+      "answer": 3.5,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{def} / {gdp} * 100",
+      "explanation": "{def} / {gdp} × 100 = {answer} %.",
+      "params": {
+        "gdp": {
+          "value": 1000,
+          "min": 800,
+          "max": 1600,
+          "step": 100,
+          "decimals": 0
+        },
+        "def": {
+          "value": 35,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda de {debt} miles de millones de € y un PIB nominal de {gdp}. Este año tendrá un déficit de {def}, que se suma a la deuda, y el PIB nominal crecerá un {g} %. ¿Cuál será la deuda/PIB al final del año? (%, 1 decimal)",
+      "answer": 89.8,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "({debt} + {def}) / ({gdp} * (1 + {g} / 100)) * 100",
+      "explanation": "({debt} + {def}) / ({gdp} × (1 + {g} %)) = {answer} %.",
+      "params": {
+        "gdp": {
+          "value": 1000,
+          "min": 800,
+          "max": 1400,
+          "step": 100,
+          "decimals": 0
+        },
+        "r0": {
+          "value": 90,
+          "min": 65,
+          "max": 115,
+          "step": 5,
+          "decimals": 0
+        },
+        "def": {
+          "value": 25,
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "g": {
+          "value": 3,
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "debt": {
+          "formula": "{gdp} * {r0} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda del {b} % del PIB, sin déficit primario. El tipo medio de su deuda es del {r} % y su PIB nominal crece un {g} %. Con deuda/PIB siguiente = deuda/PIB × (1 + r) / (1 + g), ¿cuál será su deuda/PIB el año que viene? (%, 2 decimales)",
+      "answer": 98.1,
+      "unit": "%",
+      "tolerance": 0.02,
+      "answerDecimals": 2,
+      "formula": "{b} * (1 + {r} / 100) / (1 + {g} / 100)",
+      "explanation": "{b} × (1 + {r} %) / (1 + {g} %) = {answer} %.",
+      "params": {
+        "b": {
+          "value": 100,
+          "min": 60,
+          "max": 120,
+          "step": 5,
+          "decimals": 0
+        },
+        "r": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 5,
+          "min": 1.5,
+          "max": 6.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene un déficit del {d} % del PIB, y los intereses de su deuda suponen el {i} % del PIB. ¿Cuál es su déficit primario, en % del PIB? (%, 1 decimal)",
+      "answer": 1.7,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 1,
+      "formula": "{d} - {i}",
+      "explanation": "Déficit primario = déficit − intereses = {d} − {i} = {answer} % del PIB.",
+      "params": {
+        "d": {
+          "value": 4.2,
+          "min": 3.7,
+          "max": 6.2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "i": {
+          "value": 2.5,
+          "min": 1.5,
+          "max": 3.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "¿Es una política fiscal expansiva o contractiva?",
+      "categories": ["Expansiva", "Contractiva"],
+      "items": [
+        {
+          "text": "Bajar el IVA",
+          "category": "Expansiva"
+        },
+        {
+          "text": "Aumentar la inversión pública en infraestructuras",
+          "category": "Expansiva"
+        },
+        {
+          "text": "Recortar el gasto de los ministerios",
+          "category": "Contractiva"
+        },
+        {
+          "text": "Subir el IRPF",
+          "category": "Contractiva"
+        },
+        {
+          "text": "Ampliar las ayudas a la contratación",
+          "category": "Expansiva"
+        }
+      ],
+      "explanation": "Gastar más o cobrar menos impulsa la demanda (expansiva); gastar menos o cobrar más la frena (contractiva)."
+    },
+    {
+      "id": "n4-u3-l3-e6",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "El déficit público sin contar los intereses de la deuda se llama déficit ___.",
+      "answers": [["primario"]],
+      "explanation": "Déficit primario."
+    },
+    {
+      "id": "n4-u3-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "character": "jefe",
+      "situation": "Un país ficticio tiene una deuda del 110 % del PIB, sin déficit primario. Paga un tipo medio del 2 % por su deuda y su PIB nominal crece un 4 %. El becario rival dice que su deuda/PIB seguirá subiendo porque ya es muy alta.",
+      "prompt": "¿Qué le responde el jefe de la mesa?",
+      "options": [
+        "Que con g por encima de r y sin déficit primario, la deuda/PIB tiende a bajar aunque sea alta: el PIB crece más deprisa que la deuda",
+        "Que tiene razón: una deuda por encima del 100 % siempre sube",
+        "Que bajará solo si el tipo medio supera al crecimiento",
+        "Que la deuda/PIB no depende del crecimiento"
+      ],
+      "answer": 0,
+      "explanation": "110 × 1,02 / 1,04 ≈ 107,9 %: baja. Lo que manda es r − g y el saldo primario, no el nivel de partida.",
+      "wrongExplanations": {
+        "1": "El nivel no decide la dirección; la deciden r − g y el saldo primario.",
+        "2": "Es al revés: si r supera a g, la deuda/PIB sube.",
+        "3": "El crecimiento nominal es el denominador del ratio."
+      }
+    },
+    {
+      "id": "n4-u3-l3-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene un déficit del 4 % y una deuda del 55 % del PIB. Frente a las referencias del Pacto de Estabilidad y Crecimiento, ¿qué ocurre?",
+      "options": [
+        "Supera la referencia del déficit, el 3 %, pero no la de deuda, el 60 %",
+        "Supera las dos referencias",
+        "No supera ninguna",
+        "Supera la de deuda, pero no la de déficit"
+      ],
+      "answer": 0,
+      "explanation": "4 % > 3 % de déficit; 55 % < 60 % de deuda.",
+      "wrongExplanations": {
+        "1": "La deuda, el 55 %, está por debajo del 60 %.",
+        "2": "El déficit, el 4 %, supera el 3 %.",
+        "3": "Es al revés: supera la de déficit."
+      }
+    }
+  ],
+  "realWorld": "Eurostat publica cada año el déficit y la deuda de los países de la UE con el criterio del Protocolo de Déficit Excesivo; en España, el Banco de España publica la deuda y la AIReF analiza su sostenibilidad. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Eurostat, Government finance statistics: déficit y deuda de las AA. PP. según el Protocolo de Déficit Excesivo; valores de referencia del 3 % y el 60 % del PIB (Protocolo n.º 12 del TFUE)",
+      "url": "https://ec.europa.eu/eurostat/web/government-finance-statistics",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Comisión Europea, Pacto de Estabilidad y Crecimiento: valores de referencia del 3 % de déficit y el 60 % de deuda sobre el PIB",
+      "url": "https://economy-finance.ec.europa.eu/economic-and-fiscal-governance/stability-and-growth-pact_en",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), Observatorio de deuda: dinámica de la deuda pública (diferencial tipo de interés − crecimiento y saldo primario)",
+      "url": "https://www.airef.es/es/observatorio-de-deuda/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (ciclo económico, política fiscal) y Quantitative Methods (correlación)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

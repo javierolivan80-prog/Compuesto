@@ -1,0 +1,253 @@
+{
+  "id": "n4-u3-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 3,
+  "title": "Jefe final: la mesa lee la economía",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Clasificar la fase del ciclo y relacionarla con la rotación sectorial",
+    "Calcular la deuda/PIB y su dinámica con r − g y compararla con el Pacto de Estabilidad",
+    "Calcular la prima de riesgo frente al Bund y explicar su efecto en la financiación",
+    "Calcular e interpretar una correlación sin confundirla con causalidad"
+  ],
+  "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo", "correlacion"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n4-u3-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prima-riesgo"],
+      "prompt": "El bono a 10 años de España rinde un 3,62 % y el Bund alemán, un 2,47 % (cifras ficticias). ¿Cuál es la prima de riesgo? (pb)",
+      "answer": 115,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(3.62 - 2.47) * 100",
+      "explanation": "(3,62 − 2,47) × 100 = 115 pb."
+    },
+    {
+      "id": "n4-u3-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda de 900 miles de millones de € y un PIB nominal de 1.000. Este año tendrá un déficit de 25, que se suma a la deuda, y el PIB nominal crecerá un 3 %. ¿Cuál será la deuda/PIB al final del año? (%, 1 decimal)",
+      "answer": 89.8,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "(900 + 25) / (1000 * 1.03) * 100",
+      "explanation": "925 / 1.030 = 89,8 %."
+    },
+    {
+      "id": "n4-u3-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda del 90 % del PIB, sin déficit primario. El tipo medio de su deuda es del 2,5 % y su PIB nominal crece un 4 %. Con deuda/PIB siguiente = deuda/PIB × (1 + r) / (1 + g), ¿cuál será su deuda/PIB el año que viene? (%, 2 decimales)",
+      "answer": 88.7,
+      "unit": "%",
+      "tolerance": 0.02,
+      "answerDecimals": 2,
+      "formula": "90 * 1.025 / 1.04",
+      "explanation": "90 × 1,025 / 1,04 = 88,70 %: con g por encima de r, baja."
+    },
+    {
+      "id": "n4-u3-l6-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
+      "items": [
+        {
+          "text": "PIB +2,6 % (potencial 1,5 %), inflación del 2,7 % al 2,3 %, PMI 53,8",
+          "category": "Expansión"
+        },
+        {
+          "text": "PIB +3,2 % (potencial 1,5 %), inflación del 3,0 % al 3,6 %, PMI 56,4",
+          "category": "Auge (sobrecalentamiento)"
+        },
+        {
+          "text": "PIB +0,9 % (potencial 2 %), PMI 50,6",
+          "category": "Desaceleración"
+        },
+        {
+          "text": "PIB −0,3 % (potencial 1,5 %), PMI 47,9",
+          "category": "Recesión"
+        }
+      ],
+      "explanation": "Primero, PIB frente a potencial; después, la inflación o el PMI."
+    },
+    {
+      "id": "n4-u3-l6-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "¿Qué empresas suelen ir mejor en bolsa en cada fase?",
+      "categories": ["Cíclicas", "Defensivas"],
+      "items": [
+        {
+          "text": "Expansión",
+          "category": "Cíclicas"
+        },
+        {
+          "text": "Auge (sobrecalentamiento)",
+          "category": "Cíclicas"
+        },
+        {
+          "text": "Desaceleración",
+          "category": "Defensivas"
+        },
+        {
+          "text": "Recesión",
+          "category": "Defensivas"
+        }
+      ],
+      "explanation": "Con la actividad al alza, las cíclicas; cuando se frena o se contrae, las defensivas suelen aguantar mejor. Es una tendencia, no una regla."
+    },
+    {
+      "id": "n4-u3-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["correlacion"],
+      "prompt": "La covarianza entre dos activos ficticios es 6 (en %²) y sus desviaciones típicas son del 4 % y del 3 %. ¿Cuál es su correlación? (2 decimales)",
+      "answer": 0.5,
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "6 / (4 * 3)",
+      "explanation": "6 / (4 × 3) = 0,50."
+    },
+    {
+      "id": "n4-u3-l6-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["prima-riesgo", "ciclo-economico"],
+      "character": "jefe",
+      "situation": "La economía entra en desaceleración y la prima de riesgo de España sube 60 pb. Naranjas del Turia vende cítricos y zumos y tiene toda su deuda bancaria a tipo fijo, con vencimiento dentro de tres años.",
+      "prompt": "¿Qué lectura hace el jefe de la mesa?",
+      "options": [
+        "Su negocio suele aguantar mejor que el de una cíclica, y la subida de la prima no cambia los intereses de su deuda actual; sí podría encarecer la refinanciación dentro de tres años",
+        "Sus intereses suben ya 60 pb, porque toda deuda española sigue a la prima",
+        "Al ser alimentaria, la desaceleración le afecta más que a una constructora",
+        "Ni el ciclo ni la prima le afectan en nada"
+      ],
+      "answer": 0,
+      "explanation": "Defensiva y con tipo fijo: protegida a corto plazo; el riesgo aparece al refinanciar.",
+      "wrongExplanations": {
+        "1": "Un tipo fijo ya firmado no cambia hasta el vencimiento.",
+        "2": "La alimentación es defensiva: suele sufrir menos.",
+        "3": "La prima podría encarecer su deuda nueva al refinanciar."
+      }
+    },
+    {
+      "id": "n4-u3-l6-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene un déficit del 2,5 % y una deuda del 95 % del PIB. Frente a las referencias del Pacto de Estabilidad y Crecimiento, ¿qué ocurre?",
+      "options": [
+        "Cumple la referencia de déficit, el 3 %, pero supera la de deuda, el 60 %",
+        "Supera las dos referencias",
+        "Cumple las dos",
+        "Supera la de déficit, pero cumple la de deuda"
+      ],
+      "answer": 0,
+      "explanation": "2,5 % < 3 % de déficit; 95 % > 60 % de deuda.",
+      "wrongExplanations": {
+        "1": "El déficit, el 2,5 %, queda por debajo del 3 %.",
+        "2": "La deuda, el 95 %, supera el 60 %.",
+        "3": "Es al revés."
+      }
+    },
+    {
+      "id": "n4-u3-l6-e9",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["correlacion", "sesgo-narrativa"],
+      "statement": "Las acciones de las eléctricas y las de las empresas de alimentación tienen una correlación de 0,7: eso demuestra que la subida de unas provoca la subida de las otras.",
+      "answer": false,
+      "explanation": "Falso: la correlación no demuestra la causa. Las dos son defensivas y pueden moverse por lo mismo, por ejemplo el ciclo o los tipos de interés."
+    },
+    {
+      "id": "n4-u3-l6-e10",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Una política fiscal que gasta más o cobra menos impuestos para impulsar la economía se llama ___.",
+      "answers": [["expansiva"]],
+      "explanation": "Expansiva."
+    }
+  ],
+  "realWorld": "Naranjas del Turia es más bien defensiva y tiene su deuda a tipo fijo: el ciclo y la prima de riesgo le llegarían sobre todo al refinanciar. Mira la prima de riesgo del día, el último dato de PIB del INE y la deuda que publica el Banco de España, y clasifica la fase del ciclo con la regla de la mesa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Contabilidad Nacional Trimestral de España: PIB trimestral en volumen y a precios corrientes",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Eurostat, Government finance statistics: déficit y deuda de las AA. PP. según el Protocolo de Déficit Excesivo; valores de referencia del 3 % y el 60 % del PIB (Protocolo n.º 12 del TFUE)",
+      "url": "https://ec.europa.eu/eurostat/web/government-finance-statistics",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Comisión Europea, Pacto de Estabilidad y Crecimiento: valores de referencia del 3 % de déficit y el 60 % de deuda sobre el PIB",
+      "url": "https://economy-finance.ec.europa.eu/economic-and-fiscal-governance/stability-and-growth-pact_en",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), Observatorio de deuda: dinámica de la deuda pública (diferencial tipo de interés − crecimiento y saldo primario)",
+      "url": "https://www.airef.es/es/observatorio-de-deuda/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (ciclo económico, política fiscal) y Quantitative Methods (correlación)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

@@ -22,6 +22,13 @@ import {
 } from '../src/engine/games/macro-day';
 import { extraInterest, rightFx, setupEcb, taylor } from '../src/engine/games/ecb-meeting';
 import {
+  nextRatio,
+  phaseOf,
+  sectorFor,
+  setupPremium,
+  spreadBp,
+} from '../src/engine/games/risk-premium';
+import {
   futurePnl,
   minDividend,
   PRODUCTS,
@@ -135,6 +142,31 @@ export async function playGameLesson(
     await page.getByRole('radio', { name: new RegExp(`^${extra}\\s€$`) }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: 'El precio sube y la rentabilidad baja' }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'risk-premium') {
+    // referencia 0: la fase, la rotación, la prima y la deuda/PIB
+    await expect(page.getByRole('heading', { name: 'La prima de riesgo' })).toBeVisible();
+    const setup = setupPremium(seed);
+    const phases = {
+      expansion: 'Expansión',
+      boom: 'Auge (sobrecalentamiento)',
+      slowdown: 'Desaceleración',
+      recession: 'Recesión',
+    } as const;
+    const phase = phaseOf(setup);
+    await page.getByRole('radio', { name: phases[phase], exact: true }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: new RegExp(sectorFor(phase) === 'cyclical' ? '^Las cíclicas' : '^Las defensivas'),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: new RegExp(`^${spreadBp(setup)}\\spb$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const r1 = nextRatio(setup);
+    const ratio = formatNumber(r1, Number.isInteger(r1) ? 0 : 1).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${ratio}\\s%$`) }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

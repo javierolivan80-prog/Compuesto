@@ -1013,19 +1013,25 @@
     "id": "ciclo-economico",
     "name": "Ciclo económico y rotación sectorial",
     "level": 4,
-    "prerequisites": ["pib"]
+    "prerequisites": ["pib"],
+    "unit": "n4-u3",
+    "description": "Fases del ciclo: expansión (el PIB real crece por encima de su potencial sin tensar los precios), auge o sobrecalentamiento (con la inflación al alza), desaceleración (crece por debajo del potencial) y recesión (se contrae). Las cíclicas suelen ir mejor en expansión y auge; las defensivas, aguantar mejor en desaceleración y recesión (rotación sectorial)."
   },
   {
     "id": "politica-fiscal",
     "name": "Política fiscal y deuda pública",
     "level": 4,
-    "prerequisites": ["pib"]
+    "prerequisites": ["pib"],
+    "unit": "n4-u3",
+    "description": "Impuestos y gasto público: expansiva o contractiva. Déficit = gasto − ingresos del año; la deuda acumula los déficits. Referencias del Pacto de Estabilidad: 3 % de déficit y 60 % de deuda sobre el PIB. Sin déficit primario, la deuda/PIB sube si el tipo medio de la deuda (r) supera el crecimiento nominal (g) y baja si g supera a r."
   },
   {
     "id": "prima-riesgo",
     "name": "Prima de riesgo",
     "level": 4,
-    "prerequisites": ["rating-spread", "politica-fiscal"]
+    "prerequisites": ["rating-spread", "politica-fiscal"],
+    "unit": "n4-u3",
+    "description": "Diferencia entre la rentabilidad del bono a 10 años de España y la del Bund alemán, en puntos básicos. Suele ensancharse con más deuda, déficit, poco crecimiento, inestabilidad o huida hacia el Bund, y encarece la financiación del Estado y de las empresas."
   },
   {
     "id": "balanza-pagos",
@@ -1103,7 +1109,9 @@
     "id": "correlacion",
     "name": "Correlación",
     "level": 4,
-    "prerequisites": ["media-desviacion"]
+    "prerequisites": ["media-desviacion"],
+    "unit": "n4-u3",
+    "description": "Medida entre −1 y 1 de si dos series se mueven juntas: covarianza / (desviación A × desviación B). No implica causalidad. Combinar activos poco correlacionados reduce el riesgo; en las crisis las correlaciones suelen subir."
   },
   {
     "id": "sesgo-narrativa",

@@ -95,6 +95,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 |---|---|---|---|
 | `DataSurprise` | Sorpresa de un dato macro | El dato cae por debajo, en línea o por encima del consenso y la rentabilidad a 2 años baja, no se mueve o sube | Paso a paso (dato) |
 | `RateTransmission` | Transmisión de la política monetaria | El BCE sube el tipo y se encadenan Euríbor → hipotecas → consumo → precios | Tipo oficial |
+| `RiskPremiumGap` | Prima de riesgo | Dos barras, Bund alemán y bono español a 10 años; el hueco es la prima en pb y se ensancha 100 pb con su coste en intereses de la deuda nueva | Paso a paso (prima) |
 | `QeBalance` | QE/QT | El balance del banco central se infla comprando bonos y baja los tipos largos | Compras |
 | `BankBalance` | Margen de intereses | Depósitos que entran a un tipo y préstamos que salen a otro; la diferencia se acumula | Tipos |
 | `Cet1Cushion` | Solvencia (CET1) | Colchón de capital que absorbe pérdidas de préstamos impagados | Tasa de impago |

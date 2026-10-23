@@ -27,6 +27,7 @@ export const EXPLAINER_NAMES = [
   'RepoFlow',
   'DataSurprise',
   'RateTransmission',
+  'RiskPremiumGap',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

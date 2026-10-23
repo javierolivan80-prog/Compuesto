@@ -1,0 +1,272 @@
+{
+  "id": "n4-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: la prima de riesgo",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Clasificar la fase del ciclo con una regla y relacionarla con la rotación sectorial",
+    "Calcular la prima de riesgo frente al Bund y la deuda/PIB del año siguiente"
+  ],
+  "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo", "correlacion"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "risk-premium",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "La fase del ciclo",
+      "text": "Acertaste {hits} de 4. El PIB real creció un {growth} % con un potencial del {potential} %, el ritmo que la economía puede sostener sin tensar los precios. La inflación pasó del {infl_prev} % al {infl_now} % y el PMI marcó {pmi}. La regla de la mesa: por encima del potencial decide la inflación; por debajo, el PMI."
+    },
+    {
+      "type": "card",
+      "term": "Sectores y prima",
+      "text": "En expansión y auge suelen ir mejor las empresas cíclicas; en desaceleración y recesión, las defensivas. La prima de riesgo fue ({spain} % − {bund} %) × 100 = {spread_bp} pb: lo que España paga de más que Alemania por su deuda a 10 años."
+    },
+    {
+      "type": "card",
+      "term": "Deuda/PIB",
+      "text": "El déficit de {deficit} se sumó a la deuda y el PIB nominal creció un {nominal_growth} %: la deuda/PIB pasó del {debt_ratio0} % al {debt_ratio1} %. El déficit añade deuda; el crecimiento agranda el PIB. Cifras en miles de millones de €, ficticias."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u3-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prima-riesgo"],
+      "prompt": "El Bund alemán a 10 años rinde un {bund} % y la prima de riesgo de España es de {spread_bp} pb. Si la prima se ensancha 40 pb y el Bund no se mueve, ¿qué rentabilidad tendrá el bono español a 10 años? (%, 2 decimales)",
+      "answer": 3.85,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{bund} + ({spread_bp} + 40) / 100",
+      "explanation": "{bund} % + ({spread_bp} + 40) / 100 = {answer} %: la prima en pb se divide entre 100 para pasarla a puntos porcentuales.",
+      "params": {
+        "bund": {
+          "value": 2.6,
+          "min": 2.2,
+          "max": 2.75,
+          "step": 0.05,
+          "decimals": 2
+        },
+        "spread_bp": {
+          "value": 85,
+          "min": 55,
+          "max": 245,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prima-riesgo"],
+      "prompt": "España emite 25.000 millones de € en bonos a 10 años con una rentabilidad {spread_bp} pb por encima del Bund. ¿Cuántos millones de € más de intereses al año paga que si se financiara al tipo de Alemania? (millones de €, 1 decimal)",
+      "answer": 212.5,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "25000 * {spread_bp} / 10000",
+      "explanation": "{spread_bp} pb = {spread_bp} / 100 %; 25.000 × {spread_bp} / 10.000 = {answer} millones al año.",
+      "params": {
+        "spread_bp": {
+          "value": 85,
+          "min": 55,
+          "max": 245,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene un PIB nominal de {gdp} miles de millones de € y una deuda pública del {debt_ratio0} % del PIB. Cada uno de los dos próximos años tendrá un déficit de {deficit} miles de millones, que se suma a la deuda, y el PIB nominal crecerá un {nominal_growth} % anual. ¿Cuál será la deuda/PIB al cabo de dos años? (%, 1 decimal)",
+      "answer": 102.6,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "({debt} + 2 * {deficit}) / ({gdp} * (1 + {nominal_growth} / 100) ^ 2) * 100",
+      "explanation": "Deuda: {debt} + 2 × {deficit}. PIB: {gdp} × (1 + {nominal_growth} %)². Cociente × 100 = {answer} %.",
+      "params": {
+        "gdp": {
+          "value": 1000,
+          "min": 1000,
+          "max": 1200,
+          "step": 200,
+          "decimals": 0
+        },
+        "debt_ratio0": {
+          "value": 105,
+          "min": 65,
+          "max": 110,
+          "step": 5,
+          "decimals": 0
+        },
+        "deficit": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "nominal_growth": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "debt": {
+          "formula": "{gdp} * {debt_ratio0} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
+      "items": [
+        {
+          "text": "PIB +3,0 % (potencial 1,5 %), inflación del 2,6 % al 3,2 %, PMI 56,1",
+          "category": "Auge (sobrecalentamiento)"
+        },
+        {
+          "text": "PIB +2,5 % (potencial 1,5 %), inflación del 2,9 % al 2,5 %, PMI 53,4",
+          "category": "Expansión"
+        },
+        {
+          "text": "PIB +0,6 % (potencial 1,5 %), PMI 50,9",
+          "category": "Desaceleración"
+        },
+        {
+          "text": "PIB −0,7 % (potencial 2 %), PMI 46,2",
+          "category": "Recesión"
+        }
+      ],
+      "explanation": "Por encima del potencial, la inflación separa auge (sube) de expansión (baja); por debajo, el PMI separa desaceleración (> 50) de recesión (< 50)."
+    },
+    {
+      "id": "n4-u3-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prima-riesgo"],
+      "prompt": "La prima de riesgo de España es de {spread_bp} pb. Al día siguiente, la rentabilidad del Bund sube 10 pb y la del bono español a 10 años, 25 pb. ¿Cuál es la nueva prima? (pb)",
+      "answer": 100,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{spread_bp} + 25 - 10",
+      "explanation": "La prima es la diferencia: {spread_bp} + 25 − 10 = {answer} pb.",
+      "params": {
+        "spread_bp": {
+          "value": 85,
+          "min": 55,
+          "max": 245,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u3-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "character": "jefe",
+      "situation": "La economía pasa de expansión a desaceleración. El becario rival propone vender acciones de Naranjas del Turia, que cultiva y vende cítricos y zumos, para comprar una constructora «porque la constructora ha subido más este año».",
+      "prompt": "¿Qué le responde el jefe de la mesa?",
+      "options": [
+        "Que en desaceleración una empresa de alimentación suele aguantar mejor que una constructora, que es cíclica; lo que subió en la expansión no dice lo que hará ahora",
+        "Que tiene razón: lo que más ha subido seguirá subiendo en cualquier fase",
+        "Que las constructoras son defensivas y suelen ir mejor en desaceleración",
+        "Que la fase del ciclo no influye en ningún sector"
+      ],
+      "answer": 0,
+      "explanation": "La rotación mira la fase que viene: la demanda de alimentos apenas cae y la construcción depende mucho de la actividad. Es una tendencia, no una garantía.",
+      "wrongExplanations": {
+        "1": "Las subidas pasadas no garantizan las futuras, y menos con un cambio de fase.",
+        "2": "La construcción es de los sectores más cíclicos.",
+        "3": "Influye: las cíclicas dependen mucho de la actividad."
+      }
+    },
+    {
+      "id": "n4-u3-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["prima-riesgo"],
+      "statement": "Naranjas del Turia tiene su deuda bancaria a tipo fijo. Si la prima de riesgo de España sube 100 pb, el interés que paga este año por esa deuda sube.",
+      "answer": false,
+      "explanation": "Falso: un tipo fijo ya firmado no cambia. La prima le afectaría al refinanciar o pedir deuda nueva, que suele salir más cara cuando sube."
+    },
+    {
+      "id": "n4-u3-l1-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Cuando el PIB real crece por encima de su potencial y la inflación sube, se dice que la economía se ___.",
+      "answers": [["sobrecalienta", "recalienta"]],
+      "explanation": "Se sobrecalienta: es la fase de auge."
+    }
+  ],
+  "realWorld": "Los medios financieros publican a diario la prima de riesgo de España frente al Bund; el INE publica el PIB cada trimestre y el Banco de España, la deuda pública. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Contabilidad Nacional Trimestral de España: PIB trimestral en volumen y a precios corrientes",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

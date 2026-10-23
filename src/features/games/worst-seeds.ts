@@ -25,6 +25,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'bank-window': 0,
   'macro-day': 0,
   'ecb-meeting': 0,
+  'risk-premium': 1453, // recesión con PIB de 1.200, Bund al 2,35 % y la prima más alta (245 pb)
   'cheap-or-dear': 3, // precios con más dígitos y los tres veredictos
   'balance-builder': 203, // los importes de enero más altos (15.900 mil € entre las cinco operaciones)
 };

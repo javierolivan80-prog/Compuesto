@@ -1,0 +1,269 @@
+{
+  "id": "salto-n4-u3",
+  "unitId": "n4-u3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n4-u3-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["prima-riesgo"],
+      "prompt": "El bono a 10 años de España rinde un 3,80 % y el Bund alemán a 10 años, un 2,55 % (cifras ficticias). ¿Cuál es la prima de riesgo de España? (pb)",
+      "answer": 125,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(3.8 - 2.55) * 100",
+      "explanation": "(3,80 − 2,55) × 100 = 125 pb."
+    },
+    {
+      "id": "salto-n4-u3-q2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Regla: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
+      "items": [
+        {
+          "text": "PIB +2,7 % (potencial 1,5 %), inflación del 2,6 % al 2,2 %, PMI 53,6",
+          "category": "Expansión"
+        },
+        {
+          "text": "PIB +3,1 % (potencial 1,5 %), inflación del 2,9 % al 3,4 %, PMI 56,9",
+          "category": "Auge (sobrecalentamiento)"
+        },
+        {
+          "text": "PIB +1,0 % (potencial 2 %), PMI 50,7",
+          "category": "Desaceleración"
+        },
+        {
+          "text": "PIB −0,6 % (potencial 2 %), PMI 46,4",
+          "category": "Recesión"
+        }
+      ],
+      "explanation": "Primero, PIB frente a potencial; después, la inflación (por encima) o el PMI (por debajo)."
+    },
+    {
+      "id": "salto-n4-u3-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda de 1.100 miles de millones de € y un PIB nominal de 1.000. Este año tendrá un déficit de 40, que se suma a la deuda, y el PIB nominal crecerá un 5 %. ¿Cuál será la deuda/PIB al final del año? (%, 1 decimal)",
+      "answer": 108.6,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "(1100 + 40) / (1000 * 1.05) * 100",
+      "explanation": "1.140 / 1.050 = 108,6 %."
+    },
+    {
+      "id": "salto-n4-u3-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["correlacion"],
+      "prompt": "La covarianza entre dos activos ficticios es 4,5 (en %²) y sus desviaciones típicas son del 3 % y del 2,5 %. ¿Cuál es su correlación? (2 decimales)",
+      "answer": 0.6,
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "4.5 / (3 * 2.5)",
+      "explanation": "4,5 / (3 × 2,5) = 0,60."
+    },
+    {
+      "id": "salto-n4-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-economico"],
+      "prompt": "La economía entra en recesión. Según la rotación sectorial, ¿qué empresas suelen aguantar mejor en bolsa?",
+      "options": [
+        "Las defensivas, cuyas ventas apenas dependen del ciclo",
+        "Las cíclicas, cuyas ventas dependen mucho de la actividad",
+        "Todas igual: el ciclo no influye en los sectores",
+        "Las que más subieron en la expansión anterior"
+      ],
+      "answer": 0,
+      "explanation": "En recesión, las ventas de las defensivas apenas caen. Es una tendencia, no una regla.",
+      "wrongExplanations": {
+        "1": "Las cíclicas suelen sufrir más cuando la actividad se contrae.",
+        "2": "El ciclo influye mucho en las ventas de las cíclicas.",
+        "3": "Lo que subió antes no dice lo que hará en la nueva fase."
+      }
+    },
+    {
+      "id": "salto-n4-u3-q6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["correlacion"],
+      "statement": "Si dos variables tienen una correlación de 0,9, queda demostrado que una causa la otra.",
+      "answer": false,
+      "explanation": "Falso: la correlación no implica causalidad; puede haber una causa común o casualidad."
+    },
+    {
+      "id": "salto-n4-u3-q7",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["politica-fiscal"],
+      "prompt": "El déficit público sin contar los intereses de la deuda se llama déficit ___.",
+      "answers": [["primario"]],
+      "explanation": "Déficit primario."
+    },
+    {
+      "id": "salto-n4-u3-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["prima-riesgo"],
+      "prompt": "En un mes, la prima de riesgo de España pasa de 90 a 150 pb y la rentabilidad del bono español a 10 años no se mueve. ¿Qué ha pasado?",
+      "options": [
+        "Ha bajado la rentabilidad del Bund, por ejemplo porque los inversores se refugian en él",
+        "Ha subido la rentabilidad del Bund",
+        "Nada: si el bono español no se mueve, la prima no puede subir",
+        "Ha bajado el precio del bono español"
+      ],
+      "answer": 0,
+      "explanation": "La prima es una diferencia: si el bono español no se mueve y la prima sube 60 pb, la rentabilidad del Bund ha bajado 60 pb.",
+      "wrongExplanations": {
+        "1": "Si el Bund subiera, la prima bajaría.",
+        "2": "La prima depende también del Bund.",
+        "3": "Si su rentabilidad no se mueve, su precio tampoco."
+      }
+    },
+    {
+      "id": "salto-n4-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["politica-fiscal"],
+      "prompt": "Un país ficticio tiene una deuda del 80 % del PIB, sin déficit primario. El tipo medio de su deuda es del 4 % y su PIB nominal crece un 2 %. Con deuda/PIB siguiente = deuda/PIB × (1 + r) / (1 + g), ¿cuál será su deuda/PIB el año que viene? (%, 2 decimales)",
+      "answer": 81.57,
+      "unit": "%",
+      "tolerance": 0.02,
+      "answerDecimals": 2,
+      "formula": "80 * 1.04 / 1.02",
+      "explanation": "80 × 1,04 / 1,02 = 81,57 %: con r por encima de g, sube."
+    },
+    {
+      "id": "salto-n4-u3-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["prima-riesgo"],
+      "prompt": "España va a emitir 10.000 millones de € en bonos a 10 años. Si antes de la emisión la prima de riesgo sube 50 pb y el Bund no se mueve, ¿cuántos millones de € más de intereses al año pagará por esa emisión? (millones de €)",
+      "answer": 50,
+      "unit": "millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "10000 * 50 / 10000",
+      "explanation": "50 pb = 0,5 %; 10.000 × 0,5 % = 50 millones al año."
+    },
+    {
+      "id": "salto-n4-u3-q11",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ciclo-economico"],
+      "prompt": "¿Es una empresa cíclica o defensiva?",
+      "categories": ["Cíclica", "Defensiva"],
+      "items": [
+        {
+          "text": "Aerolínea",
+          "category": "Cíclica"
+        },
+        {
+          "text": "Distribuidora de agua",
+          "category": "Defensiva"
+        },
+        {
+          "text": "Fabricante de maquinaria industrial",
+          "category": "Cíclica"
+        },
+        {
+          "text": "Cadena de supermercados",
+          "category": "Defensiva"
+        },
+        {
+          "text": "Promotora inmobiliaria",
+          "category": "Cíclica"
+        }
+      ],
+      "explanation": "Las cíclicas dependen de que la gente viaje, gaste y las empresas inviertan; el agua o la comida se compran en cualquier fase."
+    },
+    {
+      "id": "salto-n4-u3-q12",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["correlacion"],
+      "prompt": "Una cartera tiene el 50 % en un activo con una volatilidad del 20 % y el 50 % en otro con una volatilidad del 10 %. Si su correlación es 1, ¿cuál es la volatilidad de la cartera? (%)",
+      "answer": 15,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.5 * 20 + 0.5 * 10",
+      "explanation": "Con correlación 1 no se diversifica: media ponderada, 0,5 × 20 + 0,5 × 10 = 15 %."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Contabilidad Nacional Trimestral de España: PIB trimestral",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo",
+      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "AIReF, Observatorio de deuda: dinámica de la deuda pública (tipo de interés − crecimiento y saldo primario)",
+      "url": "https://www.airef.es/es/observatorio-de-deuda/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Eurostat, Government finance statistics: déficit y deuda según el Protocolo de Déficit Excesivo",
+      "url": "https://ec.europa.eu/eurostat/web/government-finance-statistics",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, rentabilidades de la deuda pública a largo plazo (10 años) de la zona euro",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/long_term_interest_rates/html/index.en.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (correlación) y Economics",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}
