@@ -1435,8 +1435,8 @@
       "contraction": "Está en contracción"
     },
     "whyPmi": {
-      "expansion": "{{pmi}} está por encima de 50, la línea que separa la expansión de la contracción: más gerentes ven mejorar la actividad que empeorar.",
-      "contraction": "{{pmi}} está por debajo de 50, la línea que separa la expansión de la contracción: más gerentes ven empeorar la actividad que mejorar."
+      "expansion": "{{pmi}} está por encima de 50, la línea que separa la expansión de la contracción: más empresas ven mejorar la actividad que empeorar.",
+      "contraction": "{{pmi}} está por debajo de 50, la línea que separa la expansión de la contracción: más empresas ven empeorar la actividad que mejorar."
     },
     "briefJobs": "Por último, la encuesta de empleo: {{active}} de personas activas, de las que {{unemployed}} están en paro.",
     "askJobs": "¿Cuál es la tasa de paro?",

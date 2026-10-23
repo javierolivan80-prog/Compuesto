@@ -168,20 +168,18 @@
     },
     {
       "id": "salto-n4-u1-q11",
-      "type": "multiple_choice",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["paro-pmi"],
-      "prompt": "Según la EPA, una estudiante que no trabaja ni busca empleo es…",
-      "options": ["Inactiva", "Parada", "Ocupada", "Demandante de empleo"],
-      "answer": 0,
-      "explanation": "No está en la población activa.",
-      "wrongExplanations": {
-        "1": "Para ser parada tendría que buscar empleo.",
-        "2": "No trabaja.",
-        "3": "Eso es el paro registrado, si se inscribe."
-      }
+      "prompt": "Hay 23 millones de activos y 40 millones de personas de 16 años o más. ¿Tasa de actividad? (%, 1 decimal)",
+      "answer": 57.5,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 1,
+      "formula": "23 / 40 * 100",
+      "explanation": "23 / 40 = 57,5 %."
     },
     {
       "id": "salto-n4-u1-q12",
@@ -208,8 +206,28 @@
   ],
   "sources": [
     {
-      "title": "INE, IPC, Contabilidad Nacional Trimestral y EPA",
-      "url": "https://www.ine.es/",
+      "title": "INE, IPC: metodología e inflación subyacente",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176802&menu=ultiDatos&idp=1254735976607",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Contabilidad Nacional Trimestral",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736164439&menu=ultiDatos&idp=1254735576581",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Encuesta de Población Activa",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=ultiDatos&idp=1254735976595",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "SEPE, estadística de paro registrado",
+      "url": "https://www.sepe.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "S&P Global, metodología del PMI",
+      "url": "https://www.pmi.spglobal.com/",
       "date": "2026-10-23"
     }
   ],

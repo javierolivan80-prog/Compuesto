@@ -83,7 +83,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["calendario-macro"],
-      "prompt": "Tres analistas esperan una inflación del {a} %, del {b} % y del {c} %. ¿Cuál es el consenso (la media)? (%, 2 decimales)",
+      "prompt": "Tres analistas esperan una inflación del {a} %, del {b} % y del {c} %. ¿Cuál es la media de sus previsiones? (%, 2 decimales)",
       "answer": 2.97,
       "unit": "%",
       "tolerance": 0.4,

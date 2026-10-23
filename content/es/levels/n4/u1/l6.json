@@ -97,30 +97,26 @@
       "id": "n4-u1-l6-e6",
       "type": "categorize",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": [],
-      "concepts": ["paro-pmi", "pib", "ipc"],
-      "prompt": "¿Qué dato es cada uno?",
-      "categories": ["Producción y ciclo", "Precios", "Empleo"],
+      "concepts": ["paro-pmi"],
+      "prompt": "¿Qué dice cada lectura del PMI?",
+      "categories": ["Expansión", "Contracción", "Contracción que se modera"],
       "items": [
         {
-          "text": "El PMI",
-          "category": "Producción y ciclo"
+          "text": "Un PMI de 52,1",
+          "category": "Expansión"
         },
         {
-          "text": "El PIB trimestral",
-          "category": "Producción y ciclo"
+          "text": "Un PMI de 48,0, igual que el mes anterior",
+          "category": "Contracción"
         },
         {
-          "text": "El IPC subyacente",
-          "category": "Precios"
-        },
-        {
-          "text": "La EPA",
-          "category": "Empleo"
+          "text": "El PMI pasa de 46 a 49",
+          "category": "Contracción que se modera"
         }
       ],
-      "explanation": "Producción y ciclo, precios y empleo: los tres bloques del calendario."
+      "explanation": "Por encima de 50, expansión; por debajo, contracción; acercarse a 50 desde abajo es contraerse menos."
     },
     {
       "id": "n4-u1-l6-e7",
@@ -143,7 +139,7 @@
       "prompt": "Hay 23,4 millones de activos y 40 millones de personas de 16 años o más. ¿Tasa de actividad? (%, 1 decimal)",
       "answer": 58.5,
       "unit": "%",
-      "tolerance": 0.5,
+      "tolerance": 0.1,
       "answerDecimals": 1,
       "formula": "23.4 / 40 * 100",
       "explanation": "23,4 / 40 = 58,5 %."
@@ -202,7 +198,7 @@
       }
     }
   ],
-  "realWorld": "Para Naranjas del Turia, un IPC alto encarece la energía y el transporte de sus naranjas, y un PMI de la zona euro en contracción anticipa menos demanda de sus clientes: así la macro llega a sus cuentas. Elige una semana con IPC y empleo, apunta el consenso antes del dato y compara después la reacción con la sorpresa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "realWorld": "Para Naranjas del Turia, la misma subida de la energía que empuja el IPC encarece el riego, el envasado y el transporte de sus naranjas; y un PMI de la zona euro en contracción anticipa menos demanda de sus clientes europeos: así la macro llega a sus cuentas. Elige una semana con IPC y empleo, apunta el consenso antes del dato y compara después la reacción con la sorpresa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
       "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",

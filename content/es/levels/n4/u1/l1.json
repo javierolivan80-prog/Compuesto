@@ -10,7 +10,7 @@
   "cfa": "economics",
   "estimatedMinutes": 5,
   "objectives": [
-    "Calcular la inflación interanual y la tasa de paro",
+    "Calcular la inflación interanual y los ocupados a partir de activos y parados",
     "Leer la sorpresa de un dato frente al consenso y el PMI"
   ],
   "concepts": ["ipc", "calendario-macro", "paro-pmi", "sesgo-narrativa"],
@@ -156,7 +156,7 @@
       "prompt": "Hay {active} millones de personas activas y {unemployed} millones en paro. ¿Cuántos millones de personas están ocupadas? (millones, 2 decimales)",
       "answer": 21.24,
       "unit": "millones",
-      "tolerance": 0.5,
+      "tolerance": 0.03,
       "answerDecimals": 2,
       "formula": "{active} - {unemployed}",
       "explanation": "Activos = ocupados + parados: {active} − {unemployed} = {v} millones.",
