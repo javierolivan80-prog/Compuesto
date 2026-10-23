@@ -209,6 +209,18 @@ describe('numeric_input y spreadsheet: la fórmula se evalúa y se compara', () 
     expect(codes(lesson({ answer: 333.33, formula: f, tolerance: 0 }))).toContain('formula');
     expect(codes(lesson({ answer: 333.33, formula: f, tolerance: 0.01 }))).toEqual([]);
   });
+  it('decimales: si el enunciado pide N decimales, answerDecimals vale N', () => {
+    const ex = { answer: 333.33, formula: '1000 / 3', tolerance: 0.01 };
+    const ask = (prompt: string, answerDecimals?: number) =>
+      codes(lesson({ ...ex, prompt, answerDecimals }));
+    expect(ask('¿Cuánto toca a cada uno? (€, 2 decimales)', 2)).toEqual([]);
+    expect(ask('¿Cuánto toca a cada uno? (€, 2 decimales)', 1)).toContain('decimales');
+    expect(ask('¿Cuánto toca a cada uno? (€, 1 decimal)', 2)).toContain('decimales');
+    expect(ask('¿Cuánto toca a cada uno? (€, 3 decimal(es))', 2)).toContain('decimales');
+    // sin answerDecimals vale el valor por defecto (2)
+    expect(ask('¿Cuánto toca a cada uno? (€, 2 decimales)')).toEqual([]);
+    expect(ask('¿Cuánto toca a cada uno? (€)', 0)).toEqual([]);
+  });
   it('fórmula ilegible o peligrosa → error, no excepción', () => {
     expect(codes(lesson({ formula: '1 +' }))).toContain('formula');
     expect(codes(lesson({ formula: 'process.exit(1)' }))).toContain('formula');

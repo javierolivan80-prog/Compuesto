@@ -128,7 +128,7 @@ export async function playGameLesson(
       .getByRole('radio', { name: new RegExp(`^${formatNumber(tr, digits)}\\s%$`) })
       .click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
-    const fx = { up: 'Se aprecia', down: 'Se deprecia', flat: 'No se mueve' } as const;
+    const fx = { up: 'Se aprecia', down: 'Se deprecia', flat: 'Apenas se mueve' } as const;
     await page.getByRole('radio', { name: fx[rightFx(setup)], exact: true }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     const extra = formatNumber(extraInterest(setup)).replace('.', '\\.');

@@ -39,7 +39,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["qe-qt"],
+      "concepts": ["qe-qt", "duracion"],
       "prompt": "Un bono a 10 años tiene una duración modificada de {dm}. Tras un anuncio de QE, su rentabilidad baja {b} pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 2 decimales)",
       "answer": 2.4,
       "unit": "%",
@@ -248,17 +248,17 @@
   "sources": [
     {
       "title": "BCE, programa de compras de activos (APP)",
-      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.es.html",
+      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.en.html",
       "date": "2026-10-23"
     },
     {
       "title": "BCE, programa de compras de emergencia frente a la pandemia (PEPP)",
-      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.es.html",
+      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.en.html",
       "date": "2026-10-23"
     },
     {
-      "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo del tipo de los fondos federales",
-      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "title": "Reserva Federal, Credit and Liquidity Programs and the Balance Sheet: tendencias recientes del balance",
+      "url": "https://www.federalreserve.gov/monetarypolicy/bst_recenttrends.htm",
       "date": "2026-10-23"
     },
     {

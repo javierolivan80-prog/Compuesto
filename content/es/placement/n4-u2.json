@@ -27,7 +27,7 @@
       "bloom": "recordar",
       "tags": ["test-de-salto"],
       "concepts": ["bce"],
-      "prompt": "Desde 2024, el BCE orienta su política monetaria con el tipo de la facilidad de ___.",
+      "prompt": "En su revisión del marco operativo de marzo de 2024, el BCE confirmó que orienta su política con el tipo de la facilidad de ___.",
       "answers": [["depósito", "deposito"]],
       "explanation": "La facilidad de depósito."
     },
@@ -52,31 +52,28 @@
         {
           "text": "Mide su objetivo de inflación con el PCE",
           "category": "Fed"
+        },
+        {
+          "text": "Fija un rango objetivo para el tipo de los fondos federales",
+          "category": "Fed"
         }
       ],
-      "explanation": "El BCE mira el IPCA; la Fed, el PCE y además el empleo."
+      "explanation": "El BCE mira el IPCA; la Fed, el PCE y además el empleo, y fija un rango para los fondos federales."
     },
     {
       "id": "salto-n4-u2-q4",
-      "type": "multiple_choice",
+      "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["fed"],
-      "prompt": "La Fed sube los tipos más de lo que esperaba el mercado. ¿Qué suele pasar, a igualdad de lo demás?",
-      "options": [
-        "El dólar se aprecia y a los emergentes con deuda en dólares les cuesta más pagarla",
-        "El dólar se deprecia y la deuda en dólares de los emergentes se abarata",
-        "Nada: el mercado solo reacciona a lo esperado",
-        "El dólar se aprecia, pero la deuda en dólares de los emergentes se abarata"
-      ],
-      "answer": 0,
-      "explanation": "Tipos más altos de lo esperado atraen capital al dólar; quien debe dólares necesita más moneda local.",
-      "wrongExplanations": {
-        "1": "Una sorpresa al alza suele apreciar el dólar.",
-        "2": "Lo esperado ya está en el precio; reacciona a la sorpresa.",
-        "3": "Un dólar más caro encarece esa deuda."
-      }
+      "concepts": ["qe-qt"],
+      "prompt": "El balance de un banco central es de 5.000 miles de millones de € (cifra ficticia). Con un programa de QE compra 50 miles de millones en bonos al mes durante 12 meses, sin ventas ni vencimientos. ¿Cuál es su balance al final? (miles de millones de €)",
+      "answer": 5600,
+      "unit": "miles de millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "5000 + 50 * 12",
+      "explanation": "5.000 + 50 × 12 = 5.600 miles de millones: el QE amplía el balance."
     },
     {
       "id": "salto-n4-u2-q5",
@@ -95,14 +92,18 @@
     },
     {
       "id": "salto-n4-u2-q6",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["qe-qt"],
-      "statement": "En el endurecimiento cuantitativo (QT), el banco central deja de reinvertir los bonos que le vencen o los vende, y su balance se reduce.",
-      "answer": true,
-      "explanation": "Verdadero: es lo contrario del QE."
+      "concepts": ["bce"],
+      "prompt": "Una hipoteca variable de 120.000 € al Euríbor + 1 % se revisa y el Euríbor sube 0,75 puntos. Aproximando con el principal pendiente durante todo el año, ¿cuánto sube el interés del primer año? (€)",
+      "answer": 900,
+      "unit": "€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "120000 * 0.75 / 100",
+      "explanation": "120.000 × 0,75 % = 900 €."
     },
     {
       "id": "salto-n4-u2-q7",
@@ -143,18 +144,14 @@
     },
     {
       "id": "salto-n4-u2-q9",
-      "type": "numeric_input",
+      "type": "true_false_swipe",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": ["test-de-salto"],
-      "concepts": ["bce"],
-      "prompt": "Una hipoteca variable de 120.000 € al Euríbor + 1 % se revisa y el Euríbor sube 0,75 puntos. Aproximando con el principal pendiente durante todo el año, ¿cuánto sube el interés del primer año? (€)",
-      "answer": 900,
-      "unit": "€",
-      "tolerance": 0.5,
-      "answerDecimals": 0,
-      "formula": "120000 * 0.75 / 100",
-      "explanation": "120.000 × 0,75 % = 900 €."
+      "concepts": ["qe-qt"],
+      "statement": "En el endurecimiento cuantitativo (QT), el banco central deja de reinvertir los bonos que le vencen o los vende, y su balance se reduce.",
+      "answer": true,
+      "explanation": "Verdadero: es lo contrario del QE."
     },
     {
       "id": "salto-n4-u2-q10",
@@ -208,7 +205,7 @@
     },
     {
       "title": "BCE, comunicado de 13 de marzo de 2024 sobre el marco operativo (tipo de la facilidad de depósito)",
-      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.es.html",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.en.html",
       "date": "2026-10-23"
     },
     {
@@ -218,7 +215,7 @@
     },
     {
       "title": "BCE, programa de compras de emergencia frente a la pandemia (PEPP)",
-      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.es.html",
+      "url": "https://www.ecb.europa.eu/mopo/implement/pepp/html/index.en.html",
       "date": "2026-10-23"
     },
     {
@@ -232,8 +229,18 @@
       "date": "2026-10-23"
     },
     {
-      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator",
+      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator (modelo con la pendiente 10 años − 3 meses)",
       "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "FRED (Federal Reserve Bank of St. Louis), serie T10Y2Y: 10 años menos 2 años del Tesoro de EE. UU.",
+      "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Reserva Federal, tendencias recientes del balance",
+      "url": "https://www.federalreserve.gov/monetarypolicy/bst_recenttrends.htm",
       "date": "2026-10-23"
     },
     {

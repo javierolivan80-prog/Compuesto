@@ -34,7 +34,7 @@
     {
       "type": "card",
       "term": "Transmisión y QE",
-      "text": "La hipoteca de {principal} € al Euríbor + 1 % pasó del {euribor0} % al {euribor1} %: unos {extra_interest} € más de interés el primer año, porque solo cambia el Euríbor. Y cuando el banco central compra bonos (QE), su precio sube y su rentabilidad baja."
+      "text": "En la hipoteca de {principal} € al Euríbor + 1 %, el Euríbor pasó del {euribor0} % al {euribor1} %: unos {extra_interest} € más de interés el primer año, porque el diferencial no cambia. Y cuando el banco central compra bonos (QE), su precio sube y su rentabilidad baja."
     }
   ],
   "exercises": [
@@ -82,26 +82,36 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["bce"],
-      "prompt": "Una hipoteca variable de {principal} € al Euríbor + 1 % se revisa con el Euríbor en el {euribor1} %. Aproximando con el principal pendiente durante todo el año, ¿cuánto interés paga en total el primer año tras la revisión, contando el diferencial? (€)",
-      "answer": 6750,
-      "unit": "€",
+      "prompt": "Una hipoteca variable al Euríbor + 1 % se revisa y el Euríbor pasa del {euribor0} % al {euribor1} %. Aproximando con el mismo principal pendiente durante todo el año, ¿en qué porcentaje sube el interés que paga en el año, contando el diferencial? (%, 2 decimales)",
+      "answer": 12.5,
+      "unit": "%",
       "tolerance": 0.5,
-      "answerDecimals": 0,
-      "formula": "{principal} * ({euribor1} + 1) / 100",
-      "explanation": "{principal} × ({euribor1} % + 1 %) = {answer} €: el diferencial también se paga.",
+      "answerDecimals": 2,
+      "formula": "(({euribor1} + 1) / ({euribor0} + 1) - 1) * 100",
+      "explanation": "El tipo pasa del {euribor0} % + 1 % al {euribor1} % + 1 %: ({tf} / {t0} − 1) × 100 = {answer} %. Sin el diferencial saldría más, porque el tipo de partida sería menor.",
       "params": {
-        "principal": {
-          "value": 150000,
-          "min": 100000,
-          "max": 200000,
-          "step": 50000,
-          "decimals": 0
+        "euribor0": {
+          "value": 3,
+          "min": 2,
+          "max": 3,
+          "step": 0.25,
+          "decimals": 2
         },
         "euribor1": {
           "value": 3.5,
           "min": 3.25,
           "max": 3.75,
           "step": 0.25,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "t0": {
+          "formula": "{euribor0} + 1",
+          "decimals": 2
+        },
+        "tf": {
+          "formula": "{euribor1} + 1",
           "decimals": 2
         }
       }
@@ -113,7 +123,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["bce"],
-      "prompt": "El BCE decidió un movimiento de {move_bp} pb (negativo si baja los tipos). Si el mercado hubiera descontado una subida de 100 pb, ¿de cuántos puntos básicos habría sido la sorpresa, decisión menos lo descontado? (pb, negativa si hace menos de lo descontado)",
+      "prompt": "El BCE decidió un movimiento de {move_bp} pb (negativo si baja los tipos). En un escenario hipotético extremo en el que el mercado hubiera descontado una subida de 100 pb, ¿de cuántos puntos básicos habría sido la sorpresa, decisión menos lo descontado? (pb, negativa si hace menos de lo descontado)",
       "answer": -50,
       "unit": "pb",
       "tolerance": 0.5,
@@ -137,13 +147,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["bce"],
-      "prompt": "Una hipoteca variable de {principal} € al Euríbor + 1 % se revisa y el Euríbor pasa del {euribor0} % al {euribor1} %. Aproximando la subida del interés del año como principal × subida del Euríbor, sin contar la amortización, ¿cuánto sube de media la cuota cada mes durante ese año? (€, 2 decimales)",
-      "answer": 62.5,
+      "prompt": "Una hipoteca variable de {principal} € se revisa con el Euríbor en el {euribor1} %. Aproximando con el principal pendiente durante todo el año, ¿cuánto interés total pagaría el primer año si el diferencial fuera del 0,8 % en lugar del 1 %? (€)",
+      "answer": 6450,
       "unit": "€",
       "tolerance": 0.5,
-      "answerDecimals": 2,
-      "formula": "{principal} * ({euribor1} - {euribor0}) / 100 / 12",
-      "explanation": "{principal} × ({euribor1} % − {euribor0} %) / 12 = {answer} € al mes.",
+      "answerDecimals": 0,
+      "formula": "{principal} * ({euribor1} + 0.8) / 100",
+      "explanation": "{principal} × ({euribor1} % + 0,8 %) = {answer} €.",
       "params": {
         "principal": {
           "value": 150000,
@@ -151,13 +161,6 @@
           "max": 200000,
           "step": 50000,
           "decimals": 0
-        },
-        "euribor0": {
-          "value": 3,
-          "min": 2,
-          "max": 3,
-          "step": 0.25,
-          "decimals": 2
         },
         "euribor1": {
           "value": 3.5,
@@ -273,13 +276,13 @@
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, Portal del Cliente Bancario: tipos de interés oficiales de referencia (Euríbor) y préstamos a tipo variable",
-      "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/productoservici/relacionados/tiposinteres/",
+      "title": "BOE, Orden EHA/2899/2011, de transparencia y protección del cliente de servicios bancarios: tipos de interés oficiales de referencia (Euríbor) en préstamos a tipo variable",
+      "url": "https://www.boe.es/eli/es/o/2011/10/28/eha2899/con",
       "date": "2026-10-23"
     },
     {
       "title": "BCE, programa de compras de activos (APP)",
-      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.es.html",
+      "url": "https://www.ecb.europa.eu/mopo/implement/app/html/index.en.html",
       "date": "2026-10-23"
     }
   ],

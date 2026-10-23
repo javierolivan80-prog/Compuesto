@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Los tres tipos oficiales",
-      "text": "Facilidad de depósito: lo que cobran los bancos por dejar dinero en el BCE a un día. Operaciones principales de financiación: lo que pagan por pedirle prestado a una semana. Facilidad marginal de crédito: el más alto, para préstamos a un día. Desde 2024, el BCE orienta su política con el tipo de depósito."
+      "text": "Facilidad de depósito: remunera el dinero que los bancos dejan a un día. Operaciones principales: préstamos a una semana. Facilidad marginal: préstamos a un día, el más caro. En marzo de 2024 el BCE confirmó que orienta su política con el tipo de depósito, y desde septiembre de 2024 el de las operaciones principales está solo 15 pb por encima."
     },
     {
       "type": "visual",
@@ -43,18 +43,18 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["bce"],
-      "prompt": "Naranjas del Turia tiene un préstamo de {d} millones de € a tipo variable, al Euríbor + {s} % (cifras ficticias). En la revisión, el Euríbor sube {r} puntos. Aproximando con el préstamo pendiente durante todo el año, ¿cuánto sube su gasto anual por intereses? (miles de €, 1 decimal)",
+      "prompt": "Naranjas del Turia, cuya deuda es a tipo fijo, estudia refinanciar su deuda de {d} millones de € con un préstamo a tipo variable al Euríbor + {s} % (cifras ficticias). Si lo hiciera y en la revisión el Euríbor subiera {r} puntos, aproximando con la deuda pendiente durante todo el año, ¿cuánto subiría su gasto anual por intereses? (miles de €, 1 decimal)",
       "answer": 45,
       "unit": "miles de €",
       "tolerance": 0.5,
       "answerDecimals": 1,
       "formula": "{d} * 1000 * {r} / 100",
-      "explanation": "{d} millones × {r} % = {answer} miles de €: el diferencial no cambia, solo la subida del Euríbor.",
+      "explanation": "{d} millones × {r} % = {answer} miles de €: el diferencial no cambia, solo cuenta la subida del Euríbor.",
       "params": {
         "d": {
           "value": 9,
-          "min": 5,
-          "max": 15,
+          "min": 9,
+          "max": 12,
           "step": 1,
           "decimals": 0
         },
@@ -154,7 +154,7 @@
           "category": "Facilidad marginal de crédito"
         },
         {
-          "text": "El tipo con el que el BCE orienta su política desde 2024",
+          "text": "El tipo con el que el BCE orienta su política (confirmado en marzo de 2024)",
           "category": "Facilidad de depósito"
         }
       ],
@@ -232,7 +232,7 @@
     },
     {
       "title": "BCE, comunicado de 13 de marzo de 2024 sobre el marco operativo: la política se orienta con el tipo de la facilidad de depósito; diferencial de 15 pb con las operaciones principales desde el 18 de septiembre de 2024",
-      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.es.html",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2024/html/ecb.pr240313~807e240020.en.html",
       "date": "2026-10-23"
     },
     {
@@ -246,8 +246,8 @@
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, Portal del Cliente Bancario: tipos de interés oficiales de referencia (Euríbor) y préstamos a tipo variable",
-      "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/productoservici/relacionados/tiposinteres/",
+      "title": "BOE, Orden EHA/2899/2011, de transparencia y protección del cliente de servicios bancarios: tipos de interés oficiales de referencia (Euríbor) en préstamos a tipo variable",
+      "url": "https://www.boe.es/eli/es/o/2011/10/28/eha2899/con",
       "date": "2026-10-23"
     }
   ],

@@ -805,7 +805,13 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
   - la curva: pendiente 10 años − 2 años, inversión como patrón histórico y no como ley, y regla de Taylor simplificada;
   - el Jefe final, con 10 ejercicios.
 - **Conceptos:** `bce`, `fed`, `qe-qt` e `inversion-curva`, con descripción y `unit: n4-u2`.
-- **Bloom de N4:** cada lección supera el 50 % de aplicar o analizar (7, 5, 5, 5, 7 de 8 y 7 de 10).
-- **Test de salto:** nace con 12 preguntas, 7 de ellas de producir.
+- **Bloom de N4:** cada lección alcanza al menos el 50 % de aplicar o analizar (7, 5, 5, 5 y 6 de 8, y 8 de 10).
+- **Test de salto:** nace con 12 preguntas, 8 de ellas de producir (7 en la primera fase).
 - **`RateTransmission`:** props `rate` (tipo oficial, %) y `rise` (puntos). La cuota de la hipoteca ficticia (150.000 € a 25 años al Euríbor + 1 %) usa `monthlyPayment`; el Euríbor del ejemplo parte del tipo oficial para simplificar. Consumo y precios se describen con «suele», sin cifras.
 - **Cifras:** los tipos de todos los ejemplos son ficticios. Las fuentes (BCE, Fed, Banco de España, Reserva Federal de Nueva York) cubren definiciones, marco operativo y calendario, con `verificarAntesDe` 2027-06-30. Las URL no se pudieron abrir desde el entorno (sin red) y quedan para la revisión.
+- **Revisión, ronda 1:**
+  - «Desde 2024» se precisa: en marzo de 2024 el BCE confirmó que orienta su política con el tipo de depósito.
+  - Naranjas del Turia tiene deuda a tipo fijo, así que el préstamo variable se plantea como hipótesis de refinanciación.
+  - La etiqueta de `ecbGame.fx.flat` pasa a «Apenas se mueve».
+  - Regla nueva en `content:validate` (código `decimales`): si el enunciado de un `numeric_input` pide N decimales, `answerDecimals` vale N; sin `answerDecimals` cuenta el valor por defecto (2). Solo saltó `n4-u2-l3-e2`.
+  - `duracion` no entra en el test de salto, porque sus conceptos tienen que ser de la unidad (`concepto-ajeno`).

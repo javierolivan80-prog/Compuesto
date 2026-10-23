@@ -55,11 +55,21 @@
           "step": 0.05,
           "decimals": 2
         },
+        "k": {
+          "value": -4,
+          "min": -10,
+          "max": 14,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "IF({k} >= 0, 10 * {k} + 10, 10 * {k})",
+          "decimals": 0
+        },
         "b": {
-          "value": 3.4,
-          "min": 1.5,
-          "max": 5,
-          "step": 0.05,
+          "formula": "{a} - {s} / 100",
           "decimals": 2
         }
       }
@@ -102,18 +112,18 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["inversion-curva"],
-      "prompt": "La pendiente 10 años − 2 años es de {s0} pb. El mercado empieza a esperar bajadas de tipos: la rentabilidad a 2 años cae {d2} pb y la de 10 años, 10 pb. ¿Cuál es la nueva pendiente? (pb, negativa si sigue invertida)",
-      "answer": 10,
+      "prompt": "La pendiente 10 años − 2 años es de {s0} pb. El mercado empieza a esperar bajadas de tipos: la rentabilidad a 2 años cae {d2} pb y la de 10 años, 15 pb. ¿Cuál es la nueva pendiente? (pb, negativa si sigue invertida)",
+      "answer": 5,
       "unit": "pb",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "{s0} + {d2} - 10",
-      "explanation": "{s0} + {d2} − 10 = {answer} pb: si el tramo corto cae más que el largo, la pendiente sube.",
+      "formula": "{s0} + {d2} - 15",
+      "explanation": "{s0} + {d2} − 15 = {answer} pb: si el tramo corto cae más que el largo, la pendiente sube.",
       "params": {
         "s0": {
           "value": -40,
           "min": -80,
-          "max": 40,
+          "max": -10,
           "step": 10,
           "decimals": 0
         },
@@ -185,7 +195,7 @@
       "id": "n4-u2-l5-e6",
       "type": "true_false_swipe",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["inversion-curva"],
       "statement": "Si la pendiente 10 años − 2 años pasa de −30 pb a +20 pb, la curva ha dejado de estar invertida.",
@@ -228,21 +238,21 @@
       }
     }
   ],
-  "realWorld": "Los bancos centrales y los medios financieros publican a diario las rentabilidades a 2 y a 10 años; la Reserva Federal de Nueva York mantiene un modelo de probabilidad de recesión basado en la pendiente de la curva. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "realWorld": "Los bancos centrales y los medios financieros publican a diario las rentabilidades a 2 y a 10 años; la Reserva Federal de Nueva York mantiene un modelo de probabilidad de recesión que usa la pendiente 10 años − 3 meses, y FRED publica a diario la serie 10 años − 2 años (T10Y2Y). Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
-      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator (pendiente 10 años − 3 meses y 10 años − 2 años, recesiones de EE. UU.)",
+      "title": "Federal Reserve Bank of New York, The Yield Curve as a Leading Indicator (modelo de probabilidad de recesión con la pendiente 10 años − 3 meses)",
       "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "FRED (Federal Reserve Bank of St. Louis), serie T10Y2Y: rentabilidad a 10 años menos rentabilidad a 2 años del Tesoro de EE. UU.",
+      "url": "https://fred.stlouisfed.org/series/T10Y2Y",
       "date": "2026-10-23"
     },
     {
       "title": "Reserva Federal, Policy Rules and How Policymakers Use Them (regla de Taylor)",
       "url": "https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm",
-      "date": "2026-10-23"
-    },
-    {
-      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
-      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-23"
     }
   ],

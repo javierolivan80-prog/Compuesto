@@ -983,7 +983,7 @@
     "level": 4,
     "prerequisites": ["ipc"],
     "unit": "n4-u2",
-    "description": "Banco central de la zona euro. Objetivo: inflación del 2 % simétrico a medio plazo, medida con el IPCA. Tres tipos oficiales (depósito, operaciones principales y facilidad marginal); desde 2024 orienta su política con el de depósito. Se reúne cada seis semanas y su decisión llega a los precios por el Euríbor, el crédito y el consumo."
+    "description": "Banco central de la zona euro. Objetivo: inflación del 2 % simétrico a medio plazo, medida con el IPCA. Tres tipos oficiales (depósito, operaciones principales y facilidad marginal); en marzo de 2024 confirmó que orienta su política con el de depósito. Se reúne cada seis semanas y su decisión llega a los precios por el Euríbor, el crédito y el consumo."
   },
   {
     "id": "fed",

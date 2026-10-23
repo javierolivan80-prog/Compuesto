@@ -74,7 +74,7 @@
       "answer": 90,
       "unit": "millones",
       "tolerance": 0.5,
-      "answerDecimals": 1,
+      "answerDecimals": 2,
       "formula": "{d} * ({b} - {a})",
       "explanation": "{d} × ({b} − {a}) = {answer} millones más.",
       "params": {
@@ -261,11 +261,6 @@
     {
       "title": "Reserva Federal, operaciones de mercado abierto: rango objetivo del tipo de los fondos federales",
       "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
-      "date": "2026-10-23"
-    },
-    {
-      "title": "CFA Institute, CFA Program Level I: Economics (política monetaria) y Fixed Income (duración)",
-      "url": "https://www.cfainstitute.org/programs/cfa-program",
       "date": "2026-10-23"
     }
   ],

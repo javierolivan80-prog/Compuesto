@@ -1488,7 +1488,7 @@
     "fx": {
       "up": "Se aprecia",
       "down": "Se deprecia",
-      "flat": "No se mueve"
+      "flat": "Apenas se mueve"
     },
     "whyFx": {
       "up": "El BCE hace {{surprise}} más de lo que descontaba el mercado: los tipos del euro quedan más altos de lo esperado, el euro atrae más dinero y se aprecia frente al dólar, a igualdad de lo demás. Lo que mueve el precio es la sorpresa, no la decisión.",

@@ -4,6 +4,7 @@ import { LESSON_GAME_FORMATS, referenceValues } from '../engine/games/lesson-gam
 import { BASE_LEVEL, FLOOR_COUNT, levelOfFloor, levelOrder } from '../engine/floors';
 import {
   ANSWER_MARKER,
+  DEFAULT_ANSWER_DECIMALS,
   fillFormula,
   gridSize,
   instantiate,
@@ -116,7 +117,8 @@ export const PARAM_SEEDS = 100;
 
 /** Comprobaciones de un ejercicio: las de siempre y, si tiene `params`, las de la plantilla y 100 variantes. */
 export function checkExercise(e: Exercise, strict: boolean): Issue[] {
-  if (isParametric(e)) return checkParametric(e, strict);
+  const decimals = checkDecimals(e);
+  if (isParametric(e)) return [...decimals, ...checkParametric(e, strict)];
   // sin params nadie rellena los marcadores (ni las cifras de una lección-juego): se verían literales
   const loose = markersOf(JSON.stringify(e)).map<Issue>((m) => ({
     severity: 'error',
@@ -124,7 +126,28 @@ export function checkExercise(e: Exercise, strict: boolean): Issue[] {
     where: e.id,
     message: `Marcador {${m}} en un ejercicio sin params: se vería literal (solo se rellenan los parámetros declarados)`,
   }));
-  return [...loose, ...checkConcrete(e, strict)];
+  return [...decimals, ...loose, ...checkConcrete(e, strict)];
+}
+
+/** «N decimal», «N decimales» o «N decimal(es)» en el enunciado. */
+const DECIMALS_IN_PROMPT = /(\d+)\s+decimal(?:es|\(es\))?(?![\p{L}])/giu;
+
+/**
+ * Si el enunciado de un numeric_input pide N decimales, `answerDecimals` vale N: es lo que redondea la respuesta de
+ * cada variante y lo que se espera que escriba el usuario.
+ */
+function checkDecimals(e: Exercise): Issue[] {
+  if (e.type !== 'numeric_input') return [];
+  const asked = [...new Set([...e.prompt.matchAll(DECIMALS_IN_PROMPT)].map((m) => Number(m[1])))];
+  const actual = e.answerDecimals ?? DEFAULT_ANSWER_DECIMALS;
+  return asked
+    .filter((n) => n !== actual)
+    .map((n) => ({
+      severity: 'error' as const,
+      code: 'decimales',
+      where: e.id,
+      message: `El enunciado pide ${n} decimal(es) y answerDecimals vale ${actual}`,
+    }));
 }
 
 function checkParametric(e: ParametricExercise, strict: boolean): Issue[] {
