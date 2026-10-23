@@ -1,0 +1,250 @@
+{
+  "id": "n4-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 1,
+  "title": "Calendario macro y sorpresas",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el consenso y la sorpresa de un dato",
+    "Reconocer el sesgo de narrativa"
+  ],
+  "concepts": ["calendario-macro", "sesgo-narrativa"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "El calendario",
+      "text": "Cada semana tiene su calendario macro: IPC, PIB, empleo, PMI y las reuniones de los bancos centrales. Para cada dato hay un consenso, la media de lo que esperan los analistas. El precio ya incorpora ese consenso."
+    },
+    {
+      "type": "visual",
+      "component": "DataSurprise",
+      "props": {
+        "consensus": 2.9
+      }
+    },
+    {
+      "type": "card",
+      "term": "Sesgo de narrativa",
+      "text": "Tras cada movimiento, alguien cuenta una historia que lo explica. El sesgo de narrativa es creer esas explicaciones a posteriori como si fueran la causa segura: el mismo dato puede servir para justificar subidas y bajadas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "El consenso del PIB trimestral era un {c} % y el dato sale en un {d} %. ¿De cuántos puntos básicos es la sorpresa (positiva si sale por encima)? (pb)",
+      "answer": 20,
+      "unit": "pb",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "({d} - {c}) * 100",
+      "explanation": "({d} − {c}) × 100 = {v} pb.",
+      "params": {
+        "c": {
+          "value": 0.4,
+          "min": -0.5,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "d": {
+          "value": 0.6,
+          "min": -0.5,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({d} - {c}) * 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "Tres analistas esperan una inflación del {a} %, del {b} % y del {c} %. ¿Cuál es el consenso (la media)? (%, 2 decimales)",
+      "answer": 2.97,
+      "unit": "%",
+      "tolerance": 0.4,
+      "answerDecimals": 2,
+      "formula": "({a} + {b} + {c}) / 3",
+      "explanation": "({a} + {b} + {c}) / 3 = {v} %.",
+      "params": {
+        "a": {
+          "value": 2.8,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "b": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "c": {
+          "value": 3.1,
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "({a} + {b} + {c}) / 3",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "En EE. UU. se esperaban 180.000 empleos nuevos en el mes y se crean {n} mil. ¿Cuál es la diferencia con el consenso? (miles de empleos, negativa si se crean menos)",
+      "answer": -40,
+      "unit": "miles",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "{n} - 180",
+      "explanation": "{n} − 180 = {v} mil.",
+      "params": {
+        "n": {
+          "value": 140,
+          "min": 50,
+          "max": 300,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} - 180",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l5-e4",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["calendario-macro", "sesgo-narrativa"],
+      "prompt": "Ordena una mañana de dato macro.",
+      "steps": [
+        "Los analistas publican sus previsiones",
+        "El precio incorpora el consenso",
+        "Se publica el dato",
+        "El mercado reacciona a la sorpresa",
+        "Aparecen explicaciones en los medios"
+      ],
+      "explanation": "Primero lo esperado; después la sorpresa; al final, las historias."
+    },
+    {
+      "id": "n4-u1-l5-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "Dato A: inflación del 4 % con un consenso del 4,5 %. Dato B: inflación del 2 % con un consenso del 1,5 %. ¿Cuál hace subir la rentabilidad a 2 años?",
+      "options": [
+        "El B: sale por encima de lo esperado",
+        "El A: la inflación es más alta",
+        "Los dos por igual",
+        "Ninguno"
+      ],
+      "answer": 0,
+      "explanation": "Importa la sorpresa: +0,5 en B y −0,5 en A.",
+      "wrongExplanations": {
+        "1": "El A sale por debajo de lo esperado.",
+        "2": "Sus sorpresas tienen signo contrario.",
+        "3": "Los dos sorprenden."
+      }
+    },
+    {
+      "id": "n4-u1-l5-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "statement": "Un dato económico muy malo siempre hace caer la bolsa.",
+      "answer": false,
+      "explanation": "Falso: si se esperaba aún peor, puede subir; y un mal dato puede hacer esperar bajadas de tipos."
+    },
+    {
+      "id": "n4-u1-l5-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "La media de lo que esperan los analistas para un dato se llama ___.",
+      "answers": [["consenso"]],
+      "explanation": "El consenso."
+    },
+    {
+      "id": "n4-u1-l5-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["sesgo-narrativa"],
+      "character": "jefe",
+      "situation": "Un día la bolsa sube «porque el paro baja» y al día siguiente baja «porque el paro baja y eso hará subir los tipos». El jefe de la mesa pregunta qué opinas de esas explicaciones.",
+      "prompt": "¿Qué respondes?",
+      "options": [
+        "Que son historias a posteriori: el mismo dato justifica subidas y bajadas; hay que mirar la sorpresa y las expectativas, no el titular",
+        "Que las dos son ciertas y suficientes",
+        "Que el paro no influye nunca",
+        "Que hay que operar según el último titular"
+      ],
+      "answer": 0,
+      "explanation": "El sesgo de narrativa da sensación de comprensión sin poder de predicción. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Explican cualquier cosa, luego no explican nada.",
+        "2": "Influye, pero según lo esperado.",
+        "3": "Es justo el sesgo."
+      }
+    }
+  ],
+  "realWorld": "Las agendas económicas de los medios financieros muestran cada dato con su consenso y su valor anterior; el BCE publica su calendario de reuniones con un año de antelación. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo (IPCA)",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

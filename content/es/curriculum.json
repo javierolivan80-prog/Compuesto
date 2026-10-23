@@ -163,7 +163,13 @@
       "rank": "Asociado",
       "floor": 3,
       "weeks": "Semanas 23–29",
-      "units": []
+      "units": [
+        {
+          "id": "n4-u1",
+          "name": "Los datos que mueven el mercado",
+          "concepts": ["ipc", "pib", "paro-pmi", "calendario-macro", "sesgo-narrativa"]
+        }
+      ]
     },
     {
       "level": 5,

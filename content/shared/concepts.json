@@ -949,25 +949,33 @@
     "id": "pib",
     "name": "PIB",
     "level": 4,
-    "prerequisites": ["porcentajes"]
+    "prerequisites": ["porcentajes"],
+    "unit": "n4-u1",
+    "description": "Valor de lo producido en un periodo: consumo + inversión + gasto público + exportaciones − importaciones. Se publica cada trimestre; el real descuenta los precios. Dos trimestres seguidos de caída: recesión técnica."
   },
   {
     "id": "ipc",
     "name": "IPC e inflación",
     "level": 4,
-    "prerequisites": ["inflacion"]
+    "prerequisites": ["inflacion"],
+    "unit": "n4-u1",
+    "description": "El IPC mide el precio de una cesta de consumo; la inflación es su variación interanual. La subyacente quita energía y alimentos no elaborados; el BCE mira el IPCA, con un objetivo del 2 % a medio plazo."
   },
   {
     "id": "paro-pmi",
     "name": "Paro y PMI",
     "level": 4,
-    "prerequisites": ["pib"]
+    "prerequisites": ["pib"],
+    "unit": "n4-u1",
+    "description": "Tasa de paro = parados / activos (EPA del INE; el paro registrado del SEPE es otra medida). El PMI es una encuesta a empresas: por encima de 50, expansión; por debajo, contracción."
   },
   {
     "id": "calendario-macro",
     "name": "Calendario macro",
     "level": 4,
-    "prerequisites": ["pib", "ipc"]
+    "prerequisites": ["pib", "ipc"],
+    "unit": "n4-u1",
+    "description": "Agenda de datos y reuniones de bancos centrales. Cada dato tiene un consenso, que ya está en el precio: el mercado reacciona a la sorpresa, no al nivel."
   },
   {
     "id": "bce",
@@ -1093,7 +1101,9 @@
     "id": "sesgo-narrativa",
     "name": "Sesgo de narrativa",
     "level": 4,
-    "prerequisites": ["anclaje"]
+    "prerequisites": ["anclaje"],
+    "unit": "n4-u1",
+    "description": "Tomar por causa segura una historia contada a posteriori; el mismo dato sirve para justificar subidas y bajadas."
   },
   {
     "id": "libro-ordenes",

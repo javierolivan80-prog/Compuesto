@@ -772,3 +772,17 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Revisión:** el revisor buscó, además de exactitud, que el texto de la primera fase no revele ninguna respuesta de la segunda y que la segunda tenga un nivel comparable. Con eso se rehicieron varias preguntas.
 - **`normalizeText`:** ignora los puntos de las siglas («O.P.V.» = «OPV») y un artículo inicial («el confirming» = «confirming»). Los puntos entre cifras no se tocan. Así no hace falta enumerar estas variantes en cada `fill_blank`.
 - **Generadores:** los antiguos (`/tmp/claude-0/gen/n*.py`) ya no sobrescriben un banco de versión ≥ 2. Los bancos nuevos salen de `salto_n0.py` a `salto_n3.py`.
+
+## 2026-10-23 — Unidad `n4-u1` «Los datos que mueven el mercado» y juego «El día del dato»
+
+- **Planta 3:** empieza con seis lecciones:
+  - el juego, con ficha en `docs/specs/dia-del-dato.md`;
+  - IPC e inflación (subyacente, IPCA, efecto base);
+  - PIB (real y nominal, anualizado, componentes, recesión técnica);
+  - empleo y PMI (EPA frente a paro registrado, tasas);
+  - calendario y sorpresas, con el explicador nuevo `DataSurprise`;
+  - el Jefe final.
+- **Conceptos:** `ipc`, `pib`, `paro-pmi`, `calendario-macro` y `sesgo-narrativa`.
+- **Bloom de N4:** el nivel exige ≥ 50 % de aplicar o analizar, y la unidad lleva 33/50.
+- **Test de salto:** nace con 12 preguntas, 7 de ellas de producir.
+- **Cifras de la economía:** son ficticias. Las fuentes (INE, SEPE, BCE) cubren definiciones y metodología, con `verificarAntesDe` 2027-06-30.

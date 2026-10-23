@@ -14,6 +14,13 @@ import { mean as luckMean, setupLuck } from '../src/engine/games/luck-or-skill';
 import { dollars, rightCompare, setupFx } from '../src/engine/games/fx-trip';
 import { interest, loan, setupRepo } from '../src/engine/games/repo-night';
 import {
+  rateOptions,
+  rightCycle,
+  setupMacro,
+  unemploymentRate,
+  yoy,
+} from '../src/engine/games/macro-day';
+import {
   futurePnl,
   minDividend,
   PRODUCTS,
@@ -88,6 +95,26 @@ export async function playGameLesson(
     const sign = pnl > 0 ? '\\+' : pnl < 0 ? '−' : '';
     await page
       .getByRole('radio', { name: new RegExp(`^${sign}${num(Math.abs(pnl))}\\s€$`) })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'macro-day') {
+    // referencia 0: la inflación interanual, la sorpresa, el PMI y el paro
+    await expect(page.getByRole('heading', { name: 'El día del dato' })).toBeVisible();
+    const setup = setupMacro(seed);
+    const p1 = (v: number) => formatNumber(v, 1).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${p1(yoy(setup))}\\s%$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: 'Sube' }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: rightCycle(setup) === 'expansion' ? 'Está en expansión' : 'Está en contracción',
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    expect(rateOptions(setup)).toContain(unemploymentRate(setup));
+    await page
+      .getByRole('radio', { name: new RegExp(`^${p1(unemploymentRate(setup))}\\s%$`) })
       .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {

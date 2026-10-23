@@ -1,0 +1,246 @@
+{
+  "id": "n4-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 1,
+  "title": "IPC e inflación",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la inflación interanual y su efecto en precios",
+    "Distinguir inflación general, subyacente y armonizada"
+  ],
+  "concepts": ["ipc"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "IPC",
+      "text": "El INE publica cada mes el IPC: el precio de una cesta de bienes y servicios que compra un hogar medio. La inflación es su variación interanual: hoy frente al mismo mes del año anterior."
+    },
+    {
+      "type": "card",
+      "term": "Subyacente y armonizado",
+      "text": "La inflación subyacente quita los alimentos no elaborados y la energía, muy volátiles: muestra la tendencia. El IPC armonizado (IPCA) usa la misma metodología en toda la zona euro; es el que mira el BCE, cuyo objetivo es el 2 % a medio plazo."
+    },
+    {
+      "type": "card",
+      "term": "Efecto base",
+      "text": "Si hace un año los precios saltaron, la tasa interanual de hoy puede bajar aunque los precios sigan subiendo: se compara con un mes que ya estaba alto."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u1-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "El IPC estaba en {p0} hace un año y hoy está en {p1}. ¿Cuál es la inflación interanual? (%, 1 decimal)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 2,
+      "answerDecimals": 1,
+      "formula": "({p1} / {p0} - 1) * 100",
+      "explanation": "({p1} / {p0} − 1) × 100 = {v} %.",
+      "params": {
+        "p0": {
+          "value": 105,
+          "min": 100,
+          "max": 130,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 3,
+          "min": -1,
+          "max": 8,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} * (1 + {g} / 100)",
+          "decimals": 1
+        },
+        "v": {
+          "formula": "({p1} / {p0} - 1) * 100",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "Una cesta costaba {c} € hace un año y la inflación interanual es del {i} %. ¿Cuánto cuesta hoy? (€, 2 decimales)",
+      "answer": 206,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} * (1 + {i} / 100)",
+      "explanation": "{c} × (1 + {i} %) = {v} €.",
+      "params": {
+        "c": {
+          "value": 200,
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "decimals": 0
+        },
+        "i": {
+          "value": 3,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c} * (1 + {i} / 100)",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "Los precios suben un 0,3 % cada mes durante un año. ¿Cuál es la inflación interanual? (%, 2 decimales)",
+      "answer": 3.66,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1.003^12 - 1) * 100",
+      "explanation": "1,003¹² − 1 = 3,66 %: los aumentos mensuales se acumulan."
+    },
+    {
+      "id": "n4-u1-l2-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "¿Entra en la inflación subyacente?",
+      "categories": ["Sí", "No"],
+      "items": [
+        {
+          "text": "La electricidad",
+          "category": "No"
+        },
+        {
+          "text": "La gasolina",
+          "category": "No"
+        },
+        {
+          "text": "Un corte de pelo",
+          "category": "Sí"
+        },
+        {
+          "text": "La fruta fresca",
+          "category": "No"
+        },
+        {
+          "text": "Un menú en un restaurante",
+          "category": "Sí"
+        }
+      ],
+      "explanation": "La subyacente quita la energía y los alimentos no elaborados."
+    },
+    {
+      "id": "n4-u1-l2-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "Hace un año la energía se disparó y la inflación saltó del 2 % al 6 %. Este año los precios suben a un ritmo normal. ¿Qué pasará con la tasa interanual cuando se cumpla el año del salto?",
+      "options": [
+        "Bajará con fuerza: el mes con el que se compara ya estaba alto",
+        "Subirá otra vez",
+        "Seguirá en el 6 %",
+        "Será negativa seguro"
+      ],
+      "answer": 0,
+      "explanation": "Es el efecto base.",
+      "wrongExplanations": {
+        "1": "Se compara con un mes caro.",
+        "2": "El salto ya no está en la comparación.",
+        "3": "Puede bajar mucho sin llegar a ser negativa."
+      }
+    },
+    {
+      "id": "n4-u1-l2-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ipc"],
+      "statement": "El objetivo de inflación del BCE es el 2 % a medio plazo, medido con el IPC armonizado de la zona euro.",
+      "answer": true,
+      "explanation": "Verdadero: un objetivo simétrico del 2 % a medio plazo."
+    },
+    {
+      "id": "n4-u1-l2-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "La inflación sin alimentos no elaborados ni energía se llama inflación ___.",
+      "answers": [["subyacente"]],
+      "explanation": "Subyacente."
+    },
+    {
+      "id": "n4-u1-l2-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "character": "mentora",
+      "situation": "La inflación baja del 5 % al 3 %. Un amigo dice: «¡Por fin bajan los precios!».",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que los precios siguen subiendo, solo que más despacio; bajarían con inflación negativa",
+        "Que tiene razón",
+        "Que los precios bajan un 2 %",
+        "Que el IPC ya no se publica"
+      ],
+      "answer": 0,
+      "explanation": "Menos inflación es desinflación, no deflación. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Siguen subiendo, un 3 %.",
+        "2": "Lo que baja es el ritmo de subida.",
+        "3": "Se publica cada mes."
+      }
+    }
+  ],
+  "realWorld": "Cada mes el INE adelanta el IPC al final del mes y publica el dato definitivo a mediados del siguiente, con la inflación general y la subyacente. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "INE, Índice de Precios de Consumo (IPC) e IPC armonizado: metodología e inflación subyacente",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "BCE, estrategia de política monetaria: objetivo de inflación del 2 % a medio plazo (IPCA)",
+      "url": "https://www.ecb.europa.eu/mopo/strategy/html/index.es.html",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

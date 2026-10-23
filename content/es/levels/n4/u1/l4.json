@@ -1,0 +1,265 @@
+{
+  "id": "n4-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 1,
+  "title": "Empleo y PMI",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular las tasas de paro y de actividad",
+    "Distinguir EPA y paro registrado y leer el PMI"
+  ],
+  "concepts": ["paro-pmi"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "EPA y paro registrado",
+      "text": "En España hay dos medidas del paro: la EPA del INE, una encuesta trimestral que sigue criterios internacionales, y el paro registrado del SEPE, mensual, que cuenta a los inscritos como demandantes de empleo. No coinciden."
+    },
+    {
+      "type": "card",
+      "term": "Las tasas",
+      "text": "Tasa de paro = parados / población activa (ocupados + parados). Tasa de actividad = activos / población de 16 años o más. Quien no trabaja ni busca empleo no es parado: es inactivo."
+    },
+    {
+      "type": "card",
+      "term": "PMI",
+      "text": "El PMI es una encuesta a los gerentes de compras de las empresas. Por encima de 50, la mayoría ve mejorar la actividad (expansión); por debajo, empeorar (contracción). Sale a principios de mes, antes que el PIB, y por eso se mira mucho."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u1-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "Hay {o} millones de ocupados y {p} millones de parados. ¿Cuál es la tasa de paro? (%, 2 decimales)",
+      "answer": 12.32,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{p} / ({o} + {p}) * 100",
+      "explanation": "{p} / ({o} + {p}) = {v} %.",
+      "params": {
+        "o": {
+          "value": 21,
+          "min": 15,
+          "max": 25,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "p": {
+          "value": 2.95,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{p} / ({o} + {p}) * 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "Hay {a} millones de activos y {pob} millones de personas de 16 años o más. ¿Cuál es la tasa de actividad? (%, 1 decimal)",
+      "answer": 58.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{a} / {pob} * 100",
+      "explanation": "{a} / {pob} = {v} %.",
+      "params": {
+        "a": {
+          "value": 24,
+          "min": 15,
+          "max": 30,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "pob": {
+          "value": 41,
+          "min": 30,
+          "max": 50,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{a} / {pob} * 100",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "La tasa de paro es del {t} % y hay {a} millones de activos. ¿Cuántos millones de parados hay? (millones, 2 decimales)",
+      "answer": 2.76,
+      "unit": "millones",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{t} / 100 * {a}",
+      "explanation": "{t} % de {a} = {v} millones.",
+      "params": {
+        "t": {
+          "value": 11.5,
+          "min": 5,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "a": {
+          "value": 24,
+          "min": 15,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{t} / 100 * {a}",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "Según la EPA, ¿ocupado, parado o inactivo?",
+      "categories": ["Ocupado", "Parado", "Inactivo"],
+      "items": [
+        {
+          "text": "Trabaja 10 horas a la semana",
+          "category": "Ocupado"
+        },
+        {
+          "text": "No trabaja y busca empleo activamente",
+          "category": "Parado"
+        },
+        {
+          "text": "Estudia y no busca empleo",
+          "category": "Inactivo"
+        },
+        {
+          "text": "Está jubilado",
+          "category": "Inactivo"
+        }
+      ],
+      "explanation": "Ocupado: trabaja; parado: no trabaja y busca; inactivo: ni trabaja ni busca."
+    },
+    {
+      "id": "n4-u1-l4-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "El PMI pasa de 47 a 49. ¿Qué indica?",
+      "options": [
+        "La industria sigue en contracción, pero menos intensa",
+        "La industria ya crece",
+        "La industria cae más deprisa",
+        "Nada: el PMI no mide la actividad"
+      ],
+      "answer": 0,
+      "explanation": "Por debajo de 50 sigue contrayéndose; acercarse a 50 es contraerse menos.",
+      "wrongExplanations": {
+        "1": "Para crecer tendría que superar 50.",
+        "2": "Al revés: se acerca a 50.",
+        "3": "Es una encuesta de actividad."
+      }
+    },
+    {
+      "id": "n4-u1-l4-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "statement": "El paro registrado y el paro de la EPA son la misma cifra medida de dos formas.",
+      "answer": false,
+      "explanation": "Falso: miden cosas distintas y no coinciden."
+    },
+    {
+      "id": "n4-u1-l4-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "En la EPA, una persona que no trabaja ni busca empleo es ___.",
+      "answers": [["inactiva", "inactivo"]],
+      "explanation": "Inactiva."
+    },
+    {
+      "id": "n4-u1-l4-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "character": "mentora",
+      "situation": "La tasa de paro baja de un trimestre a otro, pero también baja el número de ocupados.",
+      "prompt": "¿Cómo puede ser?",
+      "options": [
+        "Porque hay menos activos: gente que deja de buscar empleo sale del paro sin encontrar trabajo",
+        "Porque se ha creado mucho empleo",
+        "Es imposible",
+        "Porque los parados cuentan como ocupados"
+      ],
+      "answer": 0,
+      "explanation": "La tasa puede bajar porque el denominador y los parados caen. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Los ocupados bajan.",
+        "2": "Pasa cuando cae la población activa.",
+        "3": "Son categorías distintas."
+      }
+    }
+  ],
+  "realWorld": "El INE publica la EPA cada trimestre y el SEPE el paro registrado a principios de cada mes; en EE. UU., el informe de empleo sale normalmente el primer viernes del mes. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "INE, Encuesta de Población Activa (EPA): definiciones de ocupado, parado e inactivo",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "SEPE, estadística de paro registrado",
+      "url": "https://www.sepe.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

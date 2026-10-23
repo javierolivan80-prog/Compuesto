@@ -1,0 +1,252 @@
+{
+  "id": "n4-u1-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 1,
+  "title": "PIB y crecimiento",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el crecimiento real y anualizado",
+    "Interpretar las tasas trimestral e interanual y los componentes del PIB"
+  ],
+  "concepts": ["pib"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "PIB",
+      "text": "El PIB mide el valor de lo que produce un país en un periodo. Por el lado del gasto: consumo + inversión + gasto público + exportaciones − importaciones. El INE lo publica cada trimestre: tasa trimestral (frente al anterior) e interanual (frente al mismo trimestre del año pasado)."
+    },
+    {
+      "type": "card",
+      "term": "Real y nominal",
+      "text": "El PIB nominal está a precios de cada año; el real quita la subida de precios (el deflactor). Si el nominal crece un 5 % y los precios un 3 %, el real crece aproximadamente un 2 %."
+    },
+    {
+      "type": "card",
+      "term": "Recesión técnica",
+      "text": "Dos trimestres seguidos de caída del PIB real se suelen llamar recesión técnica. Es una regla práctica, no una definición oficial."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u1-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "El PIB nominal crece un {n} % y el deflactor (los precios) un {d} %. ¿Cuánto crece aproximadamente el PIB real? (%, 1 decimal)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 3,
+      "answerDecimals": 1,
+      "formula": "{n} - {d}",
+      "explanation": "{n} − {d} = {v} %.",
+      "params": {
+        "n": {
+          "value": 5,
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "d": {
+          "value": 3,
+          "min": 0,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{n} - {d}",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "El PIB real fue de {a} miles de millones de € el año pasado y de {b} este año. ¿Cuánto ha crecido? (%, 1 decimal)",
+      "answer": 2.5,
+      "unit": "%",
+      "tolerance": 2,
+      "answerDecimals": 1,
+      "formula": "({b} / {a} - 1) * 100",
+      "explanation": "{b} / {a} − 1 = {v} %.",
+      "params": {
+        "a": {
+          "value": 1200,
+          "min": 800,
+          "max": 1600,
+          "step": 10,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2.5,
+          "min": -3,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{a} * (1 + {g} / 100)",
+          "decimals": 0
+        },
+        "v": {
+          "formula": "({b} / {a} - 1) * 100",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "El PIB crece un {q} % en un trimestre. Si creciera igual cuatro trimestres seguidos, ¿cuánto crecería en el año? (%, 2 decimales)",
+      "answer": 2.02,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "((1 + {q} / 100)^4 - 1) * 100",
+      "explanation": "(1 + {q} %)⁴ − 1 = {v} %.",
+      "params": {
+        "q": {
+          "value": 0.5,
+          "min": 0.1,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "((1 + {q} / 100)^4 - 1) * 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l3-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "Por el lado del gasto, ¿suma o resta en el PIB?",
+      "categories": ["Suma", "Resta"],
+      "items": [
+        {
+          "text": "El consumo de los hogares",
+          "category": "Suma"
+        },
+        {
+          "text": "La inversión de las empresas",
+          "category": "Suma"
+        },
+        {
+          "text": "Las importaciones",
+          "category": "Resta"
+        },
+        {
+          "text": "Las exportaciones",
+          "category": "Suma"
+        }
+      ],
+      "explanation": "PIB = C + I + G + X − M."
+    },
+    {
+      "id": "n4-u1-l3-e5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "El PIB real cae un 0,2 % en un trimestre y un 0,1 % en el siguiente. ¿Cómo se suele llamar?",
+      "options": ["Recesión técnica", "Expansión", "Estancamiento con crecimiento", "Inflación"],
+      "answer": 0,
+      "explanation": "Dos trimestres seguidos de caída.",
+      "wrongExplanations": {
+        "1": "El PIB cae.",
+        "2": "No crece: cae.",
+        "3": "La inflación son los precios, no la producción."
+      }
+    },
+    {
+      "id": "n4-u1-l3-e6",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pib"],
+      "statement": "Si el PIB nominal crece un 4 % y los precios un 5 %, la economía produce más que el año anterior.",
+      "answer": false,
+      "explanation": "Falso: el PIB real cae alrededor de un 1 %."
+    },
+    {
+      "id": "n4-u1-l3-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["pib"],
+      "prompt": "Dos trimestres seguidos de caída del PIB real se suelen llamar recesión ___.",
+      "answers": [["técnica"]],
+      "explanation": "Técnica."
+    },
+    {
+      "id": "n4-u1-l3-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pib"],
+      "character": "rival",
+      "situation": "Las importaciones suben y un titular dice que «las importaciones restan al PIB, así que son malas para la economía».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que se restan porque ya están contadas en el consumo y la inversión: no significan que el país produzca menos",
+        "Que es cierto: importar siempre empobrece",
+        "Que las importaciones suman al PIB",
+        "Que el PIB no tiene en cuenta el comercio exterior"
+      ],
+      "answer": 0,
+      "explanation": "La resta evita contar dos veces lo producido fuera. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Comprar fuera no reduce lo producido dentro.",
+        "2": "Se restan.",
+        "3": "Sí lo tiene: exportaciones menos importaciones."
+      }
+    }
+  ],
+  "realWorld": "El INE publica un avance del PIB al mes de terminar cada trimestre y lo revisa después: las revisiones también mueven el mercado. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "INE, Contabilidad Nacional Trimestral de España (PIB)",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

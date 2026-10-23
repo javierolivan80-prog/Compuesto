@@ -1,0 +1,300 @@
+{
+  "id": "n4-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: el día del dato",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la inflación interanual y la tasa de paro",
+    "Leer la sorpresa de un dato frente al consenso y el PMI"
+  ],
+  "concepts": ["ipc", "calendario-macro", "paro-pmi"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "macro-day",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Inflación interanual",
+      "text": "El índice de precios pasó de {cpi_prev} a {cpi_now} en un año: ({cpi_now} / {cpi_prev} − 1) × 100 = {cpi_yoy} %. Siempre se compara con el mismo mes del año anterior; restar los puntos del índice no da un porcentaje."
+    },
+    {
+      "type": "card",
+      "term": "La sorpresa",
+      "text": "El consenso esperaba un {consensus} %: la sorpresa fue de {surprise} puntos. Los precios se mueven por lo que no se esperaba: una inflación por encima del consenso hace subir la rentabilidad de los bonos cortos, y una por debajo, bajar."
+    },
+    {
+      "type": "card",
+      "term": "PMI y paro",
+      "text": "El PMI fue {pmi}: por encima de 50, expansión; por debajo, contracción. Con {unemployed} millones de parados y {active} millones de activos, la tasa de paro es del {unemployment_rate} %: se calcula sobre los activos, no sobre los ocupados."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u1-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "El índice de precios estaba en {cpi_prev} hace un año y la inflación interanual es del {cpi_yoy} %. ¿En cuánto está hoy el índice? (1 decimal)",
+      "answer": 115.6,
+      "unit": "puntos",
+      "tolerance": 0.05,
+      "answerDecimals": 1,
+      "formula": "{cpi_prev} * (1 + {cpi_yoy} / 100)",
+      "explanation": "{cpi_prev} × (1 + {cpi_yoy} %) = {v}.",
+      "params": {
+        "cpi_prev": {
+          "value": 112,
+          "min": 100,
+          "max": 120,
+          "step": 1,
+          "decimals": 0
+        },
+        "cpi_yoy": {
+          "value": 3.2,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{cpi_prev} * (1 + {cpi_yoy} / 100)",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ipc"],
+      "prompt": "Un índice de precios estaba en {p0} hace un año y hoy está en {p1}. ¿Cuál es la inflación interanual? (%, 1 decimal)",
+      "answer": 2.5,
+      "unit": "%",
+      "tolerance": 2,
+      "answerDecimals": 1,
+      "formula": "({p1} / {p0} - 1) * 100",
+      "explanation": "({p1} / {p0} − 1) × 100 = {v} %.",
+      "params": {
+        "p0": {
+          "value": 110,
+          "min": 100,
+          "max": 130,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 2.5,
+          "min": -1,
+          "max": 8,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} * (1 + {g} / 100)",
+          "decimals": 1
+        },
+        "v": {
+          "formula": "({p1} / {p0} - 1) * 100",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro"],
+      "prompt": "El dato de inflación sale en el {cpi_yoy} % y el consenso esperaba un {consensus} %. ¿De cuántos puntos es la sorpresa (positiva si sale por encima)? (puntos, 1 decimal)",
+      "answer": 0.3,
+      "unit": "puntos",
+      "tolerance": 1,
+      "answerDecimals": 1,
+      "formula": "{cpi_yoy} - {consensus}",
+      "explanation": "{cpi_yoy} − {consensus} = {v} puntos.",
+      "params": {
+        "cpi_yoy": {
+          "value": 3.2,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "consensus": {
+          "value": 2.9,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{cpi_yoy} - {consensus}",
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "Hay {active} millones de personas activas y {unemployed} millones en paro. ¿Cuál es la tasa de paro? (%, 2 decimales)",
+      "answer": 11.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{unemployed} / {active} * 100",
+      "explanation": "{unemployed} / {active} = {v} %.",
+      "params": {
+        "active": {
+          "value": 24,
+          "min": 15,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "unemployed": {
+          "value": 2.76,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.01,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{unemployed} / {active} * 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u1-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "¿Qué dice cada lectura del PMI?",
+      "categories": ["Expansión", "Contracción"],
+      "items": [
+        {
+          "text": "52,3",
+          "category": "Expansión"
+        },
+        {
+          "text": "49,1",
+          "category": "Contracción"
+        },
+        {
+          "text": "50,8",
+          "category": "Expansión"
+        },
+        {
+          "text": "47,0",
+          "category": "Contracción"
+        }
+      ],
+      "explanation": "Por encima de 50, expansión; por debajo, contracción."
+    },
+    {
+      "id": "n4-u1-l1-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["calendario-macro", "ipc"],
+      "prompt": "La inflación sale en el 3 %, por encima del objetivo del 2 % del BCE, pero el consenso esperaba un 3,4 %. ¿Qué suele hacer la rentabilidad del bono a 2 años al publicarse?",
+      "options": [
+        "Bajar: el dato sale por debajo de lo esperado",
+        "Subir: la inflación está por encima del objetivo",
+        "No moverse nunca",
+        "Subir: cualquier inflación sube los tipos"
+      ],
+      "answer": 0,
+      "explanation": "Lo que mueve el precio es la sorpresa: −0,4 puntos frente al consenso.",
+      "wrongExplanations": {
+        "1": "El 3 % ya se esperaba (incluso más): eso ya estaba en el precio.",
+        "2": "Se mueve con la sorpresa.",
+        "3": "Depende de la sorpresa, no del nivel."
+      }
+    },
+    {
+      "id": "n4-u1-l1-e7",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "recordar",
+      "tags": [],
+      "concepts": ["paro-pmi"],
+      "prompt": "En el PMI, el valor que separa la expansión de la contracción es ___.",
+      "answers": [["50", "cincuenta"]],
+      "explanation": "50."
+    },
+    {
+      "id": "n4-u1-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["sesgo-narrativa"],
+      "character": "rival",
+      "situation": "La bolsa cae un 1 % el día del IPC y un titular dice «la bolsa cae por el miedo a la inflación». Tu compañero becario lo da por hecho.",
+      "prompt": "¿Qué le dices?",
+      "options": [
+        "Que es una explicación a posteriori: ese día influyen muchas cosas y el titular elige la historia que encaja",
+        "Que tiene razón: el titular lo explica",
+        "Que la bolsa nunca reacciona a la inflación",
+        "Que el IPC siempre hace caer la bolsa"
+      ],
+      "answer": 0,
+      "explanation": "Es el sesgo de narrativa: tomar una historia que encaja por la causa segura. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+      "wrongExplanations": {
+        "1": "Encajar no es demostrar.",
+        "2": "Puede reaccionar, pero no siempre ni solo por eso.",
+        "3": "Depende de la sorpresa y de mucho más."
+      }
+    }
+  ],
+  "realWorld": "Los datos de España los publica el INE; los de la zona euro, Eurostat; y el BCE explica sus decisiones en su web. Cualquier agenda económica muestra el dato, el consenso y el anterior. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (indicadores macroeconómicos y ciclo)",
+      "url": "https://www.cfainstitute.org/programs/cfa-program",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Índice de Precios de Consumo (IPC) e IPC armonizado: metodología e inflación subyacente",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "INE, Encuesta de Población Activa (EPA): definiciones de ocupado, parado e inactivo",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-23"
+}

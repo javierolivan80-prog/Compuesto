@@ -1,0 +1,206 @@
+{
+  "id": "salto-n4-u1",
+  "unitId": "n4-u1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n4-u1-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["ipc"],
+      "prompt": "El IPC pasa de 120,0 a 123,0 en un año. ¿Inflación interanual? (%, 1 decimal)",
+      "answer": 2.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(123 / 120 - 1) * 100",
+      "explanation": "123 / 120 − 1 = 2,5 %."
+    },
+    {
+      "id": "salto-n4-u1-q2",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ipc"],
+      "prompt": "¿Qué excluye la inflación subyacente?",
+      "options": [
+        "La energía y los alimentos no elaborados",
+        "La vivienda y el transporte",
+        "Los servicios",
+        "Los impuestos"
+      ],
+      "answer": 0,
+      "explanation": "Los componentes más volátiles.",
+      "wrongExplanations": {
+        "1": "Se incluyen.",
+        "2": "Se incluyen.",
+        "3": "No es lo que se excluye."
+      }
+    },
+    {
+      "id": "salto-n4-u1-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pib"],
+      "prompt": "El PIB nominal crece un 5,5 % y los precios un 3,5 %. ¿Crecimiento real aproximado? (%)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 0,
+      "formula": "5.5 - 3.5",
+      "explanation": "5,5 − 3,5 = 2 %."
+    },
+    {
+      "id": "salto-n4-u1-q4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["pib"],
+      "prompt": "Por el lado del gasto, ¿suma o resta en el PIB?",
+      "categories": ["Suma", "Resta"],
+      "items": [
+        {
+          "text": "El gasto público",
+          "category": "Suma"
+        },
+        {
+          "text": "Las importaciones",
+          "category": "Resta"
+        },
+        {
+          "text": "Las exportaciones",
+          "category": "Suma"
+        }
+      ],
+      "explanation": "PIB = C + I + G + X − M."
+    },
+    {
+      "id": "salto-n4-u1-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["paro-pmi"],
+      "prompt": "Hay 18 millones de ocupados y 2 millones de parados. ¿Tasa de paro? (%)",
+      "answer": 10,
+      "unit": "%",
+      "tolerance": 0,
+      "answerDecimals": 0,
+      "formula": "2 / 20 * 100",
+      "explanation": "2 / (18 + 2) = 10 %: sobre los activos."
+    },
+    {
+      "id": "salto-n4-u1-q6",
+      "type": "fill_blank",
+      "difficulty": 2,
+      "bloom": "recordar",
+      "tags": ["test-de-salto"],
+      "concepts": ["paro-pmi"],
+      "prompt": "En el PMI, por debajo de ___ la actividad está en contracción.",
+      "answers": [["50", "cincuenta"]],
+      "explanation": "50."
+    },
+    {
+      "id": "salto-n4-u1-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["calendario-macro"],
+      "prompt": "El consenso espera una inflación del 3 % y sale en el 2,6 %. ¿Qué suele hacer la rentabilidad del bono a 2 años?",
+      "options": ["Bajar", "Subir", "No moverse nunca", "Depende solo del objetivo del BCE"],
+      "answer": 0,
+      "explanation": "Sorpresa a la baja: menos subidas de tipos esperadas.",
+      "wrongExplanations": {
+        "1": "Sale por debajo de lo esperado.",
+        "2": "Reacciona a la sorpresa.",
+        "3": "Manda la sorpresa frente al consenso."
+      }
+    },
+    {
+      "id": "salto-n4-u1-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["sesgo-narrativa"],
+      "statement": "Si un titular explica por qué ha subido la bolsa hoy, esa explicación es la causa demostrada de la subida.",
+      "answer": false,
+      "explanation": "Falso: suelen ser historias a posteriori; es el sesgo de narrativa."
+    },
+    {
+      "id": "salto-n4-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pib"],
+      "prompt": "El PIB crece un 0,6 % en un trimestre. Anualizado, ¿cuánto sería? (%, 2 decimales)",
+      "answer": 2.42,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1.006^4 - 1) * 100",
+      "explanation": "1,006⁴ − 1 = 2,42 %."
+    },
+    {
+      "id": "salto-n4-u1-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["calendario-macro"],
+      "prompt": "Tres analistas esperan un PIB trimestral del 0,3 %, 0,4 % y 0,5 %. ¿Cuál es el consenso? (%, 1 decimal)",
+      "answer": 0.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "(0.3 + 0.4 + 0.5) / 3",
+      "explanation": "La media: 0,4 %."
+    },
+    {
+      "id": "salto-n4-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["paro-pmi"],
+      "prompt": "Según la EPA, una estudiante que no trabaja ni busca empleo es…",
+      "options": ["Inactiva", "Parada", "Ocupada", "Demandante de empleo"],
+      "answer": 0,
+      "explanation": "No está en la población activa.",
+      "wrongExplanations": {
+        "1": "Para ser parada tendría que buscar empleo.",
+        "2": "No trabaja.",
+        "3": "Eso es el paro registrado, si se inscribe."
+      }
+    },
+    {
+      "id": "salto-n4-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["ipc"],
+      "statement": "Si la inflación baja del 4 % al 2 %, los precios bajan.",
+      "answer": false,
+      "explanation": "Falso: siguen subiendo, más despacio."
+    }
+  ],
+  "sources": [
+    {
+      "title": "INE, IPC, Contabilidad Nacional Trimestral y EPA",
+      "url": "https://www.ine.es/",
+      "date": "2026-10-23"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}
