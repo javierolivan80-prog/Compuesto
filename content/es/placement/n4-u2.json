@@ -22,14 +22,18 @@
     },
     {
       "id": "salto-n4-u2-q2",
-      "type": "fill_blank",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["bce"],
-      "prompt": "En su revisión del marco operativo de marzo de 2024, el BCE confirmó que orienta su política con el tipo de la facilidad de ___.",
-      "answers": [["depósito", "deposito"]],
-      "explanation": "La facilidad de depósito."
+      "prompt": "El mercado descontaba una bajada de 25 pb y el BCE baja 50 pb. Con las bajadas en negativo, ¿de cuántos pb es la sorpresa? (pb)",
+      "answer": -25,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "-50 - (-25)",
+      "explanation": "Sorpresa = decisión − lo descontado = −50 − (−25) = −25 pb: más bajada de la esperada."
     },
     {
       "id": "salto-n4-u2-q3",
@@ -56,6 +60,10 @@
         {
           "text": "Fija un rango objetivo para el tipo de los fondos federales",
           "category": "Fed"
+        },
+        {
+          "text": "Orienta su política con el tipo de la facilidad de depósito",
+          "category": "BCE"
         }
       ],
       "explanation": "El BCE mira el IPCA; la Fed, el PCE y además el empleo, y fija un rango para los fondos federales."
@@ -81,14 +89,14 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["qe-qt"],
-      "prompt": "Un bono tiene una duración modificada de 6. Tras un anuncio de QE, su rentabilidad baja 50 pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 1 decimal)",
-      "answer": 3,
-      "unit": "%",
+      "concepts": ["fed"],
+      "prompt": "Una empresa de un país emergente debe 30 millones de $ y el dólar pasa de 15 a 16,5 unidades de moneda local. ¿Cuántos millones más de moneda local necesita para pagar la deuda? (millones)",
+      "answer": 45,
+      "unit": "millones",
       "tolerance": 0.5,
-      "answerDecimals": 1,
-      "formula": "6 * 0.5",
-      "explanation": "6 × 0,50 = 3 %."
+      "answerDecimals": 0,
+      "formula": "30 * (16.5 - 15)",
+      "explanation": "30 × (16,5 − 15) = 45 millones más: un dólar más caro encarece la deuda en dólares."
     },
     {
       "id": "salto-n4-u2-q6",
@@ -187,14 +195,18 @@
     },
     {
       "id": "salto-n4-u2-q12",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
-      "concepts": ["bce"],
-      "statement": "El Consejo de Gobierno del BCE celebra reuniones de política monetaria cada seis semanas.",
-      "answer": true,
-      "explanation": "Verdadero: unas ocho al año, según el calendario que publica el BCE."
+      "concepts": ["qe-qt"],
+      "prompt": "Un bono tiene una duración modificada de 6. Tras un anuncio de QE, su rentabilidad baja 50 pb. Con la aproximación variación del precio ≈ −duración modificada × variación de la rentabilidad, ¿cuánto sube su precio? (%, 1 decimal)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "6 * 0.5",
+      "explanation": "6 × 0,50 = 3 %."
     }
   ],
   "sources": [
