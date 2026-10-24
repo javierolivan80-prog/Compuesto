@@ -1111,7 +1111,7 @@
     "level": 4,
     "prerequisites": ["pd-lgd-ead"],
     "unit": "n4-u6",
-    "description": "Morosidad = dudosos / préstamos; cobertura = provisiones / dudosos. NIIF 9: fase 1, pérdida esperada a 12 meses; fase 2 (aumento significativo del riesgo, presunción de más de 30 días), de toda la vida; fase 3 (impago, más de 90 días), LGD × EAD."
+    "description": "Morosidad = dudosos / préstamos; cobertura = provisiones / dudosos. NIIF 9: fase 1, pérdida esperada a 12 meses; fase 2 (aumento significativo del riesgo, presunción refutable de más de 30 días), de toda la vida; fase 3 (impago, más de 90 días), LGD × EAD."
   },
   {
     "id": "union-bancaria",

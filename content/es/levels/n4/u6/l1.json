@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "La decisión",
-      "text": "El margen anual era del {margin} %: {margin_income} mil € al año. Con la garantía, la LGD bajaba al {lgd_collateral} % y la pérdida esperada, a {el_collateral} mil €. El comité concede si el margen cubre la pérdida esperada, pide la garantía si solo la cubre con ella y, si no, deniega."
+      "text": "El margen anual era del {margin} %: {margin_income} mil € al año. Con la garantía, la LGD bajaba al {lgd_collateral} % y la pérdida esperada, a {el_collateral} mil €. Regla del comité (simplificada; un banco real exige además cubrir el coste de financiarse y del capital): concede si el margen cubre la pérdida esperada; si no, garantía o rechazo."
     },
     {
       "type": "card",
@@ -45,13 +45,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pd-lgd-ead"],
-      "prompt": "Una empresa ficticia pide a Banca Malvarrosa, un banco comercial ficticio, un préstamo con una PD del {pd} % y una LGD del {lgd} %, sin garantía. ¿Qué margen anual mínimo, en % de la exposición, cubriría justo su pérdida esperada? (%, 2 decimales)",
-      "answer": 0.9,
+      "prompt": "Una empresa ficticia pide a Banca Malvarrosa, un banco comercial ficticio, un préstamo con una PD del {pd} % y una LGD del {lgd} %, sin garantía. Si su PD subiera 1 punto, ¿qué margen anual mínimo, en % de la exposición, cubriría justo su pérdida esperada? (%, 2 decimales)",
+      "answer": 1.35,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "{pd} * {lgd} / 100",
-      "explanation": "Pérdida esperada / EAD = PD × LGD = {pd} % × {lgd} % = {answer} %.",
+      "formula": "({pd} + 1) * {lgd} / 100",
+      "explanation": "Pérdida esperada / EAD = PD × LGD = ({pd} % + 1 %) × {lgd} % = {answer} %.",
       "params": {
         "pd": {
           "value": 2,
@@ -76,21 +76,14 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pd-lgd-ead"],
-      "prompt": "Un préstamo ficticio de {ead} mil € tiene una PD del {pd} %. Una garantía baja su LGD del {lgd} % al {lgd_collateral} %. ¿Cuántos miles de € baja su pérdida esperada? (miles de €, 2 decimales)",
-      "answer": 4,
-      "unit": "miles de €",
-      "tolerance": 0.5,
+      "prompt": "Un préstamo ficticio tiene una PD del {pd} % y deja un margen anual del {margin} % de la exposición. ¿Qué LGD con garantía haría que ese margen cubriera justo la pérdida esperada? (%, 2 decimales)",
+      "answer": 40,
+      "unit": "%",
+      "tolerance": 0.3,
       "answerDecimals": 2,
-      "formula": "{pd} * ({lgd} - {lgd_collateral}) * {ead} / 10000",
-      "explanation": "{pd} % × ({lgd} % − {lgd_collateral} %) × {ead} = {answer} mil €: la garantía no toca la PD, solo la LGD.",
+      "formula": "{margin} / {pd} * 100",
+      "explanation": "Margen = PD × LGD, así que LGD = {margin} % / {pd} % = {answer} %: con una garantía que deje la LGD por debajo, el margen cubre la pérdida esperada.",
       "params": {
-        "ead": {
-          "value": 1000,
-          "min": 500,
-          "max": 2000,
-          "step": 100,
-          "decimals": 0
-        },
         "pd": {
           "value": 2,
           "min": 2,
@@ -98,19 +91,12 @@
           "step": 1,
           "decimals": 0
         },
-        "lgd": {
-          "value": 45,
-          "min": 40,
-          "max": 60,
-          "step": 5,
-          "decimals": 0
-        },
-        "lgd_collateral": {
-          "value": 25,
-          "min": 20,
-          "max": 25,
-          "step": 5,
-          "decimals": 0
+        "margin": {
+          "value": 0.8,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "decimals": 1
         }
       }
     },
@@ -196,12 +182,12 @@
       "id": "n4-u6-l1-e5",
       "type": "true_false_swipe",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": [],
       "concepts": ["pd-lgd-ead"],
-      "statement": "Banca Malvarrosa, un banco comercial ficticio, cubre la pérdida esperada de su cartera con capital, y la inesperada con el precio de los préstamos.",
+      "statement": "Si Banca Malvarrosa, un banco comercial ficticio, sube el precio de sus préstamos lo justo para cubrir su pérdida esperada, ya no necesita capital para el riesgo de crédito.",
       "answer": false,
-      "explanation": "Falso: es al revés. La esperada la cubren el precio y las provisiones; la inesperada, la que va más allá de la media, el capital."
+      "explanation": "Falso: el precio y las provisiones cubren la pérdida esperada, la media; el capital hace falta para la pérdida inesperada, la de un año malo."
     },
     {
       "id": "n4-u6-l1-e6",
@@ -234,9 +220,9 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["morosidad-ifrs9"],
-      "statement": "Con la regla de la mesa, un préstamo que sigue al día pasa a fase 2 si su rating ha caído 3 escalones desde que se concedió.",
-      "answer": true,
-      "explanation": "Verdadero: la caída fuerte del rating es una señal de aumento significativo del riesgo, aunque el cliente aún pague."
+      "statement": "Con la regla de la mesa, un préstamo con 20 días de retraso y una caída del rating de 3 escalones desde su concesión está en fase 1.",
+      "answer": false,
+      "explanation": "Falso: está en fase 2. Los 20 días no bastan, pero la caída de 3 escalones sí es un aumento significativo del riesgo."
     },
     {
       "id": "n4-u6-l1-e8",

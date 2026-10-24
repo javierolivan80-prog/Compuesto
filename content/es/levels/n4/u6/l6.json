@@ -51,18 +51,32 @@
     },
     {
       "id": "n4-u6-l6-e3",
-      "type": "numeric_input",
+      "type": "categorize",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pd-lgd-ead"],
-      "prompt": "Una empresa ficticia tiene una línea de crédito de 1.000 mil € y ha dispuesto 600. El banco supone que, antes de impagar, usará el 75 % de lo que le queda. EAD = dispuesto + 75 % × no dispuesto. ¿Cuál es su EAD? (miles de €)",
-      "answer": 900,
-      "unit": "miles de €",
-      "tolerance": 0.5,
-      "answerDecimals": 0,
-      "formula": "600 + 0.75 * (1000 - 600)",
-      "explanation": "600 + 75 % × 400 = 900 mil €."
+      "prompt": "¿Qué cubre cada pérdida: el precio y las provisiones, o el capital?",
+      "categories": ["Precio y provisiones", "Capital"],
+      "items": [
+        {
+          "text": "La media de impagos que se espera de las tarjetas de crédito",
+          "category": "Precio y provisiones"
+        },
+        {
+          "text": "Una ola de impagos de promotoras muy por encima de lo previsto",
+          "category": "Capital"
+        },
+        {
+          "text": "La pérdida esperada a 12 meses de la cartera de pymes",
+          "category": "Precio y provisiones"
+        },
+        {
+          "text": "La caída simultánea de varios grandes clientes en una crisis",
+          "category": "Capital"
+        }
+      ],
+      "explanation": "Lo esperado es un coste que cubren el precio y las provisiones; lo que va más allá de la media lo absorbe el capital."
     },
     {
       "id": "n4-u6-l6-e4",
@@ -101,13 +115,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["morosidad-ifrs9"],
-      "prompt": "Un préstamo ficticio en fase 2 tiene una EAD de 900 mil €, una PD de toda la vida del 10 % y una LGD del 45 %. ¿Qué provisión necesita? (miles de €, 2 decimales)",
-      "answer": 40.5,
+      "prompt": "Un préstamo ficticio en fase 2 tiene una EAD de 1.300 mil €, una PD de toda la vida del 7 % y una LGD del 35 %. ¿Qué provisión necesita? (miles de €, 2 decimales)",
+      "answer": 31.85,
       "unit": "miles de €",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "10 * 45 * 900 / 10000",
-      "explanation": "10 % × 45 % × 900 = 40,5 mil €."
+      "formula": "7 * 35 * 1300 / 10000",
+      "explanation": "7 % × 35 % × 1.300 = 31,85 mil €."
     },
     {
       "id": "n4-u6-l6-e7",

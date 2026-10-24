@@ -33,7 +33,7 @@
     {
       "type": "card",
       "term": "Precio y garantías",
-      "text": "Pérdida esperada = PD × LGD × EAD. Un préstamo bien preciado cobra al menos esa pérdida en su margen, además del coste de financiarse y del capital. Una garantía, como una hipoteca sobre una nave, no cambia la PD: baja la LGD, porque hay más que recuperar."
+      "text": "Pérdida esperada = PD × LGD × EAD. Un préstamo con un precio bien fijado cobra al menos esa pérdida en su margen, además del coste de financiarse y del capital. Una garantía, como una hipoteca sobre una nave, no cambia la PD: baja la LGD, porque hay más que recuperar."
     }
   ],
   "exercises": [

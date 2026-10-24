@@ -140,17 +140,6 @@
     },
     {
       "id": "salto-n4-u6-q8",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["pd-lgd-ead"],
-      "statement": "Una garantía sobre un inmueble baja la probabilidad de impago (PD) de un préstamo.",
-      "answer": false,
-      "explanation": "Falso: baja la pérdida si impaga (LGD), porque hay más que recuperar; la PD depende de la capacidad de pago."
-    },
-    {
-      "id": "salto-n4-u6-q9",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -163,6 +152,17 @@
       "answerDecimals": 2,
       "formula": "960 / 1600 * 100",
       "explanation": "960 / 1.600 = 60 %."
+    },
+    {
+      "id": "salto-n4-u6-q9",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["pd-lgd-ead"],
+      "statement": "Una garantía sobre un inmueble baja la probabilidad de impago (PD) de un préstamo.",
+      "answer": false,
+      "explanation": "Falso: baja la pérdida si impaga (LGD), porque hay más que recuperar; la PD depende de la capacidad de pago."
     },
     {
       "id": "salto-n4-u6-q10",

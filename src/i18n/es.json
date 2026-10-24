@@ -1737,7 +1737,7 @@
     "briefEl": "Comité de riesgos de Banca Malvarrosa, un banco comercial ficticio; el equipo de Albufera Partners asiste como observador. Llega una solicitud de préstamo de una empresa ficticia. Pérdida esperada = PD × LGD × EAD.",
     "askEl": "¿Cuál es la pérdida esperada del préstamo en un año?",
     "whyEl": "{{pd}} × {{lgd}} × {{ead}} = {{v}}. Hacen falta las tres: la probabilidad de que impague, cuánto se perdería si impaga y cuánto se debe.",
-    "briefDecision": "El préstamo dejaría un margen anual del {{margin}} sobre la exposición: {{income}} al año. Con una garantía, la LGD bajaría al {{lgdc}}. Regla del comité: se concede si el margen cubre la pérdida esperada; si solo la cubre con la garantía, se pide la garantía; si ni así, se deniega.",
+    "briefDecision": "El préstamo dejaría un margen anual del {{margin}} sobre la exposición: {{income}} al año. Con una garantía, la LGD bajaría al {{lgdc}}. Regla del comité, simplificada: se concede si el margen cubre la pérdida esperada; si solo la cubre con la garantía, se pide la garantía; si ni así, se deniega.",
     "askDecision": "¿Qué decide el comité?",
     "decision": {
       "approve": "Concederlo",
