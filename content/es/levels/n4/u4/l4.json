@@ -47,7 +47,7 @@
       "prompt": "El EUR/USD (dólares por euro) está a {s} y los tipos a un año son del {ie} % en euros y del {iu} % en dólares. Por la paridad de tipos cubierta, ¿a cuánto cotiza el forward a un año? (4 decimales)",
       "answer": 1.0958,
       "unit": "dólares por euro",
-      "tolerance": 0.005,
+      "tolerance": 0.01,
       "answerDecimals": 4,
       "formula": "{s} * (1 + {iu} / 100) / (1 + {ie} / 100)",
       "explanation": "{s} × (1 + {iu} %) / (1 + {ie} %) = {answer}.",

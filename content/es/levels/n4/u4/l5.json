@@ -74,7 +74,7 @@
       "prompt": "Un país emergente ficticio tiene {res} miles de millones de $ en reservas de divisas y debe {c} miles de millones de $ a corto plazo (menos de un año). ¿Qué porcentaje de esa deuda cubren sus reservas? (%, 1 decimal)",
       "answer": 62.5,
       "unit": "%",
-      "tolerance": 0.2,
+      "tolerance": 0.3,
       "answerDecimals": 1,
       "formula": "{res} / {c} * 100",
       "explanation": "{res} / {c} × 100 = {answer} %: por debajo de 100 %, no podría pagar todo lo que vence si se cortara la financiación.",

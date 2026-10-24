@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "La balanza",
-      "text": "Acertaste {hits} de 4. La cuenta corriente sumó exportaciones menos importaciones de bienes y servicios ({exports} − {imports}) y las rentas netas ({income}): {current_account} miles de millones. La balanza tiene además la cuenta de capital (transferencias para invertir, como fondos europeos) y la financiera (compras y ventas de activos con el exterior)."
+      "text": "Acertaste {hits} de 4. La cuenta corriente sumó exportaciones menos importaciones de bienes y servicios ({exports} − {imports}) y las rentas netas ({income}): {current_account} miles de millones. La balanza tiene además la cuenta de capital (transferencias de capital) y la financiera (operaciones con activos y pasivos frente al exterior)."
     },
     {
       "type": "card",
@@ -88,7 +88,7 @@
           "category": "Cuenta corriente"
         },
         {
-          "text": "España recibe fondos europeos para construir una carretera",
+          "text": "Otro país condona una deuda a España",
           "category": "Cuenta de capital"
         },
         {
@@ -96,7 +96,7 @@
           "category": "Cuenta financiera"
         }
       ],
-      "explanation": "Turismo (servicios) y dividendos (rentas primarias) van a la cuenta corriente; las transferencias para invertir, a la de capital; la compra de activos, a la financiera."
+      "explanation": "Turismo (servicios) y dividendos (rentas primarias) van a la cuenta corriente; las transferencias de capital, como una condonación de deuda, a la de capital; la compra de activos, a la financiera."
     },
     {
       "id": "n4-u4-l1-e3",
@@ -195,13 +195,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ppa-pti"],
-      "prompt": "Un fondo se financia al {i_fund} % e invierte en una divisa emergente ficticia al {i_high} %. Si esa divisa se depreciara solo la mitad de un {depreciation} %, ¿qué rentabilidad aproximada obtendría? Aproximación: tipo de inversión − tipo de financiación − depreciación. (%, 2 decimales)",
+      "prompt": "Un fondo se financia al {i_fund} % e invierte en una divisa emergente ficticia al {i_high} %. Si esa divisa se depreciara un {half} %, la mitad de un {depreciation} %, ¿qué rentabilidad aproximada obtendría? Aproximación: tipo de inversión − tipo de financiación − depreciación. (%, 2 decimales)",
       "answer": 2.75,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "{i_high} - {i_fund} - {depreciation} / 2",
-      "explanation": "{i_high} − {i_fund} − {depreciation} / 2 = {answer} %.",
+      "formula": "{i_high} - {i_fund} - {half}",
+      "explanation": "{i_high} − {i_fund} − {half} = {answer} %.",
       "params": {
         "i_high": {
           "value": 10,
@@ -223,6 +223,12 @@
           "max": 13.5,
           "step": 3,
           "decimals": 1
+        }
+      },
+      "derived": {
+        "half": {
+          "formula": "{depreciation} / 2",
+          "decimals": 2
         }
       }
     },
