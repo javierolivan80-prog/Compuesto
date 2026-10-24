@@ -107,7 +107,7 @@
       "tags": [],
       "concepts": ["ppa-pti"],
       "prompt": "El EUR/USD (dólares por euro) está a {s}. Se espera una inflación del {pu} % en EE. UU. y del {pe} % en la zona euro. Con la PPA relativa, EUR/USD esperado = actual × (1 + inflación de EE. UU.) / (1 + inflación de la zona euro), ¿qué EUR/USD se espera dentro de un año? (4 decimales)",
-      "answer": 1.1162,
+      "answer": 1.127,
       "unit": "dólares por euro",
       "tolerance": 0.01,
       "answerDecimals": 4,
@@ -123,15 +123,15 @@
           "fixed": true
         },
         "pu": {
-          "value": 3.5,
-          "min": 2,
+          "value": 4.5,
+          "min": 4,
           "max": 5,
           "step": 0.5,
           "decimals": 1
         },
         "pe": {
           "value": 2,
-          "min": 1,
+          "min": 2,
           "max": 3,
           "step": 0.5,
           "decimals": 1
