@@ -1112,3 +1112,50 @@ test('stress test: captura y axe a 375 px en cada paso y lección completa con t
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('comité de riesgos: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n4-u6-l1');
+  await expect(page.getByRole('heading', { name: 'Comité de riesgos' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('pérdida esperada');
+  await page.getByRole('radio', { name: /^20\smil\s€$/ }).click();
+  await expect(page.getByTestId('cg-why')).toContainText('✗');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('decisión');
+  await page.getByRole('radio', { name: 'Pedir la garantía', exact: true }).click();
+  await expect(page.getByTestId('cg-why')).toContainText('✓');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('fase');
+  await page.getByRole('radio').first().click();
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio').first().click();
+  await scan('provisión');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/comite-riesgos-375.png',
+    fullPage: true,
+  });
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n4-u6-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n4/u6/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});

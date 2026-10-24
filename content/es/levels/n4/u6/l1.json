@@ -1,0 +1,273 @@
+{
+  "id": "n4-u6-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 6,
+  "order": 0,
+  "title": "Juego: el comité de riesgos",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la pérdida esperada de un préstamo y decidir si el margen la cubre",
+    "Clasificar un préstamo en su fase de NIIF 9 y calcular su provisión"
+  ],
+  "concepts": ["pd-lgd-ead", "morosidad-ifrs9"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "risk-committee",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Pérdida esperada",
+      "text": "Acertaste {hits} de 4. La pérdida esperada era {pd} % × {lgd} % × {ead} = {el} mil €: una media de lo que se perderá en un año. La cubren el precio del préstamo y las provisiones; lo que se pierda por encima de esa media, la pérdida inesperada, lo cubre el capital."
+    },
+    {
+      "type": "card",
+      "term": "La decisión",
+      "text": "El margen anual era del {margin} %: {margin_income} mil € al año. Con la garantía, la LGD bajaba al {lgd_collateral} % y la pérdida esperada, a {el_collateral} mil €. El comité concede si el margen cubre la pérdida esperada, pide la garantía si solo la cubre con ella y, si no, deniega."
+    },
+    {
+      "type": "card",
+      "term": "NIIF 9",
+      "text": "El préstamo de la cartera llevaba {days} días de retraso y su rating había caído {notches} escalones: fase {stage}. En fase 1 se provisiona la pérdida esperada a 12 meses; en fase 2, la de toda la vida; en fase 3, LGD × EAD. Provisión: {provision} mil €. La regla de la mesa simplifica la norma."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u6-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Una empresa ficticia pide a Banca Malvarrosa, un banco comercial ficticio, un préstamo con una PD del {pd} % y una LGD del {lgd} %, sin garantía. ¿Qué margen anual mínimo, en % de la exposición, cubriría justo su pérdida esperada? (%, 2 decimales)",
+      "answer": 0.9,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{pd} * {lgd} / 100",
+      "explanation": "Pérdida esperada / EAD = PD × LGD = {pd} % × {lgd} % = {answer} %.",
+      "params": {
+        "pd": {
+          "value": 2,
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        },
+        "lgd": {
+          "value": 45,
+          "min": 40,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un préstamo ficticio de {ead} mil € tiene una PD del {pd} %. Una garantía baja su LGD del {lgd} % al {lgd_collateral} %. ¿Cuántos miles de € baja su pérdida esperada? (miles de €, 2 decimales)",
+      "answer": 4,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{pd} * ({lgd} - {lgd_collateral}) * {ead} / 10000",
+      "explanation": "{pd} % × ({lgd} % − {lgd_collateral} %) × {ead} = {answer} mil €: la garantía no toca la PD, solo la LGD.",
+      "params": {
+        "ead": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "pd": {
+          "value": 2,
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        },
+        "lgd": {
+          "value": 45,
+          "min": 40,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        },
+        "lgd_collateral": {
+          "value": 25,
+          "min": 20,
+          "max": 25,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio de {ead2} mil € tiene una LGD del {lgd2} %, una PD a 12 meses del {pd12} % y una PD de toda la vida del {pd_life} %. ¿Cuántos miles de € sube su provisión si pasa de fase 1 a fase 2? (miles de €, 2 decimales)",
+      "answer": 15.6,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({pd_life} - {pd12}) * {lgd2} * {ead2} / 10000",
+      "explanation": "Fase 2 menos fase 1: ({pd_life} % − {pd12} %) × {lgd2} % × {ead2} = {answer} mil €.",
+      "params": {
+        "ead2": {
+          "value": 600,
+          "min": 400,
+          "max": 1200,
+          "step": 200,
+          "decimals": 0
+        },
+        "pd12": {
+          "value": 1.5,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "pd_life": {
+          "value": 8,
+          "min": 5,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "lgd2": {
+          "value": 40,
+          "min": 35,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l1-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Regla de la mesa (simplificada): más de 90 días de retraso, fase 3; más de 30 días o una caída del rating de 3 escalones o más desde la concesión, fase 2; si no, fase 1. ¿En qué fase está cada préstamo ficticio?",
+      "categories": ["Fase 1", "Fase 2", "Fase 3"],
+      "items": [
+        {
+          "text": "15 días de retraso y el rating igual",
+          "category": "Fase 1"
+        },
+        {
+          "text": "40 días de retraso",
+          "category": "Fase 2"
+        },
+        {
+          "text": "Al día, pero el rating ha caído 4 escalones",
+          "category": "Fase 2"
+        },
+        {
+          "text": "130 días de retraso",
+          "category": "Fase 3"
+        },
+        {
+          "text": "Al día y el rating ha caído 1 escalón",
+          "category": "Fase 1"
+        }
+      ],
+      "explanation": "Más de 90 días, fase 3; más de 30 días o 3 escalones de caída, fase 2; si no, fase 1."
+    },
+    {
+      "id": "n4-u6-l1-e5",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "statement": "Banca Malvarrosa, un banco comercial ficticio, cubre la pérdida esperada de su cartera con capital, y la inesperada con el precio de los préstamos.",
+      "answer": false,
+      "explanation": "Falso: es al revés. La esperada la cubren el precio y las provisiones; la inesperada, la que va más allá de la media, el capital."
+    },
+    {
+      "id": "n4-u6-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "character": "jefe",
+      "situation": "Naranjas del Turia pide a Banca Malvarrosa, un banco comercial ficticio, un préstamo para una nueva planta de zumos y ofrece como garantía su nave de Valencia. El becario rival dice: «Con la garantía, Naranjas del Turia tendrá menos probabilidad de impagar».",
+      "prompt": "¿Qué le responde el jefe de la mesa?",
+      "options": [
+        "Que la garantía no cambia la probabilidad de impago: baja la pérdida si impaga (la LGD), porque el banco podrá ejecutar la nave",
+        "Que tiene razón: toda garantía baja la PD",
+        "Que la garantía sube la exposición del banco",
+        "Que la garantía no influye en la pérdida esperada"
+      ],
+      "answer": 0,
+      "explanation": "La PD depende de la capacidad de pago; la garantía actúa sobre lo que se recupera.",
+      "wrongExplanations": {
+        "1": "La PD depende del negocio y de la capacidad de pago, no de la garantía.",
+        "2": "La exposición es lo que se debe; la garantía no la cambia.",
+        "3": "Sí influye: baja la LGD y, con ella, la pérdida esperada."
+      }
+    },
+    {
+      "id": "n4-u6-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "statement": "Con la regla de la mesa, un préstamo que sigue al día pasa a fase 2 si su rating ha caído 3 escalones desde que se concedió.",
+      "answer": true,
+      "explanation": "Verdadero: la caída fuerte del rating es una señal de aumento significativo del riesgo, aunque el cliente aún pague."
+    },
+    {
+      "id": "n4-u6-l1-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio lleva 120 días de retraso: según la regla de la mesa, está en la fase ___ de NIIF 9.",
+      "answers": [["3", "tres"]],
+      "explanation": "Fase 3: más de 90 días de retraso es impago."
+    }
+  ],
+  "realWorld": "Los bancos cotizados publican en sus cuentas cuántos préstamos tienen en cada fase de NIIF 9 y cuánto han provisionado. Las cifras de los ejemplos son de bancos y empresas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "IFRS Foundation, NIIF 9 Instrumentos financieros: deterioro por pérdida esperada en tres fases (pendiente de verificar la ruta)",
+      "url": "https://www.ifrs.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EBA, definición de impago y riesgo de crédito; informes de riesgo del sector bancario de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (riesgo de crédito) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

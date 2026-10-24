@@ -1,0 +1,291 @@
+{
+  "id": "n4-u6-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 6,
+  "title": "PD, LGD, EAD y pérdida esperada",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la pérdida esperada, la LGD y la EAD de un préstamo",
+    "Explicar qué mueve cada pieza y cómo actúa una garantía"
+  ],
+  "concepts": ["pd-lgd-ead"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Las tres piezas",
+      "text": "PD: probabilidad de que el cliente impague en un año. LGD: parte de la exposición que se pierde si impaga, después de recuperar lo que se pueda (LGD = 1 − tasa de recuperación). EAD: lo que deberá en el momento del impago, incluida la parte que use de sus líneas de crédito."
+    },
+    {
+      "type": "visual",
+      "component": "CreditRisk",
+      "props": {
+        "pd": 3,
+        "lgd": 40,
+        "ead": 2500
+      }
+    },
+    {
+      "type": "card",
+      "term": "Precio y garantías",
+      "text": "Pérdida esperada = PD × LGD × EAD. Un préstamo bien preciado cobra al menos esa pérdida en su margen, además del coste de financiarse y del capital. Una garantía, como una hipoteca sobre una nave, no cambia la PD: baja la LGD, porque hay más que recuperar."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u6-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un préstamo ficticio tiene una PD del {pd} %, una LGD del {lgd} % y una EAD de {ead} mil €. ¿Cuál es su pérdida esperada? (miles de €, 3 decimales)",
+      "answer": 16.875,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "{pd} * {lgd} * {ead} / 10000",
+      "explanation": "{pd} % × {lgd} % × {ead} = {answer} mil €.",
+      "params": {
+        "pd": {
+          "value": 2.5,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "lgd": {
+          "value": 45,
+          "min": 20,
+          "max": 70,
+          "step": 5,
+          "decimals": 0
+        },
+        "ead": {
+          "value": 1500,
+          "min": 200,
+          "max": 3000,
+          "step": 100,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un cliente ficticio impaga cuando debe {d} mil €. El banco ejecuta la garantía y recupera {r} mil €. ¿Cuál ha sido la LGD? (%, 1 decimal)",
+      "answer": 35,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "({d} - {r}) / {d} * 100",
+      "explanation": "({d} − {r}) / {d} = {answer} %: lo que no se recupera.",
+      "params": {
+        "d": {
+          "value": 800,
+          "min": 400,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "k": {
+          "value": 65,
+          "min": 30,
+          "max": 85,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "r": {
+          "formula": "{d} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Una empresa ficticia tiene una línea de crédito de {l} mil € y ha dispuesto {u} mil €. El banco supone que, antes de impagar, usará el {f} % de lo que le queda por disponer. EAD = dispuesto + {f} % × no dispuesto. ¿Cuál es su EAD? (miles de €)",
+      "answer": 850,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{u} + {f} / 100 * ({l} - {u})",
+      "explanation": "{u} + {f} % × ({l} − {u}) = {answer} mil €.",
+      "params": {
+        "l": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "q": {
+          "value": 70,
+          "min": 40,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        },
+        "f": {
+          "value": 50,
+          "min": 40,
+          "max": 75,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "u": {
+          "formula": "{l} * {q} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un préstamo ficticio a una empresa tiene una PD del {pd} % y una LGD del {lgd} %. ¿Qué margen anual mínimo, en % de la exposición, necesita solo para cubrir su pérdida esperada? (%, 3 decimales)",
+      "answer": 1.2,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "{pd} * {lgd} / 100",
+      "explanation": "PD × LGD = {pd} % × {lgd} % = {answer} %: es el suelo del precio, antes de costes de financiación y de capital.",
+      "params": {
+        "pd": {
+          "value": 3,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "lgd": {
+          "value": 40,
+          "min": 20,
+          "max": 70,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "¿Qué pieza de la pérdida esperada cambia sobre todo en cada caso?",
+      "categories": ["PD", "LGD", "EAD"],
+      "items": [
+        {
+          "text": "El cliente aporta una hipoteca sobre una nave como garantía",
+          "category": "LGD"
+        },
+        {
+          "text": "La economía entra en recesión y las ventas del cliente caen",
+          "category": "PD"
+        },
+        {
+          "text": "El cliente dispone de 200.000 € más de su línea de crédito",
+          "category": "EAD"
+        },
+        {
+          "text": "El rating del cliente baja de BBB a BB",
+          "category": "PD"
+        },
+        {
+          "text": "Bajan los precios de los inmuebles que tiene en garantía",
+          "category": "LGD"
+        }
+      ],
+      "explanation": "La PD sigue a la capacidad de pago; la LGD, a lo que se recuperaría; la EAD, a lo que se debe."
+    },
+    {
+      "id": "n4-u6-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "character": "mentora",
+      "situation": "Dos préstamos ficticios de 1.000 mil €: el A tiene una PD del 1 % y una LGD del 70 %; el B, una PD del 3 % y una LGD del 20 %. El becario rival dice que el B es peor porque «es tres veces más probable que impague».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que el A tiene más pérdida esperada: 1 % × 70 % × 1.000 = 7, frente a 3 % × 20 % × 1.000 = 6; la PD sola no basta",
+        "Que tiene razón: manda la PD",
+        "Que los dos tienen la misma pérdida esperada",
+        "Que la LGD no cuenta si la PD es baja"
+      ],
+      "answer": 0,
+      "explanation": "La pérdida esperada multiplica las tres piezas.",
+      "wrongExplanations": {
+        "1": "La LGD alta del A compensa su PD baja.",
+        "2": "7 frente a 6: no son iguales.",
+        "3": "Cuenta siempre: multiplica a la PD."
+      }
+    },
+    {
+      "id": "n4-u6-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Una garantía hace que el banco recupere más si el cliente impaga. ¿Qué pieza baja?",
+      "options": ["La LGD", "La PD", "La EAD", "Ninguna"],
+      "answer": 0,
+      "explanation": "Más recuperación, menos pérdida si impaga: baja la LGD.",
+      "wrongExplanations": {
+        "1": "La probabilidad de impago no depende de la garantía.",
+        "2": "Lo que se debe no cambia.",
+        "3": "Baja la LGD y, con ella, la pérdida esperada."
+      }
+    },
+    {
+      "id": "n4-u6-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "statement": "Una LGD del 40 % significa que el banco recupera el 40 % de lo prestado si el cliente impaga.",
+      "answer": false,
+      "explanation": "Falso: pierde el 40 % y recupera el 60 %. LGD = 1 − tasa de recuperación."
+    }
+  ],
+  "realWorld": "Los bancos que usan modelos internos estiman la PD, la LGD y la EAD de cada cartera y las publican agregadas en su informe de pilar 3. Las cifras de los ejemplos son de bancos y empresas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "EBA, definición de impago y riesgo de crédito; informes de riesgo del sector bancario de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (riesgo de crédito) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

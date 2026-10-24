@@ -55,6 +55,14 @@ import { ecbValues, extraInterest, rightFx, RIGHT_QE, setupEcb, taylor } from '.
 import { carryReturn, currentAccount, forward, fxDeskValues, setupFxDesk } from './fx-desk';
 import { cet1Ratio, lcr, nii, setupStress, stressedRatio, stressValues } from './stress-test';
 import {
+  committeeValues,
+  expectedLoss,
+  provision,
+  rightDecision,
+  setupCommittee,
+  stageOf,
+} from './risk-committee';
+import {
   nextRatio,
   phaseOf,
   premiumValues,
@@ -119,6 +127,7 @@ export const LESSON_GAMES = [
   'risk-premium',
   'fx-desk',
   'stress-test',
+  'risk-committee',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -534,6 +543,25 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     lcr: [1, 1],
     hits: [0, 0],
   },
+  'risk-committee': {
+    ead: [0, 0],
+    pd: [0, 1],
+    lgd: [0, 0],
+    el: [0, 2],
+    margin: [1, 1],
+    margin_income: [0, 2],
+    lgd_collateral: [0, 0],
+    el_collateral: [0, 2],
+    ead2: [0, 0],
+    pd12: [0, 1],
+    pd_life: [0, 0],
+    lgd2: [0, 0],
+    days: [0, 0],
+    notches: [0, 0],
+    stage: [0, 0],
+    provision: [0, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -839,6 +867,24 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           lcr: lcr(setup),
         }),
         stressValues(setup, { nii: 0, cet1: 0, stressed: 0, lcr: 0 }),
+      ];
+    }
+    case 'risk-committee': {
+      // todo bien, y todo mal
+      const setup = setupCommittee(seed);
+      return [
+        committeeValues(setup, {
+          el: expectedLoss(setup),
+          decision: rightDecision(setup),
+          stage: stageOf(setup),
+          provision: provision(setup),
+        }),
+        committeeValues(setup, {
+          el: 0,
+          decision: rightDecision(setup) === 'approve' ? 'reject' : 'approve',
+          stage: stageOf(setup) === 1 ? 3 : 1,
+          provision: 0,
+        }),
       ];
     }
   }

@@ -91,6 +91,11 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  CreditRisk: z.object({
+    pd: z.number().positive().max(100),
+    lgd: z.number().positive().max(100),
+    ead: z.number().positive(),
+  }),
   Cet1Cushion: z
     .object({
       apr: z.number().positive(),

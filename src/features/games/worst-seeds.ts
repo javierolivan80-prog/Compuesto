@@ -25,6 +25,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'bank-window': 0,
   'macro-day': 0,
   'ecb-meeting': 0,
+  'risk-committee': 295, // solicitud de 2.000 con PD del 4 % y LGD del 60 % denegada; préstamo en fase 3 con provisión de 600
   'stress-test': 383, // préstamos de 24.000 M€ y el CET1 estresado por debajo del 7 % (6,1 %)
   'fx-desk': 203, // exportaciones de 340 con déficit corriente, EUR/USD 1,12 y el país A vulnerable
   'risk-premium': 1453, // recesión con PIB de 1.200, Bund al 2,35 % y la prima más alta (245 pb)

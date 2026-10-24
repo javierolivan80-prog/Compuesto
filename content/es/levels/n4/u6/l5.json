@@ -1,0 +1,252 @@
+{
+  "id": "n4-u6-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 6,
+  "title": "La Unión Bancaria",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar quién supervisa y quién resuelve los bancos de la zona euro",
+    "Calcular qué parte de un depósito cubre el fondo de garantía"
+  ],
+  "concepts": ["union-bancaria"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Supervisión",
+      "text": "La Unión Bancaria de la zona euro tiene un supervisor único, el MUS (en inglés, SSM): el BCE supervisa directamente a los bancos significativos, los grandes, y los supervisores nacionales, como el Banco de España, a los menos significativos, bajo la vigilancia del BCE."
+    },
+    {
+      "type": "card",
+      "term": "Resolución",
+      "text": "Si un banco grande quiebra o va a quebrar, actúa el MUR: la Junta Única de Resolución (JUR) decide cómo resolverlo, primero con pérdidas para accionistas y acreedores (recapitalización interna o bail-in) y, si hace falta, con el Fondo Único de Resolución (FUR), que pagan los propios bancos."
+    },
+    {
+      "type": "card",
+      "term": "Depósitos",
+      "text": "Los depósitos están garantizados hasta 100.000 € por titular y por entidad; en España, por el Fondo de Garantía de Depósitos. Una cuenta con dos titulares se reparte a partes iguales. El tercer pilar, un seguro europeo común (EDIS), sigue pendiente: hoy cada país tiene su propio fondo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u6-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Un cliente ficticio tiene {x} € en depósitos en un solo banco, a su nombre. Si el banco quiebra, ¿cuántos € de sus depósitos no cubre el fondo de garantía? (€)",
+      "answer": 30000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{x} - 100000",
+      "explanation": "{x} − 100.000 = {answer} €: el fondo cubre hasta 100.000 € por titular y entidad.",
+      "params": {
+        "x": {
+          "value": 130000,
+          "min": 110000,
+          "max": 300000,
+          "step": 5000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Una cuenta ficticia con dos titulares tiene {y} € en un solo banco. Si el banco quiebra, ¿cuántos € de la cuenta quedan sin cubrir por el fondo de garantía? (€)",
+      "answer": 60000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{y} - 200000",
+      "explanation": "Cada titular tiene la mitad, {y} / 2, y se cubren 100.000 € por titular: {y} − 200.000 = {answer} €.",
+      "params": {
+        "y": {
+          "value": 260000,
+          "min": 210000,
+          "max": 400000,
+          "step": 10000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Un cliente ficticio tiene {a} € en el banco A y {b} € en el banco B, a su nombre. Si quiebran los dos, ¿cuántos € le cubre en total el fondo de garantía? (€)",
+      "answer": 165000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "100000 + {b}",
+      "explanation": "Se cubre por entidad: 100.000 € en A (de {a}) y los {b} € de B: {answer} €.",
+      "params": {
+        "a": {
+          "value": 140000,
+          "min": 110000,
+          "max": 200000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "b": {
+          "value": 65000,
+          "min": 20000,
+          "max": 95000,
+          "step": 5000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l5-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "¿A qué pieza de la Unión Bancaria corresponde cada función?",
+      "categories": ["MUS", "MUR", "Garantía de depósitos"],
+      "items": [
+        {
+          "text": "El BCE supervisa directamente a los bancos significativos",
+          "category": "MUS"
+        },
+        {
+          "text": "La JUR decide cómo resolver un banco grande que va a quebrar",
+          "category": "MUR"
+        },
+        {
+          "text": "Devolver hasta 100.000 € a cada titular si su banco quiebra",
+          "category": "Garantía de depósitos"
+        },
+        {
+          "text": "El Fondo Único de Resolución, que pagan los bancos",
+          "category": "MUR"
+        },
+        {
+          "text": "El Banco de España supervisa a los bancos menos significativos, bajo la vigilancia del BCE",
+          "category": "MUS"
+        }
+      ],
+      "explanation": "Supervisar (MUS), resolver (MUR) y proteger a los depositantes (fondos nacionales, a la espera del EDIS)."
+    },
+    {
+      "id": "n4-u6-l5-e5",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Banca Malvarrosa, un banco comercial ficticio, es pequeño y no significativo: su supervisor directo es el ___, bajo la vigilancia del BCE.",
+      "answers": [["Banco de España", "BdE"]],
+      "explanation": "El Banco de España: el BCE supervisa directamente solo a los significativos."
+    },
+    {
+      "id": "n4-u6-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "character": "compliance",
+      "situation": "Un banco grande ficticio de la zona euro va a quebrar y la JUR lo resuelve. Un cliente con 60.000 € en una cuenta y 50.000 € en acciones del banco pregunta a la compliance officer de Albufera Partners qué puede perder.",
+      "prompt": "¿Qué le responde?",
+      "options": [
+        "Que sus acciones absorben pérdidas primero y pueden perder todo su valor, mientras que sus 60.000 € de depósito están cubiertos por el fondo de garantía",
+        "Que pierde los depósitos y conserva las acciones",
+        "Que el Estado le devuelve todo, como antes",
+        "Que lo pierde todo, depósitos incluidos"
+      ],
+      "answer": 0,
+      "explanation": "En una resolución pagan primero accionistas y acreedores; los depósitos garantizados están protegidos.",
+      "wrongExplanations": {
+        "1": "Es al revés: los accionistas son los primeros en perder.",
+        "2": "La resolución busca no usar dinero público.",
+        "3": "Los depósitos hasta 100.000 € están garantizados."
+      }
+    },
+    {
+      "id": "n4-u6-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "¿Quién supervisa directamente a un gran banco español considerado significativo?",
+      "options": [
+        "El BCE, dentro del MUS, con equipos en los que participa el Banco de España",
+        "Solo el Banco de España",
+        "La Junta Única de Resolución",
+        "La CNMV"
+      ],
+      "answer": 0,
+      "explanation": "Los significativos los supervisa directamente el BCE, con equipos conjuntos.",
+      "wrongExplanations": {
+        "1": "El Banco de España supervisa directamente a los menos significativos.",
+        "2": "La JUR resuelve; no supervisa.",
+        "3": "La CNMV supervisa los mercados de valores, no la solvencia de los bancos."
+      }
+    },
+    {
+      "id": "n4-u6-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "statement": "La Unión Bancaria ya tiene un seguro europeo de depósitos común (EDIS) que sustituye a los fondos nacionales.",
+      "answer": false,
+      "explanation": "Falso: el EDIS sigue pendiente; hoy cada país tiene su propio fondo de garantía."
+    }
+  ],
+  "realWorld": "El BCE publica la lista de bancos que supervisa directamente; la JUR, sus decisiones de resolución; y el Fondo de Garantía de Depósitos explica qué cubre y cómo reclamar. Las cifras de los ejemplos son de bancos y empresas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, Supervisión Bancaria: el Mecanismo Único de Supervisión y la supervisión directa de los bancos significativos (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Junta Única de Resolución (JUR): el Mecanismo Único de Resolución y el Fondo Único de Resolución (pendiente de verificar la ruta)",
+      "url": "https://www.srb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito: cobertura de 100.000 € por depositante y entidad (pendiente de verificar la ruta)",
+      "url": "https://www.fgd.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Comisión Europea, Unión Bancaria: propuesta de sistema europeo de garantía de depósitos (EDIS) (pendiente de verificar la ruta)",
+      "url": "https://finance.ec.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Banco de España, supervisión de las entidades menos significativas y estadísticas de crédito dudoso (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (riesgo de crédito) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

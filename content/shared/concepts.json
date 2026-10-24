@@ -1101,19 +1101,25 @@
     "id": "pd-lgd-ead",
     "name": "PD, LGD y EAD",
     "level": 4,
-    "prerequisites": ["rating-spread"]
+    "prerequisites": ["rating-spread"],
+    "unit": "n4-u6",
+    "description": "Pérdida esperada = PD (probabilidad de impago) × LGD (pérdida si impaga, 1 − recuperación) × EAD (exposición en el impago). La esperada la cubren el precio y las provisiones; la inesperada, el capital. Una garantía baja la LGD, no la PD."
   },
   {
     "id": "morosidad-ifrs9",
     "name": "Morosidad y provisiones IFRS 9",
     "level": 4,
-    "prerequisites": ["pd-lgd-ead"]
+    "prerequisites": ["pd-lgd-ead"],
+    "unit": "n4-u6",
+    "description": "Morosidad = dudosos / préstamos; cobertura = provisiones / dudosos. NIIF 9: fase 1, pérdida esperada a 12 meses; fase 2 (aumento significativo del riesgo, presunción de más de 30 días), de toda la vida; fase 3 (impago, más de 90 días), LGD × EAD."
   },
   {
     "id": "union-bancaria",
     "name": "Unión Bancaria, MUS y resolución",
     "level": 4,
-    "prerequisites": ["basilea"]
+    "prerequisites": ["basilea"],
+    "unit": "n4-u6",
+    "description": "MUS: el BCE supervisa directamente a los bancos significativos y los nacionales al resto. MUR: la JUR resuelve con bail-in y el Fondo Único de Resolución. Depósitos garantizados hasta 100.000 € por titular y entidad por fondos nacionales; el EDIS sigue pendiente."
   },
   {
     "id": "valorar-bancos",

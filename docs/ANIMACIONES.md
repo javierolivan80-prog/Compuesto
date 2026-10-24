@@ -100,7 +100,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `BankBalance` | Margen de intereses | Depósitos que entran a un tipo y préstamos que salen a otro; la diferencia se acumula | Tipos |
 | `Cet1Cushion` | Solvencia (CET1) | El ratio CET1 como barra frente al pilar 1 (4,5 %) y al 7 % con el colchón de conservación; lo que sobra es el colchón que absorbe pérdidas | Paso a paso (capital) |
 | `BankRun` | Liquidez y pánico bancario | Cola de depositantes que retiran dinero; el LCR aguanta o no | Velocidad de retirada |
-| `CreditRisk` | Pérdida esperada | PD × LGD × EAD como tres capas que se multiplican | Las tres variables |
+| `CreditRisk` | Pérdida esperada | PD × LGD × EAD como tres capas que se multiplican; al final, esperada (precio y provisiones) frente a inesperada (capital) | Paso a paso (las tres variables) |
 | `FxParity` | Paridad de tipos de interés cubierta | Dos divisas en un balancín con los tipos de interés como pesos; invertir en euros o en dólares con el cambio fijado da lo mismo y de ahí sale el forward | Paso a paso (tipos) |
 
 ### Nivel 5 — Trading

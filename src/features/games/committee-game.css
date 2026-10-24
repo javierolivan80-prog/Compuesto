@@ -1,0 +1,9 @@
+/* Comité de riesgos: panel y expedientes. */
+.cg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.cg-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

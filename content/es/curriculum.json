@@ -194,6 +194,11 @@
             "liquidez-lcr-nsfr",
             "test-estres"
           ]
+        },
+        {
+          "id": "n4-u6",
+          "name": "Riesgo de crédito y supervisión",
+          "concepts": ["pd-lgd-ead", "morosidad-ifrs9", "union-bancaria"]
         }
       ]
     },

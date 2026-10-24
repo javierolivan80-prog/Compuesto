@@ -1,0 +1,260 @@
+{
+  "id": "salto-n4-u6",
+  "unitId": "n4-u6",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n4-u6-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un préstamo ficticio tiene una PD del 1,5 %, una LGD del 60 % y una EAD de 2.000 mil €. ¿Cuál es su pérdida esperada? (miles de €, 2 decimales)",
+      "answer": 18,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "1.5 * 60 * 2000 / 10000",
+      "explanation": "1,5 % × 60 % × 2.000 = 18 mil €."
+    },
+    {
+      "id": "salto-n4-u6-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene 30.000 M€ en préstamos, de los que 1.350 M€ son dudosos. ¿Cuál es su ratio de morosidad? (%, 2 decimales)",
+      "answer": 4.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "1350 / 30000 * 100",
+      "explanation": "1.350 / 30.000 = 4,5 %."
+    },
+    {
+      "id": "salto-n4-u6-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio en fase 2 tiene una EAD de 1.400 mil €, una PD de toda la vida del 6 % y una LGD del 50 %. ¿Qué provisión necesita? (miles de €, 2 decimales)",
+      "answer": 42,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "6 * 50 * 1400 / 10000",
+      "explanation": "Fase 2: PD de toda la vida × LGD × EAD = 6 % × 50 % × 1.400 = 42 mil €."
+    },
+    {
+      "id": "salto-n4-u6-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["union-bancaria"],
+      "prompt": "Un cliente ficticio tiene 150.000 € en depósitos en un solo banco, a su nombre. Si el banco quiebra, ¿cuántos € no cubre el fondo de garantía? (€)",
+      "answer": 50000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "150000 - 100000",
+      "explanation": "Se cubren 100.000 € por titular y entidad: quedan 50.000 € sin cubrir."
+    },
+    {
+      "id": "salto-n4-u6-q5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Regla de la mesa (simplificada): más de 90 días de retraso, fase 3; más de 30 días o una caída del rating de 3 escalones o más desde la concesión, fase 2; si no, fase 1. ¿En qué fase está cada préstamo ficticio?",
+      "categories": ["Fase 1", "Fase 2", "Fase 3"],
+      "items": [
+        {
+          "text": "10 días de retraso",
+          "category": "Fase 1"
+        },
+        {
+          "text": "70 días de retraso",
+          "category": "Fase 2"
+        },
+        {
+          "text": "Al día, pero su rating ha caído 3 escalones",
+          "category": "Fase 2"
+        },
+        {
+          "text": "95 días de retraso",
+          "category": "Fase 3"
+        }
+      ],
+      "explanation": "Más de 90 días, fase 3; más de 30 o 3 escalones, fase 2; si no, fase 1."
+    },
+    {
+      "id": "salto-n4-u6-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "En un año de recesión, un banco ficticio pierde en su cartera mucho más que su pérdida esperada. ¿Qué absorbe esa pérdida inesperada?",
+      "options": [
+        "Su capital",
+        "Sus provisiones, que ya la cubrían",
+        "El precio de los préstamos de ese año",
+        "El fondo de garantía de depósitos"
+      ],
+      "answer": 0,
+      "explanation": "La esperada la cubren el precio y las provisiones; la inesperada, el capital.",
+      "wrongExplanations": {
+        "1": "Las provisiones cubren la pérdida esperada, no la que va más allá.",
+        "2": "El precio cubre la media, no un año excepcional.",
+        "3": "El fondo protege a los depositantes si el banco quiebra."
+      }
+    },
+    {
+      "id": "salto-n4-u6-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["union-bancaria"],
+      "prompt": "¿Quién supervisa directamente a un gran banco español significativo?",
+      "options": [
+        "El BCE, dentro del Mecanismo Único de Supervisión",
+        "Solo el Banco de España",
+        "La Junta Única de Resolución",
+        "El Fondo de Garantía de Depósitos"
+      ],
+      "answer": 0,
+      "explanation": "El BCE supervisa directamente a los significativos; los nacionales, al resto.",
+      "wrongExplanations": {
+        "1": "El Banco de España supervisa directamente a los menos significativos.",
+        "2": "La JUR resuelve bancos; no los supervisa.",
+        "3": "El fondo protege depósitos; no supervisa."
+      }
+    },
+    {
+      "id": "salto-n4-u6-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["pd-lgd-ead"],
+      "statement": "Una garantía sobre un inmueble baja la probabilidad de impago (PD) de un préstamo.",
+      "answer": false,
+      "explanation": "Falso: baja la pérdida si impaga (LGD), porque hay más que recuperar; la PD depende de la capacidad de pago."
+    },
+    {
+      "id": "salto-n4-u6-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene 1.600 M€ en préstamos dudosos y 960 M€ de provisiones. ¿Cuál es su ratio de cobertura? (%, 2 decimales)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "960 / 1600 * 100",
+      "explanation": "960 / 1.600 = 60 %."
+    },
+    {
+      "id": "salto-n4-u6-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un cliente ficticio impaga cuando debe 900 mil €; el banco recupera 540 mil €. ¿Cuál ha sido la LGD? (%, 1 decimal)",
+      "answer": 40,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "(900 - 540) / 900 * 100",
+      "explanation": "360 / 900 = 40 %."
+    },
+    {
+      "id": "salto-n4-u6-q11",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["union-bancaria"],
+      "prompt": "¿A qué pieza de la Unión Bancaria corresponde cada función?",
+      "categories": ["MUS", "MUR", "Garantía de depósitos"],
+      "items": [
+        {
+          "text": "Supervisar a los bancos significativos de la zona euro",
+          "category": "MUS"
+        },
+        {
+          "text": "Resolver un banco grande que va a quebrar",
+          "category": "MUR"
+        },
+        {
+          "text": "Devolver hasta 100.000 € por titular y entidad",
+          "category": "Garantía de depósitos"
+        },
+        {
+          "text": "El Fondo Único de Resolución",
+          "category": "MUR"
+        }
+      ],
+      "explanation": "Supervisar, resolver y proteger a los depositantes."
+    },
+    {
+      "id": "salto-n4-u6-q12",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio en fase 3 tiene una EAD de 800 mil € y una LGD del 45 %. ¿Qué provisión necesita? (miles de €)",
+      "answer": 360,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "45 * 800 / 100",
+      "explanation": "Fase 3: LGD × EAD = 45 % × 800 = 360 mil €."
+    }
+  ],
+  "sources": [
+    {
+      "title": "IFRS Foundation, NIIF 9 Instrumentos financieros: deterioro en tres fases (pendiente de verificar la ruta)",
+      "url": "https://www.ifrs.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, Supervisión Bancaria: el Mecanismo Único de Supervisión (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Junta Única de Resolución: el Mecanismo Único de Resolución y el Fondo Único de Resolución (pendiente de verificar la ruta)",
+      "url": "https://www.srb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito: 100.000 € por depositante y entidad (pendiente de verificar la ruta)",
+      "url": "https://www.fgd.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EBA, definición de impago y riesgo de crédito (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Banco de España, estadísticas de crédito dudoso (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

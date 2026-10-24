@@ -846,3 +846,12 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **`Cet1Cushion`** (catálogo de ANIMACIONES, nivel 4): el ratio como barra frente al 4,5 % y al 7 %, con lo que el banco puede perder antes de bajar de ese 7 % y los APR quietos. Se manipula paso a paso, en lugar de con la tasa de impago del catálogo, para no adelantar PD × LGD.
 - **Categorías de ponderación** «Al 0 %», «Al 35 %» y «Al 100 %»: con «0 %» y «100 %», el localizador del e2e (texto que termina en la categoría) no podía distinguirlas.
 - **Fuentes:** sin red, BCE (Supervisión Bancaria), EBA, BIS, Banco de España, EUR-Lex (CRR) y CFA Institute van por su URL raíz con «(pendiente de verificar la ruta)».
+
+## 2026-10-24 — n4-u6 «Riesgo de crédito y supervisión» (draft), lección-juego «Comité de riesgos» y explicador `CreditRisk`
+- **Juego `risk-committee`** (spec en `docs/specs/comite-riesgos.md`): versión troncal de la ficha 15 de JUEGOS.md, que es de la rama Banca y riesgos, en cuatro pasos sobre `AskStep`: pérdida esperada, decisión, fase NIIF 9 y provisión. El comité es el de Banca Malvarrosa, el banco ficticio de `n4-u5`.
+  - **Regla del comité (simplificación didáctica):** se concede si el margen anual cubre la pérdida esperada; se pide la garantía si solo la cubre con la LGD de la garantía; si no, se deniega. Un precio real añade el coste de financiación y el del capital, y las lecciones lo dicen.
+  - **Regla de fases:** las presunciones de NIIF 9 (más de 30 días, fase 2; más de 90 días, impago) más una caída del rating de 3 escalones o más como «aumento significativo del riesgo». Esto último es una simplificación, y así se rotula.
+  - La semilla elige la decisión y la fase, y el margen se pone lejos de los umbrales. Las opciones son distintas en 10.000 semillas, y la provisión se corrige con la fase real.
+- **`CreditRisk`** (catálogo de ANIMACIONES, nivel 4): las tres capas paso a paso, con un último paso que separa la pérdida esperada (precio y provisiones) de la inesperada (capital).
+- **Unión Bancaria:** se enseñan el MUS, el MUR con la JUR y el FUR, y la garantía de 100.000 € por titular y entidad (una cuenta con dos titulares se reparte a partes iguales). El EDIS figura como pendiente.
+- **Fuentes:** sin red, IFRS Foundation, BCE (Supervisión Bancaria), JUR, Fondo de Garantía de Depósitos, Banco de España, EBA, Comisión Europea y CFA Institute van por su URL raíz con «(pendiente de verificar la ruta)».

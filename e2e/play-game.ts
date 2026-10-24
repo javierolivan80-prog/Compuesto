@@ -23,6 +23,13 @@ import {
 import { extraInterest, rightFx, setupEcb, taylor } from '../src/engine/games/ecb-meeting';
 import { cet1Ratio, lcr, nii, setupStress, stressedRatio } from '../src/engine/games/stress-test';
 import {
+  expectedLoss,
+  provision,
+  rightDecision,
+  setupCommittee,
+  stageOf,
+} from '../src/engine/games/risk-committee';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -217,6 +224,27 @@ export async function playGameLesson(
     await page.getByRole('radio', { name: ratio(stressedRatio(setup)) }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: ratio(lcr(setup)) }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'risk-committee') {
+    // referencia 0: la pérdida esperada, la decisión, la fase y la provisión
+    await expect(page.getByRole('heading', { name: 'Comité de riesgos' })).toBeVisible();
+    const setup = setupCommittee(seed);
+    const keur = (v: number) => {
+      const d = Number.isInteger(v) ? 0 : Number.isInteger(Math.round(v * 100) / 10) ? 1 : 2;
+      return new RegExp(`^${formatNumber(v, d).replace('.', '\\.')}\\smil\\s€$`);
+    };
+    await page.getByRole('radio', { name: keur(expectedLoss(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const decisions = {
+      approve: 'Concederlo',
+      collateral: 'Pedir la garantía',
+      reject: 'Denegarlo',
+    } as const;
+    await page.getByRole('radio', { name: decisions[rightDecision(setup)], exact: true }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: `Fase ${stageOf(setup)}`, exact: true }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: keur(provision(setup)) }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

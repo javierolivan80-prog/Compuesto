@@ -1,0 +1,243 @@
+{
+  "id": "n4-u6-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 6,
+  "title": "Jefe final: el comité de riesgos",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la pérdida esperada con la PD, la LGD y la EAD",
+    "Calcular la morosidad y la cobertura y distinguir la pérdida esperada de la inesperada",
+    "Clasificar préstamos en las fases de NIIF 9 y calcular su provisión",
+    "Explicar la Unión Bancaria y calcular la cobertura de un depósito"
+  ],
+  "concepts": ["pd-lgd-ead", "morosidad-ifrs9", "union-bancaria"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n4-u6-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un préstamo ficticio tiene una PD del 3,5 %, una LGD del 40 % y una EAD de 1.800 mil €. ¿Cuál es su pérdida esperada? (miles de €, 2 decimales)",
+      "answer": 25.2,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "3.5 * 40 * 1800 / 10000",
+      "explanation": "3,5 % × 40 % × 1.800 = 25,2 mil €."
+    },
+    {
+      "id": "n4-u6-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Un cliente ficticio impaga cuando debe 1.500 mil €; el banco recupera 1.050 mil € con la garantía. ¿Cuál ha sido la LGD? (%, 1 decimal)",
+      "answer": 30,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "(1500 - 1050) / 1500 * 100",
+      "explanation": "450 / 1.500 = 30 %."
+    },
+    {
+      "id": "n4-u6-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Una empresa ficticia tiene una línea de crédito de 1.000 mil € y ha dispuesto 600. El banco supone que, antes de impagar, usará el 75 % de lo que le queda. EAD = dispuesto + 75 % × no dispuesto. ¿Cuál es su EAD? (miles de €)",
+      "answer": 900,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "600 + 0.75 * (1000 - 600)",
+      "explanation": "600 + 75 % × 400 = 900 mil €."
+    },
+    {
+      "id": "n4-u6-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene 42.000 M€ en préstamos, de los que 1.260 M€ son dudosos. ¿Cuál es su ratio de morosidad? (%, 2 decimales)",
+      "answer": 3,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "1260 / 42000 * 100",
+      "explanation": "1.260 / 42.000 = 3 %."
+    },
+    {
+      "id": "n4-u6-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Ese banco ficticio tiene 819 M€ de provisiones para sus 1.260 M€ de préstamos dudosos. ¿Cuál es su ratio de cobertura? (%, 2 decimales)",
+      "answer": 65,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "819 / 1260 * 100",
+      "explanation": "819 / 1.260 = 65 %."
+    },
+    {
+      "id": "n4-u6-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio en fase 2 tiene una EAD de 900 mil €, una PD de toda la vida del 10 % y una LGD del 45 %. ¿Qué provisión necesita? (miles de €, 2 decimales)",
+      "answer": 40.5,
+      "unit": "miles de €",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "10 * 45 * 900 / 10000",
+      "explanation": "10 % × 45 % × 900 = 40,5 mil €."
+    },
+    {
+      "id": "n4-u6-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Regla de la mesa (simplificada): más de 90 días de retraso, fase 3; más de 30 días o una caída del rating de 3 escalones o más desde la concesión, fase 2; si no, fase 1. ¿En qué fase está cada préstamo ficticio?",
+      "categories": ["Fase 1", "Fase 2", "Fase 3"],
+      "items": [
+        {
+          "text": "50 días de retraso",
+          "category": "Fase 2"
+        },
+        {
+          "text": "Al día y con el mismo rating",
+          "category": "Fase 1"
+        },
+        {
+          "text": "200 días de retraso",
+          "category": "Fase 3"
+        },
+        {
+          "text": "Al día, pero su rating ha caído 5 escalones",
+          "category": "Fase 2"
+        }
+      ],
+      "explanation": "Más de 90 días, fase 3; más de 30 o 3 escalones, fase 2; si no, fase 1."
+    },
+    {
+      "id": "n4-u6-l6-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Un cliente ficticio tiene 175.000 € en depósitos en un solo banco, a su nombre. Si el banco quiebra, ¿cuántos € no cubre el fondo de garantía? (€)",
+      "answer": 75000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "175000 - 100000",
+      "explanation": "175.000 − 100.000 = 75.000 €."
+    },
+    {
+      "id": "n4-u6-l6-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead", "morosidad-ifrs9"],
+      "character": "jefe",
+      "situation": "Naranjas del Turia tiene un préstamo ficticio con Banca Malvarrosa. Sigue pagando, pero su rating ha caído 3 escalones por una mala campaña de cítricos. El becario rival propone dejar la provisión como estaba «porque Naranjas paga».",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que con la regla de la mesa pasa a fase 2: hay que provisionar la pérdida esperada de toda la vida, aunque aún pague",
+        "Que tiene razón: solo se provisiona cuando deja de pagar",
+        "Que pasa directamente a fase 3",
+        "Que hay que provisionar el préstamo entero"
+      ],
+      "answer": 0,
+      "explanation": "NIIF 9 mira el aumento del riesgo, no solo el impago.",
+      "wrongExplanations": {
+        "1": "Eso era el modelo de pérdida incurrida.",
+        "2": "La fase 3 es para el impago, más de 90 días.",
+        "3": "Se provisiona la pérdida esperada, no la deuda entera."
+      }
+    },
+    {
+      "id": "n4-u6-l6-e10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["union-bancaria"],
+      "prompt": "Un banco grande ficticio de la zona euro va a quebrar. ¿Quién decide cómo resolverlo y con qué fondo, si hace falta?",
+      "options": [
+        "La JUR, con el Fondo Único de Resolución que pagan los bancos",
+        "El BCE, con dinero de los contribuyentes",
+        "El fondo de garantía de depósitos, con todo su patrimonio",
+        "Nadie: se liquida sin más"
+      ],
+      "answer": 0,
+      "explanation": "La resolución de los bancos grandes es del MUR: la JUR y el FUR.",
+      "wrongExplanations": {
+        "1": "El BCE supervisa; la resolución es de la JUR, y busca no usar dinero público.",
+        "2": "El fondo de garantía protege a los depositantes hasta 100.000 €.",
+        "3": "Para eso existe el mecanismo de resolución."
+      }
+    }
+  ],
+  "realWorld": "Naranjas del Turia, como cualquier empresa, entra en los modelos de riesgo de su banco: su PD, su LGD con garantías y su fase de NIIF 9. Mira en las cuentas de un banco cotizado su morosidad, su cobertura y sus préstamos en fase 2. Las cifras de los ejemplos son de bancos y empresas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "IFRS Foundation, NIIF 9 Instrumentos financieros: deterioro por pérdida esperada en tres fases (pendiente de verificar la ruta)",
+      "url": "https://www.ifrs.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, Supervisión Bancaria: el Mecanismo Único de Supervisión y la supervisión directa de los bancos significativos (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Junta Única de Resolución (JUR): el Mecanismo Único de Resolución y el Fondo Único de Resolución (pendiente de verificar la ruta)",
+      "url": "https://www.srb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Fondo de Garantía de Depósitos de Entidades de Crédito: cobertura de 100.000 € por depositante y entidad (pendiente de verificar la ruta)",
+      "url": "https://www.fgd.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Banco de España, supervisión de las entidades menos significativas y estadísticas de crédito dudoso (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EBA, definición de impago y riesgo de crédito; informes de riesgo del sector bancario de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (riesgo de crédito) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

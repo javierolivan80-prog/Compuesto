@@ -1,0 +1,293 @@
+{
+  "id": "n4-u6-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 6,
+  "title": "Pérdida inesperada, morosidad y cobertura",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir la pérdida esperada de la inesperada y quién cubre cada una",
+    "Calcular el ratio de morosidad, el de cobertura y la pérdida esperada de una cartera"
+  ],
+  "concepts": ["pd-lgd-ead", "morosidad-ifrs9"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Esperada e inesperada",
+      "text": "La pérdida esperada es la media de lo que se perderá en un año: es un coste del negocio, que el banco cubre con el precio de los préstamos y con provisiones. La inesperada es lo que puede perderse por encima de esa media en un año malo: eso lo cubre el capital."
+    },
+    {
+      "type": "card",
+      "term": "Morosidad",
+      "text": "Ratio de morosidad = préstamos dudosos / préstamos totales. Un préstamo es dudoso, en general, si lleva más de 90 días sin pagarse o si es improbable que se pague. Ratio de cobertura = provisiones / préstamos dudosos: qué parte de lo dudoso ya está reconocida como pérdida."
+    },
+    {
+      "type": "card",
+      "term": "Leer los dos",
+      "text": "Una morosidad baja con una cobertura alta es lo más sólido. Una cobertura baja significa que, si los dudosos acaban perdiéndose, el banco tendrá que provisionar más, y eso irá contra su beneficio y su capital."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u6-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene {t} M€ en préstamos, de los que {d} M€ son dudosos. ¿Cuál es su ratio de morosidad? (%, 2 decimales)",
+      "answer": 3.6,
+      "unit": "%",
+      "tolerance": 0.7,
+      "answerDecimals": 2,
+      "formula": "{d} / {t} * 100",
+      "explanation": "{d} / {t} × 100 = {answer} %.",
+      "params": {
+        "d": {
+          "value": 900,
+          "min": 300,
+          "max": 1500,
+          "step": 10,
+          "decimals": 0
+        },
+        "t": {
+          "value": 25000,
+          "min": 15000,
+          "max": 40000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene {d} M€ en préstamos dudosos y {p} M€ de provisiones. ¿Cuál es su ratio de cobertura? (%, 2 decimales)",
+      "answer": 55,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{p} / {d} * 100",
+      "explanation": "{p} / {d} × 100 = {answer} %.",
+      "params": {
+        "d": {
+          "value": 1000,
+          "min": 300,
+          "max": 1500,
+          "step": 10,
+          "decimals": 0
+        },
+        "k": {
+          "value": 55,
+          "min": 35,
+          "max": 80,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{d} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un banco ficticio tiene {d} M€ en préstamos dudosos y {p} M€ de provisiones. ¿Cuántos M€ más tiene que provisionar para llegar a una cobertura del 70 %? (M€)",
+      "answer": 150,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.7 * {d} - {p}",
+      "explanation": "70 % × {d} − {p} = {answer} M€.",
+      "params": {
+        "d": {
+          "value": 1000,
+          "min": 300,
+          "max": 1500,
+          "step": 10,
+          "decimals": 0
+        },
+        "k": {
+          "value": 55,
+          "min": 35,
+          "max": 65,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{d} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "Una cartera ficticia tiene {h} M€ en hipotecas (PD del {ph} %, LGD del 20 %) y {e} M€ en préstamos a empresas (PD del {pe} %, LGD del 45 %). ¿Cuál es su pérdida esperada total? (M€, 2 decimales)",
+      "answer": 61.4,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({h} * {ph} * 20 + {e} * {pe} * 45) / 10000",
+      "explanation": "{h} × {ph} % × 20 % + {e} × {pe} % × 45 % = {answer} M€.",
+      "params": {
+        "h": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "ph": {
+          "value": 1,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "e": {
+          "value": 4000,
+          "min": 2000,
+          "max": 8000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "pe": {
+          "value": 2.3,
+          "min": 1,
+          "max": 4,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u6-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "prompt": "¿Qué lo cubre: el precio y las provisiones, o el capital?",
+      "categories": ["Precio y provisiones", "Capital"],
+      "items": [
+        {
+          "text": "La pérdida media que se espera de la cartera cada año",
+          "category": "Precio y provisiones"
+        },
+        {
+          "text": "Una pérdida muy superior a la media en una recesión fuerte",
+          "category": "Capital"
+        },
+        {
+          "text": "El impago esperado de un 2 % de los préstamos al consumo",
+          "category": "Precio y provisiones"
+        },
+        {
+          "text": "La quiebra inesperada de varios grandes clientes a la vez",
+          "category": "Capital"
+        }
+      ],
+      "explanation": "Lo esperado es un coste; lo inesperado, un riesgo que absorbe el capital."
+    },
+    {
+      "id": "n4-u6-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "character": "mentora",
+      "situation": "El banco ficticio A tiene una morosidad del 3 % y una cobertura del 70 %; el B, una morosidad del 2 % y una cobertura del 35 %. El becario rival dice que el B es más sólido porque tiene menos morosidad.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que el B tiene menos dudosos, pero mucho menos provisionados: si se pierden, tendrá que provisionar más contra su beneficio y su capital",
+        "Que tiene razón: solo importa la morosidad",
+        "Que el A es peor en todo",
+        "Que la cobertura no influye en el beneficio futuro"
+      ],
+      "answer": 0,
+      "explanation": "Hay que leer los dos ratios juntos.",
+      "wrongExplanations": {
+        "1": "La cobertura dice cuánto de lo dudoso ya está reconocido.",
+        "2": "El A tiene más dudosos, pero mucho mejor cubiertos.",
+        "3": "Una cobertura baja anticipa más provisiones."
+      }
+    },
+    {
+      "id": "n4-u6-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["morosidad-ifrs9"],
+      "prompt": "Un préstamo ficticio a una empresa lleva 100 días sin pagarse. ¿Cómo lo clasifica, en general, el banco?",
+      "options": [
+        "Como dudoso: lleva más de 90 días impagado",
+        "Como normal, porque aún no ha quebrado",
+        "Como dudoso solo si la empresa cierra",
+        "Como normal hasta que pase un año"
+      ],
+      "answer": 0,
+      "explanation": "Más de 90 días sin pagar es la señal general de dudoso.",
+      "wrongExplanations": {
+        "1": "No hace falta la quiebra.",
+        "2": "Basta con más de 90 días o con que el pago sea improbable.",
+        "3": "El umbral general son 90 días."
+      }
+    },
+    {
+      "id": "n4-u6-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["pd-lgd-ead"],
+      "statement": "La pérdida inesperada de un banco se cubre con provisiones.",
+      "answer": false,
+      "explanation": "Falso: las provisiones y el precio cubren la pérdida esperada; la inesperada la cubre el capital."
+    }
+  ],
+  "realWorld": "El Banco de España publica la tasa de dudosos del crédito al sector privado, y los bancos cotizados, su morosidad y su cobertura cada trimestre. Las cifras de los ejemplos son de bancos y empresas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Banco de España, supervisión de las entidades menos significativas y estadísticas de crédito dudoso (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EBA, definición de impago y riesgo de crédito; informes de riesgo del sector bancario de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Fixed Income (riesgo de crédito) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

@@ -1713,6 +1713,78 @@
     "bad": "Repasa cómo se miden el margen, el CET1 y la liquidez de un banco.",
     "debrief": "Ver qué ha pasado"
   },
+  "committeeGame": {
+    "title": "Comité de riesgos",
+    "step": {
+      "el": "Paso 1 de 4 · la pérdida esperada",
+      "decision": "Paso 2 de 4 · la decisión",
+      "stage": "Paso 3 de 4 · la fase NIIF 9",
+      "provision": "Paso 4 de 4 · la provisión"
+    },
+    "units": "Cifras ficticias",
+    "board": {
+      "ead": "Exposición (EAD)",
+      "pd": "Probabilidad de impago (PD)",
+      "lgd": "Pérdida si impaga (LGD)",
+      "margin": "Margen anual",
+      "lgdCollateral": "LGD con garantía",
+      "days": "Días de retraso",
+      "notches": "Caída del rating",
+      "pd12": "PD a 12 meses",
+      "pdLife": "PD de toda la vida",
+      "notchesValue": "{{v}} escalones"
+    },
+    "briefEl": "Comité de riesgos de Banca Malvarrosa, un banco comercial ficticio; el equipo de Albufera Partners asiste como observador. Llega una solicitud de préstamo de una empresa ficticia. Pérdida esperada = PD × LGD × EAD.",
+    "askEl": "¿Cuál es la pérdida esperada del préstamo en un año?",
+    "whyEl": "{{pd}} × {{lgd}} × {{ead}} = {{v}}. Hacen falta las tres: la probabilidad de que impague, cuánto se perdería si impaga y cuánto se debe.",
+    "briefDecision": "El préstamo dejaría un margen anual del {{margin}} sobre la exposición: {{income}} al año. Con una garantía, la LGD bajaría al {{lgdc}}. Regla del comité: se concede si el margen cubre la pérdida esperada; si solo la cubre con la garantía, se pide la garantía; si ni así, se deniega.",
+    "askDecision": "¿Qué decide el comité?",
+    "decision": {
+      "approve": "Concederlo",
+      "collateral": "Pedir la garantía",
+      "reject": "Denegarlo"
+    },
+    "whyDecision": {
+      "approve": "El margen ({{income}}) supera la pérdida esperada ({{el}}): el precio cubre el riesgo y el comité lo concede.",
+      "collateral": "El margen ({{income}}) no cubre la pérdida esperada ({{el}}), pero sí la que queda con la garantía ({{elc}}): el comité pide la garantía.",
+      "reject": "El margen ({{income}}) no cubre la pérdida esperada ni siquiera con la garantía ({{elc}}): el comité lo deniega."
+    },
+    "briefStage": "Ahora, un préstamo que ya está en la cartera. Regla de la mesa para NIIF 9 (simplificada): más de 90 días de retraso, fase 3; más de 30 días o una caída del rating de 3 escalones o más desde la concesión, fase 2; si no, fase 1.",
+    "askStage": "¿En qué fase NIIF 9 está el préstamo?",
+    "stage": {
+      "1": "Fase 1",
+      "2": "Fase 2",
+      "3": "Fase 3"
+    },
+    "whyStage": {
+      "1": "Ni más de 30 días de retraso ni una caída fuerte del rating: no hay aumento significativo del riesgo. Fase 1.",
+      "2": "Más de 30 días de retraso o una caída del rating de 3 escalones o más: el riesgo ha aumentado de forma significativa. Fase 2.",
+      "3": "Más de 90 días de retraso: el préstamo está en impago. Fase 3."
+    },
+    "briefProvision": "La provisión depende de la fase: fase 1, PD a 12 meses × LGD × EAD; fase 2, PD de toda la vida × LGD × EAD; fase 3, LGD × EAD, porque el impago ya ha ocurrido. Este préstamo tiene una EAD de {{ead}} y una LGD del {{lgd}}.",
+    "askProvision": "¿Cuánto tiene que provisionar el banco?",
+    "whyProvision": {
+      "1": "Fase 1: {{pd12}} × {{lgd}} × {{ead}} = {{v}}, la pérdida esperada a 12 meses.",
+      "2": "Fase 2: {{pdLife}} × {{lgd}} × {{ead}} = {{v}}, la pérdida esperada de toda la vida: mucho más que la de 12 meses.",
+      "3": "Fase 3: {{lgd}} × {{ead}} = {{v}}: el impago ya ha ocurrido y se provisiona lo que se espera perder."
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre del comité",
+    "row": {
+      "el": "Pérdida esperada",
+      "decision": "Decisión",
+      "stage": "Fase NIIF 9",
+      "provision": "Provisión"
+    },
+    "great": "Comité impecable: precio, garantía, fase y provisión, como en un banco de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa la pérdida esperada y las fases de NIIF 9.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
@@ -1727,6 +1799,9 @@
   },
   "cet1Cushion": {
     "title": "El colchón de capital"
+  },
+  "creditRisk": {
+    "title": "La pérdida esperada, capa a capa"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"
