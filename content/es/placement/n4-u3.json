@@ -12,13 +12,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["prima-riesgo"],
-      "prompt": "El bono a 10 años de España rinde un 3,80 % y el Bund alemán a 10 años, un 2,55 % (cifras ficticias). ¿Cuál es la prima de riesgo de España? (pb)",
-      "answer": 125,
-      "unit": "pb",
+      "prompt": "España va a emitir 10.000 millones de € en bonos a 10 años. Si antes de la emisión la prima de riesgo sube 50 pb y el Bund no se mueve, ¿cuántos millones de € más de intereses al año pagará por esa emisión? (millones de €)",
+      "answer": 50,
+      "unit": "millones de €",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "(3.8 - 2.55) * 100",
-      "explanation": "(3,80 − 2,55) × 100 = 125 pb."
+      "formula": "10000 * 50 / 10000",
+      "explanation": "50 pb = 0,5 %; 10.000 × 0,5 % = 50 millones al año."
     },
     {
       "id": "salto-n4-u3-q2",
@@ -177,13 +177,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["prima-riesgo"],
-      "prompt": "España va a emitir 10.000 millones de € en bonos a 10 años. Si antes de la emisión la prima de riesgo sube 50 pb y el Bund no se mueve, ¿cuántos millones de € más de intereses al año pagará por esa emisión? (millones de €)",
-      "answer": 50,
-      "unit": "millones de €",
+      "prompt": "El bono a 10 años de España rinde un 3,80 % y el Bund alemán a 10 años, un 2,55 % (cifras ficticias). ¿Cuál es la prima de riesgo de España? (pb)",
+      "answer": 125,
+      "unit": "pb",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "10000 * 50 / 10000",
-      "explanation": "50 pb = 0,5 %; 10.000 × 0,5 % = 50 millones al año."
+      "formula": "(3.8 - 2.55) * 100",
+      "explanation": "(3,80 − 2,55) × 100 = 125 pb."
     },
     {
       "id": "salto-n4-u3-q11",
@@ -225,7 +225,7 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["correlacion"],
-      "prompt": "Las rentabilidades de una acción ficticia y del precio de un bono ficticio tienen una covarianza de −2,4 (en %²) y desviaciones típicas del 4 % y del 1,5 %. ¿Cuál es su correlación? (2 decimales; negativa si se mueven en sentido contrario)",
+      "prompt": "Las rentabilidades mensuales de una acción ficticia y de un bono ficticio tienen una covarianza de −2,4 (en %²) y desviaciones típicas del 4 % y del 1,5 %. ¿Cuál es su correlación? (2 decimales; negativa si se mueven en sentido contrario)",
       "answer": -0.4,
       "tolerance": 1,
       "answerDecimals": 2,
