@@ -1,8 +1,8 @@
 {
   "id": "n4-u3-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 3,
   "title": "Jefe final: la mesa lee la economía",

@@ -826,3 +826,4 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Dinámica de la deuda:** se enseña con la aproximación deuda/PIB × (1 + r) / (1 + g) sin déficit primario, a nivel intuitivo.
 - **Bloom de N4:** 7, 5, 6, 6 y 7 de 8, y 8 de 10 de aplicar o analizar. Test de salto: 12 preguntas, 9 de producir (5 en la primera fase).
 - **Fuentes:** CEPR, INE, Banco de España, AIReF, Eurostat, Comisión Europea y BCE, con `verificarAntesDe` 2027-06-30. Las URL no se pudieron abrir (sin red) y quedan para la revisión. Todas las cifras de los ejemplos son ficticias.
+- **Revisión (24/10/2026):** aprobada en la ronda 3 y marcada `reviewed`. Sin red (WebFetch devuelve ENOTFOUND), las URL de la AIReF y del Banco de España no se pudieron comprobar: se citan con su URL raíz y «(pendiente de verificar la ruta)» en el título, para que Javier fije la ruta exacta. Alternativa descartada: mantener rutas profundas sin comprobar, que podían estar rotas.

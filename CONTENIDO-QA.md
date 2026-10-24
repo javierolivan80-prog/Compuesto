@@ -478,3 +478,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 3:** aprobada. Estado: `reviewed`. e2e de producción `n4u2.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: abrir las URL de las fuentes del BCE (estadísticas y calendario en .es.html; APP, PEPP y el comunicado de 2024 en .en.html). El autor y el revisor no tenían red.
 
+
+## n4-u3 — Ciclo, política fiscal y prima de riesgo y lección-juego «La prima de riesgo» (24/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - l5 se queda en la intuición de la diversificación: sale el cálculo de volatilidad de cartera (l5-e3 y q12), sustituido por correlaciones negativas con covarianza / (σ1 · σ2);
+    - la primera fase del test de salto no cubría bien la política fiscal: entran r − g (q3) y un categorize sobre el Pacto de Estabilidad (q7);
+    - Naranjas del Turia tiene toda su deuda (préstamos y el bono que emitió) a tipo fijo, sin plazo inventado;
+    - el fill_blank de l1 daba una respuesta ya dicha: ahora aplica la regla con cifras nuevas (expansión).
+  - Menores: tolerancia de l1-e3, cifras de l6-e2 (65,9 %), la regla de la mesa como simplificación didáctica, el título de la fuente de CEPR, la serie a 10 años del BCE para el diferencial, fuentes sobre el techo soberano (BCE) y las correlaciones en crisis (FMI), «bancos y empresas españoles», Bloom de l5-e4 y l6-e9, tres fill_blank de aplicar y q8 sobre el movimiento del Bund.
+- **Ronda 2:** la financiación con la prima pasa a la primera fase del test de salto (q1 ↔ q10), ρ de l5-e3 entre −0,6 y −0,2 y el enunciado de q12.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 7, 7 y 6 de 8, y 7 de 10. e2e de producción `n4u3.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes de la AIReF y del Banco de España apuntan a la raíz de su web «(pendiente de verificar la ruta)», porque sin red no se pudieron abrir.
