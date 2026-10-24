@@ -491,3 +491,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** la financiación con la prima pasa a la primera fase del test de salto (q1 ↔ q10), ρ de l5-e3 entre −0,6 y −0,2 y el enunciado de q12.
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 7, 7 y 6 de 8, y 7 de 10. e2e de producción `n4u3.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las fuentes de la AIReF y del Banco de España apuntan a la raíz de su web «(pendiente de verificar la ruta)», porque sin red no se pudieron abrir.
+
+## n4-u4 — Finanzas internacionales y lección-juego «La mesa de divisas» (24/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - la posición de inversión internacional se define bien: lo que se tiene fuera menos lo que se debe al exterior;
+    - la primera fase del test de salto no cubría todos los objetivos del Jefe final: entran la capacidad de financiación (q1), la PPA absoluta (q6) y la deuda en dólares tras una depreciación (q8), y q12 se centra en el ajuste de una parada súbita para que q8 no la revele;
+    - l1-e2 repetía el ejemplo de la tarjeta (fondos europeos): pasa a una condonación de deuda, y la tarjeta ya no da ejemplos de las cuentas;
+    - tolerancias de los tipos de cambio con 4 decimales (0,01 %) y de l3-e4 y l5-e2.
+  - Menores: el derivado {half} en l1-e5 y cifras propias en q3, q7 y q11 del test de salto.
+- **Ronda 2:** rangos de l3-e3 (para que su cifra por defecto no repita el forward del juego, 1,1216) y de l4-e1.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n4u4.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: todas las fuentes (Banco de España, BCE, OCDE, FMI, BIS y CFA Institute) se citan por su URL raíz «(pendiente de verificar la ruta)», porque sin red no se pudieron abrir.

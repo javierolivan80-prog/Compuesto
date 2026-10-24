@@ -1,8 +1,8 @@
 {
   "id": "n4-u4-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 4,
   "title": "La paridad del poder adquisitivo",
