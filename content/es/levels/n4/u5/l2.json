@@ -1,8 +1,8 @@
 {
   "id": "n4-u5-l2",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 5,
   "title": "El margen de intereses y la cuenta de un banco",

@@ -504,3 +504,18 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** rangos de l3-e3 (para que su cifra por defecto no repita el forward del juego, 1,1216) y de l4-e1.
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n4u4.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: todas las fuentes (Banco de España, BCE, OCDE, FMI, BIS y CFA Institute) se citan por su URL raíz «(pendiente de verificar la ruta)», porque sin red no se pudieron abrir.
+
+## n4-u5 — Por dentro de un banco y lección-juego «Stress test» (24/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - en el motor, las pérdidas del escenario adverso parten del 2,5 % de los APR, porque con un 2 % un distractor podía coincidir con la respuesta; el test de opciones distintas recorre 10.000 semillas. Cambian las cifras de la semilla 0 (CET1 del 13,0 %, LCR del 150,0 %) y el peor caso (semilla 383);
+    - en l1-e3 y l1-e4, el CET1, las pérdidas y los activos líquidos salen ahora de las proporciones del juego, para que sean realistas en el repaso y coincidan con la partida;
+    - l1-e5 y l1-e8 pasan a ser de cálculo;
+    - en la primera fase del test de salto entran la holgura sobre el requisito (q3) y el test de estrés de la EBA, que no tiene suspenso (q7);
+    - las ponderaciones simplificadas y el 7 % de referencia se explican como simplificaciones, y la MDA se formula como limitación de los repartos.
+  - Menores: cifras propias en l6-e1 y «el reglamento CRR y la directiva CRD».
+- **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 7, 6 y 7 de 8, y 10 de 10. e2e de producción `n4u5.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier:
+  - comprobar en el registro de la CNMV que «Banca Malvarrosa» no es un nombre real;
+  - las fuentes (BCE Supervisión Bancaria, EBA, BIS, Banco de España, EUR-Lex y CFA Institute) están citadas por su URL raíz «(pendiente de verificar la ruta)».
