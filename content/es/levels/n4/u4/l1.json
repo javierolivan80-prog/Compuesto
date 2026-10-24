@@ -1,0 +1,316 @@
+{
+  "id": "n4-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 4,
+  "order": 0,
+  "title": "Juego: la mesa de divisas",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el saldo de la cuenta corriente y el forward por la paridad de tipos cubierta",
+    "Medir la rentabilidad y el riesgo de un carry trade e identificar al emergente más vulnerable"
+  ],
+  "concepts": ["balanza-pagos", "ppa-pti", "emergentes"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "fx-desk",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "La balanza",
+      "text": "Acertaste {hits} de 4. La cuenta corriente sumó exportaciones menos importaciones de bienes y servicios ({exports} − {imports}) y las rentas netas ({income}): {current_account} miles de millones. La balanza tiene además la cuenta de capital (transferencias para invertir, como fondos europeos) y la financiera (compras y ventas de activos con el exterior)."
+    },
+    {
+      "type": "card",
+      "term": "Paridad cubierta",
+      "text": "Con el EUR/USD a {spot} dólares por euro y tipos del {i_eur} % en euros y del {i_usd} % en dólares, el forward a un año era {spot} × (1 + {i_usd} %) / (1 + {i_eur} %) = {forward}. Si no, se ganaría sin riesgo invirtiendo en una divisa y fijando hoy el cambio de vuelta."
+    },
+    {
+      "type": "card",
+      "term": "Carry y emergentes",
+      "text": "El carry dio {i_high} % − {i_fund} % − {depreciation} % = {carry} %: el diferencial de tipos se cobra poco a poco y la divisa puede borrarlo de golpe. Con el dólar al alza, los emergentes con déficit corriente y mucha deuda en dólares son los más expuestos a una parada súbita."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u4-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balanza-pagos"],
+      "prompt": "Un país ficticio exporta bienes y servicios por {exports} miles de millones de € e importa por {imports}. La tasa de cobertura es exportaciones / importaciones × 100. ¿Cuál es la suya? (%, 1 decimal)",
+      "answer": 106.7,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 1,
+      "formula": "{exports} / {imports} * 100",
+      "explanation": "{exports} / {imports} × 100 = {answer} %: por encima de 100, exporta más de lo que importa.",
+      "params": {
+        "exports": {
+          "value": 320,
+          "min": 280,
+          "max": 340,
+          "step": 10,
+          "decimals": 0
+        },
+        "imports": {
+          "value": 300,
+          "min": 260,
+          "max": 360,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l1-e2",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balanza-pagos"],
+      "prompt": "¿En qué cuenta de la balanza de pagos de España se anota cada operación?",
+      "categories": ["Cuenta corriente", "Cuenta de capital", "Cuenta financiera"],
+      "items": [
+        {
+          "text": "Un turista alemán paga un hotel en Valencia",
+          "category": "Cuenta corriente"
+        },
+        {
+          "text": "Una empresa española cobra dividendos de su filial en otro país",
+          "category": "Cuenta corriente"
+        },
+        {
+          "text": "España recibe fondos europeos para construir una carretera",
+          "category": "Cuenta de capital"
+        },
+        {
+          "text": "Un fondo extranjero compra bonos del Estado español",
+          "category": "Cuenta financiera"
+        }
+      ],
+      "explanation": "Turismo (servicios) y dividendos (rentas primarias) van a la cuenta corriente; las transferencias para invertir, a la de capital; la compra de activos, a la financiera."
+    },
+    {
+      "id": "n4-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a {spot} y los tipos a un año son del {i_eur} % en euros y del {i_usd} % en dólares, así que el forward a un año, con cuatro decimales, es {fwd}. Los puntos forward son (forward − contado) × 10.000. ¿Cuántos son? (puntos)",
+      "answer": 216,
+      "unit": "puntos",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({fwd} - {spot}) * 10000",
+      "explanation": "({fwd} − {spot}) × 10.000 = {answer} puntos: el euro cotiza con prima a plazo porque rinde menos que el dólar.",
+      "params": {
+        "spot": {
+          "value": 1.1,
+          "min": 1.05,
+          "max": 1.12,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "i_eur": {
+          "value": 2,
+          "min": 1.5,
+          "max": 2.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "i_usd": {
+          "value": 4,
+          "min": 3,
+          "max": 4.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "fwd": {
+          "formula": "{spot} * (1 + {i_usd} / 100) / (1 + {i_eur} / 100)",
+          "decimals": 4
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Un exportador ficticio vende hoy a plazo 100.000 $ que cobrará dentro de un año. El forward del EUR/USD (dólares por euro) a un año es {fwd}. ¿Cuántos euros recibirá? (€)",
+      "answer": 89158,
+      "unit": "€",
+      "tolerance": 0.05,
+      "answerDecimals": 0,
+      "formula": "100000 / {fwd}",
+      "explanation": "De dólares a euros se divide: 100.000 / {fwd} = {answer} €.",
+      "params": {
+        "spot": {
+          "value": 1.1,
+          "min": 1.05,
+          "max": 1.12,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "i_eur": {
+          "value": 2,
+          "min": 1.5,
+          "max": 2.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "i_usd": {
+          "value": 4,
+          "min": 3,
+          "max": 4.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "fwd": {
+          "formula": "{spot} * (1 + {i_usd} / 100) / (1 + {i_eur} / 100)",
+          "decimals": 4
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Un fondo se financia al {i_fund} % e invierte en una divisa emergente ficticia al {i_high} %. Si esa divisa se depreciara solo la mitad de un {depreciation} %, ¿qué rentabilidad aproximada obtendría? Aproximación: tipo de inversión − tipo de financiación − depreciación. (%, 2 decimales)",
+      "answer": 2.75,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{i_high} - {i_fund} - {depreciation} / 2",
+      "explanation": "{i_high} − {i_fund} − {depreciation} / 2 = {answer} %.",
+      "params": {
+        "i_high": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 2,
+          "decimals": 0
+        },
+        "i_fund": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "depreciation": {
+          "value": 10.5,
+          "min": 4.5,
+          "max": 13.5,
+          "step": 3,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Un fondo se financia al {i_fund} % e invierte en una divisa emergente ficticia al {i_high} %. Con la aproximación tipo de inversión − tipo de financiación − depreciación, ¿qué depreciación de la divisa de inversión dejaría el carry trade sin ganar ni perder? (%)",
+      "answer": 8,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{i_high} - {i_fund}",
+      "explanation": "El punto muerto es el diferencial: {i_high} − {i_fund} = {answer} %. Con más depreciación, pierde.",
+      "params": {
+        "i_high": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 2,
+          "decimals": 0
+        },
+        "i_fund": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "character": "jefe",
+      "situation": "Tras dos años de subidas, la Fed empieza a bajar los tipos y el dólar se debilita. Un país emergente ficticio tiene un déficit corriente del 4 % del PIB y bastante deuda en dólares.",
+      "prompt": "¿Qué suele esperar el jefe de la mesa?",
+      "options": [
+        "Alivio: su deuda en dólares pesa menos en moneda local y el capital suele volver a los emergentes",
+        "Una parada súbita inmediata, porque la Fed baja los tipos",
+        "Que su deuda en dólares pese más",
+        "Nada: el dólar no influye en los emergentes"
+      ],
+      "answer": 0,
+      "explanation": "Es la otra cara del ciclo del dólar: con el dólar débil, la financiación exterior vuelve y la deuda en dólares se aligera. El riesgo no desaparece: solo baja.",
+      "wrongExplanations": {
+        "1": "Las paradas súbitas suelen llegar con el dólar al alza y la Fed subiendo.",
+        "2": "Con el dólar más débil, cada dólar cuesta menos moneda local.",
+        "3": "Influye mucho, a través de la deuda en dólares y los flujos de capital."
+      }
+    },
+    {
+      "id": "n4-u4-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "statement": "Naranjas del Turia vende parte de su zumo en EE. UU. y cobra en dólares. Si el EUR/USD sube, porque el euro se aprecia, los mismos dólares le dan más euros.",
+      "answer": false,
+      "explanation": "Falso: con más dólares por euro, cada dólar compra menos euros. Un euro fuerte reduce los euros que cobra un exportador que vende en dólares."
+    }
+  ],
+  "realWorld": "Cada mes el Banco de España publica la balanza de pagos de España; el BCE, la de la zona euro. Las cifras de los ejemplos son de países y divisas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Banco de España, balanza de pagos y posición de inversión internacional de España (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, estadísticas de balanza de pagos de la zona euro (pendiente de verificar la ruta)",
+      "url": "https://www.ecb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio, paridades y balanza de pagos) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

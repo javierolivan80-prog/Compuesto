@@ -177,6 +177,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/suelen gastar menos/);
     expect(text).toMatch(/los precios suelen subir más despacio/);
   });
+  it('FxParity: el forward sale de igualar las dos inversiones', () => {
+    render(<ExplainerBlock component="FxParity" props={{ spot: 1.1, iEur: 2, iUsd: 4 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/= 1,1216 dólares por euro/);
+    expect(text).toMatch(/tendrás 1\.020,00\s€/);
+    expect(text).toMatch(/El dólar rinde más/);
+  });
   it('RiskPremiumGap: el hueco entre el Bund y el bono español, y lo que cuesta ensancharlo', () => {
     render(<ExplainerBlock component="RiskPremiumGap" props={{ bund: 2.6, spread: 85 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

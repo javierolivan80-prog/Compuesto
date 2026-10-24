@@ -1037,19 +1037,25 @@
     "id": "balanza-pagos",
     "name": "Balanza de pagos",
     "level": 4,
-    "prerequisites": ["pib"]
+    "prerequisites": ["pib"],
+    "unit": "n4-u4",
+    "description": "Registro de las operaciones de un país con el exterior: cuenta corriente (bienes, servicios, rentas primarias y secundarias), de capital (transferencias para invertir) y financiera (activos y pasivos). Corriente + capital = capacidad o necesidad de financiación. España pasó de grandes déficits antes de 2008 a superávits desde 2013."
   },
   {
     "id": "ppa-pti",
     "name": "Paridad del poder adquisitivo y de tipos",
     "level": 4,
-    "prerequisites": ["divisas"]
+    "prerequisites": ["divisas"],
+    "unit": "n4-u4",
+    "description": "PPA: a largo plazo, la moneda con más inflación tiende a depreciarse (EUR/USD esperado = actual × (1 + π$) / (1 + π€)). PTI cubierta: forward = contado × (1 + i$) / (1 + i€). La descubierta, que espera una depreciación igual al diferencial, falla a corto plazo: en eso se apoya el carry trade."
   },
   {
     "id": "emergentes",
     "name": "Mercados emergentes",
     "level": 4,
-    "prerequisites": ["divisas"]
+    "prerequisites": ["divisas"],
+    "unit": "n4-u4",
+    "description": "Países que suelen depender de financiación exterior y endeudarse en dólares. Con la Fed subiendo y el dólar al alza, su deuda pesa más y el capital puede cortarse de golpe (parada súbita); los más vulnerables tienen déficit corriente, deuda en dólares a corto y pocas reservas."
   },
   {
     "id": "margen-intereses",

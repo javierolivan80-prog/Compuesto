@@ -1597,6 +1597,66 @@
     "bad": "Repasa cómo se lee el ciclo y cómo se miden la prima de riesgo y la deuda/PIB.",
     "debrief": "Ver qué ha pasado"
   },
+  "fxDeskGame": {
+    "title": "La mesa de divisas",
+    "step": {
+      "account": "Paso 1 de 4 · la balanza de pagos",
+      "forward": "Paso 2 de 4 · el forward",
+      "carry": "Paso 3 de 4 · el carry trade",
+      "country": "Paso 4 de 4 · los emergentes"
+    },
+    "units": "Miles de millones de € (cifras ficticias)",
+    "board": {
+      "exports": "Exportaciones",
+      "imports": "Importaciones",
+      "income": "Rentas netas",
+      "spot": "EUR/USD contado",
+      "iEur": "Tipo del euro",
+      "iUsd": "Tipo del dólar",
+      "iHigh": "Tipo de la divisa de inversión",
+      "iFund": "Tipo de la divisa de financiación",
+      "depreciation": "Depreciación de la divisa de inversión",
+      "cc": "Cuenta corriente",
+      "debt": "Deuda en dólares",
+      "country": "País {{c}}"
+    },
+    "briefAccount": "Lunes en la mesa de divisas de Albufera Partners. Llega la balanza de pagos de un país ficticio: exportaciones e importaciones de bienes y servicios, y rentas netas (intereses, dividendos y transferencias con el exterior). La cuenta corriente las suma todas.",
+    "askAccount": "¿Cuál es el saldo de la cuenta corriente?",
+    "whyAccount": "{{exports}} − {{imports}} + ({{income}}) = {{v}}. Las rentas también entran en la cuenta corriente: el comercio solo es una parte.",
+    "surplus": "superávit",
+    "deficit": "déficit",
+    "amount": "{{v}} ({{kind}})",
+    "briefForward": "Un cliente quiere fijar hoy el cambio al que venderá dólares dentro de un año. El EUR/USD (dólares por euro) está a {{spot}}; el tipo de interés a un año es del {{iEur}} en euros y del {{iUsd}} en dólares. Por la paridad de tipos cubierta, forward = contado × (1 + tipo del dólar) / (1 + tipo del euro).",
+    "askForward": "¿A cuánto cotiza el forward a un año?",
+    "whyForward": "{{spot}} × (1 + {{iUsd}}) / (1 + {{iEur}}) = {{v}}. Si no fuera así, se ganaría sin riesgo invirtiendo en una divisa y cubriendo el cambio. La divisa con el tipo más bajo cotiza más cara a plazo.",
+    "briefCarry": "Un fondo hace carry trade: se financia en una divisa con un tipo del {{iFund}} e invierte en otra, de un país emergente ficticio, al {{iHigh}}. Durante el año, la divisa de inversión se deprecia un {{dep}}. Aproximación: rentabilidad ≈ tipo de inversión − tipo de financiación − depreciación.",
+    "askCarry": "¿Qué rentabilidad aproximada obtiene el fondo?",
+    "whyCarry": "{{iHigh}} − {{iFund}} − {{dep}} = {{v}}. El diferencial de tipos se cobra poco a poco, pero una depreciación fuerte puede borrarlo de golpe: ese es el riesgo del carry trade.",
+    "briefCountry": "La Fed sube los tipos con fuerza y el dólar se aprecia. La mesa compara dos países emergentes ficticios: su saldo por cuenta corriente y su deuda en dólares, en % del PIB.",
+    "askCountry": "¿Qué país corre más riesgo de una parada súbita de la financiación exterior?",
+    "country": {
+      "a": "El país A",
+      "b": "El país B",
+      "same": "Los dos por igual"
+    },
+    "whyCountry": "El país {{c}} necesita financiación exterior para cubrir su déficit corriente y debe mucho en dólares: con el dólar al alza, esa deuda pesa más en su moneda y el capital suele salir. Si la financiación se corta de golpe, es una parada súbita.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la mesa de divisas",
+    "row": {
+      "account": "Cuenta corriente",
+      "forward": "Forward",
+      "carry": "Carry trade",
+      "country": "Emergentes"
+    },
+    "great": "Mesa redonda: balanza, paridad, carry y emergentes, como en una mesa de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa la balanza de pagos, la paridad de tipos y los riesgos del carry trade y de los emergentes.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
@@ -1605,6 +1665,9 @@
   },
   "riskPremiumGap": {
     "title": "La prima de riesgo, de cerca"
+  },
+  "fxParity": {
+    "title": "La paridad de tipos, en un balancín"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

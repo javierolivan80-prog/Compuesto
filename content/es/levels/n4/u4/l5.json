@@ -1,0 +1,270 @@
+{
+  "id": "n4-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 4,
+  "title": "Emergentes y el ciclo del dólar",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el efecto de una depreciación en la deuda en dólares de un emergente",
+    "Explicar las paradas súbitas y el ciclo del dólar y detectar qué países son más vulnerables"
+  ],
+  "concepts": ["emergentes"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Deuda en dólares",
+      "text": "Muchos países emergentes, y sus empresas, se endeudan en dólares porque a los inversores no les gusta prestarles en su moneda o porque sale más barato. Si su moneda se deprecia frente al dólar, la deuda pesa más en moneda local mientras sus ingresos no cambian."
+    },
+    {
+      "type": "card",
+      "term": "Parada súbita",
+      "text": "Un país con déficit por cuenta corriente necesita que le llegue financiación exterior. Si los inversores dejan de prestarle de golpe (parada súbita), la moneda se desploma, los tipos se disparan y el país tiene que recortar importaciones y gasto, a menudo con una recesión."
+    },
+    {
+      "type": "card",
+      "term": "El ciclo del dólar",
+      "text": "Cuando la Fed sube tipos y el dólar se aprecia, el capital suele salir de los emergentes y su deuda en dólares se encarece. Cuando la Fed baja tipos y el dólar se debilita, el capital suele volver. Los más expuestos: déficit corriente alto, mucha deuda en dólares a corto plazo y pocas reservas de divisas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u4-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "Un país emergente ficticio tiene una deuda en dólares equivalente al {r} % de su PIB. Su moneda se deprecia un {d} % frente al dólar (cada dólar cuesta un {d} % más de moneda local). Si su PIB en moneda local no cambia, ¿qué porcentaje del PIB supone ahora esa deuda? (%, 1 decimal)",
+      "answer": 37.5,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "{r} * (1 + {d} / 100)",
+      "explanation": "{r} × (1 + {d} %) = {answer} % del PIB, sin haber pedido un dólar más.",
+      "params": {
+        "r": {
+          "value": 30,
+          "min": 20,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "d": {
+          "value": 25,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "Un país emergente ficticio tiene {res} miles de millones de $ en reservas de divisas y debe {c} miles de millones de $ a corto plazo (menos de un año). ¿Qué porcentaje de esa deuda cubren sus reservas? (%, 1 decimal)",
+      "answer": 62.5,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "{res} / {c} * 100",
+      "explanation": "{res} / {c} × 100 = {answer} %: por debajo de 100 %, no podría pagar todo lo que vence si se cortara la financiación.",
+      "params": {
+        "res": {
+          "value": 50,
+          "min": 20,
+          "max": 120,
+          "step": 5,
+          "decimals": 0
+        },
+        "c": {
+          "value": 80,
+          "min": 40,
+          "max": 100,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "Una empresa de un país emergente ficticio ingresa en moneda local y paga {i} millones de $ de intereses al año. El dólar pasa de costar {a} a {b} unidades de moneda local. ¿En qué porcentaje sube el coste de esos intereses en moneda local? (%, 2 decimales)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({b} / {a} - 1) * 100",
+      "explanation": "({b} / {a} − 1) × 100 = {answer} %: paga los mismos dólares, pero cada uno le cuesta más.",
+      "params": {
+        "i": {
+          "value": 12,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "a": {
+          "value": 15,
+          "min": 10,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{a} * (1 + {g} / 100)",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l5-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "¿Aumenta o reduce la vulnerabilidad de un emergente a una parada súbita?",
+      "categories": ["Aumenta", "Reduce"],
+      "items": [
+        {
+          "text": "Un déficit por cuenta corriente del 7 % del PIB",
+          "category": "Aumenta"
+        },
+        {
+          "text": "Reservas de divisas que cubren varias veces la deuda a corto plazo",
+          "category": "Reduce"
+        },
+        {
+          "text": "Mucha deuda en dólares que vence en menos de un año",
+          "category": "Aumenta"
+        },
+        {
+          "text": "Deuda en su propia moneda y a largo plazo",
+          "category": "Reduce"
+        },
+        {
+          "text": "Un superávit por cuenta corriente",
+          "category": "Reduce"
+        }
+      ],
+      "explanation": "Lo peligroso es depender de financiación exterior que puede cortarse: déficit corriente, deuda en dólares a corto y pocas reservas."
+    },
+    {
+      "id": "n4-u4-l5-e5",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "Ordena cómo suele desarrollarse una parada súbita en un emergente.",
+      "steps": [
+        "La Fed sube los tipos y el dólar se aprecia",
+        "Los inversores retiran capital del emergente",
+        "Su moneda se deprecia con fuerza",
+        "La deuda en dólares pesa más en moneda local",
+        "El país recorta importaciones y gasto"
+      ],
+      "explanation": "Del dólar fuerte a la salida de capital, la depreciación, el peso de la deuda y el ajuste."
+    },
+    {
+      "id": "n4-u4-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "character": "jefe",
+      "situation": "Naranjas del Turia vende zumo a un distribuidor de un país emergente ficticio, que le paga en dólares y se financia en dólares. La Fed sube los tipos con fuerza y la moneda de ese país se deprecia un 25 %.",
+      "prompt": "¿Qué riesgo señala el jefe de la mesa para Naranjas del Turia?",
+      "options": [
+        "Que su cliente puede tener problemas para pagar y comprar menos: vende en moneda local, pero su deuda y sus compras son en dólares",
+        "Ninguno: Naranjas cobra en dólares, así que la depreciación del país le favorece",
+        "Que la deuda de Naranjas del Turia sube un 25 %",
+        "Que Naranjas del Turia tendrá que pagar más intereses al distribuidor"
+      ],
+      "answer": 0,
+      "explanation": "La crisis del emergente llega al exportador por su cliente: menos ventas y más riesgo de impago.",
+      "wrongExplanations": {
+        "1": "Cobra en dólares, pero el cliente puede no poder pagarlos.",
+        "2": "La deuda de Naranjas es suya, en euros; no depende de esa moneda.",
+        "3": "Naranjas es la que vende; no paga intereses al cliente."
+      }
+    },
+    {
+      "id": "n4-u4-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "La Fed sube los tipos y el dólar se aprecia. ¿Qué país emergente ficticio es más vulnerable a una parada súbita?",
+      "options": [
+        "Déficit corriente del 6 % del PIB, deuda en dólares del 50 % y reservas escasas",
+        "Superávit corriente del 2 % del PIB, deuda en moneda local y muchas reservas",
+        "Déficit corriente del 1 % del PIB, poca deuda en dólares y reservas abundantes",
+        "Superávit corriente del 4 % del PIB y deuda en dólares del 10 %"
+      ],
+      "answer": 0,
+      "explanation": "Necesita financiación exterior, debe mucho en dólares y tiene poco colchón.",
+      "wrongExplanations": {
+        "1": "No necesita financiación exterior y su deuda no depende del dólar.",
+        "2": "Depende poco del exterior y tiene colchón.",
+        "3": "Tiene superávit y poca deuda en dólares."
+      }
+    },
+    {
+      "id": "n4-u4-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "statement": "Cuando la Fed baja los tipos y el dólar se debilita, el capital suele volver a los mercados emergentes.",
+      "answer": true,
+      "explanation": "Verdadero: es la fase favorable del ciclo del dólar."
+    }
+  ],
+  "realWorld": "El FMI y el BIS publican informes sobre los flujos de capital a los emergentes y su deuda en dólares; cuando la Fed sube con fuerza, mira cómo reaccionan sus divisas y sus bolsas. Las cifras de los ejemplos son de países y divisas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "FMI, Global Financial Stability Report: flujos de capital y deuda en dólares de los mercados emergentes (pendiente de verificar la ruta)",
+      "url": "https://www.imf.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS (Banco de Pagos Internacionales), Informe Económico Anual: el ciclo del dólar, el carry trade y los emergentes (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio, paridades y balanza de pagos) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

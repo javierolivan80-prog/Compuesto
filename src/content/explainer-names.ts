@@ -28,6 +28,7 @@ export const EXPLAINER_NAMES = [
   'DataSurprise',
   'RateTransmission',
   'RiskPremiumGap',
+  'FxParity',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

@@ -91,6 +91,16 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  FxParity: z
+    .object({
+      spot: z.number().min(0.5).max(2),
+      iEur: z.number().min(-1).max(15),
+      iUsd: z.number().min(-1).max(15),
+    })
+    .refine(
+      (p) => p.iEur !== p.iUsd,
+      'Con los dos tipos iguales el forward coincide con el contado',
+    ),
   RiskPremiumGap: z.object({
     bund: z.number().min(0).max(6),
     spread: z.number().int().min(0).max(600),

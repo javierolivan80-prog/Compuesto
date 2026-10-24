@@ -49,6 +49,7 @@ import { WindowGame } from '../games/WindowGame';
 import { MacroGame } from '../games/MacroGame';
 import { EcbGame } from '../games/EcbGame';
 import { RiskGame } from '../games/RiskGame';
+import { FxDeskGame } from '../games/FxDeskGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -222,6 +223,7 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
             'macro-day': MacroGame,
             'ecb-meeting': EcbGame,
             'risk-premium': RiskGame,
+            'fx-desk': FxDeskGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

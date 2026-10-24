@@ -1,0 +1,232 @@
+{
+  "id": "n4-u4-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 4,
+  "title": "Jefe final: la mesa de divisas",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la cuenta corriente y la capacidad o necesidad de financiación y clasificar operaciones en la balanza de pagos",
+    "Calcular tipos de cambio con la PPA absoluta y relativa",
+    "Calcular el forward con la paridad de tipos cubierta y la rentabilidad de un carry trade",
+    "Medir el efecto de una depreciación en la deuda en dólares y reconocer a los emergentes vulnerables"
+  ],
+  "concepts": ["balanza-pagos", "ppa-pti", "emergentes"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n4-u4-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balanza-pagos"],
+      "prompt": "Un país ficticio tiene, en miles de millones de €, un saldo de bienes de −18, de servicios de +31,5, de rentas primarias de −6 y de rentas secundarias de −3. ¿Cuál es el saldo de su cuenta corriente? (miles de millones de €, 1 decimal; negativo si es déficit)",
+      "answer": 4.5,
+      "unit": "miles de millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "-18 + 31.5 - 6 - 3",
+      "explanation": "−18 + 31,5 − 6 − 3 = +4,5: superávit."
+    },
+    {
+      "id": "n4-u4-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balanza-pagos"],
+      "prompt": "Un país ficticio tiene una cuenta corriente de −9,5 y una cuenta de capital de +3 miles de millones de €. ¿Cuál es su capacidad (positiva) o necesidad (negativa) de financiación? (miles de millones de €, 1 decimal)",
+      "answer": -6.5,
+      "unit": "miles de millones de €",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "-9.5 + 3",
+      "explanation": "−9,5 + 3 = −6,5: necesidad de financiación."
+    },
+    {
+      "id": "n4-u4-l6-e3",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["balanza-pagos"],
+      "prompt": "¿En qué cuenta de la balanza de pagos de España se anota cada operación?",
+      "categories": ["Cuenta corriente", "Cuenta de capital", "Cuenta financiera"],
+      "items": [
+        {
+          "text": "Un crucero extranjero gasta en el puerto de Barcelona",
+          "category": "Cuenta corriente"
+        },
+        {
+          "text": "Un fondo español compra acciones de una empresa de EE. UU.",
+          "category": "Cuenta financiera"
+        },
+        {
+          "text": "Una ayuda europea para construir una depuradora",
+          "category": "Cuenta de capital"
+        },
+        {
+          "text": "Una empresa española paga dividendos a sus accionistas extranjeros",
+          "category": "Cuenta corriente"
+        }
+      ],
+      "explanation": "Servicios y rentas: corriente; activos: financiera; transferencias para invertir: capital."
+    },
+    {
+      "id": "n4-u4-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Una misma cesta ficticia cuesta 5,85 $ en EE. UU. y 4,50 € en la zona euro. ¿Qué EUR/USD (dólares por euro) da la PPA absoluta? (2 decimales)",
+      "answer": 1.3,
+      "unit": "dólares por euro",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "5.85 / 4.5",
+      "explanation": "5,85 / 4,50 = 1,30 dólares por euro."
+    },
+    {
+      "id": "n4-u4-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a 1,15. Se espera una inflación del 4 % en EE. UU. y del 2,5 % en la zona euro. Con la PPA relativa, EUR/USD esperado = actual × (1 + inflación de EE. UU.) / (1 + inflación de la zona euro), ¿qué EUR/USD se espera dentro de un año? (4 decimales)",
+      "answer": 1.1668,
+      "unit": "dólares por euro",
+      "tolerance": 0.005,
+      "answerDecimals": 4,
+      "formula": "1.15 * 1.04 / 1.025",
+      "explanation": "1,15 × 1,04 / 1,025 = 1,1668."
+    },
+    {
+      "id": "n4-u4-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a 1,06 y los tipos a un año son del 1,5 % en euros y del 3,5 % en dólares. Por la paridad de tipos cubierta, ¿a cuánto cotiza el forward a un año? (4 decimales)",
+      "answer": 1.0809,
+      "unit": "dólares por euro",
+      "tolerance": 0.005,
+      "answerDecimals": 4,
+      "formula": "1.06 * 1.035 / 1.015",
+      "explanation": "1,06 × 1,035 / 1,015 = 1,0809."
+    },
+    {
+      "id": "n4-u4-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Un fondo se financia al 1,5 % e invierte en una divisa ficticia al 9 %, que se deprecia un 6 % en el año. Con la aproximación rentabilidad ≈ tipo de inversión − tipo de financiación − depreciación, ¿qué rentabilidad obtiene? (%, 1 decimal)",
+      "answer": 1.5,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "9 - 1.5 - 6",
+      "explanation": "9 − 1,5 − 6 = 1,5 %: la depreciación se come casi todo el diferencial."
+    },
+    {
+      "id": "n4-u4-l6-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "prompt": "Un país emergente ficticio tiene una deuda en dólares equivalente al 40 % de su PIB y su moneda se deprecia un 20 % frente al dólar. Si su PIB en moneda local no cambia, ¿qué porcentaje del PIB supone ahora esa deuda? (%, 1 decimal)",
+      "answer": 48,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 1,
+      "formula": "40 * 1.2",
+      "explanation": "40 × 1,20 = 48 % del PIB."
+    },
+    {
+      "id": "n4-u4-l6-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["emergentes"],
+      "character": "mentora",
+      "situation": "La Fed acaba de subir los tipos con fuerza. La mesa compara dos emergentes ficticios: el país A tiene un superávit corriente del 1 % del PIB y deuda en dólares del 10 %; el país B, un déficit corriente del 5 % y deuda en dólares del 40 %, la mitad a menos de un año.",
+      "prompt": "¿Qué lectura hace tu mentora?",
+      "options": [
+        "El país B es el más expuesto a una parada súbita: necesita financiación exterior, que puede cortarse, y su deuda en dólares a corto se encarece con el dólar al alza",
+        "El país A es el más expuesto, porque su superávit atrae capital especulativo",
+        "Los dos por igual: la Fed afecta a todos los emergentes lo mismo",
+        "Ninguno: la Fed solo afecta a EE. UU."
+      ],
+      "answer": 0,
+      "explanation": "El riesgo está en depender del exterior y deber en dólares a corto.",
+      "wrongExplanations": {
+        "1": "Con superávit no necesita financiación exterior.",
+        "2": "Les afecta según su déficit y su deuda en dólares.",
+        "3": "Sus decisiones mueven el dólar y los flujos de capital de todo el mundo."
+      }
+    },
+    {
+      "id": "n4-u4-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "statement": "La PPA predice bien cómo se moverá el tipo de cambio el mes que viene.",
+      "answer": false,
+      "explanation": "Falso: explica los movimientos de muchos años; a corto plazo mandan los tipos, los flujos de capital y el sentimiento."
+    }
+  ],
+  "realWorld": "Naranjas del Turia vende en dólares: un euro fuerte reduce lo que cobra, y una crisis en un emergente puede llegarle por sus clientes. Mira la balanza de pagos del Banco de España, el EUR/USD del día y su forward a un año, y compáralos con lo que diría la paridad de tipos. Las cifras de los ejemplos son de países y divisas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Banco de España, balanza de pagos y posición de inversión internacional de España (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, estadísticas de balanza de pagos de la zona euro (pendiente de verificar la ruta)",
+      "url": "https://www.ecb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, tipos de cambio de referencia del euro (pendiente de verificar la ruta)",
+      "url": "https://www.ecb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "OCDE, paridades de poder adquisitivo (PPA) (pendiente de verificar la ruta)",
+      "url": "https://www.oecd.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "FMI, Global Financial Stability Report: flujos de capital y deuda en dólares de los mercados emergentes (pendiente de verificar la ruta)",
+      "url": "https://www.imf.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS (Banco de Pagos Internacionales), Informe Económico Anual: el ciclo del dólar, el carry trade y los emergentes (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio, paridades y balanza de pagos) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

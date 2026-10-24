@@ -52,6 +52,7 @@ import {
   yoy,
 } from './macro-day';
 import { ecbValues, extraInterest, rightFx, RIGHT_QE, setupEcb, taylor } from './ecb-meeting';
+import { carryReturn, currentAccount, forward, fxDeskValues, setupFxDesk } from './fx-desk';
 import {
   nextRatio,
   phaseOf,
@@ -115,6 +116,7 @@ export const LESSON_GAMES = [
   'macro-day',
   'ecb-meeting',
   'risk-premium',
+  'fx-desk',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -491,6 +493,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     debt_ratio1: [1, 1],
     hits: [0, 0],
   },
+  'fx-desk': {
+    exports: [0, 0],
+    imports: [0, 0],
+    trade_balance: [0, 0],
+    income: [0, 0],
+    current_account: [0, 0],
+    spot: [2, 4],
+    i_eur: [0, 1],
+    i_usd: [0, 1],
+    forward: [4, 4],
+    i_high: [0, 0],
+    i_fund: [0, 0],
+    depreciation: [1, 1],
+    carry: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -770,6 +788,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           spread: 0,
           ratio: 0,
         }),
+      ];
+    }
+    case 'fx-desk': {
+      // todo bien, y todo mal
+      const setup = setupFxDesk(seed);
+      return [
+        fxDeskValues(setup, {
+          account: currentAccount(setup),
+          forward: forward(setup),
+          carry: carryReturn(setup),
+          country: setup.vulnerable,
+        }),
+        fxDeskValues(setup, { account: 0, forward: 0, carry: 0, country: 'same' }),
       ];
     }
   }

@@ -1,0 +1,341 @@
+{
+  "id": "n4-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 4,
+  "title": "Paridad de tipos y carry trade",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el forward por la paridad de tipos cubierta y el tipo implícito",
+    "Explicar la paridad descubierta y medir la rentabilidad y el riesgo del carry trade"
+  ],
+  "concepts": ["ppa-pti"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Paridad cubierta",
+      "text": "La paridad de tipos de interés cubierta (PTI) liga el contado, el forward y los tipos de dos divisas. Con el EUR/USD en dólares por euro: forward = contado × (1 + tipo del dólar) / (1 + tipo del euro). Si no se cumpliera, se ganaría sin riesgo. La divisa de tipos más altos cotiza más barata a plazo."
+    },
+    {
+      "type": "visual",
+      "component": "FxParity",
+      "props": {
+        "spot": 1.12,
+        "iEur": 1.5,
+        "iUsd": 4.5
+      }
+    },
+    {
+      "type": "card",
+      "term": "Descubierta y carry",
+      "text": "La PTI descubierta dice que la divisa de tipos altos se depreciará más o menos por el diferencial, así que perseguir tipos altos no compensaría. A corto plazo suele fallar: de ahí el carry trade, financiarse en una divisa de tipos bajos e invertir en una de tipos altos. Gana poco a poco y puede perder mucho de golpe."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u4-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a {s} y los tipos a un año son del {ie} % en euros y del {iu} % en dólares. Por la paridad de tipos cubierta, ¿a cuánto cotiza el forward a un año? (4 decimales)",
+      "answer": 1.0958,
+      "unit": "dólares por euro",
+      "tolerance": 0.005,
+      "answerDecimals": 4,
+      "formula": "{s} * (1 + {iu} / 100) / (1 + {ie} / 100)",
+      "explanation": "{s} × (1 + {iu} %) / (1 + {ie} %) = {answer}.",
+      "params": {
+        "s": {
+          "value": 1.08,
+          "min": 1.02,
+          "max": 1.18,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "ie": {
+          "value": 2.5,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "iu": {
+          "value": 4,
+          "min": 3.5,
+          "max": 5.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a {s}, el forward a un año a {f} y el tipo del euro a un año es del {ie} %. Si se cumple la paridad cubierta, ¿qué tipo a un año tiene el dólar? (%, 2 decimales)",
+      "answer": 4.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({f} / {s} * (1 + {ie} / 100) - 1) * 100",
+      "explanation": "De forward = contado × (1 + i$) / (1 + i€): i$ = {f} / {s} × (1 + {ie} %) − 1 = {answer} %.",
+      "params": {
+        "s": {
+          "value": 1.12,
+          "min": 1.02,
+          "max": 1.18,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "ie": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "iu": {
+          "value": 4.5,
+          "min": 3.5,
+          "max": 5.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "f": {
+          "formula": "{s} * (1 + {iu} / 100) / (1 + {ie} / 100)",
+          "decimals": 4
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El EUR/USD (dólares por euro) está a {s} y el forward a un año, por la paridad cubierta, a {f}. Los puntos forward son (forward − contado) × 10.000. ¿Cuántos son? (puntos)",
+      "answer": 278,
+      "unit": "puntos",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({f} - {s}) * 10000",
+      "explanation": "({f} − {s}) × 10.000 = {answer} puntos.",
+      "params": {
+        "s": {
+          "value": 1.14,
+          "min": 1.02,
+          "max": 1.18,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "ie": {
+          "value": 2.5,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "iu": {
+          "value": 5,
+          "min": 3.5,
+          "max": 5.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "f": {
+          "formula": "{s} * (1 + {iu} / 100) / (1 + {ie} / 100)",
+          "decimals": 4
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Un fondo pide prestados {m} millones en una divisa al {f} % e invierte en otra divisa, ficticia, al {h} %. En el año, la divisa de inversión se deprecia un {d} %. Con la aproximación rentabilidad ≈ tipo de inversión − tipo de financiación − depreciación, ¿cuántos millones gana (positivo) o pierde (negativo)? (millones, 2 decimales)",
+      "answer": -2.1,
+      "unit": "millones",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{m} * ({h} - {f} - {d}) / 100",
+      "explanation": "{m} × ({h} − {f} − {d}) % = {answer} millones.",
+      "params": {
+        "m": {
+          "value": 40,
+          "min": 20,
+          "max": 100,
+          "step": 20,
+          "decimals": 0
+        },
+        "f": {
+          "value": 1,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "h": {
+          "value": 9,
+          "min": 7,
+          "max": 13,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 13.25,
+          "min": 2.25,
+          "max": 14.25,
+          "step": 1,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "Una divisa ficticia ofrece un tipo del {h} % y la de financiación, del {f} %. Según la paridad de tipos descubierta, ¿qué depreciación aproximada se esperaría en un año de la divisa de tipos altos? (%, 1 decimal)",
+      "answer": 7,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{h} - {f}",
+      "explanation": "Aproximadamente el diferencial: {h} − {f} = {answer} %. Si se cumpliera, el carry trade no ganaría nada de media.",
+      "params": {
+        "h": {
+          "value": 9,
+          "min": 7,
+          "max": 13,
+          "step": 1,
+          "decimals": 0
+        },
+        "f": {
+          "value": 2,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u4-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "¿Describe la paridad de tipos cubierta o la descubierta?",
+      "categories": ["Cubierta", "Descubierta"],
+      "items": [
+        {
+          "text": "Usa el forward, que se fija hoy",
+          "category": "Cubierta"
+        },
+        {
+          "text": "Si no se cumpliera, habría una ganancia sin riesgo",
+          "category": "Cubierta"
+        },
+        {
+          "text": "Usa el tipo de cambio esperado, que nadie conoce",
+          "category": "Descubierta"
+        },
+        {
+          "text": "A corto plazo suele fallar, y en eso se apoya el carry trade",
+          "category": "Descubierta"
+        }
+      ],
+      "explanation": "La cubierta se cumple casi siempre porque el forward se fija hoy; la descubierta depende de una expectativa."
+    },
+    {
+      "id": "n4-u4-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "character": "rival",
+      "situation": "El becario rival lleva seis meses ganando con un carry trade: se financia en una divisa al 1 % e invierte en otra al 11 %. Dice: «Es dinero gratis: cobro un 10 % al año».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que el 10 % es el pago por el riesgo de que la divisa de tipos altos se desplome: si muchos deshacen la operación a la vez, puede perder en días lo ganado en meses",
+        "Que tiene razón: el diferencial de tipos se cobra seguro",
+        "Que la paridad cubierta garantiza que la divisa no se depreciará",
+        "Que el riesgo está en la divisa de financiación, que siempre se deprecia"
+      ],
+      "answer": 0,
+      "explanation": "El carry gana poco a poco y puede perder mucho de golpe: es una apuesta contra la depreciación.",
+      "wrongExplanations": {
+        "1": "El tipo se cobra, pero la divisa puede caer más.",
+        "2": "La cubierta liga el forward; no dice nada del cambio futuro sin cubrir.",
+        "3": "Si la divisa de financiación se aprecia, el fondo pierde todavía más."
+      }
+    },
+    {
+      "id": "n4-u4-l4-e8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ppa-pti"],
+      "prompt": "El tipo a un año del dólar es más alto que el del euro. Según la paridad de tipos cubierta, ¿cómo es el forward del EUR/USD (dólares por euro) a un año?",
+      "options": [
+        "Mayor que el contado: a plazo hacen falta más dólares por euro",
+        "Menor que el contado: a plazo hacen falta menos dólares por euro",
+        "Igual que el contado",
+        "Depende solo de la inflación esperada"
+      ],
+      "answer": 0,
+      "explanation": "forward = contado × (1 + i$) / (1 + i€) > contado si i$ > i€: el dólar, de tipos más altos, cotiza más barato a plazo.",
+      "wrongExplanations": {
+        "1": "Sería así si el euro rindiera más.",
+        "2": "Solo si los tipos fueran iguales.",
+        "3": "La cubierta depende de los tipos de interés; la inflación entra en la PPA."
+      }
+    }
+  ],
+  "realWorld": "Las plataformas de divisas muestran el contado y los puntos forward a varios plazos: cuanto mayor es el diferencial de tipos, más puntos. Las cifras de los ejemplos son de países y divisas ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, tipos de cambio de referencia del euro (pendiente de verificar la ruta)",
+      "url": "https://www.ecb.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS (Banco de Pagos Internacionales), Informe Económico Anual: el ciclo del dólar, el carry trade y los emergentes (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Economics (tipos de cambio, paridades y balanza de pagos) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

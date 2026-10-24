@@ -827,3 +827,13 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Bloom de N4:** 7, 5, 6, 6 y 7 de 8, y 8 de 10 de aplicar o analizar. Test de salto: 12 preguntas, 9 de producir (5 en la primera fase).
 - **Fuentes:** CEPR, INE, Banco de España, AIReF, Eurostat, Comisión Europea y BCE, con `verificarAntesDe` 2027-06-30. Las URL no se pudieron abrir (sin red) y quedan para la revisión. Todas las cifras de los ejemplos son ficticias.
 - **Revisión (24/10/2026):** aprobada en la ronda 3 y marcada `reviewed`. Sin red (WebFetch devuelve ENOTFOUND), las URL de la AIReF y del Banco de España no se pudieron comprobar: se citan con su URL raíz y «(pendiente de verificar la ruta)» en el título, para que Javier fije la ruta exacta. Alternativa descartada: mantener rutas profundas sin comprobar, que podían estar rotas.
+
+## 2026-10-24 — n4-u4 «Finanzas internacionales» (draft), lección-juego «La mesa de divisas» y explicador `FxParity`
+- **Juego `fx-desk`** (ficha en `docs/specs/mesa-divisas.md`), con cuatro pasos sobre `AskStep`: cuenta corriente, forward por la paridad cubierta, carry trade y el emergente más vulnerable a una parada súbita.
+  - Convención única en toda la unidad: EUR/USD = dólares por euro, como en `n2-u5`. Por eso forward = contado × (1 + i$) / (1 + i€).
+  - En el juego el dólar rinde siempre más que el euro (i€ de 1,5 a 2,5 %, i$ de 3 a 4,5 %): así el forward nunca coincide con el contado y los puntos forward de l1 nunca son cero en el repaso.
+  - Las cifras del sorteo evitan los ceros: saldo comercial y rentas elegidos para que las tres opciones nunca coincidan, y depreciaciones con medio punto para que el carry nunca dé exactamente 0.
+  - El paso 4 se decide con una regla clara (más déficit corriente y más deuda en dólares a la vez), con la opción «Los dos por igual» como distractor.
+- **`FxParity`:** ya figuraba en el catálogo de ANIMACIONES; se construye como balancín paso a paso (props `spot`, `iEur`, `iUsd`, con tipos distintos). Cuenta la paridad descubierta como expectativa que falla a corto plazo, sin cifras.
+- **Sin derivados de N7:** el forward aparece solo como precio de paridad. Naranjas del Turia entra por su riesgo de divisa (cobra en dólares) y por el riesgo de su cliente en un emergente, sin explicar coberturas.
+- **Fuentes:** el entorno no tiene red (ENOTFOUND también en ecb.europa.eu y cfainstitute.org), así que todas se citan por su URL raíz con «(pendiente de verificar la ruta)»: Banco de España, BCE, OCDE, FMI, BIS y CFA Institute.

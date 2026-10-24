@@ -1,0 +1,9 @@
+/* La mesa de divisas: panel y pizarras de datos. */
+.fd-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.fd-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

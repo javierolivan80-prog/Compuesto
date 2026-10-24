@@ -101,7 +101,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `Cet1Cushion` | Solvencia (CET1) | Colchón de capital que absorbe pérdidas de préstamos impagados | Tasa de impago |
 | `BankRun` | Liquidez y pánico bancario | Cola de depositantes que retiran dinero; el LCR aguanta o no | Velocidad de retirada |
 | `CreditRisk` | Pérdida esperada | PD × LGD × EAD como tres capas que se multiplican | Las tres variables |
-| `FxParity` | Paridad de tipos de interés | Dos divisas en un balancín con los tipos de interés como pesos | Diferencial de tipos |
+| `FxParity` | Paridad de tipos de interés cubierta | Dos divisas en un balancín con los tipos de interés como pesos; invertir en euros o en dólares con el cambio fijado da lo mismo y de ahí sale el forward | Paso a paso (tipos) |
 
 ### Nivel 5 — Trading
 | Explicador | Concepto | Qué se mueve | Manipulación |

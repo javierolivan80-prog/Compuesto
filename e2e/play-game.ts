@@ -22,6 +22,12 @@ import {
 } from '../src/engine/games/macro-day';
 import { extraInterest, rightFx, setupEcb, taylor } from '../src/engine/games/ecb-meeting';
 import {
+  carryReturn,
+  currentAccount,
+  forward as fxForward,
+  setupFxDesk,
+} from '../src/engine/games/fx-desk';
+import {
   nextRatio,
   phaseOf,
   sectorFor,
@@ -167,6 +173,32 @@ export async function playGameLesson(
     const r1 = nextRatio(setup);
     const ratio = formatNumber(r1, Number.isInteger(r1) ? 0 : 1).replace('.', '\\.');
     await page.getByRole('radio', { name: new RegExp(`^${ratio}\\s%$`) }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'fx-desk') {
+    // referencia 0: la cuenta corriente, el forward, el carry y el país vulnerable
+    await expect(page.getByRole('heading', { name: 'La mesa de divisas' })).toBeVisible();
+    const setup = setupFxDesk(seed);
+    const signed = (v: number) => `${v < 0 ? '−' : ''}${formatNumber(Math.abs(v))}`;
+    const cc = currentAccount(setup);
+    await page
+      .getByRole('radio', {
+        name: `${signed(cc)} (${cc >= 0 ? 'superávit' : 'déficit'})`,
+        exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: formatNumber(fxForward(setup), 4), exact: true }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const carry = carryReturn(setup);
+    const carryText = `${carry < 0 ? '−' : ''}${formatNumber(Math.abs(carry), Number.isInteger(carry) ? 0 : 1)}`;
+    await page.getByRole('radio', { name: new RegExp(`^${carryText}\\s%$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: setup.vulnerable === 'a' ? 'El país A' : 'El país B',
+        exact: true,
+      })
+      .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura
