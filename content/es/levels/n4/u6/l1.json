@@ -76,27 +76,33 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["pd-lgd-ead"],
-      "prompt": "Un préstamo ficticio tiene una PD del {pd} % y deja un margen anual del {margin} % de la exposición. ¿Qué LGD con garantía haría que ese margen cubriera justo la pérdida esperada? (%, 2 decimales)",
-      "answer": 40,
+      "prompt": "La empresa ficticia del comité pidió {ead} mil €. Si impagara con toda esa deuda pendiente y el banco recuperara {rec} mil € al ejecutar la garantía, ¿cuál habría sido la LGD? (%, 1 decimal)",
+      "answer": 30,
       "unit": "%",
       "tolerance": 0.3,
-      "answerDecimals": 2,
-      "formula": "{margin} / {pd} * 100",
-      "explanation": "Margen = PD × LGD, así que LGD = {margin} % / {pd} % = {answer} %: con una garantía que deje la LGD por debajo, el margen cubre la pérdida esperada.",
+      "answerDecimals": 1,
+      "formula": "({ead} - {rec}) / {ead} * 100",
+      "explanation": "({ead} − {rec}) / {ead} = {answer} %: lo que no se recupera.",
       "params": {
-        "pd": {
-          "value": 2,
-          "min": 2,
-          "max": 4,
-          "step": 1,
+        "ead": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
           "decimals": 0
         },
-        "margin": {
-          "value": 0.8,
-          "min": 0.2,
-          "max": 3,
-          "step": 0.1,
-          "decimals": 1
+        "k": {
+          "value": 70,
+          "min": 40,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "rec": {
+          "formula": "{ead} * {k} / 100",
+          "decimals": 0
         }
       }
     },
