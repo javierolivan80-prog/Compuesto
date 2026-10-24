@@ -1,0 +1,307 @@
+{
+  "id": "n4-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 5,
+  "title": "El margen de intereses y la cuenta de un banco",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el margen de intereses, el margen sobre activos y el margen bruto de un banco",
+    "Interpretar el ratio de eficiencia y el efecto de los tipos en el margen"
+  ],
+  "concepts": ["margen-intereses"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Margen de intereses",
+      "text": "Un banco cobra intereses por sus préstamos y bonos y paga intereses por sus depósitos y su deuda. La diferencia es el margen de intereses, su principal ingreso. El margen sobre activos (NIM) lo compara con el tamaño del balance: margen de intereses / activos totales medios."
+    },
+    {
+      "type": "card",
+      "term": "La cuenta de resultados",
+      "text": "Margen de intereses + comisiones netas + resultados de operaciones financieras = margen bruto. Restando los gastos de explotación (personal, oficinas, tecnología) y las provisiones por préstamos que pueden no cobrarse, queda el beneficio antes de impuestos. Ratio de eficiencia = gastos de explotación / margen bruto: cuanto más bajo, mejor."
+    },
+    {
+      "type": "card",
+      "term": "Los tipos y el margen",
+      "text": "Cuando suben los tipos, el margen suele mejorar si los préstamos se revisan antes que lo que se paga por los depósitos, que suele subir más despacio. Cuando bajan, suele estrecharse. También cuentan la morosidad y la competencia por los depósitos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u5-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene {l} M€ en préstamos al {rl} %, {b} M€ en bonos al {rb} % y {d} M€ en depósitos al {rd} %. ¿Cuál es su margen de intereses anual? (M€, 2 decimales)",
+      "answer": 995,
+      "unit": "M€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({l} * {rl} + {b} * {rb} - {d} * {rd}) / 100",
+      "explanation": "{l} × {rl} % + {b} × {rb} % − {d} × {rd} % = {answer} M€.",
+      "params": {
+        "l": {
+          "value": 30000,
+          "min": 20000,
+          "max": 40000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "rl": {
+          "value": 3.8,
+          "min": 3,
+          "max": 5,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "b": {
+          "value": 5000,
+          "min": 2000,
+          "max": 8000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "rb": {
+          "value": 2.5,
+          "min": 1.5,
+          "max": 3.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "dl": {
+          "value": 90,
+          "min": 80,
+          "max": 95,
+          "step": 5,
+          "decimals": 0
+        },
+        "rd": {
+          "value": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "d": {
+          "formula": "{l} * {dl} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene un margen de intereses de {n} M€ y unos activos totales medios de {a} M€. ¿Cuál es su margen sobre activos (NIM)? (%, 2 decimales)",
+      "answer": 1.8,
+      "unit": "%",
+      "tolerance": 0.7,
+      "answerDecimals": 2,
+      "formula": "{n} / {a} * 100",
+      "explanation": "{n} / {a} × 100 = {answer} %.",
+      "params": {
+        "n": {
+          "value": 900,
+          "min": 600,
+          "max": 1500,
+          "step": 10,
+          "decimals": 0
+        },
+        "a": {
+          "value": 50000,
+          "min": 40000,
+          "max": 80000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene un margen de intereses de {n} M€, comisiones netas de {c} M€ y resultados de operaciones financieras de {r} M€. ¿Cuál es su margen bruto? (M€)",
+      "answer": 1730,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{n} + {c} + {r}",
+      "explanation": "{n} + {c} + {r} = {answer} M€.",
+      "params": {
+        "n": {
+          "value": 1200,
+          "min": 800,
+          "max": 1600,
+          "step": 10,
+          "decimals": 0
+        },
+        "c": {
+          "value": 450,
+          "min": 200,
+          "max": 700,
+          "step": 10,
+          "decimals": 0
+        },
+        "r": {
+          "value": 80,
+          "min": 20,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene un margen bruto de {m} M€ y unos gastos de explotación de {g} M€. ¿Cuál es su ratio de eficiencia? (%, 2 decimales)",
+      "answer": 50,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{g} / {m} * 100",
+      "explanation": "{g} / {m} × 100 = {answer} %: gasta {answer} céntimos por cada euro de margen bruto.",
+      "params": {
+        "m": {
+          "value": 1800,
+          "min": 1400,
+          "max": 2400,
+          "step": 10,
+          "decimals": 0
+        },
+        "g": {
+          "value": 900,
+          "min": 600,
+          "max": 1200,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "¿En qué línea de la cuenta de resultados de un banco va cada partida?",
+      "categories": ["Margen de intereses", "Comisiones", "Gastos de explotación", "Provisiones"],
+      "items": [
+        {
+          "text": "Intereses que cobra por sus hipotecas",
+          "category": "Margen de intereses"
+        },
+        {
+          "text": "Comisión de mantenimiento de una cuenta",
+          "category": "Comisiones"
+        },
+        {
+          "text": "Sueldos de los empleados",
+          "category": "Gastos de explotación"
+        },
+        {
+          "text": "Dotación por préstamos que probablemente no cobrará",
+          "category": "Provisiones"
+        },
+        {
+          "text": "Intereses que paga por los depósitos",
+          "category": "Margen de intereses"
+        }
+      ],
+      "explanation": "Los intereses cobrados y pagados forman el margen de intereses; los servicios, las comisiones; el funcionamiento, los gastos; el riesgo de impago, las provisiones."
+    },
+    {
+      "id": "n4-u5-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "character": "mentora",
+      "situation": "El BCE sube los tipos 1 punto. El banco ficticio A tiene casi todas sus hipotecas a tipo variable y remunera poco sus depósitos; el banco B tiene casi todas sus hipotecas a tipo fijo.",
+      "prompt": "¿Qué le explica tu mentora sobre su margen de intereses en los próximos meses?",
+      "options": [
+        "Que el de A suele mejorar más: sus préstamos se revisan pronto al alza y sus depósitos suben despacio; el de B apenas se beneficia",
+        "Que los dos mejoran igual, porque los tipos suben para todos",
+        "Que el de B mejora más, porque el tipo fijo es más alto",
+        "Que los dos empeoran: subir los tipos siempre reduce el margen"
+      ],
+      "answer": 0,
+      "explanation": "El margen depende de qué se revisa antes, los préstamos o el coste de los depósitos.",
+      "wrongExplanations": {
+        "1": "Las hipotecas fijas no recogen la subida.",
+        "2": "Un tipo fijo no cambia aunque suban los tipos.",
+        "3": "Con préstamos variables y depósitos que suben despacio, suele mejorar."
+      }
+    },
+    {
+      "id": "n4-u5-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "prompt": "El banco ficticio A tiene un ratio de eficiencia del 45 % y el banco B, del 60 %. ¿Qué significa?",
+      "options": [
+        "A gasta menos por cada euro de margen bruto: es más eficiente",
+        "B es más eficiente porque su ratio es más alto",
+        "Los dos son igual de eficientes",
+        "A tiene más beneficio que B seguro"
+      ],
+      "answer": 0,
+      "explanation": "Eficiencia = gastos / margen bruto: cuanto más bajo, mejor.",
+      "wrongExplanations": {
+        "1": "Es al revés: un ratio más alto es peor.",
+        "2": "Gastan proporciones distintas de su margen bruto.",
+        "3": "El beneficio depende también de las provisiones y del tamaño."
+      }
+    },
+    {
+      "id": "n4-u5-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["margen-intereses"],
+      "statement": "Un ratio de eficiencia del 70 % es mejor que uno del 45 %.",
+      "answer": false,
+      "explanation": "Falso: el 70 % significa que gasta 70 céntimos por cada euro de margen bruto; cuanto más bajo, mejor."
+    }
+  ],
+  "realWorld": "Los bancos cotizados publican cada trimestre su margen de intereses, su margen bruto y su ratio de eficiencia; compáralos entre bancos con las cuentas que depositan en la CNMV. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Banco de España, supervisión y solvencia de las entidades de crédito; colchón anticíclico (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (entidades financieras) y Economics (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

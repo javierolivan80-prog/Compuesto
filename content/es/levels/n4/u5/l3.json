@@ -1,0 +1,333 @@
+{
+  "id": "n4-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 5,
+  "title": "Activos ponderados por riesgo y ratio CET1",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular los activos ponderados por riesgo y el ratio CET1",
+    "Calcular el capital necesario para un objetivo y el efecto de cambiar la composición del balance"
+  ],
+  "concepts": ["solvencia-cet1"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "El CET1",
+      "text": "El capital de mayor calidad de un banco es el CET1 (capital ordinario de nivel 1): acciones y reservas, menos deducciones como el fondo de comercio. Es lo primero que absorbe pérdidas. Los supervisores lo miden frente a los activos ponderados por riesgo: ratio CET1 = CET1 / APR."
+    },
+    {
+      "type": "visual",
+      "component": "Cet1Cushion",
+      "props": {
+        "apr": 50000,
+        "cet1": 6500
+      }
+    },
+    {
+      "type": "card",
+      "term": "Los APR",
+      "text": "Los activos ponderados por riesgo (APR) pesan cada activo según su riesgo. En esta unidad usamos una versión simplificada del método estándar: deuda pública de la zona euro en euros, 0 %; hipoteca sobre vivienda, 35 %; préstamo a una empresa sin rating, 100 %. Más riesgo exige más capital por cada euro prestado."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u5-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Un banco ficticio tiene {b} M€ en bonos del Estado (ponderan al 0 %), {h} M€ en hipotecas (al 35 %) y {e} M€ en préstamos a empresas (al 100 %). ¿Cuáles son sus activos ponderados por riesgo? (M€)",
+      "answer": 21300,
+      "unit": "M€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{b} * 0 + {h} * 0.35 + {e}",
+      "explanation": "{b} × 0 + {h} × 35 % + {e} × 100 % = {answer} M€.",
+      "params": {
+        "b": {
+          "value": 8000,
+          "min": 2000,
+          "max": 12000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "h": {
+          "value": 18000,
+          "min": 10000,
+          "max": 30000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 15000,
+          "min": 8000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Un banco ficticio tiene {h} M€ en hipotecas (ponderan al 35 %), {e} M€ en préstamos a empresas (al 100 %) y {c} M€ de capital CET1. ¿Cuál es su ratio CET1? (%, 2 decimales)",
+      "answer": 12.5,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} / ({h} * 0.35 + {e}) * 100",
+      "explanation": "APR = {h} × 35 % + {e} = {apr}; {c} / {apr} = {answer} %.",
+      "params": {
+        "h": {
+          "value": 18000,
+          "min": 10000,
+          "max": 30000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 15000,
+          "min": 8000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 12.5,
+          "min": 10.5,
+          "max": 15.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "apr": {
+          "formula": "{h} * 0.35 + {e}",
+          "decimals": 0
+        },
+        "c": {
+          "formula": "{apr} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Un banco ficticio tiene {apr} M€ de APR y {c} M€ de CET1. ¿Cuánto CET1 más necesita para llegar a un ratio del 14 %, sin cambiar sus APR? (M€)",
+      "answer": 745,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "0.14 * {apr} - {c}",
+      "explanation": "14 % × {apr} − {c} = {answer} M€.",
+      "params": {
+        "h": {
+          "value": 18000,
+          "min": 10000,
+          "max": 30000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 15000,
+          "min": 8000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 10.5,
+          "min": 9,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "apr": {
+          "formula": "{h} * 0.35 + {e}",
+          "decimals": 0
+        },
+        "c": {
+          "formula": "{apr} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Un banco ficticio tiene {apr} M€ de APR y {c} M€ de CET1. Vende {x} M€ de préstamos a empresas (ponderan al 100 %) y compra bonos del Estado (al 0 %) por el mismo importe. ¿Cuál es su nuevo ratio CET1? (%, 2 decimales)",
+      "answer": 14.55,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} / ({apr} - {x}) * 100",
+      "explanation": "Los APR bajan {x}: {c} / ({apr} − {x}) = {answer} %.",
+      "params": {
+        "h": {
+          "value": 18000,
+          "min": 10000,
+          "max": 30000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 15000,
+          "min": 8000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 12.5,
+          "min": 10.5,
+          "max": 15.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "x": {
+          "value": 3000,
+          "min": 1000,
+          "max": 5000,
+          "step": 1000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "apr": {
+          "formula": "{h} * 0.35 + {e}",
+          "decimals": 0
+        },
+        "c": {
+          "formula": "{apr} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Con las ponderaciones simplificadas de la unidad, ¿cuánto pondera cada activo en los APR?",
+      "categories": ["Al 0 %", "Al 35 %", "Al 100 %"],
+      "items": [
+        {
+          "text": "Letras del Tesoro español",
+          "category": "Al 0 %"
+        },
+        {
+          "text": "Hipoteca sobre la vivienda de una familia",
+          "category": "Al 35 %"
+        },
+        {
+          "text": "Préstamo a una cadena de hoteles",
+          "category": "Al 100 %"
+        },
+        {
+          "text": "Bonos del Estado italiano en euros",
+          "category": "Al 0 %"
+        },
+        {
+          "text": "Línea de crédito a un fabricante de muebles",
+          "category": "Al 100 %"
+        }
+      ],
+      "explanation": "Deuda pública de la zona euro en euros, 0 %; hipoteca sobre vivienda, 35 %; empresa sin rating, 100 %."
+    },
+    {
+      "id": "n4-u5-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "character": "rival",
+      "situation": "El becario rival dice: «Si un banco quiere subir su ratio CET1, la única forma es ampliar capital».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que hay tres vías: ampliar capital, retener beneficios en lugar de repartirlos o reducir los APR, por ejemplo prestando menos a empresas de riesgo",
+        "Que tiene razón: el ratio solo depende de las acciones nuevas",
+        "Que basta con dar más préstamos",
+        "Que el ratio CET1 no se puede cambiar"
+      ],
+      "answer": 0,
+      "explanation": "Ratio = CET1 / APR: se sube con más numerador (capital nuevo o beneficios retenidos) o menos denominador (menos APR).",
+      "wrongExplanations": {
+        "1": "Los beneficios retenidos también suman CET1, y los APR también cuentan.",
+        "2": "Más préstamos suben los APR y bajan el ratio.",
+        "3": "Cambia con el capital y con los APR."
+      }
+    },
+    {
+      "id": "n4-u5-l3-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "statement": "Si un banco cambia préstamos a empresas por hipotecas sobre vivienda del mismo importe, sus APR bajan.",
+      "answer": true,
+      "explanation": "Verdadero: con las ponderaciones simplificadas, la hipoteca pesa un 35 % y el préstamo a empresa un 100 %."
+    },
+    {
+      "id": "n4-u5-l3-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Si un banco sufre 500 M€ de pérdidas, la primera capa de capital que las absorbe son sus acciones y reservas, el capital ___.",
+      "answers": [["CET1", "ordinario de nivel 1"]],
+      "explanation": "El CET1, el capital ordinario de nivel 1."
+    }
+  ],
+  "realWorld": "Cada banco publica en su informe de pilar 3 su CET1, sus APR por tipo de riesgo y su ratio; el BCE publica estadísticas de solvencia de los bancos que supervisa. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, Supervisión Bancaria: requisitos de capital (pilar 1, pilar 2, colchones) y SREP (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS, Comité de Supervisión Bancaria de Basilea: marco de Basilea III (capital, colchones, LCR y NSFR) (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) n.º 575/2013 (CRR): requisitos de fondos propios, LCR y NSFR (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (entidades financieras) y Economics (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

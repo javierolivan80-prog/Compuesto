@@ -1657,6 +1657,62 @@
     "bad": "Repasa la balanza de pagos, la paridad de tipos y los riesgos del carry trade y de los emergentes.",
     "debrief": "Ver qué ha pasado"
   },
+  "stressGame": {
+    "title": "Stress test",
+    "step": {
+      "nii": "Paso 1 de 4 · el margen de intereses",
+      "cet1": "Paso 2 de 4 · el ratio CET1",
+      "stress": "Paso 3 de 4 · el escenario adverso",
+      "lcr": "Paso 4 de 4 · la liquidez"
+    },
+    "units": "Millones de € (cifras ficticias)",
+    "board": {
+      "loans": "Préstamos",
+      "rLoans": "Tipo de los préstamos",
+      "deposits": "Depósitos",
+      "rDeposits": "Tipo de los depósitos",
+      "mortgages": "Hipotecas (35 %)",
+      "corporates": "Empresas (100 %)",
+      "cet1": "Capital CET1",
+      "apr": "APR",
+      "losses": "Pérdidas del escenario",
+      "aprRise": "Subida de los APR",
+      "hqla": "Activos líquidos",
+      "outflows": "Salidas a 30 días",
+      "inflows": "Entradas a 30 días"
+    },
+    "briefNii": "Albufera Partners asesora a Banca Malvarrosa, un banco comercial ficticio, en plena crisis. Primero, cuánto gana con su negocio básico: cobra intereses por sus préstamos y paga intereses por sus depósitos.",
+    "askNii": "¿Cuál es su margen de intereses anual?",
+    "whyNii": "{{loans}} × {{rLoans}} − {{deposits}} × {{rDeposits}} = {{v}}. Los tipos se aplican a importes distintos: el banco presta más de lo que capta en depósitos, así que no basta con multiplicar el diferencial por los préstamos.",
+    "briefCet1": "Ahora la solvencia. Los activos ponderados por riesgo (APR) pesan cada préstamo según su riesgo: en esta partida, las hipotecas al 35 % y los préstamos a empresas al 100 %. Ratio CET1 = capital CET1 / APR.",
+    "askCet1": "¿Cuál es el ratio CET1 del banco?",
+    "whyCet1": "APR = {{mortgages}} × 35 % + {{corporates}} × 100 % = {{apr}}; {{cet1}} / {{apr}} = {{v}}. El capital se mide frente a los APR, no frente a los préstamos sin ponderar.",
+    "briefStress": "Llega el test de estrés. En el escenario adverso, el banco pierde {{losses}} millones, que salen de su CET1, y sus APR suben un {{rise}} porque sus clientes empeoran.",
+    "askStress": "¿Qué ratio CET1 le queda en el escenario adverso?",
+    "whyStress": {
+      "pass": "({{cet1}} − {{losses}}) / ({{apr}} × (1 + {{rise}})) = {{v}}: sigue por encima del 7 % de referencia (4,5 % de pilar 1 + 2,5 % de colchón de conservación). Las pérdidas bajan el numerador y los APR suben el denominador.",
+      "fail": "({{cet1}} − {{losses}}) / ({{apr}} × (1 + {{rise}})) = {{v}}: cae por debajo del 7 % de referencia (4,5 % de pilar 1 + 2,5 % de colchón de conservación) y tendría que reforzar su capital. Las pérdidas bajan el numerador y los APR suben el denominador."
+    },
+    "briefLcr": "Por último, la liquidez. Si los clientes retiran dinero durante 30 días de tensión, ¿le llegan sus activos líquidos de alta calidad? LCR = activos líquidos / (salidas − entradas en 30 días).",
+    "askLcr": "¿Cuál es su LCR?",
+    "whyLcr": "{{hqla}} / ({{outflows}} − {{inflows}}) = {{v}}: por encima del 100 % que exige la norma, aguantaría 30 días de salidas netas con sus activos líquidos.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre del test de estrés",
+    "row": {
+      "nii": "Margen de intereses",
+      "cet1": "Ratio CET1",
+      "stress": "Escenario adverso",
+      "lcr": "LCR"
+    },
+    "great": "Banco bajo control: margen, capital, estrés y liquidez, como en un comité de riesgos.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa cómo se miden el margen, el CET1 y la liquidez de un banco.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
@@ -1668,6 +1724,9 @@
   },
   "fxParity": {
     "title": "La paridad de tipos, en un balancín"
+  },
+  "cet1Cushion": {
+    "title": "El colchón de capital"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

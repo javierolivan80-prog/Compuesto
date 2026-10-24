@@ -91,6 +91,12 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  Cet1Cushion: z
+    .object({
+      apr: z.number().positive(),
+      cet1: z.number().positive(),
+    })
+    .refine((p) => p.cet1 / p.apr > 0.07, 'El ejemplo necesita un CET1 por encima del 7 %'),
   FxParity: z
     .object({
       spot: z.number().min(0.5).max(2),

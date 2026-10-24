@@ -98,7 +98,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `RiskPremiumGap` | Prima de riesgo | Dos barras, Bund alemán y bono español a 10 años; el hueco es la prima en pb y se ensancha 100 pb con su coste en intereses de la deuda nueva | Paso a paso (prima) |
 | `QeBalance` | QE/QT | El balance del banco central se infla comprando bonos y baja los tipos largos | Compras |
 | `BankBalance` | Margen de intereses | Depósitos que entran a un tipo y préstamos que salen a otro; la diferencia se acumula | Tipos |
-| `Cet1Cushion` | Solvencia (CET1) | Colchón de capital que absorbe pérdidas de préstamos impagados | Tasa de impago |
+| `Cet1Cushion` | Solvencia (CET1) | El ratio CET1 como barra frente al pilar 1 (4,5 %) y al 7 % con el colchón de conservación; lo que sobra es el colchón que absorbe pérdidas | Paso a paso (capital) |
 | `BankRun` | Liquidez y pánico bancario | Cola de depositantes que retiran dinero; el LCR aguanta o no | Velocidad de retirada |
 | `CreditRisk` | Pérdida esperada | PD × LGD × EAD como tres capas que se multiplican | Las tres variables |
 | `FxParity` | Paridad de tipos de interés cubierta | Dos divisas en un balancín con los tipos de interés como pesos; invertir en euros o en dólares con el cambio fijado da lo mismo y de ahí sale el forward | Paso a paso (tipos) |

@@ -1,0 +1,279 @@
+{
+  "id": "n4-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 5,
+  "title": "Basilea III: pilares y colchones",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el requisito total de CET1 de un banco con pilar 1, pilar 2 y colchones",
+    "Medir la holgura sobre el requisito y explicar qué pasa si un banco entra en sus colchones"
+  ],
+  "concepts": ["basilea"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Pilar 1 y colchones",
+      "text": "Basilea III, en la UE el reglamento CRR, exige como mínimo un 4,5 % de CET1 sobre los APR, un 6 % de capital de nivel 1 y un 8 % de capital total. Encima van colchones de CET1: conservación, 2,5 % para todos; anticíclico, que fija cada país según su crédito; y los de bancos sistémicos."
+    },
+    {
+      "type": "card",
+      "term": "Pilar 2 y pilar 3",
+      "text": "Pilar 2: el supervisor (en la zona euro, el BCE para los bancos grandes) revisa cada banco en el SREP y le pide capital adicional por sus riesgos propios (P2R), más una recomendación (P2G). Pilar 3: el banco publica sus ratios y sus riesgos para que el mercado lo vigile."
+    },
+    {
+      "type": "card",
+      "term": "Si entra en el colchón",
+      "text": "Si el CET1 de un banco cae dentro de sus colchones, no incumple el mínimo, pero se le limitan los dividendos, las recompras de acciones y los bonus hasta recuperarse: es la cantidad máxima distribuible (MDA). Si baja del mínimo de pilar 1 más pilar 2, el supervisor interviene."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u5-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene que cubrir con CET1 el mínimo de pilar 1 (4,5 %), {p2r} puntos de pilar 2, el colchón de conservación (2,5 %), un colchón anticíclico del {ccyb} % y uno sistémico del {sys} %. ¿Cuál es su requisito total de CET1? (%, 2 decimales)",
+      "answer": 9.35,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "4.5 + {p2r} + 2.5 + {ccyb} + {sys}",
+      "explanation": "4,5 + {p2r} + 2,5 + {ccyb} + {sys} = {answer} %.",
+      "params": {
+        "p2r": {
+          "value": 1.1,
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "ccyb": {
+          "value": 0.5,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.25,
+          "decimals": 2
+        },
+        "sys": {
+          "value": 0.75,
+          "min": 0,
+          "max": 1,
+          "step": 0.25,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene un ratio CET1 del {r} % y un requisito total de CET1 del {q} %. ¿Cuántos puntos básicos de holgura tiene? (pb)",
+      "answer": 320,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({r} - {q}) * 100",
+      "explanation": "({r} − {q}) × 100 = {answer} pb.",
+      "params": {
+        "r": {
+          "value": 13.4,
+          "min": 12.1,
+          "max": 15.9,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        },
+        "q": {
+          "value": 10.2,
+          "min": 8.5,
+          "max": 11.5,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene {apr} M€ de APR, un ratio CET1 del {r} % y un requisito total de CET1 del {q} %. ¿Cuántos M€ de CET1 tiene por encima de su requisito? (M€)",
+      "answer": 1280,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({r} - {q}) / 100 * {apr}",
+      "explanation": "({r} % − {q} %) × {apr} = {answer} M€.",
+      "params": {
+        "apr": {
+          "value": 40000,
+          "min": 20000,
+          "max": 60000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 13.4,
+          "min": 12.1,
+          "max": 15.9,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        },
+        "q": {
+          "value": 10.2,
+          "min": 8.5,
+          "max": 11.5,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l4-e4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "¿A qué pilar de Basilea pertenece cada elemento?",
+      "categories": ["Pilar 1", "Pilar 2", "Pilar 3"],
+      "items": [
+        {
+          "text": "Mínimo del 4,5 % de CET1 para todos los bancos",
+          "category": "Pilar 1"
+        },
+        {
+          "text": "Capital adicional que el BCE pide a un banco tras revisarlo en el SREP",
+          "category": "Pilar 2"
+        },
+        {
+          "text": "El banco publica sus ratios de capital y sus riesgos",
+          "category": "Pilar 3"
+        },
+        {
+          "text": "Requisito del 8 % de capital total",
+          "category": "Pilar 1"
+        },
+        {
+          "text": "Recomendación de capital (P2G) tras el test de estrés",
+          "category": "Pilar 2"
+        }
+      ],
+      "explanation": "Pilar 1, mínimos iguales para todos; pilar 2, lo que el supervisor pide a cada banco; pilar 3, la transparencia."
+    },
+    {
+      "id": "n4-u5-l4-e5",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene un requisito total de CET1 del 10 % y un ratio del 9,5 %, por encima de su mínimo de pilar 1 y pilar 2: está dentro de su colchón, así que se le limitan los ___.",
+      "answers": [["dividendos", "repartos"]],
+      "explanation": "Los dividendos, junto a las recompras y los bonus: es la cantidad máxima distribuible."
+    },
+    {
+      "id": "n4-u5-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "character": "jefe",
+      "situation": "Banca Malvarrosa, un banco comercial ficticio, tiene un requisito total de CET1 del 10,3 %: un 5,6 % de pilar 1 y pilar 2 y un 4,7 % de colchones. Su ratio cae al 9,8 %. El becario rival dice que el BCE la intervendrá mañana.",
+      "prompt": "¿Qué le responde el jefe del equipo de Albufera Partners?",
+      "options": [
+        "Que no incumple el mínimo de pilar 1 y pilar 2: ha entrado en sus colchones, así que se le limitan los repartos hasta que recupere el capital",
+        "Que tiene razón: por debajo del requisito total, el banco se cierra",
+        "Que no pasa nada: los colchones no tienen consecuencias",
+        "Que tiene que subir su colchón anticíclico"
+      ],
+      "answer": 0,
+      "explanation": "Los colchones están para usarse en una crisis, a cambio de no repartir.",
+      "wrongExplanations": {
+        "1": "El 9,8 % está muy por encima del 5,6 % de pilar 1 y pilar 2.",
+        "2": "Sí las tiene: se limitan dividendos, recompras y bonus.",
+        "3": "El anticíclico lo fija la autoridad del país, no el banco."
+      }
+    },
+    {
+      "id": "n4-u5-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["basilea"],
+      "prompt": "El crédito crece muy deprisa en un país ficticio y su autoridad quiere que los bancos acumulen capital para cuando llegue la caída. ¿Qué colchón sube?",
+      "options": [
+        "El colchón anticíclico",
+        "El colchón de conservación",
+        "El mínimo de pilar 1",
+        "El requisito de pilar 3"
+      ],
+      "answer": 0,
+      "explanation": "El anticíclico lo fija cada país según su ciclo del crédito, para liberarlo cuando llegue la caída.",
+      "wrongExplanations": {
+        "1": "El de conservación es fijo, del 2,5 %, para todos.",
+        "2": "El mínimo de pilar 1 es igual en toda la UE.",
+        "3": "El pilar 3 es de transparencia, no un colchón."
+      }
+    },
+    {
+      "id": "n4-u5-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["basilea"],
+      "statement": "El colchón de conservación del 2,5 % solo se exige a los bancos sistémicos.",
+      "answer": false,
+      "explanation": "Falso: se exige a todos los bancos; los sistémicos tienen además su propio colchón."
+    }
+  ],
+  "realWorld": "El BCE publica cada año los requisitos de pilar 2 de los bancos que supervisa, y el Banco de España fija el colchón anticíclico para las exposiciones en España. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, Supervisión Bancaria: requisitos de capital (pilar 1, pilar 2, colchones) y SREP (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS, Comité de Supervisión Bancaria de Basilea: marco de Basilea III (capital, colchones, LCR y NSFR) (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Banco de España, supervisión y solvencia de las entidades de crédito; colchón anticíclico (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) n.º 575/2013 (CRR): requisitos de fondos propios, LCR y NSFR (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (entidades financieras) y Economics (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

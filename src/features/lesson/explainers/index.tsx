@@ -24,6 +24,7 @@ import { DataSurprise } from './DataSurprise';
 import { RateTransmission } from './RateTransmission';
 import { RiskPremiumGap } from './RiskPremiumGap';
 import { FxParity } from './FxParity';
+import { Cet1Cushion } from './Cet1Cushion';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -67,6 +68,7 @@ const REGISTRY = {
   RateTransmission,
   RiskPremiumGap,
   FxParity,
+  Cet1Cushion,
   FuturePayoff,
 } as unknown as Registry;
 

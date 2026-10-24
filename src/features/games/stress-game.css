@@ -1,0 +1,9 @@
+/* Stress test: panel e indicadores del banco. */
+.sg-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.sg-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

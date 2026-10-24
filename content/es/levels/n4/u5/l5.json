@@ -1,0 +1,327 @@
+{
+  "id": "n4-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 5,
+  "title": "Liquidez y test de estrés",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el LCR, el NSFR y los activos líquidos que faltan para el 100 %",
+    "Proyectar el CET1 de un banco en un escenario adverso e interpretar el test de estrés de la EBA"
+  ],
+  "concepts": ["liquidez-lcr-nsfr", "test-estres"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "LCR y NSFR",
+      "text": "LCR (ratio de cobertura de liquidez) = activos líquidos de alta calidad / salidas netas en 30 días de tensión ≥ 100 %. NSFR (ratio de financiación estable neta) = financiación estable disponible / requerida, ≥ 100 % a un año: los préstamos largos se financian con depósitos estables y capital, no con dinero a muy corto."
+    },
+    {
+      "type": "card",
+      "term": "Activos líquidos",
+      "text": "Los activos líquidos de alta calidad se pueden vender o usar como garantía en plena crisis sin perder mucho valor: sobre todo, reservas en el banco central y deuda pública. Un préstamo a una empresa no cuenta: no se puede vender en pocos días sin rebajarlo mucho."
+    },
+    {
+      "type": "card",
+      "term": "El test de estrés",
+      "text": "La EBA, con el BCE, hace cada dos años un test de estrés a los grandes bancos de la UE: proyecta su capital a tres años en un escenario base y en otro adverso. No hay aprobado ni suspenso: el resultado entra en la revisión del supervisor y sirve para fijar la recomendación de pilar 2."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u5-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "Un banco ficticio tiene {h} M€ en activos líquidos de alta calidad. En 30 días de tensión espera salidas de {o} M€ y entradas de {i} M€. ¿Cuál es su LCR? (%, 2 decimales)",
+      "answer": 145,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{h} / ({o} - {i}) * 100",
+      "explanation": "{h} / ({o} − {i}) = {answer} %.",
+      "params": {
+        "o": {
+          "value": 5000,
+          "min": 3500,
+          "max": 6000,
+          "step": 100,
+          "decimals": 0
+        },
+        "i": {
+          "value": 1000,
+          "min": 500,
+          "max": 1500,
+          "step": 100,
+          "decimals": 0
+        },
+        "k": {
+          "value": 1.45,
+          "min": 1.1,
+          "max": 1.9,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "h": {
+          "formula": "({o} - {i}) * {k}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "Un banco ficticio tiene una financiación estable disponible de {a} M€ y una financiación estable requerida de {r} M€. ¿Cuál es su NSFR? (%, 2 decimales)",
+      "answer": 112,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{a} / {r} * 100",
+      "explanation": "{a} / {r} = {answer} %.",
+      "params": {
+        "r": {
+          "value": 50000,
+          "min": 40000,
+          "max": 70000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 1.12,
+          "min": 0.9,
+          "max": 1.3,
+          "step": 0.02,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "a": {
+          "formula": "{r} * {k}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "Un banco ficticio tiene {h} M€ en activos líquidos de alta calidad y salidas netas a 30 días de {n} M€. ¿Cuántos M€ más de activos líquidos necesita para llegar a un LCR del 100 %? (M€)",
+      "answer": 600,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "{n} - {h}",
+      "explanation": "Al 100 %, los activos líquidos deben igualar las salidas netas: {n} − {h} = {answer} M€.",
+      "params": {
+        "n": {
+          "value": 4000,
+          "min": 3000,
+          "max": 6000,
+          "step": 100,
+          "decimals": 0
+        },
+        "k": {
+          "value": 0.85,
+          "min": 0.7,
+          "max": 0.95,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "h": {
+          "formula": "{n} * {k}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["test-estres"],
+      "prompt": "En el escenario adverso de un test de estrés, un banco ficticio parte de {c} M€ de CET1, gana {b} M€ en tres años, pierde {p} M€ por impagos y sus APR pasan de {apr} M€ a un {r} % más. ¿Qué ratio CET1 le queda al final? (%, 2 decimales)",
+      "answer": 8.7,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "({c} + {b} - {p}) / ({apr} * (1 + {r} / 100)) * 100",
+      "explanation": "({c} + {b} − {p}) / ({apr} × (1 + {r} %)) = {answer} %.",
+      "params": {
+        "c": {
+          "value": 3200,
+          "min": 2800,
+          "max": 3600,
+          "step": 50,
+          "decimals": 0
+        },
+        "b": {
+          "value": 500,
+          "min": 300,
+          "max": 700,
+          "step": 50,
+          "decimals": 0
+        },
+        "p": {
+          "value": 1200,
+          "min": 800,
+          "max": 1600,
+          "step": 50,
+          "decimals": 0
+        },
+        "apr": {
+          "value": 25000,
+          "min": 22000,
+          "max": 28000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 15,
+          "min": 5,
+          "max": 20,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u5-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "¿Cuenta como activo líquido de alta calidad para el LCR?",
+      "categories": ["Sí", "No"],
+      "items": [
+        {
+          "text": "Reservas en el Banco de España",
+          "category": "Sí"
+        },
+        {
+          "text": "Bonos del Estado alemán",
+          "category": "Sí"
+        },
+        {
+          "text": "Una cartera de hipotecas",
+          "category": "No"
+        },
+        {
+          "text": "Un préstamo a una pyme",
+          "category": "No"
+        },
+        {
+          "text": "Letras del Tesoro español",
+          "category": "Sí"
+        }
+      ],
+      "explanation": "Cuentan la liquidez en el banco central y la deuda pública; los préstamos no se pueden vender deprisa sin perder."
+    },
+    {
+      "id": "n4-u5-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "character": "mentora",
+      "situation": "Un banco ficticio tiene un LCR del 160 %, pero un NSFR del 88 %: financia hipotecas a 25 años con depósitos de grandes empresas a menos de un año.",
+      "prompt": "¿Qué le preocupa a tu mentora?",
+      "options": [
+        "Que incumple el NSFR: aguanta un mes de tensión, pero financia préstamos largos con dinero a corto que puede irse o encarecerse",
+        "Nada: con un LCR del 160 % está protegido para siempre",
+        "Que su LCR es demasiado alto",
+        "Que el NSFR solo importa a los bancos de inversión"
+      ],
+      "answer": 0,
+      "explanation": "El LCR mira 30 días; el NSFR, la estructura de financiación a un año.",
+      "wrongExplanations": {
+        "1": "El LCR cubre 30 días, no la estructura de su financiación.",
+        "2": "Un LCR alto no es un problema.",
+        "3": "Se exige a los bancos que captan depósitos y prestan."
+      }
+    },
+    {
+      "id": "n4-u5-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["test-estres"],
+      "prompt": "En el escenario adverso del test de estrés, el banco ficticio A pasa de un CET1 del 14 % al 11 %, y el B, del 12 % al 6 %. ¿Cuál preocupa más al supervisor?",
+      "options": [
+        "El B: pierde más capital y acaba por debajo del 7 %",
+        "El A, porque partía de más capital",
+        "Los dos igual, porque los dos bajan",
+        "Ninguno, porque el test no tiene consecuencias"
+      ],
+      "answer": 0,
+      "explanation": "Lo que mira el supervisor es cuánto capital se consume y dónde queda el banco.",
+      "wrongExplanations": {
+        "1": "A pierde 3 puntos y sigue holgado.",
+        "2": "B pierde el doble y queda dentro de sus colchones.",
+        "3": "El resultado entra en el pilar 2 del supervisor."
+      }
+    },
+    {
+      "id": "n4-u5-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["test-estres"],
+      "statement": "En el test de estrés de la EBA, los bancos que no llegan a un umbral de capital suspenden.",
+      "answer": false,
+      "explanation": "Falso: no hay aprobado ni suspenso; el resultado entra en la revisión del supervisor y en la recomendación de pilar 2."
+    }
+  ],
+  "realWorld": "La EBA publica los resultados de su test de estrés banco a banco, y cada banco publica su LCR y su NSFR en su informe de pilar 3. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "EBA (Autoridad Bancaria Europea), test de estrés a escala de la UE: metodología y escenarios (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BCE, Supervisión Bancaria: requisitos de capital (pilar 1, pilar 2, colchones) y SREP (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS, Comité de Supervisión Bancaria de Basilea: marco de Basilea III (capital, colchones, LCR y NSFR) (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) n.º 575/2013 (CRR): requisitos de fondos propios, LCR y NSFR (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Financial Statement Analysis (entidades financieras) y Economics (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-24"
+}

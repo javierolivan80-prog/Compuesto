@@ -837,3 +837,12 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **`FxParity`:** ya figuraba en el catálogo de ANIMACIONES; se construye como balancín paso a paso (props `spot`, `iEur`, `iUsd`, con tipos distintos). Cuenta la paridad descubierta como expectativa que falla a corto plazo, sin cifras.
 - **Sin derivados de N7:** el forward aparece solo como precio de paridad. Naranjas del Turia entra por su riesgo de divisa (cobra en dólares) y por el riesgo de su cliente en un emergente, sin explicar coberturas.
 - **Fuentes:** el entorno no tiene red (ENOTFOUND también en ecb.europa.eu y cfainstitute.org), así que todas se citan por su URL raíz con «(pendiente de verificar la ruta)»: Banco de España, BCE, OCDE, FMI, BIS y CFA Institute.
+
+## 2026-10-24 — n4-u5 «Por dentro de un banco» (draft), lección-juego «Stress test» y explicador `Cet1Cushion`
+- **Juego `stress-test`** (ficha 12 de JUEGOS.md; spec en `docs/specs/stress-test.md`), con cuatro pasos sobre `AskStep`: margen de intereses, ratio CET1, CET1 en el escenario adverso y LCR.
+  - La ficha decía «diriges Albufera Partners», pero en `companies.json` Albufera es un banco de inversión boutique, sin depósitos ni préstamos. Por eso el equipo de Albufera asesora a **Banca Malvarrosa**, un banco comercial ficticio que se inventa para la unidad. No entra en `companies.json`, porque allí cada empresa necesita cinco años de cuentas que cuadren; aparece solo en el texto, siempre como ficticio. Queda pendiente comprobar el nombre en el registro de la CNMV.
+  - Ponderaciones simplificadas del método estándar: deuda pública de la zona euro al 0 %, hipotecas al 35 % y empresas sin rating al 100 %. Las lecciones lo dicen; no son las ponderaciones de CRR3, que reparten las hipotecas según el LTV.
+  - La referencia del escenario adverso es el 7 % (4,5 % de pilar 1 + 2,5 % de conservación), sin pilar 2 ni otros colchones, que dependen de cada banco.
+- **`Cet1Cushion`** (catálogo de ANIMACIONES, nivel 4): el ratio como barra frente al 4,5 % y al 7 %, con lo que el banco puede perder antes de bajar de ese 7 % y los APR quietos. Se manipula paso a paso, en lugar de con la tasa de impago del catálogo, para no adelantar PD × LGD.
+- **Categorías de ponderación** «Al 0 %», «Al 35 %» y «Al 100 %»: con «0 %» y «100 %», el localizador del e2e (texto que termina en la categoría) no podía distinguirlas.
+- **Fuentes:** sin red, BCE (Supervisión Bancaria), EBA, BIS, Banco de España, EUR-Lex (CRR) y CFA Institute van por su URL raíz con «(pendiente de verificar la ruta)».

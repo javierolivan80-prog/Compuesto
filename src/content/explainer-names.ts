@@ -29,6 +29,7 @@ export const EXPLAINER_NAMES = [
   'RateTransmission',
   'RiskPremiumGap',
   'FxParity',
+  'Cet1Cushion',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

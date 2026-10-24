@@ -183,6 +183,17 @@
           "id": "n4-u4",
           "name": "Finanzas internacionales",
           "concepts": ["balanza-pagos", "ppa-pti", "emergentes"]
+        },
+        {
+          "id": "n4-u5",
+          "name": "Por dentro de un banco",
+          "concepts": [
+            "margen-intereses",
+            "solvencia-cet1",
+            "basilea",
+            "liquidez-lcr-nsfr",
+            "test-estres"
+          ]
         }
       ]
     },

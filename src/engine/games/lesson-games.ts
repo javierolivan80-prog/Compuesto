@@ -53,6 +53,7 @@ import {
 } from './macro-day';
 import { ecbValues, extraInterest, rightFx, RIGHT_QE, setupEcb, taylor } from './ecb-meeting';
 import { carryReturn, currentAccount, forward, fxDeskValues, setupFxDesk } from './fx-desk';
+import { cet1Ratio, lcr, nii, setupStress, stressedRatio, stressValues } from './stress-test';
 import {
   nextRatio,
   phaseOf,
@@ -117,6 +118,7 @@ export const LESSON_GAMES = [
   'ecb-meeting',
   'risk-premium',
   'fx-desk',
+  'stress-test',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -509,6 +511,26 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     carry: [1, 1],
     hits: [0, 0],
   },
+  'stress-test': {
+    loans: [0, 0],
+    deposits: [0, 0],
+    r_loans: [0, 1],
+    r_deposits: [0, 1],
+    nii: [0, 0],
+    mortgages: [0, 0],
+    corporates: [0, 0],
+    apr: [0, 0],
+    cet1: [0, 0],
+    cet1_ratio: [1, 1],
+    losses: [0, 0],
+    apr_rise: [0, 0],
+    stressed_ratio: [1, 1],
+    hqla: [0, 0],
+    outflows: [0, 0],
+    inflows: [0, 0],
+    lcr: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -801,6 +823,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           country: setup.vulnerable,
         }),
         fxDeskValues(setup, { account: 0, forward: 0, carry: 0, country: 'same' }),
+      ];
+    }
+    case 'stress-test': {
+      // todo bien, y todo mal
+      const setup = setupStress(seed);
+      return [
+        stressValues(setup, {
+          nii: nii(setup),
+          cet1: cet1Ratio(setup),
+          stressed: stressedRatio(setup),
+          lcr: lcr(setup),
+        }),
+        stressValues(setup, { nii: 0, cet1: 0, stressed: 0, lcr: 0 }),
       ];
     }
   }

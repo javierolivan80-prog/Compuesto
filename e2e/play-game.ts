@@ -21,6 +21,7 @@ import {
   yoy,
 } from '../src/engine/games/macro-day';
 import { extraInterest, rightFx, setupEcb, taylor } from '../src/engine/games/ecb-meeting';
+import { cet1Ratio, lcr, nii, setupStress, stressedRatio } from '../src/engine/games/stress-test';
 import {
   carryReturn,
   currentAccount,
@@ -199,6 +200,23 @@ export async function playGameLesson(
         exact: true,
       })
       .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'stress-test') {
+    // referencia 0: el margen, el CET1, el ratio estresado y el LCR
+    await expect(page.getByRole('heading', { name: 'Stress test' })).toBeVisible();
+    const setup = setupStress(seed);
+    const ratio = (v: number) => new RegExp(`^${formatNumber(v, 1)}\\s%$`);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${formatNumber(nii(setup)).replace('.', '\\.')}\\sM€$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: ratio(cet1Ratio(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: ratio(stressedRatio(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: ratio(lcr(setup)) }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

@@ -1,0 +1,241 @@
+{
+  "id": "salto-n4-u5",
+  "unitId": "n4-u5",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n4-u5-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene 25.000 M€ en préstamos al 4,2 % y 22.000 M€ en depósitos al 1,2 %. ¿Cuál es su margen de intereses anual? (M€)",
+      "answer": 786,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(25000 * 4.2 - 22000 * 1.2) / 100",
+      "explanation": "1.050 − 264 = 786 M€: cada tipo se aplica a su importe."
+    },
+    {
+      "id": "salto-n4-u5-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["solvencia-cet1"],
+      "prompt": "Un banco ficticio tiene 15.000 M€ en hipotecas (ponderan al 35 %), 9.000 M€ en préstamos a empresas (al 100 %) y 1.950 M€ de CET1. ¿Cuál es su ratio CET1? (%, 2 decimales)",
+      "answer": 13.68,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "1950 / (15000 * 0.35 + 9000) * 100",
+      "explanation": "APR = 5.250 + 9.000 = 14.250; 1.950 / 14.250 = 13,68 %."
+    },
+    {
+      "id": "salto-n4-u5-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene que cubrir con CET1 el mínimo de pilar 1 (4,5 %), 1,5 puntos de pilar 2, el colchón de conservación (2,5 %) y un colchón anticíclico del 0,5 %. ¿Cuál es su requisito total de CET1? (%, 2 decimales)",
+      "answer": 9,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "4.5 + 1.5 + 2.5 + 0.5",
+      "explanation": "4,5 + 1,5 + 2,5 + 0,5 = 9 %."
+    },
+    {
+      "id": "salto-n4-u5-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "Un banco ficticio tiene 2.700 M€ en activos líquidos de alta calidad. En 30 días de tensión espera salidas de 2.500 M€ y entradas de 700 M€. ¿Cuál es su LCR? (%, 2 decimales)",
+      "answer": 150,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "2700 / (2500 - 700) * 100",
+      "explanation": "2.700 / 1.800 = 150 %."
+    },
+    {
+      "id": "salto-n4-u5-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["test-estres"],
+      "prompt": "En el escenario adverso, un banco ficticio con 1.800 M€ de CET1 pierde 450 M€ y sus APR pasan de 15.000 M€ a un 10 % más. ¿Qué ratio CET1 le queda? (%, 2 decimales)",
+      "answer": 8.18,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "(1800 - 450) / (15000 * 1.1) * 100",
+      "explanation": "1.350 / 16.500 = 8,18 %."
+    },
+    {
+      "id": "salto-n4-u5-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["basilea"],
+      "prompt": "El CET1 de un banco ficticio cae por debajo de su requisito total, pero sigue por encima de su mínimo de pilar 1 y pilar 2. ¿Qué ocurre?",
+      "options": [
+        "Ha entrado en sus colchones: se le limitan los dividendos, las recompras y los bonus",
+        "El supervisor lo cierra de inmediato",
+        "Nada, porque solo cuenta el pilar 1",
+        "Tiene que vender todos sus préstamos"
+      ],
+      "answer": 0,
+      "explanation": "Es la cantidad máxima distribuible (MDA): los colchones se usan a cambio de no repartir.",
+      "wrongExplanations": {
+        "1": "Sigue por encima de sus mínimos: no hay cierre.",
+        "2": "Los colchones también tienen consecuencias.",
+        "3": "La respuesta es limitar los repartos y reconstruir capital."
+      }
+    },
+    {
+      "id": "salto-n4-u5-q7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "statement": "El NSFR exige que los préstamos a largo plazo de un banco se financien con fuentes estables, como depósitos estables y capital.",
+      "answer": true,
+      "explanation": "Verdadero: mide la financiación estable a un año frente a la que necesitan sus activos."
+    },
+    {
+      "id": "salto-n4-u5-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["margen-intereses"],
+      "prompt": "El banco ficticio A gasta 0,48 € por cada euro de margen bruto y el banco B, 0,62 €. ¿Qué banco tiene mejor ratio de eficiencia?",
+      "options": [
+        "El A: su ratio, del 48 %, es más bajo",
+        "El B: su ratio, del 62 %, es más alto",
+        "Los dos igual",
+        "No se puede saber sin su beneficio"
+      ],
+      "answer": 0,
+      "explanation": "Eficiencia = gastos de explotación / margen bruto: cuanto más bajo, mejor.",
+      "wrongExplanations": {
+        "1": "Un ratio más alto es peor.",
+        "2": "Gastan proporciones distintas.",
+        "3": "El ratio se calcula solo con gastos y margen bruto."
+      }
+    },
+    {
+      "id": "salto-n4-u5-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["margen-intereses"],
+      "prompt": "Un banco ficticio tiene un margen bruto de 1.600 M€ y unos gastos de explotación de 880 M€. ¿Cuál es su ratio de eficiencia? (%, 2 decimales)",
+      "answer": 55,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "880 / 1600 * 100",
+      "explanation": "880 / 1.600 = 55 %."
+    },
+    {
+      "id": "salto-n4-u5-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["basilea"],
+      "prompt": "Un banco ficticio tiene un ratio CET1 del 12,4 % y un requisito total de CET1 del 10,1 %. ¿Cuántos puntos básicos de holgura tiene? (pb)",
+      "answer": 230,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(12.4 - 10.1) * 100",
+      "explanation": "(12,4 − 10,1) × 100 = 230 pb."
+    },
+    {
+      "id": "salto-n4-u5-q11",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "¿Cuenta como activo líquido de alta calidad para el LCR?",
+      "categories": ["Sí", "No"],
+      "items": [
+        {
+          "text": "Reservas en el banco central",
+          "category": "Sí"
+        },
+        {
+          "text": "Bonos del Estado francés",
+          "category": "Sí"
+        },
+        {
+          "text": "Préstamos al consumo",
+          "category": "No"
+        },
+        {
+          "text": "Un préstamo a una constructora",
+          "category": "No"
+        }
+      ],
+      "explanation": "Cuentan la liquidez en el banco central y la deuda pública; los préstamos no."
+    },
+    {
+      "id": "salto-n4-u5-q12",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["liquidez-lcr-nsfr"],
+      "prompt": "Un banco ficticio tiene una financiación estable disponible de 52.000 M€ y una financiación estable requerida de 48.000 M€. ¿Cuál es su NSFR? (%, 2 decimales)",
+      "answer": 108.33,
+      "unit": "%",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "52000 / 48000 * 100",
+      "explanation": "52.000 / 48.000 = 108,33 %."
+    }
+  ],
+  "sources": [
+    {
+      "title": "BCE, Supervisión Bancaria: requisitos de capital y SREP (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EBA, test de estrés a escala de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "BIS, Comité de Supervisión Bancaria de Basilea: Basilea III (capital, LCR y NSFR) (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "Banco de España, supervisión y solvencia de las entidades de crédito (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-24"
+    },
+    {
+      "title": "EUR-Lex, Reglamento (UE) n.º 575/2013 (CRR) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-24"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

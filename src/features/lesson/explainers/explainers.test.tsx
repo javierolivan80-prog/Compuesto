@@ -177,6 +177,12 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/suelen gastar menos/);
     expect(text).toMatch(/los precios suelen subir más despacio/);
   });
+  it('Cet1Cushion: el ratio frente al pilar 1 y el colchón, y lo que puede perder', () => {
+    render(<ExplainerBlock component="Cet1Cushion" props={{ apr: 50000, cet1: 6500 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/ratio CET1 = 13,0\s%/);
+    expect(text).toMatch(/podría perder 3\.000\sM€ antes de bajar del 7,0\s%/);
+  });
   it('FxParity: el forward sale de igualar las dos inversiones', () => {
     render(<ExplainerBlock component="FxParity" props={{ spot: 1.1, iEur: 2, iUsd: 4 }} />);
     const text = screen.getByRole('figure').textContent ?? '';
