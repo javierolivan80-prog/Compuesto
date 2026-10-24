@@ -1111,7 +1111,7 @@
     "level": 4,
     "prerequisites": ["media-desviacion"],
     "unit": "n4-u3",
-    "description": "Medida entre −1 y 1 de si dos series se mueven juntas: covarianza / (desviación A × desviación B). No implica causalidad. Combinar activos poco correlacionados reduce el riesgo; en las crisis las correlaciones suelen subir."
+    "description": "Medida entre −1 y 1 de si dos series se mueven juntas: covarianza / (desviación típica de A × desviación típica de B). Positiva, se mueven en el mismo sentido; negativa, en sentido contrario; cerca de 0, sin relación lineal. No implica causalidad."
   },
   {
     "id": "sesgo-narrativa",

@@ -221,12 +221,12 @@
       "id": "n4-u3-l3-e6",
       "type": "fill_blank",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": [],
       "concepts": ["politica-fiscal"],
-      "prompt": "El déficit público sin contar los intereses de la deuda se llama déficit ___.",
+      "prompt": "Un país ficticio tiene un déficit del 3 % del PIB y los intereses de su deuda suponen el 3 % del PIB: su déficit ___ es cero.",
       "answers": [["primario"]],
-      "explanation": "Déficit primario."
+      "explanation": "Primario: el déficit sin contar los intereses, 3 % − 3 % = 0."
     },
     {
       "id": "n4-u3-l3-e7",
@@ -288,13 +288,13 @@
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
       "date": "2026-10-23"
     },
     {
-      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), Observatorio de deuda: dinámica de la deuda pública (diferencial tipo de interés − crecimiento y saldo primario)",
-      "url": "https://www.airef.es/es/observatorio-de-deuda/",
+      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), análisis de la sostenibilidad de la deuda pública (pendiente de verificar la ruta)",
+      "url": "https://www.airef.es/es/",
       "date": "2026-10-23"
     },
     {

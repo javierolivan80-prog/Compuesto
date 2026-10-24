@@ -13,7 +13,7 @@
     "Clasificar la fase del ciclo con una regla y relacionarla con la rotación sectorial",
     "Calcular la prima de riesgo frente al Bund y la deuda/PIB del año siguiente"
   ],
-  "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo", "correlacion"],
+  "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo"],
   "companies": ["naranjas-del-turia"],
   "historical": false,
   "game": {
@@ -40,6 +40,17 @@
   "exercises": [
     {
       "id": "n4-u3-l1-e1",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["ciclo-economico"],
+      "prompt": "Un país ficticio: el PIB real crece un 2,8 % con un potencial del 2 % y la inflación baja del 2,9 % al 2,4 %. Según la regla de la mesa, la economía está en ___.",
+      "answers": [["expansión", "expansion", "fase de expansión"]],
+      "explanation": "Expansión: crece por encima de su potencial y la inflación baja. La regla de la mesa es una simplificación didáctica."
+    },
+    {
+      "id": "n4-u3-l1-e2",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -70,7 +81,7 @@
       }
     },
     {
-      "id": "n4-u3-l1-e2",
+      "id": "n4-u3-l1-e3",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -94,7 +105,7 @@
       }
     },
     {
-      "id": "n4-u3-l1-e3",
+      "id": "n4-u3-l1-e4",
       "type": "numeric_input",
       "difficulty": 3,
       "bloom": "aplicar",
@@ -103,7 +114,7 @@
       "prompt": "Un país ficticio tiene un PIB nominal de {gdp} miles de millones de € y una deuda pública del {debt_ratio0} % del PIB. Cada uno de los dos próximos años tendrá un déficit de {deficit} miles de millones, que se suma a la deuda, y el PIB nominal crecerá un {nominal_growth} % anual. ¿Cuál será la deuda/PIB al cabo de dos años? (%, 1 decimal)",
       "answer": 102.6,
       "unit": "%",
-      "tolerance": 0.2,
+      "tolerance": 0.1,
       "answerDecimals": 1,
       "formula": "({debt} + 2 * {deficit}) / ({gdp} * (1 + {nominal_growth} / 100) ^ 2) * 100",
       "explanation": "Deuda: {debt} + 2 × {deficit}. PIB: {gdp} × (1 + {nominal_growth} %)². Cociente × 100 = {answer} %.",
@@ -145,13 +156,13 @@
       }
     },
     {
-      "id": "n4-u3-l1-e4",
+      "id": "n4-u3-l1-e5",
       "type": "categorize",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ciclo-economico"],
-      "prompt": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "prompt": "Regla de la mesa (una simplificación didáctica, no una definición oficial): si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
       "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
       "items": [
         {
@@ -174,7 +185,7 @@
       "explanation": "Por encima del potencial, la inflación separa auge (sube) de expansión (baja); por debajo, el PMI separa desaceleración (> 50) de recesión (< 50)."
     },
     {
-      "id": "n4-u3-l1-e5",
+      "id": "n4-u3-l1-e6",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -198,7 +209,7 @@
       }
     },
     {
-      "id": "n4-u3-l1-e6",
+      "id": "n4-u3-l1-e7",
       "type": "scenario",
       "difficulty": 3,
       "bloom": "analizar",
@@ -222,43 +233,37 @@
       }
     },
     {
-      "id": "n4-u3-l1-e7",
+      "id": "n4-u3-l1-e8",
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["prima-riesgo"],
-      "statement": "Naranjas del Turia tiene su deuda bancaria a tipo fijo. Si la prima de riesgo de España sube 100 pb, el interés que paga este año por esa deuda sube.",
+      "statement": "Naranjas del Turia tiene toda su deuda (préstamos y el bono que emitió) a tipo fijo. Si la prima de riesgo de España sube 100 pb, el interés que paga este año por esa deuda sube.",
       "answer": false,
-      "explanation": "Falso: un tipo fijo ya firmado no cambia. La prima le afectaría al refinanciar o pedir deuda nueva, que suele salir más cara cuando sube."
-    },
-    {
-      "id": "n4-u3-l1-e8",
-      "type": "fill_blank",
-      "difficulty": 1,
-      "bloom": "recordar",
-      "tags": [],
-      "concepts": ["ciclo-economico"],
-      "prompt": "Cuando el PIB real crece por encima de su potencial y la inflación sube, se dice que la economía se ___.",
-      "answers": [["sobrecalienta", "recalienta"]],
-      "explanation": "Se sobrecalienta: es la fase de auge."
+      "explanation": "Falso: un tipo fijo ya firmado no cambia. La prima le afectaría cuando tenga que refinanciarla, porque la deuda nueva suele salir más cara cuando la prima sube."
     }
   ],
   "realWorld": "Los medios financieros publican a diario la prima de riesgo de España frente al Bund; el INE publica el PIB cada trimestre y el Banco de España, la deuda pública. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
-      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de picos y valles del ciclo de la zona euro",
       "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
+      "title": "BCE, serie de rentabilidad de la deuda pública a 10 años de cada país de la zona euro (con la que se calcula el diferencial de España frente a Alemania)",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/long_term_interest_rates/html/index.en.html",
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "title": "Banco de España, estadísticas de tipos de interés y mercados financieros (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
       "date": "2026-10-23"
     },
     {

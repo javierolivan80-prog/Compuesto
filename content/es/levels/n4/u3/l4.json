@@ -32,7 +32,7 @@
     {
       "type": "card",
       "term": "Por qué se mueve",
-      "text": "Suele subir con más riesgo percibido: deuda/PIB alta, déficit persistente, poco crecimiento, inestabilidad política o miedo a que se rompa el euro, como en la crisis de 2012. En las crisis los inversores suelen refugiarse en el Bund, cuya rentabilidad baja. Y contagia: bancos y empresas españolas suelen financiarse por encima de su Estado."
+      "text": "Suele subir con más riesgo percibido: deuda/PIB alta, déficit persistente, poco crecimiento, inestabilidad política o miedo a que se rompa el euro, como en la crisis de 2012. En las crisis los inversores suelen refugiarse en el Bund, cuya rentabilidad baja. Y contagia: bancos y empresas españoles suelen financiarse por encima de su Estado."
     }
   ],
   "exercises": [
@@ -206,7 +206,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["prima-riesgo"],
-      "statement": "Naranjas del Turia tiene su deuda bancaria a tipo fijo. Si la prima de riesgo sube, la deuda nueva que pidiera para refinanciarla suele salir más cara.",
+      "statement": "Naranjas del Turia tiene toda su deuda (préstamos y el bono que emitió) a tipo fijo. Si la prima de riesgo sube, cuando tenga que refinanciarla la deuda nueva suele salir más cara.",
       "answer": true,
       "explanation": "Verdadero: su tipo fijo actual no cambia, pero las empresas españolas suelen financiarse por encima de su Estado, así que la deuda nueva tiende a encarecerse."
     },
@@ -238,29 +238,34 @@
       "id": "n4-u3-l4-e8",
       "type": "fill_blank",
       "difficulty": 1,
-      "bloom": "recordar",
+      "bloom": "aplicar",
       "tags": [],
       "concepts": ["prima-riesgo"],
-      "prompt": "El bono alemán a 10 años, la referencia para medir la prima de riesgo de España, se llama ___.",
+      "prompt": "La prima de riesgo de Italia frente a Alemania se mide como la de España: la rentabilidad del bono italiano a 10 años menos la del ___ alemán a 10 años.",
       "answers": [["Bund"]],
-      "explanation": "Bund (Bundesanleihe)."
+      "explanation": "Bund: la referencia de menor riesgo de la zona euro para cualquier país del euro."
     }
   ],
   "realWorld": "El Banco de España y el BCE publican la rentabilidad del bono a 10 años de cada país del euro; la prima frente al Bund aparece a diario en la prensa económica. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
-      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
-      "date": "2026-10-23"
-    },
-    {
-      "title": "BCE, rentabilidades de la deuda pública a largo plazo (10 años) de los países de la zona euro, a efectos de convergencia",
+      "title": "BCE, serie de rentabilidad de la deuda pública a 10 años de cada país de la zona euro (con la que se calcula el diferencial de España frente a Alemania)",
       "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/long_term_interest_rates/html/index.en.html",
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "title": "BCE, Financial Stability Review: el vínculo entre el riesgo soberano y el coste de financiación de bancos y empresas (las empresas suelen financiarse por encima de su Estado)",
+      "url": "https://www.ecb.europa.eu/pub/financial-stability/fsr/html/index.en.html",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de tipos de interés y mercados financieros (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
       "date": "2026-10-23"
     },
     {

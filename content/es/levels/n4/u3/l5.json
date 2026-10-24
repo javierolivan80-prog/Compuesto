@@ -10,7 +10,7 @@
   "estimatedMinutes": 5,
   "objectives": [
     "Calcular e interpretar una correlación entre −1 y 1 sin confundirla con causalidad",
-    "Aplicar la correlación a la diversificación de una cartera"
+    "Intuir por qué combinar activos poco correlacionados reduce el riesgo"
   ],
   "concepts": ["correlacion"],
   "companies": [],
@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Correlación",
-      "text": "La correlación mide, de −1 a 1, si dos series se mueven juntas. Cerca de 1: suelen subir y bajar a la vez. Cerca de −1: si una sube, la otra suele bajar. Cerca de 0: sin relación lineal. Es la covarianza (si se alejan a la vez de su media) dividida entre el producto de sus desviaciones típicas."
+      "text": "La correlación mide, de −1 a 1, si dos series se mueven juntas. Cerca de 1: suelen ir a la par. Cerca de −1: suelen ir al revés. Cerca de 0: sin relación lineal. Es la covarianza (si se alejan de su media en el mismo sentido o en el contrario) dividida entre el producto de sus desviaciones típicas."
     },
     {
       "type": "card",
@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Diversificación",
-      "text": "Combinar activos con correlación baja o negativa reduce el riesgo: cuando uno cae, el otro no suele caer igual. Con correlación 1 no se diversifica nada: la volatilidad de la cartera es la media ponderada de las volatilidades. Ojo: en las crisis, las correlaciones suelen subir y la diversificación protege menos."
+      "text": "Combinar activos con correlación baja o negativa reduce el riesgo: cuando uno cae, el otro no suele caer igual. Con correlación 1 no se diversifica nada. Ojo: en las crisis, las correlaciones suelen subir y la diversificación protege menos."
     }
   ],
   "exercises": [
@@ -121,40 +121,39 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["correlacion"],
-      "prompt": "Una cartera tiene el {w} % en el activo A, con una volatilidad del {sa} %, y el resto en el activo B, con una volatilidad del {sb} %. Si su correlación es 1, ¿cuál es la volatilidad de la cartera? (%, 1 decimal)",
-      "answer": 16,
-      "unit": "%",
-      "tolerance": 0.3,
-      "answerDecimals": 1,
-      "formula": "({w} * {sa} + (100 - {w}) * {sb}) / 100",
-      "explanation": "Con correlación 1 no se diversifica: media ponderada, {w} % × {sa} + {rest} % × {sb} = {answer} %.",
+      "prompt": "Las rentabilidades mensuales de una acción ficticia y de un bono ficticio tienen una covarianza de {cov} (en %²) y desviaciones típicas del {sa} % y del {sb} %. ¿Cuál es su correlación? (2 decimales; negativa si se mueven en sentido contrario)",
+      "answer": -0.6,
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{cov} / ({sa} * {sb})",
+      "explanation": "{cov} / ({sa} × {sb}) = {answer}: negativa, cuando una sube la otra suele bajar.",
       "params": {
-        "w": {
-          "value": 60,
-          "min": 20,
-          "max": 80,
-          "step": 10,
-          "decimals": 0
+        "rho": {
+          "value": -0.6,
+          "min": -0.9,
+          "max": -0.3,
+          "step": 0.1,
+          "decimals": 1
         },
         "sa": {
-          "value": 20,
-          "min": 15,
-          "max": 30,
-          "step": 1,
-          "decimals": 0
+          "value": 5,
+          "min": 3,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
         },
         "sb": {
-          "value": 10,
-          "min": 5,
-          "max": 12,
-          "step": 1,
-          "decimals": 0
+          "value": 2,
+          "min": 1.5,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
         }
       },
       "derived": {
-        "rest": {
-          "formula": "100 - {w}",
-          "decimals": 0
+        "cov": {
+          "formula": "{rho} * {sa} * {sb}",
+          "decimals": 3
         }
       }
     },
@@ -162,7 +161,7 @@
       "id": "n4-u3-l5-e4",
       "type": "categorize",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["correlacion"],
       "prompt": "¿Qué indica cada correlación entre dos series?",
@@ -266,6 +265,11 @@
   ],
   "realWorld": "Muchos folletos y fichas de fondos explican que diversifican entre activos poco correlacionados; desconfía de cualquier titular que tome una correlación por una causa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
+    {
+      "title": "FMI, Global Financial Stability Report: en los episodios de tensión las correlaciones entre activos de riesgo tienden a aumentar",
+      "url": "https://www.imf.org/en/Publications/GFSR",
+      "date": "2026-10-23"
+    },
     {
       "title": "CFA Institute, CFA Program Level I: Economics (ciclo económico, política fiscal) y Quantitative Methods (correlación)",
       "url": "https://www.cfainstitute.org/programs/cfa-program",

@@ -41,13 +41,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["politica-fiscal"],
-      "prompt": "Un país ficticio tiene una deuda de 900 miles de millones de € y un PIB nominal de 1.000. Este año tendrá un déficit de 25, que se suma a la deuda, y el PIB nominal crecerá un 3 %. ¿Cuál será la deuda/PIB al final del año? (%, 1 decimal)",
-      "answer": 89.8,
+      "prompt": "Un país ficticio tiene una deuda de 780 miles de millones de € y un PIB nominal de 1.200. Este año tendrá un déficit de 42, que se suma a la deuda, y el PIB nominal crecerá un 4 %. ¿Cuál será la deuda/PIB al final del año? (%, 1 decimal)",
+      "answer": 65.9,
       "unit": "%",
       "tolerance": 0.2,
       "answerDecimals": 1,
-      "formula": "(900 + 25) / (1000 * 1.03) * 100",
-      "explanation": "925 / 1.030 = 89,8 %."
+      "formula": "(780 + 42) / (1200 * 1.04) * 100",
+      "explanation": "(780 + 42) / (1.200 × 1,04) = 822 / 1.248 = 65,9 %."
     },
     {
       "id": "n4-u3-l6-e3",
@@ -71,7 +71,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["ciclo-economico"],
-      "prompt": "Regla de la mesa: si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
+      "prompt": "Regla de la mesa (una simplificación didáctica, no una definición oficial): si el PIB real crece por encima de su potencial, decide la inflación (subiendo, auge; bajando, expansión); si crece por debajo, decide el PMI (por encima de 50, desaceleración; por debajo, recesión). ¿En qué fase está cada economía ficticia?",
       "categories": ["Expansión", "Auge (sobrecalentamiento)", "Desaceleración", "Recesión"],
       "items": [
         {
@@ -144,10 +144,10 @@
       "tags": [],
       "concepts": ["prima-riesgo", "ciclo-economico"],
       "character": "jefe",
-      "situation": "La economía entra en desaceleración y la prima de riesgo de España sube 60 pb. Naranjas del Turia vende cítricos y zumos y tiene toda su deuda bancaria a tipo fijo, con vencimiento dentro de tres años.",
+      "situation": "La economía entra en desaceleración y la prima de riesgo de España sube 60 pb. Naranjas del Turia vende cítricos y zumos y tiene toda su deuda (préstamos y el bono que emitió) a tipo fijo.",
       "prompt": "¿Qué lectura hace el jefe de la mesa?",
       "options": [
-        "Su negocio suele aguantar mejor que el de una cíclica, y la subida de la prima no cambia los intereses de su deuda actual; sí podría encarecer la refinanciación dentro de tres años",
+        "Su negocio suele aguantar mejor que el de una cíclica, y la subida de la prima no cambia los intereses de su deuda actual; sí podría encarecerla cuando tenga que refinanciarla",
         "Sus intereses suben ya 60 pb, porque toda deuda española sigue a la prima",
         "Al ser alimentaria, la desaceleración le afecta más que a una constructora",
         "Ni el ciclo ni la prima le afectan en nada"
@@ -186,7 +186,7 @@
       "id": "n4-u3-l6-e9",
       "type": "true_false_swipe",
       "difficulty": 2,
-      "bloom": "analizar",
+      "bloom": "entender",
       "tags": [],
       "concepts": ["correlacion", "sesgo-narrativa"],
       "statement": "Las acciones de las eléctricas y las de las empresas de alimentación tienen una correlación de 0,7: eso demuestra que la subida de unas provoca la subida de las otras.",
@@ -208,7 +208,7 @@
   "realWorld": "Naranjas del Turia es más bien defensiva y tiene su deuda a tipo fijo: el ciclo y la prima de riesgo le llegarían sobre todo al refinanciar. Mira la prima de riesgo del día, el último dato de PIB del INE y la deuda que publica el Banco de España, y clasifica la fase del ciclo con la regla de la mesa. Las cifras de los ejemplos son de una economía ficticia: no es una recomendación.",
   "sources": [
     {
-      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de las fases del ciclo de la zona euro",
+      "title": "CEPR, Euro Area Business Cycle Dating Committee: fechado de picos y valles del ciclo de la zona euro",
       "url": "https://cepr.org/euro-area-business-cycle-dating-committee",
       "date": "2026-10-23"
     },
@@ -218,13 +218,18 @@
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de tipos de interés y mercados: rentabilidad de la deuda pública a 10 años de España y diferencial con Alemania",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/tipos-interes.html",
+      "title": "BCE, serie de rentabilidad de la deuda pública a 10 años de cada país de la zona euro (con la que se calcula el diferencial de España frente a Alemania)",
+      "url": "https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/long_term_interest_rates/html/index.en.html",
       "date": "2026-10-23"
     },
     {
-      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (PDE)",
-      "url": "https://www.bde.es/webbe/es/estadisticas/temas/administraciones-publicas.html",
+      "title": "Banco de España, estadísticas de tipos de interés y mercados financieros (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-23"
+    },
+    {
+      "title": "Banco de España, estadísticas de las Administraciones Públicas: deuda según el Protocolo de Déficit Excesivo (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
       "date": "2026-10-23"
     },
     {
@@ -238,8 +243,8 @@
       "date": "2026-10-23"
     },
     {
-      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), Observatorio de deuda: dinámica de la deuda pública (diferencial tipo de interés − crecimiento y saldo primario)",
-      "url": "https://www.airef.es/es/observatorio-de-deuda/",
+      "title": "AIReF (Autoridad Independiente de Responsabilidad Fiscal), análisis de la sostenibilidad de la deuda pública (pendiente de verificar la ruta)",
+      "url": "https://www.airef.es/es/",
       "date": "2026-10-23"
     },
     {
