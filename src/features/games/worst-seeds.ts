@@ -25,7 +25,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'bank-window': 0,
   'macro-day': 0,
   'ecb-meeting': 0,
-  'stress-test': 244, // préstamos de 24.000 M€ y el CET1 estresado por debajo del 7 % (6,9 %)
+  'stress-test': 383, // préstamos de 24.000 M€ y el CET1 estresado por debajo del 7 % (6,1 %)
   'fx-desk': 203, // exportaciones de 340 con déficit corriente, EUR/USD 1,12 y el país A vulnerable
   'risk-premium': 1453, // recesión con PIB de 1.200, Bund al 2,35 % y la prima más alta (245 pb)
   'cheap-or-dear': 3, // precios con más dígitos y los tres veredictos

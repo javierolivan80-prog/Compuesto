@@ -1684,7 +1684,7 @@
     "briefNii": "Albufera Partners asesora a Banca Malvarrosa, un banco comercial ficticio, en plena crisis. Primero, cuánto gana con su negocio básico: cobra intereses por sus préstamos y paga intereses por sus depósitos.",
     "askNii": "¿Cuál es su margen de intereses anual?",
     "whyNii": "{{loans}} × {{rLoans}} − {{deposits}} × {{rDeposits}} = {{v}}. Los tipos se aplican a importes distintos: el banco presta más de lo que capta en depósitos, así que no basta con multiplicar el diferencial por los préstamos.",
-    "briefCet1": "Ahora la solvencia. Los activos ponderados por riesgo (APR) pesan cada préstamo según su riesgo: en esta partida, las hipotecas al 35 % y los préstamos a empresas al 100 %. Ratio CET1 = capital CET1 / APR.",
+    "briefCet1": "Ahora la solvencia. Los activos ponderados por riesgo (APR) pesan cada préstamo según su riesgo: en esta partida, con ponderaciones simplificadas, las hipotecas al 35 % y los préstamos a empresas al 100 %. Ratio CET1 = capital CET1 / APR.",
     "askCet1": "¿Cuál es el ratio CET1 del banco?",
     "whyCet1": "APR = {{mortgages}} × 35 % + {{corporates}} × 100 % = {{apr}}; {{cet1}} / {{apr}} = {{v}}. El capital se mide frente a los APR, no frente a los préstamos sin ponderar.",
     "briefStress": "Llega el test de estrés. En el escenario adverso, el banco pierde {{losses}} millones, que salen de su CET1, y sus APR suben un {{rise}} porque sus clientes empeoran.",

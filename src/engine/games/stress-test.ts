@@ -29,6 +29,10 @@ export interface StressSetup {
   mortgages: number;
   corporates: number;
   cet1: number;
+  /** Proporciones con las que se sortean el CET1 y las pérdidas (sobre los APR) y los activos líquidos (sobre las salidas netas). */
+  kCet1: number;
+  mLoss: number;
+  kHqla: number;
   /** Escenario adverso: pérdidas (M€) y subida de los APR (%). */
   losses: number;
   aprRise: number;
@@ -52,10 +56,13 @@ export function setupStress(seed: number): StressSetup {
       rDeposits: 1,
       mortgages: 12_000,
       corporates: 8_000,
-      cet1: 1_600,
-      losses: 500,
+      kCet1: 0.13,
+      mLoss: 0.04,
+      kHqla: 1.5,
+      cet1: 1_590,
+      losses: 490,
       aprRise: 10,
-      hqla: 3_000,
+      hqla: 2_700,
       outflows: 2_400,
       inflows: 600,
     };
@@ -67,6 +74,10 @@ export function setupStress(seed: number): StressSetup {
   const apr = (mortgages * W_MORTGAGE + corporates * W_CORPORATE) / 100;
   const outflows = pick(rnd, [2_000, 2_400, 2_800]);
   const inflows = pick(rnd, [400, 600, 800]);
+  const kCet1 = pick(rnd, [0.12, 0.13, 0.14, 0.15]);
+  // desde el 2,5 %: con un 2 %, en algún banco las pérdidas igualaban un distractor
+  const mLoss = pick(rnd, [0.025, 0.03, 0.04, 0.05]);
+  const kHqla = pick(rnd, [1.1, 1.3, 1.5, 1.8]);
   return {
     seed,
     loans,
@@ -75,10 +86,13 @@ export function setupStress(seed: number): StressSetup {
     rDeposits: pick(rnd, [0.5, 1, 1.5]),
     mortgages,
     corporates,
-    cet1: round10(apr * pick(rnd, [0.12, 0.13, 0.14, 0.15])),
-    losses: round10(apr * pick(rnd, [0.02, 0.03, 0.04, 0.05])),
+    kCet1,
+    mLoss,
+    kHqla,
+    cet1: round10(apr * kCet1),
+    losses: round10(apr * mLoss),
     aprRise: pick(rnd, [5, 10, 15]),
-    hqla: round10((outflows - inflows) * pick(rnd, [1.1, 1.3, 1.5, 1.8])),
+    hqla: round10((outflows - inflows) * kHqla),
     outflows,
     inflows,
   };
@@ -177,6 +191,9 @@ export function stressValues(s: StressSetup, a: StressAnswer): Record<string, nu
     corporates: s.corporates,
     apr: apr(s),
     cet1: s.cet1,
+    k_cet1: s.kCet1,
+    m_loss: s.mLoss,
+    k_hqla: s.kHqla,
     cet1_ratio: cet1Ratio(s),
     losses: s.losses,
     apr_rise: s.aprRise,

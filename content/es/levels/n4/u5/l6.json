@@ -27,13 +27,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["margen-intereses"],
-      "prompt": "Un banco ficticio tiene 30.000 M€ en préstamos al 3,8 %, 6.000 M€ en bonos al 2,5 % y 27.000 M€ en depósitos al 0,9 %. ¿Cuál es su margen de intereses anual? (M€)",
-      "answer": 1047,
+      "prompt": "Un banco ficticio tiene 34.000 M€ en préstamos al 4,1 %, 4.000 M€ en bonos al 3 % y 30.000 M€ en depósitos al 1,2 %. ¿Cuál es su margen de intereses anual? (M€)",
+      "answer": 1154,
       "unit": "M€",
       "tolerance": 0.5,
       "answerDecimals": 0,
-      "formula": "(30000 * 3.8 + 6000 * 2.5 - 27000 * 0.9) / 100",
-      "explanation": "1.140 + 150 − 243 = 1.047 M€."
+      "formula": "(34000 * 4.1 + 4000 * 3 - 30000 * 1.2) / 100",
+      "explanation": "1.394 + 120 − 360 = 1.154 M€."
     },
     {
       "id": "n4-u5-l6-e2",

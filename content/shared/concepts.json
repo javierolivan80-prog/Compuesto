@@ -1079,7 +1079,7 @@
     "level": 4,
     "prerequisites": ["solvencia-cet1"],
     "unit": "n4-u5",
-    "description": "Basilea III (CRR en la UE): pilar 1 con un mínimo del 4,5 % de CET1, 6 % de nivel 1 y 8 % total; colchones de conservación (2,5 %), anticíclico y sistémicos; pilar 2 (P2R y P2G tras el SREP); pilar 3, transparencia. Dentro de los colchones se limitan los repartos (MDA)."
+    "description": "Basilea III (en la UE, el reglamento CRR y la directiva CRD): pilar 1 con un mínimo del 4,5 % de CET1, 6 % de nivel 1 y 8 % total; colchones de conservación (2,5 %), anticíclico y sistémicos; pilar 2 (P2R y P2G tras el SREP); pilar 3, transparencia. Dentro de los colchones se limitan los repartos (MDA)."
   },
   {
     "id": "liquidez-lcr-nsfr",

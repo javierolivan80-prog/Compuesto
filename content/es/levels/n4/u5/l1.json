@@ -24,12 +24,12 @@
     {
       "type": "card",
       "term": "Margen y capital",
-      "text": "Acertaste {hits} de 4. Margen de intereses: {loans} × {r_loans} % − {deposits} × {r_deposits} % = {nii} millones. Los activos ponderados por riesgo (APR) fueron {apr} y el CET1, {cet1}: ratio del {cet1_ratio} %. Las hipotecas ponderaron al 35 % y las empresas al 100 %; la deuda pública de la zona euro pondera al 0 %."
+      "text": "Acertaste {hits} de 4. Margen de intereses: {loans} × {r_loans} % − {deposits} × {r_deposits} % = {nii} millones. Los activos ponderados por riesgo (APR) fueron {apr} y el CET1, {cet1}: ratio del {cet1_ratio} %. Las hipotecas ponderaron al 35 % y las empresas al 100 % (ponderaciones simplificadas)."
     },
     {
       "type": "card",
       "term": "El escenario adverso",
-      "text": "Con pérdidas de {losses} y los APR un {apr_rise} % más altos, el CET1 quedó en el {stressed_ratio} %. La referencia es el 7 %: un 4,5 % de mínimo y un 2,5 % de colchón de conservación. Si un banco entra en el colchón, el supervisor le limita los dividendos y los bonus."
+      "text": "Con pérdidas de {losses} y los APR un {apr_rise} % más altos, el CET1 quedó en el {stressed_ratio} %. La referencia de la partida es el 7 %: 4,5 % de mínimo y 2,5 % de colchón de conservación; el requisito real añade el pilar 2 y otros colchones. Dentro del colchón, se limitan los dividendos y los bonus."
     },
     {
       "type": "card",
@@ -127,27 +127,27 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["test-estres"],
-      "prompt": "Banca Malvarrosa, un banco comercial ficticio, tiene {cet1} M€ de CET1 y {apr} M€ de APR. En un escenario adverso suave pierde la mitad de {losses} M€ y sus APR suben un {apr_rise} %. ¿Qué ratio CET1 le queda? (%, 2 decimales)",
-      "answer": 10.06,
+      "prompt": "Banca Malvarrosa, un banco comercial ficticio, tiene {cet1} M€ de CET1 y {apr} M€ de APR. En un escenario adverso suave pierde {half} M€ y sus APR suben un {apr_rise} %. ¿Qué ratio CET1 le queda? (%, 2 decimales)",
+      "answer": 10.02,
       "unit": "%",
       "tolerance": 0.2,
       "answerDecimals": 2,
-      "formula": "({cet1} - {losses} / 2) / ({apr} * (1 + {apr_rise} / 100)) * 100",
-      "explanation": "({cet1} − {losses} / 2) / ({apr} × (1 + {apr_rise} %)) = {answer} %.",
+      "formula": "({cet1} - {half}) / ({apr} * (1 + {apr_rise} / 100)) * 100",
+      "explanation": "({cet1} − {half}) / ({apr} × (1 + {apr_rise} %)) = {answer} %.",
       "params": {
-        "cet1": {
-          "value": 1600,
-          "min": 1040,
-          "max": 2200,
-          "step": 10,
-          "decimals": 0
+        "k_cet1": {
+          "value": 0.13,
+          "min": 0.12,
+          "max": 0.15,
+          "step": 0.01,
+          "decimals": 2
         },
-        "losses": {
-          "value": 500,
-          "min": 170,
-          "max": 740,
-          "step": 10,
-          "decimals": 0
+        "m_loss": {
+          "value": 0.04,
+          "min": 0.025,
+          "max": 0.05,
+          "step": 0.005,
+          "decimals": 3
         },
         "apr_rise": {
           "value": 10,
@@ -175,6 +175,18 @@
         "apr": {
           "formula": "{mortgages} * 0.35 + {corporates}",
           "decimals": 0
+        },
+        "cet1": {
+          "formula": "ROUND({apr} * {k_cet1} / 10, 0) * 10",
+          "decimals": 0
+        },
+        "losses": {
+          "formula": "ROUND({apr} * {m_loss} / 10, 0) * 10",
+          "decimals": 0
+        },
+        "half": {
+          "formula": "{losses} / 2",
+          "decimals": 0
         }
       }
     },
@@ -186,19 +198,19 @@
       "tags": [],
       "concepts": ["liquidez-lcr-nsfr"],
       "prompt": "Banca Malvarrosa, un banco comercial ficticio, tiene {hqla} M€ en activos líquidos de alta calidad. En 30 días de tensión espera salidas de {outflows} M€ y entradas de {inflows} M€. Si las salidas fueran un 20 % mayores, ¿cuál sería su LCR? (%, 2 decimales)",
-      "answer": 131.58,
+      "answer": 118.42,
       "unit": "%",
       "tolerance": 0.2,
       "answerDecimals": 2,
       "formula": "{hqla} / ({outflows} * 1.2 - {inflows}) * 100",
       "explanation": "{hqla} / ({outflows} × 1,2 − {inflows}) = {answer} %.",
       "params": {
-        "hqla": {
-          "value": 3000,
-          "min": 1320,
-          "max": 4320,
-          "step": 10,
-          "decimals": 0
+        "k_hqla": {
+          "value": 1.5,
+          "min": 1.1,
+          "max": 1.8,
+          "step": 0.1,
+          "decimals": 1
         },
         "outflows": {
           "value": 2400,
@@ -214,36 +226,28 @@
           "step": 200,
           "decimals": 0
         }
+      },
+      "derived": {
+        "hqla": {
+          "formula": "ROUND(({outflows} - {inflows}) * {k_hqla} / 10, 0) * 10",
+          "decimals": 0
+        }
       }
     },
     {
       "id": "n4-u5-l1-e5",
-      "type": "categorize",
+      "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["solvencia-cet1"],
-      "prompt": "Con las ponderaciones simplificadas de la partida, ¿cuánto pondera cada activo en los APR?",
-      "categories": ["Al 0 %", "Al 35 %", "Al 100 %"],
-      "items": [
-        {
-          "text": "Bonos del Estado español",
-          "category": "Al 0 %"
-        },
-        {
-          "text": "Una hipoteca sobre una vivienda",
-          "category": "Al 35 %"
-        },
-        {
-          "text": "Un préstamo a una empresa",
-          "category": "Al 100 %"
-        },
-        {
-          "text": "Bonos del Estado alemán",
-          "category": "Al 0 %"
-        }
-      ],
-      "explanation": "La deuda pública de la zona euro en euros pondera al 0 %; la hipoteca, al 35 % en la versión simplificada; un préstamo a una empresa sin rating, al 100 %."
+      "prompt": "Banca Malvarrosa, un banco comercial ficticio, tiene 5.000 M€ en bonos del Estado (ponderan al 0 %), 10.000 M€ en hipotecas (al 35 %) y 6.000 M€ en préstamos a empresas (al 100 %), con las ponderaciones simplificadas de la partida. ¿Cuáles son sus activos ponderados por riesgo? (M€)",
+      "answer": 9500,
+      "unit": "M€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "5000 * 0 + 10000 * 0.35 + 6000",
+      "explanation": "0 + 3.500 + 6.000 = 9.500 M€: los bonos del Estado no suman APR."
     },
     {
       "id": "n4-u5-l1-e6",
@@ -256,7 +260,7 @@
       "situation": "Tras el escenario adverso, el CET1 de Banca Malvarrosa queda en el 6,5 %. Su consejero delegado quiere anunciar el mismo dividendo que el año pasado.",
       "prompt": "¿Qué le dice el jefe del equipo de Albufera Partners?",
       "options": [
-        "Que con el CET1 dentro del colchón (por debajo del 7 %) el supervisor le limitará los dividendos y los bonus: primero tiene que reconstruir el capital",
+        "Que con el CET1 dentro del colchón (por debajo del 7 %) se le limitarán los dividendos y los bonus: primero tiene que reconstruir el capital",
         "Que puede pagarlo: solo está prohibido por debajo del 4,5 %",
         "Que tiene que cerrar el banco",
         "Que el CET1 no tiene relación con los dividendos"
@@ -282,14 +286,18 @@
     },
     {
       "id": "n4-u5-l1-e8",
-      "type": "fill_blank",
-      "difficulty": 1,
+      "type": "numeric_input",
+      "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["liquidez-lcr-nsfr"],
-      "prompt": "Un banco ficticio tiene 2.000 M€ en activos líquidos de alta calidad y salidas netas a 30 días de 2.500 M€: su ___ es del 80 %, por debajo del mínimo del 100 %.",
-      "answers": [["LCR", "ratio de cobertura de liquidez"]],
-      "explanation": "LCR: 2.000 / 2.500 = 80 %."
+      "prompt": "Un banco ficticio tiene 2.000 M€ en activos líquidos de alta calidad y salidas netas a 30 días de 2.500 M€. ¿Cuántos M€ más de activos líquidos necesita para llegar a un LCR del 100 %? (M€)",
+      "answer": 500,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "2500 - 2000",
+      "explanation": "Al 100 %, los activos líquidos igualan las salidas netas: 2.500 − 2.000 = 500 M€. Hoy su LCR es del 80 %."
     }
   ],
   "realWorld": "La EBA publica los resultados del test de estrés de los grandes bancos europeos, y cada banco publica sus ratios de capital y liquidez en su informe de pilar 3. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",

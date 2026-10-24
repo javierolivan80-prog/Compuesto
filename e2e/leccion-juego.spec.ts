@@ -1092,7 +1092,7 @@ test('stress test: captura y axe a 375 px en cada paso y lección completa con t
   await expect(page.getByTestId('sg-why')).toContainText('✗');
   await page.getByRole('button', { name: 'Siguiente' }).click();
   await scan('cet1');
-  await page.getByRole('radio', { name: /^13,1\s%$/ }).click();
+  await page.getByRole('radio', { name: /^13,0\s%$/ }).click();
   await expect(page.getByTestId('sg-why')).toContainText('✓');
   await page.getByRole('button', { name: 'Siguiente' }).click();
   await scan('estrés');
