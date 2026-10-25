@@ -532,3 +532,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - Menores: «presunción refutable» de los 30 días y «precio bien fijado».
 - **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 6, 7 y 6 de 8, y 10 de 10. e2e de producción `n4u6.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las fuentes (IFRS Foundation, BCE Supervisión Bancaria, JUR, Fondo de Garantía de Depósitos, Banco de España, EBA y Comisión Europea) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n4-u7 — Valorar bancos y lección-juego «¿Qué banco compras?» (25/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - pasos nuevos con las cifras de la partida en l1: el justificado de Banco Russafa con un punto más de coste del capital (l1-e4) y el recorrido en M€ hasta la capitalización justificada, positivo o negativo (l1-e2). Para que la capitalización sea realista en el repaso y siga siendo la de la partida, el juego expone su factor de P/VTC (`f_pvtc`) y l1 la recalcula;
+    - en la primera fase del test de salto entran el P/VTC justificado con ROTE derivado (q1) y el ROTE que descuenta el mercado (q2), y el P/VTC pasa a q7;
+    - parámetros derivados para que las cifras sean coherentes: el ROTE de l3-e3, el patrimonio de l5-e3 (préstamos entre 10 y 15 veces el patrimonio) y los intangibles de l2 (entre el 5 y el 20 % del patrimonio).
+- **Ronda 2:** la capitalización de l1-e3 también se recalcula con el factor de la partida.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 7, 6 y 6 de 8, y 9 de 10. e2e de producción `n4u7.spec.ts`: pasa. Con esta unidad, la planta 3 (N4) tiene sus siete unidades; una prueba en dev completó las 42 lecciones y el Camino marcó la planta como completada.
+- 🛑 Pendiente de la revisión de Javier:
+  - comprobar en el registro de la CNMV que «Banco Russafa» y «Banca Malvarrosa» no son nombres reales;
+  - las fuentes (CFA Institute, Damodaran, BCE Supervisión Bancaria, EBA y Banco de España) se citan por su URL raíz «(pendiente de verificar la ruta)».

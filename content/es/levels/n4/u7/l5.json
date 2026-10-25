@@ -1,8 +1,8 @@
 {
   "id": "n4-u7-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 7,
   "title": "El coste del riesgo y el ROE",
