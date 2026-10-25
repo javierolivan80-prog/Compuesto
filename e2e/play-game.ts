@@ -37,6 +37,13 @@ import {
   setupBank,
 } from '../src/engine/games/bank-valuation';
 import {
+  darkSaving,
+  effectiveBp,
+  realizedBp,
+  rightMove as deskMove,
+  setupDesk,
+} from '../src/engine/games/order-desk';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -275,6 +282,27 @@ export async function playGameLesson(
     await page
       .getByRole('radio', {
         name: bankPick(setup) === 'malvarrosa' ? 'Banca Malvarrosa' : 'Banco Russafa',
+        exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'order-desk') {
+    // referencia 0: la horquilla efectiva, la realizada, el ahorro del dark pool y el market maker
+    await expect(page.getByRole('heading', { name: 'Mesa de órdenes' })).toBeVisible();
+    const setup = setupDesk(seed);
+    const bp = (v: number) =>
+      new RegExp(`^${v < 0 ? '−' : ''}${formatNumber(Math.abs(v), 1)}\\spb$`);
+    await page.getByRole('radio', { name: bp(effectiveBp(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: bp(realizedBp(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const save = darkSaving(setup);
+    const saveText = formatNumber(save, Number.isInteger(save) ? 0 : 2).replace('.', '\\.');
+    await page.getByRole('radio', { name: new RegExp(`^${saveText}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
         exact: true,
       })
       .click();

@@ -1842,6 +1842,63 @@
     "bad": "Repasa el ROTE, el P/VTC y cómo se relacionan.",
     "debrief": "Ver qué ha pasado"
   },
+  "orderDeskGame": {
+    "title": "Mesa de órdenes",
+    "step": {
+      "effective": "Paso 1 de 4 · la horquilla efectiva",
+      "realized": "Paso 2 de 4 · la horquilla realizada",
+      "dark": "Paso 3 de 4 · el dark pool",
+      "maker": "Paso 4 de 4 · el market maker"
+    },
+    "board": {
+      "bid": "Mejor compra (bid)",
+      "ask": "Mejor venta (ask)",
+      "mid": "Punto medio",
+      "fill": "Tu precio",
+      "mid5": "Punto medio 5 min después",
+      "qty": "Bloque",
+      "litAvg": "Precio medio barriendo el libro"
+    },
+    "briefEffective": "Planta 4 de Albufera Partners, mesa de renta variable. Compras para un cliente una acción ficticia y tu orden se come el primer nivel del libro. La horquilla efectiva mide lo que de verdad pagas: 2 × (tu precio − punto medio) / punto medio, en puntos básicos.",
+    "askEffective": "¿Cuál fue tu horquilla efectiva?",
+    "whyEffective": "2 × ({{fill}} − {{mid}}) / {{mid}} = {{v}}. Es mayor que la cotizada ({{quoted}}) porque barriste más allá del mejor precio de venta.",
+    "briefRealized": "Otra compra se ejecutó justo al mejor precio de venta, {{ask}}, contra un market maker. Cinco minutos después, el punto medio había subido a {{mid5}}. La horquilla realizada del market maker es 2 × (su precio de venta − punto medio 5 minutos después), en pb del punto medio inicial.",
+    "askRealized": "¿Qué horquilla realizada se quedó el market maker?",
+    "whyRealized": "2 × ({{ask}} − {{mid5}}) / {{mid}} = {{v}}. De los {{quoted}} que cobró, {{impact}} se los comió la subida posterior del precio: es la selección adversa, el riesgo de operar con quien sabe más.",
+    "briefDark": "Ahora un bloque de {{qty}} acciones. Barriendo el libro visible pagarías de media {{lit}}; en un dark pool lo cruzas al punto medio, {{mid}}, sin mostrar la orden antes.",
+    "askDark": "¿Cuánto ahorra el cliente cruzándolo en el dark pool?",
+    "whyDark": "{{qty}} × ({{lit}} − {{mid}}) = {{v}}. El dark pool evita la horquilla y el impacto de barrer el libro, a cambio de no saber si encontrarás contrapartida.",
+    "briefMaker": {
+      "informed": "Suena una noticia sobre la empresa y empiezan a llegar órdenes grandes de compra, todas en el mismo sentido. Eres el market maker que cotiza esa acción.",
+      "noise": "Es una mañana tranquila: llegan muchas órdenes pequeñas de minoristas, unas de compra y otras de venta, sin noticias. Eres el market maker que cotiza esa acción."
+    },
+    "askMaker": "¿Qué haces con tu horquilla?",
+    "maker": {
+      "widen": "La ensancho",
+      "keep": "La mantengo",
+      "narrow": "La estrecho"
+    },
+    "whyMaker": {
+      "widen": "Ese flujo probablemente sabe algo: si sigues vendiendo al mismo precio, el precio seguirá subiendo después (selección adversa). Ensanchar la horquilla protege al market maker.",
+      "keep": "El flujo equilibrado y sin información es el que da de comer al market maker: cobra la horquilla una y otra vez sin que el precio se le vaya. No hay motivo para ensancharla."
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la mesa",
+    "row": {
+      "effective": "Horquilla efectiva",
+      "realized": "Horquilla realizada",
+      "dark": "Dark pool",
+      "maker": "Market maker"
+    },
+    "great": "Mesa impecable: lees el libro como un trader de verdad.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa la horquilla efectiva y realizada, los dark pools y la selección adversa.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
@@ -1862,6 +1919,9 @@
   },
   "bankMultiple": {
     "title": "Del ROTE al P/VTC"
+  },
+  "marketImpact": {
+    "title": "El impacto de una orden grande"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

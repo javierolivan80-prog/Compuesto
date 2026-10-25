@@ -107,7 +107,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 ### Nivel 5 — Trading
 | Explicador | Concepto | Qué se mueve | Manipulación |
 |---|---|---|---|
-| `MarketImpact` | Impacto de mercado | Una orden grande barre el libro; precio medio peor que el visible | Tamaño |
+| `MarketImpact` | Impacto de mercado | Una orden cada vez más grande barre el libro de ventas; el precio medio y el impacto en pb sobre el punto medio crecen más que el tamaño | Paso a paso (tamaño) |
 | `ShortSelling` | Venta en corto | Pides prestada una acción, la vendes, recompras más barata y la devuelves (o más cara y pierdes) | Precio final |
 | `ExpectedValue` | Valor esperado | Ruleta de resultados con sus probabilidades; la media se marca | Probabilidades |
 | `PositionSizing` | Tamaño de posición | Cuenta que sobrevive o se vacía tras una racha de pérdidas según el % arriesgado | % por operación |

@@ -1,0 +1,297 @@
+{
+  "id": "n5-u1-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "title": "Horquilla efectiva, realizada y selección adversa",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la horquilla efectiva, la realizada y el impacto",
+    "Explicar la selección adversa y cómo protege al market maker"
+  ],
+  "concepts": ["market-makers"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Efectiva",
+      "text": "La horquilla cotizada es la de la pantalla. La efectiva es la que pagas: 2 × |precio ejecutado − punto medio| / punto medio. Si mejoras el precio dentro de la horquilla, sale menor que la cotizada; si barres el libro, mayor."
+    },
+    {
+      "type": "card",
+      "term": "Realizada e impacto",
+      "text": "Quien te vendió (un market maker, por ejemplo) no se queda con toda la efectiva. Horquilla realizada = 2 × (su precio de venta − punto medio unos minutos después). La diferencia es el impacto: cuánto se movió el precio tras la operación. Efectiva = realizada + impacto."
+    },
+    {
+      "type": "card",
+      "term": "Selección adversa",
+      "text": "Si quien compra sabe algo, el precio sigue subiendo después y la realizada del market maker cae, o se vuelve negativa. Es la selección adversa. Para protegerse, el market maker ensancha la horquilla cuando teme flujo informado, y eso lo pagan todos los demás."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u1-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Una acción ficticia cotiza con un punto medio de {mid} € y compras a {p} €. ¿Cuál es tu horquilla efectiva? (pb, 2 decimales)",
+      "answer": 50,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2 * ({p} - {mid}) / {mid} * 10000",
+      "explanation": "2 × ({p} − {mid}) / {mid} = {answer} pb.",
+      "params": {
+        "mid": {
+          "value": 12,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 3,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{mid} + {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker vende a {p} € una acción ficticia con un punto medio de {m0} €. Cinco minutos después, el punto medio es de {m5} €. ¿Qué horquilla realizada se queda, en pb del punto medio inicial? (pb, 2 decimales; negativa si pierde)",
+      "answer": -12.5,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2 * ({p} - {m5}) / {m0} * 10000",
+      "explanation": "2 × ({p} − {m5}) / {m0} = {answer} pb.",
+      "params": {
+        "m0": {
+          "value": 16,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "h": {
+          "value": 2,
+          "min": 2,
+          "max": 4,
+          "step": 2,
+          "decimals": 0
+        },
+        "d": {
+          "value": 3,
+          "min": 1,
+          "max": 7,
+          "step": 2,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{m0} + {h} / 100",
+          "decimals": 2
+        },
+        "m5": {
+          "formula": "{m0} + {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker vende a {p} € una acción ficticia con un punto medio de {m0} €, y cinco minutos después el punto medio es de {m5} €. ¿Cuál ha sido el impacto, 2 × (punto medio después − punto medio antes) / punto medio antes? (pb, 2 decimales)",
+      "answer": 37.5,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2 * ({m5} - {m0}) / {m0} * 10000",
+      "explanation": "2 × ({m5} − {m0}) / {m0} = {answer} pb: lo que la operación movió el precio.",
+      "params": {
+        "m0": {
+          "value": 16,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "h": {
+          "value": 2,
+          "min": 2,
+          "max": 4,
+          "step": 2,
+          "decimals": 0
+        },
+        "d": {
+          "value": 3,
+          "min": 1,
+          "max": 7,
+          "step": 2,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{m0} + {h} / 100",
+          "decimals": 2
+        },
+        "m5": {
+          "formula": "{m0} + {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Una acción ficticia tiene una horquilla cotizada de {qb} pb. Tu orden de compra se ejecuta {i} pb por debajo del mejor precio de venta (mejoras el precio). ¿Cuál es tu horquilla efectiva? (pb, 2 decimales)",
+      "answer": 14,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{qb} - 2 * {i}",
+      "explanation": "Pagas la media horquilla menos la mejora, por 2: {qb} − 2 × {i} = {answer} pb.",
+      "params": {
+        "qb": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 2,
+          "decimals": 0
+        },
+        "i": {
+          "value": 3,
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "¿Sube o baja la horquilla realizada del market maker que te vendió?",
+      "categories": ["Sube", "Baja"],
+      "items": [
+        {
+          "text": "Tras tu compra, el precio sigue subiendo",
+          "category": "Baja"
+        },
+        {
+          "text": "Tras tu compra, el precio vuelve a bajar",
+          "category": "Sube"
+        },
+        {
+          "text": "Le compran quienes tienen información nueva",
+          "category": "Baja"
+        },
+        {
+          "text": "Le compran minoristas sin información, y el precio no se mueve",
+          "category": "Sube"
+        }
+      ],
+      "explanation": "Si el precio se va en su contra después de venderte, el market maker se queda con menos."
+    },
+    {
+      "id": "n5-u1-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "character": "rival",
+      "situation": "Un market maker ficticio tuvo ayer una horquilla realizada negativa en una acción. El becario rival dice que «cotizó mal la horquilla».",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que no tiene por qué: le compraron justo antes de que el precio subiera con fuerza; es selección adversa, y por eso los market makers ensanchan la horquilla cuando temen flujo informado",
+        "Que tiene razón: una realizada negativa siempre es un error",
+        "Que la realizada siempre es igual a la cotizada",
+        "Que las horquillas negativas no existen"
+      ],
+      "answer": 0,
+      "explanation": "La realizada depende de lo que pasa después de la operación.",
+      "wrongExplanations": {
+        "1": "Puede cotizar bien y aun así perder si el flujo era informado.",
+        "2": "Solo si el precio no se mueve después.",
+        "3": "La realizada sí puede ser negativa."
+      }
+    },
+    {
+      "id": "n5-u1-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker cobra de media 20 pb de horquilla cotizada y, por selección adversa, pierde de media 15 pb de impacto. ¿Qué horquilla realizada se queda de media?",
+      "options": ["5 pb", "35 pb", "20 pb", "−15 pb"],
+      "answer": 0,
+      "explanation": "Realizada = efectiva − impacto = 20 − 15 = 5 pb.",
+      "wrongExplanations": {
+        "1": "Suma el impacto en lugar de restarlo.",
+        "2": "Es lo que cobra antes del impacto.",
+        "3": "Solo es el impacto, con el signo cambiado."
+      }
+    },
+    {
+      "id": "n5-u1-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "statement": "Cuando un market maker ensancha la horquilla por miedo a la selección adversa, el coste lo pagan también los inversores que no tienen información.",
+      "answer": true,
+      "explanation": "Verdadero: la horquilla más ancha la paga cualquiera que opere, informado o no."
+    }
+  ],
+  "realWorld": "Los estudios de microestructura de la CNMV y de otros supervisores miden la horquilla efectiva y la realizada para ver cuánto cuesta operar en cada mercado. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CNMV, guías y estudios sobre la estructura de los mercados de renta variable, la transparencia y los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

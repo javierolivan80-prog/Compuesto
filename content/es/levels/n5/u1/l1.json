@@ -1,0 +1,274 @@
+{
+  "id": "n5-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: la mesa de órdenes",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la horquilla efectiva y la realizada y explicar la selección adversa",
+    "Calcular el ahorro de cruzar un bloque en un dark pool"
+  ],
+  "concepts": ["libro-ordenes", "market-makers", "dark-pools"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "order-desk",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Horquilla efectiva",
+      "text": "Acertaste {hits} de 4. Con el punto medio en {mid} € y la mejor venta en {ask} €, compraste a {fill} €: una horquilla efectiva de {effective_bp} pb, frente a {quoted_bp} pb de cotizada. La efectiva mide lo que de verdad pagas, incluido lo que barres del libro."
+    },
+    {
+      "type": "card",
+      "term": "Selección adversa",
+      "text": "El market maker vendió a {ask} € y cinco minutos después el punto medio estaba en {mid5} €: se quedó una horquilla realizada de {realized_bp} pb. El resto se lo llevó la subida del precio. Operar con quien sabe más que tú es la selección adversa."
+    },
+    {
+      "type": "card",
+      "term": "Dark pool",
+      "text": "Cruzar el bloque de {qty} acciones al punto medio en un dark pool, en lugar de barrer el libro a {lit_avg} € de media, ahorró {saving} €. A cambio, nadie garantiza encontrar contrapartida. Ante flujo informado, el market maker ensancha su horquilla."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u1-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Compraste un bloque de {qty} acciones de una empresa ficticia con un punto medio de {mid} € y una horquilla efectiva de {effective_bp} pb. ¿Cuántos € pagaste de más frente a comprar todo al punto medio? (€, 2 decimales)",
+      "answer": 600,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{qty} * {mid} * {effective_bp} / 2 / 10000",
+      "explanation": "Cada acción pagó la mitad de la efectiva sobre el punto medio: {qty} × {mid} € × {effective_bp} pb / 2 = {answer} €.",
+      "params": {
+        "qty": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "mid": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "effective_bp": {
+          "value": 60,
+          "min": 30,
+          "max": 125,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "Cruzar todo tu bloque en un dark pool al punto medio te ahorraba {saving} € frente a barrer el libro. Si el dark pool solo encuentra contrapartida para el {p} % del bloque y el resto lo compras barriendo el libro, ¿cuánto ahorras? (€)",
+      "answer": 720,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "{saving} * {p} / 100",
+      "explanation": "{saving} € × {p} % = {answer} €: solo ahorras en la parte que se cruza.",
+      "params": {
+        "saving": {
+          "value": 1200,
+          "min": 300,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "p": {
+          "value": 60,
+          "min": 30,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Tu bloque de {qty} acciones de una empresa ficticia se negocia con un volumen medio diario de {adv} acciones. ¿Qué porcentaje del volumen de un día supone? (%, 2 decimales)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{qty} / {adv} * 100",
+      "explanation": "{qty} / {adv} × 100 = {answer} %: cuanto mayor, más impacto si lo compras en un día.",
+      "params": {
+        "qty": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "adv": {
+          "value": 400000,
+          "min": 200000,
+          "max": 800000,
+          "step": 50000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Una acción ficticia tiene un punto medio de {mid} € y vendes a {sell} €. ¿Cuál es tu horquilla efectiva, 2 × (punto medio − precio de venta) / punto medio? (pb, 2 decimales)",
+      "answer": 80,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2 * ({mid} - {sell}) / {mid} * 10000",
+      "explanation": "2 × ({mid} − {sell}) / {mid} = {answer} pb: al vender, la efectiva se mide por debajo del punto medio.",
+      "params": {
+        "mid": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 4,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "sell": {
+          "formula": "{mid} - {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Eres el market maker de una acción ficticia. ¿Ensanchas la horquilla o la mantienes?",
+      "categories": ["La ensancho", "La mantengo"],
+      "items": [
+        {
+          "text": "Tras una noticia, llegan solo órdenes grandes de compra",
+          "category": "La ensancho"
+        },
+        {
+          "text": "Muchas órdenes pequeñas de minoristas, de compra y de venta, sin noticias",
+          "category": "La mantengo"
+        },
+        {
+          "text": "Un fondo vende sin parar justo antes de unos resultados",
+          "category": "La ensancho"
+        },
+        {
+          "text": "Una mañana tranquila con el flujo equilibrado",
+          "category": "La mantengo"
+        }
+      ],
+      "explanation": "Con flujo informado, la selección adversa obliga a protegerse; con flujo equilibrado, la horquilla se cobra sin que el precio se vaya."
+    },
+    {
+      "id": "n5-u1-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "character": "mentora",
+      "situation": "El becario rival dice: «A partir de ahora, todas las órdenes grandes al dark pool: siempre se ahorra la horquilla».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que el ahorro solo llega si encuentra contrapartida, que la parte no cruzada sigue yendo al libro y que, si casi todo se negociara a oscuras, los precios visibles serían menos fiables",
+        "Que tiene razón: el dark pool siempre es mejor",
+        "Que los dark pools están prohibidos en la UE",
+        "Que en un dark pool se paga la horquilla doble"
+      ],
+      "answer": 0,
+      "explanation": "Es una herramienta útil para bloques, con límites y costes propios.",
+      "wrongExplanations": {
+        "1": "No siempre se llena, y su peso está limitado por la normativa.",
+        "2": "Están permitidos, con límites de volumen.",
+        "3": "Se cruza al punto medio, sin horquilla."
+      }
+    },
+    {
+      "id": "n5-u1-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "statement": "Si el punto medio hubiera bajado en los 5 minutos siguientes a la venta del market maker, su horquilla realizada habría sido mayor que la cotizada.",
+      "answer": true,
+      "explanation": "Verdadero: vendió caro y el precio bajó; realizada = cotizada + lo que bajó el precio, multiplicado por 2."
+    },
+    {
+      "id": "n5-u1-l1-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker pierde dinero porque le compran justo quienes saben que el precio va a subir: es un caso de selección ___.",
+      "answers": [["adversa"]],
+      "explanation": "Selección adversa."
+    }
+  ],
+  "realWorld": "Los brókers y las bolsas publican informes de calidad de ejecución con la horquilla efectiva media de cada valor. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: libro de órdenes, especialistas y proveedores de liquidez (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

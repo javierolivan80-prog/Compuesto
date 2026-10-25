@@ -1,0 +1,236 @@
+{
+  "id": "salto-n5-u1",
+  "unitId": "n5-u1",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u1-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Una acción ficticia tiene un punto medio de 40 € y una compra grande se ejecuta a un precio medio de 40,12 €. ¿Cuál ha sido su impacto? (pb, 1 decimal)",
+      "answer": 30,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "(40.12 - 40) / 40 * 10000",
+      "explanation": "0,12 / 40 = 30 pb."
+    },
+    {
+      "id": "salto-n5-u1-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "Una acción ficticia tiene un punto medio de 20 € y compras a 20,05 €. ¿Cuál es tu horquilla efectiva? (pb, 1 decimal)",
+      "answer": 50,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "2 * (20.05 - 20) / 20 * 10000",
+      "explanation": "2 × 0,05 / 20 = 50 pb."
+    },
+    {
+      "id": "salto-n5-u1-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker vende a 10,02 € una acción ficticia con un punto medio de 10 €; cinco minutos después, el punto medio es de 10,03 €. ¿Qué horquilla realizada se queda? (pb, 1 decimal; negativa si pierde)",
+      "answer": -20,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "2 * (10.02 - 10.03) / 10 * 10000",
+      "explanation": "2 × (−0,01) / 10 = −20 pb: le compraron justo antes de que el precio subiera."
+    },
+    {
+      "id": "salto-n5-u1-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
+      "prompt": "Un fondo cruza 40.000 acciones de una empresa ficticia en un dark pool al punto medio de 15 €; barriendo el libro habría pagado 15,06 € de media. ¿Cuánto ahorra? (€)",
+      "answer": 2400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "40000 * (15.06 - 15)",
+      "explanation": "40.000 × 0,06 = 2.400 €."
+    },
+    {
+      "id": "salto-n5-u1-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio acumula 25.000 acciones de inventario y el precio cae 20 céntimos. ¿Cuánto pierde? (€)",
+      "answer": 5000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "25000 * 0.2",
+      "explanation": "25.000 × 0,20 = 5.000 €."
+    },
+    {
+      "id": "salto-n5-u1-q6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "Tras una noticia, a un market maker le llegan solo órdenes grandes de compra. ¿Qué suele hacer?",
+      "options": [
+        "Ensanchar la horquilla, porque teme que quien compra sepa algo",
+        "Estrecharla para vender más",
+        "Mantenerla igual pase lo que pase",
+        "Comprar él también a mercado"
+      ],
+      "answer": 0,
+      "explanation": "Es la protección frente a la selección adversa.",
+      "wrongExplanations": {
+        "1": "Vendería más barato a quien probablemente sabe más.",
+        "2": "El flujo informado le hace perder si no se protege.",
+        "3": "Su función es cotizar, no apostar en la misma dirección."
+      }
+    },
+    {
+      "id": "salto-n5-u1-q7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
+      "statement": "En un dark pool nadie ve las órdenes antes de que se casen, pero las operaciones sí se publican después.",
+      "answer": true,
+      "explanation": "Verdadero: no hay transparencia previa, pero sí posterior."
+    },
+    {
+      "id": "salto-n5-u1-q8",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Dos órdenes de 200.000 € en dos acciones ficticias: la A negocia 100 millones al día y la B, 1 millón. ¿Cuál tendrá más impacto?",
+      "options": [
+        "La de B, porque supone el 20 % de su volumen diario",
+        "La de A, porque es la acción más grande",
+        "Las dos igual",
+        "Ninguna"
+      ],
+      "answer": 0,
+      "explanation": "El impacto depende del peso de la orden frente a la liquidez.",
+      "wrongExplanations": {
+        "1": "En A es solo el 0,2 % del volumen.",
+        "2": "El mismo importe pesa muy distinto.",
+        "3": "En B es una orden muy grande."
+      }
+    },
+    {
+      "id": "salto-n5-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Un fondo quiere comprar 150.000 acciones de una empresa ficticia sin superar el 10 % del volumen diario, que es de 500.000 acciones. ¿Cuántos días necesita? (días, 1 decimal)",
+      "answer": 3,
+      "unit": "días",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "150000 / (500000 * 0.1)",
+      "explanation": "150.000 / 50.000 = 3 días."
+    },
+    {
+      "id": "salto-n5-u1-q10",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
+      "prompt": "Una acción ficticia negoció 1.500 millones de € en 12 meses en la UE. Con un límite del 7 % para la negociación oscura con exenciones, ¿cuántos millones pueden negociarse así como máximo? (millones de €)",
+      "answer": 105,
+      "unit": "millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "1500 * 0.07",
+      "explanation": "1.500 × 7 % = 105 millones."
+    },
+    {
+      "id": "salto-n5-u1-q11",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "¿Es una ventaja o un riesgo de la negociación de alta frecuencia?",
+      "categories": ["Ventaja", "Riesgo"],
+      "items": [
+        {
+          "text": "Horquillas más estrechas en valores líquidos",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Liquidez que desaparece en momentos de tensión",
+          "category": "Riesgo"
+        },
+        {
+          "text": "Precios iguales entre mercados en milisegundos",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Carrera por la velocidad",
+          "category": "Riesgo"
+        }
+      ],
+      "explanation": "Aporta liquidez en calma y puede retirarse en tensión."
+    },
+    {
+      "id": "salto-n5-u1-q12",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio casa 600 operaciones al día de 200 acciones y gana 1,5 céntimos por acción. ¿Cuánto gana al día con la horquilla? (€)",
+      "answer": 1800,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "600 * 200 * 0.015",
+      "explanation": "600 × 200 × 0,015 = 1.800 €."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia y límites de volumen de la negociación oscura (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CNMV, estructura de los mercados de renta variable y centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "BME, mercado continuo: libro de órdenes y proveedores de liquidez (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

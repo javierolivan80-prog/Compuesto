@@ -1,0 +1,284 @@
+{
+  "id": "n5-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "title": "Market makers y HFT",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular lo que gana un market maker con la horquilla y lo que arriesga con su inventario",
+    "Explicar qué hacen los operadores de alta frecuencia y sus ventajas y riesgos"
+  ],
+  "concepts": ["market-makers"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Market makers",
+      "text": "Un market maker, o creador de mercado, cotiza a la vez precio de compra y de venta y gana la horquilla cuando le compran y le venden. Muchas bolsas tienen proveedores de liquidez con contrato, obligados a cotizar con una horquilla máxima. Su riesgo es el inventario: las acciones que acumula si el flujo va en un solo sentido."
+    },
+    {
+      "type": "card",
+      "term": "Inventario",
+      "text": "Con demasiado inventario, el market maker mueve sus precios para soltarlo: si tiene muchas acciones, baja la compra y la venta para que le compren más y le vendan menos. Una caída del precio con inventario grande le hace perder más de lo que gana con la horquilla de muchos días."
+    },
+    {
+      "type": "card",
+      "term": "Alta frecuencia",
+      "text": "Los operadores de alta frecuencia (HFT) usan algoritmos y conexiones muy rápidas para cotizar y cancelar órdenes en microsegundos. Muchos hacen de market makers y estrechan las horquillas; también arbitran el mismo valor entre mercados. Su liquidez puede desaparecer en segundos en momentos de tensión, como en el flash crash de 2010."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u1-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio casa {n} operaciones al día en una acción, de {q} acciones cada una, y gana de media media horquilla, {h} céntimos por acción. ¿Cuánto gana al día con la horquilla? (€)",
+      "answer": 2400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * {q} * {h} / 100",
+      "explanation": "{n} × {q} × {h} céntimos = {answer} €.",
+      "params": {
+        "n": {
+          "value": 400,
+          "min": 100,
+          "max": 800,
+          "step": 50,
+          "decimals": 0
+        },
+        "q": {
+          "value": 300,
+          "min": 100,
+          "max": 500,
+          "step": 100,
+          "decimals": 0
+        },
+        "h": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio acumula un inventario de {inv} acciones y el precio cae {d} céntimos. ¿Cuánto pierde con ese inventario? (€)",
+      "answer": 4500,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{inv} * {d} / 100",
+      "explanation": "{inv} × {d} céntimos = {answer} €.",
+      "params": {
+        "inv": {
+          "value": 30000,
+          "min": 10000,
+          "max": 80000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 15,
+          "min": 5,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio gana {g} € al día con la horquilla y pierde {l} € en un solo día por una caída con inventario. ¿Cuántos días de horquilla necesita para recuperarlo? (días, 2 decimales)",
+      "answer": 1.875,
+      "unit": "días",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{l} / {g}",
+      "explanation": "{l} / {g} = {answer} días.",
+      "params": {
+        "g": {
+          "value": 2400,
+          "min": 1000,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "l": {
+          "value": 4500,
+          "min": 2000,
+          "max": 12000,
+          "step": 500,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio cotiza una acción a {b} € – {a} €. Ha acumulado demasiadas acciones y baja los dos precios {s} céntimos para soltarlas. ¿A qué precio vende ahora? (€, 2 decimales)",
+      "answer": 9.99,
+      "unit": "€",
+      "tolerance": 0.05,
+      "answerDecimals": 2,
+      "formula": "{a} - {s} / 100",
+      "explanation": "{a} − {s} céntimos = {answer} €: con menos precio de venta le compran más, y con menos precio de compra le venden menos.",
+      "params": {
+        "m": {
+          "value": 10,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "b": {
+          "formula": "{m} - 0.02",
+          "decimals": 2
+        },
+        "a": {
+          "formula": "{m} + 0.02",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "¿Es una ventaja o un riesgo de la negociación de alta frecuencia?",
+      "categories": ["Ventaja", "Riesgo"],
+      "items": [
+        {
+          "text": "Horquillas más estrechas en los valores líquidos",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Su liquidez puede desaparecer en segundos en momentos de tensión",
+          "category": "Riesgo"
+        },
+        {
+          "text": "Igualan rápido los precios del mismo valor entre mercados",
+          "category": "Ventaja"
+        },
+        {
+          "text": "Carrera por la velocidad que favorece a quien paga la conexión más rápida",
+          "category": "Riesgo"
+        }
+      ],
+      "explanation": "El HFT aporta liquidez en tiempos normales, pero no está obligado a quedarse cuando más falta hace, salvo los proveedores con contrato."
+    },
+    {
+      "id": "n5-u1-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "character": "jefe",
+      "situation": "Un market maker ficticio lleva toda la mañana comprando a los vendedores de una acción y tiene un inventario muy grande. El precio empieza a caer.",
+      "prompt": "¿Qué suele hacer, según el jefe de la mesa?",
+      "options": [
+        "Bajar sus precios de compra y de venta para atraer compradores y frenar a los vendedores, y soltar inventario aunque gane menos horquilla",
+        "Subir sus precios para ganar más horquilla",
+        "Seguir comprando todo lo que le vendan, porque gana la horquilla",
+        "Dejar de cotizar el precio de venta"
+      ],
+      "answer": 0,
+      "explanation": "Gestionar el inventario pesa más que exprimir la horquilla.",
+      "wrongExplanations": {
+        "1": "Con precios más altos le venderían todavía más.",
+        "2": "Cada compra le aumenta el riesgo de inventario.",
+        "3": "Le interesa justo vender, así que necesita cotizar el precio de venta."
+      }
+    },
+    {
+      "id": "n5-u1-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "¿Qué diferencia a un proveedor de liquidez con contrato con la bolsa de un operador de alta frecuencia sin contrato?",
+      "options": [
+        "El de contrato se compromete a cotizar con una horquilla máxima; el otro puede dejar de cotizar cuando quiera",
+        "Ninguna: los dos están obligados a cotizar siempre",
+        "El operador de alta frecuencia está obligado a cotizar y el de contrato no",
+        "El de contrato no puede ganar la horquilla"
+      ],
+      "answer": 0,
+      "explanation": "El contrato da obligaciones a cambio de incentivos de la bolsa.",
+      "wrongExplanations": {
+        "1": "Sin contrato no hay obligación de cotizar.",
+        "2": "Es al revés.",
+        "3": "Gana la horquilla como cualquier market maker."
+      }
+    },
+    {
+      "id": "n5-u1-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "statement": "Un market maker gana más cuanto mayor es el inventario que acumula en un solo sentido.",
+      "answer": false,
+      "explanation": "Falso: gana con la rotación, comprando y vendiendo; un inventario grande es riesgo, porque una caída del precio le hace perder."
+    }
+  ],
+  "realWorld": "BME publica qué entidades actúan como especialistas o proveedores de liquidez en los valores menos líquidos del mercado continuo. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: libro de órdenes, especialistas y proveedores de liquidez (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

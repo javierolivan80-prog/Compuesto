@@ -1,0 +1,9 @@
+/* Mesa de órdenes (N5): panel y pantalla de la mesa. */
+.od-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.od-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

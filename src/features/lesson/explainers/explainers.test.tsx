@@ -177,6 +177,15 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/suelen gastar menos/);
     expect(text).toMatch(/los precios suelen subir más despacio/);
   });
+  it('MarketImpact: cuanto mayor la orden, más impacto por acción', () => {
+    render(
+      <ExplainerBlock component="MarketImpact" props={{ mid: 20, half: 0.02, depth: 1000 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/comprar 500 acciones cuesta 10,0\spb/);
+    expect(text).toMatch(/2\.000, 15,0\spb/);
+    expect(text).toMatch(/5\.000, 30,0\spb/);
+  });
   it('BankMultiple: el P/VTC justificado cruza el 1 cuando el ROTE iguala al Ke', () => {
     render(<ExplainerBlock component="BankMultiple" props={{ ke: 10, g: 2 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

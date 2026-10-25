@@ -865,3 +865,20 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Planta 3:** con `n4-u7`, el Nivel 4 tiene siete unidades. No hay un «Comité de inversión» de nivel en el Camino (solo la secuencia `CommitteeApproved` del styleguide): la planta se da por completada cuando lo están todas sus unidades, como en `Camino.tsx`.
 - **Test:** `validate.test.ts` sube su límite por caso a 30 s (`vi.setConfig`): varios casos validan todo el contenido real y, con la suite en paralelo, superaban a veces los 5 s por defecto.
 - **Fuentes:** sin red, CFA Institute, Damodaran (NYU Stern), BCE (Supervisión Bancaria), EBA y Banco de España van por su URL raíz con «(pendiente de verificar la ruta)».
+
+## 2026-10-25 — Planta 4 (N5): división en unidades y n5-u1 (draft)
+- **Unidades de N5**, aprobadas por Javier (la opción más simple que respeta CLAUDE.md §2), en `curriculum.json` y en TEMARIO:
+  1. libro de órdenes, market makers y dark pools;
+  2. subastas, fixing y costes reales de operar;
+  3. ventas en corto y préstamo de valores;
+  4. probabilidad, valor esperado y contraste de hipótesis;
+  5. análisis técnico, eficiencia de mercado y por qué pierde el minorista;
+  6. stop, tamaño de posición y sesgos al operar (con SI/BUSCARX).
+  `curriculum.json` solo lista las unidades ya escritas (lo exige `validate.test.ts`), así que por ahora solo incluye `n5-u1`; las demás entrarán con su contenido. La división completa está en TEMARIO y aquí. En `tests/screens.test.tsx`, la planta «próximamente» de referencia pasa de la 4 a la 5.
+- **Solape con N1:** N5 parte de lo que enseña `n1-u4`. Cada unidad abre con una sola tarjeta «Ya sabes» y pasa a lo nuevo: profundidad e impacto en pb, horquilla efectiva y realizada, selección adversa, HFT y market makers, dark pools y MiFID II. Ningún ejercicio repite uno de `n1-u4`.
+- **Juegos:**
+  - u1: lección-juego nueva sobre la ficha 3, «Mesa de órdenes» (`order-desk`, spec en `docs/specs/mesa-ordenes-n5.md`), centrada en ejecutar con horquilla, impacto y dark pool.
+  - u6: variante de lección-juego de «El trader impulsivo» que reutiliza `impulsive.ts`, sin duplicarlo.
+  - u2–u5: juego nuevo según la ficha que encaje o, si ninguna encaja, uno sencillo.
+- **Rango:** el de `floors.ts` (planta 4, VP).
+- **n5-u1:** el explicador `MarketImpact` ya estaba en el catálogo de ANIMACIONES (nivel 5) y ahora mide el impacto en pb. Los límites de volumen se enseñan como el doble límite de MiFID II (4 % y 8 %), que la revisión de MiFIR de 2024 sustituye por un límite único del 7 %. Va etiquetado como normativa y lleva fuente de la ESMA y la CNMV, con `verificarAntesDe`. Sin red, las fuentes van por su URL raíz «(pendiente de verificar la ruta)»; hay que confirmar la fecha de aplicación del límite único.

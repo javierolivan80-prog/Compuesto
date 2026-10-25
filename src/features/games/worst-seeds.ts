@@ -25,6 +25,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'bank-window': 0,
   'macro-day': 0,
   'ecb-meeting': 0,
+  'order-desk': 96, // acción a 15 €, bloque de 50.000 acciones y horquilla realizada negativa
   'bank-valuation': 111, // patrimonio de 1.900, capitalización de 3.200 y Banco Russafa como ganador
   'risk-committee': 295, // solicitud de 2.000 con PD del 4 % y LGD del 60 % denegada; préstamo en fase 3 con provisión de 600
   'stress-test': 383, // préstamos de 24.000 M€ y el CET1 estresado por debajo del 7 % (6,1 %)

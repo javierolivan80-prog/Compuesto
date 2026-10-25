@@ -91,6 +91,11 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  MarketImpact: z.object({
+    mid: z.number().positive(),
+    half: z.number().positive().max(1),
+    depth: z.number().int().min(100),
+  }),
   BankMultiple: z
     .object({
       ke: z.number().min(5).max(20),

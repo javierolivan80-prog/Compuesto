@@ -64,6 +64,14 @@ import {
 } from './risk-committee';
 import { bankValues, justified, pvtc, rightPick, rote, setupBank } from './bank-valuation';
 import {
+  darkSaving,
+  deskValues,
+  effectiveBp,
+  realizedBp,
+  rightMove,
+  setupDesk,
+} from './order-desk';
+import {
   nextRatio,
   phaseOf,
   premiumValues,
@@ -130,6 +138,7 @@ export const LESSON_GAMES = [
   'stress-test',
   'risk-committee',
   'bank-valuation',
+  'order-desk',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -583,6 +592,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     justified_r: [2, 2],
     hits: [0, 0],
   },
+  'order-desk': {
+    mid: [2, 2],
+    bid: [2, 2],
+    ask: [2, 2],
+    fill: [2, 2],
+    quoted_bp: [0, 1],
+    effective_bp: [0, 1],
+    mid5: [2, 3],
+    realized_bp: [0, 1],
+    impact_bp: [0, 1],
+    qty: [0, 0],
+    lit_avg: [2, 2],
+    saving: [0, 2],
+    informed: [0, 0],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -919,6 +944,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           pick: rightPick(setup),
         }),
         bankValues(setup, { rote: 0, pvtc: 0, justified: 0, pick: 'same' }),
+      ];
+    }
+    case 'order-desk': {
+      // todo bien, y todo mal
+      const setup = setupDesk(seed);
+      return [
+        deskValues(setup, {
+          effective: effectiveBp(setup),
+          realized: realizedBp(setup),
+          saving: darkSaving(setup),
+          move: rightMove(setup),
+        }),
+        deskValues(setup, { effective: 0, realized: 0, saving: 0, move: 'narrow' }),
       ];
     }
   }

@@ -1,0 +1,279 @@
+{
+  "id": "n5-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "title": "Dark pools y MiFID II",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ahorro de un cruce en un dark pool y su peso frente a los límites de volumen",
+    "Explicar qué es un dark pool, sus ventajas y sus riesgos"
+  ],
+  "concepts": ["dark-pools"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Dark pools",
+      "text": "Un dark pool es un centro de negociación sin transparencia previa: nadie ve las órdenes antes de que se casen. Se usan para cruzar bloques grandes, normalmente al punto medio del mercado visible, sin mover el precio ni mostrar las intenciones. Las operaciones sí se publican después."
+    },
+    {
+      "type": "card",
+      "term": "MiFID II",
+      "text": "MiFID II exige transparencia antes y después de negociar, con exenciones para dark pools. Para que no vacíen el mercado visible, limitó su peso: un 4 % del volumen de cada acción por plataforma y un 8 % en toda la UE en 12 meses. La revisión de MiFIR de 2024 lo sustituye por un límite único del 7 %."
+    },
+    {
+      "type": "card",
+      "term": "Ventajas y riesgos",
+      "text": "Ventajas: menos impacto y ninguna horquilla para los bloques. Riesgos: puede no encontrarse contrapartida; si mucho volumen se va a lo oscuro, los precios visibles, que sirven de referencia, se forman con menos información; y la fragmentación entre muchos centros complica la mejor ejecución."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "Un fondo cruza {q} acciones de una empresa ficticia en un dark pool al punto medio de {m} €. Barriendo el libro visible habría pagado de media {lit} €. ¿Cuánto ahorra? (€)",
+      "answer": 2500,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * ({lit} - {m})",
+      "explanation": "{q} × ({lit} − {m}) = {answer} €.",
+      "params": {
+        "q": {
+          "value": 50000,
+          "min": 10000,
+          "max": 100000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "m": {
+          "value": 12,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 5,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "lit": {
+          "formula": "{m} + {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["dark-pools"],
+      "prompt": "En los últimos 12 meses, una acción ficticia negoció {t} millones de € en toda la UE, de los que {d} millones se negociaron a oscuras con exenciones. ¿Qué porcentaje supone la negociación oscura? (%, 2 decimales)",
+      "answer": 6.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{d} / {t} * 100",
+      "explanation": "{d} / {t} × 100 = {answer} %: frente a un límite del 7 %, queda poco margen.",
+      "params": {
+        "t": {
+          "value": 2000,
+          "min": 1000,
+          "max": 5000,
+          "step": 100,
+          "decimals": 0
+        },
+        "k": {
+          "value": 6.5,
+          "min": 2,
+          "max": 9,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "d": {
+          "formula": "{t} * {k} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "Cruzar un bloque en un dark pool ahorraría {s} €, pero solo hay un {p} % de probabilidad de encontrar contrapartida; si no, se compra en el libro sin ahorro. ¿Cuál es el ahorro esperado? (€)",
+      "answer": 1500,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{s} * {p} / 100",
+      "explanation": "{s} × {p} % = {answer} €: el valor esperado del intento.",
+      "params": {
+        "s": {
+          "value": 3000,
+          "min": 1000,
+          "max": 6000,
+          "step": 100,
+          "decimals": 0
+        },
+        "p": {
+          "value": 50,
+          "min": 20,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["dark-pools"],
+      "prompt": "Con un límite único del 7 % del volumen de 12 meses, ¿cuántos millones de € como máximo pueden negociarse a oscuras con exenciones en una acción ficticia que negoció {t} millones en ese periodo? (millones de €)",
+      "answer": 140,
+      "unit": "millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{t} * 0.07",
+      "explanation": "{t} × 7 % = {answer} millones.",
+      "params": {
+        "t": {
+          "value": 2000,
+          "min": 1000,
+          "max": 5000,
+          "step": 100,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "¿Es propio de un dark pool o del libro visible de la bolsa?",
+      "categories": ["Dark pool", "Libro visible"],
+      "items": [
+        {
+          "text": "Nadie ve las órdenes antes de casarse",
+          "category": "Dark pool"
+        },
+        {
+          "text": "Las órdenes se ven con su precio y cantidad",
+          "category": "Libro visible"
+        },
+        {
+          "text": "Cruza bloques al punto medio",
+          "category": "Dark pool"
+        },
+        {
+          "text": "Fija los precios de referencia que usan los demás",
+          "category": "Libro visible"
+        }
+      ],
+      "explanation": "Lo oscuro esconde las órdenes antes de casarse; lo visible forma el precio de referencia."
+    },
+    {
+      "id": "n5-u1-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "character": "compliance",
+      "situation": "Un gestor de Albufera Partners quiere enviar todas las órdenes de sus clientes a un único dark pool «porque es más barato». La compliance officer interviene.",
+      "prompt": "¿Qué le recuerda?",
+      "options": [
+        "Que la mejor ejecución exige buscar el mejor resultado para el cliente en precio, coste, rapidez y probabilidad de ejecución, comparando centros, y que los dark pools tienen límites de volumen",
+        "Que los dark pools están prohibidos para clientes",
+        "Que da igual dónde se ejecute mientras sea barato",
+        "Que solo se puede operar en el libro visible de la bolsa"
+      ],
+      "answer": 0,
+      "explanation": "La mejor ejecución no es solo el precio de un centro: también probabilidad y rapidez.",
+      "wrongExplanations": {
+        "1": "Están permitidos, con límites.",
+        "2": "La mejor ejecución mira más factores que el coste.",
+        "3": "Se puede operar en varios centros."
+      }
+    },
+    {
+      "id": "n5-u1-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "¿Por qué la normativa limita el volumen que puede negociarse a oscuras con exenciones?",
+      "options": [
+        "Para que el libro visible siga teniendo volumen suficiente y forme precios de referencia fiables",
+        "Porque los dark pools son ilegales",
+        "Para que los dark pools cobren más comisiones",
+        "Porque en un dark pool no se publican nunca las operaciones"
+      ],
+      "answer": 0,
+      "explanation": "Si casi todo fuera a lo oscuro, el precio visible perdería información.",
+      "wrongExplanations": {
+        "1": "Son legales, con límites.",
+        "2": "No tiene que ver con sus comisiones.",
+        "3": "Las operaciones sí se publican después."
+      }
+    },
+    {
+      "id": "n5-u1-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "statement": "En un dark pool, las operaciones no se publican nunca, ni siquiera después de casarse.",
+      "answer": false,
+      "explanation": "Falso: no hay transparencia previa, pero las operaciones sí se publican después."
+    }
+  ],
+  "realWorld": "La ESMA publica los datos del límite de volumen de la negociación oscura acción por acción, y la CNMV explica la normativa de MiFID II sobre centros de negociación. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CNMV, guías y estudios sobre la estructura de los mercados de renta variable, la transparencia y los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

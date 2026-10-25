@@ -1,0 +1,322 @@
+{
+  "id": "n5-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "title": "Profundidad del libro e impacto",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Medir la profundidad del libro y el impacto de una orden en puntos básicos",
+    "Relacionar el tamaño de una orden con el volumen diario"
+  ],
+  "concepts": ["libro-ordenes"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De n1-u4: la horquilla es la diferencia entre la mejor venta y la mejor compra, una orden a mercado barre el libro a precios cada vez peores y trocear una orden grande reduce su impacto. Aquí lo medimos como un trader: en puntos básicos y frente al volumen."
+    },
+    {
+      "type": "visual",
+      "component": "MarketImpact",
+      "props": {
+        "mid": 12,
+        "half": 0.02,
+        "depth": 800
+      }
+    },
+    {
+      "type": "card",
+      "term": "Profundidad",
+      "text": "La profundidad es cuánto dinero hay en el libro cerca del punto medio: por ejemplo, cuántos euros de acciones hay a la venta hasta 10 pb por encima. Impacto = (precio medio − punto medio) / punto medio, en pb. Una orden que pesa mucho frente al volumen diario mueve más el precio."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u1-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Una acción ficticia tiene un punto medio de {mid} €. Una compra grande se ejecuta a un precio medio de {avg} €. ¿Cuál ha sido su impacto, (precio medio − punto medio) / punto medio? (pb, 2 decimales)",
+      "answer": 37.5,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({avg} - {mid}) / {mid} * 10000",
+      "explanation": "({avg} − {mid}) / {mid} = {answer} pb.",
+      "params": {
+        "mid": {
+          "value": 16,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 6,
+          "min": 2,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "avg": {
+          "formula": "{mid} + {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "El libro de ventas de una acción ficticia tiene {q1} acciones a {p1} €, {q2} a {p2} € y {q3} a {p3} €. ¿Cuántos € de acciones hay a la venta en esos tres niveles? (€)",
+      "answer": 37940,
+      "unit": "€",
+      "tolerance": 0.05,
+      "answerDecimals": 0,
+      "formula": "{q1} * {p1} + {q2} * {p2} + {q3} * {p3}",
+      "explanation": "{q1} × {p1} + {q2} × {p2} + {q3} × {p3} = {answer} €: esa es la profundidad del lado vendedor hasta {p3} €.",
+      "params": {
+        "p1": {
+          "value": 12.62,
+          "min": 8.02,
+          "max": 20.02,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "q1": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "q2": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "q3": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p2": {
+          "formula": "{p1} + 0.03",
+          "decimals": 2
+        },
+        "p3": {
+          "formula": "{p1} + 0.05",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Un fondo quiere comprar {q} acciones de una empresa ficticia sin superar el {r} % del volumen de cada día, que es de {adv} acciones. ¿Cuántos días necesita, como mínimo? (días, 2 decimales)",
+      "answer": 2.5,
+      "unit": "días",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{q} / ({adv} * {r} / 100)",
+      "explanation": "{q} / ({adv} × {r} %) = {answer} días.",
+      "params": {
+        "q": {
+          "value": 100000,
+          "min": 50000,
+          "max": 300000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "adv": {
+          "value": 400000,
+          "min": 200000,
+          "max": 800000,
+          "step": 50000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Compraste {q} acciones de una empresa ficticia a un precio medio de {avg} €. Cuando lanzaste la orden, el punto medio era de {m0} €. ¿Cuánto te costó la ejecución frente a ese precio de llegada, en pb? (pb, 2 decimales)",
+      "answer": 25,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({avg} - {m0}) / {m0} * 10000",
+      "explanation": "({avg} − {m0}) / {m0} = {answer} pb: es la medida de coste que usan las mesas, el implementation shortfall en su versión simple.",
+      "params": {
+        "q": {
+          "value": 30000,
+          "min": 10000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "m0": {
+          "value": 20,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 5,
+          "min": 2,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "avg": {
+          "formula": "{m0} + {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u1-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "¿El libro de esta acción ficticia es profundo o poco profundo?",
+      "categories": ["Profundo", "Poco profundo"],
+      "items": [
+        {
+          "text": "Horquilla de 1 pb y millones de euros en los primeros niveles",
+          "category": "Profundo"
+        },
+        {
+          "text": "Horquilla de 80 pb y unos miles de euros por nivel",
+          "category": "Poco profundo"
+        },
+        {
+          "text": "Una compra del 0,1 % del volumen diario no mueve el precio",
+          "category": "Profundo"
+        },
+        {
+          "text": "Una compra de 20.000 € sube el precio un 1 %",
+          "category": "Poco profundo"
+        }
+      ],
+      "explanation": "Profundo: mucho dinero cerca del punto medio y poco impacto; poco profundo, lo contrario."
+    },
+    {
+      "id": "n5-u1-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "character": "jefe",
+      "situation": "Un cliente quiere comprar hoy mismo acciones de una empresa ficticia por el 30 % de su volumen medio diario, a mercado y de una vez.",
+      "prompt": "¿Qué le aconseja el jefe de la mesa?",
+      "options": [
+        "Repartir la compra en varios días o con un algoritmo que no supere una parte pequeña del volumen, o buscar un bloque: comprar de golpe el 30 % del volumen movería mucho el precio en su contra",
+        "Lanzarla a mercado: el libro siempre tiene liquidez",
+        "Comprar en la subasta de cierre todo el 30 %, porque allí no hay impacto",
+        "Esperar a que la acción baje para comprar"
+      ],
+      "answer": 0,
+      "explanation": "El impacto crece con el peso de la orden frente al volumen.",
+      "wrongExplanations": {
+        "1": "El libro visible solo tiene una fracción del volumen del día.",
+        "2": "La subasta también tiene impacto si la orden es enorme frente a ella.",
+        "3": "No se puede saber cuándo bajará; el problema es el tamaño."
+      }
+    },
+    {
+      "id": "n5-u1-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Dos órdenes de 100.000 € en dos acciones ficticias: la A negocia 50 millones al día y la B, 500.000 €. ¿Cuál tendrá más impacto?",
+      "options": [
+        "La de la acción B: supone el 20 % de su volumen diario",
+        "La de la acción A, porque es más grande",
+        "Las dos igual, porque son de 100.000 €",
+        "Ninguna, porque 100.000 € es poco"
+      ],
+      "answer": 0,
+      "explanation": "Lo que importa es el tamaño frente a la liquidez: 0,2 % del volumen en A, 20 % en B.",
+      "wrongExplanations": {
+        "1": "El importe es el mismo; la liquidez no.",
+        "2": "El mismo importe pesa muy distinto según el volumen.",
+        "3": "En la acción B es una orden enorme."
+      }
+    },
+    {
+      "id": "n5-u1-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "statement": "El impacto de una orden se mide frente al punto medio de cuando se lanzó, no frente al último precio que ella misma ha provocado.",
+      "answer": true,
+      "explanation": "Verdadero: el punto medio de llegada es la referencia; el precio final ya incluye el impacto de la propia orden."
+    }
+  ],
+  "realWorld": "Las mesas de renta variable miden cada ejecución frente al precio de llegada y frente al VWAP del día; los informes de los brókers sobre calidad de ejecución lo recogen. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: libro de órdenes, especialistas y proveedores de liquidez (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CNMV, guías y estudios sobre la estructura de los mercados de renta variable, la transparencia y los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

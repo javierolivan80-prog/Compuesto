@@ -1,0 +1,213 @@
+{
+  "id": "n5-u1-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 1,
+  "title": "Jefe final: la mesa de renta variable",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Medir la profundidad del libro y el impacto de una orden",
+    "Calcular la horquilla efectiva y la realizada y explicar la selección adversa",
+    "Explicar el papel de los market makers y del HFT y el riesgo de inventario",
+    "Valorar el uso de un dark pool y los límites de MiFID II"
+  ],
+  "concepts": ["libro-ordenes", "market-makers", "dark-pools"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u1-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Una acción ficticia tiene un punto medio de 25 € y una compra grande se ejecuta a un precio medio de 25,09 €. ¿Cuál ha sido su impacto? (pb, 1 decimal)",
+      "answer": 36,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "(25.09 - 25) / 25 * 10000",
+      "explanation": "0,09 / 25 = 36 pb."
+    },
+    {
+      "id": "n5-u1-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Un fondo quiere comprar 240.000 acciones de una empresa ficticia sin superar el 15 % del volumen diario, que es de 320.000 acciones. ¿Cuántos días necesita? (días, 1 decimal)",
+      "answer": 5,
+      "unit": "días",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "240000 / (320000 * 0.15)",
+      "explanation": "240.000 / 48.000 = 5 días."
+    },
+    {
+      "id": "n5-u1-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Una acción ficticia tiene un punto medio de 14 € y vendes a 13,95 €. ¿Cuál es tu horquilla efectiva? (pb, 1 decimal)",
+      "answer": 71.4,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "2 * (14 - 13.95) / 14 * 10000",
+      "explanation": "2 × 0,05 / 14 = 71,4 pb."
+    },
+    {
+      "id": "n5-u1-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker vende a 18,03 € una acción ficticia con un punto medio de 18 €; cinco minutos después, el punto medio es de 18,02 €. ¿Qué horquilla realizada se queda? (pb, 1 decimal)",
+      "answer": 11.1,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "2 * (18.03 - 18.02) / 18 * 10000",
+      "explanation": "2 × 0,01 / 18 = 11,1 pb, de los 33,3 que cobró."
+    },
+    {
+      "id": "n5-u1-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "prompt": "Un market maker ficticio gana 1.800 € al día con la horquilla y acumula 40.000 acciones de inventario cuando el precio cae 18 céntimos. ¿Cuántos días de horquilla le cuesta esa caída? (días)",
+      "answer": 4,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "40000 * 0.18 / 1800",
+      "explanation": "7.200 € / 1.800 € = 4 días."
+    },
+    {
+      "id": "n5-u1-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["dark-pools"],
+      "prompt": "Un fondo cruza 60.000 acciones de una empresa ficticia en un dark pool al punto medio de 9 €; barriendo el libro habría pagado 9,04 € de media. ¿Cuánto ahorra? (€)",
+      "answer": 2400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "60000 * (9.04 - 9)",
+      "explanation": "60.000 × 0,04 = 2.400 €."
+    },
+    {
+      "id": "n5-u1-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["market-makers", "dark-pools"],
+      "prompt": "¿Qué conviene en cada caso?",
+      "categories": ["Ensanchar la horquilla", "Cruzar en un dark pool", "Trocear en el libro"],
+      "items": [
+        {
+          "text": "Eres market maker y llega flujo grande en un solo sentido tras una noticia",
+          "category": "Ensanchar la horquilla"
+        },
+        {
+          "text": "Tienes que comprar un bloque grande sin mostrar la orden",
+          "category": "Cruzar en un dark pool"
+        },
+        {
+          "text": "El dark pool no encuentra contrapartida y la orden pesa el 25 % del volumen",
+          "category": "Trocear en el libro"
+        }
+      ],
+      "explanation": "Protegerse de la selección adversa, esconder el bloque o repartir el impacto en el tiempo."
+    },
+    {
+      "id": "n5-u1-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "character": "jefe",
+      "situation": "En un día de pánico, los operadores de alta frecuencia retiran sus cotizaciones y la horquilla de una acción ficticia pasa de 2 a 60 pb. El becario rival dice que los market makers están obligados a quedarse.",
+      "prompt": "¿Qué le explica el jefe de la mesa?",
+      "options": [
+        "Que solo los proveedores con contrato se comprometen a cotizar; muchos operadores de alta frecuencia no, y su liquidez puede desaparecer justo cuando más falta hace",
+        "Que todos los operadores están obligados a cotizar siempre",
+        "Que la horquilla no depende de quién cotice",
+        "Que el pánico estrecha las horquillas"
+      ],
+      "answer": 0,
+      "explanation": "La liquidez del HFT es abundante en calma y frágil en tensión.",
+      "wrongExplanations": {
+        "1": "Sin contrato no hay obligación.",
+        "2": "Depende de cuánta liquidez haya en el libro.",
+        "3": "Las ensancha."
+      }
+    },
+    {
+      "id": "n5-u1-l6-e9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["dark-pools"],
+      "prompt": "Una acción ficticia negoció 3.200 millones de € en 12 meses en la UE. Con un límite del 7 % para la negociación oscura con exenciones, ¿cuántos millones pueden negociarse así como máximo? (millones de €)",
+      "answer": 224,
+      "unit": "millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "3200 * 0.07",
+      "explanation": "3.200 × 7 % = 224 millones."
+    },
+    {
+      "id": "n5-u1-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["market-makers"],
+      "statement": "La horquilla efectiva de una compra es igual a la horquilla realizada del market maker más el impacto en el precio.",
+      "answer": true,
+      "explanation": "Verdadero: efectiva = realizada + impacto."
+    }
+  ],
+  "realWorld": "En la mesa de renta variable de Albufera Partners, cada orden grande se planifica con el libro, el volumen diario y los centros disponibles, y se mide después frente al precio de llegada. Busca un informe de calidad de ejecución de un bróker y fíjate en la horquilla efectiva. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: libro de órdenes, especialistas y proveedores de liquidez (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CNMV, guías y estudios sobre la estructura de los mercados de renta variable, la transparencia y los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (estructura de mercado, órdenes y costes de ejecución) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

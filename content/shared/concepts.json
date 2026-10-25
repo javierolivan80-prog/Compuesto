@@ -1149,19 +1149,25 @@
     "id": "libro-ordenes",
     "name": "Libro de órdenes",
     "level": 5,
-    "prerequisites": ["horquilla", "orden-limitada"]
+    "prerequisites": ["horquilla", "orden-limitada"],
+    "unit": "n5-u1",
+    "description": "La profundidad es cuánto dinero hay en el libro cerca del punto medio. El impacto de una orden se mide en pb frente al punto medio de llegada y crece con su peso frente al volumen diario."
   },
   {
     "id": "market-makers",
     "name": "Market makers y HFT",
     "level": 5,
-    "prerequisites": ["libro-ordenes"]
+    "prerequisites": ["libro-ordenes"],
+    "unit": "n5-u1",
+    "description": "Cotizan compra y venta y ganan la horquilla; su riesgo es el inventario. Horquilla efectiva = 2 × |precio − punto medio|; realizada = la que queda tras el movimiento posterior del precio; la diferencia es el impacto (selección adversa). El HFT estrecha horquillas en calma y puede retirarse en tensión."
   },
   {
     "id": "dark-pools",
     "name": "Dark pools",
     "level": 5,
-    "prerequisites": ["libro-ordenes"]
+    "prerequisites": ["libro-ordenes"],
+    "unit": "n5-u1",
+    "description": "Centros sin transparencia previa que cruzan bloques al punto medio; las operaciones se publican después. MiFID II limitó su volumen (4 % por plataforma y 8 % en la UE; la revisión de MiFIR de 2024 lo cambia por un límite único del 7 %)."
   },
   {
     "id": "subastas-avanzadas",
