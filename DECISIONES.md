@@ -863,5 +863,5 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **Explicador nuevo `BankMultiple`:** no había ninguno en el catálogo para P/VTC y ROTE. Se añade a ANIMACIONES (nivel 4): la recta del justificado, que cruza el 1 con el ROTE igual al Ke.
 - **Fórmulas, a nivel intuitivo:** el P/VTC justificado como (ROTE − g) / (Ke − g), el modelo de Gordon, el exceso de capital como (CET1 − objetivo) × APR y el coste del riesgo en pb, con su efecto en el ROE tras un impuesto del 25 % fijado en cada enunciado.
 - **Planta 3:** con `n4-u7`, el Nivel 4 tiene siete unidades. No hay un «Comité de inversión» de nivel en el Camino (solo la secuencia `CommitteeApproved` del styleguide): la planta se da por completada cuando lo están todas sus unidades, como en `Camino.tsx`.
-- **Test:** el caso de `validate.test.ts` que valida todo el contenido real tiene ahora 30 s de margen; con la suite en paralelo superaba a veces los 5 s por defecto.
+- **Test:** `validate.test.ts` sube su límite por caso a 30 s (`vi.setConfig`): varios casos validan todo el contenido real y, con la suite en paralelo, superaban a veces los 5 s por defecto.
 - **Fuentes:** sin red, CFA Institute, Damodaran (NYU Stern), BCE (Supervisión Bancaria), EBA y Banco de España van por su URL raíz con «(pendiente de verificar la ruta)».

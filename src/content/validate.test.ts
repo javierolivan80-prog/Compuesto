@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { checkCompany } from './accounting';
 import { loadContent } from './node-loader';
 import { companiesSchema, EXERCISE_TYPES, exerciseSchema, lessonSchema } from './schemas';
@@ -24,6 +24,10 @@ const bundle = (lessons: unknown[], extra: Partial<ContentBundle> = {}): Content
   idsLock: {},
   ...extra,
 });
+// Varios casos validan todo el contenido real (más de 170 lecciones con sus variantes paramétricas): con la suite en
+// paralelo pueden pasar de los 5 s por defecto.
+vi.setConfig({ testTimeout: 30_000 });
+
 const codes = (r: ReturnType<typeof validateContent>) =>
   r.issues.filter((i) => i.severity === 'error').map((i) => i.code);
 
@@ -32,9 +36,7 @@ describe('contenido real del repositorio', () => {
     const r = validateContent(base);
     expect(r.issues.filter((i) => i.severity === 'error')).toEqual([]);
     expect(r.concepts.length).toBeGreaterThan(200);
-    // valida todo el contenido (más de 170 lecciones con sus variantes paramétricas): con la suite en paralelo
-    // puede pasar de los 5 s por defecto
-  }, 30_000);
+  });
   it('el mapa de conceptos cubre todos los niveles y las 4 ramas, sin ciclos', () => {
     const { concepts } = validateContent(base);
     for (let l = 0; l <= 9; l++)

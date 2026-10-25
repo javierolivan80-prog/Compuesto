@@ -10,7 +10,7 @@ Motor: `src/engine/games/bank-valuation.ts`. Interfaz: `src/features/games/BankG
 - **Paso 4 (elección):** Banco Russafa da su ROTE y su P/VTC, con el mismo Ke y el mismo g. Se compra el banco con más recorrido hasta su justificado (justificado / cotizado − 1). Semilla 0: Russafa, con un ROTE del 15 % y a 1,70x, vale 1,63x (−4 %); Malvarrosa, a 1,10x, vale 1,25x (+14 %). Se compra Malvarrosa aunque su ROTE sea menor.
 - Rangos: Malvarrosa cotiza entre un 20 % por debajo y un 20 % por encima de su justificado; el recorrido de Russafa se separa del de Malvarrosa 15 o 20 puntos, y su P/VTC queda entre 0,4x y 2,8x (si el sentido sorteado lo saca de ahí, se usa el otro). Comprobado en 10.000 semillas.
 - Nota: un cuarto por paso.
-- Cifras para la lección (`bankValues`): `ni`, `equity`, `intangibles`, `tangible`, `rote`, `roe`, `cap`, `pvtc`, `pvc`, `ke`, `g`, `justified`, `rote_r`, `pvtc_r`, `justified_r` y `hits`.
+- Cifras para la lección (`bankValues`): `ni`, `equity`, `intangibles`, `tangible`, `rote`, `roe`, `cap`, `f_pvtc` (el factor del sorteo, para que l1 recalcule la capitalización), `pvtc`, `pvc`, `ke`, `g`, `justified`, `rote_r`, `pvtc_r`, `justified_r` y `hits`.
 - Peor caso (`worst-seeds.ts`): semilla 111, patrimonio de 1.900, capitalización de 3.200 y Russafa como ganador.
 
 ## Verificación

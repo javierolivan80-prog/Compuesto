@@ -12,13 +12,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["valorar-bancos"],
-      "prompt": "Un banco ficticio gana 143 M€ y tiene un patrimonio neto de 1.500 M€, con 200 M€ de intangibles. ¿Cuál es su ROTE? (%, 2 decimales)",
-      "answer": 11,
-      "unit": "%",
-      "tolerance": 0.2,
-      "answerDecimals": 2,
-      "formula": "143 / (1500 - 200) * 100",
-      "explanation": "143 / 1.300 = 11 %."
+      "prompt": "Un banco ficticio gana 143 M€ y tiene un patrimonio neto de 1.500 M€, con 200 M€ de intangibles. Su coste del capital es del 10 % y su crecimiento a largo plazo, del 2 %. ¿Cuál es su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 3 decimales)",
+      "answer": 1.125,
+      "unit": "veces",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "(143 / (1500 - 200) * 100 - 2) / (10 - 2)",
+      "explanation": "ROTE = 143 / 1.300 = 11 %; (11 − 2) / (10 − 2) = 1,125x."
     },
     {
       "id": "salto-n4-u7-q2",
@@ -27,13 +27,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["valorar-bancos"],
-      "prompt": "Un banco ficticio tiene un ROTE del 14 %, un coste del capital del 10 % y un crecimiento a largo plazo del 2 %. ¿Cuál es su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 2 decimales)",
-      "answer": 1.5,
-      "unit": "veces",
-      "tolerance": 1,
+      "prompt": "Un banco ficticio cotiza a 1,4x su valor tangible, con un coste del capital del 10,5 % y un crecimiento a largo plazo del 2,5 %. ¿Qué ROTE descuenta el mercado? (%, 2 decimales)",
+      "answer": 13.7,
+      "unit": "%",
+      "tolerance": 0.2,
       "answerDecimals": 2,
-      "formula": "(14 - 2) / (10 - 2)",
-      "explanation": "12 / 8 = 1,5x."
+      "formula": "2.5 + 1.4 * (10.5 - 2.5)",
+      "explanation": "2,5 + 1,4 × 8 = 13,7 %."
     },
     {
       "id": "salto-n4-u7-q3",
@@ -104,14 +104,18 @@
     },
     {
       "id": "salto-n4-u7-q7",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["valorar-bancos"],
-      "statement": "Un banco con un ROTE inferior a su coste del capital tiene un P/VTC justificado por debajo de 1.",
-      "answer": true,
-      "explanation": "Verdadero: (ROTE − g) / (Ke − g) es menor que 1 si el ROTE no llega al Ke."
+      "prompt": "Un banco ficticio vale 1.800 M€ en bolsa y su patrimonio tangible es de 2.000 M€. ¿A qué P/VTC cotiza? (veces, 2 decimales)",
+      "answer": 0.9,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "1800 / 2000",
+      "explanation": "1.800 / 2.000 = 0,90x."
     },
     {
       "id": "salto-n4-u7-q8",
@@ -137,18 +141,14 @@
     },
     {
       "id": "salto-n4-u7-q9",
-      "type": "numeric_input",
+      "type": "true_false_swipe",
       "difficulty": 2,
-      "bloom": "aplicar",
+      "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["valorar-bancos"],
-      "prompt": "Un banco ficticio vale 1.800 M€ en bolsa y su patrimonio tangible es de 2.000 M€. ¿A qué P/VTC cotiza? (veces, 2 decimales)",
-      "answer": 0.9,
-      "unit": "veces",
-      "tolerance": 1,
-      "answerDecimals": 2,
-      "formula": "1800 / 2000",
-      "explanation": "1.800 / 2.000 = 0,90x."
+      "statement": "Un banco con un ROTE inferior a su coste del capital tiene un P/VTC justificado por debajo de 1.",
+      "answer": true,
+      "explanation": "Verdadero: (ROTE − g) / (Ke − g) es menor que 1 si el ROTE no llega al Ke."
     },
     {
       "id": "salto-n4-u7-q10",
@@ -157,13 +157,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["valorar-bancos"],
-      "prompt": "Un banco ficticio cotiza a 1,4x su valor tangible, con un coste del capital del 10,5 % y un crecimiento a largo plazo del 2,5 %. ¿Qué ROTE descuenta el mercado? (%, 2 decimales)",
-      "answer": 13.7,
-      "unit": "%",
-      "tolerance": 0.2,
+      "prompt": "Un banco ficticio tiene un ROTE del 14 %, un coste del capital del 10 % y un crecimiento a largo plazo del 2 %. ¿Cuál es su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 2 decimales)",
+      "answer": 1.5,
+      "unit": "veces",
+      "tolerance": 1,
       "answerDecimals": 2,
-      "formula": "2.5 + 1.4 * (10.5 - 2.5)",
-      "explanation": "2,5 + 1,4 × 8 = 13,7 %."
+      "formula": "(14 - 2) / (10 - 2)",
+      "explanation": "12 / 8 = 1,5x."
     },
     {
       "id": "salto-n4-u7-q11",

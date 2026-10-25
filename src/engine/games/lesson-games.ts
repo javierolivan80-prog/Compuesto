@@ -572,6 +572,7 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     rote: [0, 1],
     roe: [0, 1],
     cap: [0, 0],
+    f_pvtc: [1, 1],
     pvtc: [2, 2],
     pvc: [2, 2],
     ke: [0, 1],

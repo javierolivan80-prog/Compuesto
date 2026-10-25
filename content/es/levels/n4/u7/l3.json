@@ -120,17 +120,17 @@
       "tags": [],
       "concepts": ["valorar-bancos"],
       "prompt": "Un banco ficticio tiene un ROTE del {rote} % y cotiza a {pv}x su valor tangible, con un crecimiento a largo plazo del {g} %. ¿Qué coste del capital descuenta el mercado? (%, 2 decimales)",
-      "answer": 10.4,
+      "answer": 10.48,
       "unit": "%",
       "tolerance": 0.2,
       "answerDecimals": 2,
       "formula": "{g} + ({rote} - {g}) / {pv}",
       "explanation": "Ke = g + (ROTE − g) / P/VTC = {g} + ({rote} − {g}) / {pv} = {answer} %.",
       "params": {
-        "rote": {
-          "value": 12.5,
-          "min": 6,
-          "max": 18,
+        "ke": {
+          "value": 10.5,
+          "min": 8,
+          "max": 12,
           "step": 0.5,
           "decimals": 1
         },
@@ -146,6 +146,12 @@
           "min": 1,
           "max": 3,
           "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "rote": {
+          "formula": "{g} + {pv} * ({ke} - {g})",
           "decimals": 1
         }
       }

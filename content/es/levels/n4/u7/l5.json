@@ -103,7 +103,7 @@
       "tags": [],
       "concepts": ["valorar-bancos"],
       "prompt": "Un banco ficticio tiene {l} M€ en préstamos y {eq} M€ de patrimonio. Si su coste del riesgo sube {d} pb, con un tipo impositivo del 25 %, ¿cuántos puntos baja su ROE? (puntos, 3 decimales)",
-      "answer": 3,
+      "answer": 2.903,
       "unit": "puntos",
       "tolerance": 0.3,
       "answerDecimals": 3,
@@ -124,11 +124,17 @@
           "step": 10,
           "decimals": 0
         },
+        "lev": {
+          "value": 13,
+          "min": 10,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
         "eq": {
-          "value": 3000,
-          "min": 2000,
-          "max": 5000,
-          "step": 100,
+          "formula": "ROUND({l} / {lev} / 100, 0) * 100",
           "decimals": 0
         }
       }

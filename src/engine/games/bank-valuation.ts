@@ -20,6 +20,8 @@ export interface BankSetup {
   equity: number;
   intangibles: number;
   cap: number;
+  /** Factor con el que se sorteó su P/VTC sobre el justificado (0,8, 0,9, 1,1 o 1,2; nunca 1). */
+  pvtcFactor: number;
   /** Coste del capital y crecimiento a largo plazo (%), iguales para los dos bancos. */
   ke: number;
   g: number;
@@ -42,6 +44,7 @@ export function setupBank(seed: number): BankSetup {
       equity: 1_600,
       intangibles: 200,
       cap: 1_540,
+      pvtcFactor: 0.9,
       ke: 10,
       g: 2,
       roteR: 15,
@@ -58,7 +61,8 @@ export function setupBank(seed: number): BankSetup {
     [8, 12, 13, 14].map((x) => (x === ke ? x + 1 : x)),
   );
   // cotiza cerca de su justificado (entre un 20 % por debajo y un 20 % por encima), como un banco real
-  const pvtc = r1(justify(rote, ke, g) * pick(rnd, [0.8, 0.9, 1.1, 1.2]));
+  const pvtcFactor = pick(rnd, [0.8, 0.9, 1.1, 1.2]);
+  const pvtc = r1(justify(rote, ke, g) * pvtcFactor);
   const upM = justify(rote, ke, g) / pvtc - 1;
   const roteR = pick(rnd, [7, 14, 15]);
   // Russafa queda claramente por encima o por debajo del recorrido de Malvarrosa
@@ -73,6 +77,7 @@ export function setupBank(seed: number): BankSetup {
     equity: tangible + intangibles,
     intangibles,
     cap: Math.round(tangible * pvtc),
+    pvtcFactor,
     ke,
     g,
     roteR,
@@ -158,6 +163,7 @@ export function bankValues(s: BankSetup, a: BankAnswer): Record<string, number> 
     rote: rote(s),
     roe: roe(s),
     cap: s.cap,
+    f_pvtc: s.pvtcFactor,
     pvtc: pvtc(s),
     pvc: pvc(s),
     ke: s.ke,

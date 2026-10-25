@@ -76,13 +76,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["valorar-bancos"],
-      "prompt": "Banca Malvarrosa, un banco ficticio, tiene un patrimonio tangible de {tangible} M€, un ROTE del {rote} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. Con P/VTC justificado = (ROTE − g) / (Ke − g), ¿qué capitalización estaría justificada? (M€)",
-      "answer": 1750,
+      "prompt": "Banca Malvarrosa, un banco ficticio, vale {cap} M€ en bolsa. Tiene un patrimonio tangible de {tangible} M€, un ROTE del {rote} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. Con P/VTC justificado = (ROTE − g) / (Ke − g), ¿cuántos M€ tendría que subir su capitalización para llegar a la justificada? (M€, 1 decimal; negativo si tendría que bajar)",
+      "answer": 210,
       "unit": "M€",
       "tolerance": 0.5,
-      "answerDecimals": 0,
-      "formula": "({rote} - {g}) / ({ke} - {g}) * {tangible}",
-      "explanation": "({rote} − {g}) / ({ke} − {g}) × {tangible} = {answer} M€.",
+      "answerDecimals": 1,
+      "formula": "({rote} - {g}) / ({ke} - {g}) * {tangible} - {cap}",
+      "explanation": "({rote} − {g}) / ({ke} − {g}) × {tangible} − {cap} = {answer} M€: positivo, cotiza por debajo de lo que justifica su ROTE; negativo, por encima.",
       "params": {
         "tangible": {
           "value": 1400,
@@ -111,6 +111,23 @@
           "max": 2,
           "step": 0.5,
           "decimals": 1
+        },
+        "f_pvtc": {
+          "value": 0.9,
+          "min": 0.8,
+          "max": 1.2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "fx": {
+          "formula": "IF(ROUND({f_pvtc}, 1) = 1, 1.1, {f_pvtc})",
+          "decimals": 1
+        },
+        "cap": {
+          "formula": "{tangible} * ROUND(ROUND(({rote} - {g}) / ({ke} - {g}), 2) * {fx}, 1)",
+          "decimals": 0
         }
       }
     },
@@ -166,13 +183,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["valorar-bancos"],
-      "prompt": "Banco Russafa, un banco ficticio, tiene un ROTE del {rote_r} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. ¿Cuál es su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 2 decimales)",
-      "answer": 1.63,
+      "prompt": "Banco Russafa, un banco ficticio, tiene un ROTE del {rote_r} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. Si su coste del capital subiera 1 punto, ¿cuál sería su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 3 decimales)",
+      "answer": 1.444,
       "unit": "veces",
-      "tolerance": 1,
-      "answerDecimals": 2,
-      "formula": "({rote_r} - {g}) / ({ke} - {g})",
-      "explanation": "({rote_r} − {g}) / ({ke} − {g}) = {answer}x.",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({rote_r} - {g}) / ({ke} + 1 - {g})",
+      "explanation": "({rote_r} − {g}) / ({ke} + 1 − {g}) = {answer}x: un coste del capital mayor baja el múltiplo.",
       "params": {
         "rote_r": {
           "value": 15,

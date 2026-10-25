@@ -68,6 +68,7 @@ describe('¿Qué banco compras?', () => {
       rote: 12,
       roe: 10.5,
       cap: 1_540,
+      f_pvtc: 0.9,
       pvtc: 1.1,
       pvc: 0.96,
       ke: 10,

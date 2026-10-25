@@ -55,11 +55,17 @@
           "step": 100,
           "decimals": 0
         },
+        "k": {
+          "value": 15,
+          "min": 5,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
         "i": {
-          "value": 300,
-          "min": 100,
-          "max": 600,
-          "step": 50,
+          "formula": "ROUND({e} * {k} / 100 / 50, 0) * 50",
           "decimals": 0
         }
       }
@@ -86,11 +92,11 @@
           "step": 100,
           "decimals": 0
         },
-        "i": {
-          "value": 300,
-          "min": 100,
-          "max": 600,
-          "step": 50,
+        "k": {
+          "value": 15,
+          "min": 5,
+          "max": 20,
+          "step": 1,
           "decimals": 0
         },
         "r": {
@@ -102,6 +108,10 @@
         }
       },
       "derived": {
+        "i": {
+          "formula": "ROUND({e} * {k} / 100 / 50, 0) * 50",
+          "decimals": 0
+        },
         "ni": {
           "formula": "({e} - {i}) * {r} / 100",
           "decimals": 0
@@ -130,11 +140,11 @@
           "step": 100,
           "decimals": 0
         },
-        "i": {
-          "value": 300,
-          "min": 100,
-          "max": 600,
-          "step": 50,
+        "k": {
+          "value": 15,
+          "min": 5,
+          "max": 20,
+          "step": 1,
           "decimals": 0
         },
         "m": {
@@ -146,6 +156,10 @@
         }
       },
       "derived": {
+        "i": {
+          "formula": "ROUND({e} * {k} / 100 / 50, 0) * 50",
+          "decimals": 0
+        },
         "cap": {
           "formula": "({e} - {i}) * {m}",
           "decimals": 0
@@ -174,11 +188,11 @@
           "step": 100,
           "decimals": 0
         },
-        "i": {
-          "value": 300,
-          "min": 100,
-          "max": 600,
-          "step": 50,
+        "k": {
+          "value": 15,
+          "min": 5,
+          "max": 20,
+          "step": 1,
           "decimals": 0
         },
         "m": {
@@ -190,6 +204,10 @@
         }
       },
       "derived": {
+        "i": {
+          "formula": "ROUND({e} * {k} / 100 / 50, 0) * 50",
+          "decimals": 0
+        },
         "cap": {
           "formula": "({e} - {i}) * {m}",
           "decimals": 0
