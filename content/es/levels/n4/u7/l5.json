@@ -1,0 +1,260 @@
+{
+  "id": "n4-u7-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "title": "El coste del riesgo y el ROE",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste del riesgo y su efecto en el beneficio y el ROE",
+    "Explicar por qué se valora un banco con un ROTE normalizado a lo largo del ciclo"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Coste del riesgo",
+      "text": "Coste del riesgo = provisiones por insolvencias del año / préstamos medios. Se expresa en puntos básicos: 40 pb significa que el banco provisiona el 0,40 % de sus préstamos. Sube cuando la economía empeora y los clientes dejan de pagar, o cuando NIIF 9 anticipa que lo harán."
+    },
+    {
+      "type": "card",
+      "term": "Del coste del riesgo al ROE",
+      "text": "Cada punto básico de coste del riesgo resta los préstamos × 0,01 % del beneficio antes de impuestos. Tras impuestos, el beneficio cae esa cifra × (1 − tipo impositivo), y el ROE cae lo mismo dividido entre el patrimonio. El coste del riesgo es una de las palancas que más mueven el ROE de un banco."
+    },
+    {
+      "type": "card",
+      "term": "Normalizar",
+      "text": "Para valorar un banco no basta con el ROE de un año: hay que pensar en su ROTE a lo largo del ciclo, con un coste del riesgo normal, ni el bajo de los años buenos ni el alto de las crisis. Con ese ROTE normalizado se calcula el P/VTC justificado."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u7-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio dota {p} M€ de provisiones por insolvencias en el año y tiene unos préstamos medios de {l} M€. ¿Cuál es su coste del riesgo? (pb, 1 decimal)",
+      "answer": 37.5,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "{p} / {l} * 10000",
+      "explanation": "{p} / {l} × 10.000 = {answer} pb.",
+      "params": {
+        "p": {
+          "value": 150,
+          "min": 60,
+          "max": 400,
+          "step": 10,
+          "decimals": 0
+        },
+        "l": {
+          "value": 40000,
+          "min": 20000,
+          "max": 60000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene {l} M€ en préstamos y su coste del riesgo sube {d} pb. Con un tipo impositivo del 25 %, ¿cuántos M€ baja su beneficio neto? (M€, 2 decimales)",
+      "answer": 90,
+      "unit": "M€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{l} * {d} / 10000 * 0.75",
+      "explanation": "{l} × {d} pb × (1 − 25 %) = {answer} M€.",
+      "params": {
+        "l": {
+          "value": 40000,
+          "min": 20000,
+          "max": 60000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 30,
+          "min": 10,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene {l} M€ en préstamos y {eq} M€ de patrimonio. Si su coste del riesgo sube {d} pb, con un tipo impositivo del 25 %, ¿cuántos puntos baja su ROE? (puntos, 3 decimales)",
+      "answer": 3,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{l} * {d} / 10000 * 0.75 / {eq} * 100",
+      "explanation": "{l} × {d} pb × 0,75 / {eq} = {answer} puntos de ROE.",
+      "params": {
+        "l": {
+          "value": 40000,
+          "min": 20000,
+          "max": 60000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 30,
+          "min": 10,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        },
+        "eq": {
+          "value": 3000,
+          "min": 2000,
+          "max": 5000,
+          "step": 100,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l5-e4",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Ordena cómo llega una recesión al valor en bolsa de un banco.",
+      "steps": [
+        "La economía empeora",
+        "Suben los impagos esperados",
+        "Sube el coste del riesgo",
+        "Baja el beneficio y con él el ROTE",
+        "Baja su P/VTC justificado"
+      ],
+      "explanation": "Recesión → impagos → provisiones → beneficio → valor."
+    },
+    {
+      "id": "n4-u7-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "¿Sube o baja el coste del riesgo de un banco ficticio?",
+      "categories": ["Sube", "Baja"],
+      "items": [
+        {
+          "text": "Entra en recesión la economía donde presta",
+          "category": "Sube"
+        },
+        {
+          "text": "Empeoran las previsiones económicas que usa para NIIF 9",
+          "category": "Sube"
+        },
+        {
+          "text": "La economía se recupera y sus clientes vuelven a pagar",
+          "category": "Baja"
+        },
+        {
+          "text": "Cobra préstamos dudosos que ya había provisionado",
+          "category": "Baja"
+        }
+      ],
+      "explanation": "Más impagos, o más impagos esperados, suben las provisiones; las recuperaciones las liberan."
+    },
+    {
+      "id": "n4-u7-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "mentora",
+      "situation": "El becario rival valora Banca Malvarrosa, un banco ficticio, con el ROTE del último año, un 16 %, que se apoyó en un coste del riesgo de solo 10 pb tras varios años de crecimiento.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que hay que normalizar: con un coste del riesgo de un ciclo completo, más alto, el ROTE sostenible sería menor y el P/VTC justificado también",
+        "Que tiene razón: el último año es el mejor dato",
+        "Que el coste del riesgo no influye en el ROTE",
+        "Que hay que usar el ROTE del peor año de una crisis"
+      ],
+      "answer": 0,
+      "explanation": "Se valora con el ROTE de un ciclo normal, no con el de un año excepcional.",
+      "wrongExplanations": {
+        "1": "Un año bueno no se repite siempre.",
+        "2": "Es de lo que más lo mueve.",
+        "3": "Tampoco: ni el mejor ni el peor, sino uno normal."
+      }
+    },
+    {
+      "id": "n4-u7-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Dos bancos ficticios tienen el mismo patrimonio, pero el A ha prestado 15 veces su patrimonio y el B, 10 veces. Si el coste del riesgo sube igual en los dos, ¿cuál ve caer más su ROE?",
+      "options": [
+        "El A, porque tiene más préstamos por cada euro de patrimonio",
+        "El B, porque tiene menos préstamos",
+        "Los dos igual, porque el coste del riesgo sube lo mismo",
+        "Ninguno, porque el coste del riesgo no afecta al ROE"
+      ],
+      "answer": 0,
+      "explanation": "La caída del ROE es préstamos × subida × (1 − t) / patrimonio: más préstamos por euro de patrimonio, más caída.",
+      "wrongExplanations": {
+        "1": "Menos préstamos, menos provisiones extra.",
+        "2": "Los mismos puntos básicos pesan más sobre más préstamos.",
+        "3": "Lo baja a través del beneficio."
+      }
+    },
+    {
+      "id": "n4-u7-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "statement": "Un coste del riesgo de 50 pb significa que el banco provisiona el 5 % de sus préstamos.",
+      "answer": false,
+      "explanation": "Falso: 50 pb son el 0,50 %."
+    }
+  ],
+  "realWorld": "Los bancos publican su coste del riesgo cada trimestre y su objetivo para el ciclo; compáralo con el de años de crisis para normalizar su ROTE. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Banco de España, Informe de Estabilidad Financiera: rentabilidad, coste del riesgo y valoración bursátil de los bancos españoles (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "EBA, ejercicio de transparencia: capital, rentabilidad y coste del riesgo de los bancos de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

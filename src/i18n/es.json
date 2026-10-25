@@ -1785,6 +1785,63 @@
     "bad": "Repasa la pérdida esperada y las fases de NIIF 9.",
     "debrief": "Ver qué ha pasado"
   },
+  "bankGame": {
+    "title": "¿Qué banco compras?",
+    "step": {
+      "rote": "Paso 1 de 4 · el ROTE",
+      "pvtc": "Paso 2 de 4 · el P/VTC",
+      "justified": "Paso 3 de 4 · el P/VTC justificado",
+      "pick": "Paso 4 de 4 · la elección"
+    },
+    "units": "Millones de € (cifras ficticias)",
+    "board": {
+      "ni": "Beneficio neto",
+      "equity": "Patrimonio neto",
+      "intangibles": "Intangibles",
+      "cap": "Capitalización",
+      "ke": "Coste del capital (Ke)",
+      "g": "Crecimiento (g)",
+      "rote": "ROTE",
+      "pvtc": "P/VTC",
+      "justified": "P/VTC justificado"
+    },
+    "briefRote": "El equipo de research de Albufera Partners compara dos bancos ficticios. Empieza por Banca Malvarrosa. Su rentabilidad se mide sobre el capital tangible: ROTE = beneficio neto / (patrimonio neto − intangibles).",
+    "askRote": "¿Cuál es el ROTE de Banca Malvarrosa?",
+    "whyRote": "{{ni}} / ({{equity}} − {{intangibles}}) = {{v}}. Los intangibles, como el fondo de comercio, no absorben pérdidas, así que se restan del patrimonio.",
+    "briefPvtc": "En bolsa, Banca Malvarrosa vale {{cap}} millones. Los bancos se comparan con el P/VTC: capitalización / valor tangible contable (patrimonio menos intangibles).",
+    "askPvtc": "¿A qué P/VTC cotiza?",
+    "whyPvtc": "{{cap}} / {{tangible}} = {{v}} veces su valor tangible contable.",
+    "briefJustified": "¿Es caro o barato? Con un coste del capital del {{ke}} y un crecimiento a largo plazo del {{g}}, el P/VTC que justifica su ROTE es (ROTE − g) / (Ke − g).",
+    "askJustified": "¿Cuál es el P/VTC justificado de Banca Malvarrosa?",
+    "whyJustified": "({{rote}} − {{g}}) / ({{ke}} − {{g}}) = {{v}}. Si el ROTE supera al coste del capital, el banco merece cotizar por encima de su valor tangible.",
+    "briefPick": "Banco Russafa, otro banco ficticio, tiene un ROTE del {{roteR}} y cotiza a {{pvtcR}} veces su valor tangible, con el mismo Ke y el mismo g. ¿Cuál está más barato frente a su P/VTC justificado?",
+    "askPick": "¿Qué banco compra el equipo?",
+    "pick": {
+      "malvarrosa": "Banca Malvarrosa",
+      "russafa": "Banco Russafa",
+      "same": "Los dos por igual"
+    },
+    "whyPick": {
+      "malvarrosa": "Banca Malvarrosa vale {{jM}} y cotiza a {{pM}}; Banco Russafa vale {{jR}} y cotiza a {{pR}}. Malvarrosa tiene más recorrido hasta su justificado, aunque su ROTE sea más bajo: lo que importa es el precio frente a lo que vale.",
+      "russafa": "Banco Russafa vale {{jR}} y cotiza a {{pR}}; Banca Malvarrosa vale {{jM}} y cotiza a {{pM}}. Russafa tiene más recorrido hasta su justificado: lo que importa es el precio frente a lo que vale, no solo el ROTE."
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre del análisis",
+    "row": {
+      "rote": "ROTE",
+      "pvtc": "P/VTC",
+      "justified": "P/VTC justificado",
+      "pick": "Elección"
+    },
+    "great": "Análisis redondo: rentabilidad, múltiplo y precio, como un analista de bancos.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el ROTE, el P/VTC y cómo se relacionan.",
+    "debrief": "Ver qué ha pasado"
+  },
   "dataSurprise": {
     "title": "El dato frente a lo esperado"
   },
@@ -1802,6 +1859,9 @@
   },
   "creditRisk": {
     "title": "La pérdida esperada, capa a capa"
+  },
+  "bankMultiple": {
+    "title": "Del ROTE al P/VTC"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

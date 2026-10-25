@@ -177,6 +177,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/suelen gastar menos/);
     expect(text).toMatch(/los precios suelen subir más despacio/);
   });
+  it('BankMultiple: el P/VTC justificado cruza el 1 cuando el ROTE iguala al Ke', () => {
+    render(<ExplainerBlock component="BankMultiple" props={{ ke: 10, g: 2 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/vale 1 con un ROTE del 10\s%/);
+    expect(text).toMatch(/1,50x con un 14\s%/);
+    expect(text).toMatch(/0,50x con un 6\s%/);
+  });
   it('CreditRisk: PD × LGD × EAD, capa a capa', () => {
     render(<ExplainerBlock component="CreditRisk" props={{ pd: 3, lgd: 40, ead: 2500 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

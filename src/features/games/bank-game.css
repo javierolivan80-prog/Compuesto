@@ -1,0 +1,9 @@
+/* ¿Qué banco compras?: panel y fichas de los bancos. */
+.bv-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.bv-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

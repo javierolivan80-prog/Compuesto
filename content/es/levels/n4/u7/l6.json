@@ -1,0 +1,226 @@
+{
+  "id": "n4-u7-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "title": "Jefe final: valorar un banco",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar por qué no se usan el EV ni el FCF y calcular el ROTE y el P/VTC",
+    "Calcular el P/VTC justificado y el ROTE que descuenta el mercado",
+    "Valorar con dividendos y calcular el exceso de capital repartible",
+    "Calcular el coste del riesgo y su efecto en el ROE"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n4-u7-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio gana 210 M€ y tiene un patrimonio neto de 2.100 M€, con 350 M€ de intangibles. ¿Cuál es su ROTE? (%, 2 decimales)",
+      "answer": 12,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "210 / (2100 - 350) * 100",
+      "explanation": "210 / 1.750 = 12 %."
+    },
+    {
+      "id": "n4-u7-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Ese banco ficticio vale 2.275 M€ en bolsa y su patrimonio tangible es de 1.750 M€. ¿A qué P/VTC cotiza? (veces, 2 decimales)",
+      "answer": 1.3,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "2275 / 1750",
+      "explanation": "2.275 / 1.750 = 1,30x."
+    },
+    {
+      "id": "n4-u7-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un ROTE del 12 %, un coste del capital del 9,5 % y un crecimiento a largo plazo del 1,5 %. ¿Cuál es su P/VTC justificado? (veces, 3 decimales)",
+      "answer": 1.3125,
+      "unit": "veces",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "(12 - 1.5) / (9.5 - 1.5)",
+      "explanation": "10,5 / 8 = 1,3125x, que con 3 decimales es 1,313x o 1,312x según el redondeo."
+    },
+    {
+      "id": "n4-u7-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio cotiza a 0,8x su valor tangible, con un coste del capital del 11 % y un crecimiento a largo plazo del 2 %. ¿Qué ROTE descuenta el mercado? (%, 2 decimales)",
+      "answer": 9.2,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "2 + 0.8 * (11 - 2)",
+      "explanation": "2 + 0,8 × 9 = 9,2 %."
+    },
+    {
+      "id": "n4-u7-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio pagará el año que viene 0,72 € por acción, con un crecimiento del 2,5 % anual y un coste del capital del 10,5 %. Con el modelo de Gordon, ¿cuánto vale la acción? (€, 2 decimales)",
+      "answer": 9,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.72 / ((10.5 - 2.5) / 100)",
+      "explanation": "0,72 / 8 % = 9 €."
+    },
+    {
+      "id": "n4-u7-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un CET1 del 13,6 %, un objetivo del 12 % y 45.000 M€ de activos ponderados por riesgo. ¿Cuánto exceso de capital tiene sobre su objetivo? (M€)",
+      "answer": 720,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "(13.6 - 12) / 100 * 45000",
+      "explanation": "1,6 % × 45.000 = 720 M€."
+    },
+    {
+      "id": "n4-u7-l6-e7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio dota 210 M€ de provisiones por insolvencias con unos préstamos medios de 60.000 M€. ¿Cuál es su coste del riesgo? (pb, 1 decimal)",
+      "answer": 35,
+      "unit": "pb",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "210 / 60000 * 10000",
+      "explanation": "210 / 60.000 = 0,35 % = 35 pb."
+    },
+    {
+      "id": "n4-u7-l6-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene 50.000 M€ en préstamos y 4.000 M€ de patrimonio. Si su coste del riesgo sube 20 pb, con un tipo impositivo del 25 %, ¿cuántos puntos baja su ROE? (puntos, 3 decimales)",
+      "answer": 1.875,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "50000 * 20 / 10000 * 0.75 / 4000 * 100",
+      "explanation": "100 M€ más de provisiones × 0,75 = 75 M€; 75 / 4.000 = 1,875 puntos."
+    },
+    {
+      "id": "n4-u7-l6-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "jefe",
+      "situation": "Banca Malvarrosa cotiza a 0,9x con un ROTE normalizado del 11 %; Banco Russafa, a 0,7x con un ROTE normalizado del 7 %. Los dos son bancos ficticios, con un coste del capital del 10 % y un crecimiento del 2 %. El becario rival quiere Russafa «porque está más barato».",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que Malvarrosa vale (11 − 2) / 8 ≈ 1,13x y cotiza a 0,9x, con recorrido; Russafa vale (7 − 2) / 8 ≈ 0,63x y cotiza a 0,7x, por encima: la barata es Malvarrosa",
+        "Que tiene razón: el P/VTC más bajo siempre es el más barato",
+        "Que los dos están igual de baratos",
+        "Que no se pueden comparar sin su EV/EBITDA"
+      ],
+      "answer": 0,
+      "explanation": "Barato frente a su justificado, no frente a 1 ni frente al otro banco.",
+      "wrongExplanations": {
+        "1": "Un P/VTC bajo puede deberse a un ROTE bajo.",
+        "2": "Sus recorridos tienen signos distintos.",
+        "3": "En un banco no se usa el EV/EBITDA."
+      }
+    },
+    {
+      "id": "n4-u7-l6-e10",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "¿Sirve para valorar un banco?",
+      "categories": ["Sí", "No"],
+      "items": [
+        {
+          "text": "El P/VTC justificado con su ROTE normalizado",
+          "category": "Sí"
+        },
+        {
+          "text": "El valor de empresa (EV) sobre ventas",
+          "category": "No"
+        },
+        {
+          "text": "El descuento de sus dividendos",
+          "category": "Sí"
+        },
+        {
+          "text": "El flujo de caja libre de la empresa descontado con el WACC",
+          "category": "No"
+        }
+      ],
+      "explanation": "En un banco se valora directamente al accionista."
+    }
+  ],
+  "realWorld": "Con esta unidad termina la planta 3: ya puedes leer los resultados de un banco como lo hace el equipo de Albufera Partners, del margen de intereses al P/VTC. Busca la presentación de resultados de un banco cotizado y compara su P/VTC con el que justificaría su ROTE. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Aswath Damodaran (NYU Stern), valoración de entidades financieras: precio/valor contable frente a ROE y descuento de dividendos (pendiente de verificar la ruta)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "BCE, Supervisión Bancaria: distribuciones de capital (dividendos y recompras) y requisitos de CET1 (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Banco de España, Informe de Estabilidad Financiera: rentabilidad, coste del riesgo y valoración bursátil de los bancos españoles (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "EBA, ejercicio de transparencia: capital, rentabilidad y coste del riesgo de los bancos de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

@@ -91,6 +91,12 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  BankMultiple: z
+    .object({
+      ke: z.number().min(5).max(20),
+      g: z.number().min(0).max(5),
+    })
+    .refine((p) => p.ke - 4 > p.g, 'El ROTE bajo del ejemplo (Ke − 4) debe superar a g'),
   CreditRisk: z.object({
     pd: z.number().positive().max(100),
     lgd: z.number().positive().max(100),

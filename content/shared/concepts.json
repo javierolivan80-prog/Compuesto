@@ -1125,7 +1125,9 @@
     "id": "valorar-bancos",
     "name": "Valorar bancos (P/VTC, ROTE)",
     "level": 4,
-    "prerequisites": ["multiplos", "solvencia-cet1"]
+    "prerequisites": ["multiplos", "solvencia-cet1"],
+    "unit": "n4-u7",
+    "description": "En un banco la deuda es materia prima: no se usan el EV ni el FCF, se valora al accionista. P/VTC = capitalización / (patrimonio − intangibles) frente al ROTE; justificado = (ROTE − g) / (Ke − g), 1 si el ROTE iguala al Ke. También descuento de dividendos, exceso de CET1 repartible y coste del riesgo, que mueve el ROE."
   },
   {
     "id": "correlacion",

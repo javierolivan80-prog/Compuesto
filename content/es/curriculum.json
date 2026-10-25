@@ -199,6 +199,11 @@
           "id": "n4-u6",
           "name": "Riesgo de crédito y supervisión",
           "concepts": ["pd-lgd-ead", "morosidad-ifrs9", "union-bancaria"]
+        },
+        {
+          "id": "n4-u7",
+          "name": "Valorar bancos",
+          "concepts": ["valorar-bancos"]
         }
       ]
     },

@@ -1,0 +1,290 @@
+{
+  "id": "n4-u7-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "title": "Dividendos y exceso de capital",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Valorar un banco descontando sus dividendos",
+    "Calcular el exceso de capital sobre el objetivo de CET1 y cómo se reparte"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Descuento de dividendos",
+      "text": "Un banco reparte buena parte de su beneficio en dividendos, así que se puede valorar descontándolos. Con un dividendo que crece a un ritmo g constante: precio = dividendo del año que viene / (Ke − g). Es el modelo de Gordon. El payout es la parte del beneficio que reparte: dividendo / beneficio."
+    },
+    {
+      "type": "card",
+      "term": "Exceso de capital",
+      "text": "Un banco fija un objetivo de CET1 por encima de su requisito. El CET1 que supere ese objetivo es exceso de capital: se puede repartir con un dividendo extraordinario o con recompras de acciones, si el supervisor lo autoriza. Exceso = (ratio CET1 − objetivo) × APR."
+    },
+    {
+      "type": "card",
+      "term": "Recompras",
+      "text": "Con una recompra, el banco compra sus propias acciones y las amortiza: quedan menos acciones para repartir el mismo beneficio, así que sube el beneficio por acción. Si compra por debajo de lo que valen, beneficia a los accionistas que se quedan."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u7-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio pagará el año que viene un dividendo de {d} € por acción, que crecerá un {g} % al año. Su coste del capital es del {ke} %. Con el modelo de Gordon, ¿cuánto vale la acción? (€, 2 decimales)",
+      "answer": 7.5,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{d} / (({ke} - {g}) / 100)",
+      "explanation": "{d} / ({ke} % − {g} %) = {answer} €.",
+      "params": {
+        "d": {
+          "value": 0.6,
+          "min": 0.3,
+          "max": 1.2,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "ke": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio gana {bpa} € por acción y reparte un dividendo de {dpa} €. ¿Cuál es su payout? (%, 2 decimales)",
+      "answer": 50,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{dpa} / {bpa} * 100",
+      "explanation": "{dpa} / {bpa} = {answer} %.",
+      "params": {
+        "bpa": {
+          "value": 1.2,
+          "min": 0.6,
+          "max": 2,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "k": {
+          "value": 50,
+          "min": 30,
+          "max": 70,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "dpa": {
+          "formula": "{bpa} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un ratio CET1 del {r} %, un objetivo del {obj} % y {apr} M€ de activos ponderados por riesgo. ¿Cuánto exceso de capital tiene sobre su objetivo? (M€)",
+      "answer": 660,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({r} - {obj}) / 100 * {apr}",
+      "explanation": "({r} % − {obj} %) × {apr} = {answer} M€.",
+      "params": {
+        "r": {
+          "value": 14.2,
+          "min": 12.5,
+          "max": 16,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        },
+        "obj": {
+          "value": 12,
+          "min": 11,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "apr": {
+          "value": 30000,
+          "min": 20000,
+          "max": 50000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio reparte {ex} M€ de exceso de capital con un dividendo extraordinario entre sus {sh} millones de acciones. ¿Cuánto cobra cada acción? (€, 3 decimales)",
+      "answer": 0.4,
+      "unit": "€",
+      "tolerance": 1,
+      "answerDecimals": 3,
+      "formula": "{ex} / {sh}",
+      "explanation": "{ex} / {sh} = {answer} € por acción.",
+      "params": {
+        "ex": {
+          "value": 600,
+          "min": 200,
+          "max": 1000,
+          "step": 50,
+          "decimals": 0
+        },
+        "sh": {
+          "value": 1500,
+          "min": 800,
+          "max": 2500,
+          "step": 100,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "¿Es un dividendo ordinario, un dividendo extraordinario o una recompra?",
+      "categories": ["Dividendo ordinario", "Dividendo extraordinario", "Recompra"],
+      "items": [
+        {
+          "text": "Paga cada año el 50 % de su beneficio",
+          "category": "Dividendo ordinario"
+        },
+        {
+          "text": "Reparte de una vez el capital que le sobra sobre su objetivo de CET1",
+          "category": "Dividendo extraordinario"
+        },
+        {
+          "text": "Compra y amortiza el 3 % de sus acciones en bolsa",
+          "category": "Recompra"
+        },
+        {
+          "text": "Paga una sola vez 0,40 € por acción con la mitad de su exceso de capital",
+          "category": "Dividendo extraordinario"
+        }
+      ],
+      "explanation": "El ordinario sale del beneficio de cada año; el extraordinario y la recompra, del exceso de capital."
+    },
+    {
+      "id": "n4-u7-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "jefe",
+      "situation": "Banca Malvarrosa, un banco ficticio, tiene un CET1 del 14 % y un objetivo del 12,5 %. El becario rival propone repartir hoy todo el exceso en un dividendo extraordinario.",
+      "prompt": "¿Qué le dice el jefe del equipo de Albufera Partners?",
+      "options": [
+        "Que el reparto necesita la autorización del supervisor y que el banco puede querer guardar parte del exceso para crecer o para un escenario adverso: lo habitual es repartirlo por etapas",
+        "Que puede repartir todo el CET1, no solo el exceso",
+        "Que el exceso de capital no se puede repartir nunca",
+        "Que repartir capital sube el ratio CET1"
+      ],
+      "answer": 0,
+      "explanation": "El exceso es repartible, pero con permiso y con prudencia.",
+      "wrongExplanations": {
+        "1": "Solo lo que supera el objetivo; el resto cubre los requisitos.",
+        "2": "Sí se puede, con dividendos extraordinarios o recompras autorizados.",
+        "3": "Repartir capital baja el CET1."
+      }
+    },
+    {
+      "id": "n4-u7-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Con el modelo de Gordon, ¿qué pasa con el valor de un banco ficticio si sube su coste del capital y lo demás no cambia?",
+      "options": [
+        "Baja, porque se divide entre (Ke − g), que es mayor",
+        "Sube, porque se descuenta a un tipo más alto",
+        "No cambia, porque el dividendo es el mismo",
+        "Sube si el banco paga dividendos"
+      ],
+      "answer": 0,
+      "explanation": "Precio = D / (Ke − g): un Ke mayor, un precio menor.",
+      "wrongExplanations": {
+        "1": "Descontar a un tipo más alto da menos valor, no más.",
+        "2": "El denominador sí cambia.",
+        "3": "Pagar dividendos no cambia el efecto del Ke."
+      }
+    },
+    {
+      "id": "n4-u7-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "statement": "Una recompra de acciones reduce el beneficio por acción de los accionistas que se quedan.",
+      "answer": false,
+      "explanation": "Falso: con menos acciones, el mismo beneficio se reparte entre menos, y el beneficio por acción sube."
+    }
+  ],
+  "realWorld": "Los bancos anuncian su política de dividendos y sus programas de recompra junto a sus resultados, y el BCE publica cuándo autoriza o limita los repartos de capital. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BCE, Supervisión Bancaria: distribuciones de capital (dividendos y recompras) y requisitos de CET1 (pendiente de verificar la ruta)",
+      "url": "https://www.bankingsupervision.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Aswath Damodaran (NYU Stern), valoración de entidades financieras: precio/valor contable frente a ROE y descuento de dividendos (pendiente de verificar la ruta)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

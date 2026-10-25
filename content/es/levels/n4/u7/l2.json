@@ -1,0 +1,310 @@
+{
+  "id": "n4-u7-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "title": "Por qué los bancos se valoran distinto",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Explicar por qué no se usan el EV ni el flujo de caja libre para valorar bancos",
+    "Calcular el patrimonio tangible, el ROTE, el P/VC y el P/VTC"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ni EV ni FCF",
+      "text": "En una empresa industrial, la deuda financia el negocio y entra en el valor de empresa (EV). En un banco, la deuda, sobre todo los depósitos, es su materia prima: presta lo que capta. Por eso no se usan el EV ni el flujo de caja libre: se valora directamente al accionista, con su patrimonio, su beneficio y sus dividendos."
+    },
+    {
+      "type": "card",
+      "term": "P/VC y P/VTC",
+      "text": "P/VC = capitalización / patrimonio neto contable (valor en libros). P/VTC = capitalización / valor tangible contable: el patrimonio menos los intangibles, como el fondo de comercio de compras pasadas, que no absorben pérdidas. El P/VTC es el múltiplo de referencia de los bancos europeos."
+    },
+    {
+      "type": "card",
+      "term": "ROE y ROTE",
+      "text": "ROE = beneficio neto / patrimonio neto. ROTE = beneficio neto / patrimonio tangible. El ROTE mide la rentabilidad sobre el capital que de verdad soporta el riesgo, y es la cifra que se compara con el P/VTC: un banco que gana más sobre su capital tangible suele cotizar a un P/VTC mayor."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u7-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un patrimonio neto de {e} M€, del que {i} M€ son intangibles (fondo de comercio y programas informáticos). ¿Cuál es su patrimonio tangible? (M€)",
+      "answer": 1700,
+      "unit": "M€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{e} - {i}",
+      "explanation": "{e} − {i} = {answer} M€.",
+      "params": {
+        "e": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "i": {
+          "value": 300,
+          "min": 100,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio gana {ni} M€ y tiene un patrimonio neto de {e} M€, con {i} M€ de intangibles. ¿Cuál es su ROTE? (%, 2 decimales)",
+      "answer": 11.53,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{ni} / ({e} - {i}) * 100",
+      "explanation": "{ni} / ({e} − {i}) = {answer} %.",
+      "params": {
+        "e": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "i": {
+          "value": 300,
+          "min": 100,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        },
+        "r": {
+          "value": 11.5,
+          "min": 6,
+          "max": 16,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "ni": {
+          "formula": "({e} - {i}) * {r} / 100",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio vale {cap} M€ en bolsa y tiene un patrimonio neto de {e} M€, con {i} M€ de intangibles. ¿A qué P/VTC cotiza? (veces, 2 decimales)",
+      "answer": 0.95,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "{cap} / ({e} - {i})",
+      "explanation": "{cap} / ({e} − {i}) = {answer}x.",
+      "params": {
+        "e": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "i": {
+          "value": 300,
+          "min": 100,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        },
+        "m": {
+          "value": 0.95,
+          "min": 0.5,
+          "max": 1.8,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "cap": {
+          "formula": "({e} - {i}) * {m}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Ese mismo banco ficticio, que vale {cap} M€ en bolsa, tiene un patrimonio neto contable de {e} M€. ¿A qué P/VC cotiza? (veces, 3 decimales)",
+      "answer": 0.8075,
+      "unit": "veces",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{cap} / {e}",
+      "explanation": "{cap} / {e} = {answer}x: sin restar los intangibles, el múltiplo sale más bajo.",
+      "params": {
+        "e": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 100,
+          "decimals": 0
+        },
+        "i": {
+          "value": 300,
+          "min": 100,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        },
+        "m": {
+          "value": 0.95,
+          "min": 0.5,
+          "max": 1.8,
+          "step": 0.05,
+          "decimals": 2
+        }
+      },
+      "derived": {
+        "cap": {
+          "formula": "({e} - {i}) * {m}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "¿Sirve para valorar un banco?",
+      "categories": ["Sí", "No"],
+      "items": [
+        {
+          "text": "El P/VTC frente a su ROTE",
+          "category": "Sí"
+        },
+        {
+          "text": "El EV/EBITDA",
+          "category": "No"
+        },
+        {
+          "text": "El descuento de dividendos",
+          "category": "Sí"
+        },
+        {
+          "text": "Un DCF con el flujo de caja libre de la empresa",
+          "category": "No"
+        },
+        {
+          "text": "El ROTE frente a su coste del capital",
+          "category": "Sí"
+        }
+      ],
+      "explanation": "En un banco la deuda es materia prima: se valora al accionista, con P/VTC, ROTE y dividendos."
+    },
+    {
+      "id": "n4-u7-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "mentora",
+      "situation": "El becario rival quiere valorar Banca Malvarrosa, un banco ficticio, con el EV/EBITDA, como hizo con Naranjas del Turia.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que en un banco la deuda, sobre todo los depósitos, es su materia prima y no financiación del negocio: el EV y el EBITDA no tienen sentido, y se valora al accionista con P/VTC, ROTE y dividendos",
+        "Que es correcto: el EV/EBITDA sirve igual para cualquier empresa",
+        "Que hay que sumar los depósitos al EV y seguir",
+        "Que los bancos no se pueden valorar"
+      ],
+      "answer": 0,
+      "explanation": "La estructura de un banco obliga a valorar el patrimonio directamente.",
+      "wrongExplanations": {
+        "1": "Para un banco, la deuda es el negocio, no cómo se financia.",
+        "2": "Sumar los depósitos daría un EV sin sentido.",
+        "3": "Se valoran con múltiplos del patrimonio y con dividendos."
+      }
+    },
+    {
+      "id": "n4-u7-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Dos bancos ficticios cotizan a un P/VC de 1,0x. El A apenas tiene intangibles; el 30 % del patrimonio del B es fondo de comercio de compras pasadas. ¿Qué ocurre con su P/VTC?",
+      "options": [
+        "El del B es mayor, unos 1,43x, porque su patrimonio tangible es menor",
+        "Los dos tienen un P/VTC de 1,0x",
+        "El del B es menor, 0,7x",
+        "El fondo de comercio no cambia el P/VTC"
+      ],
+      "answer": 0,
+      "explanation": "P/VTC = capitalización / (patrimonio − intangibles): 1 / 0,7 ≈ 1,43x.",
+      "wrongExplanations": {
+        "1": "Solo el A, que casi no tiene intangibles.",
+        "2": "Restar intangibles baja el denominador: el múltiplo sube.",
+        "3": "Es justo lo que el P/VTC resta."
+      }
+    },
+    {
+      "id": "n4-u7-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "statement": "El ROTE de un banco con fondo de comercio es menor que su ROE.",
+      "answer": false,
+      "explanation": "Falso: es mayor, porque se divide el mismo beneficio entre un patrimonio más pequeño, sin los intangibles."
+    }
+  ],
+  "realWorld": "Los bancos cotizados publican su valor tangible por acción y su ROTE en cada presentación de resultados; divide el precio entre el valor tangible por acción y tendrás su P/VTC. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Aswath Damodaran (NYU Stern), valoración de entidades financieras: precio/valor contable frente a ROE y descuento de dividendos (pendiente de verificar la ruta)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Banco de España, Informe de Estabilidad Financiera: rentabilidad, coste del riesgo y valoración bursátil de los bancos españoles (pendiente de verificar la ruta)",
+      "url": "https://www.bde.es/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

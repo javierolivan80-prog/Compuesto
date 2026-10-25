@@ -30,6 +30,13 @@ import {
   stageOf,
 } from '../src/engine/games/risk-committee';
 import {
+  justified as bankJustified,
+  pvtc as bankPvtc,
+  rightPick as bankPick,
+  rote as bankRote,
+  setupBank,
+} from '../src/engine/games/bank-valuation';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -245,6 +252,32 @@ export async function playGameLesson(
     await page.getByRole('radio', { name: `Fase ${stageOf(setup)}`, exact: true }).click();
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await page.getByRole('radio', { name: keur(provision(setup)) }).click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'bank-valuation') {
+    // referencia 0: el ROTE, el P/VTC, el justificado y el banco más barato
+    await expect(page.getByRole('heading', { name: '¿Qué banco compras?' })).toBeVisible();
+    const setup = setupBank(seed);
+    const r = bankRote(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${formatNumber(r, Number.isInteger(r) ? 0 : 1)}\\s%$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: `${formatNumber(bankPvtc(setup), 2)}x`, exact: true })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: `${formatNumber(bankJustified(setup), 2)}x`, exact: true })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: bankPick(setup) === 'malvarrosa' ? 'Banca Malvarrosa' : 'Banco Russafa',
+        exact: true,
+      })
+      .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fx-trip') {
     // referencia 0: los dólares, el efecto de la divisa y la cobertura

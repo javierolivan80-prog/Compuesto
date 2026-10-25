@@ -62,6 +62,7 @@ import {
   setupCommittee,
   stageOf,
 } from './risk-committee';
+import { bankValues, justified, pvtc, rightPick, rote, setupBank } from './bank-valuation';
 import {
   nextRatio,
   phaseOf,
@@ -128,6 +129,7 @@ export const LESSON_GAMES = [
   'fx-desk',
   'stress-test',
   'risk-committee',
+  'bank-valuation',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -562,6 +564,24 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     provision: [0, 2],
     hits: [0, 0],
   },
+  'bank-valuation': {
+    ni: [0, 0],
+    equity: [0, 0],
+    intangibles: [0, 0],
+    tangible: [0, 0],
+    rote: [0, 1],
+    roe: [0, 1],
+    cap: [0, 0],
+    pvtc: [2, 2],
+    pvc: [2, 2],
+    ke: [0, 1],
+    g: [0, 1],
+    justified: [2, 2],
+    rote_r: [0, 1],
+    pvtc_r: [2, 2],
+    justified_r: [2, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -885,6 +905,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           stage: stageOf(setup) === 1 ? 3 : 1,
           provision: 0,
         }),
+      ];
+    }
+    case 'bank-valuation': {
+      // todo bien, y todo mal
+      const setup = setupBank(seed);
+      return [
+        bankValues(setup, {
+          rote: rote(setup),
+          pvtc: pvtc(setup),
+          justified: justified(setup),
+          pick: rightPick(setup),
+        }),
+        bankValues(setup, { rote: 0, pvtc: 0, justified: 0, pick: 'same' }),
       ];
     }
   }

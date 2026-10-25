@@ -1,0 +1,296 @@
+{
+  "id": "n4-u7-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "order": 0,
+  "title": "Juego: ¿qué banco compras?",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ROTE y el P/VTC de un banco y su P/VTC justificado",
+    "Elegir el banco más barato frente a su P/VTC justificado"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": [],
+  "historical": false,
+  "game": {
+    "kind": "bank-valuation",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "ROTE y ROE",
+      "text": "Acertaste {hits} de 4. Banca Malvarrosa ganó {ni} millones sobre un patrimonio tangible de {tangible} ({equity} menos {intangibles} de intangibles): un ROTE del {rote} %, frente a un ROE del {roe} %. Los intangibles, como el fondo de comercio, no absorben pérdidas: por eso se mira el ROTE."
+    },
+    {
+      "type": "card",
+      "term": "P/VTC",
+      "text": "Valía {cap} millones en bolsa: un P/VTC de {pvtc}x. Con un coste del capital del {ke} % y un crecimiento del {g} %, su P/VTC justificado era ({rote} − {g}) / ({ke} − {g}) = {justified}x. Si el ROTE supera al coste del capital, el banco merece cotizar por encima de 1."
+    },
+    {
+      "type": "card",
+      "term": "Barato frente a qué",
+      "text": "Banco Russafa, también ficticio, ganaba más, un ROTE del {rote_r} %, pero cotizaba a {pvtc_r}x. Barato no es el banco con el P/VTC más bajo ni el del ROTE más alto, sino el que cotiza más por debajo de su P/VTC justificado."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u7-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Banca Malvarrosa, un banco ficticio, vale {cap} M€ en bolsa y tiene un patrimonio neto contable de {equity} M€. ¿A qué P/VC (precio / valor contable, sin restar intangibles) cotiza? (veces, 3 decimales)",
+      "answer": 0.9625,
+      "unit": "veces",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{cap} / {equity}",
+      "explanation": "{cap} / {equity} = {answer}x: sin restar los intangibles, el múltiplo parece más bajo que el P/VTC.",
+      "params": {
+        "cap": {
+          "value": 1540,
+          "min": 600,
+          "max": 3400,
+          "step": 20,
+          "decimals": 0
+        },
+        "equity": {
+          "value": 1600,
+          "min": 1350,
+          "max": 1900,
+          "step": 50,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Banca Malvarrosa, un banco ficticio, tiene un patrimonio tangible de {tangible} M€, un ROTE del {rote} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. Con P/VTC justificado = (ROTE − g) / (Ke − g), ¿qué capitalización estaría justificada? (M€)",
+      "answer": 1750,
+      "unit": "M€",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "({rote} - {g}) / ({ke} - {g}) * {tangible}",
+      "explanation": "({rote} − {g}) / ({ke} − {g}) × {tangible} = {answer} M€.",
+      "params": {
+        "tangible": {
+          "value": 1400,
+          "min": 1200,
+          "max": 1600,
+          "step": 200,
+          "decimals": 0
+        },
+        "rote": {
+          "value": 12,
+          "min": 8,
+          "max": 14,
+          "step": 1,
+          "decimals": 0
+        },
+        "ke": {
+          "value": 10,
+          "min": 9,
+          "max": 11,
+          "step": 1,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Banca Malvarrosa, un banco ficticio, vale {cap} M€ en bolsa y tiene un patrimonio tangible de {tangible} M€. Su coste del capital es del {ke} % y su crecimiento a largo plazo, del {g} %. ¿Qué ROTE descuenta el mercado, es decir, con qué ROTE su P/VTC justificado igualaría al que cotiza? (%, 2 decimales)",
+      "answer": 10.8,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{g} + {cap} / {tangible} * ({ke} - {g})",
+      "explanation": "De P/VTC = (ROTE − g) / (Ke − g): ROTE = {g} + ({cap} / {tangible}) × ({ke} − {g}) = {answer} %.",
+      "params": {
+        "cap": {
+          "value": 1540,
+          "min": 600,
+          "max": 3400,
+          "step": 20,
+          "decimals": 0
+        },
+        "tangible": {
+          "value": 1400,
+          "min": 1200,
+          "max": 1600,
+          "step": 200,
+          "decimals": 0
+        },
+        "ke": {
+          "value": 10,
+          "min": 9,
+          "max": 11,
+          "step": 1,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Banco Russafa, un banco ficticio, tiene un ROTE del {rote_r} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. ¿Cuál es su P/VTC justificado, (ROTE − g) / (Ke − g)? (veces, 2 decimales)",
+      "answer": 1.63,
+      "unit": "veces",
+      "tolerance": 1,
+      "answerDecimals": 2,
+      "formula": "({rote_r} - {g}) / ({ke} - {g})",
+      "explanation": "({rote_r} − {g}) / ({ke} − {g}) = {answer}x.",
+      "params": {
+        "rote_r": {
+          "value": 15,
+          "min": 7,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "ke": {
+          "value": 10,
+          "min": 9,
+          "max": 11,
+          "step": 1,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Con un crecimiento a largo plazo del 2 %, ¿dónde queda el P/VTC justificado de cada banco ficticio?",
+      "categories": ["Por encima de 1", "En torno a 1", "Por debajo de 1"],
+      "items": [
+        {
+          "text": "ROTE del 15 % y coste del capital del 10 %",
+          "category": "Por encima de 1"
+        },
+        {
+          "text": "ROTE del 7 % y coste del capital del 10 %",
+          "category": "Por debajo de 1"
+        },
+        {
+          "text": "ROTE del 10 % y coste del capital del 10 %",
+          "category": "En torno a 1"
+        },
+        {
+          "text": "ROTE del 6 % y coste del capital del 11 %",
+          "category": "Por debajo de 1"
+        }
+      ],
+      "explanation": "ROTE por encima del Ke, por encima de 1; igual, en 1; por debajo, por debajo de 1."
+    },
+    {
+      "id": "n4-u7-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "jefe",
+      "situation": "El becario rival quiere comprar el banco ficticio con el ROTE más alto «porque es el mejor banco», sin mirar a qué precio cotiza.",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que un buen banco puede ser una mala inversión si ya cotiza por encima de lo que justifica su ROTE: hay que comparar el P/VTC con el justificado",
+        "Que tiene razón: el ROTE más alto siempre es la mejor compra",
+        "Que hay que comprar el de P/VTC más bajo, sin mirar el ROTE",
+        "Que el ROTE no influye en el valor de un banco"
+      ],
+      "answer": 0,
+      "explanation": "El valor depende del ROTE; la oportunidad, del precio frente a ese valor.",
+      "wrongExplanations": {
+        "1": "El precio puede reflejar ya ese ROTE, o más.",
+        "2": "Un P/VTC bajo puede corresponder a un ROTE bajo: no es una ganga.",
+        "3": "Es lo que más pesa en su P/VTC justificado."
+      }
+    },
+    {
+      "id": "n4-u7-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "statement": "Si sube el coste del capital de Banca Malvarrosa, banco ficticio, su P/VTC justificado baja aunque su ROTE no cambie.",
+      "answer": true,
+      "explanation": "Verdadero: el Ke está en el denominador, (ROTE − g) / (Ke − g); con un Ke mayor, el justificado baja."
+    },
+    {
+      "id": "n4-u7-l1-e8",
+      "type": "fill_blank",
+      "difficulty": 1,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un ROTE igual a su coste del capital: su P/VTC justificado es ___.",
+      "answers": [["1", "uno", "1x"]],
+      "explanation": "1: (Ke − g) / (Ke − g). Vale exactamente su valor tangible contable."
+    }
+  ],
+  "realWorld": "Los informes de research de bancos comparan el P/VTC de cada banco con su ROTE esperado: los que ganan más sobre su capital cotizan a múltiplos más altos. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Aswath Damodaran (NYU Stern), valoración de entidades financieras: precio/valor contable frente a ROE y descuento de dividendos (pendiente de verificar la ruta)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "EBA, ejercicio de transparencia: capital, rentabilidad y coste del riesgo de los bancos de la UE (pendiente de verificar la ruta)",
+      "url": "https://www.eba.europa.eu/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

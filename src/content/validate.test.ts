@@ -32,7 +32,9 @@ describe('contenido real del repositorio', () => {
     const r = validateContent(base);
     expect(r.issues.filter((i) => i.severity === 'error')).toEqual([]);
     expect(r.concepts.length).toBeGreaterThan(200);
-  });
+    // valida todo el contenido (más de 170 lecciones con sus variantes paramétricas): con la suite en paralelo
+    // puede pasar de los 5 s por defecto
+  }, 30_000);
   it('el mapa de conceptos cubre todos los niveles y las 4 ramas, sin ciclos', () => {
     const { concepts } = validateContent(base);
     for (let l = 0; l <= 9; l++)

@@ -1,0 +1,305 @@
+{
+  "id": "n4-u7-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 4,
+  "unit": 7,
+  "title": "El P/VTC justificado",
+  "cfa": "economics",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el P/VTC justificado y despejar el ROTE o el coste del capital que descuenta el mercado",
+    "Interpretar un P/VTC bajo o alto frente al ROTE"
+  ],
+  "concepts": ["valorar-bancos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "El múltiplo justificado",
+      "text": "Si un banco gana un ROTE constante, reparte lo que no necesita para crecer a un ritmo g y sus accionistas piden un coste del capital Ke, su P/VTC justificado es (ROTE − g) / (Ke − g). El Ke se estima con el CAPM, como en cualquier empresa."
+    },
+    {
+      "type": "visual",
+      "component": "BankMultiple",
+      "props": {
+        "ke": 10,
+        "g": 2
+      }
+    },
+    {
+      "type": "card",
+      "term": "La regla",
+      "text": "Si el ROTE iguala al Ke, el P/VTC justificado es 1: el banco vale su capital tangible. Si el ROTE supera al Ke, crea valor y merece cotizar por encima; si no llega, lo destruye y cotiza por debajo. Un P/VTC bajo no es una ganga si el ROTE también es bajo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n4-u7-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un ROTE del {rote} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. ¿Cuál es su P/VTC justificado? (veces, 3 decimales)",
+      "answer": 1.375,
+      "unit": "veces",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({rote} - {g}) / ({ke} - {g})",
+      "explanation": "({rote} − {g}) / ({ke} − {g}) = {answer}x.",
+      "params": {
+        "rote": {
+          "value": 13,
+          "min": 6,
+          "max": 18,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "ke": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio cotiza a {pv}x su valor tangible. Su coste del capital es del {ke} % y su crecimiento a largo plazo, del {g} %. ¿Qué ROTE descuenta el mercado? (%, 2 decimales)",
+      "answer": 11.6,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{g} + {pv} * ({ke} - {g})",
+      "explanation": "ROTE = g + P/VTC × (Ke − g) = {g} + {pv} × ({ke} − {g}) = {answer} %.",
+      "params": {
+        "pv": {
+          "value": 1.2,
+          "min": 0.6,
+          "max": 1.8,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "ke": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un ROTE del {rote} % y cotiza a {pv}x su valor tangible, con un crecimiento a largo plazo del {g} %. ¿Qué coste del capital descuenta el mercado? (%, 2 decimales)",
+      "answer": 10.4,
+      "unit": "%",
+      "tolerance": 0.2,
+      "answerDecimals": 2,
+      "formula": "{g} + ({rote} - {g}) / {pv}",
+      "explanation": "Ke = g + (ROTE − g) / P/VTC = {g} + ({rote} − {g}) / {pv} = {answer} %.",
+      "params": {
+        "rote": {
+          "value": 12.5,
+          "min": 6,
+          "max": 18,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "pv": {
+          "value": 1.25,
+          "min": 0.55,
+          "max": 1.85,
+          "step": 0.1,
+          "decimals": 2
+        },
+        "g": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Un banco ficticio tiene un valor tangible por acción de {t} €, un ROTE del {rote} %, un coste del capital del {ke} % y un crecimiento a largo plazo del {g} %. ¿Qué precio por acción justifica su ROTE? (€, 2 decimales)",
+      "answer": 10.09,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{t} * ({rote} - {g}) / ({ke} - {g})",
+      "explanation": "{t} × ({rote} − {g}) / ({ke} − {g}) = {answer} €.",
+      "params": {
+        "t": {
+          "value": 8.5,
+          "min": 5,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 2,
+          "fixed": true
+        },
+        "rote": {
+          "value": 11,
+          "min": 6,
+          "max": 18,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "ke": {
+          "value": 9.5,
+          "min": 8,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "g": {
+          "value": 1.5,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n4-u7-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Con un crecimiento a largo plazo del 2 %, ¿dónde queda el P/VTC justificado de cada banco ficticio?",
+      "categories": ["Por encima de 1", "En torno a 1", "Por debajo de 1"],
+      "items": [
+        {
+          "text": "ROTE del 14 % y coste del capital del 10 %",
+          "category": "Por encima de 1"
+        },
+        {
+          "text": "ROTE del 8 % y coste del capital del 10 %",
+          "category": "Por debajo de 1"
+        },
+        {
+          "text": "ROTE del 9 % y coste del capital del 9 %",
+          "category": "En torno a 1"
+        },
+        {
+          "text": "ROTE del 12 % y coste del capital del 9 %",
+          "category": "Por encima de 1"
+        },
+        {
+          "text": "ROTE del 5 % y coste del capital del 11 %",
+          "category": "Por debajo de 1"
+        }
+      ],
+      "explanation": "Lo que decide es si el ROTE supera o no al coste del capital."
+    },
+    {
+      "id": "n4-u7-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "character": "rival",
+      "situation": "Banco Russafa, un banco ficticio, cotiza a 0,6x su valor tangible. El becario rival dice que es una ganga porque «vale menos que sus libros». Su ROTE es del 5 %, su coste del capital del 11 % y el crecimiento, del 2 %.",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que su P/VTC justificado es (5 − 2) / (11 − 2) ≈ 0,33x: a 0,6x está caro para lo que gana, aunque cotice por debajo de sus libros",
+        "Que tiene razón: todo banco por debajo de 1x es una ganga",
+        "Que su justificado es 1x, porque todos los bancos valen sus libros",
+        "Que el ROTE no importa para el P/VTC"
+      ],
+      "answer": 0,
+      "explanation": "Un P/VTC bajo puede estar justificado, o incluso ser alto, si el ROTE es muy bajo.",
+      "wrongExplanations": {
+        "1": "Cotizar por debajo de 1 es lo esperable si el ROTE no llega al Ke.",
+        "2": "Solo vale 1x si el ROTE iguala al Ke.",
+        "3": "Es lo que más pesa en el justificado."
+      }
+    },
+    {
+      "id": "n4-u7-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "prompt": "Sube la prima de riesgo de España y con ella el coste del capital de los bancos españoles, sin cambiar su ROTE. ¿Qué pasa con su P/VTC justificado?",
+      "options": [
+        "Baja, porque el coste del capital está en el denominador",
+        "Sube, porque los bancos ganan más",
+        "No cambia, porque el ROTE es el mismo",
+        "Depende solo del crecimiento"
+      ],
+      "answer": 0,
+      "explanation": "Con (ROTE − g) / (Ke − g), un Ke mayor baja el múltiplo.",
+      "wrongExplanations": {
+        "1": "El ROTE no ha cambiado.",
+        "2": "El Ke también entra en la fórmula.",
+        "3": "El Ke pesa tanto como g."
+      }
+    },
+    {
+      "id": "n4-u7-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valorar-bancos"],
+      "statement": "Un banco con un ROTE mayor que su coste del capital destruye valor para sus accionistas.",
+      "answer": false,
+      "explanation": "Falso: lo crea; destruye valor si su ROTE no llega al coste del capital."
+    }
+  ],
+  "realWorld": "En las presentaciones a inversores, los bancos anuncian su objetivo de ROTE; los analistas lo comparan con el coste del capital para estimar a qué P/VTC deberían cotizar. Las cifras de los ejemplos son de bancos ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (valoración con múltiplos y descuento de dividendos) y Financial Statement Analysis (entidades financieras) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Aswath Damodaran (NYU Stern), valoración de entidades financieras: precio/valor contable frente a ROE y descuento de dividendos (pendiente de verificar la ruta)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/",
+      "date": "2026-10-25"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-25"
+}

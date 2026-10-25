@@ -855,3 +855,13 @@ Fuentes clonadas en `~/.compuesto-skills-src/` (fuera del repo). Revisión previ
 - **`CreditRisk`** (catálogo de ANIMACIONES, nivel 4): las tres capas paso a paso, con un último paso que separa la pérdida esperada (precio y provisiones) de la inesperada (capital).
 - **Unión Bancaria:** se enseñan el MUS, el MUR con la JUR y el FUR, y la garantía de 100.000 € por titular y entidad (una cuenta con dos titulares se reparte a partes iguales). El EDIS figura como pendiente.
 - **Fuentes:** sin red, IFRS Foundation, BCE (Supervisión Bancaria), JUR, Fondo de Garantía de Depósitos, Banco de España, EBA, Comisión Europea y CFA Institute van por su URL raíz con «(pendiente de verificar la ruta)».
+
+## 2026-10-25 — n4-u7 «Valorar bancos» (draft), lección-juego «¿Qué banco compras?» y explicador `BankMultiple`
+- **Juego nuevo `bank-valuation`** (no había ficha en JUEGOS.md; spec en `docs/specs/que-banco-compras.md`), con cuatro pasos sobre `AskStep`: ROTE, P/VTC y P/VTC justificado de Banca Malvarrosa, y elegir entre ella y **Banco Russafa** por el recorrido hasta su justificado.
+  - Banco Russafa es otro banco comercial ficticio, inventado para la unidad. No coincide con ninguna empresa de `companies.json` y no entra en él, por la misma razón que Banca Malvarrosa: allí cada empresa necesita cinco años de cuentas que cuadren. Queda pendiente comprobar su nombre en la CNMV.
+  - Para que las cifras sean realistas, Malvarrosa cotiza a ±20 % de su justificado y el P/VTC de Russafa se queda entre 0,4x y 2,8x. El ROTE nunca iguala al Ke, porque si no el justificado (1) coincidiría con el distractor ROTE / Ke. Las opciones son distintas en 10.000 semillas.
+- **Explicador nuevo `BankMultiple`:** no había ninguno en el catálogo para P/VTC y ROTE. Se añade a ANIMACIONES (nivel 4): la recta del justificado, que cruza el 1 con el ROTE igual al Ke.
+- **Fórmulas, a nivel intuitivo:** el P/VTC justificado como (ROTE − g) / (Ke − g), el modelo de Gordon, el exceso de capital como (CET1 − objetivo) × APR y el coste del riesgo en pb, con su efecto en el ROE tras un impuesto del 25 % fijado en cada enunciado.
+- **Planta 3:** con `n4-u7`, el Nivel 4 tiene siete unidades. No hay un «Comité de inversión» de nivel en el Camino (solo la secuencia `CommitteeApproved` del styleguide): la planta se da por completada cuando lo están todas sus unidades, como en `Camino.tsx`.
+- **Test:** el caso de `validate.test.ts` que valida todo el contenido real tiene ahora 30 s de margen; con la suite en paralelo superaba a veces los 5 s por defecto.
+- **Fuentes:** sin red, CFA Institute, Damodaran (NYU Stern), BCE (Supervisión Bancaria), EBA y Banco de España van por su URL raíz con «(pendiente de verificar la ruta)».
