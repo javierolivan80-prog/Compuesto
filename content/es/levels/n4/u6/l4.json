@@ -1,8 +1,8 @@
 {
   "id": "n4-u6-l4",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 4,
   "unit": 6,
   "title": "NIIF 9: las tres fases",

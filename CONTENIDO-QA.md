@@ -519,3 +519,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - 🛑 Pendiente de la revisión de Javier:
   - comprobar en el registro de la CNMV que «Banca Malvarrosa» no es un nombre real;
   - las fuentes (BCE Supervisión Bancaria, EBA, BIS, Banco de España, EUR-Lex y CFA Institute) están citadas por su URL raíz «(pendiente de verificar la ruta)».
+
+## n4-u6 — Riesgo de crédito y supervisión y lección-juego «Comité de riesgos» (25/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - la regla del comité se rotula como simplificada: un banco real exige además cubrir el coste de financiarse y el del capital;
+    - l1-e1 y l1-e2 dan pasos nuevos con las cifras de la partida (margen con un punto más de PD y LGD con una recuperación de la garantía). La versión inicial de l1-e2 (LGD = margen / PD) podía superar el 100 % en el repaso; se sustituyó;
+    - l1-e5 y l1-e7 pasan a casos de aplicación (el capital cubre la pérdida inesperada; 3 escalones de caída sin 30 días de retraso ya son fase 2);
+    - en el Jefe final, l6-e3 pasa a clasificar qué cubre el precio con las provisiones y qué cubre el capital, y l6-e6 lleva cifras propias;
+    - la cobertura entra en la primera fase del test de salto.
+  - Menores: «presunción refutable» de los 30 días y «precio bien fijado».
+- **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 6, 6, 7 y 6 de 8, y 10 de 10. e2e de producción `n4u6.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes (IFRS Foundation, BCE Supervisión Bancaria, JUR, Fondo de Garantía de Depósitos, Banco de España, EBA y Comisión Europea) se citan por su URL raíz «(pendiente de verificar la ruta)».
