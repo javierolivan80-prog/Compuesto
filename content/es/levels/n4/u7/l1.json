@@ -146,18 +146,18 @@
       "formula": "{g} + {cap} / {tangible} * ({ke} - {g})",
       "explanation": "De P/VTC = (ROTE − g) / (Ke − g): ROTE = {g} + ({cap} / {tangible}) × ({ke} − {g}) = {answer} %.",
       "params": {
-        "cap": {
-          "value": 1540,
-          "min": 600,
-          "max": 3400,
-          "step": 20,
-          "decimals": 0
-        },
         "tangible": {
           "value": 1400,
           "min": 1200,
           "max": 1600,
           "step": 200,
+          "decimals": 0
+        },
+        "rote": {
+          "value": 12,
+          "min": 8,
+          "max": 14,
+          "step": 1,
           "decimals": 0
         },
         "ke": {
@@ -173,6 +173,23 @@
           "max": 2,
           "step": 0.5,
           "decimals": 1
+        },
+        "f_pvtc": {
+          "value": 0.9,
+          "min": 0.8,
+          "max": 1.2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "fx": {
+          "formula": "IF(ROUND({f_pvtc}, 1) = 1, 1.1, {f_pvtc})",
+          "decimals": 1
+        },
+        "cap": {
+          "formula": "{tangible} * ROUND(ROUND(({rote} - {g}) / ({ke} - {g}), 2) * {fx}, 1)",
+          "decimals": 0
         }
       }
     },
