@@ -23,6 +23,9 @@ import { setHapticsEnabled } from '../lib/haptics';
 import { setSoundEnabled } from '../lib/sound';
 import { useAppData, useOnline } from './hooks';
 import { parseRoute, tabOf } from './routes';
+import { nextPathLesson } from '../engine/next-step';
+import type { Summary } from '../engine/projections';
+import { t } from '../i18n';
 
 const Camino = lazy(() => import('../features/camino/Camino').then((m) => ({ default: m.Camino })));
 const Ajustes = lazy(() =>
@@ -83,6 +86,22 @@ const levelOf = (unitId: string) => Number(/^n(\d+)-/.exec(unitId)?.[1] ?? 0);
 export const go = (hash: string) => {
   window.location.hash = hash;
   window.scrollTo(0, 0);
+};
+
+/** ¿Queda alguna lección del Camino si esta unidad queda dominada por el test de salto? */
+const afterSkip = (summary: Summary | null | undefined, unitId: string): boolean =>
+  !summary ||
+  !!nextPathLesson(pathLessonMeta(), {
+    lessons: summary.progress.lessons,
+    skippedUnits: [...summary.progress.skippedUnits, unitId],
+  });
+
+/** Ritmo libre: la siguiente lección del Camino o, si no queda ninguna, otra tanda de práctica. */
+const nextStepHash = (summary: Summary | null | undefined): string => {
+  const id = summary
+    ? nextPathLesson(pathLessonMeta(), summary.progress)
+    : (pathLessonMeta()[0]?.id ?? null);
+  return id ? `#/leccion/${id}` : '#/repaso';
 };
 
 /** La app de producto: onboarding → 5 pestañas, y pantallas completas para lecciones y tests de salto. */
@@ -148,6 +167,15 @@ export function Product() {
     });
   };
 
+  /** Con el progreso recién guardado (un test de salto acaba de escribir), no el de la última carga. */
+  const goNextStep = async () => {
+    try {
+      go(nextStepHash(await repo.summary()));
+    } catch {
+      go(nextStepHash(data.summary));
+    }
+  };
+
   // el ajuste de háptica se aplica al arrancar
   useEffect(() => {
     if (data.summary) {
@@ -195,7 +223,14 @@ export function Product() {
       case 'leccion': {
         const exists = hasLesson(route.id);
         body = exists ? (
-          <LessonRoute key={route.id} id={route.id} onExit={() => go('#/')} />
+          <LessonRoute
+            key={route.id}
+            id={route.id}
+            onExit={() => go('#/')}
+            onNextLesson={(id) => go(`#/leccion/${id}`)}
+            onKeepPracticing={() => go('#/repaso')}
+            onPractice={() => go('#/practicar')}
+          />
         ) : (
           <Home data={data} onStart={(id) => go(`#/leccion/${id}`)} />
         );
@@ -215,6 +250,10 @@ export function Product() {
             level={level}
             continueLabel="Volver al inicio"
             onDone={() => go('#/')}
+            nextLabel={t(
+              afterSkip(data.summary, route.unitId) ? 'flow.nextLesson' : 'flow.keepPracticing',
+            )}
+            onNext={() => void goNextStep()}
             onExit={() => go('#/camino')}
             onStudy={() => go(`#/leccion/${firstLessonOf(route.unitId) ?? ''}`)}
           />
@@ -239,7 +278,9 @@ export function Product() {
         break;
       case 'sesion':
         fullScreen = true;
-        body = <SessionRoute onExit={() => go('#/')} />;
+        body = (
+          <SessionRoute onExit={() => go('#/')} onOpenLesson={(id) => go(`#/leccion/${id}`)} />
+        );
         break;
       case 'repaso':
         fullScreen = true;
@@ -250,13 +291,19 @@ export function Product() {
             conceptId={route.conceptId}
             events={data.events}
             onExit={() => go('#/practicar')}
+            onNextLesson={() => go(nextStepHash(data.summary))}
           />
         );
         break;
       case 'examen':
         fullScreen = true;
         body = (
-          <ExamRoute key={route.unitId} unitId={route.unitId} onExit={() => go('#/practicar')} />
+          <ExamRoute
+            key={route.unitId}
+            unitId={route.unitId}
+            onExit={() => go('#/practicar')}
+            onMore={() => go('#/repaso')}
+          />
         );
         break;
       case 'saltar-nivel':

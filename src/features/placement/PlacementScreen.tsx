@@ -30,6 +30,9 @@ interface Props {
   onExit: () => void;
   /** Al suspender: ir a estudiar la unidad. */
   onStudy?: () => void;
+  /** Ritmo libre: al aprobar, el botón principal sigue (p. ej. «Siguiente lección») y `continueLabel` pasa a secundario. */
+  onNext?: () => void;
+  nextLabel?: string;
 }
 
 /**
@@ -45,6 +48,8 @@ export function PlacementScreen({
   onDone,
   onExit,
   onStudy,
+  onNext,
+  nextLabel,
 }: Props) {
   const repo = useRepo();
   const [phase, setPhase] = useState<'intro' | 'questions' | 'bridge' | 'result'>('intro');
@@ -203,7 +208,13 @@ export function PlacementScreen({
           </p>
         )}
         <div className="grid w-full max-w-sm gap-2">
-          <Button onClick={() => onDone(result)}>{continueLabel}</Button>
+          {result.passed && onNext && <Button onClick={onNext}>{nextLabel}</Button>}
+          <Button
+            variant={result.passed && onNext ? 'secondary' : 'primary'}
+            onClick={() => onDone(result)}
+          >
+            {continueLabel}
+          </Button>
           {!result.passed && onStudy && (
             <Button variant="secondary" onClick={onStudy}>
               Estudiar la unidad

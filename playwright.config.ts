@@ -80,6 +80,7 @@ export default defineConfig({
         'despliegue.spec.ts',
         'peor-caso.spec.ts',
         'mesa.spec.ts',
+        'ritmo-libre.spec.ts',
       ],
       use: { baseURL: 'http://localhost:4173', launchOptions },
     },

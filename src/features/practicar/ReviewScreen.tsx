@@ -9,6 +9,7 @@ import { variantSeedFor } from '../../engine/params';
 import type { ReviewItem } from '../../engine/srs';
 import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
+import { t } from '../../i18n';
 import {
   promptOf,
   ExerciseRunner,
@@ -28,6 +29,12 @@ interface Props {
   /** Dentro de una sesión: el final del bloque sigue la sesión en vez de volver a Practicar. */
   onFinish?: () => void;
   finishLabel?: string;
+  /** Ritmo libre: al terminar, el botón principal carga otra tanda («Seguir practicando»). */
+  onMore?: () => void;
+  /** Aviso bajo el título (p. ej. que la tanda es práctica extra). */
+  hint?: string;
+  /** Sin nada que practicar: ir a la siguiente lección en vez de quedarse en una pantalla vacía. */
+  onNextLesson?: () => void;
 }
 
 interface Missed {
@@ -39,7 +46,17 @@ const mmss = (s: number) =>
   `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 
 /** Repaso, práctica por tema, Mis errores y examen: una lista fija de ejercicios con guardado de cada respuesta. */
-export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel }: Props) {
+export function ReviewScreen({
+  title,
+  items,
+  exam,
+  onExit,
+  onFinish,
+  finishLabel,
+  onMore,
+  hint,
+  onNextLesson,
+}: Props) {
   const repo = useRepo();
   const playable = useMemo(
     () =>
@@ -121,9 +138,16 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
         <EmptyState title="No hay ejercicios para esto todavía">
           Completa alguna lección y vuelve.
         </EmptyState>
-        <Button onClick={onExit} className="justify-self-start">
-          Volver a Practicar
-        </Button>
+        <div className="flex flex-wrap gap-3">
+          {onNextLesson && <Button onClick={onNextLesson}>{t('flow.toNextLesson')}</Button>}
+          <Button
+            variant={onNextLesson ? 'secondary' : 'primary'}
+            onClick={onExit}
+            className="justify-self-start"
+          >
+            {t('flow.backPractice')}
+          </Button>
+        </div>
       </section>
     );
 
@@ -164,9 +188,18 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
             </ul>
           </section>
         )}
-        <Button onClick={onFinish ?? onExit} className="justify-self-start">
-          {finishLabel ?? 'Volver a Practicar'}
-        </Button>
+        {onMore && !onFinish ? (
+          <div className="flex flex-wrap gap-3">
+            <Button onClick={onMore}>{t('flow.keepPracticing')}</Button>
+            <Button variant="secondary" onClick={onExit}>
+              {t('flow.backPractice')}
+            </Button>
+          </div>
+        ) : (
+          <Button onClick={onFinish ?? onExit} className="justify-self-start">
+            {finishLabel ?? t('flow.backPractice')}
+          </Button>
+        )}
       </section>
     );
   }
@@ -191,6 +224,7 @@ export function ReviewScreen({ title, items, exam, onExit, onFinish, finishLabel
           </Button>
         </div>
       </header>
+      {hint && <p className="text-text-2 text-sm">{hint}</p>}
       <ProgressBar value={index} max={total} label="Progreso del repaso" />
       <ExerciseRunner
         key={exercise.id}
