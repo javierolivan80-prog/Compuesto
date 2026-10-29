@@ -28,6 +28,7 @@ import { Cet1Cushion } from './Cet1Cushion';
 import { CreditRisk } from './CreditRisk';
 import { BankMultiple } from './BankMultiple';
 import { MarketImpact } from './MarketImpact';
+import { CostStack } from './CostStack';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -75,6 +76,7 @@ const REGISTRY = {
   CreditRisk,
   BankMultiple,
   MarketImpact,
+  CostStack,
   FuturePayoff,
 } as unknown as Registry;
 

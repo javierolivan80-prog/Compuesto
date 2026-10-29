@@ -44,6 +44,12 @@ import {
   setupDesk,
 } from '../src/engine/games/order-desk';
 import {
+  explicitCost as vwExplicit,
+  setupVwap,
+  shortfallBp as vwShortfall,
+  vwap as vwVwap,
+} from '../src/engine/games/vwap-desk';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -303,6 +309,37 @@ export async function playGameLesson(
     await page
       .getByRole('radio', {
         name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
+        exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'vwap-desk') {
+    // referencia 0: el VWAP, el shortfall, los costes explícitos y dónde ejecutar
+    await expect(page.getByRole('heading', { name: 'Contra el VWAP' })).toBeVisible();
+    const setup = setupVwap(seed);
+    const esc = (s: string) => s.replace('.', '\\.');
+    await page
+      .getByRole('radio', { name: new RegExp(`^${esc(formatNumber(vwVwap(setup), 3))}\\s€$`) })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const sf = vwShortfall(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${sf < 0 ? '−' : ''}${formatNumber(Math.abs(sf), 1)}\\spb$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const cost = vwExplicit(setup);
+    const costText = esc(formatNumber(cost, Number.isInteger(cost) ? 0 : 2));
+    await page.getByRole('radio', { name: new RegExp(`^${costText}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: {
+          close: 'En la subasta de cierre',
+          vwap: 'Con un algoritmo VWAP durante la sesión',
+          now: 'Ya, a mercado',
+        }[setup.venue],
         exact: true,
       })
       .click();

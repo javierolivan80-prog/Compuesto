@@ -1,0 +1,219 @@
+{
+  "id": "n5-u2-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "title": "Jefe final: la mesa de ejecución",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular los límites de los rangos de volatilidad y las compras de un fondo indexado al cierre",
+    "Calcular el VWAP, el implementation shortfall y los costes explícitos con el impuesto",
+    "Elegir dónde y a qué ritmo ejecutar una orden"
+  ],
+  "concepts": ["subastas-avanzadas", "costes-reales-operar"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u2-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "El precio estático de una acción ficticia es de 18,40 € y su rango estático, en este ejemplo, del 6 %. ¿Por encima de qué precio saltaría una subasta de volatilidad? (€, 3 decimales)",
+      "answer": 19.504,
+      "unit": "€",
+      "tolerance": 0.01,
+      "answerDecimals": 3,
+      "formula": "18.4 * 1.06",
+      "explanation": "18,40 × 1,06 = 19,504 €."
+    },
+    {
+      "id": "n5-u2-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "Un fondo indexado ficticio recibe 80 millones de €; una acción pesa el 1,5 % del índice y cierra a 24 €. ¿Cuántas acciones compra en la subasta de cierre? (acciones)",
+      "answer": 50000,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "80000000 * 0.015 / 24",
+      "explanation": "80 millones × 1,5 % / 24 € = 50.000 acciones."
+    },
+    {
+      "id": "n5-u2-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Una acción ficticia se negocia en tres tramos: 15.000 acciones a 7,20 €, 25.000 a 7,30 € y 10.000 a 7,25 €. ¿Cuál es el VWAP? (€, 3 decimales)",
+      "answer": 7.26,
+      "unit": "€",
+      "tolerance": 0.01,
+      "answerDecimals": 3,
+      "formula": "(7.2 * 15000 + 7.3 * 25000 + 7.25 * 10000) / 50000",
+      "explanation": "363.000 / 50.000 = 7,260 €."
+    },
+    {
+      "id": "n5-u2-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un gestor decide comprar 25.000 acciones ficticias a 30 €. Se compran 20.000 a 30,15 € de media; el resto no, y la acción cierra a 30,40 €. Las comisiones son de 450 €. ¿Cuál es el implementation shortfall total? (€)",
+      "answer": 5450,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "20000 * 0.15 + 5000 * 0.4 + 450",
+      "explanation": "3.000 + 2.000 + 450 = 5.450 €."
+    },
+    {
+      "id": "n5-u2-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compras 12.000 acciones de una empresa española ficticia de 9.000 M€ de capitalización a 42,50 €. ¿Cuánto pagas de impuesto sobre las transacciones financieras? (€)",
+      "answer": 1020,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "12000 * 42.5 * 0.002",
+      "explanation": "510.000 × 0,2 % = 1.020 €."
+    },
+    {
+      "id": "n5-u2-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Con una comisión del 0,08 % al comprar y al vender, en una empresa española de más de 1.000 M€, ¿cuánto tiene que subir la acción para cubrir los costes explícitos de ida y vuelta? (%, 2 decimales)",
+      "answer": 0.36,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2 * 0.08 + 0.2",
+      "explanation": "0,08 + 0,2 + 0,08 = 0,36 %."
+    },
+    {
+      "id": "n5-u2-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas", "costes-reales-operar"],
+      "prompt": "¿Cómo ejecutas cada orden?",
+      "categories": ["En la subasta de cierre", "Con un algoritmo VWAP", "Ya, a mercado"],
+      "items": [
+        {
+          "text": "Un fondo indexado que se valora al cierre recibe dinero nuevo",
+          "category": "En la subasta de cierre"
+        },
+        {
+          "text": "Una gestora quiere comprar el 15 % del volumen del día sin prisa",
+          "category": "Con un algoritmo VWAP"
+        },
+        {
+          "text": "Una orden pequeña y urgente en una acción que sube rápido",
+          "category": "Ya, a mercado"
+        }
+      ],
+      "explanation": "Cierre si el cliente se valora a ese precio; VWAP si la orden es grande y sin prisa; ya, si es pequeña y urgente."
+    },
+    {
+      "id": "n5-u2-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "character": "mentora",
+      "situation": "Una compra ficticia quedó 15 pb por debajo del VWAP, pero el shortfall frente al precio de llegada fue de 120 pb porque la orden tardó dos horas en llegar a la mesa.",
+      "prompt": "¿Qué le dice tu mentora al gestor?",
+      "options": [
+        "Que la ejecución en el mercado fue buena, pero el coste lo causó el retraso: hay que llevar las órdenes a la mesa en cuanto se deciden",
+        "Que el shortfall está mal calculado",
+        "Que el problema fue la comisión",
+        "Que batir al VWAP demuestra que no hubo coste"
+      ],
+      "answer": 0,
+      "explanation": "Separar el coste de retraso del de ejecución dice dónde se perdió el dinero.",
+      "wrongExplanations": {
+        "1": "El retraso es parte del shortfall.",
+        "2": "Unos pocos pb de comisión no explican 120 pb.",
+        "3": "El VWAP no ve lo que pasó antes de que llegara la orden."
+      }
+    },
+    {
+      "id": "n5-u2-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "El precio estático de una acción ficticia es de 10 € y su rango estático, en este ejemplo, del 8 %. Una compra a mercado va a cruzarse a 11 €. ¿Qué pasa?",
+      "options": [
+        "Se para la negociación continua y empieza una subasta de volatilidad",
+        "Se ejecuta a 11 € sin más",
+        "La orden se cancela y el valor se suspende hasta el día siguiente",
+        "Se ejecuta a 10,80 €, el límite del rango"
+      ],
+      "answer": 0,
+      "explanation": "11 € está fuera del rango (hasta 10,80 €): salta una subasta de volatilidad.",
+      "wrongExplanations": {
+        "1": "Fuera del rango, el mercado no deja cruzarla en continuo.",
+        "2": "La subasta dura unos minutos, no un día.",
+        "3": "No se ejecuta al límite: se subasta."
+      }
+    },
+    {
+      "id": "n5-u2-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "statement": "En una orden grande, los costes implícitos suelen superar a la comisión del bróker.",
+      "answer": true,
+      "explanation": "Verdadero: horquilla, impacto y coste de oportunidad suelen pesar más que la comisión."
+    }
+  ],
+  "realWorld": "En Albufera Partners, cada orden grande se planifica con su referencia (cierre, VWAP o llegada) y se revisa después en el análisis de costes de transacción. Busca en la web de BME el volumen de la subasta de cierre de un día de cambio de índices. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: subastas de apertura, cierre y volatilidad, rangos estático y dinámico, modalidad de fixing y cánones (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "Ley 5/2020, de 15 de octubre, del Impuesto sobre las Transacciones Financieras (BOE) (pendiente de verificar la ruta)",
+      "url": "https://www.boe.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "AEAT, Impuesto sobre las Transacciones Financieras: tipo del 0,2 % y relación anual de sociedades con capitalización bursátil superior a 1.000 millones de euros (pendiente de verificar la ruta)",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-29"
+}

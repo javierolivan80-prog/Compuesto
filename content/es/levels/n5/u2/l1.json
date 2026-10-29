@@ -1,0 +1,405 @@
+{
+  "id": "n5-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: contra el VWAP",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el VWAP de una sesión y el implementation shortfall frente al precio de llegada",
+    "Calcular los costes explícitos de una compra con el impuesto sobre las transacciones financieras"
+  ],
+  "concepts": ["subastas-avanzadas", "costes-reales-operar"],
+  "companies": ["naranjas-del-turia"],
+  "historical": false,
+  "game": {
+    "kind": "vwap-desk",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "VWAP",
+      "text": "Acertaste {hits} de 4. El VWAP de la sesión fue de {vwap} €, frente a una media simple de {twap} €: el VWAP pesa cada precio por su volumen. Compraste a {fill} € de media, {vs_vwap_bp} pb frente al VWAP."
+    },
+    {
+      "type": "card",
+      "term": "Precio de llegada",
+      "text": "Pero cuando el cliente dio la orden, el precio era de {arrival} €. Frente a ese precio, tu implementation shortfall fue de {shortfall_bp} pb, porque el VWAP ya estaba {drift_bp} pb más arriba. Batir el VWAP no significa haber comprado barato."
+    },
+    {
+      "type": "card",
+      "term": "Costes explícitos",
+      "text": "Comisión de {commission} €. El impuesto sobre las transacciones financieras, el 0,2 % del efectivo ({itf} € en esa orden), solo lo pagan las compras de acciones españolas de más de 1.000 M€ de capitalización. Costes explícitos de tu partida: {explicit} €."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u2-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "En tu sesión, la acción ficticia se negoció a {p1} € ({v1} acciones), a {p2} € ({v2}) y a {p3} € ({v3}). Si por la tarde se hubieran negociado {v3d} acciones, tantas como en toda tu sesión, al mismo precio, ¿cuál habría sido el VWAP? (€, 3 decimales)",
+      "answer": 10.128,
+      "unit": "€",
+      "tolerance": 0.02,
+      "answerDecimals": 3,
+      "formula": "({p1} * {v1} + {p2} * {v2} + {p3} * {v3d}) / ({v1} + {v2} + {v3d})",
+      "explanation": "({p1} × {v1} + {p2} × {v2} + {p3} × {v3d}) / ({v1} + {v2} + {v3d}) = {answer} €: cuanto más volumen tiene un tramo, más tira de él el VWAP.",
+      "params": {
+        "arrival": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "d1_c": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 2,
+          "decimals": 0
+        },
+        "d2_c": {
+          "value": 10,
+          "min": 6,
+          "max": 14,
+          "step": 2,
+          "decimals": 0
+        },
+        "d3_c": {
+          "value": 16,
+          "min": 10,
+          "max": 22,
+          "step": 2,
+          "decimals": 0
+        },
+        "v1": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "v2": {
+          "value": 50000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "v3": {
+          "value": 30000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{arrival} + {d1_c} / 100",
+          "decimals": 2
+        },
+        "p2": {
+          "formula": "{arrival} + {d2_c} / 100",
+          "decimals": 2
+        },
+        "p3": {
+          "formula": "{arrival} + {d3_c} / 100",
+          "decimals": 2
+        },
+        "v3d": {
+          "formula": "{v1} + {v2} + {v3}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compraste {qty} acciones de una empresa ficticia a {fill} € de media, con un precio de llegada de {arrival} €. ¿Cuántos € supone tu implementation shortfall, sin contar comisiones? (€)",
+      "answer": 4000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{qty} * ({fill} - {arrival})",
+      "explanation": "{qty} × ({fill} − {arrival}) = {answer} €: lo que pagaste de más frente al precio de cuando se decidió la compra.",
+      "params": {
+        "qty": {
+          "value": 50000,
+          "min": 20000,
+          "max": 100000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "arrival": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "fill_c": {
+          "value": 8,
+          "min": 3,
+          "max": 13,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "fill": {
+          "formula": "{arrival} + {fill_c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Imagina que solo hubieras comprado el {f} % de las {qty} acciones y que la acción hubiera cerrado a {p3} €, con un precio de llegada de {arrival} €. ¿Cuál es el coste de oportunidad de la parte que no compraste? (€)",
+      "answer": 1600,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{qty} * (100 - {f}) / 100 * ({p3} - {arrival})",
+      "explanation": "{qty} × (100 − {f}) % × ({p3} − {arrival}) = {answer} €: la subida que te perdiste en las acciones que no llegaste a comprar también es coste.",
+      "params": {
+        "qty": {
+          "value": 50000,
+          "min": 20000,
+          "max": 100000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "f": {
+          "value": 80,
+          "min": 50,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        },
+        "arrival": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "d3_c": {
+          "value": 16,
+          "min": 10,
+          "max": 22,
+          "step": 2,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p3": {
+          "formula": "{arrival} + {d3_c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compras {n} acciones de una empresa española ficticia con 5.000 M€ de capitalización a {fill} €. ¿Cuánto pagas de impuesto sobre las transacciones financieras? (€, 2 decimales)",
+      "answer": 705.6,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{n} * {fill} * 0.002",
+      "explanation": "{n} × {fill} × 0,2 % = {answer} €.",
+      "params": {
+        "n": {
+          "value": 35000,
+          "min": 15000,
+          "max": 95000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "arrival": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "fill_c": {
+          "value": 8,
+          "min": 3,
+          "max": 13,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "fill": {
+          "formula": "{arrival} + {fill_c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "¿Esta operación paga el impuesto sobre las transacciones financieras?",
+      "categories": ["Lo paga", "No lo paga"],
+      "items": [
+        {
+          "text": "Compra en bolsa de acciones de una empresa española con 4.000 M€ de capitalización",
+          "category": "Lo paga"
+        },
+        {
+          "text": "Venta de esas mismas acciones",
+          "category": "No lo paga"
+        },
+        {
+          "text": "Compra de acciones de una empresa española con 400 M€ de capitalización",
+          "category": "No lo paga"
+        },
+        {
+          "text": "Compra de las acciones de 4.000 M€ a través de un bróker de otro país",
+          "category": "Lo paga"
+        }
+      ],
+      "explanation": "Grava las compras de acciones de empresas españolas cotizadas con más de 1.000 M€ de capitalización, sin importar desde dónde se opere; las ventas no tributan."
+    },
+    {
+      "id": "n5-u2-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "character": "jefe",
+      "situation": "Mañana un índice ficticio incorpora a Naranjas del Turia, y los fondos indexados que lo replican tienen que comprar sus acciones.",
+      "prompt": "¿Qué le dice el jefe de la mesa al becario?",
+      "options": [
+        "Que esos fondos comprarán sobre todo en la subasta de cierre del día del cambio, porque se valoran a ese precio, y que el volumen de esa subasta será muy superior al normal",
+        "Que comprarán a primera hora para adelantarse a los demás",
+        "Que repartirán las compras durante un mes para no mover el precio",
+        "Que no necesitan comprar: les basta con cambiar el nombre del índice"
+      ],
+      "answer": 0,
+      "explanation": "Un fondo indexado quiere el precio con el que se calcula el índice y su propio valor: el de cierre.",
+      "wrongExplanations": {
+        "1": "Comprar antes los aleja del índice, que se calcula con el cierre.",
+        "2": "Se desviarían del índice durante todo ese tiempo.",
+        "3": "Para replicarlo necesitan tener las acciones."
+      }
+    },
+    {
+      "id": "n5-u2-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "statement": "Si tu precio medio de compra queda por debajo del VWAP, tu ejecución también fue barata frente al precio de llegada.",
+      "answer": false,
+      "explanation": "Falso: si el precio sube durante la sesión, puedes batir el VWAP y aun así pagar bastante más que el precio de llegada, como en tu partida."
+    },
+    {
+      "id": "n5-u2-l1-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Suma el implementation shortfall de tu compra de {qty} acciones a {fill} € (precio de llegada, {arrival} €) y sus costes explícitos si pagara el impuesto: comisión de {comm_bp} pb y 20 pb de impuesto sobre el efectivo. ¿Cuánto cuesta en total? (€, 2 decimales)",
+      "answer": 5260,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{qty} * ({fill} - {arrival}) + {qty} * {fill} * ({comm_bp} + 20) / 10000",
+      "explanation": "{qty} × ({fill} − {arrival}) + {qty} × {fill} × ({comm_bp} + 20) pb = {answer} €: el coste implícito suele pesar más que el explícito.",
+      "params": {
+        "qty": {
+          "value": 50000,
+          "min": 20000,
+          "max": 100000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "arrival": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "fill_c": {
+          "value": 8,
+          "min": 3,
+          "max": 13,
+          "step": 1,
+          "decimals": 0
+        },
+        "comm_bp": {
+          "value": 5,
+          "min": 3,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "fill": {
+          "formula": "{arrival} + {fill_c} / 100",
+          "decimals": 2
+        }
+      }
+    }
+  ],
+  "realWorld": "Las mesas de ejecución de bancos y gestoras envían a sus clientes informes de análisis de costes de transacción (TCA) con el VWAP, el precio de llegada y el implementation shortfall de cada orden. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: subastas de apertura, cierre y volatilidad, rangos estático y dinámico, modalidad de fixing y cánones (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "Ley 5/2020, de 15 de octubre, del Impuesto sobre las Transacciones Financieras (BOE) (pendiente de verificar la ruta)",
+      "url": "https://www.boe.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "AEAT, Impuesto sobre las Transacciones Financieras: tipo del 0,2 % y relación anual de sociedades con capitalización bursátil superior a 1.000 millones de euros (pendiente de verificar la ruta)",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-29"
+}

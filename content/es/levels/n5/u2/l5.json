@@ -1,0 +1,299 @@
+{
+  "id": "n5-u2-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "title": "Costes implícitos y cómo ejecutar",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la media horquilla, el coste de oportunidad y el peso de los costes implícitos",
+    "Elegir el ritmo de ejecución según tamaño, urgencia y volatilidad"
+  ],
+  "concepts": ["costes-reales-operar"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Implícitos",
+      "text": "Los costes implícitos no salen en ningún papel: la media horquilla, el coste de impacto, el coste de retraso si la orden tarda en llegar al mercado y el coste de oportunidad de lo que no llegas a ejecutar. En las órdenes grandes suelen pesar más que todos los explícitos juntos."
+    },
+    {
+      "type": "card",
+      "term": "Urgencia o impacto",
+      "text": "Ejecutar rápido reduce el riesgo de que el precio se escape, pero dispara el impacto; ir despacio lo reduce, pero deja la orden expuesta más tiempo. Cada mesa elige el ritmo según el tamaño frente al volumen, la urgencia del gestor y la volatilidad de la acción."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u2-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Una acción ficticia cotiza con una horquilla de {s} céntimos. Compras {n} acciones al mejor precio de venta. ¿Cuánto pagas frente a comprar al punto medio? (€)",
+      "answer": 400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * {s} / 2 / 100",
+      "explanation": "{n} × {s} / 2 céntimos = {answer} €: la media horquilla.",
+      "params": {
+        "n": {
+          "value": 20000,
+          "min": 10000,
+          "max": 60000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "s": {
+          "value": 4,
+          "min": 2,
+          "max": 10,
+          "step": 2,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Una orden ficticia cuesta {cm} pb de comisión, 20 pb de impuesto, {hs} pb de media horquilla y {im} pb de coste de impacto. ¿Qué porcentaje del coste total son costes implícitos? (%, 2 decimales)",
+      "answer": 57.41,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({hs} + {im}) / ({cm} + 20 + {hs} + {im}) * 100",
+      "explanation": "({hs} + {im}) / ({cm} + 20 + {hs} + {im}) = {answer} %.",
+      "params": {
+        "cm": {
+          "value": 3,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "hs": {
+          "value": 6,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "im": {
+          "value": 25,
+          "min": 10,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un gestor decide comprar {q} acciones de una empresa ficticia a {d} €. Solo se compran {e}, y la acción cierra a {c} €. ¿Cuál es el coste de oportunidad de las acciones que no se compraron? (€)",
+      "answer": 3000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "({q} - {e}) * ({c} - {d})",
+      "explanation": "({q} − {e}) × ({c} − {d}) = {answer} €.",
+      "params": {
+        "q": {
+          "value": 60000,
+          "min": 40000,
+          "max": 100000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 45000,
+          "min": 20000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 18,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "y": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "c": {
+          "formula": "{d} + {y} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Comprar despacio una orden ficticia cuesta {i} pb de impacto, pero hay un {p} % de probabilidad de que el precio se escape {m} pb antes de terminar. ¿Cuál es el coste esperado de ir despacio? (pb, 2 decimales)",
+      "answer": 35,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{i} + {p} / 100 * {m}",
+      "explanation": "{i} + {p} % × {m} = {answer} pb, que hay que comparar con el impacto de comprarlo todo ya.",
+      "params": {
+        "i": {
+          "value": 15,
+          "min": 10,
+          "max": 20,
+          "step": 5,
+          "decimals": 0
+        },
+        "p": {
+          "value": 40,
+          "min": 20,
+          "max": 60,
+          "step": 10,
+          "decimals": 0
+        },
+        "m": {
+          "value": 50,
+          "min": 30,
+          "max": 60,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l5-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "¿Coste explícito o implícito?",
+      "categories": ["Explícito", "Implícito"],
+      "items": [
+        {
+          "text": "La comisión del bróker",
+          "category": "Explícito"
+        },
+        {
+          "text": "Los cánones de liquidación",
+          "category": "Explícito"
+        },
+        {
+          "text": "La media horquilla",
+          "category": "Implícito"
+        },
+        {
+          "text": "El precio sube mientras compras",
+          "category": "Implícito"
+        },
+        {
+          "text": "El impuesto sobre las transacciones financieras",
+          "category": "Explícito"
+        },
+        {
+          "text": "Las acciones que no llegaste a comprar antes de que subieran",
+          "category": "Implícito"
+        }
+      ],
+      "explanation": "Explícito: aparece en el extracto. Implícito: está en el precio al que compras o en lo que no llegas a comprar."
+    },
+    {
+      "id": "n5-u2-l5-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "character": "jefe",
+      "situation": "Un cliente quiere comprar acciones de una empresa ficticia por el 25 % de su volumen diario. No tiene prisa y la acción es poco volátil.",
+      "prompt": "¿Qué le propone el jefe de la mesa?",
+      "options": [
+        "Repartir la compra en varios días con un algoritmo que no supere una parte pequeña del volumen: sin prisa y con poca volatilidad, ir despacio reduce el impacto sin mucho riesgo de que el precio se escape",
+        "Comprarlo todo a mercado ahora mismo",
+        "Comprarlo todo en la subasta de apertura de mañana",
+        "No comprar: es demasiado grande"
+      ],
+      "answer": 0,
+      "explanation": "Sin urgencia y con poca volatilidad, el riesgo de esperar es bajo y el impacto, alto.",
+      "wrongExplanations": {
+        "1": "Con el 25 % del volumen de golpe, el impacto sería enorme.",
+        "2": "Una sola subasta no absorbe el 25 % del volumen sin mover el precio.",
+        "3": "Se puede comprar; la clave es el ritmo."
+      }
+    },
+    {
+      "id": "n5-u2-l5-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Tienes que comprar una orden mediana en una acción ficticia muy volátil, y el gestor está seguro de su idea. ¿Qué pasa si la repartes en muchos días?",
+      "options": [
+        "Reduces el impacto, pero aumentas mucho el riesgo de que el precio se escape mientras compras",
+        "Eliminas cualquier coste",
+        "Reduces a la vez el impacto y el riesgo de que el precio se mueva",
+        "Pagas menos impuesto"
+      ],
+      "answer": 0,
+      "explanation": "Con mucha volatilidad, el coste de esperar crece.",
+      "wrongExplanations": {
+        "1": "Siempre queda algún coste.",
+        "2": "Ir despacio reduce el impacto, pero alarga la exposición al precio.",
+        "3": "El impuesto depende de lo que compras, no del ritmo."
+      }
+    },
+    {
+      "id": "n5-u2-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "statement": "En una orden grande, la comisión del bróker suele ser el mayor de sus costes.",
+      "answer": false,
+      "explanation": "Falso: en las órdenes grandes suelen pesar más el impacto, la horquilla y el coste de oportunidad."
+    }
+  ],
+  "realWorld": "Los informes de costes de MiFID II que recibe cada cliente separan los costes explícitos; los implícitos aparecen en los análisis de costes de transacción de las mesas. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CNMV, guías sobre comisiones y costes de las operaciones de valores y sobre los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-29"
+}

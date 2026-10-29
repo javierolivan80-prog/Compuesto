@@ -108,6 +108,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | Explicador | Concepto | Qué se mueve | Manipulación |
 |---|---|---|---|
 | `MarketImpact` | Impacto de mercado | Una orden cada vez más grande barre el libro de ventas; el precio medio y el impacto en pb sobre el punto medio crecen más que el tamaño | Paso a paso (tamaño) |
+| `CostStack` | Costes reales de operar | La barra de costes de una compra se apila capa a capa: comisión e impuesto sobre las transacciones financieras (explícitos, en el extracto), media horquilla y coste de impacto (implícitos, en el precio) | Paso a paso (capas) |
 | `ShortSelling` | Venta en corto | Pides prestada una acción, la vendes, recompras más barata y la devuelves (o más cara y pierdes) | Precio final |
 | `ExpectedValue` | Valor esperado | Ruleta de resultados con sus probabilidades; la media se marca | Probabilidades |
 | `PositionSizing` | Tamaño de posición | Cuenta que sobrevive o se vacía tras una racha de pérdidas según el % arriesgado | % por operación |

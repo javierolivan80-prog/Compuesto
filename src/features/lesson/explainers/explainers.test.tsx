@@ -186,6 +186,18 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('CostStack: los costes implícitos pesan más que los explícitos', () => {
+    render(
+      <ExplainerBlock
+        component="CostStack"
+        props={{ value: 500_000, commBp: 5, spreadBp: 10, impactBp: 30 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/explícitos, 25,0\spb/);
+    expect(text).toMatch(/implícitos, 40,0\spb/);
+    expect(text).toMatch(/Total 65,0\spb, 3\.250\s€/);
+  });
   it('BankMultiple: el P/VTC justificado cruza el 1 cuando el ROTE iguala al Ke', () => {
     render(<ExplainerBlock component="BankMultiple" props={{ ke: 10, g: 2 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

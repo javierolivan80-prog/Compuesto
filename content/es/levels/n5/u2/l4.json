@@ -1,0 +1,301 @@
+{
+  "id": "n5-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "title": "Costes explícitos: comisiones, cánones e impuesto",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular comisiones con mínimo, el impuesto sobre las transacciones financieras y el coste explícito de ida y vuelta",
+    "Decidir cuándo una operación paga el impuesto"
+  ],
+  "concepts": ["costes-reales-operar"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Explícitos",
+      "text": "Los costes explícitos son los que salen en el extracto: la comisión del bróker, los cánones de la bolsa y de la liquidación, que el bróker suele repercutir, y los impuestos. Son fáciles de ver y de comparar, pero en las órdenes grandes suelen ser la parte pequeña del coste."
+    },
+    {
+      "type": "visual",
+      "component": "CostStack",
+      "props": {
+        "value": 500000,
+        "commBp": 5,
+        "spreadBp": 10,
+        "impactBp": 30
+      }
+    },
+    {
+      "type": "card",
+      "term": "Impuesto",
+      "text": "Desde 2021, comprar acciones de empresas españolas cotizadas con más de 1.000 M€ de capitalización paga el 0,2 % del importe: es el impuesto sobre las transacciones financieras. La lista se fija con la capitalización a 1 de diciembre del año anterior. Las ventas no lo pagan, ni las acciones nuevas que se emiten en una ampliación de capital."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u2-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Tu bróker ficticio cobra el 0,1 % del efectivo con un mínimo de {m} € por orden. Compras {n} acciones a {p} €. ¿Cuánto pagas de comisión? (€, 2 decimales)",
+      "answer": 8,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "IF({n} * {p} * 0.1 / 100 > {m}, {n} * {p} * 0.1 / 100, {m})",
+      "explanation": "El 0,1 % de {n} × {p} € no llega al mínimo, así que pagas {answer} €.",
+      "params": {
+        "m": {
+          "value": 8,
+          "min": 6,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 200,
+          "min": 100,
+          "max": 400,
+          "step": 50,
+          "decimals": 0
+        },
+        "p": {
+          "value": 15,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Con una comisión mínima de {m} €, compras acciones de una empresa ficticia por {v} €. ¿Cuántos pb del efectivo te cuesta la comisión? (pb, 2 decimales)",
+      "answer": 26.67,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{m} / {v} * 10000",
+      "explanation": "{m} / {v} = {answer} pb: con órdenes pequeñas, los mínimos encarecen mucho cada compra.",
+      "params": {
+        "m": {
+          "value": 8,
+          "min": 6,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "v": {
+          "value": 3000,
+          "min": 1000,
+          "max": 5000,
+          "step": 500,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compras {n} acciones de una empresa española ficticia con 12.000 M€ de capitalización a {p} €. ¿Cuánto pagas de impuesto sobre las transacciones financieras? (€, 2 decimales)",
+      "answer": 1530,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{n} * {p} * 0.002",
+      "explanation": "{n} × {p} € × 0,2 % = {answer} €.",
+      "params": {
+        "n": {
+          "value": 18000,
+          "min": 5000,
+          "max": 40000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 42.5,
+          "min": 10,
+          "max": 60,
+          "step": 0.5,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compras por {v} € acciones de una empresa española ficticia de 3.000 M€ de capitalización. Pagas una comisión del {c} %, unos cánones de {k} € (cifra ficticia) y el impuesto. ¿Cuánto suman los costes explícitos? (€, 2 decimales)",
+      "answer": 528,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{v} * {c} / 100 + {k} + {v} * 0.002",
+      "explanation": "{v} × {c} % + {k} + {v} × 0,2 % = {answer} €.",
+      "params": {
+        "v": {
+          "value": 200000,
+          "min": 50000,
+          "max": 500000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "c": {
+          "value": 0.06,
+          "min": 0.03,
+          "max": 0.1,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        },
+        "k": {
+          "value": 8,
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["fiscalidad"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Tu bróker ficticio cobra el {c} % al comprar y el {c} % al vender, y la acción es de una empresa española de más de 1.000 M€. ¿Cuánto tiene que subir la acción, en % sobre el precio de compra, para cubrir los costes explícitos de ida y vuelta? (%, 2 decimales)",
+      "answer": 0.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2 * {c} + 0.2",
+      "explanation": "{c} % + 0,2 % al comprar y {c} % al vender: {answer} %, sin contar la horquilla ni el impacto.",
+      "params": {
+        "c": {
+          "value": 0.1,
+          "min": 0.03,
+          "max": 0.15,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "¿Paga el impuesto español sobre las transacciones financieras?",
+      "categories": ["Lo paga", "No lo paga"],
+      "items": [
+        {
+          "text": "Compra de acciones de un banco español con 30.000 M€ de capitalización",
+          "category": "Lo paga"
+        },
+        {
+          "text": "Suscripción de acciones nuevas en una ampliación de capital",
+          "category": "No lo paga"
+        },
+        {
+          "text": "Compra de acciones de una empresa francesa que cotiza en París",
+          "category": "No lo paga"
+        },
+        {
+          "text": "Compra en bolsa de acciones de una empresa española de 1.500 M€",
+          "category": "Lo paga"
+        }
+      ],
+      "explanation": "Solo las compras de acciones ya emitidas de empresas españolas cotizadas de más de 1.000 M€."
+    },
+    {
+      "id": "n5-u2-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "character": "mentora",
+      "situation": "Un cliente compara dos brókers ficticios: A cobra el 0,05 % del efectivo, sin mínimo; B cobra 5 € fijos por orden. Hace órdenes de unos 2.000 €.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que con órdenes de 2.000 € le conviene A, 1 € frente a 5 €, y que B solo sale más barato con órdenes de más de 10.000 €",
+        "Que B siempre es más barato porque es una cifra fija",
+        "Que A siempre es más barato porque es un porcentaje pequeño",
+        "Que da igual, porque el impuesto es lo único que cuenta"
+      ],
+      "answer": 0,
+      "explanation": "El punto de corte está donde 0,05 % × efectivo = 5 €: 10.000 €.",
+      "wrongExplanations": {
+        "1": "Con órdenes pequeñas, 5 € fijos pesan mucho.",
+        "2": "Con órdenes grandes, el porcentaje acaba superando a la cifra fija.",
+        "3": "Las comisiones también cuentan, y cambian según el tamaño."
+      }
+    },
+    {
+      "id": "n5-u2-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "statement": "El impuesto sobre las transacciones financieras se paga al vender las acciones, sobre la ganancia.",
+      "answer": false,
+      "explanation": "Falso: se paga al comprar, sobre el importe de la compra, gane o pierda después."
+    }
+  ],
+  "realWorld": "La AEAT publica cada diciembre la lista de sociedades españolas con capitalización superior a 1.000 M€ cuyas compras pagarán el impuesto el año siguiente, y la CNMV explica en sus guías cómo comparar las comisiones de los brókers. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Ley 5/2020, de 15 de octubre, del Impuesto sobre las Transacciones Financieras (BOE) (pendiente de verificar la ruta)",
+      "url": "https://www.boe.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "AEAT, Impuesto sobre las Transacciones Financieras: tipo del 0,2 % y relación anual de sociedades con capitalización bursátil superior a 1.000 millones de euros (pendiente de verificar la ruta)",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CNMV, guías sobre comisiones y costes de las operaciones de valores y sobre los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: subastas de apertura, cierre y volatilidad, rangos estático y dinámico, modalidad de fixing y cánones (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-01-31",
+  "lastReviewed": "2026-10-29"
+}

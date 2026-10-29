@@ -218,6 +218,11 @@
           "id": "n5-u1",
           "name": "Libro de órdenes, market makers y dark pools",
           "concepts": ["libro-ordenes", "market-makers", "dark-pools"]
+        },
+        {
+          "id": "n5-u2",
+          "name": "Subastas, fixing y costes reales de operar",
+          "concepts": ["subastas-avanzadas", "costes-reales-operar"]
         }
       ]
     },

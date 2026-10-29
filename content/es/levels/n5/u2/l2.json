@@ -1,0 +1,268 @@
+{
+  "id": "n5-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "title": "Subasta de cierre, subasta de volatilidad y fixing",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular los límites de los rangos estático y dinámico de un valor",
+    "Explicar para qué sirven la subasta de cierre, la de volatilidad y el fixing"
+  ],
+  "concepts": ["subastas-avanzadas"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus primeras lecciones de bolsa: en una subasta las órdenes se acumulan sin cruzarse y al final se casan todas a un único precio, el que permite negociar más acciones, con un final aleatorio. Aquí vemos para qué sirven la de cierre y la de volatilidad, y qué es un fixing."
+    },
+    {
+      "type": "card",
+      "term": "Subasta de cierre",
+      "text": "En el mercado continuo español, de 17:30 a 17:35 hay subasta de cierre. Su precio es el precio de cierre: con él se calculan los índices y se valoran los fondos y las carteras. Por eso los fondos indexados concentran ahí sus compras y ventas, sobre todo los días en que cambia la composición de un índice."
+    },
+    {
+      "type": "card",
+      "term": "Volatilidad y fixing",
+      "text": "Si una operación fuera a cruzarse fuera del rango estático o dinámico de un valor, la negociación continua se para y empieza una subasta de volatilidad de 5 minutos, con final aleatorio. Los valores poco líquidos negocian en fixing: solo dos subastas al día, que terminan a las 12:00 y a las 16:00."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u2-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "El precio estático de una acción ficticia, el de su última subasta, es de {ps} €, y su rango estático, en este ejemplo, es del {r} %. ¿Por encima de qué precio saltaría una subasta de volatilidad? (€, 3 decimales)",
+      "answer": 13.5,
+      "unit": "€",
+      "tolerance": 0.01,
+      "answerDecimals": 3,
+      "formula": "{ps} * (1 + {r} / 100)",
+      "explanation": "{ps} × (1 + {r} %) = {answer} €: una compra que fuera a cruzarse más cara para la negociación continua.",
+      "params": {
+        "ps": {
+          "value": 12.5,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "decimals": 2,
+          "fixed": true
+        },
+        "r": {
+          "value": 8,
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "La última operación de una acción ficticia se cruzó a {pl} €, y su rango dinámico, en este ejemplo, es del {r} %. ¿Por debajo de qué precio saltaría una subasta de volatilidad? (€, 3 decimales)",
+      "answer": 19.992,
+      "unit": "€",
+      "tolerance": 0.01,
+      "answerDecimals": 3,
+      "formula": "{pl} * (1 - {r} / 100)",
+      "explanation": "{pl} × (1 − {r} %) = {answer} €: el rango dinámico se mide desde el último precio negociado.",
+      "params": {
+        "pl": {
+          "value": 20.4,
+          "min": 5,
+          "max": 40,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "r": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "Un fondo indexado ficticio recibe {x} millones de € de nuevos partícipes. La acción de una empresa ficticia pesa el {w} % del índice y cierra a {pc} €. ¿Cuántas acciones compra en la subasta de cierre? (acciones)",
+      "answer": 80000,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{x} * 1000000 * {w} / 100 / {pc}",
+      "explanation": "{x} millones × {w} % / {pc} € = {answer} acciones, al precio de cierre, que es el que usa para valorarse.",
+      "params": {
+        "x": {
+          "value": 50,
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "decimals": 0
+        },
+        "w": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "pc": {
+          "value": 12.5,
+          "min": 10,
+          "max": 25,
+          "step": 2.5,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l2-e4",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "Ordena lo que pasa en una subasta de volatilidad.",
+      "steps": [
+        "Una orden va a cruzarse fuera del rango del valor",
+        "Se para la negociación continua de ese valor",
+        "Durante 5 minutos entran y se modifican órdenes sin cruzarse",
+        "La subasta termina en un momento aleatorio de los 30 segundos finales",
+        "Las órdenes se casan a un único precio y vuelve la negociación continua"
+      ],
+      "explanation": "Parar y subastar da tiempo a que lleguen órdenes de los dos lados y el precio se forme con más liquidez."
+    },
+    {
+      "id": "n5-u2-l2-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "¿Qué mecanismo es?",
+      "categories": ["Subasta de cierre", "Subasta de volatilidad", "Fixing"],
+      "items": [
+        {
+          "text": "Un valor poco líquido que solo se negocia en dos subastas al día",
+          "category": "Fixing"
+        },
+        {
+          "text": "Un fondo indexado compra al precio con el que se valora",
+          "category": "Subasta de cierre"
+        },
+        {
+          "text": "Una noticia lleva el precio fuera del rango del valor en segundos",
+          "category": "Subasta de volatilidad"
+        },
+        {
+          "text": "El precio con el que se calcula el índice al final del día",
+          "category": "Subasta de cierre"
+        }
+      ],
+      "explanation": "Cierre: el precio de referencia del día. Volatilidad: una pausa cuando el precio se dispara. Fixing: precios únicos para valores con poca liquidez."
+    },
+    {
+      "id": "n5-u2-l2-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "character": "mentora",
+      "situation": "El becario rival dice: «Las subastas de volatilidad sobran: si una acción tiene que caer un 10 %, que caiga ya».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que la pausa no impide que el precio caiga: evita que una orden barra un libro casi vacío a precios absurdos y da tiempo a que lleguen órdenes de los dos lados",
+        "Que la subasta prohíbe que el precio caiga ese día",
+        "Que solo sirve para proteger a los market makers",
+        "Que las subastas de volatilidad solo existen en la apertura"
+      ],
+      "answer": 0,
+      "explanation": "El precio puede moverse lo mismo, pero se forma con más órdenes y menos errores.",
+      "wrongExplanations": {
+        "1": "Tras la subasta, el precio puede quedar donde marque la oferta y la demanda.",
+        "2": "Protege a cualquiera que opere, no a un grupo.",
+        "3": "Pueden saltar en cualquier momento de la sesión."
+      }
+    },
+    {
+      "id": "n5-u2-l2-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "En 2014 varios bancos recibieron multas millonarias porque algunos traders se coordinaban para mover el fixing de divisas de las 16:00 de Londres. ¿Por qué era tan grave?",
+      "options": [
+        "Porque muchos contratos, fondos e índices se valoran a ese precio: moverlo unos segundos perjudica a todos los que lo usan",
+        "Porque el fixing de divisas es un impuesto",
+        "Porque en un fixing está prohibido comprar",
+        "Porque solo afectaba a los bancos que participaban"
+      ],
+      "answer": 0,
+      "explanation": "Un fixing es un precio de referencia: su valor está en que nadie pueda moverlo.",
+      "wrongExplanations": {
+        "1": "Es un precio, no un impuesto.",
+        "2": "Se compra y se vende a ese precio.",
+        "3": "Afectaba a todos los que usaban ese precio."
+      }
+    },
+    {
+      "id": "n5-u2-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["subastas-avanzadas"],
+      "statement": "Durante los 5 minutos de una subasta de volatilidad se puede seguir comprando y vendiendo ese valor en continuo.",
+      "answer": false,
+      "explanation": "Falso: la negociación continua se para; las órdenes se acumulan y se casan al final, a un único precio."
+    }
+  ],
+  "realWorld": "La web de BME publica el precio y el volumen de la subasta de cierre de cada valor y avisa en tiempo real de las subastas de volatilidad; los valores en fixing tienen su propio segmento. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "BME (Bolsas y Mercados Españoles), mercado continuo: subastas de apertura, cierre y volatilidad, rangos estático y dinámico, modalidad de fixing y cánones (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CNMV, guías sobre comisiones y costes de las operaciones de valores y sobre los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "FCA, sanciones a varios bancos por la manipulación del fixing de divisas (noviembre de 2014) (pendiente de verificar la ruta)",
+      "url": "https://www.fca.org.uk/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-29"
+}

@@ -1,0 +1,239 @@
+{
+  "id": "salto-n5-u2",
+  "unitId": "n5-u2",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u2-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "El precio estático de una acción ficticia es de 32 € y su rango estático, en este ejemplo, del 5 %. ¿Por encima de qué precio saltaría una subasta de volatilidad? (€, 2 decimales)",
+      "answer": 33.6,
+      "unit": "€",
+      "tolerance": 0.05,
+      "answerDecimals": 2,
+      "formula": "32 * 1.05",
+      "explanation": "32 × 1,05 = 33,60 €."
+    },
+    {
+      "id": "salto-n5-u2-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Una acción ficticia se negocia en dos tramos: 30.000 acciones a 15 € y 10.000 a 15,10 €. ¿Cuál es el VWAP? (€, 3 decimales)",
+      "answer": 15.025,
+      "unit": "€",
+      "tolerance": 0.005,
+      "answerDecimals": 3,
+      "formula": "(15 * 30000 + 15.1 * 10000) / 40000",
+      "explanation": "601.000 / 40.000 = 15,025 €."
+    },
+    {
+      "id": "salto-n5-u2-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "El precio de llegada de una compra ficticia era de 12 € y se ejecutó a 12,06 € de media. ¿Cuál es su implementation shortfall, sin comisiones? (pb, 1 decimal)",
+      "answer": 50,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "(12.06 - 12) / 12 * 10000",
+      "explanation": "0,06 / 12 = 50 pb."
+    },
+    {
+      "id": "salto-n5-u2-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Compras 20.000 acciones de una empresa española ficticia de 6.000 M€ de capitalización a 25 €. ¿Cuánto pagas de impuesto sobre las transacciones financieras? (€)",
+      "answer": 1000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "20000 * 25 * 0.002",
+      "explanation": "500.000 × 0,2 % = 1.000 €."
+    },
+    {
+      "id": "salto-n5-u2-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "Un fondo indexado ficticio, que se valora con el precio de cierre, recibe dinero nuevo y tiene que comprar las acciones del índice. ¿Cuándo le conviene comprar?",
+      "options": [
+        "En la subasta de cierre, al precio con el que se valora",
+        "A primera hora, para adelantarse",
+        "Repartiendo la compra durante un mes",
+        "Cuando la acción baje"
+      ],
+      "answer": 0,
+      "explanation": "Así su valor sigue exactamente al índice.",
+      "wrongExplanations": {
+        "1": "Se desviaría del índice si el precio cambia durante el día.",
+        "2": "Se desviaría del índice durante todo ese mes.",
+        "3": "No puede esperar a adivinar el precio: tiene que replicar el índice."
+      }
+    },
+    {
+      "id": "salto-n5-u2-q6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "¿Coste explícito o implícito?",
+      "categories": ["Explícito", "Implícito"],
+      "items": [
+        {
+          "text": "La comisión del bróker",
+          "category": "Explícito"
+        },
+        {
+          "text": "La media horquilla",
+          "category": "Implícito"
+        },
+        {
+          "text": "El impuesto sobre las transacciones financieras",
+          "category": "Explícito"
+        },
+        {
+          "text": "El precio sube mientras compras",
+          "category": "Implícito"
+        }
+      ],
+      "explanation": "Explícito: aparece en el extracto. Implícito: está en el precio."
+    },
+    {
+      "id": "salto-n5-u2-q7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas-avanzadas"],
+      "statement": "Un valor en la modalidad de fixing se negocia de forma continua de 9:00 a 17:30.",
+      "answer": false,
+      "explanation": "Falso: solo se negocia en dos subastas al día."
+    },
+    {
+      "id": "salto-n5-u2-q8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un gestor decide comprar 30.000 acciones de una empresa ficticia a 20 €. Solo se compran 22.000, y la acción cierra a 20,30 €. ¿Cuál es el coste de oportunidad de las que no se compraron? (€)",
+      "answer": 2400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "8000 * 0.3",
+      "explanation": "8.000 × 0,30 = 2.400 €."
+    },
+    {
+      "id": "salto-n5-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Tu bróker cobra el 0,1 % al comprar y al vender una acción española de más de 1.000 M€. ¿Cuánto tiene que subir para cubrir los costes explícitos de ida y vuelta? (%, 2 decimales)",
+      "answer": 0.4,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "2 * 0.1 + 0.2",
+      "explanation": "0,1 + 0,2 + 0,1 = 0,40 %."
+    },
+    {
+      "id": "salto-n5-u2-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Tienes que comprar el 30 % del volumen diario de una acción ficticia poco volátil, sin prisa. ¿Qué haces?",
+      "options": [
+        "Repartirlo en varios días con un algoritmo que no supere una parte pequeña del volumen",
+        "Comprarlo todo a mercado ahora",
+        "Comprarlo todo en la subasta de apertura",
+        "Esperar a que baje"
+      ],
+      "answer": 0,
+      "explanation": "Sin urgencia y con poca volatilidad, ir despacio reduce el impacto sin mucho riesgo.",
+      "wrongExplanations": {
+        "1": "El impacto sería enorme.",
+        "2": "Una subasta no absorbe el 30 % del volumen sin mover el precio.",
+        "3": "Nadie sabe cuándo bajará; el problema es el tamaño."
+      }
+    },
+    {
+      "id": "salto-n5-u2-q11",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["costes-reales-operar"],
+      "statement": "Comprar por debajo del VWAP garantiza haber comprado por debajo del precio de llegada.",
+      "answer": false,
+      "explanation": "Falso: si el precio sube todo el día, el VWAP sube con él y puedes batirlo pagando más que el precio de llegada."
+    },
+    {
+      "id": "salto-n5-u2-q12",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["subastas-avanzadas"],
+      "prompt": "¿Para qué sirve una subasta de volatilidad?",
+      "options": [
+        "Para parar la negociación continua cuando el precio se dispara y formar un precio con más órdenes de los dos lados",
+        "Para impedir que el precio baje ese día",
+        "Para cobrar un canon extra",
+        "Para fijar el precio de cierre"
+      ],
+      "answer": 0,
+      "explanation": "Es una pausa que evita barrer un libro casi vacío.",
+      "wrongExplanations": {
+        "1": "Tras la subasta el precio puede seguir moviéndose.",
+        "2": "No tiene nada que ver con los cánones.",
+        "3": "El cierre lo fija la subasta de cierre."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "BME, mercado continuo: subastas de cierre y de volatilidad, rangos y fixing (pendiente de verificar la ruta)",
+      "url": "https://www.bolsasymercados.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "Ley 5/2020, de 15 de octubre, del Impuesto sobre las Transacciones Financieras (BOE) (pendiente de verificar la ruta)",
+      "url": "https://www.boe.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "AEAT, Impuesto sobre las Transacciones Financieras (pendiente de verificar la ruta)",
+      "url": "https://sede.agenciatributaria.gob.es/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-01-31"
+}

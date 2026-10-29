@@ -1925,5 +1925,78 @@
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"
+  },
+  "vwapDeskGame": {
+    "title": "Contra el VWAP",
+    "step": {
+      "vwap": "Paso 1 de 4 · el VWAP de la sesión",
+      "shortfall": "Paso 2 de 4 · el implementation shortfall",
+      "cost": "Paso 3 de 4 · los costes explícitos",
+      "venue": "Paso 4 de 4 · dónde ejecutar"
+    },
+    "board": {
+      "slot1": "Mañana",
+      "slot2": "Mediodía",
+      "slot3": "Tarde",
+      "arrival": "Precio de llegada",
+      "fill": "Tu precio medio",
+      "vwap": "VWAP de la sesión",
+      "value": "Efectivo",
+      "comm": "Comisión del bróker",
+      "shares": "× {{n}} acciones"
+    },
+    "briefVwap": "Planta 4 de Albufera Partners, mesa de ejecución. Has comprado una acción ficticia para un cliente durante la sesión, que se negoció en tres tramos (precio × acciones). El VWAP es el precio medio ponderado por volumen: Σ(precio × volumen) / Σ volumen.",
+    "askVwap": "¿Cuál fue el VWAP de la sesión?",
+    "whyVwap": "Σ(precio × volumen) / {{vol}} acciones = {{v}}. La media simple de los tres precios, {{twap}}, da el mismo peso a cada tramo; el VWAP pesa más donde más se negoció.",
+    "briefShortfall": "Cuando el cliente te dio la orden, el punto medio estaba en {{arrival}}: es el precio de llegada. El implementation shortfall mide tu ejecución frente a ese momento: (tu precio medio − precio de llegada) / precio de llegada, en pb.",
+    "askShortfall": "¿Cuál es el implementation shortfall de tu compra?",
+    "whyShortfall": "({{fill}} − {{arrival}}) / {{arrival}} = {{v}}. Frente al VWAP, tu desviación es de {{vs}}, pero el VWAP ya estaba {{drift}} por encima de la llegada, y esa subida también la pagó el cliente. Por eso el shortfall mide frente al momento de la decisión.",
+    "briefCost": {
+      "buy-large": "Tu compra: {{qty}} acciones de una empresa ficticia española con una capitalización de 4.000 M€, a {{fill}} de media. Tu bróker cobra el {{comm}} % del efectivo.",
+      "buy-small": "Tu compra: {{qty}} acciones de una empresa ficticia española con una capitalización de 600 M€, a {{fill}} de media. Tu bróker cobra el {{comm}} % del efectivo.",
+      "sell-large": "Esta vez vendes: {{qty}} acciones de una empresa ficticia española con una capitalización de 4.000 M€, a {{fill}} de media. Tu bróker cobra el {{comm}} % del efectivo."
+    },
+    "askCost": "¿Cuánto suman los costes explícitos: comisión e impuesto sobre las transacciones financieras si se aplica?",
+    "whyCost": {
+      "with": "Comisión de {{comm}} más el impuesto sobre las transacciones financieras, 0,2 % de {{value}} = {{itf}}, porque compras acciones de una empresa española de más de 1.000 M€ de capitalización. Total: {{v}}.",
+      "buy-small": "Solo la comisión, {{v}}: el impuesto sobre las transacciones financieras solo grava acciones de empresas españolas de más de 1.000 M€ de capitalización.",
+      "sell-large": "Solo la comisión, {{v}}: el impuesto sobre las transacciones financieras grava las compras, no las ventas."
+    },
+    "briefVenue": {
+      "close": "Nueva orden: un fondo indexado ficticio que replica un índice tiene que comprar acciones por una entrada de dinero. El fondo se valora con el precio de cierre del día.",
+      "vwap": "Nueva orden: una gestora ficticia quiere comprar acciones por el 15 % del volumen diario a lo largo de la sesión, sin prisa y sin mover el precio. Medirá tu ejecución frente al VWAP.",
+      "now": "Nueva orden: un gestor quiere comprar ya una cantidad pequeña, el 0,5 % del volumen diario, porque el precio sube rápido y para él esperar cuesta más que el impacto."
+    },
+    "askVenue": "¿Cómo ejecutas la orden?",
+    "venue": {
+      "close": "En la subasta de cierre",
+      "vwap": "Con un algoritmo VWAP durante la sesión",
+      "now": "Ya, a mercado"
+    },
+    "whyVenue": {
+      "close": "El fondo se valora al cierre: comprando en la subasta de cierre paga exactamente el precio con el que se calcula su valor y no se desvía del índice.",
+      "vwap": "Una orden grande y sin prisa se reparte durante el día siguiendo el volumen: mueve menos el precio y se mide frente al VWAP, que es justo lo que pide el cliente.",
+      "now": "Una orden pequeña apenas mueve el precio y la urgencia manda: repartirla en el día arriesga el coste de oportunidad de no comprar si el precio se escapa."
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la ejecución",
+    "row": {
+      "vwap": "VWAP",
+      "shortfall": "Implementation shortfall",
+      "cost": "Costes explícitos",
+      "venue": "Dónde ejecutar"
+    },
+    "great": "Ejecución impecable: mides tus costes como una mesa profesional.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el VWAP, el precio de llegada, el impuesto y la subasta de cierre.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "costStack": {
+    "title": "Lo que de verdad cuesta una compra",
+    "legend": "Explícitos (en el extracto) · Implícitos (en el precio)"
   }
 }

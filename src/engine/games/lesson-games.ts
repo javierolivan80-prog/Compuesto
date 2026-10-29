@@ -71,6 +71,7 @@ import {
   rightMove,
   setupDesk,
 } from './order-desk';
+import { explicitCost, setupVwap, shortfallBp, vwap, vwapValues } from './vwap-desk';
 import {
   nextRatio,
   phaseOf,
@@ -139,6 +140,7 @@ export const LESSON_GAMES = [
   'risk-committee',
   'bank-valuation',
   'order-desk',
+  'vwap-desk',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -610,6 +612,33 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     informed: [0, 0],
     hits: [0, 0],
   },
+  'vwap-desk': {
+    arrival: [2, 2],
+    p1: [2, 2],
+    p2: [2, 2],
+    p3: [2, 2],
+    v1: [0, 0],
+    v2: [0, 0],
+    v3: [0, 0],
+    d1_c: [0, 0],
+    d2_c: [0, 0],
+    d3_c: [0, 0],
+    fill_c: [0, 0],
+    vwap: [2, 3],
+    twap: [2, 3],
+    fill: [2, 2],
+    shortfall_bp: [0, 1],
+    vs_vwap_bp: [0, 1],
+    drift_bp: [0, 1],
+    qty: [0, 0],
+    value: [0, 0],
+    comm_bp: [0, 0],
+    commission: [0, 2],
+    itf: [0, 2],
+    itf_applies: [0, 0],
+    explicit: [0, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -959,6 +988,24 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           move: rightMove(setup),
         }),
         deskValues(setup, { effective: 0, realized: 0, saving: 0, move: 'narrow' }),
+      ];
+    }
+    case 'vwap-desk': {
+      // todo bien, y todo mal
+      const setup = setupVwap(seed);
+      return [
+        vwapValues(setup, {
+          vwap: vwap(setup),
+          shortfall: shortfallBp(setup),
+          cost: explicitCost(setup),
+          venue: setup.venue,
+        }),
+        vwapValues(setup, {
+          vwap: 0,
+          shortfall: 0,
+          cost: 0,
+          venue: setup.venue === 'now' ? 'close' : 'now',
+        }),
       ];
     }
   }

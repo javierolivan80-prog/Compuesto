@@ -1173,13 +1173,17 @@
     "id": "subastas-avanzadas",
     "name": "Subastas y fixing",
     "level": 5,
-    "prerequisites": ["subastas"]
+    "prerequisites": ["subastas"],
+    "unit": "n5-u2",
+    "description": "La subasta de cierre (17:30 a 17:35 en el mercado continuo) fija el precio de cierre, con el que se calculan índices y se valoran fondos. Si un precio fuera a salirse del rango estático o dinámico del valor, salta una subasta de volatilidad de 5 minutos. Los valores poco líquidos negocian en fixing: dos subastas al día. Un fixing es un precio de referencia."
   },
   {
     "id": "costes-reales-operar",
     "name": "Costes reales de operar",
     "level": 5,
-    "prerequisites": ["comisiones", "horquilla"]
+    "prerequisites": ["comisiones", "horquilla"],
+    "unit": "n5-u2",
+    "description": "Explícitos: comisión, cánones e impuesto sobre las transacciones financieras (0,2 % de las compras de acciones españolas de más de 1.000 M€). Implícitos: media horquilla, coste de impacto, retraso y oportunidad. Se miden con el implementation shortfall frente al precio de llegada; el VWAP es una referencia que puede esconder el coste."
   },
   {
     "id": "cortos",

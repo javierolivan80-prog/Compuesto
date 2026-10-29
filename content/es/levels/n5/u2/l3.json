@@ -1,0 +1,346 @@
+{
+  "id": "n5-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 2,
+  "title": "VWAP, TWAP y precio de llegada",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el VWAP y el implementation shortfall con su coste de oportunidad",
+    "Elegir la referencia adecuada para medir una ejecución"
+  ],
+  "concepts": ["costes-reales-operar"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "VWAP y TWAP",
+      "text": "El VWAP es el precio medio del día ponderado por volumen: Σ(precio × volumen) / Σ volumen. Un algoritmo VWAP reparte la orden según el volumen de cada tramo; uno TWAP, en partes iguales en el tiempo. Los dos sirven también de referencia para medir una ejecución."
+    },
+    {
+      "type": "card",
+      "term": "Implementation shortfall",
+      "text": "Compara tu ejecución con el precio de cuando se decidió la orden: lo que pagaste de más en lo ejecutado, más el coste de oportunidad de lo que no se ejecutó, más comisiones e impuestos. Si la orden tarda en llegar al mercado, el movimiento de mientras tanto es el coste de retraso."
+    },
+    {
+      "type": "card",
+      "term": "La trampa del VWAP",
+      "text": "Puedes batir al VWAP y comprar caro: si el precio sube todo el día, el VWAP sube con él. Y si tu orden es la mitad del volumen del día, te comparas casi contigo mismo. Por eso las gestoras miran también el shortfall frente al precio de llegada."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u2-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Una acción ficticia se negocia hoy en tres tramos: {v1} acciones a {p1} €, {v2} a {p2} € y {v3} a {p3} €. ¿Cuál es el VWAP? (€, 3 decimales)",
+      "answer": 25.135,
+      "unit": "€",
+      "tolerance": 0.005,
+      "answerDecimals": 3,
+      "formula": "({p1} * {v1} + {p2} * {v2} + {p3} * {v3}) / ({v1} + {v2} + {v3})",
+      "explanation": "Σ(precio × volumen) / Σ volumen = {answer} €.",
+      "params": {
+        "b": {
+          "value": 25,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "v1": {
+          "value": 4000,
+          "min": 2000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "v2": {
+          "value": 10000,
+          "min": 2000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "v3": {
+          "value": 6000,
+          "min": 2000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{b} + 0.1",
+          "decimals": 2
+        },
+        "p2": {
+          "formula": "{b} + 0.2",
+          "decimals": 2
+        },
+        "p3": {
+          "formula": "{b} + 0.05",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un algoritmo VWAP tiene que comprar {q} acciones de una empresa ficticia y reparte la orden según el volumen típico de cada hora. Si en la última hora se negocia el {w} % del volumen del día, ¿cuántas acciones compra en esa hora? (acciones)",
+      "answer": 36000,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * {w} / 100",
+      "explanation": "{q} × {w} % = {answer} acciones: el algoritmo sigue el perfil de volumen para no destacar.",
+      "params": {
+        "q": {
+          "value": 150000,
+          "min": 50000,
+          "max": 300000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "w": {
+          "value": 24,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un gestor decide comprar {q} acciones de una empresa ficticia a {d} €. La mesa compra {e} a {avg} € de media y el resto se queda sin comprar; al cierre, la acción vale {c} €. Las comisiones suman {k} €. ¿Cuál es el implementation shortfall total? (€)",
+      "answer": 5900,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{e} * ({avg} - {d}) + ({q} - {e}) * ({c} - {d}) + {k}",
+      "explanation": "{e} × ({avg} − {d}) + ({q} − {e}) × ({c} − {d}) + {k} = {answer} €: ejecución, oportunidad y comisiones.",
+      "params": {
+        "q": {
+          "value": 50000,
+          "min": 50000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 40000,
+          "min": 20000,
+          "max": 40000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 15,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "x": {
+          "value": 9,
+          "min": 5,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "y": {
+          "value": 20,
+          "min": 15,
+          "max": 30,
+          "step": 5,
+          "decimals": 0
+        },
+        "k": {
+          "value": 300,
+          "min": 100,
+          "max": 500,
+          "step": 50,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "avg": {
+          "formula": "{d} + {x} / 100",
+          "decimals": 2
+        },
+        "c": {
+          "formula": "{d} + {y} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "El shortfall total de una compra de {q} acciones decidida a {d} € ha sido de {s} €. ¿Cuántos pb supone frente al valor de la cartera en papel, {q} × {d}? (pb, 2 decimales)",
+      "answer": 78.67,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{s} / ({q} * {d}) * 10000",
+      "explanation": "{s} / ({q} × {d}) = {answer} pb.",
+      "params": {
+        "q": {
+          "value": 50000,
+          "min": 20000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 15,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 5900,
+          "min": 2000,
+          "max": 9000,
+          "step": 100,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "Un gestor decide comprar una acción ficticia cuando cotiza a {d} €, pero la orden llega a la mesa una hora después, con el punto medio en {a} €. ¿Cuál ha sido el coste de retraso? (pb, 2 decimales)",
+      "answer": 30,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({a} - {d}) / {d} * 10000",
+      "explanation": "({a} − {d}) / {d} = {answer} pb, antes de ejecutar una sola acción.",
+      "params": {
+        "d": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 6,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "a": {
+          "formula": "{d} + {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u2-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "prompt": "¿Con qué referencia conviene medir cada ejecución?",
+      "categories": ["Precio de cierre", "Precio de llegada", "VWAP"],
+      "items": [
+        {
+          "text": "Un fondo indexado que se valora al cierre",
+          "category": "Precio de cierre"
+        },
+        {
+          "text": "Una gestora que compra por una idea y quiere medir todo lo que le cuesta desde que la decide",
+          "category": "Precio de llegada"
+        },
+        {
+          "text": "Un cliente que pide repartir una orden grande durante el día sin mover el precio",
+          "category": "VWAP"
+        }
+      ],
+      "explanation": "La referencia es la que refleja lo que el cliente quería conseguir."
+    },
+    {
+      "id": "n5-u2-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "character": "rival",
+      "situation": "El becario rival presume de haber comprado una acción ficticia 10 pb por debajo del VWAP. Ese día la acción subió un 2 % desde que el gestor dio la orden, y el shortfall frente al precio de llegada fue de 150 pb.",
+      "prompt": "¿Qué le respondes?",
+      "options": [
+        "Que batió al VWAP, pero el cliente pagó 150 pb más que el precio de cuando decidió: hay que mirar las dos medidas y explicar por qué se tardó tanto en comprar",
+        "Que es una ejecución perfecta: batir al VWAP es lo único que importa",
+        "Que el shortfall no cuenta porque el mercado subió",
+        "Que tendría que haber comprado por encima del VWAP"
+      ],
+      "answer": 0,
+      "explanation": "El VWAP mide cómo seguiste al mercado; el shortfall, lo que costó la decisión de verdad.",
+      "wrongExplanations": {
+        "1": "El VWAP subió con el mercado y esconde el coste.",
+        "2": "Ese movimiento es precisamente un coste para el cliente.",
+        "3": "No se trata de pagar más, sino de medir bien."
+      }
+    },
+    {
+      "id": "n5-u2-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["costes-reales-operar"],
+      "statement": "Si tu orden es la mitad del volumen del día, quedarte cerca del VWAP es fácil y dice poco de la calidad de tu ejecución.",
+      "answer": true,
+      "explanation": "Verdadero: tu propia orden pesa la mitad del VWAP, así que te comparas casi contigo mismo."
+    }
+  ],
+  "realWorld": "Los informes de análisis de costes de transacción (TCA) que reciben las gestoras comparan cada orden con el precio de llegada, el VWAP y el cierre. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (ejecución de órdenes, costes de negociación e implementation shortfall) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "CNMV, guías sobre comisiones y costes de las operaciones de valores y sobre los centros de negociación (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-29"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-29"
+}
