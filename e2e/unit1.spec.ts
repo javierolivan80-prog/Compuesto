@@ -34,7 +34,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
   });
   expect(r1.answered).toBe(lessons[0]!.exercises.length + 1); // 8 + el fallo repetido
   await expect(page.getByText('88 %')).toBeVisible(); // 7/8 a la primera
-  await page.getByRole('button', { name: 'Continuar' }).click();
+  await page.getByRole('link', { name: 'Volver al inicio' }).click();
 
   await expect(page.getByTestId('xp-total')).toHaveText('95'); // 7×10 + 5 (repaso) + 20 (≥ 80 %)
   await expect(page.getByTestId('streak')).toHaveText('1 d');
@@ -50,7 +50,7 @@ test('se completa la Unidad 1 entera, los fallos vuelven y el progreso sobrevive
       await expect(
         page.getByRole('region', { name: 'Subida de rango: Analista Junior' }),
       ).toBeVisible();
-    await page.getByRole('button', { name: 'Continuar' }).click();
+    await page.getByRole('link', { name: 'Volver al inicio' }).click();
   }
 
   // 95 + 110 (l2, 9 ejercicios) + 110 (l3, 9) + 100 + 120

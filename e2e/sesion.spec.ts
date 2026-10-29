@@ -18,7 +18,7 @@ test('sesión de 5 min: lección, cierre y misiones sin presionar', async ({ pag
   await page.getByRole('button', { name: 'Siguiente bloque' }).click();
   await expect(page.getByRole('heading', { name: 'Cierre de mercado' })).toBeVisible();
   await expect(page.getByTestId('session-xp')).toContainText('XP');
-  await page.getByRole('button', { name: 'Cerrar mercado' }).click();
+  await page.getByRole('button', { name: 'Más tarde' }).click();
   await expect(page.getByTestId('xp-total')).not.toHaveText('0');
   // cerrada: ya no hay nada que reanudar
   await expect(page.getByRole('button', { name: 'Reanudar sesión' })).toHaveCount(0);

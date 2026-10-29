@@ -39,8 +39,8 @@
     "backHome": "Volver al inicio",
     "closeTitle": "Cierre de mercado",
     "goalReached": "✓ Objetivo cumplido",
-    "closeAction": "Cerrar mercado",
-    "later": "Seguir luego",
+    "later": "Más tarde",
+    "keepStudying": "Seguir estudiando",
     "error": "No se pudo leer o guardar la sesión en este dispositivo.",
     "duration": "Duración de la sesión",
     "missions": "Misiones de hoy",
@@ -51,6 +51,22 @@
     "streakMany": "Racha: {{n}} días",
     "tomorrow": "Mañana conviene repasar: {{list}}.",
     "share": "Compartir mi progreso"
+  },
+  "flow": {
+    "nextLesson": "Siguiente lección",
+    "keepPracticing": "Seguir practicando",
+    "practice": "Practicar",
+    "backHome": "Volver al inicio",
+    "backPractice": "Volver a Practicar",
+    "goalReached": "✓ Objetivo cumplido. Puedes seguir a tu ritmo.",
+    "allLessonsDone": "Has terminado todas las lecciones disponibles. Sigue practicando lo que ya has estudiado.",
+    "extraTitle": "Práctica extra",
+    "extraHint": "No queda nada pendiente: esta tanda intercala lo que ya has estudiado.",
+    "practiceMore": "Practicar más",
+    "practiceMoreHint": "Una tanda intercalada con lo que ya has estudiado, aunque no venza nada hoy.",
+    "nothingYet": "Aún no hay nada estudiado que practicar",
+    "nothingYetBody": "Haz la siguiente lección del Camino y vuelve: lo que aprendas aparecerá aquí.",
+    "toNextLesson": "Ir a la siguiente lección"
   },
   "applied": {
     "argumentHint": "Elige el razonamiento más sólido. Al comprobar verás por qué fallan los demás.",

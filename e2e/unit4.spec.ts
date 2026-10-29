@@ -22,7 +22,7 @@ test('se completa la Unidad 4 entera y queda completada en el Camino', async ({ 
     await page.reload();
     await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
     await playLesson(page, l);
-    await page.getByRole('button', { name: 'Continuar' }).click();
+    await page.getByRole('link', { name: 'Volver al inicio' }).click();
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
 

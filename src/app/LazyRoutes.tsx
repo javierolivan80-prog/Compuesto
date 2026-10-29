@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   conceptGraph,
   conceptName,
@@ -12,15 +12,15 @@ import type { AppEvent } from '../engine/events';
 import type { GameId } from '../engine/games/common';
 import { seededShuffle } from '../engine/grading';
 import {
-  buildReview,
   PLACEMENT_PREFIX,
   conceptMastery,
   interleave,
-  practiceConcept,
   projectCards,
-  recentMistakes,
   type ReviewItem,
 } from '../engine/srs';
+import { practiceBatch, type PracticeMode } from '../engine/next-step';
+import { useRepo } from '../db/RepoProvider';
+import { t } from '../i18n';
 import { todayKey } from '../engine/stats';
 import { ReviewScreen } from '../features/practicar/ReviewScreen';
 import { LessonScreen } from '../features/lesson/LessonScreen';
@@ -30,10 +30,18 @@ import { PlacementScreen } from '../features/placement/PlacementScreen';
 
 /* Rutas que necesitan el contenido completo: se cargan en un trozo aparte para que el arranque sea ligero. */
 
-export function LessonRoute({ id, onExit }: { id: string; onExit: () => void }) {
+interface LessonRouteProps {
+  id: string;
+  onExit: () => void;
+  onNextLesson: (lessonId: string) => void;
+  onKeepPracticing: () => void;
+  onPractice: () => void;
+}
+
+export function LessonRoute({ id, ...rest }: LessonRouteProps) {
   const lesson = getLesson(id);
   if (!lesson) return null;
-  return <LessonScreen key={lesson.id} lesson={lesson} onExit={onExit} />;
+  return <LessonScreen key={lesson.id} lesson={lesson} {...rest} />;
 }
 
 type PlacementProps = Omit<Parameters<typeof PlacementScreen>[0], 'bank'> & { unitId: string };
@@ -48,42 +56,96 @@ export const EXAM_QUESTIONS = 10;
 export const EXAM_MINUTES = 10;
 
 interface ReviewRouteProps {
-  mode: 'due' | 'errores' | 'tema';
+  mode: PracticeMode;
   conceptId?: string;
   events: readonly AppEvent[];
   onExit: () => void;
+  /** Sin nada estudiado aún: ir a la siguiente lección. */
+  onNextLesson: () => void;
 }
 
-/** Repaso (Due diligence), Mis errores o práctica por tema. La lista se fija al entrar y no cambia durante la sesión. */
-export function ReviewRoute({ mode, conceptId, events, onExit }: ReviewRouteProps) {
-  const { title, items } = useMemo(() => {
-    const catalog = exerciseCatalog();
-    const cards = projectCards(events, srsOptions);
-    const today = todayKey(new Date());
-    if (mode === 'errores') return { title: 'Mis errores', items: recentMistakes(cards, catalog) };
-    if (mode === 'tema' && conceptId)
-      return {
-        title: `Tema: ${conceptName(conceptId)}`,
-        items: practiceConcept(conceptId, cards, catalog, today),
-      };
-    return {
-      title: 'Due diligence',
-      items: buildReview({
-        cards,
-        catalog,
-        mastery: conceptMastery(events),
-        graph: conceptGraph(),
-        today,
-      }),
-    };
-    // las dependencias se fijan al montar: la sesión no se recalcula con cada respuesta
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  return <ReviewScreen title={title} items={items} onExit={onExit} />;
+interface Round {
+  n: number;
+  /** Ejercicios ya mostrados en esta racha de práctica (no se repiten mientras haya otros). */
+  seen: Set<string>;
+  items: ReviewItem[];
+  extra: boolean;
+}
+
+function roundFor(
+  mode: PracticeMode,
+  conceptId: string | undefined,
+  events: readonly AppEvent[],
+  seen: Set<string>,
+  n: number,
+): Round {
+  const { items, extra } = practiceBatch({
+    mode,
+    conceptId,
+    cards: projectCards(events, srsOptions),
+    catalog: exerciseCatalog(),
+    mastery: conceptMastery(events),
+    graph: conceptGraph(),
+    today: todayKey(new Date()),
+    exclude: seen,
+  });
+  return { n, seen, items, extra };
+}
+
+/**
+ * Repaso (Due diligence), Mis errores o práctica por tema. Cada tanda se fija al empezar y no cambia mientras se
+ * responde; al terminar, «Seguir practicando» carga otra con el estado recién guardado (ritmo libre). Si lo
+ * pendiente se acaba, la tanda es práctica extra intercalada con lo ya estudiado.
+ */
+export function ReviewRoute({ mode, conceptId, events, onExit, onNextLesson }: ReviewRouteProps) {
+  const repo = useRepo();
+  const [round, setRound] = useState(() => roundFor(mode, conceptId, events, new Set(), 0));
+  const more = async () => {
+    let fresh = events;
+    try {
+      fresh = await repo.allEvents();
+    } catch (e) {
+      console.error('No se pudo leer el progreso para la siguiente tanda', e);
+    }
+    const seen = new Set(round.seen);
+    for (const it of round.items) {
+      seen.add(it.exerciseId);
+      if (it.cardId) seen.add(it.cardId);
+    }
+    setRound(roundFor(mode, conceptId, fresh, seen, round.n + 1));
+    window.scrollTo(0, 0);
+  };
+  const title = round.extra
+    ? t('flow.extraTitle')
+    : mode === 'errores'
+      ? 'Mis errores'
+      : mode === 'tema' && conceptId
+        ? `Tema: ${conceptName(conceptId)}`
+        : 'Due diligence';
+  return (
+    <ReviewScreen
+      key={round.n}
+      title={title}
+      items={round.items}
+      hint={round.extra ? t('flow.extraHint') : undefined}
+      onExit={onExit}
+      onMore={() => void more()}
+      onNextLesson={onNextLesson}
+    />
+  );
 }
 
 /** Examen cronometrado de una unidad: 10 preguntas sin feedback hasta el final. */
-export function ExamRoute({ unitId, onExit }: { unitId: string; onExit: () => void }) {
+export function ExamRoute({
+  unitId,
+  onExit,
+  onMore,
+}: {
+  unitId: string;
+  onExit: () => void;
+  /** Al terminar: seguir practicando (repaso). */
+  onMore: () => void;
+}) {
   const { items, name } = useMemo(() => {
     const today = todayKey(new Date());
     const pool = exerciseCatalog().filter(
@@ -103,12 +165,19 @@ export function ExamRoute({ unitId, onExit }: { unitId: string; onExit: () => vo
       items={items}
       exam={{ minutes: EXAM_MINUTES }}
       onExit={onExit}
+      onMore={onMore}
     />
   );
 }
 
-export function SessionRoute({ onExit }: { onExit: () => void }) {
-  return <SessionScreen onExit={onExit} />;
+export function SessionRoute({
+  onExit,
+  onOpenLesson,
+}: {
+  onExit: () => void;
+  onOpenLesson: (lessonId: string) => void;
+}) {
+  return <SessionScreen onExit={onExit} onOpenLesson={onOpenLesson} />;
 }
 
 export function GameRoute({

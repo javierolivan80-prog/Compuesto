@@ -34,6 +34,7 @@ import {
 } from '../../engine/srs';
 import { dayKey } from '../../engine/days';
 import { availableGames, pickDailyGame } from '../../engine/games/catalog';
+import { nextPathLesson, pendingPathLessons } from '../../engine/next-step';
 import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
 import { GameHost } from '../games/GameHost';
@@ -44,6 +45,8 @@ import { ReviewScreen } from '../practicar/ReviewScreen';
 
 interface Props {
   onExit: () => void;
+  /** Ritmo libre: «Seguir estudiando» abre la siguiente lección del Camino. */
+  onOpenLesson: (lessonId: string) => void;
 }
 
 const newId = () => globalThis.crypto.randomUUID();
@@ -95,7 +98,7 @@ function itemsFor(block: BlockSpec, events: readonly AppEvent[], summary: Summar
 }
 
 /** Sesión "Abrir mercado": bloques en orden fijo, reanudable, que termina en "Objetivo cumplido" sin presionar. */
-export function SessionScreen({ onExit }: Props) {
+export function SessionScreen({ onExit, onOpenLesson }: Props) {
   const repo = useRepo();
   const [ctx, setCtx] = useState<{ events: AppEvent[]; summary: Summary } | null>(null);
   const [session, setSession] = useState<ActiveSession | null>(null);
@@ -129,16 +132,14 @@ export function SessionScreen({ onExit }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const start = async () => {
-    if (!ctx) return;
+  const start = async (from = ctx) => {
+    if (!from) return;
     try {
       const today = todayKey(new Date());
-      const completed = (id: string) => ctx.summary.progress.lessons[id]?.status === 'completed';
       const catalog = exerciseCatalog();
-      const cards = projectCards(ctx.events, srsOptions);
+      const cards = projectCards(from.events, srsOptions);
       const due = dueCards(cards, { today, catalog });
-      const nextLessons = pathLessonMeta()
-        .filter((l) => !completed(l.id))
+      const nextLessons = pendingPathLessons(pathLessonMeta(), from.summary.progress)
         .slice(0, 3)
         .map((l) => ({ id: l.id, minutes: l.estimatedMinutes }));
       const reviewable = new Set([...cards.keys()]).size;
@@ -147,8 +148,8 @@ export function SessionScreen({ onExit }: Props) {
         dueCount: Math.min(due.length, MAX_REVIEW_CARDS),
         nextLessons,
         reviewable,
-        weeklyBoss: weeklyBossAvailable(ctx.events, today),
-        gameId: pickDailyGame(ctx.events, today, availableGames(gameData(ctx.events).context)),
+        weeklyBoss: weeklyBossAvailable(from.events, today),
+        gameId: pickDailyGame(from.events, today, availableGames(gameData(from.events).context)),
       });
       const sessionId = newId();
       await repo.record('session_started', { sessionId, day: today, minutes, blocks: plan.blocks });
@@ -224,15 +225,20 @@ export function SessionScreen({ onExit }: Props) {
         session={session}
         index={index}
         ctx={ctx}
-        onClose={async () => {
+        onClose={async (keepStudying) => {
           try {
             await repo.record('session_completed', { sessionId: session.sessionId });
           } catch (e) {
             console.error('No se pudo cerrar la sesión', e);
           }
-          onExit();
+          if (!keepStudying) return onExit();
+          // ritmo libre: la siguiente lección del Camino; si no queda ninguna, otra sesión
+          const fresh = await refresh().catch(() => ctx);
+          const next = nextPathLesson(pathLessonMeta(), fresh.summary.progress);
+          if (next) return onOpenLesson(next);
+          setSession(null);
+          await start(fresh);
         }}
-        onExit={onExit}
         refresh={refresh}
       />
     );
@@ -331,17 +337,17 @@ function Closing({
   index,
   ctx,
   onClose,
-  onExit,
   refresh,
 }: {
   session: ActiveSession;
   index: number;
   ctx: { events: AppEvent[]; summary: Summary };
-  onClose: () => void;
-  onExit: () => void;
+  /** Cierra la sesión; con `true`, sigue estudiando en lugar de volver al inicio. */
+  onClose: (keepStudying: boolean) => Promise<void>;
   refresh: () => Promise<{ events: AppEvent[]; summary: Summary }>;
 }) {
   const [fresh, setFresh] = useState(ctx);
+  const [busy, setBusy] = useState(false);
   useEffect(() => {
     void refresh()
       .then(setFresh)
@@ -417,11 +423,18 @@ function Closing({
           </li>
         ))}
       </ul>
-      <div className="flex gap-3">
-        <Button onClick={onClose} data-block={index}>
-          {t('session.closeAction')}
+      <div className="flex flex-wrap gap-3">
+        <Button
+          onClick={() => {
+            setBusy(true);
+            void onClose(true).finally(() => setBusy(false));
+          }}
+          loading={busy}
+          data-block={index}
+        >
+          {t('session.keepStudying')}
         </Button>
-        <Button variant="ghost" onClick={onExit}>
+        <Button variant="ghost" disabled={busy} onClick={() => void onClose(false)}>
           {t('session.later')}
         </Button>
       </div>

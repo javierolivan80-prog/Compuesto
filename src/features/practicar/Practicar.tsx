@@ -26,6 +26,9 @@ import { GAME_INFO, availability, dailyBest, gameRecords } from '../../engine/ga
 import { gameData } from '../games/data';
 import { todayKey } from '../../engine/stats';
 import { formatNumber } from '../../lib/format';
+import { pathLessonMeta } from '../../content/meta';
+import { nextPathLesson } from '../../engine/next-step';
+import { t } from '../../i18n';
 
 const go = (hash: string) => {
   window.location.hash = hash;
@@ -45,6 +48,7 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
     const cards = projectCards(data.events, srsOptions);
     const mastery = conceptMastery(data.events);
     const due = dueCards(cards, { today, catalog });
+    const live = new Set(catalog.map((e) => e.id));
     const planned = buildReview({ cards, catalog, mastery, graph: conceptGraph(), today });
     const upcoming = [...cards.values()]
       .filter((c) => catalog.some((e) => e.id === c.exerciseId) && nextReviewDay(c) > today)
@@ -65,6 +69,7 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
       reinforcing: planned.filter((p) => p.reason === 'refuerzo').length,
       upcoming,
       mistakes: recentMistakes(cards, catalog).length,
+      studied: [...cards.keys()].filter((id) => live.has(id)).length,
       topics: [...mastery.values()]
         .sort(
           (a, b) =>
@@ -83,6 +88,7 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
       />
     );
   const progress = data.summary.progress.lessons;
+  const next = nextPathLesson(pathLessonMeta(), data.summary.progress);
   const done = allLessons().filter((l) => progress[l.id]?.status === 'completed');
   const examUnits = [...FLOOR_LEVELS, BASE_LEVEL]
     .flatMap((lv) => unitsOfLevel(lv).map((u) => ({ ...u, levelName: levelName(lv) })))
@@ -128,12 +134,28 @@ export function Practicar({ data, onStart }: { data: AppData; onStart: (id: stri
             <p className="text-text-2 text-sm">Máximo {MAX_REVIEW_CARDS} tarjetas por sesión.</p>
           </>
         ) : (
-          <p className="text-text-2" data-testid="due-count">
-            Nada vence hoy.
-            {view.upcoming
-              ? ` Lo próximo vuelve el ${longDate(view.upcoming)}.`
-              : ' Cuando respondas ejercicios, los fallos y los aciertos volverán cuando toque.'}
-          </p>
+          <>
+            <p className="text-text-2" data-testid="due-count">
+              Nada vence hoy.
+              {view.upcoming
+                ? ` Lo próximo vuelve el ${longDate(view.upcoming)}.`
+                : ' Cuando respondas ejercicios, los fallos y los aciertos volverán cuando toque.'}
+            </p>
+            {view.studied > 0 ? (
+              <>
+                <Button className="justify-self-start" onClick={() => go('#/repaso')}>
+                  {t('flow.practiceMore')}
+                </Button>
+                <p className="text-text-2 text-sm">{t('flow.practiceMoreHint')}</p>
+              </>
+            ) : (
+              next && (
+                <Button className="justify-self-start" onClick={() => onStart(next)}>
+                  {t('flow.toNextLesson')}
+                </Button>
+              )
+            )}
+          </>
         )}
       </section>
 

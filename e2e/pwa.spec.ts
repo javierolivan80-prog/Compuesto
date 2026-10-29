@@ -105,7 +105,7 @@ test('sin conexión tras la primera carga: recarga y completa una lección enter
 
   await page.getByRole('button', { name: /Abrir mercado|Continuar/ }).click();
   await playCurrentLesson(page);
-  await page.getByRole('button', { name: 'Continuar' }).click();
+  await page.getByRole('link', { name: 'Volver al inicio' }).click();
   await expect(page.getByTestId('xp-total')).not.toHaveText('0'); // sin red, guardado en local
   expect(errors).toEqual([]);
 });
@@ -225,7 +225,7 @@ test('flujo completo: onboarding → 3 lecciones sin conexión → recarga → p
     await page.goto(`${base}/#/leccion/${l.id}`);
     await expect(page.getByRole('heading', { name: l.title })).toBeVisible();
     await playLesson(page, l);
-    await page.getByRole('button', { name: 'Continuar' }).click();
+    await page.getByRole('link', { name: 'Volver al inicio' }).click();
     await expect(page.getByTestId('xp-total')).toBeVisible();
   }
   await expect

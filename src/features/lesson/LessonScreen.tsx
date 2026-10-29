@@ -59,6 +59,9 @@ import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
 import { LESSON_GAME_FORMATS } from '../../engine/games/lesson-games';
 import { fillText } from '../../engine/params';
+import { nextPathLesson } from '../../engine/next-step';
+import { pathLessonMeta } from '../../content/meta';
+import { t } from '../../i18n';
 
 interface Closing {
   /** Celebraciones al cerrar: ascensor si sube de planta, subida de rango si cambia de rango. */
@@ -74,10 +77,24 @@ interface Props {
   /** Dentro de una sesión: el botón final sigue la sesión en vez de volver al inicio. */
   onFinished?: () => void;
   finishLabel?: string;
+  /** Ritmo libre (fuera de una sesión): abrir la siguiente lección del Camino. */
+  onNextLesson?: (lessonId: string) => void;
+  /** Ritmo libre: si no queda ninguna lección, seguir con una tanda de práctica. */
+  onKeepPracticing?: () => void;
+  /** Ritmo libre: ir a Practicar. */
+  onPractice?: () => void;
 }
 
 /** Lección completa: teoría (≤3 tarjetas) → ejercicios (fallos al final) → Cierre con XP y racha reales. */
-export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props) {
+export function LessonScreen({
+  lesson,
+  onExit,
+  onFinished,
+  finishLabel,
+  onNextLesson,
+  onKeepPracticing,
+  onPractice,
+}: Props) {
   const repo = useRepo();
   const afterGame = lesson.intro.length ? 'intro' : 'exercises';
   const [phase, setPhase] = useState<'game' | 'intro' | 'exercises' | 'closing'>(
@@ -349,9 +366,19 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
           </div>
         </dl>
         {errorBanner}
-        <Button className="w-full max-w-sm" onClick={onFinished ?? onExit}>
-          {finishLabel ?? 'Continuar'}
-        </Button>
+        {onFinished || !onNextLesson ? (
+          <Button className="w-full max-w-sm" onClick={onFinished ?? onExit}>
+            {finishLabel ?? 'Continuar'}
+          </Button>
+        ) : (
+          <FreePace
+            summary={closing.summary}
+            onNextLesson={onNextLesson}
+            onKeepPracticing={onKeepPracticing ?? onExit}
+            onPractice={onPractice ?? onExit}
+            onExit={onExit}
+          />
+        )}
       </section>
     );
   }
@@ -388,5 +415,53 @@ export function LessonScreen({ lesson, onExit, onFinished, finishLabel }: Props)
         </>
       ) : null}
     </section>
+  );
+}
+
+/**
+ * Cierre en ritmo libre: siempre hay un paso siguiente. La siguiente lección del Camino (o, si no queda ninguna,
+ * otra tanda de práctica), Practicar y un enlace para volver. El objetivo diario se celebra sin cortar nada.
+ */
+function FreePace({
+  summary,
+  onNextLesson,
+  onKeepPracticing,
+  onPractice,
+  onExit,
+}: {
+  summary: Summary | null;
+  onNextLesson: (lessonId: string) => void;
+  onKeepPracticing: () => void;
+  onPractice: () => void;
+  onExit: () => void;
+}) {
+  const next = summary ? nextPathLesson(pathLessonMeta(), summary.progress) : null;
+  return (
+    <div className="grid w-full max-w-sm gap-3" data-testid="lesson-next">
+      {summary?.dailyGoal.reached && <p className="text-bull text-sm">{t('flow.goalReached')}</p>}
+      {!next && summary && <p className="text-text-2 text-sm">{t('flow.allLessonsDone')}</p>}
+      {next ? (
+        <Button className="w-full" onClick={() => onNextLesson(next)}>
+          {t('flow.nextLesson')}
+        </Button>
+      ) : (
+        <Button className="w-full" onClick={onKeepPracticing}>
+          {t('flow.keepPracticing')}
+        </Button>
+      )}
+      <Button variant="secondary" className="w-full" onClick={onPractice}>
+        {t('flow.practice')}
+      </Button>
+      <a
+        href="#/"
+        onClick={(e) => {
+          e.preventDefault();
+          onExit();
+        }}
+        className="text-text-2 inline-flex min-h-12 items-center justify-center underline underline-offset-4"
+      >
+        {t('flow.backHome')}
+      </a>
+    </div>
   );
 }

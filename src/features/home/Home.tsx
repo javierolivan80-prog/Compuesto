@@ -6,6 +6,7 @@ import { EmptyState, ErrorState, Loading } from '../../components/States';
 import { pathLessonMeta } from '../../content/meta';
 import { dailyMissions } from '../../engine/missions';
 import { activeSession } from '../../engine/session';
+import { pendingPathLessons } from '../../engine/next-step';
 import { todayKey } from '../../engine/stats';
 import { firstDay, scoreboard } from '../../engine/live-market';
 import { t } from '../../i18n';
@@ -25,8 +26,7 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
     );
   const { summary } = data;
   const lessons = pathLessonMeta();
-  const completed = (id: string) => summary.progress.lessons[id]?.status === 'completed';
-  const next = lessons.find((l) => !completed(l.id));
+  const next = pendingPathLessons(lessons, summary.progress)[0];
   const started = next ? !!summary.progress.lessons[next.id] : false;
   const goal = summary.dailyGoal;
   const today = todayKey(new Date());
@@ -179,9 +179,19 @@ export function Home({ data, onStart }: { data: AppData; onStart: (id: string) =
           </Button>
         </section>
       ) : (
-        <EmptyState title="Has completado todo lo disponible">
-          Pronto habrá más contenido. Mientras tanto, repite lecciones desde Practicar.
-        </EmptyState>
+        <section className="grid gap-3">
+          <EmptyState title="Has completado todo lo disponible">
+            Pronto habrá más contenido. Mientras tanto, repite lecciones desde Practicar.
+          </EmptyState>
+          <Button
+            className="w-full"
+            onClick={() => {
+              window.location.hash = '#/repaso';
+            }}
+          >
+            {t('flow.keepPracticing')}
+          </Button>
+        </section>
       )}
 
       <p className="text-text-2 text-sm">Contenido educativo, no asesoramiento financiero.</p>
