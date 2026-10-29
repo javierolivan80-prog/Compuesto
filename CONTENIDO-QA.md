@@ -545,3 +545,15 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - 🛑 Pendiente de la revisión de Javier:
   - comprobar en el registro de la CNMV que «Banco Russafa» y «Banca Malvarrosa» no son nombres reales;
   - las fuentes (CFA Institute, Damodaran, BCE Supervisión Bancaria, EBA y Banco de España) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n5-u1 — Libro de órdenes, market makers y dark pools y lección-juego «Mesa de órdenes» (29/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - l1-e8 pasa de rellenar huecos a numérico: la horquilla realizada si el punto medio baja al bid (80 pb con la partida de la semilla 0). El juego expone `half_c` y, para que no se repita la respuesta, l1-e4 pasa a 100 pb;
+    - se separan los dos impactos: «coste de impacto», (precio medio − punto medio) / punto medio, en l2, el explicador `MarketImpact` y el concepto `libro-ordenes`, y «impacto en el precio», el componente de la horquilla efectiva, en l3, el juego y el concepto `market-makers`. l6-e1 y la q1 del test de salto llevan la fórmula en el enunciado;
+    - MiFIR 2024: el límite único del 7 % se aplica a la exención por precio de referencia (tarjeta de l5 y concepto `dark-pools`).
+  - Menores: l2-e3 en días de negociación, con 2 decimales; orden del test de salto (q7↔q10, q8↔q11); explicación de l5-e2 con el límite del 7 %; «De tus primeras lecciones de bolsa» en lugar del ID de la unidad; fuente SEC y CFTC sobre el 6 de mayo de 2010 en l4.
+- **Ronda 2:** en l1-e2 el ahorro sale de un número entero de céntimos, como en el motor: el juego expone `lit_c` (media horquilla + barrido) y la lección deriva `saving` y `lit_avg`.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 6, 6 y 6 de 8, y 9 de 10. e2e de producción `n5u1.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, CNMV, ESMA, BME y SEC/CFTC) se citan por su URL raíz «(pendiente de verificar la ruta)».

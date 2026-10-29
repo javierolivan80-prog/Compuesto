@@ -2,20 +2,16 @@
   "id": "salto-n5-u1",
   "unitId": "n5-u1",
   "version": 2,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n5-u1-q1",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "libro-ordenes"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
       "prompt": "Una acción ficticia tiene un punto medio de 40 € y una compra grande se ejecuta a un precio medio de 40,12 €. ¿Cuál ha sido su coste de impacto, (precio medio − punto medio) / punto medio? (pb, 1 decimal)",
       "answer": 30,
       "unit": "pb",
@@ -29,12 +25,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "Una acción ficticia tiene un punto medio de 20 € y compras a 20,05 €. ¿Cuál es tu horquilla efectiva? (pb, 1 decimal)",
       "answer": 50,
       "unit": "pb",
@@ -48,12 +40,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "Un market maker vende a 10,02 € una acción ficticia con un punto medio de 10 €; cinco minutos después, el punto medio es de 10,03 €. ¿Qué horquilla realizada se queda? (pb, 1 decimal; negativa si pierde)",
       "answer": -20,
       "unit": "pb",
@@ -67,12 +55,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "dark-pools"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
       "prompt": "Un fondo cruza 40.000 acciones de una empresa ficticia en un dark pool al punto medio de 15 €; barriendo el libro habría pagado 15,06 € de media. ¿Cuánto ahorra? (€)",
       "answer": 2400,
       "unit": "€",
@@ -86,12 +70,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "Un market maker ficticio acumula 25.000 acciones de inventario y el precio cae 20 céntimos. ¿Cuánto pierde? (€)",
       "answer": 5000,
       "unit": "€",
@@ -105,12 +85,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "Tras una noticia, a un market maker le llegan solo órdenes grandes de compra. ¿Qué suele hacer?",
       "options": [
         "Ensanchar la horquilla, porque teme que quien compra sepa algo",
@@ -131,12 +107,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "dark-pools"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
       "prompt": "Una acción ficticia negoció 1.500 millones de € en 12 meses en la UE. Con un límite del 7 % para la negociación oscura con exenciones, ¿cuántos millones pueden negociarse así como máximo? (millones de €)",
       "answer": 105,
       "unit": "millones de €",
@@ -150,17 +122,10 @@
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "¿Es una ventaja o un riesgo de la negociación de alta frecuencia?",
-      "categories": [
-        "Ventaja",
-        "Riesgo"
-      ],
+      "categories": ["Ventaja", "Riesgo"],
       "items": [
         {
           "text": "Horquillas más estrechas en valores líquidos",
@@ -186,12 +151,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "libro-ordenes"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
       "prompt": "Un fondo quiere comprar 150.000 acciones de una empresa ficticia sin superar el 10 % del volumen diario, que es de 500.000 acciones. ¿Cuántos días necesita? (días, 1 decimal)",
       "answer": 3,
       "unit": "días",
@@ -205,12 +166,8 @@
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "dark-pools"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
       "statement": "En un dark pool nadie ve las órdenes antes de que se casen, pero las operaciones sí se publican después.",
       "answer": true,
       "explanation": "Verdadero: no hay transparencia previa, pero sí posterior."
@@ -220,12 +177,8 @@
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "libro-ordenes"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
       "prompt": "Dos órdenes de 200.000 € en dos acciones ficticias: la A negocia 100 millones al día y la B, 1 millón. ¿Cuál tendrá más coste de impacto?",
       "options": [
         "La de B, porque supone el 20 % de su volumen diario",
@@ -246,12 +199,8 @@
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "market-makers"
-      ],
+      "tags": ["test-de-salto"],
+      "concepts": ["market-makers"],
       "prompt": "Un market maker ficticio casa 600 operaciones al día de 200 acciones y gana 1,5 céntimos por acción. ¿Cuánto gana al día con la horquilla? (€)",
       "answer": 1800,
       "unit": "€",

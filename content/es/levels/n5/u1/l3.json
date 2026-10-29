@@ -1,8 +1,8 @@
 {
   "id": "n5-u1-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 1,
   "title": "Horquilla efectiva, realizada y selección adversa",
