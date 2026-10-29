@@ -6,7 +6,7 @@ import { mulberry32 } from '../prng';
  * allá. Cuatro pasos sobre una acción ficticia:
  *   1. Horquilla efectiva de tu ejecución: 2 × (precio ejecutado − punto medio) / punto medio, en pb.
  *   2. Horquilla realizada del market maker que te vendió: 2 × (precio − punto medio 5 minutos después), en pb del
- *      punto medio inicial; la diferencia con la efectiva es el impacto (selección adversa).
+ *      punto medio inicial; la diferencia con la efectiva es el impacto en el precio (selección adversa).
  *   3. Dark pool: cruzar el bloque al punto medio en lugar de barrer el libro visible ahorra
  *      cantidad × (precio medio en el libro − punto medio).
  *   4. El market maker ante el flujo: si llega flujo informado (todo en un sentido tras una noticia), ensancha la
@@ -94,7 +94,7 @@ export function effectiveOptions(s: DeskSetup): number[] {
   return [effectiveBp(s), quotedBp(s), bp(s, s.halfC + s.walkC)].sort((a, b) => a - b);
 }
 
-/** Paso 2: el market maker vendió al ask; horquilla realizada, efectiva e impacto (pb). */
+/** Paso 2: el market maker vendió al ask; horquilla realizada, efectiva e impacto en el precio (pb). */
 export const realizedBp = (s: DeskSetup) => bp(s, 2 * s.halfC - s.driftHalfC);
 export const impactBp = (s: DeskSetup) => bp(s, s.driftHalfC);
 export function realizedOptions(s: DeskSetup): number[] {
@@ -149,6 +149,7 @@ export function deskValues(s: DeskSetup, a: DeskAnswer): Record<string, number> 
   const r = deskResult(s, a);
   return {
     mid: mid(s),
+    half_c: s.halfC,
     bid: bid(s),
     ask: ask(s),
     fill: fill(s),

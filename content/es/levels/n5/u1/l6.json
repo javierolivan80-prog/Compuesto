@@ -9,7 +9,7 @@
   "cfa": "equity",
   "estimatedMinutes": 5,
   "objectives": [
-    "Medir la profundidad del libro y el impacto de una orden",
+    "Medir la profundidad del libro y el coste de impacto de una orden",
     "Calcular la horquilla efectiva y la realizada y explicar la selección adversa",
     "Explicar el papel de los market makers y del HFT y el riesgo de inventario",
     "Valorar el uso de un dark pool y los límites de MiFID II"
@@ -26,7 +26,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["libro-ordenes"],
-      "prompt": "Una acción ficticia tiene un punto medio de 25 € y una compra grande se ejecuta a un precio medio de 25,09 €. ¿Cuál ha sido su impacto? (pb, 1 decimal)",
+      "prompt": "Una acción ficticia tiene un punto medio de 25 € y una compra grande se ejecuta a un precio medio de 25,09 €. ¿Cuál ha sido su coste de impacto, (precio medio − punto medio) / punto medio? (pb, 1 decimal)",
       "answer": 36,
       "unit": "pb",
       "tolerance": 0.3,
@@ -182,7 +182,7 @@
       "concepts": ["market-makers"],
       "statement": "La horquilla efectiva de una compra es igual a la horquilla realizada del market maker más el impacto en el precio.",
       "answer": true,
-      "explanation": "Verdadero: efectiva = realizada + impacto."
+      "explanation": "Verdadero: efectiva = realizada + impacto en el precio."
     }
   ],
   "realWorld": "En la mesa de renta variable de Albufera Partners, cada orden grande se planifica con el libro, el volumen diario y los centros disponibles, y se mide después frente al precio de llegada. Busca un informe de calidad de ejecución de un bróker y fíjate en la horquilla efectiva. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
@@ -198,7 +198,7 @@
       "date": "2026-10-25"
     },
     {
-      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 % para la exención por precio de referencia) (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
       "date": "2026-10-25"
     },

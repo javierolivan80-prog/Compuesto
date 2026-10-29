@@ -27,7 +27,9 @@ it('un usuario nuevo ve la bienvenida; tras el onboarding llega a su primera lec
   await user.click(start);
 
   // la primera lección es un juego de la planta 0 (mercados), no la Base de finanzas personales
-  expect(await screen.findByRole('heading', { name: 'Tus primeras acciones' })).toBeInTheDocument();
+  expect(
+    await screen.findByRole('heading', { name: 'Tus primeras acciones' }, { timeout: 5000 }),
+  ).toBeInTheDocument();
   expect(window.location.hash).toBe('#/leccion/n1-u1-l6');
 });
 

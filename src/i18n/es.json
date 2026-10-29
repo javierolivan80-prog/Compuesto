@@ -1867,7 +1867,7 @@
     "whyRealized": "2 × ({{ask}} − {{mid5}}) / {{mid}} = {{v}}. De los {{quoted}} que cobró, {{impact}} se los comió la subida posterior del precio: es la selección adversa, el riesgo de operar con quien sabe más.",
     "briefDark": "Ahora un bloque de {{qty}} acciones. Barriendo el libro visible pagarías de media {{lit}}; en un dark pool lo cruzas al punto medio, {{mid}}, sin mostrar la orden antes.",
     "askDark": "¿Cuánto ahorra el cliente cruzándolo en el dark pool?",
-    "whyDark": "{{qty}} × ({{lit}} − {{mid}}) = {{v}}. El dark pool evita la horquilla y el impacto de barrer el libro, a cambio de no saber si encontrarás contrapartida.",
+    "whyDark": "{{qty}} × ({{lit}} − {{mid}}) = {{v}}. El dark pool evita la horquilla y el coste de impacto de barrer el libro, a cambio de no saber si encontrarás contrapartida.",
     "briefMaker": {
       "informed": "Suena una noticia sobre la empresa y empiezan a llegar órdenes grandes de compra, todas en el mismo sentido. Eres el market maker que cotiza esa acción.",
       "noise": "Es una mañana tranquila: llegan muchas órdenes pequeñas de minoristas, unas de compra y otras de venta, sin noticias. Eres el market maker que cotiza esa acción."
@@ -1921,7 +1921,7 @@
     "title": "Del ROTE al P/VTC"
   },
   "marketImpact": {
-    "title": "El impacto de una orden grande"
+    "title": "El coste de impacto de una orden grande"
   },
   "futurePayoff": {
     "title": "Lo que gana uno, lo pierde el otro"

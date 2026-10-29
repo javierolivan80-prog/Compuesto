@@ -9,7 +9,7 @@
   "cfa": "equity",
   "estimatedMinutes": 5,
   "objectives": [
-    "Calcular la horquilla efectiva, la realizada y el impacto",
+    "Calcular la horquilla efectiva, la realizada y el impacto en el precio",
     "Explicar la selección adversa y cómo protege al market maker"
   ],
   "concepts": ["market-makers"],
@@ -23,8 +23,8 @@
     },
     {
       "type": "card",
-      "term": "Realizada e impacto",
-      "text": "Quien te vendió (un market maker, por ejemplo) no se queda con toda la efectiva. Horquilla realizada = 2 × (su precio de venta − punto medio unos minutos después). La diferencia es el impacto: cuánto se movió el precio tras la operación. Efectiva = realizada + impacto."
+      "term": "Realizada e impacto en el precio",
+      "text": "Quien te vendió (un market maker, por ejemplo) no se queda con toda la efectiva. Horquilla realizada = 2 × (su precio de venta − punto medio unos minutos después). La diferencia es el impacto en el precio: cuánto se movió tras la operación. Efectiva = realizada + impacto en el precio."
     },
     {
       "type": "card",
@@ -125,7 +125,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["market-makers"],
-      "prompt": "Un market maker vende a {p} € una acción ficticia con un punto medio de {m0} €, y cinco minutos después el punto medio es de {m5} €. ¿Cuál ha sido el impacto, 2 × (punto medio después − punto medio antes) / punto medio antes? (pb, 2 decimales)",
+      "prompt": "Un market maker vende a {p} € una acción ficticia con un punto medio de {m0} €, y cinco minutos después el punto medio es de {m5} €. ¿Cuál ha sido el impacto en el precio, 2 × (punto medio después − punto medio antes) / punto medio antes? (pb, 2 decimales)",
       "answer": 37.5,
       "unit": "pb",
       "tolerance": 0.3,
@@ -257,10 +257,10 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["market-makers"],
-      "prompt": "Un market maker cobra de media 20 pb de horquilla cotizada y, por selección adversa, pierde de media 15 pb de impacto. ¿Qué horquilla realizada se queda de media?",
+      "prompt": "Un market maker cobra de media 20 pb de horquilla cotizada y, por selección adversa, pierde de media 15 pb de impacto en el precio. ¿Qué horquilla realizada se queda de media?",
       "options": ["5 pb", "35 pb", "20 pb", "−15 pb"],
       "answer": 0,
-      "explanation": "Realizada = efectiva − impacto = 20 − 15 = 5 pb.",
+      "explanation": "Realizada = efectiva − impacto en el precio = 20 − 15 = 5 pb.",
       "wrongExplanations": {
         "1": "Suma el impacto en lugar de restarlo.",
         "2": "Es lo que cobra antes del impacto.",

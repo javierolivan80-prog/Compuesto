@@ -12,7 +12,7 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["libro-ordenes"],
-      "prompt": "Una acción ficticia tiene un punto medio de 40 € y una compra grande se ejecuta a un precio medio de 40,12 €. ¿Cuál ha sido su impacto? (pb, 1 decimal)",
+      "prompt": "Una acción ficticia tiene un punto medio de 40 € y una compra grande se ejecuta a un precio medio de 40,12 €. ¿Cuál ha sido su coste de impacto, (precio medio − punto medio) / punto medio? (pb, 1 decimal)",
       "answer": 30,
       "unit": "pb",
       "tolerance": 0.3,
@@ -104,54 +104,6 @@
     },
     {
       "id": "salto-n5-u1-q7",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["dark-pools"],
-      "statement": "En un dark pool nadie ve las órdenes antes de que se casen, pero las operaciones sí se publican después.",
-      "answer": true,
-      "explanation": "Verdadero: no hay transparencia previa, pero sí posterior."
-    },
-    {
-      "id": "salto-n5-u1-q8",
-      "type": "multiple_choice",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": ["test-de-salto"],
-      "concepts": ["libro-ordenes"],
-      "prompt": "Dos órdenes de 200.000 € en dos acciones ficticias: la A negocia 100 millones al día y la B, 1 millón. ¿Cuál tendrá más impacto?",
-      "options": [
-        "La de B, porque supone el 20 % de su volumen diario",
-        "La de A, porque es la acción más grande",
-        "Las dos igual",
-        "Ninguna"
-      ],
-      "answer": 0,
-      "explanation": "El impacto depende del peso de la orden frente a la liquidez.",
-      "wrongExplanations": {
-        "1": "En A es solo el 0,2 % del volumen.",
-        "2": "El mismo importe pesa muy distinto.",
-        "3": "En B es una orden muy grande."
-      }
-    },
-    {
-      "id": "salto-n5-u1-q9",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": ["test-de-salto"],
-      "concepts": ["libro-ordenes"],
-      "prompt": "Un fondo quiere comprar 150.000 acciones de una empresa ficticia sin superar el 10 % del volumen diario, que es de 500.000 acciones. ¿Cuántos días necesita? (días, 1 decimal)",
-      "answer": 3,
-      "unit": "días",
-      "tolerance": 0.3,
-      "answerDecimals": 1,
-      "formula": "150000 / (500000 * 0.1)",
-      "explanation": "150.000 / 50.000 = 3 días."
-    },
-    {
-      "id": "salto-n5-u1-q10",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -166,7 +118,7 @@
       "explanation": "1.500 × 7 % = 105 millones."
     },
     {
-      "id": "salto-n5-u1-q11",
+      "id": "salto-n5-u1-q8",
       "type": "categorize",
       "difficulty": 2,
       "bloom": "entender",
@@ -193,6 +145,54 @@
         }
       ],
       "explanation": "Aporta liquidez en calma y puede retirarse en tensión."
+    },
+    {
+      "id": "salto-n5-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Un fondo quiere comprar 150.000 acciones de una empresa ficticia sin superar el 10 % del volumen diario, que es de 500.000 acciones. ¿Cuántos días necesita? (días, 1 decimal)",
+      "answer": 3,
+      "unit": "días",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "150000 / (500000 * 0.1)",
+      "explanation": "150.000 / 50.000 = 3 días."
+    },
+    {
+      "id": "salto-n5-u1-q10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["dark-pools"],
+      "statement": "En un dark pool nadie ve las órdenes antes de que se casen, pero las operaciones sí se publican después.",
+      "answer": true,
+      "explanation": "Verdadero: no hay transparencia previa, pero sí posterior."
+    },
+    {
+      "id": "salto-n5-u1-q11",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["libro-ordenes"],
+      "prompt": "Dos órdenes de 200.000 € en dos acciones ficticias: la A negocia 100 millones al día y la B, 1 millón. ¿Cuál tendrá más coste de impacto?",
+      "options": [
+        "La de B, porque supone el 20 % de su volumen diario",
+        "La de A, porque es la acción más grande",
+        "Las dos igual",
+        "Ninguna"
+      ],
+      "answer": 0,
+      "explanation": "El impacto depende del peso de la orden frente a la liquidez.",
+      "wrongExplanations": {
+        "1": "En A es solo el 0,2 % del volumen.",
+        "2": "El mismo importe pesa muy distinto.",
+        "3": "En B es una orden muy grande."
+      }
     },
     {
       "id": "salto-n5-u1-q12",

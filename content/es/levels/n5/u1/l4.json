@@ -40,7 +40,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["market-makers"],
-      "prompt": "Un market maker ficticio casa {n} operaciones al día en una acción, de {q} acciones cada una, y gana de media media horquilla, {h} céntimos por acción. ¿Cuánto gana al día con la horquilla? (€)",
+      "prompt": "Un market maker ficticio casa {n} operaciones al día en una acción, de {q} acciones cada una, y gana, de media, la mitad de la horquilla: {h} céntimos por acción. ¿Cuánto gana al día con la horquilla? (€)",
       "answer": 2400,
       "unit": "€",
       "tolerance": 0.1,
@@ -269,8 +269,13 @@
       "date": "2026-10-25"
     },
     {
-      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 % para la exención por precio de referencia) (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "SEC y CFTC, Findings Regarding the Market Events of May 6, 2010 (informe conjunto, septiembre de 2010) (pendiente de verificar la ruta)",
+      "url": "https://www.sec.gov/",
       "date": "2026-10-25"
     },
     {

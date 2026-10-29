@@ -34,7 +34,7 @@
     {
       "type": "card",
       "term": "Dark pool",
-      "text": "Cruzar el bloque de {qty} acciones al punto medio en un dark pool, en lugar de barrer el libro a {lit_avg} € de media, ahorró {saving} €. A cambio, nadie garantiza encontrar contrapartida. Ante flujo informado, el market maker ensancha su horquilla."
+      "text": "Cruzar el bloque de {qty} acciones al punto medio en un dark pool, en lugar de barrer el libro a {lit_avg} € de media, ahorró {saving} €. A cambio, nadie garantiza encontrar contrapartida."
     }
   ],
   "exercises": [
@@ -83,7 +83,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["dark-pools"],
-      "prompt": "Cruzar todo tu bloque en un dark pool al punto medio te ahorraba {saving} € frente a barrer el libro. Si el dark pool solo encuentra contrapartida para el {p} % del bloque y el resto lo compras barriendo el libro, ¿cuánto ahorras? (€)",
+      "prompt": "Cruzar todo tu bloque en un dark pool al punto medio te ahorraba {saving} € frente a barrer el libro. Si el dark pool solo encuentra contrapartida para el {p} % del bloque y el resto lo compras barriendo el libro al mismo precio medio de {lit_avg} €, ¿cuánto ahorras? (€)",
       "answer": 720,
       "unit": "€",
       "tolerance": 0.3,
@@ -104,6 +104,26 @@
           "max": 90,
           "step": 10,
           "decimals": 0
+        },
+        "mid": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "qty": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "lit_avg": {
+          "formula": "{mid} + {saving} / {qty}",
+          "decimals": 2
         }
       }
     },
@@ -146,7 +166,7 @@
       "tags": [],
       "concepts": ["market-makers"],
       "prompt": "Una acción ficticia tiene un punto medio de {mid} € y vendes a {sell} €. ¿Cuál es tu horquilla efectiva, 2 × (punto medio − precio de venta) / punto medio? (pb, 2 decimales)",
-      "answer": 80,
+      "answer": 100,
       "unit": "pb",
       "tolerance": 0.3,
       "answerDecimals": 2,
@@ -161,7 +181,7 @@
           "decimals": 0
         },
         "c": {
-          "value": 4,
+          "value": 5,
           "min": 1,
           "max": 6,
           "step": 1,
@@ -241,14 +261,44 @@
     },
     {
       "id": "n5-u1-l1-e8",
-      "type": "fill_blank",
-      "difficulty": 1,
+      "type": "numeric_input",
+      "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["market-makers"],
-      "prompt": "Un market maker pierde dinero porque le compran justo quienes saben que el precio va a subir: es un caso de selección ___.",
-      "answers": [["adversa"]],
-      "explanation": "Selección adversa."
+      "prompt": "Un market maker vendió a {ask} € una acción ficticia con un punto medio de {mid} € y una mejor compra de {bid} €. Si 5 minutos después el punto medio hubiera bajado al nivel del bid, {bid} €, ¿qué horquilla realizada se habría quedado el market maker, 2 × (precio de venta − punto medio después) / punto medio antes? (pb, 2 decimales)",
+      "answer": 80,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2 * ({ask} - {bid}) / {mid} * 10000",
+      "explanation": "2 × ({ask} − {bid}) / {mid} = {answer} pb: el doble de la cotizada, porque el precio bajó después de su venta.",
+      "params": {
+        "mid": {
+          "value": 10,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "half_c": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "bid": {
+          "formula": "{mid} - {half_c} / 100",
+          "decimals": 2
+        },
+        "ask": {
+          "formula": "{mid} + {half_c} / 100",
+          "decimals": 2
+        }
+      }
     }
   ],
   "realWorld": "Los brókers y las bolsas publican informes de calidad de ejecución con la horquilla efectiva media de cada valor. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
@@ -259,7 +309,7 @@
       "date": "2026-10-25"
     },
     {
-      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 % para la exención por precio de referencia) (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
       "date": "2026-10-25"
     },

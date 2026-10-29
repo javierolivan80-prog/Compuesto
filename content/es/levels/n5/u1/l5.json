@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "MiFID II",
-      "text": "MiFID II exige transparencia antes y después de negociar, con exenciones para dark pools. Para que no vacíen el mercado visible, limitó su peso: un 4 % del volumen de cada acción por plataforma y un 8 % en toda la UE en 12 meses. La revisión de MiFIR de 2024 lo sustituye por un límite único del 7 %."
+      "text": "MiFID II exige transparencia antes y después de negociar, con exenciones para dark pools, y limitó su peso: un 4 % del volumen de cada acción por plataforma y un 8 % en la UE en 12 meses. La revisión de MiFIR de 2024 lo sustituye por un límite único del 7 % para la exención por precio de referencia."
     },
     {
       "type": "card",
@@ -90,7 +90,7 @@
       "tolerance": 0.3,
       "answerDecimals": 2,
       "formula": "{d} / {t} * 100",
-      "explanation": "{d} / {t} × 100 = {answer} %: frente a un límite del 7 %, queda poco margen.",
+      "explanation": "{d} / {t} × 100 = {answer} %: compáralo con el límite del 7 %; si lo supera, la negociación oscura con exenciones se suspende en esa acción.",
       "params": {
         "t": {
           "value": 2000,
@@ -259,7 +259,7 @@
   "realWorld": "La ESMA publica los datos del límite de volumen de la negociación oscura acción por acción, y la CNMV explica la normativa de MiFID II sobre centros de negociación. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
   "sources": [
     {
-      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 %) (pendiente de verificar la ruta)",
+      "title": "ESMA, MiFID II y MiFIR: exenciones de transparencia previa y límites de volumen de la negociación oscura (límite doble del 4 % y el 8 %; la revisión de MiFIR de 2024, Reglamento (UE) 2024/791, lo sustituye por un límite único del 7 % para la exención por precio de referencia) (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
       "date": "2026-10-25"
     },

@@ -9,7 +9,7 @@
   "cfa": "equity",
   "estimatedMinutes": 5,
   "objectives": [
-    "Medir la profundidad del libro y el impacto de una orden en puntos básicos",
+    "Medir la profundidad del libro y el coste de impacto de una orden en puntos básicos",
     "Relacionar el tamaño de una orden con el volumen diario"
   ],
   "concepts": ["libro-ordenes"],
@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Ya sabes",
-      "text": "De n1-u4: la horquilla es la diferencia entre la mejor venta y la mejor compra, una orden a mercado barre el libro a precios cada vez peores y trocear una orden grande reduce su impacto. Aquí lo medimos como un trader: en puntos básicos y frente al volumen."
+      "text": "De tus primeras lecciones de bolsa: la horquilla es la diferencia entre la mejor venta y la mejor compra, una orden a mercado barre el libro a precios cada vez peores y trocear una orden grande reduce su impacto. Aquí lo medimos como un trader: en puntos básicos y frente al volumen."
     },
     {
       "type": "visual",
@@ -33,7 +33,7 @@
     {
       "type": "card",
       "term": "Profundidad",
-      "text": "La profundidad es cuánto dinero hay en el libro cerca del punto medio: por ejemplo, cuántos euros de acciones hay a la venta hasta 10 pb por encima. Impacto = (precio medio − punto medio) / punto medio, en pb. Una orden que pesa mucho frente al volumen diario mueve más el precio."
+      "text": "La profundidad es cuánto dinero hay en el libro cerca del punto medio: por ejemplo, cuántos euros de acciones hay a la venta hasta 10 pb por encima. Coste de impacto = (precio medio − punto medio) / punto medio, en pb. Una orden que pesa mucho frente al volumen diario mueve más el precio."
     }
   ],
   "exercises": [
@@ -44,7 +44,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["libro-ordenes"],
-      "prompt": "Una acción ficticia tiene un punto medio de {mid} €. Una compra grande se ejecuta a un precio medio de {avg} €. ¿Cuál ha sido su impacto, (precio medio − punto medio) / punto medio? (pb, 2 decimales)",
+      "prompt": "Una acción ficticia tiene un punto medio de {mid} €. Una compra grande se ejecuta a un precio medio de {avg} €. ¿Cuál ha sido su coste de impacto, (precio medio − punto medio) / punto medio? (pb, 2 decimales)",
       "answer": 37.5,
       "unit": "pb",
       "tolerance": 0.3,
@@ -137,7 +137,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["libro-ordenes"],
-      "prompt": "Un fondo quiere comprar {q} acciones de una empresa ficticia sin superar el {r} % del volumen de cada día, que es de {adv} acciones. ¿Cuántos días necesita, como mínimo? (días, 2 decimales)",
+      "prompt": "Un fondo quiere comprar {q} acciones de una empresa ficticia sin superar el {r} % del volumen de cada día, que es de {adv} acciones. ¿Cuántos días de negociación supone la orden a ese ritmo? (días, 2 decimales)",
       "answer": 2.5,
       "unit": "días",
       "tolerance": 1,
@@ -147,7 +147,7 @@
       "params": {
         "q": {
           "value": 100000,
-          "min": 50000,
+          "min": 100000,
           "max": 300000,
           "step": 10000,
           "decimals": 0
@@ -272,7 +272,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["libro-ordenes"],
-      "prompt": "Dos órdenes de 100.000 € en dos acciones ficticias: la A negocia 50 millones al día y la B, 500.000 €. ¿Cuál tendrá más impacto?",
+      "prompt": "Dos órdenes de 100.000 € en dos acciones ficticias: la A negocia 50 millones al día y la B, 500.000 €. ¿Cuál tendrá más coste de impacto?",
       "options": [
         "La de la acción B: supone el 20 % de su volumen diario",
         "La de la acción A, porque es más grande",
@@ -294,7 +294,7 @@
       "bloom": "entender",
       "tags": [],
       "concepts": ["libro-ordenes"],
-      "statement": "El impacto de una orden se mide frente al punto medio de cuando se lanzó, no frente al último precio que ella misma ha provocado.",
+      "statement": "El coste de impacto de una orden se mide frente al punto medio de cuando se lanzó, no frente al último precio que ella misma ha provocado.",
       "answer": true,
       "explanation": "Verdadero: el punto medio de llegada es la referencia; el precio final ya incluye el impacto de la propia orden."
     }
