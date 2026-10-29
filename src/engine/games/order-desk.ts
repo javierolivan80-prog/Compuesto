@@ -150,6 +150,7 @@ export function deskValues(s: DeskSetup, a: DeskAnswer): Record<string, number> 
   return {
     mid: mid(s),
     half_c: s.halfC,
+    lit_c: s.halfC + s.sweepC,
     bid: bid(s),
     ask: ask(s),
     fill: fill(s),

@@ -91,13 +91,6 @@
       "formula": "{saving} * {p} / 100",
       "explanation": "{saving} € × {p} % = {answer} €: solo ahorras en la parte que se cruza.",
       "params": {
-        "saving": {
-          "value": 1200,
-          "min": 300,
-          "max": 4000,
-          "step": 100,
-          "decimals": 0
-        },
         "p": {
           "value": 60,
           "min": 30,
@@ -118,11 +111,22 @@
           "max": 50000,
           "step": 10000,
           "decimals": 0
+        },
+        "lit_c": {
+          "value": 6,
+          "min": 3,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
         }
       },
       "derived": {
+        "saving": {
+          "formula": "{qty} * {lit_c} / 100",
+          "decimals": 0
+        },
         "lit_avg": {
-          "formula": "{mid} + {saving} / {qty}",
+          "formula": "{mid} + {lit_c} / 100",
           "decimals": 2
         }
       }

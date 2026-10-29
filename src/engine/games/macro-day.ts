@@ -30,7 +30,15 @@ const r1 = (x: number) => Math.round(x * 10) / 10;
 
 export function setupMacro(seed: number): MacroSetup {
   if (seed === 0)
-    return { seed, cpiPrev: 112, cpiNow: 115.6, consensus: 2.9, pmi: 48.5, active: 24, unemployed: 2.76 };
+    return {
+      seed,
+      cpiPrev: 112,
+      cpiNow: 115.6,
+      consensus: 2.9,
+      pmi: 48.5,
+      active: 24,
+      unemployed: 2.76,
+    };
   const rnd = mulberry32(seed);
   const cpiPrev = pick(rnd, [104, 108, 112, 118]);
   const yoy = pick(rnd, [1.5, 2.5, 3.5, 4.5]);

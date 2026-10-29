@@ -10,7 +10,7 @@ Motor: `src/engine/games/order-desk.ts`. Interfaz: `src/features/games/OrderDesk
 - **Paso 4 (market maker):** con flujo informado (órdenes grandes en un sentido tras una noticia) ensancha la horquilla; con flujo equilibrado de minoristas, la mantiene. Opciones fijas: ensanchar, mantener y estrechar.
 - La semilla sortea punto medio (8 a 20 €), media horquilla (1 a 3 céntimos), barrido, deriva y bloque, siempre de forma que ninguna opción coincida con otra; comprobado en 10.000 semillas.
 - Nota: un cuarto por paso.
-- Cifras para la lección (`deskValues`): `mid`, `half_c` (media horquilla en céntimos), `bid`, `ask`, `fill`, `quoted_bp`, `effective_bp`, `mid5`, `realized_bp`, `impact_bp`, `qty`, `lit_avg`, `saving`, `informed` y `hits`.
+- Cifras para la lección (`deskValues`): `mid`, `half_c` (media horquilla en céntimos), `lit_c` (céntimos por acción del precio medio barriendo el libro sobre el punto medio: media horquilla + barrido), `bid`, `ask`, `fill`, `quoted_bp`, `effective_bp`, `mid5`, `realized_bp`, `impact_bp`, `qty`, `lit_avg`, `saving`, `informed` y `hits`.
 - Peor caso (`worst-seeds.ts`): semilla 96, acción a 15 €, bloque de 50.000 y realizada negativa.
 
 ## Verificación

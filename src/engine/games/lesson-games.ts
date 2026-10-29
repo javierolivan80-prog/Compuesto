@@ -595,6 +595,7 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
   'order-desk': {
     mid: [2, 2],
     half_c: [0, 0],
+    lit_c: [0, 0],
     bid: [2, 2],
     ask: [2, 2],
     fill: [2, 2],

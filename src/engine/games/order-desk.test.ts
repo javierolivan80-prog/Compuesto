@@ -67,6 +67,7 @@ describe('Mesa de órdenes (N5)', () => {
     expect(deskValues(s, best)).toEqual({
       mid: 10,
       half_c: 2,
+      lit_c: 6,
       bid: 9.98,
       ask: 10.02,
       fill: 10.03,
