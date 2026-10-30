@@ -1,8 +1,8 @@
 {
   "id": "n5-u2-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 2,
   "title": "VWAP, TWAP y precio de llegada",

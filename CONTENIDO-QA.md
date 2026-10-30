@@ -557,3 +557,15 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** en l1-e2 el ahorro sale de un número entero de céntimos, como en el motor: el juego expone `lit_c` (media horquilla + barrido) y la lección deriva `saving` y `lit_avg`.
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 6, 6 y 6 de 8, y 9 de 10. e2e de producción `n5u1.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, CNMV, ESMA, BME y SEC/CFTC) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n5-u2 — Subastas, fixing y costes reales de operar y lección-juego «Contra el VWAP» (30/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - test de salto: q7 pasa a ser numérica (las compras de un fondo indexado en la subasta de cierre), se intercambian q8 y q10 y el fixing pasa a la segunda fase. El coste de oportunidad, que se había perdido con el cambio, vuelve en q11, en lugar de la pregunta del VWAP, que ya cubre q2. q9 deja de repetir la cifra de l4-e5;
+    - l5-e3 deriva las acciones compradas de un porcentaje `f`, para que en el repaso siempre sean menos que las de la orden;
+    - l1-e5: la suscripción en una ampliación de capital no paga el impuesto, y cada elemento nombra la empresa, porque los elementos se barajan.
+  - Menores: se quita la frase final de la tarjeta «Precio de llegada» de l1; horarios de BME con final aleatorio (cierre de 17:30 a unos 17:35, fixing con subastas que terminan hacia las 12:00 y las 16:00, final de la subasta de volatilidad dentro de un margen de hasta 30 segundos).
+- **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 5, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n5u2.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier:
+  - el impuesto sobre las transacciones financieras (Ley 5/2020 y la lista anual de la AEAT) y los horarios y rangos de BME: comprobarlos en sus fuentes, que se citan por su URL raíz «(pendiente de verificar la ruta)», como las de la CNMV, la FCA y el CFA Institute.
