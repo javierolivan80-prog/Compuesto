@@ -24,12 +24,12 @@
     {
       "type": "card",
       "term": "Subasta de cierre",
-      "text": "En el mercado continuo español, de 17:30 a 17:35 hay subasta de cierre. Su precio es el precio de cierre: con él se calculan los índices y se valoran los fondos y las carteras. Por eso los fondos indexados concentran ahí sus compras y ventas, sobre todo los días en que cambia la composición de un índice."
+      "text": "En el mercado continuo español, de 17:30 a unos 17:35, con final aleatorio, hay subasta de cierre. Su precio es el precio de cierre: con él se calculan los índices y se valoran los fondos y las carteras. Por eso los fondos indexados concentran ahí sus compras y ventas, sobre todo cuando cambia la composición de un índice."
     },
     {
       "type": "card",
       "term": "Volatilidad y fixing",
-      "text": "Si una operación fuera a cruzarse fuera del rango estático o dinámico de un valor, la negociación continua se para y empieza una subasta de volatilidad de 5 minutos, con final aleatorio. Los valores poco líquidos negocian en fixing: solo dos subastas al día, que terminan a las 12:00 y a las 16:00."
+      "text": "Si una operación fuera a cruzarse fuera del rango estático o dinámico de un valor, la negociación continua se para y empieza una subasta de volatilidad de 5 minutos, con final aleatorio. Los valores poco líquidos negocian en fixing: solo dos subastas al día, que terminan hacia las 12:00 y las 16:00, con un final aleatorio."
     }
   ],
   "exercises": [
@@ -148,7 +148,7 @@
         "Una orden va a cruzarse fuera del rango del valor",
         "Se para la negociación continua de ese valor",
         "Durante 5 minutos entran y se modifican órdenes sin cruzarse",
-        "La subasta termina en un momento aleatorio de los 30 segundos finales",
+        "La subasta termina en un momento aleatorio, dentro de un margen de hasta 30 segundos",
         "Las órdenes se casan a un único precio y vuelve la negociación continua"
       ],
       "explanation": "Parar y subastar da tiempo a que lleguen órdenes de los dos lados y el precio se forme con más liquidez."

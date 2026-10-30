@@ -119,11 +119,11 @@
           "step": 10000,
           "decimals": 0
         },
-        "e": {
-          "value": 45000,
-          "min": 20000,
-          "max": 50000,
-          "step": 5000,
+        "f": {
+          "value": 75,
+          "min": 50,
+          "max": 90,
+          "step": 5,
           "decimals": 0
         },
         "d": {
@@ -142,6 +142,10 @@
         }
       },
       "derived": {
+        "e": {
+          "formula": "ROUND({q} * {f} / 100 / 1000, 0) * 1000",
+          "decimals": 0
+        },
         "c": {
           "formula": "{d} + {y} / 100",
           "decimals": 2

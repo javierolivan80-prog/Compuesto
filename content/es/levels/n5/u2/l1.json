@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Precio de llegada",
-      "text": "Pero cuando el cliente dio la orden, el precio era de {arrival} €. Frente a ese precio, tu implementation shortfall fue de {shortfall_bp} pb, porque el VWAP ya estaba {drift_bp} pb más arriba. Batir el VWAP no significa haber comprado barato."
+      "text": "Pero cuando el cliente dio la orden, el precio era de {arrival} €. Frente a ese precio, tu implementation shortfall fue de {shortfall_bp} pb, porque el VWAP ya estaba {drift_bp} pb más arriba."
     },
     {
       "type": "card",
@@ -276,19 +276,19 @@
           "category": "Lo paga"
         },
         {
-          "text": "Venta de esas mismas acciones",
+          "text": "Venta de acciones de una empresa española con 4.000 M€ de capitalización",
           "category": "No lo paga"
         },
         {
-          "text": "Compra de acciones de una empresa española con 400 M€ de capitalización",
+          "text": "Suscripción de acciones nuevas de una empresa española con 4.000 M€ de capitalización en una ampliación de capital",
           "category": "No lo paga"
         },
         {
-          "text": "Compra de las acciones de 4.000 M€ a través de un bróker de otro país",
+          "text": "Compra de acciones de una empresa española con 4.000 M€ de capitalización a través de un bróker de otro país",
           "category": "Lo paga"
         }
       ],
-      "explanation": "Grava las compras de acciones de empresas españolas cotizadas con más de 1.000 M€ de capitalización, sin importar desde dónde se opere; las ventas no tributan."
+      "explanation": "Grava las compras de acciones de empresas españolas cotizadas con más de 1.000 M€ de capitalización, sin importar desde dónde se opere; las ventas y las acciones nuevas de una ampliación no tributan."
     },
     {
       "id": "n5-u2-l1-e6",

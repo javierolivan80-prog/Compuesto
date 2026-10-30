@@ -1175,7 +1175,7 @@
     "level": 5,
     "prerequisites": ["subastas"],
     "unit": "n5-u2",
-    "description": "La subasta de cierre (17:30 a 17:35 en el mercado continuo) fija el precio de cierre, con el que se calculan índices y se valoran fondos. Si un precio fuera a salirse del rango estático o dinámico del valor, salta una subasta de volatilidad de 5 minutos. Los valores poco líquidos negocian en fixing: dos subastas al día. Un fixing es un precio de referencia."
+    "description": "La subasta de cierre (en el mercado continuo, de 17:30 a unos 17:35, con final aleatorio) fija el precio de cierre, con el que se calculan índices y se valoran fondos. Si un precio fuera a salirse del rango estático o dinámico del valor, salta una subasta de volatilidad de 5 minutos. Los valores poco líquidos negocian en fixing: dos subastas al día, que terminan hacia las 12:00 y las 16:00, con un final aleatorio. Un fixing es un precio de referencia."
   },
   {
     "id": "costes-reales-operar",
