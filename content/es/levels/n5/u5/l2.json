@@ -1,0 +1,318 @@
+{
+  "id": "n5-u5-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "title": "Análisis técnico con honestidad",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular medias móviles, momentum y el resultado de una regla técnica después de costes",
+    "Distinguir las herramientas con evidencia de las que no la tienen"
+  ],
+  "concepts": ["analisis-tecnico"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De la unidad anterior: un backtest se juzga por su valor esperado después de costes, por su estadístico t y por cuántas variantes se probaron antes de elegirlo. Con esas gafas miramos ahora el análisis técnico."
+    },
+    {
+      "type": "card",
+      "term": "Herramientas",
+      "text": "Soporte: precio en el que antes aparecieron compras que frenaron las caídas; resistencia: donde aparecieron ventas. Media móvil: la media de los últimos n cierres, que suaviza el precio. Momentum: comparar el precio con el de hace unos meses. Describen el pasado; no son leyes."
+    },
+    {
+      "type": "card",
+      "term": "Evidencia",
+      "text": "El momentum a 3-12 meses tiene evidencia académica en muchos mercados (Jegadeesh y Titman, 1993). La mayoría de figuras gráficas y reglas de cruce, probadas con rigor, no ganan al mercado después de costes, y las series aleatorias también dibujan figuras."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u5-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cerró las últimas cinco sesiones a {a} €, {b} €, {c} €, {d} € y {e} €. ¿Cuál es su media móvil de 5 sesiones? (€, 2 decimales)",
+      "answer": 10.4,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({a} + {b} + {c} + {d} + {e}) / 5",
+      "explanation": "({a} + {b} + {c} + {d} + {e}) / 5 = {answer} €.",
+      "params": {
+        "a": {
+          "value": 10.2,
+          "min": 8,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "b": {
+          "value": 10.4,
+          "min": 8,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "c": {
+          "value": 10.1,
+          "min": 8,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "d": {
+          "value": 10.6,
+          "min": 8,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "e": {
+          "value": 10.7,
+          "min": 8,
+          "max": 20,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cotiza hoy a {p} € y hace 12 meses cotizaba a {p0} €. ¿Cuál es su momentum a 12 meses? (%, 2 decimales; negativo si cae)",
+      "answer": 15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({p} / {p0} - 1) * 100",
+      "explanation": "({p} / {p0} − 1) = {answer} %.",
+      "params": {
+        "p0": {
+          "value": 12,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 115,
+          "min": 70,
+          "max": 150,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p": {
+          "formula": "{p0} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una regla de medias móviles ficticia ganó un {g} % bruto en su backtest con {n} operaciones, y cada una cuesta un {c} %. ¿Cuál es su rentabilidad neta? (%, 2 decimales; negativa si pierde)",
+      "answer": 8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{g} - {n} * {c}",
+      "explanation": "{g} − {n} × {c} = {answer} %.",
+      "params": {
+        "g": {
+          "value": 20,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 80,
+          "min": 20,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "c": {
+          "value": 0.15,
+          "min": 0.05,
+          "max": 0.3,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una regla ficticia gana un {g} % bruto al año y cada operación cuesta un {c} %. ¿Cuántas operaciones al año se comerían toda la ganancia? (operaciones, 1 decimal)",
+      "answer": 60,
+      "unit": "operaciones",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "{g} / {c}",
+      "explanation": "{g} / {c} = {answer} operaciones.",
+      "params": {
+        "g": {
+          "value": 18,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 0.3,
+          "min": 0.1,
+          "max": 0.5,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Para medir el momentum se suele saltar el último mes. Una acción ficticia cotizaba a {p12} € hace 12 meses y a {p1} € hace un mes. ¿Cuál es su momentum 12-1? (%, 2 decimales)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({p1} / {p12} - 1) * 100",
+      "explanation": "({p1} / {p12} − 1) = {answer} %.",
+      "params": {
+        "p12": {
+          "value": 11,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 120,
+          "min": 80,
+          "max": 150,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p12} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l2-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "¿Soporte o resistencia?",
+      "categories": ["Soporte", "Resistencia"],
+      "items": [
+        {
+          "text": "Precio en el que varias veces aparecieron compras y frenaron la caída",
+          "category": "Soporte"
+        },
+        {
+          "text": "Máximo anterior en el que la acción se dio la vuelta tres veces",
+          "category": "Resistencia"
+        },
+        {
+          "text": "Precio al que muchos compraron caro y ahora venden para salir sin perder",
+          "category": "Resistencia"
+        },
+        {
+          "text": "Precio en el que antes se acumularon compras de grandes fondos",
+          "category": "Soporte"
+        }
+      ],
+      "explanation": "Soporte: donde apareció demanda. Resistencia: donde apareció oferta."
+    },
+    {
+      "id": "n5-u5-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "character": "mentora",
+      "situation": "El becario rival ha encontrado un hombro-cabeza-hombro en el gráfico de una acción ficticia y quiere venderla en corto.",
+      "prompt": "¿Qué le dice tu mentora?",
+      "options": [
+        "Que una figura vista a ojo no es una ventaja: las series aleatorias también las dibujan, y antes de operar habría que medir si esa regla gana después de costes en muchos casos, sin elegirlos a dedo",
+        "Que el hombro-cabeza-hombro siempre funciona",
+        "Que en corto no hay riesgo",
+        "Que solo sirve en criptomonedas"
+      ],
+      "answer": 0,
+      "explanation": "Primero la evidencia, después la operación.",
+      "wrongExplanations": {
+        "1": "No hay figura que funcione siempre.",
+        "2": "En corto, la pérdida no tiene techo.",
+        "3": "No depende del activo."
+      }
+    },
+    {
+      "id": "n5-u5-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "statement": "Que una regla técnica haya ganado en un backtest antes de costes demuestra que funciona.",
+      "answer": false,
+      "explanation": "Falso: hay que restar los costes, contar las variantes probadas y probarla fuera de muestra."
+    }
+  ],
+  "realWorld": "Las plataformas de bolsa dibujan medias móviles, soportes y resistencias con un clic. Lo difícil no es dibujarlos, sino demostrar que ganan dinero después de costes. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Narasimhan Jegadeesh y Sheridan Titman, «Returns to Buying Winners and Selling Losers», The Journal of Finance, 1993 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity y Portfolio Management (eficiencia de mercado y anomalías) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

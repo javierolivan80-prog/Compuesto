@@ -131,7 +131,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `BinomialTree` | Valoración binomial | Árbol de un paso; la cartera réplica se construye y da el precio | Subida/bajada |
 | `DeltaSlope` | Delta | Tangente a la curva del precio de la opción que gira | Precio del subyacente |
 | `SwapFlows` | Swap de tipos | Flechas de pagos fijos y variables que se cruzan cada periodo | Euríbor |
-| `MarginCall` | Apalancamiento | La garantía baja con el precio hasta la línea de margin call | Apalancamiento |
+| `MarginCall` | Apalancamiento | La garantía baja con el precio hasta la línea de margin call (en los CFD a minoristas, el cierre al 50 % de la ESMA); se adelanta al nivel 5 para los CFD | Paso a paso (apalancamiento 1:1, 5:1, 10:1 y 30:1) |
 
 ### Nivel 8–9 — Profesional e historia
 | Explicador | Concepto | Qué se mueve | Manipulación |

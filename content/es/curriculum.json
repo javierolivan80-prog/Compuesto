@@ -233,6 +233,11 @@
           "id": "n5-u4",
           "name": "Probabilidad, valor esperado y contraste de hipótesis",
           "concepts": ["valor-esperado", "contraste-hipotesis"]
+        },
+        {
+          "id": "n5-u5",
+          "name": "Análisis técnico, eficiencia de mercado y por qué pierde el minorista",
+          "concepts": ["analisis-tecnico", "eficiencia-mercado", "perdida-minorista"]
         }
       ]
     },

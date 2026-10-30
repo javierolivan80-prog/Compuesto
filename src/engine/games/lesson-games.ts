@@ -74,6 +74,7 @@ import {
 import { explicitCost, setupVwap, shortfallBp, vwap, vwapValues } from './vwap-desk';
 import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './short-desk';
 import { edgeValues, ev, falsePositives, posterior, setupEdge, tStat } from './edge-test';
+import { loss as cfdLoss, net as taNet, patternValues, setupPattern } from './pattern-noise';
 import {
   nextRatio,
   phaseOf,
@@ -145,6 +146,7 @@ export const LESSON_GAMES = [
   'vwap-desk',
   'short-desk',
   'edge-test',
+  'pattern-noise',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -679,6 +681,21 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     posterior: [1, 1],
     hits: [0, 0],
   },
+  'pattern-noise': {
+    gross: [0, 2],
+    trades: [0, 0],
+    cost: [2, 2],
+    net: [0, 2],
+    best: [0, 0],
+    worst: [0, 0],
+    deposit: [0, 0],
+    lev: [0, 0],
+    move: [0, 1],
+    exposure: [0, 0],
+    loss: [0, 2],
+    loss_pct: [0, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1077,6 +1094,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           post: posterior(setup),
         }),
         edgeValues(setup, { ev: 0, t: 0, fp: 0, post: 0 }),
+      ];
+    }
+    case 'pattern-noise': {
+      // todo bien, y todo mal
+      const setup = setupPattern(seed);
+      return [
+        patternValues(setup, {
+          chart: 'unknown',
+          net: taNet(setup),
+          pick: 'momentum',
+          loss: cfdLoss(setup),
+        }),
+        patternValues(setup, { chart: 'a', net: 0, pick: 'none', loss: 0 }),
       ];
     }
   }

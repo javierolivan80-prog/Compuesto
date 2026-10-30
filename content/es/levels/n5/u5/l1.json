@@ -1,0 +1,299 @@
+{
+  "id": "n5-u5-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "order": 0,
+  "title": "Juego: ¿patrón o ruido?",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Distinguir un patrón con evidencia del ruido y calcular el resultado de una regla técnica después de costes",
+    "Calcular la pérdida de un CFD apalancado"
+  ],
+  "concepts": ["analisis-tecnico", "eficiencia-mercado", "perdida-minorista"],
+  "companies": [
+    "naranjas-del-turia",
+    "pirineo-energia",
+    "mediterranea-de-navieras",
+    "tramuntana-retail"
+  ],
+  "historical": false,
+  "game": {
+    "kind": "pattern-noise",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Patrón o ruido",
+      "text": "Acertaste {hits} de 4. Las dos series eran paseos aleatorios y no se distinguían. Y el cruce de medias móviles ganó un {gross} % bruto, pero con {trades} operaciones a un {cost} % cada una se quedó en un {net} % neto."
+    },
+    {
+      "type": "card",
+      "term": "Momentum",
+      "text": "Entre las cuatro acciones, la mejor subió un {best} % en 12 meses y la peor, un {worst} %. El momentum compra la primera y vende la segunda: tiene evidencia académica, pero también costes y caídas bruscas."
+    },
+    {
+      "type": "card",
+      "term": "CFD",
+      "text": "Con {deposit} € de garantía y un apalancamiento de {lev}:1, la exposición era de {exposure} €: una caída del {move} % costó {loss} €, el {loss_pct} % de la garantía."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u5-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Tu cruce de medias móviles ganó un {gross} % bruto con {trades} operaciones que cuestan un {cost} % cada una. Si la regla operara la mitad de veces con la misma rentabilidad bruta, ¿cuántos puntos de rentabilidad ahorraría en costes? (puntos, 2 decimales)",
+      "answer": 7.5,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{trades} / 2 * {cost}",
+      "explanation": "{trades} / 2 × {cost} = {answer} puntos: operar menos ahorra costes.",
+      "params": {
+        "gross": {
+          "value": 18,
+          "min": 12,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        },
+        "trades": {
+          "value": 60,
+          "min": 40,
+          "max": 120,
+          "step": 20,
+          "decimals": 0
+        },
+        "cost": {
+          "value": 0.25,
+          "min": 0.1,
+          "max": 0.3,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Con esa rentabilidad bruta del {gross} % y {trades} operaciones, ¿qué coste por operación se comería toda la ganancia? (pb, 2 decimales)",
+      "answer": 30,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{gross} / {trades} * 100",
+      "explanation": "{gross} % / {trades} = {answer} pb por operación: con costes así, la regla no gana nada.",
+      "params": {
+        "gross": {
+          "value": 18,
+          "min": 12,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        },
+        "trades": {
+          "value": 60,
+          "min": 40,
+          "max": 120,
+          "step": 20,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Con un apalancamiento de {lev}:1, ¿qué caída del activo bastaría para perder la mitad de la garantía, el punto en el que el proveedor cierra la posición? (%, 2 decimales)",
+      "answer": 2.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "50 / {lev}",
+      "explanation": "50 % / {lev} = {answer} %: cuanto más apalancamiento, menos margen de error.",
+      "params": {
+        "lev": {
+          "value": 20,
+          "min": 5,
+          "max": 30,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una estrategia de momentum pone {v} € en la acción ganadora y vende en corto {v} € de la perdedora. En los meses siguientes, la ganadora sube un {x} % y la perdedora baja un {y} %. ¿Cuánto gana, sin costes? (€)",
+      "answer": 1500,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{v} * ({x} + {y}) / 100",
+      "explanation": "{v} × ({x} + {y}) % = {answer} €.",
+      "params": {
+        "v": {
+          "value": 15000,
+          "min": 5000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "x": {
+          "value": 6,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "y": {
+          "value": 4,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "¿Tiene evidencia académica sólida o no?",
+      "categories": ["Evidencia sólida", "Sin evidencia sólida tras costes"],
+      "items": [
+        {
+          "text": "Las acciones que más han subido en 3 a 12 meses siguen algo mejor unos meses",
+          "category": "Evidencia sólida"
+        },
+        {
+          "text": "Comprar cuando aparece un hombro-cabeza-hombro invertido",
+          "category": "Sin evidencia sólida tras costes"
+        },
+        {
+          "text": "Que un soporte trazado a mano frene siempre la caída",
+          "category": "Sin evidencia sólida tras costes"
+        },
+        {
+          "text": "Un cruce de medias que opera cada pocos días",
+          "category": "Sin evidencia sólida tras costes"
+        }
+      ],
+      "explanation": "El momentum es una de las pocas regularidades técnicas con evidencia; la mayoría de figuras no superan los costes."
+    },
+    {
+      "id": "n5-u5-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "character": "compliance",
+      "situation": "Un cliente minorista quiere abrir un CFD a 30:1 porque ha visto «un patrón clarísimo» en un gráfico.",
+      "prompt": "¿Qué le recuerda la compliance officer?",
+      "options": [
+        "Que el CFD es un producto complejo y apalancado, que hay que evaluar si lo entiende, que debe leer la advertencia con el porcentaje de cuentas minoristas que pierden y que un patrón visto a ojo no es una ventaja demostrada",
+        "Que con un patrón claro el riesgo desaparece",
+        "Que a 30:1 no se puede perder dinero",
+        "Que los CFD están prohibidos en España"
+      ],
+      "answer": 0,
+      "explanation": "Producto complejo, apalancamiento alto y una señal sin evidencia: tres alarmas.",
+      "wrongExplanations": {
+        "1": "Los gráficos aleatorios también dibujan patrones.",
+        "2": "A 30:1, un 1,67 % en contra se come media garantía.",
+        "3": "Están permitidos, con límites y advertencias."
+      }
+    },
+    {
+      "id": "n5-u5-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "statement": "Una serie generada lanzando una moneda puede dibujar figuras como un doble suelo o una tendencia.",
+      "answer": true,
+      "explanation": "Verdadero: el azar crea rachas, suelos y techos que parecen patrones."
+    },
+    {
+      "id": "n5-u5-l1-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Si el apalancamiento hubiera sido de {lev2}:1, ¿qué parte de la garantía habría costado la misma caída del {move} %? (% de la garantía, 2 decimales)",
+      "answer": 6,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{lev2} * {move}",
+      "explanation": "{lev2} × {move} % = {answer} % de la garantía.",
+      "params": {
+        "lev2": {
+          "value": 3,
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        },
+        "move": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    }
+  ],
+  "realWorld": "Las webs de los proveedores de CFD muestran, por obligación, el porcentaje de sus cuentas minoristas que pierden dinero. Búscalo antes de abrir una cuenta. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Narasimhan Jegadeesh y Sheridan Titman, «Returns to Buying Winners and Selling Losers», The Journal of Finance, 1993 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo y advertencia de riesgo (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, medidas sobre CFD para minoristas (2019) y advertencias sobre productos apalancados (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity y Portfolio Management (eficiencia de mercado y anomalías) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-30"
+}

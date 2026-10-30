@@ -1,0 +1,290 @@
+{
+  "id": "n5-u5-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "title": "Sesgo de supervivencia y anomalías que se van",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el sesgo de supervivencia de una media y la rentabilidad de una anomalía tras publicarse",
+    "Reconocer el sesgo de supervivencia y el data snooping en un estudio"
+  ],
+  "concepts": ["analisis-tecnico", "eficiencia-mercado"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Supervivencia",
+      "text": "Si estudias solo las empresas o los fondos que siguen existiendo, olvidas los que quebraron o se cerraron, que solían ser los peores. La media de los supervivientes sale mejor que la de todos los que empezaron: es el sesgo de supervivencia."
+    },
+    {
+      "type": "card",
+      "term": "En los backtests",
+      "text": "Un backtest hecho con las acciones que hoy forman un índice ya sabe quién sobrevivió. Hay que usar los componentes que había en cada fecha, incluidas las empresas quebradas y las excluidas, o el resultado sale inflado."
+    },
+    {
+      "type": "card",
+      "term": "Anomalías que se van",
+      "text": "Cuando una anomalía se publica, muchos la explotan y su rentabilidad tiende a caer. Parte de lo que se medía era ruido, por data snooping, y parte desaparece al arbitrarse. Por eso hay que mirar los resultados fuera de muestra y después de su publicación."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u5-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "De {n} empresas ficticias que salieron a bolsa a la vez, {s} siguen cotizando con una rentabilidad media del {rs} %; el resto quebró y perdió un {rd} %. ¿Cuál es la rentabilidad media de todas? (%, 2 decimales; negativa si pierde)",
+      "answer": -4.8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({s} * {rs} - ({n} - {s}) * {rd}) / {n}",
+      "explanation": "({s} × {rs} − ({n} − {s}) × {rd}) / {n} = {answer} %.",
+      "params": {
+        "n": {
+          "value": 10,
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 8,
+          "min": 6,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        },
+        "rs": {
+          "value": 9,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "rd": {
+          "value": 60,
+          "min": 40,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "En ese mismo grupo ({s} supervivientes de {n}, con un {rs} % de media, y las quebradas con un −{rd} %), ¿cuántos puntos exagera la media de los supervivientes? (puntos, 2 decimales)",
+      "answer": 13.8,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rs} - ({s} * {rs} - ({n} - {s}) * {rd}) / {n}",
+      "explanation": "{rs} − la media de todas = {answer} puntos: es el sesgo de supervivencia.",
+      "params": {
+        "n": {
+          "value": 10,
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "s": {
+          "value": 8,
+          "min": 6,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        },
+        "rs": {
+          "value": 9,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "rd": {
+          "value": 60,
+          "min": 40,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "En una base de datos ficticia, el {f} % de los fondos se cerró en 10 años, y los cerrados rendían {d} puntos menos al año que los que sobrevivieron. ¿Cuántos puntos al año, más o menos, exagera la media de los supervivientes? (puntos, 3 decimales)",
+      "answer": 1.14,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{f} / 100 * {d}",
+      "explanation": "{f} % × {d} = {answer} puntos al año.",
+      "params": {
+        "f": {
+          "value": 38,
+          "min": 20,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una anomalía ficticia rendía un {r} % al año en el estudio que la descubrió. Si después de publicarse su rentabilidad cae un {k} %, ¿cuánto rinde? (%, 3 decimales)",
+      "answer": 2.52,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{r} * (1 - {k} / 100)",
+      "explanation": "{r} × (1 − {k} %) = {answer} %.",
+      "params": {
+        "r": {
+          "value": 6,
+          "min": 3,
+          "max": 10,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "k": {
+          "value": 58,
+          "min": 30,
+          "max": 70,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico", "eficiencia-mercado"],
+      "prompt": "¿Sesgo de supervivencia o data snooping?",
+      "categories": ["Sesgo de supervivencia", "Data snooping"],
+      "items": [
+        {
+          "text": "Estudiar solo los fondos que siguen abiertos",
+          "category": "Sesgo de supervivencia"
+        },
+        {
+          "text": "Probar 200 reglas y publicar la mejor",
+          "category": "Data snooping"
+        },
+        {
+          "text": "Hacer un backtest con las acciones que hoy están en el índice",
+          "category": "Sesgo de supervivencia"
+        },
+        {
+          "text": "Ajustar la ventana de la media móvil hasta que el resultado salga bien",
+          "category": "Data snooping"
+        }
+      ],
+      "explanation": "Supervivencia: falta parte de la muestra. Data snooping: se elige el resultado entre muchos."
+    },
+    {
+      "id": "n5-u5-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "character": "jefe",
+      "situation": "Una gestora ficticia anuncia: «El 90 % de nuestros fondos bate a su índice a 10 años». El becario rival quiere invertir en todos.",
+      "prompt": "¿Qué pregunta el jefe de la mesa antes de nada?",
+      "options": [
+        "Cuántos fondos tenía la gestora hace 10 años y cuántos cerró o fusionó por el camino: si los peores desaparecieron, el 90 % de los que quedan no dice mucho",
+        "Qué color tiene el logotipo de la gestora",
+        "Si los fondos cotizan en bolsa",
+        "Cuál es el fondo con el nombre más largo"
+      ],
+      "answer": 0,
+      "explanation": "Los fondos que se cierran suelen ser los que lo hicieron peor.",
+      "wrongExplanations": {
+        "1": "No tiene nada que ver con la rentabilidad.",
+        "2": "No cambia el sesgo.",
+        "3": "No es relevante."
+      }
+    },
+    {
+      "id": "n5-u5-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "¿Por qué muchas anomalías rinden menos después de publicarse?",
+      "options": [
+        "Porque parte era ruido encontrado a fuerza de buscar y, la parte real, muchos inversores la explotan y la reducen",
+        "Porque los supervisores las prohíben",
+        "Porque los índices cambian de nombre",
+        "Porque la publicación sube los costes de todas las acciones"
+      ],
+      "answer": 0,
+      "explanation": "Data snooping y arbitraje: las dos razones.",
+      "wrongExplanations": {
+        "1": "No se prohíben.",
+        "2": "No tiene relación.",
+        "3": "No es la razón."
+      }
+    },
+    {
+      "id": "n5-u5-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "statement": "Un backtest hecho con los valores que hoy forman un índice incluye las empresas que quebraron por el camino.",
+      "answer": false,
+      "explanation": "Falso: solo incluye las supervivientes, así que sale inflado por el sesgo de supervivencia."
+    }
+  ],
+  "realWorld": "Las bases de datos profesionales de fondos y acciones incluyen los fondos cerrados y las empresas excluidas precisamente para evitar el sesgo de supervivencia. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity y Portfolio Management (eficiencia de mercado y anomalías) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "S&P Dow Jones Indices, SPIVA Europe Scorecard (fondos de gestión activa frente a su índice) (pendiente de verificar la ruta)",
+      "url": "https://www.spglobal.com/spdji/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

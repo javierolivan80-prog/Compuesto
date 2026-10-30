@@ -1,0 +1,300 @@
+{
+  "id": "n5-u5-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "title": "Por qué pierde el inversor minorista",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste de la rotación y la pérdida de un CFD apalancado",
+    "Conocer las protecciones de la ESMA y la CNMV para los CFD de minoristas"
+  ],
+  "concepts": ["perdida-minorista"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Costes y rotación",
+      "text": "Barber y Odean (2000) estudiaron 66.465 hogares de un bróker estadounidense entre 1991 y 1996: los que más operaban obtuvieron un 11,4 % anual, frente al 17,9 % del mercado. Cada operación cuesta comisión, horquilla e impacto, y los minoristas que más operan suelen elegir peor."
+    },
+    {
+      "type": "visual",
+      "component": "MarginCall",
+      "props": {
+        "deposit": 1000,
+        "move": 2
+      }
+    },
+    {
+      "type": "card",
+      "term": "CFD",
+      "text": "Un CFD replica un precio con apalancamiento. Desde 2018-2019, la ESMA y la CNMV limitan el apalancamiento de los minoristas (de 30:1 a 2:1), cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden, que suele estar entre el 70 y el 80 %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u5-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Un inversor ficticio tiene {c} € en acciones y las rota un {r} % al año. Cada compraventa le cuesta un {k} % de lo que mueve. ¿Cuánto pierde al año en costes? (€, 2 decimales)",
+      "answer": 200,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} * {r} / 100 * {k} / 100",
+      "explanation": "{c} × {r} % × {k} % = {answer} €.",
+      "params": {
+        "c": {
+          "value": 20000,
+          "min": 5000,
+          "max": 100000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 200,
+          "min": 50,
+          "max": 400,
+          "step": 50,
+          "decimals": 0
+        },
+        "k": {
+          "value": 0.5,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Con {c} €, un inversor que obtiene el {m} % anual del mercado frente a otro que, por costes y rotación, obtiene un {t} %, ¿cuántos € más tendrá el primero dentro de {n} años? (€, 2 decimales)",
+      "answer": 6786.81,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} * ((1 + {m} / 100) ^ {n} - (1 + {t} / 100) ^ {n})",
+      "explanation": "{c} × ((1 + {m} %)^{n} − (1 + {t} %)^{n}) = {answer} €: las diferencias pequeñas se componen.",
+      "params": {
+        "c": {
+          "value": 10000,
+          "min": 5000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "m": {
+          "value": 8,
+          "min": 6,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "t": {
+          "value": 4,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 10,
+          "min": 5,
+          "max": 30,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Un minorista abre un CFD con {d} € de garantía y un apalancamiento de {l}:1, y el activo cae un {m} %. ¿Cuánto pierde? (€, 2 decimales)",
+      "answer": 300,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{d} * {l} * {m} / 100",
+      "explanation": "{d} × {l} × {m} % = {answer} €, el {l} × {m} % de su garantía.",
+      "params": {
+        "d": {
+          "value": 1000,
+          "min": 500,
+          "max": 5000,
+          "step": 500,
+          "decimals": 0
+        },
+        "l": {
+          "value": 10,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "m": {
+          "value": 3,
+          "min": 1,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Con un apalancamiento de {l}:1, ¿qué caída del activo hace perder la mitad de la garantía, el punto en el que el proveedor de CFD cierra la posición? (%, 2 decimales)",
+      "answer": 2.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "50 / {l}",
+      "explanation": "50 % / {l} = {answer} %.",
+      "params": {
+        "l": {
+          "value": 20,
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Un proveedor ficticio de CFD tiene {n} cuentas minoristas y su advertencia dice que el {p} % pierde dinero. ¿Cuántas cuentas pierden? (cuentas)",
+      "answer": 1520,
+      "unit": "cuentas",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * {p} / 100",
+      "explanation": "{n} × {p} % = {answer} cuentas.",
+      "params": {
+        "n": {
+          "value": 2000,
+          "min": 1000,
+          "max": 10000,
+          "step": 500,
+          "decimals": 0
+        },
+        "p": {
+          "value": 76,
+          "min": 70,
+          "max": 80,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Para un CFD de un cliente minorista en la UE, ¿es una protección obligatoria o no existe?",
+      "categories": ["Protección obligatoria", "No existe"],
+      "items": [
+        {
+          "text": "Un límite de apalancamiento según el activo",
+          "category": "Protección obligatoria"
+        },
+        {
+          "text": "Cerrar la posición cuando la garantía cae a la mitad",
+          "category": "Protección obligatoria"
+        },
+        {
+          "text": "Una garantía de que el CFD gane dinero",
+          "category": "No existe"
+        },
+        {
+          "text": "No poder perder más de lo depositado en la cuenta",
+          "category": "Protección obligatoria"
+        }
+      ],
+      "explanation": "Las medidas limitan el daño; ninguna garantiza ganar."
+    },
+    {
+      "id": "n5-u5-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "character": "compliance",
+      "situation": "Un cliente pide que lo traten como inversor profesional para poder operar CFD con más apalancamiento que los límites de los minoristas.",
+      "prompt": "¿Qué le explica la compliance officer?",
+      "options": [
+        "Que solo puede pedirlo si cumple los requisitos de experiencia, frecuencia de operaciones y patrimonio que fija la normativa, y que al hacerlo pierde las protecciones de los minoristas",
+        "Que basta con pedirlo por correo",
+        "Que así no podrá perder dinero",
+        "Que los profesionales no pueden operar con CFD"
+      ],
+      "answer": 0,
+      "explanation": "Más apalancamiento a cambio de menos protección, y solo si se cumplen los requisitos.",
+      "wrongExplanations": {
+        "1": "Hay requisitos que se comprueban.",
+        "2": "Al contrario: pierde protecciones.",
+        "3": "Sí pueden, con otras reglas."
+      }
+    },
+    {
+      "id": "n5-u5-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "statement": "Con la protección de saldo negativo, un minorista no puede perder más dinero del que tiene depositado en su cuenta de CFD.",
+      "answer": true,
+      "explanation": "Verdadero: es una de las medidas de la ESMA y la CNMV para los minoristas."
+    }
+  ],
+  "realWorld": "Antes de operar con CFD, la web del proveedor y la CNMV muestran la advertencia de riesgo con el porcentaje de cuentas minoristas que pierden; la CNMV publica además avisos sobre entidades no autorizadas. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Brad M. Barber y Terrance Odean, «Trading Is Hazardous to Your Wealth», The Journal of Finance, 2000 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo y advertencia de riesgo (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, medidas sobre CFD para minoristas (2019) y advertencias sobre productos apalancados (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-30"
+}

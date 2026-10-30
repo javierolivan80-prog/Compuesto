@@ -57,6 +57,7 @@ import { OrderDeskGame } from '../games/OrderDeskGame';
 import { VwapDeskGame } from '../games/VwapDeskGame';
 import { ShortDeskGame } from '../games/ShortDeskGame';
 import { EdgeTestGame } from '../games/EdgeTestGame';
+import { PatternNoiseGame } from '../games/PatternNoiseGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -255,6 +256,7 @@ export function LessonScreen({
             'vwap-desk': VwapDeskGame,
             'short-desk': ShortDeskGame,
             'edge-test': EdgeTestGame,
+            'pattern-noise': PatternNoiseGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

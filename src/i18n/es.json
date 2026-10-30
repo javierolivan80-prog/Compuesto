@@ -2131,5 +2131,68 @@
   },
   "expectedValue": {
     "title": "El valor esperado se impone con el tiempo"
+  },
+  "patternNoiseGame": {
+    "title": "¿Patrón o ruido?",
+    "step": {
+      "chart": "Paso 1 de 4 · el gráfico",
+      "net": "Paso 2 de 4 · las medias móviles",
+      "momentum": "Paso 3 de 4 · el momentum",
+      "cfd": "Paso 4 de 4 · el CFD"
+    },
+    "seriesA": "Serie A",
+    "seriesB": "Serie B",
+    "chartAria": "{{label}}: 60 sesiones, empieza en {{first}} y acaba en {{last}}, entre {{lo}} y {{hi}}.",
+    "briefChart": "Planta 4 de Albufera Partners. El becario rival jura que ve «un doble suelo de libro» en una acción ficticia. Una de estas dos series es esa acción y la otra sale de lanzar una moneda: cada día, cara sube un 1 % y cruz baja un 1 %.",
+    "askChart": "¿Cuál es la de la moneda?",
+    "chart": {
+      "a": "La serie A",
+      "b": "La serie B",
+      "unknown": "No se distinguen a simple vista"
+    },
+    "whyChart": "No se distinguen: la acción ficticia también es un paseo aleatorio, y una serie aleatoria dibuja tendencias, suelos y techos que parecen patrones. Por eso un patrón gráfico no prueba nada hasta medir si, después de costes, gana más que el azar.",
+    "briefNet": "El becario prueba un cruce de medias móviles: compra cuando la media de 20 sesiones cruza por encima de la de 50 y vende cuando cruza por debajo. El backtest ganó bastante, antes de costes. Cada operación, entre comisiones, horquilla e impacto, cuesta un porcentaje.",
+    "askNet": "¿Cuánto ganó de verdad, después de costes?",
+    "whyNet": "{{gross}} − {{trades}} × {{cost}} = {{v}}. Muchas reglas técnicas ganan algo en bruto y lo pierden en costes: cuantas más operaciones, más pesa cada una.",
+    "briefMomentum": "La mentora te habla del momentum, una de las pocas regularidades del análisis técnico con evidencia académica (Jegadeesh y Titman, 1993): las acciones que más han subido en los últimos 3 a 12 meses tienden a seguir haciéndolo algo mejor durante unos meses. Rentabilidad de cuatro acciones ficticias en los últimos 12 meses:",
+    "askMomentum": "¿Qué hace una estrategia de momentum?",
+    "pick": {
+      "momentum": "Comprar {{best}} y vender en corto {{worst}}",
+      "reversal": "Comprar {{worst}} y vender en corto {{best}}",
+      "none": "Nada: el pasado no dice nada del futuro"
+    },
+    "whyMomentum": "Compra la ganadora ({{best}}) y vende la perdedora ({{worst}}). Es una anomalía que contradice la forma débil de eficiencia, pero no es gratis: rota mucho, tiene costes y a veces se hunde de golpe, como en 2009.",
+    "briefCfd": "Un cliente minorista abre un CFD sobre un índice ficticio con {{deposit}} de garantía y un apalancamiento de {{lev}}:1. El índice cae un {{move}}.",
+    "askCfd": "¿Cuánto pierde?",
+    "whyCfd": "La exposición es {{exposure}}; una caída del {{move}} son {{v}}, el {{share}} de su garantía. El apalancamiento multiplica las ganancias y las pérdidas: por eso los proveedores deben avisar del porcentaje de cuentas minoristas que pierden dinero con sus CFD.",
+    "board": {
+      "gross": "Rentabilidad bruta del backtest",
+      "trades": "Operaciones",
+      "cost": "Coste por operación",
+      "deposit": "Garantía",
+      "lev": "Apalancamiento",
+      "move": "Movimiento del índice"
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre del análisis",
+    "row": {
+      "chart": "Patrón o ruido",
+      "net": "Después de costes",
+      "momentum": "Momentum",
+      "cfd": "CFD"
+    },
+    "great": "Análisis impecable: separas el patrón del ruido y no te deslumbra el apalancamiento.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el azar en los gráficos, los costes, el momentum y el apalancamiento.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "marginCall": {
+    "title": "El apalancamiento multiplica las pérdidas",
+    "closeOut": "Cierre al 50 %",
+    "left": "queda"
   }
 }

@@ -1,0 +1,282 @@
+{
+  "id": "n5-u5-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "title": "Eficiencia de mercado y anomalías",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular una rentabilidad anormal y relacionarla con las formas de eficiencia",
+    "Explicar qué es una anomalía y por qué ganar al mercado es difícil"
+  ],
+  "concepts": ["eficiencia-mercado"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Mercado eficiente",
+      "text": "Un mercado es eficiente si los precios reflejan la información disponible (Fama, 1970). Forma débil: la de los precios pasados, así que el análisis técnico no da ventaja. Semifuerte: toda la información pública, así que tampoco el análisis de cuentas. Fuerte: también la privada."
+    },
+    {
+      "type": "card",
+      "term": "Anomalías",
+      "text": "Hay regularidades que chocan con la eficiencia: el momentum, el efecto valor, la deriva de los precios después de unos resultados sorpresa. Algunas se debilitan tras publicarse; otras pueden ser una compensación por riesgo o costar más de lo que dan después de costes."
+    },
+    {
+      "type": "card",
+      "term": "Por qué importa",
+      "text": "Aunque no sea perfecta, la eficiencia es una hipótesis de partida razonable: ganar al mercado de forma sostenida, después de costes, es difícil. Por eso la mayoría de los fondos de gestión activa no bate a su índice a largo plazo."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u5-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "El día de una noticia, una acción ficticia sube un {r} %, el mercado sube un {m} % y la beta de la acción es {b}. ¿Cuál es su rentabilidad anormal, r − beta × mercado? (%, 2 decimales)",
+      "answer": 2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{r} - {b} * {m}",
+      "explanation": "{r} − {b} × {m} = {answer} %: la parte que se debe a la noticia.",
+      "params": {
+        "r": {
+          "value": 3.2,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "m": {
+          "value": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "b": {
+          "value": 1.2,
+          "min": 0.6,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Tras un anuncio público, una acción ficticia sube {t} céntimos en total, y {f} céntimos de esa subida llegan en los primeros cinco minutos. ¿Qué porcentaje del movimiento llega en esos minutos? (%, 2 decimales)",
+      "answer": 90,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{f} / {t} * 100",
+      "explanation": "{f} / {t} = {answer} %: el precio incorpora casi toda la noticia al instante, como predice la forma semifuerte.",
+      "params": {
+        "t": {
+          "value": 50,
+          "min": 46,
+          "max": 100,
+          "step": 2,
+          "decimals": 0
+        },
+        "f": {
+          "value": 45,
+          "min": 20,
+          "max": 45,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Un fondo ficticio de gestión activa bate a su índice en un {a} % al año antes de comisiones y cobra un {c} % al año. ¿Cuánto le gana o le pierde al índice después de comisiones? (puntos, 2 decimales; negativo si pierde)",
+      "answer": -0.7,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{a} - {c}",
+      "explanation": "{a} − {c} = {answer} puntos: muchas ventajas brutas se quedan en las comisiones.",
+      "params": {
+        "a": {
+          "value": 0.8,
+          "min": 0.2,
+          "max": 1.2,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "c": {
+          "value": 1.5,
+          "min": 1.3,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "La rentabilidad anormal de una acción ficticia fue de un {d0} % el día de un anuncio, un {d1} % al día siguiente y un {d2} % el tercer día. ¿Cuál es la rentabilidad anormal acumulada? (%, 2 decimales)",
+      "answer": 2.2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{d0} + {d1} + {d2}",
+      "explanation": "{d0} + {d1} + {d2} = {answer} %.",
+      "params": {
+        "d0": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "d1": {
+          "value": 0.5,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "d2": {
+          "value": -0.3,
+          "min": -0.5,
+          "max": -0.1,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u5-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "¿Qué forma de eficiencia contradiría cada caso?",
+      "categories": ["Débil", "Semifuerte", "Fuerte"],
+      "items": [
+        {
+          "text": "Una regla de medias móviles gana tras costes de forma persistente",
+          "category": "Débil"
+        },
+        {
+          "text": "Comprar tras unos buenos resultados públicos da rentabilidad anormal durante semanas",
+          "category": "Semifuerte"
+        },
+        {
+          "text": "Los consejeros ganan comprando antes de anunciar una fusión",
+          "category": "Fuerte"
+        },
+        {
+          "text": "Analizar las cuentas públicas bate al mercado de forma sistemática",
+          "category": "Semifuerte"
+        }
+      ],
+      "explanation": "Débil: precios pasados. Semifuerte: información pública. Fuerte: también la privada (que, además, no se puede usar legalmente)."
+    },
+    {
+      "id": "n5-u5-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "character": "mentora",
+      "situation": "El becario rival dice: «Si los mercados fueran eficientes, nadie se molestaría en analizar empresas».",
+      "prompt": "¿Qué le responde tu mentora?",
+      "options": [
+        "Que es justo al revés: los precios son eficientes porque muchos analizan y operan con la información; si nadie lo hiciera, aparecerían oportunidades. La recompensa existe, pero es pequeña y se la llevan quienes tienen ventaja de costes o de información",
+        "Que tiene razón: el análisis no sirve para nada",
+        "Que los mercados son eficientes solo los lunes",
+        "Que el análisis sirve para predecir el precio exacto"
+      ],
+      "answer": 0,
+      "explanation": "La eficiencia es el resultado de que muchos busquen ineficiencias.",
+      "wrongExplanations": {
+        "1": "Sin análisis, los precios dejarían de ser eficientes.",
+        "2": "La eficiencia no depende del día.",
+        "3": "Nadie predice el precio exacto."
+      }
+    },
+    {
+      "id": "n5-u5-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "¿Qué dice la forma semifuerte de la hipótesis de mercado eficiente?",
+      "options": [
+        "Que los precios reflejan toda la información pública, así que analizarla no da ventaja de forma sistemática",
+        "Que los precios reflejan incluso la información privada",
+        "Que los precios nunca cambian",
+        "Que el análisis técnico funciona, pero el fundamental no"
+      ],
+      "answer": 0,
+      "explanation": "Semifuerte = toda la información pública.",
+      "wrongExplanations": {
+        "1": "Eso es la forma fuerte.",
+        "2": "Cambian cuando llega información nueva.",
+        "3": "Si la semifuerte se cumple, tampoco funciona el técnico."
+      }
+    },
+    {
+      "id": "n5-u5-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "statement": "Que un mercado sea eficiente significa que los precios aciertan siempre el valor futuro de las empresas.",
+      "answer": false,
+      "explanation": "Falso: significa que reflejan la información disponible; cuando llega información nueva, los precios cambian, y se equivocan a menudo."
+    }
+  ],
+  "realWorld": "Los informes SPIVA de S&P Dow Jones Indices comparan cada año los fondos de gestión activa con su índice, también en Europa y en España. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Eugene F. Fama, «Efficient Capital Markets: A Review of Theory and Empirical Work», The Journal of Finance, 1970 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "S&P Dow Jones Indices, SPIVA Europe Scorecard (fondos de gestión activa frente a su índice) (pendiente de verificar la ruta)",
+      "url": "https://www.spglobal.com/spdji/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity y Portfolio Management (eficiencia de mercado y anomalías) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

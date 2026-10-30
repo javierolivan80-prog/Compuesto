@@ -63,6 +63,7 @@ import {
   setupEdge,
   tStat as etT,
 } from '../src/engine/games/edge-test';
+import { loss as pnLoss, net as pnNet, setupPattern } from '../src/engine/games/pattern-noise';
 import {
   carryReturn,
   currentAccount,
@@ -324,6 +325,34 @@ export async function playGameLesson(
       .getByRole('radio', {
         name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
         exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'pattern-noise') {
+    // referencia 0: no se distinguen, el neto, el momentum y la pérdida del CFD
+    await expect(page.getByRole('heading', { name: '¿Patrón o ruido?' })).toBeVisible();
+    const setup = setupPattern(seed);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    await page.getByRole('radio', { name: 'No se distinguen a simple vista' }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const n = pnNet(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(
+          `^${n < 0 ? '−' : ''}${esc(formatNumber(Math.abs(n), Number.isInteger(n) ? 0 : 2))}\\s%$`,
+        ),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: /^Comprar .+ y vender en corto/ })
+      .first()
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const l = pnLoss(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${esc(formatNumber(l, Number.isInteger(l) ? 0 : 2))}\\s€$`),
       })
       .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();

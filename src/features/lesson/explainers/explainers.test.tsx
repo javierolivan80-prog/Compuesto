@@ -186,6 +186,14 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('MarginCall: la misma caída pesa más con más apalancamiento, hasta el cierre al 50 %', () => {
+    render(<ExplainerBlock component="MarginCall" props={{ deposit: 1000, move: 2 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(
+      /sin apalancamiento se pierde el 2\s%; con 5:1, el 10\s%; con 10:1, el 20\s%/,
+    );
+    expect(text).toMatch(/con 30:1 se llega al cierre/);
+  });
   it('ExpectedValue: la banda de la media se estrecha con √n', () => {
     render(
       <ExplainerBlock

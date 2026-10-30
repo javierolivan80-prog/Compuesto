@@ -920,3 +920,20 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **Explicador:** `ExpectedValue`, del catálogo de ANIMACIONES (nivel 5), construido como un paso a paso del número de operaciones (1, 10, 100 y 1.000), con la banda de ±2 errores típicos alrededor del valor esperado.
 - **Convenciones:** «t > 2 equivale más o menos a un 5 % a dos colas» y «t ≈ Sharpe anual × √años con rentabilidades independientes» se presentan como aproximaciones (Lo, 2002). La propuesta de exigir t > 3 se atribuye a Harvey, Liu y Zhu (2016). Ambas fuentes van por su URL raíz «(pendiente de verificar la ruta)».
 - `curriculum.json` incorpora `n5-u4`.
+
+## 2026-10-30 — n5-u5 «Análisis técnico, eficiencia de mercado y por qué pierde el minorista» (draft)
+- **Enfoque:** análisis técnico contado con honestidad.
+  - Soportes, resistencias, medias móviles y momentum se presentan como descripciones del pasado.
+  - El momentum tiene evidencia (Jegadeesh y Titman, 1993); la mayoría de figuras y reglas no superan los costes, y las series aleatorias también dibujan figuras.
+  - Sesgo de supervivencia y anomalías que se debilitan al publicarse. El porcentaje de caída tras publicarse va como parámetro «si cae un k %», no como dato.
+  - Eficiencia de mercado en sus tres formas (Fama, 1970).
+- **Por qué pierde el minorista:**
+  - Barber y Odean (2000), con las cifras de su resumen: 66.465 hogares, 1991-1996, 11,4 % frente al 17,9 % del mercado.
+  - CFD: las medidas de la ESMA (2018) y de la CNMV (2019). Límites de 30:1 a 2:1, cierre al 50 %, protección de saldo negativo y advertencia obligatoria.
+  - El porcentaje de cuentas minoristas que pierden no se da como cifra exacta: «suele estar entre el 70 y el 80 %». Los ejemplos usan proveedores ficticios.
+  - Las lecciones con CFD y el test de salto llevan `verificarAntesDe` 2027-03-31.
+- **Nada de asesoramiento:** ejemplos ficticios, escenarios con compliance y la nota de cifras ficticias en realWorld.
+- **Juego:** «¿Patrón o ruido?» (`pattern-noise`, spec en `docs/specs/patron-o-ruido-n5.md`), un juego sencillo de cuatro pasos. La ficha 11 se reserva para n5-u6.
+- **Explicador:** `MarginCall`, del catálogo (nivel 7), se adelanta al nivel 5 para los CFD. Recorre paso a paso el apalancamiento (1:1, 5:1, 10:1 y 30:1) con la línea de cierre al 50 %. El de nivel 7 podrá reutilizarlo.
+- **Solape:** la tarjeta «Ya sabes» de l2 parte de n5-u4 (valor esperado, t y data snooping). Lo que es un CFD ya se vio en n2-u7, y aquí se va a sus límites y a la estadística de pérdidas.
+- `curriculum.json` incorpora `n5-u5`.

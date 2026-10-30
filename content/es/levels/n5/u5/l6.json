@@ -1,0 +1,224 @@
+{
+  "id": "n5-u5-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 5,
+  "title": "Jefe final: la mesa de los escépticos",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular medias móviles, momentum y resultados después de costes",
+    "Calcular rentabilidades anormales y el sesgo de supervivencia",
+    "Calcular la pérdida de un CFD y conocer las protecciones de los minoristas"
+  ],
+  "concepts": ["analisis-tecnico", "eficiencia-mercado", "perdida-minorista"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u5-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cerró las últimas cinco sesiones a 20,10 €, 20,50 €, 20,30 €, 20,90 € y 21,20 €. ¿Cuál es su media móvil de 5 sesiones? (€, 2 decimales)",
+      "answer": 20.6,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "(20.1 + 20.5 + 20.3 + 20.9 + 21.2) / 5",
+      "explanation": "103 / 5 = 20,60 €."
+    },
+    {
+      "id": "n5-u5-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cotizaba a 24 € hace 12 meses y a 28 € hace un mes. ¿Cuál es su momentum 12-1? (%, 2 decimales)",
+      "answer": 16.67,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(28 / 24 - 1) * 100",
+      "explanation": "28 / 24 − 1 = 16,67 %."
+    },
+    {
+      "id": "n5-u5-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una regla técnica ficticia gana un 22 % bruto con 80 operaciones que cuestan un 0,2 % cada una. ¿Cuál es su rentabilidad neta? (%)",
+      "answer": 6,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "22 - 80 * 0.2",
+      "explanation": "22 − 16 = 6 %."
+    },
+    {
+      "id": "n5-u5-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Una acción ficticia sube un 2,5 % el día de un anuncio; el mercado cae un 0,5 % y su beta es 0,8. ¿Cuál es su rentabilidad anormal? (%, 2 decimales)",
+      "answer": 2.9,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2.5 - 0.8 * (-0.5)",
+      "explanation": "2,5 − 0,8 × (−0,5) = 2,90 %."
+    },
+    {
+      "id": "n5-u5-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "De 10 empresas ficticias, 6 sobreviven con un +12 % y 4 quiebran con un −50 %. ¿Cuál es la rentabilidad media de todas? (%, 2 decimales)",
+      "answer": -12.8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(6 * 12 - 4 * 50) / 10",
+      "explanation": "(72 − 200) / 10 = −12,80 %."
+    },
+    {
+      "id": "n5-u5-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Un minorista abre un CFD con 3.000 € de garantía a 10:1 y el activo cae un 4 %. ¿Cuánto pierde? (€)",
+      "answer": 1200,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "3000 * 10 * 0.04",
+      "explanation": "30.000 × 4 % = 1.200 €, el 40 % de su garantía."
+    },
+    {
+      "id": "n5-u5-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "¿Qué forma de eficiencia contradiría cada caso?",
+      "categories": ["Débil", "Semifuerte", "Fuerte"],
+      "items": [
+        {
+          "text": "Comprar las acciones que acaban de romper una resistencia gana tras costes",
+          "category": "Débil"
+        },
+        {
+          "text": "Los precios tardan días en reaccionar a una ampliación de capital anunciada",
+          "category": "Semifuerte"
+        },
+        {
+          "text": "Un directivo gana con información de la empresa que aún no es pública",
+          "category": "Fuerte"
+        }
+      ],
+      "explanation": "Débil: precios pasados. Semifuerte: información pública. Fuerte: también la privada."
+    },
+    {
+      "id": "n5-u5-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["perdida-minorista"],
+      "character": "mentora",
+      "situation": "Un amigo del becario rival opera a diario con CFD a 20:1 y dice que «este año va ganando», tras tres meses.",
+      "prompt": "¿Qué le diría tu mentora?",
+      "options": [
+        "Que tres meses son muy pocos para separar suerte de habilidad, que a 20:1 una caída del 2,5 % se come media garantía y que la mayoría de cuentas minoristas pierde con CFD",
+        "Que si gana tres meses, ganará siempre",
+        "Que a 20:1 el riesgo es pequeño",
+        "Que los CFD no tienen costes"
+      ],
+      "answer": 0,
+      "explanation": "Pocos datos, mucho apalancamiento y una estadística en contra.",
+      "wrongExplanations": {
+        "1": "Una racha corta no prueba nada.",
+        "2": "El apalancamiento multiplica las pérdidas.",
+        "3": "Tienen horquilla, financiación y comisiones."
+      }
+    },
+    {
+      "id": "n5-u5-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Una gestora ficticia presume de que «el 85 % de sus fondos bate a su índice a 15 años», pero no dice cuántos cerró en ese tiempo. ¿Qué sesgo puede inflar esa cifra?",
+      "options": [
+        "El sesgo de supervivencia",
+        "El efecto momentum",
+        "La protección de saldo negativo",
+        "La forma fuerte de eficiencia"
+      ],
+      "answer": 0,
+      "explanation": "Los fondos que se cierran suelen ser los peores.",
+      "wrongExplanations": {
+        "1": "No tiene relación con los fondos cerrados.",
+        "2": "Es una protección de los CFD.",
+        "3": "No es un sesgo de medición."
+      }
+    },
+    {
+      "id": "n5-u5-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["analisis-tecnico"],
+      "statement": "El momentum es una de las pocas regularidades del análisis técnico con evidencia académica amplia.",
+      "answer": true,
+      "explanation": "Verdadero: está documentado en muchos mercados desde Jegadeesh y Titman (1993), aunque tiene costes y caídas bruscas."
+    }
+  ],
+  "realWorld": "En Albufera Partners, ninguna regla técnica entra en producción sin costes realistas, componentes del índice en cada fecha y una prueba fuera de muestra. Las cifras de los ejemplos son de acciones y estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Eugene F. Fama, «Efficient Capital Markets: A Review of Theory and Empirical Work», The Journal of Finance, 1970 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Narasimhan Jegadeesh y Sheridan Titman, «Returns to Buying Winners and Selling Losers», The Journal of Finance, 1993 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Brad M. Barber y Terrance Odean, «Trading Is Hazardous to Your Wealth», The Journal of Finance, 2000 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo y advertencia de riesgo (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity y Portfolio Management (eficiencia de mercado y anomalías) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31",
+  "lastReviewed": "2026-10-30"
+}

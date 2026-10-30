@@ -1,0 +1,228 @@
+{
+  "id": "salto-n5-u5",
+  "unitId": "n5-u5",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u5-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cerró las últimas cuatro sesiones a 8,00 €, 8,40 €, 8,20 € y 8,60 €. ¿Cuál es su media móvil de 4 sesiones? (€, 2 decimales)",
+      "answer": 8.3,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "(8 + 8.4 + 8.2 + 8.6) / 4",
+      "explanation": "33,2 / 4 = 8,30 €."
+    },
+    {
+      "id": "salto-n5-u5-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una regla técnica ficticia gana un 15 % bruto con 50 operaciones que cuestan un 0,2 % cada una. ¿Cuál es su rentabilidad neta? (%)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "15 - 50 * 0.2",
+      "explanation": "15 − 10 = 5 %."
+    },
+    {
+      "id": "salto-n5-u5-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Un minorista abre un CFD con 4.000 € de garantía a 5:1 y el activo cae un 3 %. ¿Cuánto pierde? (€)",
+      "answer": 600,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "4000 * 5 * 0.03",
+      "explanation": "20.000 × 3 % = 600 €."
+    },
+    {
+      "id": "salto-n5-u5-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "De 10 empresas ficticias, 9 sobreviven con un +5 % y 1 quiebra con un −80 %. ¿Cuál es la rentabilidad media de todas? (%, 2 decimales)",
+      "answer": -3.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(9 * 5 - 80) / 10",
+      "explanation": "(45 − 80) / 10 = −3,50 %."
+    },
+    {
+      "id": "salto-n5-u5-q5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "¿Qué forma de eficiencia contradiría cada caso?",
+      "categories": ["Débil", "Semifuerte", "Fuerte"],
+      "items": [
+        {
+          "text": "Comprar tras tres días seguidos de subidas gana tras costes",
+          "category": "Débil"
+        },
+        {
+          "text": "Una noticia pública tarda una semana en reflejarse en el precio",
+          "category": "Semifuerte"
+        },
+        {
+          "text": "Quien conoce una OPA antes de anunciarse gana comprando",
+          "category": "Fuerte"
+        }
+      ],
+      "explanation": "Débil: precios pasados. Semifuerte: información pública. Fuerte: también la privada."
+    },
+    {
+      "id": "salto-n5-u5-q6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["analisis-tecnico"],
+      "prompt": "Una acción ficticia cotizaba a 36 € hace 12 meses y a 45 € hace un mes. ¿Cuál es su momentum 12-1? (%)",
+      "answer": 25,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(45 / 36 - 1) * 100",
+      "explanation": "45 / 36 − 1 = 25 %."
+    },
+    {
+      "id": "salto-n5-u5-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "La web de un proveedor ficticio de CFD dice que «el 74 % de las cuentas de inversores minoristas pierde dinero». ¿Qué significa?",
+      "options": [
+        "Que de cada 100 cuentas minoristas que operaron con CFD en ese proveedor, unas 74 perdieron dinero",
+        "Que cada operación pierde un 74 %",
+        "Que el proveedor gana un 74 %",
+        "Que el apalancamiento máximo es 74:1"
+      ],
+      "answer": 0,
+      "explanation": "Es la advertencia obligatoria sobre las cuentas minoristas.",
+      "wrongExplanations": {
+        "1": "Es un porcentaje de cuentas, no de pérdida por operación.",
+        "2": "No habla de lo que gana el proveedor.",
+        "3": "No tiene que ver con el apalancamiento."
+      }
+    },
+    {
+      "id": "salto-n5-u5-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["analisis-tecnico"],
+      "statement": "Una serie de precios generada lanzando una moneda puede dibujar tendencias y figuras como las de los gráficos reales.",
+      "answer": true,
+      "explanation": "Verdadero: el azar crea rachas y figuras que parecen patrones."
+    },
+    {
+      "id": "salto-n5-u5-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Una acción ficticia sube un 4 % el día de un anuncio; el mercado sube un 2 % y su beta es 1,5. ¿Cuál es su rentabilidad anormal? (%)",
+      "answer": 1,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "4 - 1.5 * 2",
+      "explanation": "4 − 3 = 1 %."
+    },
+    {
+      "id": "salto-n5-u5-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Un estudio ficticio dice que los fondos de una categoría rindieron un 9 % anual en 10 años, pero solo incluye los que siguen abiertos. ¿Qué pasa con esa cifra?",
+      "options": [
+        "Probablemente exagera la rentabilidad, porque faltan los fondos cerrados, que solían ser los peores",
+        "Es exacta, porque los cerrados no cuentan",
+        "Subestima la rentabilidad",
+        "No cambia nada"
+      ],
+      "answer": 0,
+      "explanation": "Es el sesgo de supervivencia.",
+      "wrongExplanations": {
+        "1": "Los cerrados también tuvieron partícipes.",
+        "2": "Al revés: la exagera.",
+        "3": "Sí cambia: la media sube al quitar los peores."
+      }
+    },
+    {
+      "id": "salto-n5-u5-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Con un apalancamiento de 30:1, ¿qué caída del activo hace perder la mitad de la garantía, el punto de cierre de la posición? (%, 2 decimales)",
+      "answer": 1.67,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "50 / 30",
+      "explanation": "50 / 30 = 1,67 %."
+    },
+    {
+      "id": "salto-n5-u5-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "statement": "La forma fuerte de eficiencia dice que ni siquiera la información privada permite ganar al mercado de forma sistemática.",
+      "answer": true,
+      "explanation": "Verdadero: es la más exigente de las tres."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Eugene F. Fama, «Efficient Capital Markets: A Review of Theory and Empirical Work», The Journal of Finance, 1970 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Narasimhan Jegadeesh y Sheridan Titman, «Returns to Buying Winners and Selling Losers», The Journal of Finance, 1993 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, medidas sobre CFD para minoristas (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-03-31"
+}

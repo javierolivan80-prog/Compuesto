@@ -1197,19 +1197,25 @@
     "id": "analisis-tecnico",
     "name": "Análisis técnico con mirada crítica",
     "level": 5,
-    "prerequisites": ["formacion-precios"]
+    "prerequisites": ["formacion-precios"],
+    "unit": "n5-u5",
+    "description": "Soportes, resistencias, medias móviles y momentum describen el pasado del precio. El momentum a 3-12 meses tiene evidencia académica (Jegadeesh y Titman, 1993); la mayoría de figuras y reglas de cruce no ganan después de costes, las series aleatorias también dibujan figuras y los backtests sufren sesgo de supervivencia y data snooping."
   },
   {
     "id": "perdida-minorista",
     "name": "Por qué pierde el inversor minorista",
     "level": 5,
-    "prerequisites": ["analisis-tecnico"]
+    "prerequisites": ["analisis-tecnico"],
+    "unit": "n5-u5",
+    "description": "El minorista pierde por costes y rotación (Barber y Odean, 2000), por sesgos y por el apalancamiento. En los CFD, la ESMA y la CNMV limitan el apalancamiento, cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden, que suele estar entre el 70 y el 80 %."
   },
   {
     "id": "eficiencia-mercado",
     "name": "Eficiencia de mercado (débil, semifuerte, fuerte) y anomalías",
     "level": 5,
-    "prerequisites": ["formacion-precios", "valor-esperado"]
+    "prerequisites": ["formacion-precios", "valor-esperado"],
+    "unit": "n5-u5",
+    "description": "Un mercado es eficiente si los precios reflejan la información disponible (Fama, 1970): forma débil (precios pasados), semifuerte (información pública) y fuerte (también la privada). Las anomalías, como el momentum o la deriva tras resultados, chocan con ella, pero muchas se reducen tras publicarse o no sobreviven a los costes."
   },
   {
     "id": "stop-tamano",
