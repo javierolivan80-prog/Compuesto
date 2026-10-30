@@ -197,9 +197,9 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["eficiencia-mercado"],
-      "statement": "Si se cumple la forma débil de eficiencia, el análisis técnico basado en precios pasados no permite ganar al mercado de forma sistemática después de costes.",
+      "statement": "Muchas anomalías rinden menos después de publicarse.",
       "answer": true,
-      "explanation": "Verdadero: la forma débil dice que los precios ya reflejan la información de los precios pasados."
+      "explanation": "Verdadero: parte de lo que se medía era ruido encontrado a fuerza de buscar, y la parte real la explotan muchos inversores en cuanto se conoce, hasta reducirla."
     }
   ],
   "sources": [
