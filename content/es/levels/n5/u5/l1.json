@@ -1,8 +1,8 @@
 {
   "id": "n5-u5-l1",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 5,
   "order": 0,

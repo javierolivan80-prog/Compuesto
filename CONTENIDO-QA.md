@@ -594,3 +594,17 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
   - Menores: l2-e1 admite un valor esperado negativo y su explicación es neutra; l5-e2 parte de un Sharpe de 0,7 (8,16 años).
 - **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 7, 6 y 7 de 8, y 9 de 10. e2e de producción `n5u4.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, Lo, 2002, y Harvey, Liu y Zhu, 2016) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n5-u5 — Análisis técnico, eficiencia de mercado y por qué pierde el minorista y lección-juego «¿Patrón o ruido?» (30/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - el juego usa apalancamientos de 5:1 a 20:1 (el límite de la ESMA para índices principales es 20:1, y la escala va de 2:1 a 30:1 según el activo) y nunca un neto nulo (test de 10.000 semillas);
+    - el porcentaje de cuentas minoristas que pierden con CFD se da con la estimación de la ESMA de 2018, del 74 al 89 %, en la tarjeta de l5 y en el concepto;
+    - l5-e4 pide el mayor nivel de la escala de la ESMA que aguanta una caída sin pasar del cierre al 50 %;
+    - l5-e7: al menos dos de los requisitos de MiFID II (Anexo II) para que un minorista pase a profesional;
+    - test de salto: q8↔q9, el cierre al 50 % en la primera fase (q7↔q11), q10 sobre un backtest con los componentes actuales de un índice y q12 sobre la forma débil.
+  - Menores: parámetros acotados para respuestas siempre positivas (l2-e5, l3-e1, l3-e2); distractores verosímiles en l4-e6; tarjeta «Momentum» de l1; concepto de eficiencia en l4-e4 y l4-e7.
+- **Ronda 2:** q12 pasa a «Muchas anomalías rinden menos después de publicarse».
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 6, 6 y 7 de 8, y 9 de 10. e2e de producción `n5u5.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las cifras de Barber y Odean (2000), las medidas de la ESMA (2018) y de la CNMV (2019) sobre CFD y su estimación del 74 al 89 %, y el Anexo II de MiFID II. Las fuentes se citan por su URL raíz «(pendiente de verificar la ruta)».

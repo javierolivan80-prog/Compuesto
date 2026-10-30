@@ -2,8 +2,8 @@
   "id": "salto-n5-u5",
   "unitId": "n5-u5",
   "version": 2,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "questions": [
     {
       "id": "salto-n5-u5-q1",
