@@ -1189,7 +1189,9 @@
     "id": "cortos",
     "name": "Ventas en corto y préstamo de valores",
     "level": 5,
-    "prerequisites": ["accion"]
+    "prerequisites": ["accion"],
+    "unit": "n5-u3",
+    "description": "Vender en corto es vender acciones prestadas para recomprarlas más baratas: se paga una comisión de préstamo y el dividendo manufacturado, la ganancia máxima es el 100 % y la pérdida no tiene techo; si sube, llega el margin call, y con muchos días para cubrir hay riesgo de short squeeze. En la UE (Reglamento 236/2012) las ventas descubiertas están prohibidas y las posiciones cortas netas se notifican desde el 0,1 % del capital y se publican desde el 0,5 %. Sirven para cubrir, arbitrar y especular."
   },
   {
     "id": "analisis-tecnico",

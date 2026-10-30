@@ -1,0 +1,232 @@
+{
+  "id": "salto-n5-u3",
+  "unitId": "n5-u3",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u3-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Tomas prestadas 20.000 acciones de una empresa ficticia que cotizan a 10 €, con una comisión del 4 % anual (base 360), durante 30 días. ¿Cuánto pagas por el préstamo? (€, 2 decimales)",
+      "answer": 666.67,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "20000 * 10 * 0.04 * 30 / 360",
+      "explanation": "200.000 × 4 % × 30 / 360 = 666,67 €."
+    },
+    {
+      "id": "salto-n5-u3-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto 4.000 acciones ficticias a 50 € y las recompras a 44 €. Mientras tanto, la empresa paga un dividendo de 1 € por acción. ¿Cuál es el resultado, sin contar la comisión de préstamo? (€)",
+      "answer": 20000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "4000 * (50 - 44) - 4000 * 1",
+      "explanation": "24.000 − 4.000 de dividendo manufacturado = 20.000 €."
+    },
+    {
+      "id": "salto-n5-u3-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa ficticia tiene 4.800.000 acciones en corto y negocia 600.000 al día. ¿Cuántos días para cubrir hay? (días)",
+      "answer": 8,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 0,
+      "formula": "4800000 / 600000",
+      "explanation": "4.800.000 / 600.000 = 8 días."
+    },
+    {
+      "id": "salto-n5-u3-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo está corto de 90.000 acciones de una empresa española ficticia con 45.000.000 de acciones. ¿Qué porcentaje del capital supone? (%, 2 decimales)",
+      "answer": 0.2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "90000 / 45000000 * 100",
+      "explanation": "90.000 / 45.000.000 = 0,20 %."
+    },
+    {
+      "id": "salto-n5-u3-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo tiene una posición corta neta del 0,6 % del capital de una empresa española ficticia. ¿Qué obligación tiene?",
+      "options": [
+        "Notificarla a la CNMV, que la publica con su nombre",
+        "Ninguna",
+        "Notificarla, pero sin que se publique",
+        "Cerrarla, porque supera el máximo permitido"
+      ],
+      "answer": 0,
+      "explanation": "Desde el 0,1 % se notifica y desde el 0,5 % se publica.",
+      "wrongExplanations": {
+        "1": "Supera los dos umbrales.",
+        "2": "Desde el 0,5 % se publica.",
+        "3": "No hay un máximo: hay transparencia."
+      }
+    },
+    {
+      "id": "salto-n5-u3-q6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Para quien está corto, ¿es un coste o una ganancia?",
+      "categories": ["Coste", "Ganancia"],
+      "items": [
+        {
+          "text": "El préstamo de las acciones se encarece",
+          "category": "Coste"
+        },
+        {
+          "text": "La empresa anuncia un dividendo extraordinario",
+          "category": "Coste"
+        },
+        {
+          "text": "La acción cae tras unos malos resultados",
+          "category": "Ganancia"
+        },
+        {
+          "text": "Un short squeeze dispara la acción",
+          "category": "Coste"
+        }
+      ],
+      "explanation": "El corto gana si baja el precio; todo lo demás le cuesta."
+    },
+    {
+      "id": "salto-n5-u3-q7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto una acción ficticia a 50 € con una garantía del 150 % y un margen de mantenimiento del 25 %. ¿A qué precio llega el margin call? (€, 2 decimales)",
+      "answer": 60,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "50 * 1.5 / 1.25",
+      "explanation": "75 / 1,25 = 60,00 €."
+    },
+    {
+      "id": "salto-n5-u3-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "statement": "En la UE puedes vender en corto acciones sin haberlas tomado prestadas ni tener un acuerdo para tomarlas.",
+      "answer": false,
+      "explanation": "Falso: es una venta en corto descubierta, prohibida por el Reglamento (UE) 236/2012."
+    },
+    {
+      "id": "salto-n5-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo ficticio tiene una cartera de 5 millones de € con una beta de 0,9 frente al índice. ¿Cuántos millones del índice tiene que vender en corto para cubrirla? (millones de €, 2 decimales)",
+      "answer": 4.5,
+      "unit": "millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "5 * 0.9",
+      "explanation": "5 × 0,9 = 4,50 millones."
+    },
+    {
+      "id": "salto-n5-u3-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo bajista publica un informe contra una empresa ficticia en la que está corto. ¿Qué conviene hacer antes de creerlo o descartarlo?",
+      "options": [
+        "Contrastar sus datos con las cuentas, la auditoría y la CNMV, sabiendo que el fondo tiene interés en que la acción baje",
+        "Creerlo, porque los bajistas siempre aciertan",
+        "Descartarlo, porque quien está corto siempre miente",
+        "Fijarse solo en cuánto cae la acción"
+      ],
+      "answer": 0,
+      "explanation": "Un interés obliga a comprobar, no convierte en falso.",
+      "wrongExplanations": {
+        "1": "Pueden equivocarse o exagerar.",
+        "2": "A veces destapan fraudes reales.",
+        "3": "La caída no dice si tiene razón."
+      }
+    },
+    {
+      "id": "salto-n5-u3-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "prompt": "Compras 80.000 € de la acción ficticia A y vendes en corto 80.000 € de la B. El mercado cae: A baja un 5 % y B, un 9 %. ¿Cuánto ganas, sin costes? (€)",
+      "answer": 3200,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "80000 * (9 - 5) / 100",
+      "explanation": "80.000 × (9 − 5) % = 3.200 €."
+    },
+    {
+      "id": "salto-n5-u3-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["cortos"],
+      "statement": "La pérdida de una venta en corto no tiene un máximo.",
+      "answer": true,
+      "explanation": "Verdadero: el precio puede subir sin límite."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Reglamento (UE) n.º 236/2012 sobre las ventas en corto (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2022/27 de la Comisión: umbral de notificación del 0,1 % (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, ventas en corto: posiciones cortas netas y medidas temporales (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

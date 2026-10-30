@@ -2014,5 +2014,66 @@
   "costStack": {
     "title": "Lo que de verdad cuesta una compra",
     "legend": "Explícitos (en el extracto) · Implícitos (en el precio)"
+  },
+  "shortDeskGame": {
+    "title": "La posición corta",
+    "step": {
+      "fee": "Paso 1 de 4 · el préstamo de las acciones",
+      "pnl": "Paso 2 de 4 · el resultado",
+      "call": "Paso 3 de 4 · el margin call",
+      "duty": "Paso 4 de 4 · la CNMV"
+    },
+    "board": {
+      "qty": "Acciones prestadas",
+      "p0": "Precio de venta",
+      "p1": "Precio de recompra",
+      "rate": "Comisión de préstamo (anual)",
+      "days": "Días",
+      "div": "Dividendo por acción",
+      "fee": "Comisión de préstamo",
+      "collateral": "Garantía sobre lo vendido",
+      "mm": "Margen de mantenimiento"
+    },
+    "briefFee": "Planta 4 de Albufera Partners. La mesa cree que una acción ficticia está cara y abre una venta en corto: pide prestadas las acciones a un fondo y las vende. El prestamista cobra una comisión anual sobre el valor prestado, por los días que dure el préstamo (base 360).",
+    "askFee": "¿Cuánto cuesta el préstamo?",
+    "whyFee": "{{qty}} × {{p0}} × {{rate}} × {{days}} / 360 = {{v}}. Se paga por los días que dura el corto, no por un año entero, y sobre el valor de las acciones cuando se prestaron.",
+    "briefPnl": "Mientras dura el corto, la empresa reparte un dividendo de {{div}} por acción. Las acciones prestadas ya no están en manos del prestamista, así que el corto se lo paga a él: es el dividendo manufacturado. Después, la mesa recompra las acciones y las devuelve.",
+    "askPnl": "¿Cuál es el resultado final del corto?",
+    "whyPnl": "Venta menos recompra, {{gross}}, menos la comisión, {{fee}}, y menos el dividendo pagado al prestamista, {{div}}: {{v}}.",
+    "briefCall": "Ahora imagina que la acción sube. El bróker retiene como garantía lo que obtuviste al vender más un {{im}} de margen. Si lo que sobra de la garantía, después de descontar lo que valen las acciones que debes, baja del {{mm}} de ese valor (el margen de mantenimiento), llega el margin call: aportas más dinero o te cierran la posición.",
+    "askCall": "¿A qué precio llega el margin call?",
+    "whyCall": "La garantía, 1,5 × {{p0}} por acción, tiene que cubrir {{mm}} veces el precio: {{p0}} × 1,5 / {{mm}} = {{v}}. A {{wipe}} habrías perdido toda la garantía, y por encima pierdes más de lo que pusiste: en un corto, la pérdida no tiene techo.",
+    "briefDuty": "Un fondo cliente tiene una posición corta neta del {{pct}} del capital de una empresa española ficticia. Según el reglamento europeo de ventas en corto, ¿qué tiene que hacer?",
+    "askDuty": "¿Qué obligación tiene?",
+    "duty": {
+      "none": "Nada todavía",
+      "notify": "Notificarla a la CNMV",
+      "publish": "Notificarla, y la CNMV la publica"
+    },
+    "whyDuty": {
+      "none": "Con un {{pct}} está por debajo del 0,1 % del capital: aún no hay que notificar nada.",
+      "notify": "Con un {{pct}} supera el 0,1 % del capital: se notifica a la CNMV, pero no se publica hasta el 0,5 %.",
+      "publish": "Con un {{pct}} supera el 0,5 % del capital: se notifica y la CNMV la publica en su web, con el nombre del fondo."
+    },
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre del corto",
+    "row": {
+      "fee": "Comisión de préstamo",
+      "pnl": "Resultado",
+      "call": "Margin call",
+      "duty": "Obligación con la CNMV"
+    },
+    "great": "Corto impecable: sabes lo que cuesta, lo que arriesgas y lo que tienes que declarar.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el préstamo, el dividendo manufacturado, el margin call y los umbrales de notificación.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "shortSelling": {
+    "title": "Vender lo que no tienes",
+    "unlimited": "Pérdida sin techo"
   }
 }

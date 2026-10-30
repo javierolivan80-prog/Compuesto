@@ -34,6 +34,7 @@ export const EXPLAINER_NAMES = [
   'BankMultiple',
   'MarketImpact',
   'CostStack',
+  'ShortSelling',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

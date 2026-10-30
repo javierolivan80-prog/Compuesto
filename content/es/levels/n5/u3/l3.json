@@ -1,0 +1,291 @@
+{
+  "id": "n5-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "title": "Pérdida ilimitada, margin call y short squeeze",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la pérdida de un corto, el precio del margin call y los días para cubrir",
+    "Valorar el riesgo de un short squeeze"
+  ],
+  "concepts": ["cortos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Asimetría",
+      "text": "Si compras, lo máximo que pierdes es el 100 % y lo que puedes ganar no tiene techo. En corto es al revés: lo máximo que ganas es el 100 %, si la acción llega a cero, y lo que puedes perder no tiene límite. Además, un corto que va mal pesa cada vez más en la cartera."
+    },
+    {
+      "type": "card",
+      "term": "Margin call",
+      "text": "El bróker retiene el dinero de la venta y un margen extra como garantía. Si la acción sube y lo que sobra de la garantía, tras descontar lo que valen las acciones que debes, baja del margen de mantenimiento, llega el margin call: aportas dinero o te cierran la posición, a menudo en el peor momento."
+    },
+    {
+      "type": "card",
+      "term": "Short squeeze",
+      "text": "Días para cubrir = posiciones cortas / volumen medio diario. Si son muchos y la acción sube, los cortos tienen que recomprar a la vez, sus compras empujan el precio y obligan a cerrar a más cortos. Es un short squeeze, como el de GameStop en enero de 2021."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u3-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendiste en corto {q} acciones de una empresa ficticia a {p0} € y la acción sube un {u} %, hasta {p1} €. ¿Cuánto pierdes si recompras ahora, sin contar comisión ni dividendos? (€)",
+      "answer": 60000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * ({p1} - {p0})",
+      "explanation": "{q} × ({p1} − {p0}) = {answer} €.",
+      "params": {
+        "q": {
+          "value": 5000,
+          "min": 2000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "u": {
+          "value": 40,
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} * (1 + {u} / 100)",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa ficticia tiene {si} acciones vendidas en corto y negocia de media {adv} acciones al día. ¿Cuántos días para cubrir hay? (días, 2 decimales)",
+      "answer": 8,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "{si} / {adv}",
+      "explanation": "{si} / {adv} = {answer} días: lo que tardarían los cortos en recomprar si fueran todo el volumen.",
+      "params": {
+        "si": {
+          "value": 6000000,
+          "min": 1000000,
+          "max": 10000000,
+          "step": 500000,
+          "decimals": 0
+        },
+        "adv": {
+          "value": 750000,
+          "min": 250000,
+          "max": 1500000,
+          "step": 50000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa ficticia tiene {si} acciones vendidas en corto y un capital flotante de {ff} acciones. ¿Qué porcentaje del capital flotante está en corto? (%, 2 decimales)",
+      "answer": 15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{si} / {ff} * 100",
+      "explanation": "{si} / {ff} = {answer} %.",
+      "params": {
+        "si": {
+          "value": 6000000,
+          "min": 1000000,
+          "max": 10000000,
+          "step": 500000,
+          "decimals": 0
+        },
+        "ff": {
+          "value": 40000000,
+          "min": 20000000,
+          "max": 100000000,
+          "step": 5000000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto una acción ficticia a {p0} €. El bróker retiene una garantía del 150 % de lo vendido y exige un margen de mantenimiento del {mm} %. ¿A qué precio llega el margin call? (€, 2 decimales)",
+      "answer": 36,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{p0} * 1.5 / (1 + {mm} / 100)",
+      "explanation": "{p0} × 1,5 / (1 + {mm} %) = {answer} €.",
+      "params": {
+        "p0": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "mm": {
+          "value": 25,
+          "min": 20,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo ficticio de {k} millones de € tiene un corto que pesa el {w} % de su patrimonio. Si la acción sube un {u} % y nada más cambia, ¿cuánto pesa el corto ahora? (%, 2 decimales)",
+      "answer": 15.79,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{w} * (1 + {u} / 100) / (100 - {w} * {u} / 100) * 100",
+      "explanation": "El corto vale {w} × (1 + {u} %) y el patrimonio pierde {w} × {u} %: {answer} %. Un corto que va mal crece solo.",
+      "params": {
+        "k": {
+          "value": 100,
+          "min": 50,
+          "max": 500,
+          "step": 50,
+          "decimals": 0
+        },
+        "w": {
+          "value": 10,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "u": {
+          "value": 50,
+          "min": 20,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "¿Riesgo de short squeeze alto o bajo?",
+      "categories": ["Alto", "Bajo"],
+      "items": [
+        {
+          "text": "12 días para cubrir y una comisión de préstamo que se dispara",
+          "category": "Alto"
+        },
+        {
+          "text": "Medio día para cubrir en una acción muy líquida",
+          "category": "Bajo"
+        },
+        {
+          "text": "El 30 % del capital flotante está vendido en corto",
+          "category": "Alto"
+        },
+        {
+          "text": "Un 1 % del capital en corto y mucho volumen diario",
+          "category": "Bajo"
+        }
+      ],
+      "explanation": "Muchos cortos frente al volumen y préstamo caro: si la acción sube, la salida es estrecha."
+    },
+    {
+      "id": "n5-u3-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "jefe",
+      "situation": "Una acción ficticia en la que la mesa está corta sube un 25 % en dos días, con muchos días para cubrir y la comisión de préstamo disparada. El becario rival propone vender más en corto, porque «ahora está aún más cara».",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que no se aumenta un corto en pleno squeeze: hay que respetar el límite de pérdidas, reducir la posición y no esperar al margin call",
+        "Que tiene razón: cuanto más sube, mejor oportunidad",
+        "Que hay que esperar a que la CNMV prohíba los cortos",
+        "Que un short squeeze siempre dura un solo día"
+      ],
+      "answer": 0,
+      "explanation": "En un squeeze, el riesgo no es estar equivocado, sino que te obliguen a cerrar en el peor momento.",
+      "wrongExplanations": {
+        "1": "El precio puede seguir subiendo mucho más de lo razonable.",
+        "2": "Las prohibiciones no protegen a quien ya está corto.",
+        "3": "Nadie sabe cuánto puede durar."
+      }
+    },
+    {
+      "id": "n5-u3-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "Cuando sube una acción en la que estás corto, tu posición corta pesa cada vez menos en la cartera.",
+      "answer": false,
+      "explanation": "Falso: pesa cada vez más, porque el corto vale más y la cartera, menos."
+    }
+  ],
+  "realWorld": "La CNMV publica las posiciones cortas significativas y las bolsas y proveedores de datos, el volumen medio diario: con ambos se calculan los días para cubrir. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas, préstamo de valores y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

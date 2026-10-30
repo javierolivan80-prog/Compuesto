@@ -29,6 +29,7 @@ import { CreditRisk } from './CreditRisk';
 import { BankMultiple } from './BankMultiple';
 import { MarketImpact } from './MarketImpact';
 import { CostStack } from './CostStack';
+import { ShortSelling } from './ShortSelling';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -77,6 +78,7 @@ const REGISTRY = {
   BankMultiple,
   MarketImpact,
   CostStack,
+  ShortSelling,
   FuturePayoff,
 } as unknown as Registry;
 

@@ -50,6 +50,13 @@ import {
   vwap as vwVwap,
 } from '../src/engine/games/vwap-desk';
 import {
+  borrowFee as sdFee,
+  callPrice as sdCall,
+  duty as sdDuty,
+  pnl as sdPnl,
+  setupShort,
+} from '../src/engine/games/short-desk';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -309,6 +316,35 @@ export async function playGameLesson(
     await page
       .getByRole('radio', {
         name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
+        exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'short-desk') {
+    // referencia 0: la comisión, el resultado, el margin call y la obligación con la CNMV
+    await expect(page.getByRole('heading', { name: 'La posición corta' })).toBeVisible();
+    const setup = setupShort(seed);
+    const money = (v: number) =>
+      new RegExp(
+        `^${v < 0 ? '−' : ''}${formatNumber(Math.abs(v), Number.isInteger(v) ? 0 : 2).replaceAll('.', '\\.')}\\s€$`,
+      );
+    await page.getByRole('radio', { name: money(sdFee(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: money(sdPnl(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${formatNumber(sdCall(setup), 2).replaceAll('.', '\\.')}\\s€$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', {
+        name: {
+          none: 'Nada todavía',
+          notify: 'Notificarla a la CNMV',
+          publish: 'Notificarla, y la CNMV la publica',
+        }[sdDuty(setup)],
         exact: true,
       })
       .click();

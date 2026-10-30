@@ -1,0 +1,363 @@
+{
+  "id": "n5-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: la posición corta",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la comisión de préstamo, el dividendo manufacturado y el resultado de una venta en corto",
+    "Calcular el precio del margin call y aplicar los umbrales de notificación de posiciones cortas"
+  ],
+  "concepts": ["cortos"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "short-desk",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Resultado",
+      "text": "Acertaste {hits} de 4. Vendiste {qty} acciones prestadas a {p0} € y las recompraste a {p1} €: {gross} € brutos. Restando la comisión de préstamo, {fee} €, y el dividendo pagado al prestamista, {div_paid} €, el resultado fue de {pnl} €."
+    },
+    {
+      "type": "card",
+      "term": "Margin call",
+      "text": "Con una garantía del 150 % de lo vendido y un margen de mantenimiento del {mm} %, el margin call llegaba a {call_price} €, y a {wipe_price} € perdías toda la garantía. En un corto, la ganancia máxima es el 100 %; la pérdida no tiene techo."
+    },
+    {
+      "type": "card",
+      "term": "Transparencia",
+      "text": "El fondo tenía una posición corta neta del {short_pct} % del capital. Según el reglamento europeo de ventas en corto, desde el 0,1 % se notifica a la CNMV y desde el 0,5 % la CNMV la publica, con el nombre del inversor."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u3-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendiste en corto {qty} acciones prestadas a {p0} €, con una comisión de préstamo del {rate} % anual (base 360). Si el corto hubiera durado {d2} días, ¿cuánto habría costado el préstamo? (€, 2 decimales)",
+      "answer": 1111.11,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{qty} * {p0} * {rate} / 100 * {d2} / 360",
+      "explanation": "{qty} × {p0} × {rate} % × {d2} / 360 = {answer} €: cuanto más dura el corto, más cuesta.",
+      "params": {
+        "qty": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "rate": {
+          "value": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "d2": {
+          "value": 100,
+          "min": 100,
+          "max": 300,
+          "step": 20,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "En tu corto de {qty} acciones pagaste {fee} € de comisión de préstamo y un dividendo de {div} € por acción al prestamista. ¿Cuántos € por acción tenía que bajar la acción solo para cubrir esos dos costes? (€ por acción, 3 decimales)",
+      "answer": 0.5,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{fee} / {qty} + {div}",
+      "explanation": "{fee} / {qty} + {div} = {answer} € por acción: por debajo de esa bajada, el corto pierde dinero.",
+      "params": {
+        "qty": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "rate": {
+          "value": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "days": {
+          "value": 90,
+          "min": 30,
+          "max": 180,
+          "step": 30,
+          "decimals": 0
+        },
+        "div": {
+          "value": 0.4,
+          "min": 0.2,
+          "max": 0.6,
+          "step": 0.2,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "fee": {
+          "formula": "{qty} * {p0} * {rate} * {days} / 36000",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Con el mismo corto ({qty} acciones vendidas a {p0} €, {fee} € de comisión y {div} € de dividendo por acción), ¿cuánto habrías ganado si la acción hubiera caído a cero? (€, 2 decimales)",
+      "answer": 195000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{qty} * {p0} - {fee} - {qty} * {div}",
+      "explanation": "{qty} × {p0} − {fee} − {qty} × {div} = {answer} €: es el techo de la ganancia de un corto.",
+      "params": {
+        "qty": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "rate": {
+          "value": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "days": {
+          "value": 90,
+          "min": 30,
+          "max": 180,
+          "step": 30,
+          "decimals": 0
+        },
+        "div": {
+          "value": 0.4,
+          "min": 0.2,
+          "max": 0.6,
+          "step": 0.2,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "fee": {
+          "formula": "{qty} * {p0} * {rate} * {days} / 36000",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Con una garantía del 150 % de lo vendido a {p0} € por acción, ¿a qué precio llegaría el margin call si el margen de mantenimiento fuera del {mm2} %? (€, 2 decimales)",
+      "answer": 21.43,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{p0} * 1.5 / (1 + {mm2} / 100)",
+      "explanation": "{p0} × 1,5 / (1 + {mm2} %) = {answer} €: con un mantenimiento más exigente, la llamada llega antes.",
+      "params": {
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "mm2": {
+          "value": 40,
+          "min": 40,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Si la acción que vendiste en corto a {p0} € hubiera subido un {u} % antes de recomprar las {qty} acciones, ¿cuánto habrías perdido, sin contar comisión ni dividendo? (€)",
+      "answer": 120000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{qty} * {p0} * {u} / 100",
+      "explanation": "{qty} × {p0} × {u} % = {answer} €: no hay límite para lo que puede subir una acción.",
+      "params": {
+        "qty": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "u": {
+          "value": 60,
+          "min": 40,
+          "max": 100,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Para quien está corto, ¿es un coste o una ganancia?",
+      "categories": ["Coste", "Ganancia"],
+      "items": [
+        {
+          "text": "La comisión del préstamo de las acciones",
+          "category": "Coste"
+        },
+        {
+          "text": "El dividendo que reparte la empresa mientras dura el corto",
+          "category": "Coste"
+        },
+        {
+          "text": "La bajada del precio antes de recomprar",
+          "category": "Ganancia"
+        },
+        {
+          "text": "La subida del precio antes de recomprar",
+          "category": "Coste"
+        }
+      ],
+      "explanation": "Un corto gana solo si el precio baja más de lo que cuestan el préstamo y los dividendos."
+    },
+    {
+      "id": "n5-u3-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "compliance",
+      "situation": "Un fondo cliente tiene una posición corta neta del 0,45 % del capital de una empresa española ficticia y quiere aumentarla al 0,55 %.",
+      "prompt": "¿Qué le recuerda la compliance officer?",
+      "options": [
+        "Que ya la tiene notificada a la CNMV, que debe notificar el cambio y que, al superar el 0,5 %, la CNMV la publicará con su nombre",
+        "Que no tiene que hacer nada hasta el 1 %",
+        "Que está prohibido superar el 0,5 %",
+        "Que basta con avisar a la empresa"
+      ],
+      "answer": 0,
+      "explanation": "Desde el 0,1 % se notifica, cada 0,1 % más también, y desde el 0,5 % se publica.",
+      "wrongExplanations": {
+        "1": "El primer umbral es el 0,1 %.",
+        "2": "Se puede superar: lo que cambia es que se publica.",
+        "3": "La notificación es al supervisor, no a la empresa."
+      }
+    },
+    {
+      "id": "n5-u3-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "En una venta en corto, lo máximo que puedes perder es el dinero que obtuviste al vender.",
+      "answer": false,
+      "explanation": "Falso: lo que obtuviste es lo máximo que puedes ganar. La pérdida no tiene techo, porque el precio puede subir sin límite."
+    }
+  ],
+  "realWorld": "La CNMV publica en su web las posiciones cortas netas de más del 0,5 % del capital de las empresas españolas cotizadas, con el nombre de cada fondo. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento (UE) n.º 236/2012 sobre las ventas en corto y determinados aspectos de las permutas de cobertura por impago (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2022/27 de la Comisión, que rebaja al 0,1 % el umbral de notificación de las posiciones cortas netas en acciones (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas, préstamo de valores y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

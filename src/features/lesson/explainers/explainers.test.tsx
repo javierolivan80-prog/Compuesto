@@ -186,6 +186,15 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('ShortSelling: gana si baja, pierde si sube, y la ganancia tiene techo', () => {
+    render(
+      <ExplainerBlock component="ShortSelling" props={{ qty: 1000, p0: 20, down: 16, up: 26 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/a 16,00\s€ se ganan 4\.000\s€/);
+    expect(text).toMatch(/a 26,00\s€ se pierden 6\.000\s€/);
+    expect(text).toMatch(/ganancia máxima es 20\.000\s€, el 100 %/);
+  });
   it('CostStack: los costes implícitos pesan más que los explícitos', () => {
     render(
       <ExplainerBlock

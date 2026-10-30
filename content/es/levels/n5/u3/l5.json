@@ -1,0 +1,310 @@
+{
+  "id": "n5-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "title": "Para qué sirven los cortos",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular una cobertura con cortos, una estrategia long-short y un arbitraje de fusiones",
+    "Valorar los informes de los bajistas activistas"
+  ],
+  "concepts": ["cortos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Cobertura y long-short",
+      "text": "Un corto sirve para cubrirse: un fondo que no quiere vender sus acciones puede vender en corto un futuro o un ETF del índice. Y en una estrategia long-short se compra la acción que se cree mejor y se vende en corto la peor del mismo sector: se gana con la diferencia, suba o baje el mercado."
+    },
+    {
+      "type": "card",
+      "term": "Arbitraje de fusiones",
+      "text": "En una OPA pagada con acciones, el arbitrajista compra la empresa opada y vende en corto la compradora en la proporción del canje. Si la operación sale, gana la diferencia que había entre los dos precios; si fracasa, puede perder mucho."
+    },
+    {
+      "type": "card",
+      "term": "Bajistas activistas",
+      "text": "Algunos fondos venden en corto y publican un informe con supuestas irregularidades de la empresa. Pueden destapar fraudes, pero tienen un interés claro en que la acción baje; si difunden información falsa o engañosa, es manipulación de mercado."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u3-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo ficticio tiene una cartera de {v} millones de € con una beta de {b} frente al índice. ¿Cuántos millones de € del índice tiene que vender en corto para cubrirla? (millones de €, 2 decimales)",
+      "answer": 2.4,
+      "unit": "millones de €",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{v} * {b}",
+      "explanation": "{v} × {b} = {answer} millones: así, si el índice baja, el corto compensa lo que pierde la cartera.",
+      "params": {
+        "v": {
+          "value": 2,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "b": {
+          "value": 1.2,
+          "min": 0.6,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 1,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "En una estrategia long-short compras {v} € de la acción ficticia A y vendes en corto {v} € de la B, del mismo sector. A sube un {x} % y B baja un {y} %. ¿Cuánto ganas, sin costes? (€)",
+      "answer": 7000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{v} * ({x} + {y}) / 100",
+      "explanation": "{v} × ({x} + {y}) % = {answer} €: ganas con las dos patas.",
+      "params": {
+        "v": {
+          "value": 100000,
+          "min": 50000,
+          "max": 500000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "x": {
+          "value": 4,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "y": {
+          "value": 3,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Con la misma estrategia, {v} € comprados en A y {v} € en corto en B, el mercado cae: A baja un {a} % y B baja un {b} %. ¿Cuánto ganas, sin costes? (€)",
+      "answer": 4000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{v} * ({b} - {a}) / 100",
+      "explanation": "{v} × ({b} − {a}) % = {answer} €: el mercado cae, pero B cae más que A.",
+      "params": {
+        "v": {
+          "value": 100000,
+          "min": 50000,
+          "max": 500000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "a": {
+          "value": 8,
+          "min": 2,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "b": {
+          "value": 12,
+          "min": 11,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa ficticia lanza una OPA sobre otra pagando 1 acción propia por cada 2 de la opada. La compradora cotiza a {pb} € y la opada, a {pa} €. ¿Cuánto gana un arbitrajista, en % del precio de la opada, si la operación sale? (%, 2 decimales)",
+      "answer": 4.17,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "({pb} / 2 - {pa}) / {pa} * 100",
+      "explanation": "Cada acción opada vale {pb} / 2 en la oferta: ({pb} / 2 − {pa}) / {pa} = {answer} %.",
+      "params": {
+        "pb": {
+          "value": 30,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 60,
+          "min": 20,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "pa": {
+          "formula": "{pb} / 2 - {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "En esa misma OPA (1 acción de la compradora, a {pb} €, por cada 2 de la opada, a {pa} €), el arbitrajista compra {n} acciones de la opada y vende en corto la mitad de acciones de la compradora. ¿Cuánto gana si la operación se completa, sea cual sea el precio final de la compradora? (€)",
+      "answer": 6000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * ({pb} / 2 - {pa})",
+      "explanation": "{n} × ({pb} / 2 − {pa}) = {answer} €: las acciones que recibe en el canje sirven para devolver las del corto.",
+      "params": {
+        "pb": {
+          "value": 30,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 60,
+          "min": 20,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "n": {
+          "value": 10000,
+          "min": 5000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "pa": {
+          "formula": "{pb} / 2 - {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "¿Para qué se usa el corto en cada caso?",
+      "categories": ["Cobertura", "Arbitraje", "Especulación"],
+      "items": [
+        {
+          "text": "Vender un futuro del índice para proteger una cartera de acciones",
+          "category": "Cobertura"
+        },
+        {
+          "text": "Comprar la opada y vender en corto la compradora en una OPA con canje",
+          "category": "Arbitraje"
+        },
+        {
+          "text": "Vender en corto una acción porque crees que sus resultados decepcionarán",
+          "category": "Especulación"
+        },
+        {
+          "text": "Vender en corto el ETF del sector para cubrir las acciones del sector que tiene el fondo",
+          "category": "Cobertura"
+        }
+      ],
+      "explanation": "Cobertura: reducir un riesgo que ya tienes. Arbitraje: ganar una diferencia de precios. Especulación: apostar por una bajada."
+    },
+    {
+      "id": "n5-u3-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "mentora",
+      "situation": "Un fondo bajista publica un informe acusando de irregularidades contables a una empresa ficticia, en la que está corto. El becario rival dice: «Si lo publica quien está corto, es mentira seguro».",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que el fondo tiene un interés claro y hay que contrastar sus datos con las cuentas, los informes de auditoría y la CNMV: a veces destapan fraudes y otras se equivocan o exageran",
+        "Que todo lo que publica un bajista es verdad",
+        "Que esos informes están prohibidos en la UE",
+        "Que lo único que importa es cuánto cae la acción ese día"
+      ],
+      "answer": 0,
+      "explanation": "Un interés no hace falsa una información, pero obliga a comprobarla.",
+      "wrongExplanations": {
+        "1": "Tienen un incentivo para exagerar.",
+        "2": "Son legales; lo prohibido es difundir información falsa o engañosa.",
+        "3": "La caída no dice si el informe tiene razón."
+      }
+    },
+    {
+      "id": "n5-u3-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "Una estrategia long-short bien construida puede ganar dinero aunque el mercado caiga.",
+      "answer": true,
+      "explanation": "Verdadero: gana si la acción comprada lo hace mejor que la vendida en corto, suba o baje el mercado."
+    }
+  ],
+  "realWorld": "La CNMV y la ESMA han publicado advertencias y análisis sobre informes de bajistas y su relación con el abuso de mercado; los folletos de los fondos long-short explican su estrategia y sus límites. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas, préstamo de valores y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, Reglamento de ventas en corto: preguntas y respuestas, umbrales de notificación y medidas de intervención (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

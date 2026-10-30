@@ -1,0 +1,335 @@
+{
+  "id": "n5-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "title": "Préstamo de valores y dividendo manufacturado",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la comisión de préstamo, la garantía y el dividendo manufacturado",
+    "Explicar cómo funciona el préstamo de valores para quien presta y para quien vende en corto"
+  ],
+  "concepts": ["cortos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Préstamo de valores",
+      "text": "Para vender en corto hay que tomar prestadas las acciones. El prestamista, a menudo un fondo, una aseguradora o un ETF, cobra una comisión anual sobre su valor y recibe una garantía de algo más del 100 % de ese valor, en efectivo o en títulos. Puede pedir que se las devuelvan cuando quiera."
+    },
+    {
+      "type": "visual",
+      "component": "ShortSelling",
+      "props": {
+        "qty": 1000,
+        "p0": 20,
+        "down": 16,
+        "up": 26
+      }
+    },
+    {
+      "type": "card",
+      "term": "Dividendo manufacturado",
+      "text": "Si la empresa reparte un dividendo mientras dura el préstamo, lo cobra quien compró las acciones al corto, no el prestamista. Por eso el corto le paga el mismo importe: es el dividendo manufacturado. Y mientras están prestadas, el prestamista no vota en la junta."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u3-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Tomas prestadas {q} acciones de una empresa ficticia que cotizan a {p} €, con una comisión del {r} % anual (base 360), durante {d} días. ¿Cuánto pagas por el préstamo? (€, 2 decimales)",
+      "answer": 2000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{q} * {p} * {r} / 100 * {d} / 360",
+      "explanation": "{q} × {p} × {r} % × {d} / 360 = {answer} €.",
+      "params": {
+        "q": {
+          "value": 8000,
+          "min": 2000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 25,
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "r": {
+          "value": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "d": {
+          "value": 120,
+          "min": 30,
+          "max": 240,
+          "step": 30,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo presta {q} acciones de una empresa ficticia que cotizan a {p} € y pide una garantía en efectivo del {g} % de su valor. ¿Cuánto recibe de garantía? (€)",
+      "answer": 189000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * {p} * {g} / 100",
+      "explanation": "{q} × {p} × {g} % = {answer} €: algo más que el valor de las acciones, por si suben.",
+      "params": {
+        "q": {
+          "value": 6000,
+          "min": 2000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 30,
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "g": {
+          "value": 105,
+          "min": 102,
+          "max": 110,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Estás corto de {q} acciones de una empresa ficticia y la empresa reparte un dividendo de {dv} € por acción. ¿Cuánto pagas al prestamista? (€)",
+      "answer": 5400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * {dv}",
+      "explanation": "{q} × {dv} = {answer} €: el dividendo manufacturado.",
+      "params": {
+        "q": {
+          "value": 12000,
+          "min": 5000,
+          "max": 30000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "dv": {
+          "value": 0.45,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto {q} acciones de una empresa ficticia a {p0} € y las recompras a {p1} €. Pagas {f} € de comisión de préstamo y un dividendo manufacturado de {dv} € por acción. ¿Cuál es el resultado? (€)",
+      "answer": 9200,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{q} * ({p0} - {p1}) - {f} - {q} * {dv}",
+      "explanation": "{q} × ({p0} − {p1}) − {f} − {q} × {dv} = {answer} €.",
+      "params": {
+        "q": {
+          "value": 4000,
+          "min": 2000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 45,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 300,
+          "min": 100,
+          "max": 600,
+          "step": 50,
+          "decimals": 0
+        },
+        "f": {
+          "value": 400,
+          "min": 100,
+          "max": 900,
+          "step": 50,
+          "decimals": 0
+        },
+        "dv": {
+          "value": 0.6,
+          "min": 0.1,
+          "max": 0.8,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} - {c} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Estás corto de {q} acciones de una empresa ficticia que cotizan a {p} €. Como muchos quieren venderla en corto, la comisión de préstamo sube del {r1} % al {r2} % anual. ¿Cuánto te cuesta de más en {d} días (base 360)? (€, 2 decimales)",
+      "answer": 1600,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{q} * {p} * ({r2} - {r1}) / 100 * {d} / 360",
+      "explanation": "{q} × {p} × ({r2} − {r1}) % × {d} / 360 = {answer} €: las acciones difíciles de tomar prestadas encarecen el corto.",
+      "params": {
+        "q": {
+          "value": 10000,
+          "min": 5000,
+          "max": 30000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 12,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "r1": {
+          "value": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "r2": {
+          "value": 9,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 60,
+          "min": 30,
+          "max": 180,
+          "step": 30,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l2-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Ordena los pasos de una venta en corto.",
+      "steps": [
+        "Acordar el préstamo de las acciones",
+        "Vender las acciones prestadas en el mercado",
+        "Pagar la comisión y los dividendos manufacturados mientras dure",
+        "Recomprar las acciones en el mercado",
+        "Devolverlas al prestamista y recuperar la garantía"
+      ],
+      "explanation": "Primero se asegura el préstamo; al final, se recompran las acciones para devolverlas."
+    },
+    {
+      "id": "n5-u3-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "mentora",
+      "situation": "El becario rival no entiende por qué un fondo de pensiones ficticio presta sus acciones a quienes apuestan contra ellas.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que cobra una comisión extra sin dejar de beneficiarse de la acción: recibe los dividendos manufacturados, está cubierto por la garantía y puede pedir que se las devuelvan",
+        "Que está obligado por ley a prestarlas",
+        "Que así se asegura de que la acción suba",
+        "Que pierde los dividendos, pero no le importa"
+      ],
+      "answer": 0,
+      "explanation": "Prestar es un ingreso extra con riesgo acotado por la garantía.",
+      "wrongExplanations": {
+        "1": "Prestar es voluntario.",
+        "2": "Prestar no hace subir la acción; puede ayudar a que baje.",
+        "3": "Los dividendos le llegan como dividendo manufacturado."
+      }
+    },
+    {
+      "id": "n5-u3-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "Mientras sus acciones están prestadas, el prestamista conserva el derecho de voto en la junta.",
+      "answer": false,
+      "explanation": "Falso: el voto va con las acciones. Si quiere votar, tiene que pedir que se las devuelvan antes de la junta."
+    }
+  ],
+  "realWorld": "Los fondos y los ETF explican en su folleto si prestan sus valores, qué garantías piden y cómo se reparten la comisión. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas, préstamo de valores y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, Reglamento de ventas en corto: preguntas y respuestas, umbrales de notificación y medidas de intervención (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

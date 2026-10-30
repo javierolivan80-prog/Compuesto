@@ -55,6 +55,7 @@ import { CommitteeGame } from '../games/CommitteeGame';
 import { BankGame } from '../games/BankGame';
 import { OrderDeskGame } from '../games/OrderDeskGame';
 import { VwapDeskGame } from '../games/VwapDeskGame';
+import { ShortDeskGame } from '../games/ShortDeskGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -251,6 +252,7 @@ export function LessonScreen({
             'bank-valuation': BankGame,
             'order-desk': OrderDeskGame,
             'vwap-desk': VwapDeskGame,
+            'short-desk': ShortDeskGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

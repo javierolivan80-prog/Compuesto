@@ -223,6 +223,11 @@
           "id": "n5-u2",
           "name": "Subastas, fixing y costes reales de operar",
           "concepts": ["subastas-avanzadas", "costes-reales-operar"]
+        },
+        {
+          "id": "n5-u3",
+          "name": "Ventas en corto y préstamo de valores",
+          "concepts": ["cortos"]
         }
       ]
     },

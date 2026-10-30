@@ -1,0 +1,219 @@
+{
+  "id": "n5-u3-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "title": "Jefe final: la mesa de cortos",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste y el resultado de un corto, el margin call y los días para cubrir",
+    "Aplicar los umbrales de notificación y las prohibiciones del reglamento europeo",
+    "Usar los cortos para cubrir y arbitrar"
+  ],
+  "concepts": ["cortos"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u3-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Tomas prestadas 12.000 acciones de una empresa ficticia que cotizan a 18 €, con una comisión del 5 % anual (base 360), durante 45 días. ¿Cuánto pagas por el préstamo? (€)",
+      "answer": 1350,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "12000 * 18 * 0.05 * 45 / 360",
+      "explanation": "216.000 × 5 % × 45 / 360 = 1.350 €."
+    },
+    {
+      "id": "n5-u3-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto 6.000 acciones ficticias a 32 € y las recompras a 27,50 €. Pagas 900 € de comisión y un dividendo manufacturado de 0,50 € por acción. ¿Cuál es el resultado? (€)",
+      "answer": 23100,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "6000 * (32 - 27.5) - 900 - 6000 * 0.5",
+      "explanation": "27.000 − 900 − 3.000 = 23.100 €."
+    },
+    {
+      "id": "n5-u3-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Vendes en corto una acción ficticia a 16 € con una garantía del 150 % y un margen de mantenimiento del 35 %. ¿A qué precio llega el margin call? (€, 2 decimales)",
+      "answer": 17.78,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "16 * 1.5 / 1.35",
+      "explanation": "24 / 1,35 = 17,78 €."
+    },
+    {
+      "id": "n5-u3-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa ficticia tiene 9.000.000 de acciones en corto y negocia 1.200.000 al día. ¿Cuántos días para cubrir hay? (días, 1 decimal)",
+      "answer": 7.5,
+      "unit": "días",
+      "tolerance": 0.5,
+      "answerDecimals": 1,
+      "formula": "9000000 / 1200000",
+      "explanation": "9.000.000 / 1.200.000 = 7,5 días."
+    },
+    {
+      "id": "n5-u3-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo está corto de 420.000 acciones de una empresa española ficticia con 60.000.000 de acciones. ¿Qué porcentaje del capital supone? (%, 2 decimales)",
+      "answer": 0.7,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "420000 / 60000000 * 100",
+      "explanation": "420.000 / 60.000.000 = 0,70 %: se notifica y se publica."
+    },
+    {
+      "id": "n5-u3-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Compras 50.000 € de la acción ficticia A y vendes en corto 50.000 € de la B. A sube un 6 % y B sube un 2 %. ¿Cuánto ganas, sin costes? (€)",
+      "answer": 2000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "50000 * (6 - 2) / 100",
+      "explanation": "50.000 × (6 − 2) % = 2.000 €."
+    },
+    {
+      "id": "n5-u3-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Posición corta neta en una empresa española: ¿qué hay que hacer?",
+      "categories": ["Nada todavía", "Notificar a la CNMV", "Notificar, y la CNMV la publica"],
+      "items": [
+        {
+          "text": "0,08 % del capital",
+          "category": "Nada todavía"
+        },
+        {
+          "text": "0,35 % del capital",
+          "category": "Notificar a la CNMV"
+        },
+        {
+          "text": "0,9 % del capital",
+          "category": "Notificar, y la CNMV la publica"
+        }
+      ],
+      "explanation": "Desde el 0,1 % se notifica; desde el 0,5 %, también se publica."
+    },
+    {
+      "id": "n5-u3-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "jefe",
+      "situation": "Una acción ficticia tiene 15 días para cubrir, el préstamo cuesta un 25 % anual y circula por redes una campaña para «castigar a los cortos». La mesa está corta.",
+      "prompt": "¿Qué decide el jefe de la mesa?",
+      "options": [
+        "Reducir o cerrar el corto: el riesgo de squeeze es muy alto y la pérdida no tiene techo, aunque la tesis siga pareciendo buena",
+        "Aumentar el corto, porque la acción ya está cara",
+        "Esperar a que llegue el margin call para decidir",
+        "Ignorar las redes: nunca mueven precios"
+      ],
+      "answer": 0,
+      "explanation": "Con tantos días para cubrir y el préstamo tan caro, la salida es estrecha.",
+      "wrongExplanations": {
+        "1": "Puede subir mucho más antes de bajar.",
+        "2": "El margin call obliga a cerrar en el peor momento.",
+        "3": "Una campaña coordinada puede disparar las compras."
+      }
+    },
+    {
+      "id": "n5-u3-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Un trader quiere vender en corto acciones de una empresa española ficticia, pero ningún prestamista se las deja y no tiene ningún acuerdo para tomarlas. ¿Qué puede hacer?",
+      "options": [
+        "No venderlas: sería una venta en corto descubierta, prohibida",
+        "Venderlas y buscar el préstamo después",
+        "Venderlas si la posición no llega al 0,1 %",
+        "Venderlas y notificarlo a la CNMV"
+      ],
+      "answer": 0,
+      "explanation": "Sin préstamo ni acuerdo previo, la venta en corto de acciones está prohibida.",
+      "wrongExplanations": {
+        "1": "El préstamo o el acuerdo tienen que ser previos.",
+        "2": "La prohibición no depende del tamaño.",
+        "3": "Notificar no la hace legal."
+      }
+    },
+    {
+      "id": "n5-u3-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "Lo máximo que puede ganar una venta en corto es el 100 % del valor vendido, si la acción llega a cero.",
+      "answer": true,
+      "explanation": "Verdadero: la acción no puede bajar de cero, así que la ganancia tiene techo; la pérdida no."
+    }
+  ],
+  "realWorld": "En Albufera Partners, cada corto tiene un límite de pérdidas, se vigilan los días para cubrir y la comisión de préstamo, y compliance controla los umbrales de notificación. Busca en la web de la CNMV las posiciones cortas publicadas de una empresa del IBEX 35. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento (UE) n.º 236/2012 sobre las ventas en corto y determinados aspectos de las permutas de cobertura por impago (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2022/27 de la Comisión, que rebaja al 0,1 % el umbral de notificación de las posiciones cortas netas en acciones (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Equity (posiciones cortas, préstamo de valores y cuentas de margen) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

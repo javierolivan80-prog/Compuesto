@@ -1,0 +1,280 @@
+{
+  "id": "n5-u3-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 3,
+  "title": "El reglamento europeo de ventas en corto",
+  "cfa": "equity",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular una posición corta neta en % del capital y aplicar los umbrales de notificación y publicación",
+    "Explicar la prohibición de las ventas en corto descubiertas y las prohibiciones temporales"
+  ],
+  "concepts": ["cortos"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Reglamento 236/2012",
+      "text": "En la UE, las ventas en corto de acciones se rigen por el Reglamento (UE) 236/2012. Prohíbe las ventas en corto descubiertas: antes de vender hay que haber tomado prestadas las acciones o tener un acuerdo que asegure poder tomarlas. Y obliga a declarar las posiciones cortas netas grandes."
+    },
+    {
+      "type": "card",
+      "term": "Umbrales",
+      "text": "Una posición corta neta desde el 0,1 % del capital se notifica al supervisor, en España la CNMV, y también cada 0,1 % más. Desde el 0,5 %, además, se publica con el nombre del inversor. Hasta 2022, el primer umbral de notificación era el 0,2 %."
+    },
+    {
+      "type": "card",
+      "term": "Prohibiciones temporales",
+      "text": "En momentos de tensión, el supervisor puede prohibir temporalmente abrir o aumentar posiciones cortas. En marzo de 2020, con las caídas por la COVID-19, la CNMV lo hizo con las acciones españolas durante unos dos meses. La ESMA coordina estas medidas en la UE."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u3-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo tiene vendidas en corto {s} acciones de una empresa española ficticia que tiene {n} acciones en circulación. ¿Qué porcentaje del capital supone su posición corta neta? (%, 3 decimales)",
+      "answer": 0.15,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 3,
+      "formula": "{s} / {n} * 100",
+      "explanation": "{s} / {n} = {answer} % del capital.",
+      "params": {
+        "s": {
+          "value": 180000,
+          "min": 100000,
+          "max": 900000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "n": {
+          "value": 120000000,
+          "min": 50000000,
+          "max": 150000000,
+          "step": 10000000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["cortos"],
+      "prompt": "Un fondo está corto de {sh} acciones de una empresa española ficticia y, a la vez, tiene {lo} acciones compradas. La empresa tiene {n} acciones. ¿Cuál es su posición corta neta? (% del capital, 3 decimales)",
+      "answer": 0.3,
+      "unit": "%",
+      "tolerance": 1,
+      "answerDecimals": 3,
+      "formula": "({sh} - {lo}) / {n} * 100",
+      "explanation": "({sh} − {lo}) / {n} = {answer} %: lo que cuenta es la posición neta.",
+      "params": {
+        "sh": {
+          "value": 500000,
+          "min": 400000,
+          "max": 900000,
+          "step": 50000,
+          "decimals": 0
+        },
+        "lo": {
+          "value": 200000,
+          "min": 50000,
+          "max": 250000,
+          "step": 50000,
+          "decimals": 0
+        },
+        "n": {
+          "value": 100000000,
+          "min": 50000000,
+          "max": 150000000,
+          "step": 10000000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa española ficticia tiene {n} acciones y un fondo está corto del {c} % del capital. ¿Cuántas acciones más tendría que vender en corto para llegar al umbral de publicación del 0,5 %? (acciones)",
+      "answer": 144000,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * 0.5 / 100 - {n} * {c} / 100",
+      "explanation": "{n} × (0,5 − {c}) % = {answer} acciones.",
+      "params": {
+        "n": {
+          "value": 80000000,
+          "min": 20000000,
+          "max": 200000000,
+          "step": 10000000,
+          "decimals": 0
+        },
+        "c": {
+          "value": 0.32,
+          "min": 0.11,
+          "max": 0.45,
+          "step": 0.01,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["normativa"],
+      "concepts": ["cortos"],
+      "prompt": "Una empresa española ficticia tiene {n} acciones que cotizan a {p} €. ¿Cuántos € vale una posición corta justo en el umbral de notificación del 0,1 %? (€)",
+      "answer": 3000000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{n} * 0.001 * {p}",
+      "explanation": "{n} × 0,1 % × {p} = {answer} €.",
+      "params": {
+        "n": {
+          "value": 250000000,
+          "min": 50000000,
+          "max": 500000000,
+          "step": 10000000,
+          "decimals": 0
+        },
+        "p": {
+          "value": 12,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u3-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "Posición corta neta en una empresa española: ¿qué hay que hacer?",
+      "categories": ["Nada todavía", "Notificar a la CNMV", "Notificar, y la CNMV la publica"],
+      "items": [
+        {
+          "text": "0,05 % del capital",
+          "category": "Nada todavía"
+        },
+        {
+          "text": "0,25 % del capital",
+          "category": "Notificar a la CNMV"
+        },
+        {
+          "text": "0,7 % del capital",
+          "category": "Notificar, y la CNMV la publica"
+        },
+        {
+          "text": "0,12 % del capital",
+          "category": "Notificar a la CNMV"
+        }
+      ],
+      "explanation": "Desde el 0,1 % se notifica; desde el 0,5 %, también se publica."
+    },
+    {
+      "id": "n5-u3-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["cortos"],
+      "character": "compliance",
+      "situation": "Un trader quiere vender en corto acciones de una empresa española ficticia sin haberlas tomado prestadas: «Las recompro esta tarde, nadie se va a enterar».",
+      "prompt": "¿Qué le responde la compliance officer?",
+      "options": [
+        "Que es una venta en corto descubierta, prohibida en la UE: antes hay que tomar prestadas las acciones o tener un acuerdo que asegure poder tomarlas",
+        "Que puede hacerlo si la recompra el mismo día",
+        "Que solo está prohibido por encima del 0,5 %",
+        "Que basta con notificarlo después"
+      ],
+      "answer": 0,
+      "explanation": "La prohibición no depende de cuánto dure el corto ni de su tamaño.",
+      "wrongExplanations": {
+        "1": "El plazo no cambia que sea descubierta.",
+        "2": "El 0,5 % es el umbral de publicación, no un permiso.",
+        "3": "La notificación no sustituye al préstamo."
+      }
+    },
+    {
+      "id": "n5-u3-l4-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "prompt": "¿Por qué prohibieron varios supervisores europeos abrir posiciones cortas en marzo de 2020?",
+      "options": [
+        "Para frenar las presiones bajistas en un momento de volatilidad extrema, aunque se discute si funcionan y suelen reducir la liquidez",
+        "Porque las ventas en corto son ilegales",
+        "Para que subieran las bolsas de forma garantizada",
+        "Porque los prestamistas dejaron de prestar acciones"
+      ],
+      "answer": 0,
+      "explanation": "Son medidas temporales y de emergencia, con eficacia discutida.",
+      "wrongExplanations": {
+        "1": "Son legales con las condiciones del reglamento.",
+        "2": "Ninguna medida garantiza que suban.",
+        "3": "La prohibición la decidió el supervisor."
+      }
+    },
+    {
+      "id": "n5-u3-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["cortos"],
+      "statement": "Una posición corta neta del 0,3 % del capital de una empresa española aparece publicada con el nombre del fondo en la web de la CNMV.",
+      "answer": false,
+      "explanation": "Falso: se notifica a la CNMV, pero solo se publica desde el 0,5 %."
+    }
+  ],
+  "realWorld": "La CNMV publica en su web las posiciones cortas netas que superan el 0,5 % y un histórico de las prohibiciones temporales; la ESMA mantiene las preguntas y respuestas del reglamento. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Reglamento (UE) n.º 236/2012 sobre las ventas en corto y determinados aspectos de las permutas de cobertura por impago (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Reglamento Delegado (UE) 2022/27 de la Comisión, que rebaja al 0,1 % el umbral de notificación de las posiciones cortas netas en acciones (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "ESMA, Reglamento de ventas en corto: preguntas y respuestas, umbrales de notificación y medidas de intervención (pendiente de verificar la ruta)",
+      "url": "https://www.esma.europa.eu/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

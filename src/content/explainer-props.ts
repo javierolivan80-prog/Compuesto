@@ -91,6 +91,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  ShortSelling: z
+    .object({
+      qty: z.number().int().positive(),
+      p0: z.number().positive(),
+      down: z.number().positive(),
+      up: z.number().positive(),
+    })
+    .refine((p) => p.down < p.p0 && p.up > p.p0, 'down < p0 < up'),
   CostStack: z.object({
     value: z.number().positive(),
     commBp: z.number().positive().max(100),

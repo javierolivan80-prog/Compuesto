@@ -900,3 +900,16 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **Test de salto aprobado:** principal «Siguiente lección» y «Volver al inicio» como secundario. Al suspender ya había «Estudiar la unidad». El juego suelto ya terminaba con «Otra» partida: sin cambios.
 - **Bloqueos revisados:** no hay muros por rango, XP, tiempo ni día. El Camino deja empezar cualquier unidad (el candado solo marca plantas sin contenido), el Jefe no bloquea la unidad siguiente, la sesión se puede abrir las veces que se quiera y los minijuegos se pueden jugar sin límite (solo dejan de dar XP tras `GAME_XP_PLAYS_PER_DAY` partidas en el día). Se mantienen, por ser diseño explícito: el orden del Camino, el test de salto, los minijuegos que requieren haber visto sus conceptos (no se puede jugar sin la base) y `MAX_REVIEW_CARDS` = 15 como tamaño de **cada tanda** (ya no es un tope diario porque «Seguir practicando» carga la siguiente).
 - **e2e:** `e2e/ritmo-libre.spec.ts` (proyecto prod). Los specs que cerraban la lección con «Continuar» pasan a pulsar el enlace «Volver al inicio»; los specs de unidades nuevos deben hacer lo mismo.
+
+## 2026-10-30 — n5-u3 «Ventas en corto y préstamo de valores» (draft)
+- **Sin tarjeta «Ya sabes»:** N1 no enseña las ventas en corto, así que no hay nada que repasar. La unidad empieza por el préstamo de valores.
+- **Juego:** ninguna ficha de JUEGOS.md trata los cortos, así que se hace uno sencillo de cuatro pasos, «La posición corta» (`short-desk`, spec en `docs/specs/posicion-corta-n5.md`): comisión de préstamo, resultado con el dividendo manufacturado, precio del margin call y obligación con la CNMV.
+- **Explicador:** `ShortSelling`, que ya estaba en el catálogo de ANIMACIONES (nivel 5). Se construye paso a paso (vender, baja, sube, asimetría).
+- **Convenciones simplificadas, dichas en los enunciados:** la comisión de préstamo es un tipo anual en base 360 sobre el valor al prestar; la garantía en una cuenta de margen es el 150 % de lo vendido; la llamada de margen llega cuando lo que sobra de la garantía baja del margen de mantenimiento.
+- **Normativa (etiqueta `normativa`, `verificarAntesDe` 2027-06-30):**
+  - Reglamento (UE) 236/2012: prohíbe las ventas en corto descubiertas de acciones.
+  - Umbrales: la posición corta neta se notifica desde el 0,1 % del capital y cada 0,1 % más (rebajado del 0,2 % por el Reglamento Delegado (UE) 2022/27), y se publica desde el 0,5 %.
+  - Prohibición temporal de la CNMV en 2020: se cuenta de forma prudente, como «en marzo de 2020 […] durante unos dos meses».
+  - Fuentes: EUR-Lex, CNMV y ESMA, citadas por su URL raíz «(pendiente de verificar la ruta)».
+- **Casos reales:** solo se menciona el short squeeze de GameStop (enero de 2021). Los informes de bajistas y los arbitrajes usan empresas ficticias.
+- `curriculum.json` incorpora `n5-u3`.

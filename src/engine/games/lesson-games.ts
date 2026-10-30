@@ -72,6 +72,7 @@ import {
   setupDesk,
 } from './order-desk';
 import { explicitCost, setupVwap, shortfallBp, vwap, vwapValues } from './vwap-desk';
+import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './short-desk';
 import {
   nextRatio,
   phaseOf,
@@ -141,6 +142,7 @@ export const LESSON_GAMES = [
   'bank-valuation',
   'order-desk',
   'vwap-desk',
+  'short-desk',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -639,6 +641,25 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     explicit: [0, 2],
     hits: [0, 0],
   },
+  'short-desk': {
+    qty: [0, 0],
+    p0: [2, 2],
+    p1: [2, 2],
+    move_pct: [0, 1],
+    rate: [0, 0],
+    days: [0, 0],
+    fee: [0, 2],
+    gross: [0, 2],
+    div: [2, 2],
+    div_paid: [0, 2],
+    pnl: [0, 2],
+    mm: [0, 0],
+    call_price: [2, 2],
+    wipe_price: [2, 2],
+    short_pct: [2, 2],
+    duty: [0, 0],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1005,6 +1026,24 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           shortfall: 0,
           cost: 0,
           venue: setup.venue === 'now' ? 'close' : 'now',
+        }),
+      ];
+    }
+    case 'short-desk': {
+      // todo bien, y todo mal
+      const setup = setupShort(seed);
+      return [
+        shortValues(setup, {
+          fee: borrowFee(setup),
+          pnl: pnl(setup),
+          call: callPrice(setup),
+          duty: duty(setup),
+        }),
+        shortValues(setup, {
+          fee: 0,
+          pnl: 0,
+          call: 0,
+          duty: duty(setup) === 'none' ? 'publish' : 'none',
         }),
       ];
     }
