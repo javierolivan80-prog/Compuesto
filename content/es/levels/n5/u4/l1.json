@@ -184,13 +184,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["contraste-hipotesis"],
-      "prompt": "Si se prueban {n_tests} variantes sin ninguna ventaja al 5 %, ¿qué probabilidad hay de que al menos una salga «significativa»? (%, 2 decimales)",
+      "prompt": "Si se prueban {n_tests} variantes independientes sin ninguna ventaja al 5 %, ¿qué probabilidad hay de que al menos una salga «significativa»? (%, 2 decimales)",
       "answer": 87.15,
       "unit": "%",
       "tolerance": 0.3,
       "answerDecimals": 2,
       "formula": "(1 - 0.95 ^ {n_tests}) * 100",
-      "explanation": "1 − 0,95^{n_tests} = {answer} %: casi seguro que alguna sale bien por azar.",
+      "explanation": "1 − 0,95^{n_tests} = {answer} %: casi seguro que alguna sale bien por azar. Si las variantes se parecen entre sí, la probabilidad real es menor que la calculada, aunque sigue siendo alta.",
       "params": {
         "n_tests": {
           "value": 40,

@@ -72,7 +72,7 @@
       "tags": [],
       "concepts": ["contraste-hipotesis"],
       "prompt": "¿Cuántos años de historia necesita una estrategia ficticia con un Sharpe anual de {sh} para que su t llegue a 2? (años, 2 decimales)",
-      "answer": 16,
+      "answer": 8.16,
       "unit": "años",
       "tolerance": 0.3,
       "answerDecimals": 2,
@@ -80,7 +80,7 @@
       "explanation": "(2 / {sh})² = {answer} años.",
       "params": {
         "sh": {
-          "value": 0.5,
+          "value": 0.7,
           "min": 0.3,
           "max": 1.5,
           "step": 0.1,

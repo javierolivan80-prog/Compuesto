@@ -132,17 +132,6 @@
     },
     {
       "id": "salto-n5-u4-q8",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["valor-esperado"],
-      "statement": "Si una estrategia ha ganado 10 operaciones de 10, ya está demostrado que tiene ventaja.",
-      "answer": false,
-      "explanation": "Falso: 10 operaciones son muy pocas; una racha así sale a menudo por azar."
-    },
-    {
-      "id": "salto-n5-u4-q9",
       "type": "numeric_input",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -155,6 +144,17 @@
       "answerDecimals": 2,
       "formula": "100 / (200 + 100) * 100",
       "explanation": "100 / 300 = 33,33 %."
+    },
+    {
+      "id": "salto-n5-u4-q9",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["valor-esperado"],
+      "statement": "Si una estrategia ha ganado 10 operaciones de 10, ya está demostrado que tiene ventaja.",
+      "answer": false,
+      "explanation": "Falso: 10 operaciones son muy pocas; una racha así sale a menudo por azar."
     },
     {
       "id": "salto-n5-u4-q10",

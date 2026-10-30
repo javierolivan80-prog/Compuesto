@@ -44,13 +44,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["valor-esperado"],
-      "prompt": "Una estrategia ficticia acierta el {p} % de las veces, gana {g} € de media y pierde {l} € de media. ¿Cuál es su valor esperado por operación? (€, 2 decimales)",
+      "prompt": "Una estrategia ficticia acierta el {p} % de las veces, gana {g} € de media y pierde {l} € de media. ¿Cuál es su valor esperado por operación? (€, 2 decimales; negativo si pierde)",
       "answer": 40,
       "unit": "€",
       "tolerance": 0.1,
       "answerDecimals": 2,
       "formula": "({p} * {g} - (100 - {p}) * {l}) / 100",
-      "explanation": "{p} % × {g} − (100 − {p}) % × {l} = {answer} €: acierta poco, pero gana mucho cuando acierta.",
+      "explanation": "{p} % × {g} − (100 − {p}) % × {l} = {answer} €: cuentan a la vez cuánto acierta y cuánto gana o pierde.",
       "params": {
         "p": {
           "value": 35,

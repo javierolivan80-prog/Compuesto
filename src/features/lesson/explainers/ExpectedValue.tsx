@@ -28,7 +28,7 @@ export function ExpectedValue({ winPct, avgWin, avgLoss, onInteract }: Props) {
   const steps: ExplainerStep[] = [
     {
       title: 'Una operación',
-      text: `Cada operación gana ${money(avgWin)} (un ${n0(winPct)} % de las veces) o pierde ${money(avgLoss)}. Una sola no dice nada: su resultado varía ±${money(band(1))}.`,
+      text: `Cada operación gana ${money(avgWin)} el ${n0(winPct)} % de las veces. Una sola no dice nada: gana ${money(avgWin)} o pierde ${money(avgLoss)}, con una desviación típica de ${money(Math.round(sd))}.`,
     },
     {
       title: '10 operaciones',
@@ -55,7 +55,8 @@ export function ExpectedValue({ winPct, avgWin, avgLoss, onInteract }: Props) {
       onInteract={onInteract}
       render={(time) => {
         const s = stepAt(time, 4);
-        const b = band(sizes[s]!);
+        // en el primer paso, una sola operación: se marca su desviación típica, no una banda de ±2σ
+        const b = s === 0 ? Math.round(sd) : band(sizes[s]!);
         const left = Math.max(lo, ev - b);
         const right = Math.min(hi, ev + b);
         return (
