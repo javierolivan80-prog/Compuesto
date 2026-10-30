@@ -160,13 +160,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["costes-reales-operar"],
-      "prompt": "Tu bróker cobra el 0,1 % al comprar y al vender una acción española de más de 1.000 M€. ¿Cuánto tiene que subir para cubrir los costes explícitos de ida y vuelta? (%, 2 decimales)",
-      "answer": 0.4,
+      "prompt": "Tu bróker cobra el 0,05 % al comprar y al vender una acción española de más de 1.000 M€. ¿Cuánto tiene que subir para cubrir los costes explícitos de ida y vuelta? (%, 2 decimales)",
+      "answer": 0.3,
       "unit": "%",
       "tolerance": 0.5,
       "answerDecimals": 2,
-      "formula": "2 * 0.1 + 0.2",
-      "explanation": "0,1 + 0,2 + 0,1 = 0,40 %."
+      "formula": "2 * 0.05 + 0.2",
+      "explanation": "0,05 + 0,2 + 0,05 = 0,30 %."
     },
     {
       "id": "salto-n5-u2-q10",
@@ -181,14 +181,18 @@
     },
     {
       "id": "salto-n5-u2-q11",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["costes-reales-operar"],
-      "statement": "Comprar por debajo del VWAP garantiza haber comprado por debajo del precio de llegada.",
-      "answer": false,
-      "explanation": "Falso: si el precio sube todo el día, el VWAP sube con él y puedes batirlo pagando más que el precio de llegada."
+      "prompt": "Un gestor decide comprar 30.000 acciones de una empresa ficticia a 20 €. Solo se compran 22.000, y la acción cierra a 20,30 €. ¿Cuál es el coste de oportunidad de las que no se compraron? (€)",
+      "answer": 2400,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "8000 * 0.3",
+      "explanation": "8.000 × 0,30 = 2.400 €."
     },
     {
       "id": "salto-n5-u2-q12",
