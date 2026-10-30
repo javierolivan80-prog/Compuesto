@@ -1,8 +1,8 @@
 {
   "id": "n5-u4-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 4,
   "title": "Jefe final: el comité cuantitativo",

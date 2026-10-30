@@ -583,3 +583,14 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - 🛑 Pendiente de la revisión de Javier:
   - comprobar en EUR-Lex el Reglamento (UE) 236/2012 y el Reglamento Delegado (UE) 2022/27 (umbral del 0,1 %), y en la CNMV las fechas de la prohibición de 2020;
   - las fuentes (EUR-Lex, CNMV, ESMA, SEC y CFA Institute) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n5-u4 — Probabilidad, valor esperado y contraste de hipótesis y lección-juego «¿Ventaja real?» (30/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - test de salto: q8↔q9, para que el punto muerto entre en la primera fase;
+    - l1-e5 habla de «variantes independientes» y avisa de que, si las variantes se parecen entre sí, la probabilidad real es menor que la calculada, aunque sigue siendo alta;
+    - explicador `ExpectedValue`: el primer paso da la desviación típica de una sola operación; desde el segundo, la banda de ±2σ/√n.
+  - Menores: l2-e1 admite un valor esperado negativo y su explicación es neutra; l5-e2 parte de un Sharpe de 0,7 (8,16 años).
+- **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 7, 6 y 7 de 8, y 9 de 10. e2e de producción `n5u4.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, Lo, 2002, y Harvey, Liu y Zhu, 2016) se citan por su URL raíz «(pendiente de verificar la ruta)».
