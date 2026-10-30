@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Margin call",
-      "text": "El bróker retiene el dinero de la venta y un margen extra como garantía; en esta unidad usamos, por convención, un 150 % de lo vendido (cada bróker fija el suyo, y es distinto de la garantía que recibe el prestamista). Si lo que sobra baja del margen de mantenimiento, llega el margin call: aportas dinero o te cierran."
+      "text": "El bróker retiene la venta y un margen extra: aquí, por convención, el 150 % de lo vendido (no es la garantía del prestamista). Si lo que sobra de esa garantía, tras descontar lo que valen las acciones que debes, baja del margen de mantenimiento, llega el margin call: aportas dinero o te cierran."
     },
     {
       "type": "card",
