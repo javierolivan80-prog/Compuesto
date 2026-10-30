@@ -72,6 +72,7 @@ export default defineConfig({
         'n4u7.spec.ts',
         'n5u1.spec.ts',
         'n5u2.spec.ts',
+        'n5u3.spec.ts',
         'hardening.spec.ts',
         'practicar.spec.ts',
         'sesion.spec.ts',

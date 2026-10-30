@@ -569,3 +569,17 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 5, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n5u2.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier:
   - el impuesto sobre las transacciones financieras (Ley 5/2020 y la lista anual de la AEAT) y los horarios y rangos de BME: comprobarlos en sus fuentes, que se citan por su URL raíz «(pendiente de verificar la ruta)», como las de la CNMV, la FCA y el CFA Institute.
+
+## n5-u3 — Ventas en corto y préstamo de valores y lección-juego «La posición corta» (30/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - las convenciones simplificadas se dicen siempre: la comisión de préstamo se calcula con base 360 (la habitual del préstamo de valores en euros) y la garantía de la cuenta de margen es, por convención, el 150 % de lo vendido, distinta de la que recibe el prestamista. Lo dicen las tarjetas de l1, l2 y l3, el juego y los enunciados afectados;
+    - l1-e8 pasa a numérico: lo que se pierde si la acción llega al precio que se come toda la garantía;
+    - el Jefe final evalúa la cobertura con beta (8,8 millones) y el arbitraje de una OPA (4.800 €).
+  - Menores: test de salto con q6↔q9; mínimo de las posiciones cortas de l3-e2 en 1.500.000; fuente del informe de la SEC sobre enero de 2021 en l3.
+- **Ronda 2:** texto nuevo de la tarjeta «Margin call» de l3.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 8, 7, 7, 6 y 7 de 8, y 9 de 10. e2e de producción `n5u3.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier:
+  - comprobar en EUR-Lex el Reglamento (UE) 236/2012 y el Reglamento Delegado (UE) 2022/27 (umbral del 0,1 %), y en la CNMV las fechas de la prohibición de 2020;
+  - las fuentes (EUR-Lex, CNMV, ESMA, SEC y CFA Institute) se citan por su URL raíz «(pendiente de verificar la ruta)».

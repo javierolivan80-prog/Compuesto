@@ -1,8 +1,8 @@
 {
   "id": "n5-u3-l3",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 3,
   "title": "Pérdida ilimitada, margin call y short squeeze",
