@@ -73,6 +73,7 @@ import {
 } from './order-desk';
 import { explicitCost, setupVwap, shortfallBp, vwap, vwapValues } from './vwap-desk';
 import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './short-desk';
+import { edgeValues, ev, falsePositives, posterior, setupEdge, tStat } from './edge-test';
 import {
   nextRatio,
   phaseOf,
@@ -143,6 +144,7 @@ export const LESSON_GAMES = [
   'order-desk',
   'vwap-desk',
   'short-desk',
+  'edge-test',
 ] as const;
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
@@ -660,6 +662,23 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     duty: [0, 0],
     hits: [0, 0],
   },
+  'edge-test': {
+    win_pct: [0, 0],
+    avg_win: [0, 0],
+    avg_loss: [0, 0],
+    ev: [0, 2],
+    sharpe: [2, 2],
+    years: [0, 0],
+    t_stat: [2, 2],
+    significant: [0, 0],
+    n_tests: [0, 0],
+    false_pos: [0, 1],
+    prior: [0, 0],
+    sens: [0, 0],
+    fpr: [0, 0],
+    posterior: [1, 1],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1045,6 +1064,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           call: 0,
           duty: duty(setup) === 'none' ? 'publish' : 'none',
         }),
+      ];
+    }
+    case 'edge-test': {
+      // todo bien, y todo mal
+      const setup = setupEdge(seed);
+      return [
+        edgeValues(setup, {
+          ev: ev(setup),
+          t: tStat(setup),
+          fp: falsePositives(setup),
+          post: posterior(setup),
+        }),
+        edgeValues(setup, { ev: 0, t: 0, fp: 0, post: 0 }),
       ];
     }
   }

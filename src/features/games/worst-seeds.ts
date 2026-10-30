@@ -26,6 +26,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'macro-day': 0,
   'ecb-meeting': 0,
   'order-desk': 96, // acción a 15 €, bloque de 50.000 acciones y horquilla realizada negativa
+  'edge-test': 8, // estrategia que pierde 28 € por operación, 16 años de backtest y 100 variantes probadas
   'short-desk': 640, // corto de 20.000 acciones a 40 € que pierde 58.666,67 €, comisión con céntimos y posición publicada
   'vwap-desk': 158, // compra de 100.000 acciones a 20,06 €: 2.006.000 € de efectivo y 5.616,80 € de costes explícitos
   'bank-valuation': 111, // patrimonio de 1.900, capitalización de 3.200 y Banco Russafa como ganador

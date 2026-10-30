@@ -1,0 +1,284 @@
+{
+  "id": "n5-u4-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "title": "Valor esperado, varianza y ley de los grandes números",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el valor esperado y la desviación típica de una operación y el error típico de la media",
+    "Calcular cuántas operaciones hacen falta para fiarse de un resultado"
+  ],
+  "concepts": ["valor-esperado"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de riesgo y estadística: la media y la desviación típica de unas rentabilidades, las colas gordas y las rachas que salen por puro azar. Aquí lo aplicamos al trading: cuánto espera ganar una estrategia por operación y cuántas operaciones hacen falta para fiarse."
+    },
+    {
+      "type": "visual",
+      "component": "ExpectedValue",
+      "props": {
+        "winPct": 40,
+        "avgWin": 200,
+        "avgLoss": 100
+      }
+    },
+    {
+      "type": "card",
+      "term": "Ley de los grandes números",
+      "text": "La media de n operaciones se acerca al valor esperado a medida que crece n. Su error típico es la desviación típica de una operación entre √n: con cuatro veces más operaciones, la mitad de error. Por eso veinte operaciones buenas no prueban una ventaja."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u4-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia ficticia acierta el {p} % de las veces, gana {g} € de media y pierde {l} € de media. ¿Cuál es su valor esperado por operación? (€, 2 decimales)",
+      "answer": 40,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({p} * {g} - (100 - {p}) * {l}) / 100",
+      "explanation": "{p} % × {g} − (100 − {p}) % × {l} = {answer} €: acierta poco, pero gana mucho cuando acierta.",
+      "params": {
+        "p": {
+          "value": 35,
+          "min": 30,
+          "max": 45,
+          "step": 5,
+          "decimals": 0
+        },
+        "g": {
+          "value": 300,
+          "min": 250,
+          "max": 400,
+          "step": 50,
+          "decimals": 0
+        },
+        "l": {
+          "value": 100,
+          "min": 80,
+          "max": 120,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia gana {g} € de media cuando acierta y pierde {l} € cuando falla. ¿Qué porcentaje de aciertos necesita para no perder dinero? (%, 2 decimales)",
+      "answer": 40,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{l} / ({g} + {l}) * 100",
+      "explanation": "{l} / ({g} + {l}) = {answer} %.",
+      "params": {
+        "g": {
+          "value": 150,
+          "min": 100,
+          "max": 300,
+          "step": 10,
+          "decimals": 0
+        },
+        "l": {
+          "value": 100,
+          "min": 50,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una operación gana {g} € con un {p} % de probabilidad y pierde {l} € en otro caso. Con dos resultados, la desviación típica es ({g} + {l}) × √(p × (1 − p)). ¿Cuánto vale? (€, 2 decimales)",
+      "answer": 125,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({g} + {l}) * SQRT({p} / 100 * (1 - {p} / 100))",
+      "explanation": "({g} + {l}) × √({p} % × (100 − {p}) %) = {answer} €: cada operación es mucho más incierta que su media.",
+      "params": {
+        "g": {
+          "value": 150,
+          "min": 100,
+          "max": 300,
+          "step": 10,
+          "decimals": 0
+        },
+        "l": {
+          "value": 100,
+          "min": 50,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "p": {
+          "value": 50,
+          "min": 30,
+          "max": 70,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Cada operación de una estrategia ficticia tiene una desviación típica de {s} €. ¿Cuál es el error típico de la media de {n} operaciones? (€, 2 decimales)",
+      "answer": 12.5,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{s} / SQRT({n})",
+      "explanation": "{s} / √{n} = {answer} €.",
+      "params": {
+        "s": {
+          "value": 125,
+          "min": 50,
+          "max": 200,
+          "step": 5,
+          "decimals": 0
+        },
+        "n": {
+          "value": 100,
+          "min": 25,
+          "max": 400,
+          "step": 25,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia ficticia tiene un valor esperado de {e} € por operación y una desviación típica de {s} €. ¿Cuántas operaciones hacen falta para que el valor esperado sea dos errores típicos? (operaciones, 2 decimales)",
+      "answer": 100,
+      "unit": "operaciones",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(2 * {s} / {e}) ^ 2",
+      "explanation": "(2 × {s} / {e})² = {answer} operaciones: antes, una media positiva puede ser ruido.",
+      "params": {
+        "e": {
+          "value": 25,
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "s": {
+          "value": 125,
+          "min": 50,
+          "max": 200,
+          "step": 25,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l2-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "¿Valor esperado positivo o negativo?",
+      "categories": ["Positivo", "Negativo"],
+      "items": [
+        {
+          "text": "Acierta el 30 %, gana 300 € y pierde 100 €",
+          "category": "Positivo"
+        },
+        {
+          "text": "Acierta el 70 %, gana 50 € y pierde 150 €",
+          "category": "Negativo"
+        },
+        {
+          "text": "Acierta el 50 %, gana 120 € y pierde 100 €",
+          "category": "Positivo"
+        },
+        {
+          "text": "Acierta el 80 %, gana 20 € y pierde 100 €",
+          "category": "Negativo"
+        }
+      ],
+      "explanation": "Cuenta a la vez cuánto acierta y cuánto gana o pierde: 90 − 70, 35 − 45, 60 − 50 y 16 − 20."
+    },
+    {
+      "id": "n5-u4-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "character": "mentora",
+      "situation": "El becario rival presume de una estrategia ficticia que acierta el 90 % de las operaciones: gana 20 € cada vez, pero cuando falla pierde 250 €.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que su valor esperado es negativo: 0,9 × 20 − 0,1 × 250 = −7 € por operación; acertar mucho no sirve si las pérdidas son enormes",
+        "Que con un 90 % de aciertos es imposible perder",
+        "Que el valor esperado solo depende del porcentaje de aciertos",
+        "Que hay que mirar solo la ganancia media"
+      ],
+      "answer": 0,
+      "explanation": "Muchas ganancias pequeñas y pocas pérdidas grandes pueden ser una estrategia perdedora.",
+      "wrongExplanations": {
+        "1": "Las pérdidas grandes se comen las ganancias pequeñas.",
+        "2": "También depende de cuánto se gana y se pierde.",
+        "3": "Ignorar las pérdidas es justo el error."
+      }
+    },
+    {
+      "id": "n5-u4-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "statement": "Con el doble de operaciones, el error típico de la media se reduce a la mitad.",
+      "answer": false,
+      "explanation": "Falso: se divide por √2, un 29 % menos. Para reducirlo a la mitad hacen falta cuatro veces más operaciones."
+    }
+  ],
+  "realWorld": "Los informes de las estrategias de trading suelen dar el porcentaje de aciertos, la ganancia y la pérdida medias y el número de operaciones: con eso se calcula el valor esperado y cuánto fiarse de él. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

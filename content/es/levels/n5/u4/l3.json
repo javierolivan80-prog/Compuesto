@@ -1,0 +1,299 @@
+{
+  "id": "n5-u4-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "title": "Probabilidad condicionada y Bayes",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular probabilidades condicionadas y aplicar Bayes a una señal con falsos positivos",
+    "Explicar la falacia de la tasa base"
+  ],
+  "concepts": ["valor-esperado"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Condicionada",
+      "text": "P(A | B) es la probabilidad de A sabiendo que ha pasado B. No es lo mismo que P(B | A): que casi todas las grandes caídas lleguen con la volatilidad disparada no significa que casi todos los días de volatilidad alta traigan una gran caída."
+    },
+    {
+      "type": "card",
+      "term": "Bayes",
+      "text": "P(ventaja | señal) = P(señal | ventaja) × P(ventaja) / P(señal). Se ve mejor con 1.000 casos: cuántos tienen ventaja y dan señal, y cuántos no la tienen y la dan igualmente, los falsos positivos. La probabilidad buscada es la parte buena de todas las señales."
+    },
+    {
+      "type": "card",
+      "term": "Tasa base",
+      "text": "Si casi ninguna estrategia tiene ventaja de partida, incluso un test fiable da sobre todo falsos positivos. Olvidar la proporción de partida es la falacia de la tasa base, y es la razón por la que la mayoría de los «descubrimientos» en los backtests no se repiten."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u4-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "De partida, el {b} % de las estrategias ficticias que revisa la mesa tiene ventaja. Un test la detecta el {s} % de las veces cuando la hay y da falsos positivos el {f} % de las veces cuando no la hay. Si el test da positivo, ¿qué probabilidad hay de ventaja? (%, 2 decimales)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{s} * {b} / ({s} * {b} + {f} * (100 - {b})) * 100",
+      "explanation": "{s} × {b} / ({s} × {b} + {f} × (100 − {b})) = {answer} %.",
+      "params": {
+        "b": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "s": {
+          "value": 90,
+          "min": 70,
+          "max": 95,
+          "step": 5,
+          "decimals": 0
+        },
+        "f": {
+          "value": 15,
+          "min": 5,
+          "max": 25,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Con esos mismos datos ({b} % con ventaja, detección del {s} % y falsos positivos del {f} %), ¿qué porcentaje de las estrategias da positivo en el test? (%, 2 decimales)",
+      "answer": 30,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({s} * {b} + {f} * (100 - {b})) / 100",
+      "explanation": "{s} % × {b} % + {f} % × (100 − {b}) % = {answer} %.",
+      "params": {
+        "b": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "s": {
+          "value": 90,
+          "min": 70,
+          "max": 95,
+          "step": 5,
+          "decimals": 0
+        },
+        "f": {
+          "value": 15,
+          "min": 5,
+          "max": 25,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "De {t} estrategias ficticias, el {b} % tiene ventaja. El test da falsos positivos el {f} % de las veces cuando no la hay. ¿Cuántos falsos positivos esperas? (estrategias, 2 decimales)",
+      "answer": 120,
+      "unit": "estrategias",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{t} * (100 - {b}) / 100 * {f} / 100",
+      "explanation": "{t} × (100 − {b}) % × {f} % = {answer} estrategias sin ventaja que parecen buenas.",
+      "params": {
+        "t": {
+          "value": 1000,
+          "min": 500,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "b": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "f": {
+          "value": 15,
+          "min": 5,
+          "max": 25,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "En {d} sesiones, un índice ficticio subió en {u}; de esas {u}, al día siguiente volvió a subir en {uu}. ¿Cuál es la probabilidad de que suba mañana si ha subido hoy? (%, 2 decimales)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{uu} / {u} * 100",
+      "explanation": "{uu} / {u} = {answer} %: se cuenta solo dentro de los días que subió.",
+      "params": {
+        "d": {
+          "value": 200,
+          "min": 150,
+          "max": 300,
+          "step": 10,
+          "decimals": 0
+        },
+        "u": {
+          "value": 110,
+          "min": 80,
+          "max": 140,
+          "step": 10,
+          "decimals": 0
+        },
+        "uu": {
+          "value": 66,
+          "min": 40,
+          "max": 75,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una empresa ficticia tiene un {pb} % de probabilidad de dar beneficios por debajo de lo esperado y, si los da, un {pr} % de que le bajen el rating. ¿Qué probabilidad hay de que ocurran las dos cosas? (%, 2 decimales)",
+      "answer": 12,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{pb} * {pr} / 100",
+      "explanation": "P(A y B) = P(A) × P(B | A) = {pb} % × {pr} % = {answer} %.",
+      "params": {
+        "pb": {
+          "value": 40,
+          "min": 20,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        },
+        "pr": {
+          "value": 30,
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "¿Sube o baja la probabilidad de ventaja tras una señal positiva?",
+      "categories": ["Sube", "Baja"],
+      "items": [
+        {
+          "text": "Hay más estrategias buenas de partida",
+          "category": "Sube"
+        },
+        {
+          "text": "El test da más falsos positivos",
+          "category": "Baja"
+        },
+        {
+          "text": "El test detecta más ventajas reales",
+          "category": "Sube"
+        },
+        {
+          "text": "Se buscan señales en miles de estrategias hechas al azar",
+          "category": "Baja"
+        }
+      ],
+      "explanation": "Cuenta la proporción de partida, la detección y los falsos positivos."
+    },
+    {
+      "id": "n5-u4-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "character": "jefe",
+      "situation": "Un proveedor ficticio vende una señal que «anticipó 9 de las últimas 10 subidas» de un índice. El jefe pregunta cuántas veces dio la señal sin que subiera.",
+      "prompt": "¿Por qué hace esa pregunta?",
+      "options": [
+        "Porque lo que importa es P(subida | señal), no P(señal | subida): si la señal salta casi todos los días, acertar las subidas no tiene mérito",
+        "Porque quiere negociar el precio",
+        "Porque 9 de 10 es poco",
+        "Porque las señales no pueden fallar"
+      ],
+      "answer": 0,
+      "explanation": "Una señal que salta siempre «anticipa» todas las subidas.",
+      "wrongExplanations": {
+        "1": "Es una pregunta estadística, no comercial.",
+        "2": "El 9 de 10 no dice nada sin los falsos positivos.",
+        "3": "Todas las señales fallan a veces."
+      }
+    },
+    {
+      "id": "n5-u4-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "statement": "Si un test detecta el 95 % de las estrategias con ventaja, una señal positiva significa un 95 % de probabilidad de que la estrategia tenga ventaja.",
+      "answer": false,
+      "explanation": "Falso: depende también de cuántas estrategias tienen ventaja de partida y de los falsos positivos."
+    }
+  ],
+  "realWorld": "Los mismos números que usan los médicos para leer una prueba con falsos positivos sirven para leer un backtest o una señal de trading: proporción de partida, detección y falsos positivos. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Campbell R. Harvey, Yan Liu y Heqing Zhu, «… and the Cross-Section of Expected Returns», The Review of Financial Studies, 2016 (pendiente de verificar la ruta)",
+      "url": "https://academic.oup.com/rfs",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

@@ -1,0 +1,9 @@
+/* ¿Ventaja real? (N5): panel y pantalla del comité. */
+.et-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.et-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

@@ -228,6 +228,11 @@
           "id": "n5-u3",
           "name": "Ventas en corto y préstamo de valores",
           "concepts": ["cortos"]
+        },
+        {
+          "id": "n5-u4",
+          "name": "Probabilidad, valor esperado y contraste de hipótesis",
+          "concepts": ["valor-esperado", "contraste-hipotesis"]
         }
       ]
     },

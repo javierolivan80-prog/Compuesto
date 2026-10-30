@@ -913,3 +913,10 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
   - Fuentes: EUR-Lex, CNMV y ESMA, citadas por su URL raíz «(pendiente de verificar la ruta)».
 - **Casos reales:** solo se menciona el short squeeze de GameStop (enero de 2021). Los informes de bajistas y los arbitrajes usan empresas ficticias.
 - `curriculum.json` incorpora `n5-u3`.
+
+## 2026-10-30 — n5-u4 «Probabilidad, valor esperado y contraste de hipótesis» (draft)
+- **Solape con n2-u4:** la media, la desviación típica, la normal, las colas gordas y las rachas por azar ya se enseñan allí. Esta unidad empieza con una tarjeta «Ya sabes» y pasa a lo nuevo, todo aplicado al trading: valor esperado de una estrategia, desviación típica de una operación y error típico de la media (ley de los grandes números), probabilidad condicionada y Bayes con falsos positivos, contraste de hipótesis (nula, p-valor, errores de tipo I y II), t ≈ Sharpe × √años, multiple testing, Bonferroni y data snooping.
+- **Juego:** «¿Ventaja real?» (`edge-test`, spec en `docs/specs/ventaja-real-n5.md`), un juego sencillo de cuatro pasos. La ficha 18 de JUEGOS.md, «La trampa del backtest», se reserva para la rama Pro de Fintech, donde está catalogada.
+- **Explicador:** `ExpectedValue`, del catálogo de ANIMACIONES (nivel 5), construido como un paso a paso del número de operaciones (1, 10, 100 y 1.000), con la banda de ±2 errores típicos alrededor del valor esperado.
+- **Convenciones:** «t > 2 equivale más o menos a un 5 % a dos colas» y «t ≈ Sharpe anual × √años con rentabilidades independientes» se presentan como aproximaciones (Lo, 2002). La propuesta de exigir t > 3 se atribuye a Harvey, Liu y Zhu (2016). Ambas fuentes van por su URL raíz «(pendiente de verificar la ruta)».
+- `curriculum.json` incorpora `n5-u4`.

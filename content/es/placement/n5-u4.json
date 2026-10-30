@@ -1,0 +1,226 @@
+{
+  "id": "salto-n5-u4",
+  "unitId": "n5-u4",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u4-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia ficticia acierta el 60 % de las veces, gana 90 € de media y pierde 110 € de media. ¿Cuál es su valor esperado por operación? (€)",
+      "answer": 10,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "0.6 * 90 - 0.4 * 110",
+      "explanation": "54 − 44 = 10 €."
+    },
+    {
+      "id": "salto-n5-u4-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["valor-esperado"],
+      "prompt": "El 10 % de las estrategias ficticias tiene ventaja; un test la detecta el 70 % de las veces y da falsos positivos el 10 %. Si da positivo, ¿qué probabilidad hay de ventaja? (%, 2 decimales)",
+      "answer": 43.75,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.7 * 10 / (0.7 * 10 + 0.1 * 90) * 100",
+      "explanation": "7 / (7 + 9) = 43,75 %."
+    },
+    {
+      "id": "salto-n5-u4-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia tiene un Sharpe anual de 0,7 en 25 años de datos. ¿Cuál es aproximadamente su estadístico t? (2 decimales)",
+      "answer": 3.5,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.7 * SQRT(25)",
+      "explanation": "0,7 × 5 = 3,50."
+    },
+    {
+      "id": "salto-n5-u4-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Se prueban 80 estrategias ficticias sin ventaja al 5 %. ¿Cuántas saldrán «significativas» de media? (estrategias)",
+      "answer": 4,
+      "unit": "estrategias",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "80 * 0.05",
+      "explanation": "80 × 5 % = 4."
+    },
+    {
+      "id": "salto-n5-u4-q5",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Un backtest da un p-valor del 2 % contra la hipótesis de que la estrategia no tiene ventaja. ¿Qué significa?",
+      "options": [
+        "Que si no tuviera ventaja, un resultado así o mejor saldría solo un 2 % de las veces",
+        "Que hay un 98 % de probabilidad de que funcione",
+        "Que la estrategia pierde el 2 % de las veces",
+        "Que la hipótesis nula es cierta con un 2 % de probabilidad"
+      ],
+      "answer": 0,
+      "explanation": "El p-valor se calcula suponiendo cierta la hipótesis nula.",
+      "wrongExplanations": {
+        "1": "Eso requeriría Bayes y la proporción de partida.",
+        "2": "No mide los fallos de la estrategia.",
+        "3": "No es la probabilidad de la hipótesis nula."
+      }
+    },
+    {
+      "id": "salto-n5-u4-q6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "La hipótesis nula es que la estrategia no tiene ventaja. ¿Qué ha pasado?",
+      "categories": ["Error tipo I", "Error tipo II"],
+      "items": [
+        {
+          "text": "Se pone en marcha una estrategia que luego resulta no tener ventaja",
+          "category": "Error tipo I"
+        },
+        {
+          "text": "Se abandona una estrategia que habría ganado dinero",
+          "category": "Error tipo II"
+        },
+        {
+          "text": "Un backtest «significativo» que era pura suerte",
+          "category": "Error tipo I"
+        },
+        {
+          "text": "Una estrategia buena que no pasa el contraste por falta de datos",
+          "category": "Error tipo II"
+        }
+      ],
+      "explanation": "Tipo I: falso positivo. Tipo II: falso negativo."
+    },
+    {
+      "id": "salto-n5-u4-q7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Las rentabilidades mensuales de una estrategia ficticia tienen una desviación típica de 4,5 puntos. ¿Cuál es el error típico de su media con 81 meses de datos? (puntos, 2 decimales)",
+      "answer": 0.5,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "4.5 / SQRT(81)",
+      "explanation": "4,5 / 9 = 0,50 puntos."
+    },
+    {
+      "id": "salto-n5-u4-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["valor-esperado"],
+      "statement": "Si una estrategia ha ganado 10 operaciones de 10, ya está demostrado que tiene ventaja.",
+      "answer": false,
+      "explanation": "Falso: 10 operaciones son muy pocas; una racha así sale a menudo por azar."
+    },
+    {
+      "id": "salto-n5-u4-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia gana 200 € cuando acierta y pierde 100 € cuando falla. ¿Qué porcentaje de aciertos necesita para no perder? (%, 2 decimales)",
+      "answer": 33.33,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "100 / (200 + 100) * 100",
+      "explanation": "100 / 300 = 33,33 %."
+    },
+    {
+      "id": "salto-n5-u4-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Un analista prueba 1.000 combinaciones de parámetros y presenta la mejor, con t = 2,5. ¿Qué es lo más prudente?",
+      "options": [
+        "Desconfiar: con tantas pruebas, un t así puede salir por azar; hay que corregir por las pruebas hechas y probarla fuera de muestra",
+        "Aprobarla: t = 2,5 supera el 2",
+        "Probar otras 1.000 combinaciones",
+        "Fijarse solo en la rentabilidad del backtest"
+      ],
+      "answer": 0,
+      "explanation": "Es data snooping: buscar hasta encontrar.",
+      "wrongExplanations": {
+        "1": "El 2 vale para una sola prueba.",
+        "2": "Más pruebas, más falsos positivos.",
+        "3": "La rentabilidad del backtest es justo lo que puede estar inflado."
+      }
+    },
+    {
+      "id": "salto-n5-u4-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "¿Cuántos años de historia necesita una estrategia ficticia con un Sharpe anual de 0,4 para que su t llegue a 2? (años)",
+      "answer": 25,
+      "unit": "años",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(2 / 0.4) ^ 2",
+      "explanation": "(2 / 0,4)² = 25 años."
+    },
+    {
+      "id": "salto-n5-u4-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["contraste-hipotesis"],
+      "statement": "El p-valor es la probabilidad de que la hipótesis nula sea cierta.",
+      "answer": false,
+      "explanation": "Falso: es la probabilidad de un resultado tan extremo si la hipótesis nula fuera cierta."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Andrew W. Lo, «The Statistics of Sharpe Ratios», Financial Analysts Journal, 2002 (pendiente de verificar la ruta)",
+      "url": "https://www.tandfonline.com/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Campbell R. Harvey, Yan Liu y Heqing Zhu, «… and the Cross-Section of Expected Returns», The Review of Financial Studies, 2016 (pendiente de verificar la ruta)",
+      "url": "https://academic.oup.com/rfs",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

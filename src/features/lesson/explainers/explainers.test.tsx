@@ -186,6 +186,18 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('ExpectedValue: la banda de la media se estrecha con √n', () => {
+    render(
+      <ExplainerBlock
+        component="ExpectedValue"
+        props={{ winPct: 50, avgWin: 150, avgLoss: 100 }}
+      />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/valor esperado de 25\s€ por operación/);
+    expect(text).toMatch(/la de 100, ±25\s€/);
+    expect(text).toMatch(/la de 1\.000, ±8\s€/);
+  });
   it('ShortSelling: gana si baja, pierde si sube, y la ganancia tiene techo', () => {
     render(
       <ExplainerBlock component="ShortSelling" props={{ qty: 1000, p0: 20, down: 16, up: 26 }} />,

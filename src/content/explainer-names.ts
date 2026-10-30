@@ -35,6 +35,7 @@ export const EXPLAINER_NAMES = [
   'MarketImpact',
   'CostStack',
   'ShortSelling',
+  'ExpectedValue',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

@@ -1,0 +1,263 @@
+{
+  "id": "n5-u4-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "title": "Backtests: Sharpe, multiple testing y data snooping",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el estadístico t de una estrategia a partir del Sharpe y los años",
+    "Corregir por multiple testing y reconocer el data snooping"
+  ],
+  "concepts": ["contraste-hipotesis"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Sharpe y años",
+      "text": "Con rentabilidades independientes, el estadístico t de la media de una estrategia es aproximadamente su ratio de Sharpe anual por la raíz de los años de datos. Un Sharpe de 0,5 necesita unos 16 años de historia para llegar a t = 2."
+    },
+    {
+      "type": "card",
+      "term": "Multiple testing",
+      "text": "Si pruebas 100 estrategias sin ventaja al 5 %, unas 5 saldrán significativas por azar. La corrección de Bonferroni exige un nivel del 5 % entre el número de pruebas. Algunos investigadores proponen pedir t > 3 a los factores nuevos, por todo lo que ya se ha probado."
+    },
+    {
+      "type": "card",
+      "term": "Data snooping",
+      "text": "Ajustar parámetros hasta que el backtest salga bonito convierte el ruido en «señal». Defensas: fijar la hipótesis antes de mirar los datos, reservar datos fuera de muestra, contar todas las variantes probadas y desconfiar de lo que solo funciona con unos parámetros exactos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u4-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia tiene un Sharpe anual de {sh} en un backtest de {y} años. ¿Cuál es aproximadamente su estadístico t? (3 decimales)",
+      "answer": 1.8,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{sh} * SQRT({y})",
+      "explanation": "{sh} × √{y} = {answer}.",
+      "params": {
+        "sh": {
+          "value": 0.6,
+          "min": 0.3,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        },
+        "y": {
+          "value": 9,
+          "min": 4,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "¿Cuántos años de historia necesita una estrategia ficticia con un Sharpe anual de {sh} para que su t llegue a 2? (años, 2 decimales)",
+      "answer": 16,
+      "unit": "años",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(2 / {sh}) ^ 2",
+      "explanation": "(2 / {sh})² = {answer} años.",
+      "params": {
+        "sh": {
+          "value": 0.5,
+          "min": 0.3,
+          "max": 1.5,
+          "step": 0.1,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Un analista prueba {n} estrategias ficticias que no tienen ninguna ventaja, con un nivel de significación del {a} %. ¿Cuántas saldrán «significativas» de media? (estrategias, 1 decimal)",
+      "answer": 10,
+      "unit": "estrategias",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "{n} * {a} / 100",
+      "explanation": "{n} × {a} % = {answer}.",
+      "params": {
+        "n": {
+          "value": 200,
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "decimals": 0
+        },
+        "a": {
+          "value": 5,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Si pruebas {n} estrategias independientes sin ventaja al {a} %, ¿qué probabilidad hay de que al menos una salga significativa? (%, 2 decimales)",
+      "answer": 64.15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 - (1 - {a} / 100) ^ {n}) * 100",
+      "explanation": "1 − (1 − {a} %)^{n} = {answer} %.",
+      "params": {
+        "n": {
+          "value": 20,
+          "min": 5,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "a": {
+          "value": 5,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Con la corrección de Bonferroni, ¿qué nivel de significación hay que exigir a cada una de {n} estrategias para mantener un 5 % en conjunto? (pb, 2 decimales)",
+      "answer": 10,
+      "unit": "pb",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "500 / {n}",
+      "explanation": "5 % / {n} = {answer} pb: cuantas más pruebas, más exigente.",
+      "params": {
+        "n": {
+          "value": 50,
+          "min": 10,
+          "max": 200,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "¿Data snooping o buena práctica?",
+      "categories": ["Data snooping", "Buena práctica"],
+      "items": [
+        {
+          "text": "Probar 300 combinaciones de medias móviles y quedarse con la mejor",
+          "category": "Data snooping"
+        },
+        {
+          "text": "Reservar los últimos 5 años sin mirarlos hasta el final",
+          "category": "Buena práctica"
+        },
+        {
+          "text": "Cambiar el periodo del backtest hasta que salga bien",
+          "category": "Data snooping"
+        },
+        {
+          "text": "Contar en el informe cuántas variantes se probaron",
+          "category": "Buena práctica"
+        }
+      ],
+      "explanation": "Buscar hasta encontrar fabrica falsos positivos; reservar datos y declarar las pruebas los evita."
+    },
+    {
+      "id": "n5-u4-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "character": "jefe",
+      "situation": "Un becario presenta la mejor de 500 variantes de una estrategia ficticia: t = 2,8 en su backtest.",
+      "prompt": "¿Qué le pide el jefe de la mesa?",
+      "options": [
+        "Que con 500 intentos un t de 2,8 puede salir por azar: hay que corregir por todas las variantes y probar la estrategia con datos que no se usaron para elegirla",
+        "Que la lance ya: t = 2,8 supera el 2",
+        "Que pruebe otras 500 variantes",
+        "Que suba el apalancamiento"
+      ],
+      "answer": 0,
+      "explanation": "Entre 500 variantes sin ventaja, varias superan t = 2 por suerte.",
+      "wrongExplanations": {
+        "1": "Con tantas pruebas, el 2 ya no basta.",
+        "2": "Más variantes empeoran el problema.",
+        "3": "Apalancar un resultado dudoso multiplica el riesgo."
+      }
+    },
+    {
+      "id": "n5-u4-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "statement": "Un Sharpe alto en un backtest de dos años basta para demostrar que una estrategia tiene ventaja.",
+      "answer": false,
+      "explanation": "Falso: con dos años, t ≈ Sharpe × √2; incluso un Sharpe de 1 da un t de 1,41, por debajo de 2."
+    }
+  ],
+  "realWorld": "Las revistas académicas y los comités de inversión piden cada vez más el número de variantes probadas y resultados fuera de muestra; el artículo de Harvey, Liu y Zhu (2016) propone exigir t > 3 a los factores nuevos. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Andrew W. Lo, «The Statistics of Sharpe Ratios», Financial Analysts Journal, 2002 (pendiente de verificar la ruta)",
+      "url": "https://www.tandfonline.com/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Campbell R. Harvey, Yan Liu y Heqing Zhu, «… and the Cross-Section of Expected Returns», The Review of Financial Studies, 2016 (pendiente de verificar la ruta)",
+      "url": "https://academic.oup.com/rfs",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

@@ -1,0 +1,264 @@
+{
+  "id": "n5-u4-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "title": "Contraste de hipótesis: p-valor y errores",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el estadístico t de una media y las observaciones necesarias para la significación",
+    "Interpretar el p-valor y distinguir los errores de tipo I y II"
+  ],
+  "concepts": ["contraste-hipotesis"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Hipótesis nula",
+      "text": "Para saber si una estrategia tiene ventaja, se parte de lo contrario: la hipótesis nula, H0, dice que su rentabilidad media real es cero. Se calcula t = media / error típico, con error típico = desviación típica / √n, y se mira si un resultado así sería raro si H0 fuera cierta."
+    },
+    {
+      "type": "card",
+      "term": "p-valor",
+      "text": "El p-valor es la probabilidad de obtener un resultado al menos tan extremo como el observado si H0 fuera cierta. No es la probabilidad de que H0 sea cierta. Con p < 5 %, que equivale más o menos a |t| > 2, se rechaza H0."
+    },
+    {
+      "type": "card",
+      "term": "Errores",
+      "text": "Error tipo I: rechazar H0 siendo cierta, es decir, quedarte una estrategia sin ventaja (falso positivo); su probabilidad es el nivel de significación. Error tipo II: no rechazarla siendo falsa, descartar una estrategia buena. Bajar uno sube el otro, salvo con más datos."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u4-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia rinde de media un {m} % al mes, con una desviación típica de {s} puntos, en {n} meses. ¿Cuál es su estadístico t? (3 decimales)",
+      "answer": 2.5,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{m} / ({s} / SQRT({n}))",
+      "explanation": "{m} / ({s} / √{n}) = {answer}.",
+      "params": {
+        "m": {
+          "value": 0.5,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "s": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "n": {
+          "value": 100,
+          "min": 36,
+          "max": 144,
+          "step": 4,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Las rentabilidades mensuales de una estrategia ficticia tienen una desviación típica de {s} puntos. ¿Cuál es el error típico de su media con {n} meses de datos? (puntos, 3 decimales)",
+      "answer": 0.5,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{s} / SQRT({n})",
+      "explanation": "{s} / √{n} = {answer} puntos.",
+      "params": {
+        "s": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "n": {
+          "value": 64,
+          "min": 36,
+          "max": 144,
+          "step": 4,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia tiene una desviación típica mensual de {s} puntos y {n} meses de datos. ¿Qué rentabilidad media mensual necesita para que t llegue a 2? (%, 3 decimales)",
+      "answer": 1,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "2 * {s} / SQRT({n})",
+      "explanation": "2 × {s} / √{n} = {answer} %.",
+      "params": {
+        "s": {
+          "value": 3,
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "n": {
+          "value": 36,
+          "min": 25,
+          "max": 144,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia rinde de media un {m} % al mes con una desviación típica de {s} puntos. ¿Cuántos meses de datos hacen falta para que t llegue a 2? (meses, 2 decimales)",
+      "answer": 256,
+      "unit": "meses",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(2 * {s} / {m}) ^ 2",
+      "explanation": "(2 × {s} / {m})² = {answer} meses: las ventajas pequeñas tardan mucho en distinguirse del ruido.",
+      "params": {
+        "m": {
+          "value": 0.25,
+          "min": 0.2,
+          "max": 1,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "s": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "La hipótesis nula es que la estrategia no tiene ventaja. ¿Qué ha pasado?",
+      "categories": ["Error tipo I", "Error tipo II", "Acierto"],
+      "items": [
+        {
+          "text": "Lanzas una estrategia que en realidad no tiene ventaja",
+          "category": "Error tipo I"
+        },
+        {
+          "text": "Descartas una estrategia que sí tenía ventaja",
+          "category": "Error tipo II"
+        },
+        {
+          "text": "Descartas una estrategia sin ventaja",
+          "category": "Acierto"
+        },
+        {
+          "text": "Lanzas una estrategia que sí la tenía",
+          "category": "Acierto"
+        }
+      ],
+      "explanation": "Tipo I: falso positivo. Tipo II: falso negativo."
+    },
+    {
+      "id": "n5-u4-l4-e6",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Un backtest da un p-valor del 3 % contra la hipótesis de que la estrategia no tiene ventaja. ¿Qué significa?",
+      "options": [
+        "Que si la estrategia no tuviera ventaja, un resultado así o mejor saldría solo un 3 % de las veces",
+        "Que hay un 97 % de probabilidad de que la estrategia funcione",
+        "Que la estrategia gana el 3 % de las veces",
+        "Que hay un 3 % de probabilidad de que la hipótesis nula sea cierta"
+      ],
+      "answer": 0,
+      "explanation": "El p-valor se calcula suponiendo cierta la hipótesis nula.",
+      "wrongExplanations": {
+        "1": "Esa probabilidad necesitaría Bayes y la proporción de partida.",
+        "2": "No dice nada del porcentaje de aciertos.",
+        "3": "Es la confusión más habitual: no es la probabilidad de H0."
+      }
+    },
+    {
+      "id": "n5-u4-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "character": "mentora",
+      "situation": "El becario rival dice: «Mi estrategia tiene un p-valor de 0,04: hay un 96 % de probabilidad de que funcione».",
+      "prompt": "¿Qué le corrige tu mentora?",
+      "options": [
+        "Que el p-valor no es la probabilidad de que funcione: es lo raro que sería su resultado si no tuviera ventaja; para hablar de probabilidad de que funcione hace falta la proporción de partida, y además cuántas variantes probó",
+        "Que tiene razón",
+        "Que un p-valor de 0,04 significa que pierde el 4 % de las veces",
+        "Que el p-valor solo sirve en medicina"
+      ],
+      "answer": 0,
+      "explanation": "El p-valor y la probabilidad de ventaja no son lo mismo.",
+      "wrongExplanations": {
+        "1": "Confunde P(datos | H0) con P(H0 | datos).",
+        "2": "El p-valor no mide los fallos de la estrategia.",
+        "3": "Se usa en cualquier contraste, también en finanzas."
+      }
+    },
+    {
+      "id": "n5-u4-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "statement": "Con un nivel de significación más exigente (1 % en lugar de 5 %) hay menos errores de tipo I y, con los mismos datos, más errores de tipo II.",
+      "answer": true,
+      "explanation": "Verdadero: es más difícil rechazar la hipótesis nula, así que se cuelan menos estrategias sin ventaja, pero se descartan más estrategias buenas."
+    }
+  ],
+  "realWorld": "Los artículos académicos y los informes de las gestoras cuantitativas dan el estadístico t o el p-valor de cada estrategia; leerlos bien exige saber qué significan y qué no. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

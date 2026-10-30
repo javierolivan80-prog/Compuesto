@@ -1347,3 +1347,50 @@ test('la posición corta de N5: captura y axe a 375 px en cada paso y lección c
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('¿ventaja real? de N5: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n5-u4-l1');
+  await expect(page.getByRole('heading', { name: '¿Ventaja real?' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('valor esperado');
+  await page.getByRole('radio', { name: /^66\s€$/ }).click();
+  await expect(page.getByTestId('et-why')).toContainText('✗');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('estadístico t');
+  await page.getByRole('radio', { name: /^1,60$/ }).click();
+  await expect(page.getByTestId('et-why')).toContainText('✓');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('multiple testing');
+  await page.getByRole('radio').first().click();
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio').first().click();
+  await scan('Bayes');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/ventaja-real-n5-375.png',
+    fullPage: true,
+  });
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n5-u4-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n5/u4/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});

@@ -2075,5 +2075,61 @@
   "shortSelling": {
     "title": "Vender lo que no tienes",
     "unlimited": "Pérdida sin techo"
+  },
+  "edgeTestGame": {
+    "title": "¿Ventaja real?",
+    "step": {
+      "ev": "Paso 1 de 4 · el valor esperado",
+      "t": "Paso 2 de 4 · el estadístico t",
+      "fp": "Paso 3 de 4 · cuántas has probado",
+      "post": "Paso 4 de 4 · lo que dice la señal"
+    },
+    "board": {
+      "win": "Operaciones ganadoras",
+      "avgWin": "Ganancia media",
+      "avgLoss": "Pérdida media",
+      "sharpe": "Sharpe anual",
+      "years": "Años de backtest",
+      "prior": "Estrategias con ventaja (antes de probar)",
+      "sens": "Si tiene ventaja, el backtest lo detecta",
+      "fpr": "Si no la tiene, el backtest la ve igual"
+    },
+    "briefEv": "Planta 4 de Albufera Partners. El becario rival trae al comité una estrategia ficticia de trading con su backtest. Lo primero: ¿cuánto gana de media cada operación? Valor esperado = acierto × ganancia media − fallo × pérdida media.",
+    "askEv": "¿Cuál es el valor esperado por operación?",
+    "whyEv": {
+      "pos": "{{win}} × {{g}} − {{lose}} × {{l}} = {{v}}. Positivo: si se repite muchas veces, la estrategia gana. Pero ese valor esperado es una estimación con ruido: falta saber si es fiable.",
+      "neg": "{{win}} × {{g}} − {{lose}} × {{l}} = {{v}}. Negativo: aunque gane a menudo o sus ganancias sean grandes, repetida muchas veces pierde dinero."
+    },
+    "briefT": "¿Podría ser suerte? Con rentabilidades independientes, el estadístico t de una estrategia es aproximadamente su Sharpe anual por la raíz del número de años del backtest. Un t por encima de 2 equivale, más o menos, a una significación del 5 %.",
+    "askT": "¿Cuál es el estadístico t?",
+    "whyT": {
+      "yes": "{{sharpe}} × √{{years}} = {{v}}: por encima de 2, el resultado sería raro si la estrategia no tuviera ventaja. Aun así, falta saber cuántas estrategias se probaron.",
+      "no": "{{sharpe}} × √{{years}} = {{v}}: por debajo de 2. Con tan pocos años, un Sharpe así puede salir por pura suerte; no se puede rechazar que no tenga ventaja."
+    },
+    "briefFp": "El becario confiesa que probó {{n}} variantes de la estrategia y trae la mejor. Imagina que ninguna tuviera ventaja real.",
+    "askFp": "¿Cuántas saldrían «significativas» al 5 % solo por azar, de media?",
+    "whyFp": "{{n}} × 5 % = {{v}}. Si pruebas muchas y te quedas con la mejor, encontrarás alguna «significativa» aunque todas sean ruido: es el multiple testing o data snooping. Hay que exigir más, por ejemplo un t mayor o una prueba fuera de muestra.",
+    "briefPost": "Por último, Bayes. Antes de mirar el backtest, ¿qué proporción de estrategias como esta tiene ventaja de verdad? Y el backtest no es perfecto: a veces no ve la ventaja y a veces la ve donde no la hay.",
+    "askPost": "Si el backtest dice que tiene ventaja, ¿qué probabilidad hay de que la tenga?",
+    "whyPost": "De cada 100 estrategias, {{true}} tienen ventaja y dan señal ({{sens}} de {{prior}}), y {{false}} no la tienen y dan señal igualmente ({{fpr}} del resto). {{true}} / ({{true}} + {{false}}) = {{v}}: con pocas estrategias buenas de partida, la mayoría de las señales son falsas.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Veredicto del comité",
+    "row": {
+      "ev": "Valor esperado",
+      "t": "Estadístico t",
+      "fp": "Multiple testing",
+      "post": "Bayes"
+    },
+    "great": "Comité impecable: no te dejas engañar por un buen backtest.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el valor esperado, el estadístico t, el multiple testing y Bayes.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "expectedValue": {
+    "title": "El valor esperado se impone con el tiempo"
   }
 }

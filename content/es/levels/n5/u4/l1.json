@@ -1,0 +1,316 @@
+{
+  "id": "n5-u4-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "order": 0,
+  "title": "Juego: ¿ventaja real?",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el valor esperado de una estrategia y su estadístico t a partir del Sharpe",
+    "Aplicar el multiple testing y Bayes para juzgar un backtest"
+  ],
+  "concepts": ["valor-esperado", "contraste-hipotesis"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "edge-test",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Valor esperado",
+      "text": "Acertaste {hits} de 4. Con un {win_pct} % de aciertos, {avg_win} € de ganancia media y {avg_loss} € de pérdida media, la estrategia esperaba {ev} € por operación. Es una media a largo plazo: una operación sola puede salir muy distinta."
+    },
+    {
+      "type": "card",
+      "term": "Estadístico t",
+      "text": "Con un Sharpe de {sharpe} en {years} años, t ≈ {sharpe} × √{years} = {t_stat}. Por debajo de 2, un resultado así puede salir por azar. Y entre {n_tests} variantes sin ventaja, unas {false_pos} salen «significativas» al 5 % solo por suerte."
+    },
+    {
+      "type": "card",
+      "term": "Bayes",
+      "text": "Si solo el {prior} % de las estrategias así tiene ventaja, el backtest la detecta el {sens} % de las veces y da falsos positivos el {fpr} %, una señal positiva deja la probabilidad de ventaja en un {posterior} %."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u4-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Tu estrategia acierta el {win_pct} % de las veces, gana {avg_win} € de media y pierde {avg_loss} € de media. Si la ganancia media fuera el doble, ¿cuál sería el valor esperado por operación? (€, 2 decimales)",
+      "answer": 87,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({win_pct} * 2 * {avg_win} - (100 - {win_pct}) * {avg_loss}) / 100",
+      "explanation": "{win_pct} % × 2 × {avg_win} − (100 − {win_pct}) % × {avg_loss} = {answer} €: el tamaño de las ganancias pesa tanto como el acierto.",
+      "params": {
+        "win_pct": {
+          "value": 55,
+          "min": 40,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        },
+        "avg_win": {
+          "value": 120,
+          "min": 80,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "avg_loss": {
+          "value": 100,
+          "min": 80,
+          "max": 120,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Con esa ganancia media de {avg_win} € y pérdida media de {avg_loss} €, ¿qué porcentaje de aciertos necesita la estrategia para no ganar ni perder? (%, 2 decimales)",
+      "answer": 45.45,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{avg_loss} / ({avg_win} + {avg_loss}) * 100",
+      "explanation": "{avg_loss} / ({avg_win} + {avg_loss}) = {answer} %: por encima, el valor esperado es positivo.",
+      "params": {
+        "avg_win": {
+          "value": 120,
+          "min": 80,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "avg_loss": {
+          "value": 100,
+          "min": 80,
+          "max": 120,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Si la estrategia acierta el {win_pct} %, gana {avg_win} € y pierde {avg_loss} € de media, ¿cuánto espera ganar o perder en {k} operaciones? (€, 2 decimales; negativo si pierde)",
+      "answer": 5250,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{k} * ({win_pct} * {avg_win} - (100 - {win_pct}) * {avg_loss}) / 100",
+      "explanation": "{k} × ({win_pct} % × {avg_win} − (100 − {win_pct}) % × {avg_loss}) = {answer} €.",
+      "params": {
+        "win_pct": {
+          "value": 55,
+          "min": 40,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        },
+        "avg_win": {
+          "value": 120,
+          "min": 80,
+          "max": 150,
+          "step": 10,
+          "decimals": 0
+        },
+        "avg_loss": {
+          "value": 100,
+          "min": 80,
+          "max": 120,
+          "step": 10,
+          "decimals": 0
+        },
+        "k": {
+          "value": 250,
+          "min": 100,
+          "max": 1000,
+          "step": 50,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Con un Sharpe anual de {sharpe}, ¿cuántos años de backtest harían falta para que el estadístico t llegara a 2? (años, 2 decimales)",
+      "answer": 6.25,
+      "unit": "años",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(2 / {sharpe}) ^ 2",
+      "explanation": "t ≈ Sharpe × √años, así que años = (2 / {sharpe})² = {answer}.",
+      "params": {
+        "sharpe": {
+          "value": 0.8,
+          "min": 0.4,
+          "max": 1.2,
+          "step": 0.2,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Si se prueban {n_tests} variantes sin ninguna ventaja al 5 %, ¿qué probabilidad hay de que al menos una salga «significativa»? (%, 2 decimales)",
+      "answer": 87.15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 - 0.95 ^ {n_tests}) * 100",
+      "explanation": "1 − 0,95^{n_tests} = {answer} %: casi seguro que alguna sale bien por azar.",
+      "params": {
+        "n_tests": {
+          "value": 40,
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "El backtest detecta la ventaja el {sens} % de las veces y da falsos positivos el {fpr} %. Si de partida el {pr} % de las estrategias tuviera ventaja, ¿qué probabilidad de ventaja dejaría una señal positiva? (%, 2 decimales)",
+      "answer": 63.16,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{sens} * {pr} / ({sens} * {pr} + {fpr} * (100 - {pr})) * 100",
+      "explanation": "{sens} × {pr} / ({sens} × {pr} + {fpr} × (100 − {pr})) = {answer} %: con más estrategias buenas de partida, la señal vale más.",
+      "params": {
+        "sens": {
+          "value": 80,
+          "min": 70,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        },
+        "fpr": {
+          "value": 20,
+          "min": 10,
+          "max": 30,
+          "step": 10,
+          "decimals": 0
+        },
+        "pr": {
+          "value": 30,
+          "min": 25,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u4-l1-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "¿Da más o menos evidencia de que la estrategia tiene ventaja?",
+      "categories": ["Más evidencia", "Menos evidencia"],
+      "items": [
+        {
+          "text": "Más años de backtest con el mismo Sharpe",
+          "category": "Más evidencia"
+        },
+        {
+          "text": "Se probaron cientos de variantes antes de elegirla",
+          "category": "Menos evidencia"
+        },
+        {
+          "text": "Funciona también con datos que no se usaron para diseñarla",
+          "category": "Más evidencia"
+        },
+        {
+          "text": "Los parámetros se ajustaron hasta que el resultado salió bonito",
+          "category": "Menos evidencia"
+        }
+      ],
+      "explanation": "Más datos y pruebas fuera de muestra suman; buscar hasta encontrar resta."
+    },
+    {
+      "id": "n5-u4-l1-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "character": "mentora",
+      "situation": "El becario rival ha ganado sus últimas 10 operaciones con una estrategia ficticia y dice que ya está demostrado que tiene ventaja.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que 10 operaciones son muy pocas: hay que mirar el valor esperado, que incluye el tamaño de las pérdidas, y cuántas operaciones hacen falta para que la media sea fiable",
+        "Que tiene razón: 10 de 10 no puede ser suerte",
+        "Que solo importa el porcentaje de aciertos",
+        "Que con 10 aciertos seguidos lo próximo será un fallo"
+      ],
+      "answer": 0,
+      "explanation": "Una racha corta no separa la ventaja del azar.",
+      "wrongExplanations": {
+        "1": "Con muchas estrategias probando, alguna acierta 10 seguidas por azar.",
+        "2": "Una estrategia que acierta mucho puede perder si sus pérdidas son grandes.",
+        "3": "Las operaciones independientes no «se compensan»."
+      }
+    }
+  ],
+  "realWorld": "Los gestores cuantitativos presentan sus estrategias con el número de operaciones, el valor esperado, el Sharpe y cuántas variantes se probaron; los comités de inversión piden pruebas fuera de muestra antes de aprobar nada. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Andrew W. Lo, «The Statistics of Sharpe Ratios», Financial Analysts Journal, 2002 (pendiente de verificar la ruta)",
+      "url": "https://www.tandfonline.com/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Campbell R. Harvey, Yan Liu y Heqing Zhu, «… and the Cross-Section of Expected Returns», The Review of Financial Studies, 2016 (pendiente de verificar la ruta)",
+      "url": "https://academic.oup.com/rfs",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

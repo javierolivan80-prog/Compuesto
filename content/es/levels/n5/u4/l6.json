@@ -1,0 +1,212 @@
+{
+  "id": "n5-u4-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 4,
+  "title": "Jefe final: el comité cuantitativo",
+  "cfa": "quantitative-methods",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el valor esperado, el punto muerto y la probabilidad tras una señal",
+    "Calcular el estadístico t de una estrategia y corregir por multiple testing",
+    "Interpretar el p-valor y los errores de un contraste"
+  ],
+  "concepts": ["valor-esperado", "contraste-hipotesis"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u4-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia ficticia acierta el 45 % de las veces, gana 250 € de media y pierde 150 € de media. ¿Cuál es su valor esperado por operación? (€)",
+      "answer": 30,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "0.45 * 250 - 0.55 * 150",
+      "explanation": "112,5 − 82,5 = 30 €."
+    },
+    {
+      "id": "n5-u4-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Una estrategia gana 80 € cuando acierta y pierde 120 € cuando falla. ¿Qué porcentaje de aciertos necesita para no perder? (%)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "120 / (80 + 120) * 100",
+      "explanation": "120 / 200 = 60 %."
+    },
+    {
+      "id": "n5-u4-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "prompt": "Solo el 5 % de las estrategias ficticias tiene ventaja; el test la detecta el 90 % de las veces y da falsos positivos el 10 %. Si da positivo, ¿qué probabilidad hay de ventaja? (%, 2 decimales)",
+      "answer": 32.14,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.9 * 5 / (0.9 * 5 + 0.1 * 95) * 100",
+      "explanation": "4,5 / (4,5 + 9,5) = 32,14 %."
+    },
+    {
+      "id": "n5-u4-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia tiene un Sharpe anual de 0,9 en 16 años. ¿Cuál es aproximadamente su estadístico t? (2 decimales)",
+      "answer": 3.6,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.9 * SQRT(16)",
+      "explanation": "0,9 × 4 = 3,60."
+    },
+    {
+      "id": "n5-u4-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia rinde de media un 0,6 % al mes, con una desviación típica de 3 puntos, en 144 meses. ¿Cuál es su estadístico t? (2 decimales)",
+      "answer": 2.4,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.6 / (3 / SQRT(144))",
+      "explanation": "0,6 / 0,25 = 2,40."
+    },
+    {
+      "id": "n5-u4-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Se prueban 300 estrategias ficticias sin ventaja al 5 %. ¿Cuántas saldrán «significativas» de media? (estrategias)",
+      "answer": 15,
+      "unit": "estrategias",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "300 * 0.05",
+      "explanation": "300 × 5 % = 15."
+    },
+    {
+      "id": "n5-u4-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "La hipótesis nula es que la estrategia no tiene ventaja. ¿Qué ha pasado?",
+      "categories": ["Error tipo I", "Error tipo II", "Acierto"],
+      "items": [
+        {
+          "text": "El comité aprueba una estrategia que resulta no tener ventaja",
+          "category": "Error tipo I"
+        },
+        {
+          "text": "El comité rechaza una estrategia que habría ganado dinero",
+          "category": "Error tipo II"
+        },
+        {
+          "text": "El comité rechaza una estrategia que no tenía ventaja",
+          "category": "Acierto"
+        }
+      ],
+      "explanation": "Tipo I: falso positivo. Tipo II: falso negativo."
+    },
+    {
+      "id": "n5-u4-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "character": "mentora",
+      "situation": "Un gestor ficticio presenta una estrategia con t = 2,3 tras probar 40 variantes, y no tiene datos fuera de muestra.",
+      "prompt": "¿Qué recomienda tu mentora al comité?",
+      "options": [
+        "No aprobarla todavía: con 40 variantes, unas 2 superarían el 5 % por azar; hay que pedir un t más exigente o una prueba con datos que no se usaron para elegirla",
+        "Aprobarla: supera t = 2",
+        "Rechazarla para siempre",
+        "Aprobarla con más apalancamiento"
+      ],
+      "answer": 0,
+      "explanation": "El multiple testing obliga a exigir más.",
+      "wrongExplanations": {
+        "1": "El 2 vale para una sola prueba, no para 40.",
+        "2": "Puede tener ventaja: falta comprobarlo bien.",
+        "3": "El apalancamiento no arregla la falta de evidencia."
+      }
+    },
+    {
+      "id": "n5-u4-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["contraste-hipotesis"],
+      "prompt": "Una estrategia ficticia tiene un p-valor del 20 %. ¿Qué concluye el comité?",
+      "options": [
+        "Que no hay evidencia suficiente de ventaja: un resultado así saldría a menudo por azar",
+        "Que la estrategia pierde el 20 % de las veces",
+        "Que hay un 80 % de probabilidad de que funcione",
+        "Que está demostrado que no tiene ventaja"
+      ],
+      "answer": 0,
+      "explanation": "No rechazar la hipótesis nula no prueba que sea cierta.",
+      "wrongExplanations": {
+        "1": "El p-valor no mide los fallos.",
+        "2": "El p-valor no es la probabilidad de que funcione.",
+        "3": "Falta de evidencia no es evidencia de que no la tenga."
+      }
+    },
+    {
+      "id": "n5-u4-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["valor-esperado"],
+      "statement": "Cuantas más operaciones independientes se hacen, más se acerca la media de los resultados al valor esperado.",
+      "answer": true,
+      "explanation": "Verdadero: es la ley de los grandes números; el error típico de la media cae con √n."
+    }
+  ],
+  "realWorld": "En Albufera Partners, ninguna estrategia cuantitativa pasa el comité sin su valor esperado, su estadístico t, el número de variantes probadas y una prueba fuera de muestra. Las cifras de los ejemplos son de estrategias ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Quantitative Methods (probabilidad, valor esperado, Bayes y contraste de hipótesis) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Andrew W. Lo, «The Statistics of Sharpe Ratios», Financial Analysts Journal, 2002 (pendiente de verificar la ruta)",
+      "url": "https://www.tandfonline.com/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Campbell R. Harvey, Yan Liu y Heqing Zhu, «… and the Cross-Section of Expected Returns», The Review of Financial Studies, 2016 (pendiente de verificar la ruta)",
+      "url": "https://academic.oup.com/rfs",
+      "date": "2026-10-30"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-30"
+}

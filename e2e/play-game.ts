@@ -57,6 +57,13 @@ import {
   setupShort,
 } from '../src/engine/games/short-desk';
 import {
+  ev as etEv,
+  falsePositives as etFp,
+  posterior as etPost,
+  setupEdge,
+  tStat as etT,
+} from '../src/engine/games/edge-test';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -318,6 +325,35 @@ export async function playGameLesson(
         name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
         exact: true,
       })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'edge-test') {
+    // referencia 0: el valor esperado, el estadístico t, los falsos positivos y Bayes
+    await expect(page.getByRole('heading', { name: '¿Ventaja real?' })).toBeVisible();
+    const setup = setupEdge(seed);
+    const e = etEv(setup);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    await page
+      .getByRole('radio', {
+        name: new RegExp(
+          `^${e < 0 ? '−' : ''}${esc(formatNumber(Math.abs(e), Number.isInteger(e) ? 0 : 2))}\\s€$`,
+        ),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: new RegExp(`^${esc(formatNumber(etT(setup), 2))}$`) })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const fp = etFp(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${esc(formatNumber(fp, Number.isInteger(fp) ? 0 : 1))}$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page
+      .getByRole('radio', { name: new RegExp(`^${esc(formatNumber(etPost(setup), 1))}\\s%$`) })
       .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'short-desk') {

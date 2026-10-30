@@ -1221,13 +1221,17 @@
     "id": "valor-esperado",
     "name": "Probabilidad y valor esperado",
     "level": 5,
-    "prerequisites": ["media-desviacion"]
+    "prerequisites": ["media-desviacion"],
+    "unit": "n5-u4",
+    "description": "Valor esperado de una estrategia = acierto × ganancia media − fallo × pérdida media. La media de n operaciones se acerca a él (ley de los grandes números) con un error típico de desviación típica / √n. Bayes: P(ventaja | señal) depende de la proporción de partida, la detección y los falsos positivos."
   },
   {
     "id": "contraste-hipotesis",
     "name": "Contraste de hipótesis, p-valor e intervalos de confianza",
     "level": 5,
-    "prerequisites": ["valor-esperado", "distribucion-normal"]
+    "prerequisites": ["valor-esperado", "distribucion-normal"],
+    "unit": "n5-u4",
+    "description": "Se parte de la hipótesis nula (sin ventaja) y se calcula t = media / error típico; el p-valor es la probabilidad de un resultado tan extremo si la nula fuera cierta. Error tipo I: falso positivo; tipo II: falso negativo. En un backtest, t ≈ Sharpe anual × √años, y al probar muchas variantes hay que corregir por multiple testing."
   },
   {
     "id": "exceso-confianza",
