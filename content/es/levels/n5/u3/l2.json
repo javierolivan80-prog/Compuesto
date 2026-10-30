@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Préstamo de valores",
-      "text": "Para vender en corto hay que tomar prestadas las acciones. El prestamista, a menudo un fondo, una aseguradora o un ETF, cobra una comisión anual sobre su valor y recibe una garantía de algo más del 100 % de ese valor, en efectivo o en títulos. Puede pedir que se las devuelvan cuando quiera."
+      "text": "Para vender en corto hay que tomar prestadas las acciones. El prestamista, a menudo un fondo, cobra una comisión anual sobre su valor, que en los ejercicios calculamos con base 360 (la convención habitual del préstamo de valores en euros), y recibe una garantía de algo más del 100 %. Puede pedir que se las devuelvan cuando quiera."
     },
     {
       "type": "visual",
@@ -45,7 +45,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "prompt": "Tomas prestadas {q} acciones de una empresa ficticia que cotizan a {p} €, con una comisión del {r} % anual (base 360), durante {d} días. ¿Cuánto pagas por el préstamo? (€, 2 decimales)",
+      "prompt": "Tomas prestadas {q} acciones de una empresa ficticia que cotizan a {p} €, con una comisión del {r} % anual (base 360, convención del ejercicio), durante {d} días. ¿Cuánto pagas por el préstamo? (€, 2 decimales)",
       "answer": 2000,
       "unit": "€",
       "tolerance": 0.1,
@@ -219,7 +219,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "prompt": "Estás corto de {q} acciones de una empresa ficticia que cotizan a {p} €. Como muchos quieren venderla en corto, la comisión de préstamo sube del {r1} % al {r2} % anual. ¿Cuánto te cuesta de más en {d} días (base 360)? (€, 2 decimales)",
+      "prompt": "Estás corto de {q} acciones de una empresa ficticia que cotizan a {p} €. Como muchos quieren venderla en corto, la comisión de préstamo sube del {r1} % al {r2} % anual. ¿Cuánto te cuesta de más en {d} días (base 360, convención del ejercicio)? (€, 2 decimales)",
       "answer": 1600,
       "unit": "€",
       "tolerance": 0.1,

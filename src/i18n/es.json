@@ -2040,7 +2040,7 @@
     "briefPnl": "Mientras dura el corto, la empresa reparte un dividendo de {{div}} por acción. Las acciones prestadas ya no están en manos del prestamista, así que el corto se lo paga a él: es el dividendo manufacturado. Después, la mesa recompra las acciones y las devuelve.",
     "askPnl": "¿Cuál es el resultado final del corto?",
     "whyPnl": "Venta menos recompra, {{gross}}, menos la comisión, {{fee}}, y menos el dividendo pagado al prestamista, {{div}}: {{v}}.",
-    "briefCall": "Ahora imagina que la acción sube. El bróker retiene como garantía lo que obtuviste al vender más un {{im}} de margen. Si lo que sobra de la garantía, después de descontar lo que valen las acciones que debes, baja del {{mm}} de ese valor (el margen de mantenimiento), llega el margin call: aportas más dinero o te cierran la posición.",
+    "briefCall": "Ahora imagina que la acción sube. Con la garantía del ejercicio, el 150 % de lo vendido (el dinero de la venta más un {{im}} de margen), si lo que sobra de la garantía, después de descontar lo que valen las acciones que debes, baja del {{mm}} de ese valor (el margen de mantenimiento), llega el margin call: aportas más dinero o te cierran la posición.",
     "askCall": "¿A qué precio llega el margin call?",
     "whyCall": "La garantía, 1,5 × {{p0}} por acción, tiene que cubrir {{mm}} veces el precio: {{p0}} × 1,5 / {{mm}} = {{v}}. A {{wipe}} habrías perdido toda la garantía, y por encima pierdes más de lo que pusiste: en un corto, la pérdida no tiene techo.",
     "briefDuty": "Un fondo cliente tiene una posición corta neta del {{pct}} del capital de una empresa española ficticia. Según el reglamento europeo de ventas en corto, ¿qué tiene que hacer?",

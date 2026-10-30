@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Margin call",
-      "text": "El bróker retiene el dinero de la venta y un margen extra como garantía. Si la acción sube y lo que sobra de la garantía, tras descontar lo que valen las acciones que debes, baja del margen de mantenimiento, llega el margin call: aportas dinero o te cierran la posición, a menudo en el peor momento."
+      "text": "El bróker retiene el dinero de la venta y un margen extra como garantía; en esta unidad usamos, por convención, un 150 % de lo vendido (cada bróker fija el suyo, y es distinto de la garantía que recibe el prestamista). Si lo que sobra baja del margen de mantenimiento, llega el margin call: aportas dinero o te cierran."
     },
     {
       "type": "card",
@@ -94,7 +94,7 @@
       "params": {
         "si": {
           "value": 6000000,
-          "min": 1000000,
+          "min": 1500000,
           "max": 10000000,
           "step": 500000,
           "decimals": 0
@@ -146,7 +146,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "prompt": "Vendes en corto una acción ficticia a {p0} €. El bróker retiene una garantía del 150 % de lo vendido y exige un margen de mantenimiento del {mm} %. ¿A qué precio llega el margin call? (€, 2 decimales)",
+      "prompt": "Vendes en corto una acción ficticia a {p0} € (garantía del 150 %, convención del ejercicio) y el bróker exige un margen de mantenimiento del {mm} %. ¿A qué precio llega el margin call? (€, 2 decimales)",
       "answer": 36,
       "unit": "€",
       "tolerance": 0.1,
@@ -283,6 +283,11 @@
     {
       "title": "CNMV, ventas en corto: notificación y publicación de posiciones cortas netas y medidas temporales de prohibición (marzo-mayo de 2020) (pendiente de verificar la ruta)",
       "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "SEC, Staff Report on Equity and Options Market Structure Conditions in Early 2021 (octubre de 2021) (pendiente de verificar la ruta)",
+      "url": "https://www.sec.gov/",
       "date": "2026-10-30"
     }
   ],

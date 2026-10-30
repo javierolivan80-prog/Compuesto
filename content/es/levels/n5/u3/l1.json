@@ -29,7 +29,7 @@
     {
       "type": "card",
       "term": "Margin call",
-      "text": "Con una garantía del 150 % de lo vendido y un margen de mantenimiento del {mm} %, el margin call llegaba a {call_price} €, y a {wipe_price} € perdías toda la garantía. En un corto, la ganancia máxima es el 100 %; la pérdida no tiene techo."
+      "text": "Con la garantía del ejercicio, el 150 % de lo vendido, y un margen de mantenimiento del {mm} %, el margin call llegaba a {call_price} €, y a {wipe_price} € perdías toda la garantía. En un corto, la ganancia máxima es el 100 %; la pérdida no tiene techo."
     },
     {
       "type": "card",
@@ -45,7 +45,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "prompt": "Vendiste en corto {qty} acciones prestadas a {p0} €, con una comisión de préstamo del {rate} % anual (base 360). Si el corto hubiera durado {d2} días, ¿cuánto habría costado el préstamo? (€, 2 decimales)",
+      "prompt": "Vendiste en corto {qty} acciones prestadas a {p0} €, con una comisión de préstamo del {rate} % anual (base 360, convención del ejercicio). Si el corto hubiera durado {d2} días, ¿cuánto habría costado el préstamo? (€, 2 decimales)",
       "answer": 1111.11,
       "unit": "€",
       "tolerance": 0.1,
@@ -208,7 +208,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "prompt": "Con una garantía del 150 % de lo vendido a {p0} € por acción, ¿a qué precio llegaría el margin call si el margen de mantenimiento fuera del {mm2} %? (€, 2 decimales)",
+      "prompt": "Vendiste a {p0} € por acción (garantía del 150 %, convención del ejercicio). ¿A qué precio llegaría el margin call si el margen de mantenimiento fuera del {mm2} %? (€, 2 decimales)",
       "answer": 21.43,
       "unit": "€",
       "tolerance": 0.1,
@@ -325,14 +325,40 @@
     },
     {
       "id": "n5-u3-l1-e8",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": [],
       "concepts": ["cortos"],
-      "statement": "En una venta en corto, lo máximo que puedes perder es el dinero que obtuviste al vender.",
-      "answer": false,
-      "explanation": "Falso: lo que obtuviste es lo máximo que puedes ganar. La pérdida no tiene techo, porque el precio puede subir sin límite."
+      "prompt": "Si la acción hubiera llegado a {wipe_price} €, el precio al que pierdes toda la garantía, ¿cuánto habrías perdido con tus {qty} acciones vendidas a {p0} €, sin contar comisión ni dividendo? (€)",
+      "answer": 100000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{qty} * ({wipe_price} - {p0})",
+      "explanation": "{qty} × ({wipe_price} − {p0}) = {answer} €: toda la garantía extra se ha ido, y si la acción sigue subiendo, pierdes más de lo que pusiste.",
+      "params": {
+        "qty": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "p0": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "wipe_price": {
+          "formula": "{p0} * 1.5",
+          "decimals": 2
+        }
+      }
     }
   ],
   "realWorld": "La CNMV publica en su web las posiciones cortas netas de más del 0,5 % del capital de las empresas españolas cotizadas, con el nombre de cada fondo. Las cifras de los ejemplos son de acciones ficticias: no es una recomendación.",
