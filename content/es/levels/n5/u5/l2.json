@@ -222,7 +222,7 @@
         },
         "k": {
           "value": 120,
-          "min": 80,
+          "min": 105,
           "max": 150,
           "step": 5,
           "decimals": 0

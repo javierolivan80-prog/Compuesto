@@ -67,19 +67,29 @@ export function setupPattern(seed: number): PatternSetup {
     [pool[i], pool[j]] = [pool[j]!, pool[i]!];
   }
   const past = pool.slice(0, 4) as [number, number, number, number];
-  const lev = pick(rnd, [5, 10, 20, 30]);
+  // apalancamientos de 5:1 a 20:1 (el límite de la ESMA para índices principales es 20:1)
+  const lev = pick(rnd, [5, 10, 20]);
   // la caída nunca llega al cierre del 50 % de la garantía (normas de la ESMA para CFD)
   const moveD = pick(
     rnd,
     [10, 15, 20, 30].filter((m) => (lev * m) / 10 < 50),
   );
+  const seedA = Math.floor(rnd() * 1e6);
+  const seedB = Math.floor(rnd() * 1e6);
+  // nunca un neto exactamente nulo: se repite el sorteo de la regla
+  let gross: number, trades: number, costC: number;
+  do {
+    gross = pick(rnd, [12, 15, 18, 22, 25]);
+    trades = pick(rnd, [40, 60, 80, 120]);
+    costC = pick(rnd, [10, 20, 25, 30]);
+  } while (gross * 100 === trades * costC);
   return {
     seed,
-    seedA: Math.floor(rnd() * 1e6),
-    seedB: Math.floor(rnd() * 1e6),
-    gross: pick(rnd, [12, 15, 18, 22, 25]),
-    trades: pick(rnd, [40, 60, 80, 120]),
-    costC: pick(rnd, [10, 20, 25, 30]),
+    seedA,
+    seedB,
+    gross,
+    trades,
+    costC,
     past,
     deposit: pick(rnd, [1000, 2000, 5000]),
     lev,

@@ -42,6 +42,8 @@ describe('¿Patrón o ruido? (N5)', () => {
       expect(new Set(lossOptions(s)).size).toBe(3);
       expect(new Set(s.past).size).toBe(4);
       expect(lossPct(s)).toBeLessThan(50);
+      expect(net(s)).not.toBe(0);
+      expect([5, 10, 20]).toContain(s.lev);
     }
   });
 

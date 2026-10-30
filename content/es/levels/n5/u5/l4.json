@@ -160,7 +160,7 @@
       "difficulty": 2,
       "bloom": "aplicar",
       "tags": [],
-      "concepts": ["analisis-tecnico"],
+      "concepts": ["eficiencia-mercado"],
       "prompt": "Una anomalía ficticia rendía un {r} % al año en el estudio que la descubrió. Si después de publicarse su rentabilidad cae un {k} %, ¿cuánto rinde? (%, 3 decimales)",
       "answer": 2.52,
       "unit": "%",
@@ -226,16 +226,16 @@
       "prompt": "¿Qué pregunta el jefe de la mesa antes de nada?",
       "options": [
         "Cuántos fondos tenía la gestora hace 10 años y cuántos cerró o fusionó por el camino: si los peores desaparecieron, el 90 % de los que quedan no dice mucho",
-        "Qué color tiene el logotipo de la gestora",
-        "Si los fondos cotizan en bolsa",
-        "Cuál es el fondo con el nombre más largo"
+        "Qué comisiones cobran los fondos que quedan",
+        "Cuánto rindieron esos fondos el último año",
+        "Si los fondos invierten en acciones españolas o extranjeras"
       ],
       "answer": 0,
       "explanation": "Los fondos que se cierran suelen ser los que lo hicieron peor.",
       "wrongExplanations": {
-        "1": "No tiene nada que ver con la rentabilidad.",
-        "2": "No cambia el sesgo.",
-        "3": "No es relevante."
+        "1": "Las comisiones importan, pero no corrigen que falten los fondos cerrados en la cuenta.",
+        "2": "Un año es una muestra corta y además solo de supervivientes: el sesgo sigue ahí.",
+        "3": "El tipo de activo no dice nada de los fondos que desaparecieron."
       }
     },
     {
@@ -244,7 +244,7 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": [],
-      "concepts": ["analisis-tecnico"],
+      "concepts": ["eficiencia-mercado"],
       "prompt": "¿Por qué muchas anomalías rinden menos después de publicarse?",
       "options": [
         "Porque parte era ruido encontrado a fuerza de buscar y, la parte real, muchos inversores la explotan y la reducen",

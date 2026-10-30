@@ -107,6 +107,69 @@
     },
     {
       "id": "salto-n5-u5-q7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["perdida-minorista"],
+      "prompt": "Con un apalancamiento de 30:1, ¿qué caída del activo hace perder la mitad de la garantía, el punto de cierre de la posición? (%, 2 decimales)",
+      "answer": 1.67,
+      "unit": "%",
+      "tolerance": 0.5,
+      "answerDecimals": 2,
+      "formula": "50 / 30",
+      "explanation": "50 / 30 = 1,67 %."
+    },
+    {
+      "id": "salto-n5-u5-q8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Una acción ficticia sube un 4 % el día de un anuncio; el mercado sube un 2 % y su beta es 1,5. ¿Cuál es su rentabilidad anormal? (%)",
+      "answer": 1,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "4 - 1.5 * 2",
+      "explanation": "4 − 3 = 1 %."
+    },
+    {
+      "id": "salto-n5-u5-q9",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["analisis-tecnico"],
+      "statement": "Una serie de precios generada lanzando una moneda puede dibujar tendencias y figuras como las de los gráficos reales.",
+      "answer": true,
+      "explanation": "Verdadero: el azar crea rachas y figuras que parecen patrones."
+    },
+    {
+      "id": "salto-n5-u5-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["eficiencia-mercado"],
+      "prompt": "Un backtest ficticio de una regla técnica usa las 35 acciones que hoy forman un índice y las sigue 20 años hacia atrás. ¿Qué problema tiene?",
+      "options": [
+        "Sesgo de supervivencia: deja fuera las empresas que salieron del índice o quebraron por el camino, así que el resultado sale inflado",
+        "Ninguno: son las empresas más importantes",
+        "Que 20 años son demasiados datos",
+        "Que debería usar solo el último año"
+      ],
+      "answer": 0,
+      "explanation": "Hay que usar los componentes que tenía el índice en cada fecha.",
+      "wrongExplanations": {
+        "1": "Precisamente por ser las que hoy están, ya se sabe que sobrevivieron.",
+        "2": "Más años de datos ayudan, si están bien construidos.",
+        "3": "Un año es una muestra demasiado corta."
+      }
+    },
+    {
+      "id": "salto-n5-u5-q11",
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -128,78 +191,15 @@
       }
     },
     {
-      "id": "salto-n5-u5-q8",
-      "type": "true_false_swipe",
-      "difficulty": 2,
-      "bloom": "entender",
-      "tags": ["test-de-salto"],
-      "concepts": ["analisis-tecnico"],
-      "statement": "Una serie de precios generada lanzando una moneda puede dibujar tendencias y figuras como las de los gráficos reales.",
-      "answer": true,
-      "explanation": "Verdadero: el azar crea rachas y figuras que parecen patrones."
-    },
-    {
-      "id": "salto-n5-u5-q9",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": ["test-de-salto"],
-      "concepts": ["eficiencia-mercado"],
-      "prompt": "Una acción ficticia sube un 4 % el día de un anuncio; el mercado sube un 2 % y su beta es 1,5. ¿Cuál es su rentabilidad anormal? (%)",
-      "answer": 1,
-      "unit": "%",
-      "tolerance": 0.3,
-      "answerDecimals": 0,
-      "formula": "4 - 1.5 * 2",
-      "explanation": "4 − 3 = 1 %."
-    },
-    {
-      "id": "salto-n5-u5-q10",
-      "type": "multiple_choice",
-      "difficulty": 2,
-      "bloom": "analizar",
-      "tags": ["test-de-salto"],
-      "concepts": ["eficiencia-mercado"],
-      "prompt": "Un estudio ficticio dice que los fondos de una categoría rindieron un 9 % anual en 10 años, pero solo incluye los que siguen abiertos. ¿Qué pasa con esa cifra?",
-      "options": [
-        "Probablemente exagera la rentabilidad, porque faltan los fondos cerrados, que solían ser los peores",
-        "Es exacta, porque los cerrados no cuentan",
-        "Subestima la rentabilidad",
-        "No cambia nada"
-      ],
-      "answer": 0,
-      "explanation": "Es el sesgo de supervivencia.",
-      "wrongExplanations": {
-        "1": "Los cerrados también tuvieron partícipes.",
-        "2": "Al revés: la exagera.",
-        "3": "Sí cambia: la media sube al quitar los peores."
-      }
-    },
-    {
-      "id": "salto-n5-u5-q11",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": ["test-de-salto"],
-      "concepts": ["perdida-minorista"],
-      "prompt": "Con un apalancamiento de 30:1, ¿qué caída del activo hace perder la mitad de la garantía, el punto de cierre de la posición? (%, 2 decimales)",
-      "answer": 1.67,
-      "unit": "%",
-      "tolerance": 0.5,
-      "answerDecimals": 2,
-      "formula": "50 / 30",
-      "explanation": "50 / 30 = 1,67 %."
-    },
-    {
       "id": "salto-n5-u5-q12",
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["eficiencia-mercado"],
-      "statement": "La forma fuerte de eficiencia dice que ni siquiera la información privada permite ganar al mercado de forma sistemática.",
+      "statement": "Si se cumple la forma débil de eficiencia, el análisis técnico basado en precios pasados no permite ganar al mercado de forma sistemática después de costes.",
       "answer": true,
-      "explanation": "Verdadero: es la más exigente de las tres."
+      "explanation": "Verdadero: la forma débil dice que los precios ya reflejan la información de los precios pasados."
     }
   ],
   "sources": [

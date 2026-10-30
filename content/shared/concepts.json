@@ -1207,7 +1207,7 @@
     "level": 5,
     "prerequisites": ["analisis-tecnico"],
     "unit": "n5-u5",
-    "description": "El minorista pierde por costes y rotación (Barber y Odean, 2000), por sesgos y por el apalancamiento. En los CFD, la ESMA y la CNMV limitan el apalancamiento, cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden, que suele estar entre el 70 y el 80 %."
+    "description": "El minorista pierde por costes y rotación (Barber y Odean, 2000), por sesgos y por el apalancamiento. En los CFD, la ESMA y la CNMV limitan el apalancamiento, cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden; la ESMA estimó en 2018 que perdía dinero entre el 74 y el 89 % de ellas."
   },
   {
     "id": "eficiencia-mercado",

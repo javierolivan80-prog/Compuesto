@@ -32,7 +32,7 @@
     {
       "type": "card",
       "term": "CFD",
-      "text": "Un CFD replica un precio con apalancamiento. Desde 2018-2019, la ESMA y la CNMV limitan el apalancamiento de los minoristas (de 30:1 a 2:1), cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden, que suele estar entre el 70 y el 80 %."
+      "text": "Un CFD replica un precio con apalancamiento. La ESMA y la CNMV limitan el de los minoristas (de 30:1 a 2:1), cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y exigen avisar de cuántas cuentas pierden. En 2018, la ESMA estimó que perdían dinero entre el 74 y el 89 %."
     }
   ],
   "exercises": [
@@ -164,20 +164,20 @@
       "bloom": "aplicar",
       "tags": ["normativa"],
       "concepts": ["perdida-minorista"],
-      "prompt": "Con un apalancamiento de {l}:1, ¿qué caída del activo hace perder la mitad de la garantía, el punto en el que el proveedor de CFD cierra la posición? (%, 2 decimales)",
-      "answer": 2.5,
-      "unit": "%",
-      "tolerance": 0.3,
-      "answerDecimals": 2,
-      "formula": "50 / {l}",
-      "explanation": "50 % / {l} = {answer} %.",
+      "prompt": "Un minorista quiere poder aguantar una caída del {m} % sin que la pérdida pase de la mitad de su garantía, el punto de cierre. ¿Cuál es el mayor apalancamiento de la escala de la ESMA (2:1, 5:1, 10:1, 20:1 o 30:1) que se lo permite? (veces)",
+      "answer": 20,
+      "unit": "veces",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "IF(50 / {m} >= 30, 30, IF(50 / {m} >= 20, 20, IF(50 / {m} >= 10, 10, IF(50 / {m} >= 5, 5, 2))))",
+      "explanation": "Con L:1, una caída del {m} % cuesta L × {m} % de la garantía; debe ser como mucho un 50 %, así que L ≤ 50 / {m}. El mayor nivel de la escala que cumple es {answer}:1.",
       "params": {
-        "l": {
-          "value": 20,
-          "min": 2,
-          "max": 30,
-          "step": 1,
-          "decimals": 0
+        "m": {
+          "value": 2,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
         }
       }
     },
@@ -252,13 +252,13 @@
       "situation": "Un cliente pide que lo traten como inversor profesional para poder operar CFD con más apalancamiento que los límites de los minoristas.",
       "prompt": "¿Qué le explica la compliance officer?",
       "options": [
-        "Que solo puede pedirlo si cumple los requisitos de experiencia, frecuencia de operaciones y patrimonio que fija la normativa, y que al hacerlo pierde las protecciones de los minoristas",
+        "Que solo puede pedirlo si cumple al menos dos de los requisitos de MiFID II (operaciones de volumen significativo con frecuencia, una cartera de más de 500.000 € y experiencia profesional en el sector financiero), y que al hacerlo pierde las protecciones de los minoristas",
         "Que basta con pedirlo por correo",
         "Que así no podrá perder dinero",
         "Que los profesionales no pueden operar con CFD"
       ],
       "answer": 0,
-      "explanation": "Más apalancamiento a cambio de menos protección, y solo si se cumplen los requisitos.",
+      "explanation": "Más apalancamiento a cambio de menos protección, y solo si se cumplen al menos dos de los requisitos.",
       "wrongExplanations": {
         "1": "Hay requisitos que se comprueban.",
         "2": "Al contrario: pierde protecciones.",
@@ -285,13 +285,18 @@
       "date": "2026-10-30"
     },
     {
-      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo y advertencia de riesgo (pendiente de verificar la ruta)",
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo, advertencia de riesgo y estimación de que pierde dinero entre el 74 y el 89 % de las cuentas minoristas (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
       "date": "2026-10-30"
     },
     {
       "title": "CNMV, medidas sobre CFD para minoristas (2019) y advertencias sobre productos apalancados (pendiente de verificar la ruta)",
       "url": "https://www.cnmv.es/",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Directiva 2014/65/UE (MiFID II), Anexo II: clientes que pueden ser tratados como profesionales a petición propia (EUR-Lex) (pendiente de verificar la ruta)",
+      "url": "https://eur-lex.europa.eu/",
       "date": "2026-10-30"
     }
   ],

@@ -34,7 +34,7 @@
     {
       "type": "card",
       "term": "Momentum",
-      "text": "Entre las cuatro acciones, la mejor subió un {best} % en 12 meses y la peor, un {worst} %. El momentum compra la primera y vende la segunda: tiene evidencia académica, pero también costes y caídas bruscas."
+      "text": "Entre las cuatro acciones, la mejor: {best} % en 12 meses; la peor: {worst} %. El momentum compra la primera y vende la segunda: tiene evidencia académica, pero también costes y caídas bruscas."
     },
     {
       "type": "card",
@@ -131,7 +131,7 @@
         "lev": {
           "value": 20,
           "min": 5,
-          "max": 30,
+          "max": 20,
           "step": 5,
           "decimals": 0
         }
@@ -279,7 +279,7 @@
       "date": "2026-10-30"
     },
     {
-      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo y advertencia de riesgo (pendiente de verificar la ruta)",
+      "title": "ESMA, medidas de intervención sobre CFD para clientes minoristas (2018): límites de apalancamiento, cierre al 50 %, protección de saldo negativo, advertencia de riesgo y estimación de que pierde dinero entre el 74 y el 89 % de las cuentas minoristas (pendiente de verificar la ruta)",
       "url": "https://www.esma.europa.eu/",
       "date": "2026-10-30"
     },

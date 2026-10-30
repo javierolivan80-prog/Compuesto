@@ -930,7 +930,8 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **Por qué pierde el minorista:**
   - Barber y Odean (2000), con las cifras de su resumen: 66.465 hogares, 1991-1996, 11,4 % frente al 17,9 % del mercado.
   - CFD: las medidas de la ESMA (2018) y de la CNMV (2019). Límites de 30:1 a 2:1, cierre al 50 %, protección de saldo negativo y advertencia obligatoria.
-  - El porcentaje de cuentas minoristas que pierden no se da como cifra exacta: «suele estar entre el 70 y el 80 %». Los ejemplos usan proveedores ficticios.
+  - El porcentaje de cuentas minoristas que pierden se da con la estimación de la ESMA de 2018: «entre el 74 y el 89 %» (ronda 1 de la revisión). Los ejemplos usan proveedores ficticios.
+  - Apalancamiento: el juego usa 5:1, 10:1 y 20:1 (20:1 es el límite de la ESMA para índices principales). l5-e4 pide el mayor nivel de la escala de la ESMA (2:1, 5:1, 10:1, 20:1 o 30:1) que aguanta una caída sin pasar del cierre al 50 %. l1-e3 usa los apalancamientos del juego, 5:1 a 20:1 en pasos de 5.
   - Las lecciones con CFD y el test de salto llevan `verificarAntesDe` 2027-03-31.
 - **Nada de asesoramiento:** ejemplos ficticios, escenarios con compliance y la nota de cifras ficticias en realWorld.
 - **Juego:** «¿Patrón o ruido?» (`pattern-noise`, spec en `docs/specs/patron-o-ruido-n5.md`), un juego sencillo de cuatro pasos. La ficha 11 se reserva para n5-u6.
