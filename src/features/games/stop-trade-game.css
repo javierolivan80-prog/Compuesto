@@ -1,0 +1,9 @@
+/* El trader con stop (N5): panel, pantallas y gráfico. */
+.st-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.st-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

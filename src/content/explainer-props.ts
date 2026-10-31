@@ -91,6 +91,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  PositionSizing: z.object({
+    capital: z.number().positive(),
+    losses: z.number().int().min(2).max(30),
+  }),
   MarginCall: z.object({
     deposit: z.number().positive(),
     move: z.number().positive().max(10),

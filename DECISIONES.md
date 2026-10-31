@@ -938,3 +938,12 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **Explicador:** `MarginCall`, del catálogo (nivel 7), se adelanta al nivel 5 para los CFD. Recorre paso a paso el apalancamiento (1:1, 5:1, 10:1 y 30:1) con la línea de cierre al 50 %. El de nivel 7 podrá reutilizarlo.
 - **Solape:** la tarjeta «Ya sabes» de l2 parte de n5-u4 (valor esperado, t y data snooping). Lo que es un CFD ya se vio en n2-u7, y aquí se va a sus límites y a la estadística de pérdidas.
 - `curriculum.json` incorpora `n5-u5`.
+
+## 2026-10-31 — n5-u6 «Stop, tamaño de posición y sesgos al operar» (draft) y planta 4 completa
+- **Juego:** «El trader con stop» (`stop-trade`, spec en `docs/specs/trader-con-stop-n5.md`), la variante de lección de «El trader impulsivo» (ficha 11) que se decidió el 25/10/2026. Reutiliza `impulsive.ts` (mercado, sesiones y capital) sin duplicarlo, y pregunta por el tamaño de la posición, el acierto mínimo, el resultado con stop y objetivo, y la disciplina con el stop.
+- **Ciclo de importaciones:** al importar un motor que usa los datos de los juegos, `LESSON_GAMES` pasa a `src/engine/games/lesson-game-kinds.ts`, sin dependencias. `lesson-games.ts` lo reexporta, así que no cambia ninguna importación existente.
+- **BUSCARX:** el evaluador de fórmulas propio (CLAUDE.md §3) incorpora `XLOOKUP`/`BUSCARX`: coincidencia exacta, sin distinguir mayúsculas en los textos, cuarto argumento opcional para el caso de no encontrarlo y error `#N/A`. Con ella, l5 tiene cinco ejercicios `spreadsheet` de diario de operaciones con SI y BUSCARX, y el Jefe final y el test de salto tienen uno cada uno.
+- **Explicador:** `PositionSizing`, del catálogo (nivel 5): la misma racha de diez pérdidas con un 1 %, un 2 %, un 5 % y un 10 % por operación, y lo que hace falta ganar para recuperarse.
+- **Sesgos:** aversión a la pérdida («más o menos el doble», Kahneman y Tversky, 1979), efecto disposición (Shefrin y Statman, 1985; Odean, 1998) y exceso de confianza (Barber y Odean, 2000). Las fuentes van por su URL raíz «(pendiente de verificar la ruta)».
+- **Planta 4:** con esta unidad tiene sus seis unidades. `tests/screens.test.tsx` mantiene la planta 5 (Carteras) como «próximamente».
+- `curriculum.json` incorpora `n5-u6`.

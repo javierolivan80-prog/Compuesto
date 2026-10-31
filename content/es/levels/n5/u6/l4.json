@@ -1,0 +1,282 @@
+{
+  "id": "n5-u6-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 6,
+  "title": "Exceso de confianza, aversión a la pérdida y efecto disposición",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el coste de operar de más y lo que hace falta para recuperar una caída",
+    "Reconocer el exceso de confianza, la aversión a la pérdida y el efecto disposición"
+  ],
+  "concepts": ["exceso-confianza"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Exceso de confianza",
+      "text": "Solemos sobrestimar lo que sabemos y lo bien que lo hacemos: operamos de más, concentramos la cartera y subimos el tamaño tras unos aciertos. En el estudio de Barber y Odean (2000), los inversores que más operaban fueron los que menos ganaron."
+    },
+    {
+      "type": "card",
+      "term": "Aversión a la pérdida",
+      "text": "Una pérdida duele más o menos el doble que alegra una ganancia del mismo tamaño (Kahneman y Tversky, 1979). Por eso cuesta cerrar una pérdida: mientras no se vende, no parece real, y se acaba bajando el stop o promediando a la baja."
+    },
+    {
+      "type": "card",
+      "term": "Efecto disposición",
+      "text": "Shefrin y Statman (1985) llamaron así a la tendencia a vender pronto lo que gana y a mantener lo que pierde. Odean (1998) vio que las acciones ganadoras que los inversores vendían rindieron después más que las perdedoras que se quedaban."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u6-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Si una pérdida pesa {l} veces más que una ganancia del mismo tamaño, ¿qué ganancia haría falta para compensar el disgusto de perder {p} €? (€, 2 decimales)",
+      "answer": 1125,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{p} * {l}",
+      "explanation": "{p} × {l} = {answer} €: por eso cuesta tanto aceptar una pérdida.",
+      "params": {
+        "p": {
+          "value": 500,
+          "min": 100,
+          "max": 2000,
+          "step": 100,
+          "decimals": 0
+        },
+        "l": {
+          "value": 2.25,
+          "min": 1.5,
+          "max": 3,
+          "step": 0.25,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Una cuenta ficticia cae un {d} %. ¿Cuánto tiene que subir después para volver al punto de partida? (%, 2 decimales)",
+      "answer": 42.86,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / (1 - {d} / 100) - 1) * 100",
+      "explanation": "1 / (1 − {d} %) − 1 = {answer} %: dejar correr las pérdidas obliga a recuperar mucho más.",
+      "params": {
+        "d": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "En el diario ficticio de un inversor, vendió {gv} de sus 100 posiciones ganadoras y {lv} de sus 100 perdedoras. ¿Cuántos puntos más alta es la proporción de ganadoras vendidas que la de perdedoras? (puntos, 2 decimales)",
+      "answer": 15,
+      "unit": "puntos",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{gv} - {lv}",
+      "explanation": "{gv} % − {lv} % = {answer} puntos: una señal del efecto disposición.",
+      "params": {
+        "gv": {
+          "value": 30,
+          "min": 20,
+          "max": 40,
+          "step": 1,
+          "decimals": 0
+        },
+        "lv": {
+          "value": 15,
+          "min": 5,
+          "max": 19,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Un trader ficticio cree que acierta el 70 % de las veces, pero su diario dice que acierta el {p} %, con una relación de 1:1 y un riesgo de {r} € por operación. ¿Cuánto gana o pierde de verdad por operación? (€, 2 decimales; negativo si pierde)",
+      "answer": -10,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({p} - (100 - {p})) / 100 * {r}",
+      "explanation": "({p} % − (100 − {p}) %) × {r} = {answer} €.",
+      "params": {
+        "p": {
+          "value": 45,
+          "min": 35,
+          "max": 48,
+          "step": 1,
+          "decimals": 0
+        },
+        "r": {
+          "value": 100,
+          "min": 50,
+          "max": 300,
+          "step": 50,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Un inversor ficticio con {c} € hace {n} operaciones al año y cada una le cuesta {k} € entre comisión y horquilla. ¿Qué porcentaje de su capital se va en costes? (%, 3 decimales)",
+      "answer": 12,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{n} * {k} / {c} * 100",
+      "explanation": "{n} × {k} / {c} = {answer} % al año.",
+      "params": {
+        "c": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "n": {
+          "value": 300,
+          "min": 50,
+          "max": 500,
+          "step": 50,
+          "decimals": 0
+        },
+        "k": {
+          "value": 8,
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "¿Qué sesgo es?",
+      "categories": ["Exceso de confianza", "Aversión a la pérdida", "Efecto disposición"],
+      "items": [
+        {
+          "text": "Operar el triple de lo habitual tras un buen mes",
+          "category": "Exceso de confianza"
+        },
+        {
+          "text": "No cerrar una pérdida para no «hacerla real»",
+          "category": "Aversión a la pérdida"
+        },
+        {
+          "text": "Vender la acción que sube un 5 % y aguantar la que cae un 20 %",
+          "category": "Efecto disposición"
+        },
+        {
+          "text": "Creer que tu análisis acierta mucho más de lo que dice tu diario",
+          "category": "Exceso de confianza"
+        }
+      ],
+      "explanation": "El diario de operaciones es la mejor defensa: los números no tienen sesgos."
+    },
+    {
+      "id": "n5-u6-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "character": "mentora",
+      "situation": "El becario rival dice que él no tiene sesgos, porque «lo lleva todo en la cabeza».",
+      "prompt": "¿Qué le propone tu mentora?",
+      "options": [
+        "Llevar un diario con cada operación, su stop, su tamaño y su motivo, y revisarlo cada mes: comparar cuánto tiempo mantiene las ganadoras y las perdedoras, y su acierto real frente al que cree",
+        "Que siga así, porque la memoria es fiable",
+        "Que opere más para aprender antes",
+        "Que solo apunte las operaciones que salen bien"
+      ],
+      "answer": 0,
+      "explanation": "La memoria recuerda los aciertos y olvida los fallos.",
+      "wrongExplanations": {
+        "1": "La memoria también está sesgada.",
+        "2": "Operar más sin medir multiplica los errores.",
+        "3": "Eso es justo el sesgo que hay que evitar."
+      }
+    },
+    {
+      "id": "n5-u6-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "statement": "El efecto disposición lleva a vender antes las acciones que ganan que las que pierden.",
+      "answer": true,
+      "explanation": "Verdadero: es exactamente lo que describieron Shefrin y Statman (1985)."
+    }
+  ],
+  "realWorld": "Las encuestas y los estudios de los supervisores sobre inversores minoristas muestran estos sesgos una y otra vez; un diario de operaciones permite verlos en tus propios números. Las cifras de los ejemplos son de operaciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Hersh Shefrin y Meir Statman, «The Disposition to Sell Winners Too Early and Ride Losers Too Long», The Journal of Finance, 1985 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
+      "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Terrance Odean, «Are Investors Reluctant to Realize Their Losses?», The Journal of Finance, 1998 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Brad M. Barber y Terrance Odean, «Trading Is Hazardous to Your Wealth», The Journal of Finance, 2000 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

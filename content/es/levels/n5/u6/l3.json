@@ -1,0 +1,296 @@
+{
+  "id": "n5-u6-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 6,
+  "title": "Relación riesgo/beneficio y esperanza en R",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la relación riesgo/beneficio, el acierto mínimo y la esperanza en R",
+    "Valorar si una estrategia gana a la larga con su acierto y su relación"
+  ],
+  "concepts": ["stop-tamano"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Riesgo/beneficio",
+      "text": "Si arriesgas la distancia al stop y el objetivo está k veces más lejos, la relación es 1:k. Muchos traders miden en R: 1 R es lo que arriesgas; ganar 2 R es ganar el doble de lo arriesgado."
+    },
+    {
+      "type": "card",
+      "term": "Acierto mínimo",
+      "text": "Con una relación 1:k, un acierto compensa k fallos, así que para no perder basta acertar 1 / (1 + k) de las veces. Con 1:2, un 33,3 %; con 1:3, un 25 %. Acertar poco no es malo si se gana mucho cuando se acierta."
+    },
+    {
+      "type": "card",
+      "term": "Esperanza en R",
+      "text": "Esperanza = acierto × k − fallo × 1, en R por operación. Multiplicada por lo que vale 1 R en euros, da lo que se espera ganar por operación. Si es negativa, operar más solo acelera las pérdidas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u6-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Compras una acción ficticia a {e} € con el stop en {s} € y el objetivo en {o} €. ¿Cuál es la relación riesgo/beneficio, 1:k? (k, 2 decimales)",
+      "answer": 3,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({o} - {e}) / ({e} - {s})",
+      "explanation": "({o} − {e}) / ({e} − {s}) = {answer}.",
+      "params": {
+        "e": {
+          "value": 30,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 150,
+          "min": 50,
+          "max": 300,
+          "step": 50,
+          "decimals": 0
+        },
+        "k": {
+          "value": 3,
+          "min": 1.5,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        },
+        "o": {
+          "formula": "{e} + {k} * {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con una relación riesgo/beneficio de 1:{k}, ¿qué porcentaje de aciertos necesitas para no perder? (%, 2 decimales)",
+      "answer": 28.57,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "100 / (1 + {k})",
+      "explanation": "1 / (1 + {k}) = {answer} %.",
+      "params": {
+        "k": {
+          "value": 2.5,
+          "min": 1.5,
+          "max": 5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Una estrategia ficticia acierta el {p} % de las veces con una relación de 1:{k}. ¿Cuál es su esperanza en R por operación? (R, 3 decimales; negativa si pierde)",
+      "answer": 0.35,
+      "unit": "R",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{p} / 100 * {k} - (100 - {p}) / 100",
+      "explanation": "{p} % × {k} − (100 − {p}) % = {answer} R.",
+      "params": {
+        "p": {
+          "value": 45,
+          "min": 35,
+          "max": 55,
+          "step": 10,
+          "decimals": 0
+        },
+        "k": {
+          "value": 2,
+          "min": 1.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Si esa estrategia tiene una esperanza de {x} R por operación y cada R son {r} €, ¿cuánto espera ganar en {n} operaciones? (€)",
+      "answer": 3000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "{x} * {r} * {n}",
+      "explanation": "{x} × {r} × {n} = {answer} €.",
+      "params": {
+        "x": {
+          "value": 0.2,
+          "min": 0.1,
+          "max": 0.5,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "r": {
+          "value": 150,
+          "min": 50,
+          "max": 300,
+          "step": 50,
+          "decimals": 0
+        },
+        "n": {
+          "value": 100,
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Entras en una acción ficticia a {e} € con el stop en {s} €. ¿A qué precio tienes que poner el objetivo para una relación de 1:{k}? (€, 2 decimales)",
+      "answer": 25,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{e} + {k} * ({e} - {s})",
+      "explanation": "{e} + {k} × ({e} − {s}) = {answer} €.",
+      "params": {
+        "e": {
+          "value": 22,
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 100,
+          "min": 50,
+          "max": 300,
+          "step": 50,
+          "decimals": 0
+        },
+        "k": {
+          "value": 3,
+          "min": 1.5,
+          "max": 4,
+          "step": 0.5,
+          "decimals": 1
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "¿Esperanza positiva o negativa?",
+      "categories": ["Positiva", "Negativa"],
+      "items": [
+        {
+          "text": "Acierta el 30 % con una relación de 1:3",
+          "category": "Positiva"
+        },
+        {
+          "text": "Acierta el 60 % con una relación de 1:0,5",
+          "category": "Negativa"
+        },
+        {
+          "text": "Acierta el 50 % con una relación de 1:1,5",
+          "category": "Positiva"
+        },
+        {
+          "text": "Acierta el 25 % con una relación de 1:2",
+          "category": "Negativa"
+        }
+      ],
+      "explanation": "Esperanza = acierto × k − fallo: 0,9 − 0,7; 0,3 − 0,4; 0,75 − 0,5; 0,5 − 0,75."
+    },
+    {
+      "id": "n5-u6-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "character": "rival",
+      "situation": "El becario rival acerca el objetivo a la entrada en cuanto una operación va ganando, «para asegurar», y deja el stop donde estaba.",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que así reduce la relación riesgo/beneficio y sube el acierto que necesita para no perder; si lo hace siempre, puede convertir una estrategia ganadora en perdedora",
+        "Que es la mejor forma de ganar más",
+        "Que no cambia nada",
+        "Que debería alejar el stop también"
+      ],
+      "answer": 0,
+      "explanation": "Cortar las ganancias y dejar correr las pérdidas es el efecto disposición.",
+      "wrongExplanations": {
+        "1": "Gana más veces, pero menos cada vez.",
+        "2": "Cambia la relación y la esperanza.",
+        "3": "Eso aumentaría el riesgo."
+      }
+    },
+    {
+      "id": "n5-u6-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "statement": "Una estrategia que acierta menos de la mitad de las veces siempre pierde dinero.",
+      "answer": false,
+      "explanation": "Falso: con una relación de 1:2 basta acertar más de un 33,3 %."
+    }
+  ],
+  "realWorld": "Muchos diarios de trading y plataformas miden cada operación en R y calculan la esperanza de la estrategia con el acierto y la relación media. Las cifras de los ejemplos son de operaciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (gestión del riesgo y finanzas conductuales) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { LESSON_GAMES } from '../engine/games/lesson-games';
+import { LESSON_GAMES } from '../engine/games/lesson-game-kinds';
 
 /* Esquemas de contenido (docs/TEMARIO.md §4–§7, CLAUDE.md §9). Fuente única: la app y content:validate usan estos mismos. */
 

@@ -238,6 +238,11 @@
           "id": "n5-u5",
           "name": "Análisis técnico, eficiencia de mercado y por qué pierde el minorista",
           "concepts": ["analisis-tecnico", "eficiencia-mercado", "perdida-minorista"]
+        },
+        {
+          "id": "n5-u6",
+          "name": "Stop, tamaño de posición y sesgos al operar",
+          "concepts": ["stop-tamano", "exceso-confianza", "si-buscarx"]
         }
       ]
     },

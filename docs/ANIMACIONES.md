@@ -111,7 +111,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `CostStack` | Costes reales de operar | La barra de costes de una compra se apila capa a capa: comisión e impuesto sobre las transacciones financieras (explícitos, en el extracto), media horquilla y coste de impacto (implícitos, en el precio) | Paso a paso (capas) |
 | `ShortSelling` | Venta en corto | Pides prestada una acción, la vendes, recompras más barata y la devuelves (o más cara y pierdes); al final, la asimetría: la ganancia tiene techo y la pérdida no | Paso a paso (precio de recompra) |
 | `ExpectedValue` | Valor esperado y ley de los grandes números | La media de 1, 10, 100 y 1.000 operaciones con su banda de ±2 errores típicos, que se estrecha alrededor del valor esperado | Paso a paso (número de operaciones) |
-| `PositionSizing` | Tamaño de posición | Cuenta que sobrevive o se vacía tras una racha de pérdidas según el % arriesgado | % por operación |
+| `PositionSizing` | Tamaño de posición | Cuenta que sobrevive o se vacía tras una racha de pérdidas según el % arriesgado, con lo que hay que ganar para recuperarla | Paso a paso (1 %, 2 %, 5 % y 10 % por operación) |
 
 ### Nivel 6 — Carteras y riesgo
 | Explicador | Concepto | Qué se mueve | Manipulación |

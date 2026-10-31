@@ -1221,7 +1221,9 @@
     "id": "stop-tamano",
     "name": "Stop y tamaño de posición",
     "level": 5,
-    "prerequisites": ["orden-mercado"]
+    "prerequisites": ["orden-mercado"],
+    "unit": "n5-u6",
+    "description": "El stop loss va donde la idea queda invalidada; tamaño = riesgo en € (1-2 % del capital) / distancia al stop. Con una relación 1:k basta acertar 1 / (1 + k) de las veces, y la esperanza en R es acierto × k − fallo. Un hueco puede saltarse el stop."
   },
   {
     "id": "valor-esperado",
@@ -1243,13 +1245,17 @@
     "id": "exceso-confianza",
     "name": "Exceso de confianza y aversión a la pérdida",
     "level": 5,
-    "prerequisites": ["sesgo-narrativa"]
+    "prerequisites": ["sesgo-narrativa"],
+    "unit": "n5-u6",
+    "description": "Exceso de confianza: operar de más y subir el tamaño tras unos aciertos. Aversión a la pérdida: una pérdida duele más o menos el doble que alegra una ganancia (Kahneman y Tversky, 1979). Efecto disposición: vender pronto lo que gana y mantener lo que pierde (Shefrin y Statman, 1985)."
   },
   {
     "id": "si-buscarx",
     "name": "SI y BUSCARX en hojas de cálculo",
     "level": 5,
-    "prerequisites": ["celdas-suma"]
+    "prerequisites": ["celdas-suma"],
+    "unit": "n5-u6",
+    "description": "=SI(condición; sí; no) decide entre dos resultados, y =BUSCARX(valor; rango donde buscar; rango que devolver; [si no lo encuentra]) devuelve el dato de la misma fila. Con ellas, un diario de operaciones calcula solo las ganadoras, el respeto del límite de riesgo o el resultado de un valor."
   },
   {
     "id": "rentabilidad-log",

@@ -32,6 +32,7 @@ import { CostStack } from './CostStack';
 import { ShortSelling } from './ShortSelling';
 import { ExpectedValue } from './ExpectedValue';
 import { MarginCall } from './MarginCall';
+import { PositionSizing } from './PositionSizing';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -83,6 +84,7 @@ const REGISTRY = {
   ShortSelling,
   ExpectedValue,
   MarginCall,
+  PositionSizing,
   FuturePayoff,
 } as unknown as Registry;
 

@@ -1,3 +1,4 @@
+import { LESSON_GAMES } from './lesson-game-kinds';
 import type { Format } from '../params';
 import {
   act,
@@ -75,6 +76,7 @@ import { explicitCost, setupVwap, shortfallBp, vwap, vwapValues } from './vwap-d
 import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './short-desk';
 import { edgeValues, ev, falsePositives, posterior, setupEdge, tStat } from './edge-test';
 import { loss as cfdLoss, net as taNet, patternValues, setupPattern } from './pattern-noise';
+import { breakeven, result as stopPnl, setupStop, shares, stopValues } from './stop-trade';
 import {
   nextRatio,
   phaseOf,
@@ -114,40 +116,7 @@ import {
 
 /* Juegos que abren una lección (lección-juego): qué cifras devuelven y con qué formato se escriben en el texto. */
 
-export const LESSON_GAMES = [
-  'block-trade',
-  'first-shares',
-  'opening-auction',
-  'index-mover',
-  'dividend-day',
-  'ipo-book',
-  'takeover-rumor',
-  'balance-builder',
-  'cash-cycle',
-  'ratio-detective',
-  'cheap-or-dear',
-  'wacc-mix',
-  'dcf-express',
-  'bond-issue',
-  'yield-curve',
-  'fund-fees',
-  'luck-or-skill',
-  'fx-trip',
-  'repo-night',
-  'bank-window',
-  'macro-day',
-  'ecb-meeting',
-  'risk-premium',
-  'fx-desk',
-  'stress-test',
-  'risk-committee',
-  'bank-valuation',
-  'order-desk',
-  'vwap-desk',
-  'short-desk',
-  'edge-test',
-  'pattern-noise',
-] as const;
+export { LESSON_GAMES };
 export type LessonGameKind = (typeof LESSON_GAMES)[number];
 
 export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>> = {
@@ -696,6 +665,24 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     loss_pct: [0, 2],
     hits: [0, 0],
   },
+  'stop-trade': {
+    capital: [0, 0],
+    risk_pct: [0, 0],
+    risk_eur: [0, 0],
+    entry: [2, 2],
+    stop_pct: [0, 0],
+    stop: [2, 2],
+    rr: [0, 1],
+    target: [2, 2],
+    shares: [0, 0],
+    position: [0, 2],
+    breakeven: [1, 1],
+    outcome: [0, 0],
+    exit_day: [0, 0],
+    exit_price: [2, 2],
+    result: [0, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1107,6 +1094,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           loss: cfdLoss(setup),
         }),
         patternValues(setup, { chart: 'a', net: 0, pick: 'none', loss: 0 }),
+      ];
+    }
+    case 'stop-trade': {
+      // todo bien, y todo mal
+      const setup = setupStop(seed);
+      return [
+        stopValues(setup, {
+          shares: shares(setup),
+          breakeven: breakeven(setup),
+          result: stopPnl(setup),
+          move: 'keep',
+        }),
+        stopValues(setup, { shares: 0, breakeven: 0, result: 0, move: 'lower' }),
       ];
     }
   }

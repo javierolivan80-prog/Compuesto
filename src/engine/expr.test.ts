@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { ERROR_LABELS, evaluate, evaluateNumber, ExprError, expandRange, irr } from './expr';
+import {
+  ERROR_LABELS,
+  evaluate,
+  evaluateNumber,
+  ExprError,
+  expandRange,
+  irr,
+  type Value,
+} from './expr';
 
 describe('evaluador de fórmulas', () => {
   it('aritmética con precedencia y paréntesis', () => {
@@ -50,6 +58,29 @@ describe('evaluador de fórmulas', () => {
   it('no ejecuta código: no hay acceso a nada fuera del lenguaje', () => {
     expect(() => evaluate('process.exit(1)')).toThrow();
     expect(() => evaluate('constructor')).toThrow(/Referencia desconocida/);
+  });
+});
+
+describe('BUSCARX (n5-u6)', () => {
+  const cells: Record<string, Value> = {
+    A1: 'NAR',
+    A2: 'PIR',
+    A3: 'MED',
+    B1: 120,
+    B2: -80,
+    B3: 45,
+  };
+  const env = { get: (n: string) => cells[n] };
+  it('busca por coincidencia exacta, sin distinguir mayúsculas, en inglés y en español', () => {
+    expect(evaluate('XLOOKUP("PIR", A1:A3, B1:B3)', env)).toBe(-80);
+    expect(evaluate('BUSCARX("med";A1:A3;B1:B3)', env)).toBe(45);
+  });
+  it('si no lo encuentra, devuelve el cuarto argumento o el error #N/A', () => {
+    expect(evaluate('BUSCARX("TRA"; A1:A3; B1:B3; 0)', env)).toBe(0);
+    expect(() => evaluate('BUSCARX("TRA"; A1:A3; B1:B3)', env)).toThrow(/no encuentra/);
+  });
+  it('los dos rangos deben ser del mismo tamaño', () => {
+    expect(() => evaluate('BUSCARX("NAR"; A1:A3; B1:B2)', env)).toThrow(/mismo tamaño/);
   });
 });
 

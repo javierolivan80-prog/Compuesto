@@ -1,0 +1,292 @@
+{
+  "id": "n5-u6-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 6,
+  "order": 0,
+  "title": "Juego: el trader con stop",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el tamaño de una posición a partir del riesgo y el stop, y el acierto mínimo de una relación riesgo/beneficio",
+    "Reconocer la aversión a la pérdida y el efecto disposición al gestionar un stop"
+  ],
+  "concepts": ["stop-tamano", "exceso-confianza"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "stop-trade",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Tamaño",
+      "text": "Acertaste {hits} de 4. Arriesgando el {risk_pct} % de {capital} €, es decir, {risk_eur} €, con la entrada en {entry} € y el stop en {stop} €, el tamaño era de {shares} acciones: una posición de {position} €, mucho menos que todo el capital."
+    },
+    {
+      "type": "card",
+      "term": "Plan",
+      "text": "Con el objetivo en {target} €, la relación era 1:{rr} y bastaba acertar el {breakeven} % de las veces. La operación terminó en la sesión {exit_day}, a {exit_price} €, con un resultado de {result} €."
+    },
+    {
+      "type": "card",
+      "term": "Disciplina",
+      "text": "Bajar el stop cuando la operación va mal es aversión a la pérdida. Vender pronto lo que gana y aguantar lo que pierde es el efecto disposición (Shefrin y Statman, 1985). El plan se decide antes de entrar, con la cabeza fría."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u6-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con un capital de 10.000 €, la entrada en {entry} € y el stop un {stop_pct} % por debajo, ¿cuántas acciones comprarías si arriesgaras un {r2} % del capital? (acciones, redondeando hacia abajo)",
+      "answer": 150,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "ROUND(10000 * {r2} / 100 / ({entry} * {stop_pct} / 100) - 0.5, 0)",
+      "explanation": "10.000 × {r2} % / ({entry} × {stop_pct} %), redondeado hacia abajo: {answer} acciones.",
+      "params": {
+        "entry": {
+          "value": 20,
+          "min": 10,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "stop_pct": {
+          "value": 5,
+          "min": 2,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "r2": {
+          "value": 1.5,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Si arriesgas {risk_eur} € de un capital de 10.000 € y el stop está un {stop_pct} % por debajo de la entrada, ¿qué parte del capital ocupa la posición, sin redondear las acciones? (%, 2 decimales)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{risk_eur} / ({stop_pct} / 100) / 10000 * 100",
+      "explanation": "{risk_eur} / {stop_pct} % = posición; entre 10.000 €: {answer} % del capital. Un stop más cercano permite una posición mayor con el mismo riesgo.",
+      "params": {
+        "risk_eur": {
+          "value": 100,
+          "min": 100,
+          "max": 200,
+          "step": 100,
+          "decimals": 0
+        },
+        "stop_pct": {
+          "value": 5,
+          "min": 2,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Si el objetivo estuviera a {rr2} veces la distancia al stop, ¿qué porcentaje de aciertos bastaría para no perder? (%, 2 decimales)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "100 / (1 + {rr2})",
+      "explanation": "1 / (1 + {rr2}) = {answer} %.",
+      "params": {
+        "rr2": {
+          "value": 4,
+          "min": 4,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con tu relación 1:{rr} y un riesgo de {risk_eur} € por operación, si acertaras el {w} % de las veces, ¿cuánto ganarías de media por operación? (€, 2 decimales; negativo si pierdes)",
+      "answer": 35,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({w} * {rr} - (100 - {w})) / 100 * {risk_eur}",
+      "explanation": "({w} % × {rr} − (100 − {w}) %) × {risk_eur} = {answer} €.",
+      "params": {
+        "rr": {
+          "value": 2,
+          "min": 1.5,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "risk_eur": {
+          "value": 100,
+          "min": 100,
+          "max": 200,
+          "step": 100,
+          "decimals": 0
+        },
+        "w": {
+          "value": 45,
+          "min": 35,
+          "max": 55,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l1-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "¿Sesgo o disciplina?",
+      "categories": [
+        "Aversión a la pérdida o efecto disposición",
+        "Exceso de confianza",
+        "Disciplina"
+      ],
+      "items": [
+        {
+          "text": "Bajar el stop porque «ya rebotará»",
+          "category": "Aversión a la pérdida o efecto disposición"
+        },
+        {
+          "text": "Doblar el tamaño tras tres aciertos seguidos",
+          "category": "Exceso de confianza"
+        },
+        {
+          "text": "Vender enseguida las que ganan y quedarse las que pierden",
+          "category": "Aversión a la pérdida o efecto disposición"
+        },
+        {
+          "text": "Fijar el stop y el tamaño antes de entrar",
+          "category": "Disciplina"
+        }
+      ],
+      "explanation": "Los sesgos cambian el plan sobre la marcha; la disciplina lo fija antes."
+    },
+    {
+      "id": "n5-u6-l1-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "character": "jefe",
+      "situation": "Un becario quiere arriesgar el 10 % del capital en una sola operación porque «esta es segura».",
+      "prompt": "¿Qué le dice el jefe de la mesa?",
+      "options": [
+        "Que ninguna operación es segura: con un 10 % por operación, una racha de pocas pérdidas vacía la cuenta, y por eso la mesa limita el riesgo a un 1 o un 2 % del capital",
+        "Que si está seguro, puede arriesgar el 20 %",
+        "Que el stop elimina el riesgo, así que da igual el tamaño",
+        "Que el tamaño se decide después de entrar"
+      ],
+      "answer": 0,
+      "explanation": "El tamaño protege de lo que no sabes.",
+      "wrongExplanations": {
+        "1": "La seguridad es justo lo que suele fallar.",
+        "2": "El stop puede saltar con hueco, y el tamaño sigue mandando.",
+        "3": "Se decide antes, con el stop."
+      }
+    },
+    {
+      "id": "n5-u6-l1-e7",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "statement": "Arriesgando un 1 % de lo que queda en cada operación, diez pérdidas seguidas dejan la cuenta en torno al 90 % de lo que era.",
+      "answer": true,
+      "explanation": "Verdadero: 0,99^10 ≈ 0,904. Con un 10 % por operación quedaría un 35 %."
+    },
+    {
+      "id": "n5-u6-l1-e8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Arriesgando el {risk_pct} % de lo que queda en cada operación, ¿cuánto quedaría de 10.000 € tras {n} pérdidas seguidas? (€, 2 decimales)",
+      "answer": 9509.9,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "10000 * (1 - {risk_pct} / 100) ^ {n}",
+      "explanation": "10.000 × (1 − {risk_pct} %)^{n} = {answer} €.",
+      "params": {
+        "risk_pct": {
+          "value": 1,
+          "min": 1,
+          "max": 2,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 5,
+          "min": 3,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    }
+  ],
+  "realWorld": "Las mesas de trading fijan un riesgo máximo por operación y por día, y cada operación se apunta en un diario con su stop, su tamaño y su motivo. Las cifras de los ejemplos son de operaciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Hersh Shefrin y Meir Statman, «The Disposition to Sell Winners Too Early and Ride Losers Too Long», The Journal of Finance, 1985 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
+      "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (gestión del riesgo y finanzas conductuales) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

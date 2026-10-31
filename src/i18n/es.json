@@ -2194,5 +2194,64 @@
     "title": "El apalancamiento multiplica las pérdidas",
     "closeOut": "Cierre al 50 %",
     "left": "queda"
+  },
+  "stopTradeGame": {
+    "title": "El trader con stop",
+    "step": {
+      "size": "Paso 1 de 4 · el tamaño de la posición",
+      "rr": "Paso 2 de 4 · el riesgo y el beneficio",
+      "path": "Paso 3 de 4 · las 30 sesiones",
+      "tempt": "Paso 4 de 4 · la tentación"
+    },
+    "board": {
+      "capital": "Capital",
+      "risk": "Riesgo por operación",
+      "entry": "Precio de entrada",
+      "stop": "Stop loss"
+    },
+    "briefSize": "Planta 4 de Albufera Partners. Es el mismo mercado de «El trader impulsivo», con sus noticias tentadoras, pero esta vez planificas antes de operar. Vas a comprar una acción ficticia y decides cuánto puedes perder si sale mal: el {{risk}} del capital. El stop loss es el precio al que vendes si baja.",
+    "askSize": "¿Cuántas acciones compras?",
+    "sharesLabel": "{{qty}} acciones",
+    "whySize": "Tamaño = riesgo en € / distancia al stop = {{risk}} / ({{entry}} − {{stop}}) = {{v}} acciones. Así, si salta el stop, pierdes lo que decidiste y no más.",
+    "briefRr": "Pones el take profit, el precio al que vendes si sube, en {{target}}: ganarías {{rr}} veces lo que arriesgas. Es la relación riesgo/beneficio 1:{{rr}}.",
+    "askRr": "¿Qué porcentaje de aciertos necesitas para no perder dinero con esta relación?",
+    "whyRr": "Con una relación 1:{{rr}}, un acierto paga {{rr}} fallos: necesitas acertar 1 / (1 + {{rr}}) = {{v}} de las veces. Por encima, el valor esperado es positivo.",
+    "briefPath": "Así se movió la acción durante las 30 sesiones. Línea roja: el stop, {{stop}}. Línea verde: el objetivo, {{target}}. La operación se cierra en la primera que toque; si no toca ninguna, vendes al cierre de la última sesión.",
+    "chartAria": "30 sesiones. Stop en {{stop}} y objetivo en {{target}}. Mínimo de {{min}} en la sesión {{minDay}}, máximo de {{max}} en la sesión {{maxDay}} y cierre de {{close}}.",
+    "askPath": "¿Cuál fue el resultado de tus {{n}} acciones?",
+    "whyPath": {
+      "stop": "Saltó el stop en la sesión {{day}}, a {{price}}: {{v}}, justo el riesgo que habías decidido. Una pérdida pequeña y prevista.",
+      "target": "Tocó el objetivo en la sesión {{day}}, a {{price}}: {{v}}. Vender ahí es parte del plan, aunque luego siga subiendo.",
+      "close": "No tocó ni el stop ni el objetivo: vendiste al cierre de la sesión {{day}}, a {{price}}: {{v}}."
+    },
+    "briefTempt": "Vuelve a la sesión {{day}}. La acción está en {{price}}, cerca de tu stop de {{stop}}, y llega esta noticia:",
+    "news": "Noticia del día",
+    "askTempt": "¿Qué haces con el stop?",
+    "move": {
+      "keep": "Lo mantengo donde lo puse",
+      "lower": "Lo bajo para darle más aire",
+      "average": "Compro más para promediar a la baja"
+    },
+    "whyTempt": "El stop se decide antes, con la cabeza fría. Bajarlo cuando la operación va mal es aversión a la pérdida: duele tanto cerrar en negativo que se agranda el riesgo. Y promediar a la baja dobla la apuesta perdedora. Es el efecto disposición: vender pronto lo que gana y aguantar lo que pierde.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cierre de la operación",
+    "row": {
+      "size": "Tamaño de la posición",
+      "rr": "Riesgo y beneficio",
+      "path": "Resultado",
+      "tempt": "Disciplina con el stop"
+    },
+    "great": "Operación de manual: tamaño, plan y disciplina.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el tamaño de posición, la relación riesgo/beneficio y por qué el stop no se mueve.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "positionSizing": {
+    "title": "El riesgo por operación decide si sobrevives",
+    "recover": "Para recuperarlo hay que ganar un"
   }
 }

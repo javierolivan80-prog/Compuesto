@@ -186,6 +186,14 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('PositionSizing: la misma racha vacía más la cuenta cuanto más se arriesga', () => {
+    render(<ExplainerBlock component="PositionSizing" props={{ capital: 10000, losses: 10 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(
+      /un 1 % por operación quedan 9\.044\s€; un 2 %, 8\.171\s€; un 5 %, 5\.987\s€; un 10 %, 3\.487\s€/,
+    );
+    expect(text).toMatch(/ganar un 186,8\s%/);
+  });
   it('MarginCall: la misma caída pesa más con más apalancamiento, hasta el cierre al 50 %', () => {
     render(<ExplainerBlock component="MarginCall" props={{ deposit: 1000, move: 2 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

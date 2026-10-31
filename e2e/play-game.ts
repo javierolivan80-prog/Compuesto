@@ -65,6 +65,12 @@ import {
 } from '../src/engine/games/edge-test';
 import { loss as pnLoss, net as pnNet, setupPattern } from '../src/engine/games/pattern-noise';
 import {
+  breakeven as stBreakeven,
+  result as stResult,
+  setupStop,
+  shares as stShares,
+} from '../src/engine/games/stop-trade';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -327,6 +333,33 @@ export async function playGameLesson(
         exact: true,
       })
       .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'stop-trade') {
+    // referencia 0: el tamaño, el acierto mínimo, el resultado y mantener el stop
+    await expect(page.getByRole('heading', { name: 'El trader con stop' })).toBeVisible();
+    const setup = setupStop(seed);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    await page
+      .getByRole('radio', { name: `${formatNumber(stShares(setup))} acciones`, exact: true })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const b = stBreakeven(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${esc(formatNumber(b, Number.isInteger(b) ? 0 : 1))}\\s%$`),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const r = stResult(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(
+          `^${r < 0 ? '−' : ''}${esc(formatNumber(Math.abs(r), Number.isInteger(r) ? 0 : 2))}\\s€$`,
+        ),
+      })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: 'Lo mantengo donde lo puse' }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'pattern-noise') {
     // referencia 0: no se distinguen, el neto, el momentum y la pérdida del CFD

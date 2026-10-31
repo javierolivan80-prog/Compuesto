@@ -8,7 +8,7 @@
 export type Value = number | boolean | string;
 
 export type ErrorCode =
-  '#REF!' | '#DIV/0!' | '#NAME?' | '#NUM!' | '#VALUE!' | '#SYNTAX!' | '#CIRC!';
+  '#REF!' | '#DIV/0!' | '#NAME?' | '#NUM!' | '#VALUE!' | '#SYNTAX!' | '#CIRC!' | '#N/A';
 
 /** Error de fórmula con código tipo Excel; `message` está en español para mostrarlo a la persona. */
 export class ExprError extends Error {
@@ -28,6 +28,7 @@ export const ERROR_LABELS: Record<ErrorCode, string> = {
   '#VALUE!': 'Valor del tipo equivocado',
   '#SYNTAX!': 'Fórmula inválida',
   '#CIRC!': 'Referencia circular',
+  '#N/A': 'Valor no encontrado',
 };
 
 type Tok =
@@ -154,6 +155,23 @@ const FUNCS: Record<string, (args: (Value | Value[])[]) => Value> = {
     return Math.round(num(a[0] as Value) * f + Number.EPSILON * Math.sign(num(a[0] as Value))) / f;
   },
   IF: (a) => (a[0] ? (a[1] as Value) : ((a[2] as Value) ?? false)),
+  // BUSCARX(valor; rango donde buscar; rango que devolver; [si no se encuentra]): coincidencia exacta, sin
+  // distinguir mayúsculas en los textos, como Excel
+  XLOOKUP: (a) => {
+    const [key, where, back, missing] = a;
+    if (!Array.isArray(where) || !Array.isArray(back))
+      throw new ExprError('BUSCARX necesita dos rangos', '#VALUE!');
+    if (where.length !== back.length)
+      throw new ExprError('BUSCARX: los dos rangos deben tener el mismo tamaño', '#VALUE!');
+    const same = (x: Value) =>
+      typeof x === 'string' && typeof key === 'string'
+        ? x.toLowerCase() === key.toLowerCase()
+        : x === key;
+    const i = where.findIndex(same);
+    if (i >= 0) return back[i]!;
+    if (missing !== undefined && !Array.isArray(missing)) return missing;
+    throw new ExprError(`BUSCARX no encuentra «${String(key)}»`, '#N/A');
+  },
   IRR: (a) => {
     const first = a[0];
     const flows = Array.isArray(first) ? flat([first]) : flat(a);
@@ -184,6 +202,7 @@ const ALIASES: Record<string, string> = {
   LN: 'LN',
   REDONDEAR: 'ROUND',
   SI: 'IF',
+  BUSCARX: 'XLOOKUP',
   VF: 'FV',
   VA: 'PV',
   VNA: 'NPV',

@@ -1,0 +1,222 @@
+{
+  "id": "salto-n5-u6",
+  "unitId": "n5-u6",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n5-u6-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes 15.000 € y arriesgas el 2 % por operación. Entras a 12 € con el stop en 11,40 €. ¿Cuántas acciones compras? (acciones)",
+      "answer": 500,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "15000 * 0.02 / (12 - 11.4)",
+      "explanation": "300 / 0,60 = 500 acciones."
+    },
+    {
+      "id": "salto-n5-u6-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con una relación riesgo/beneficio de 1:1,5, ¿qué porcentaje de aciertos necesitas para no perder? (%)",
+      "answer": 40,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "100 / (1 + 1.5)",
+      "explanation": "1 / 2,5 = 40 %."
+    },
+    {
+      "id": "salto-n5-u6-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "prompt": "Una estrategia ficticia acierta el 50 % con una relación de 1:1,5 y arriesga 80 € por operación. ¿Cuánto espera ganar por operación? (€)",
+      "answer": 20,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(0.5 * 1.5 - 0.5) * 80",
+      "explanation": "(0,75 − 0,5) × 80 = 20 €."
+    },
+    {
+      "id": "salto-n5-u6-q4",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["exceso-confianza"],
+      "prompt": "¿Qué sesgo es?",
+      "categories": ["Exceso de confianza", "Aversión a la pérdida", "Efecto disposición"],
+      "items": [
+        {
+          "text": "Concentrar toda la cartera en tu mejor idea porque «no puede fallar»",
+          "category": "Exceso de confianza"
+        },
+        {
+          "text": "Mover el stop más abajo para no cerrar en negativo",
+          "category": "Aversión a la pérdida"
+        },
+        {
+          "text": "Recoger enseguida los beneficios y no vender nunca las pérdidas",
+          "category": "Efecto disposición"
+        }
+      ],
+      "explanation": "Exceso de confianza, aversión a la pérdida y efecto disposición."
+    },
+    {
+      "id": "salto-n5-u6-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Una cuenta ficticia cae un 40 %. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
+      "answer": 66.67,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / 0.6 - 1) * 100",
+      "explanation": "1 / 0,6 − 1 = 66,67 %."
+    },
+    {
+      "id": "salto-n5-u6-q6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["si-buscarx"],
+      "prompt": "En una hoja, B1 vale 3, B2 vale 2 y B3 vale 150. ¿Qué devuelve la fórmula =SI(B1>=B2;B3;0)?",
+      "answer": 150,
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "150",
+      "explanation": "3 es mayor o igual que 2, así que devuelve B3: 150."
+    },
+    {
+      "id": "salto-n5-u6-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["si-buscarx"],
+      "prompt": "A1:A3 contiene NAR, PIR y MED, y B1:B3, los resultados 120, −80 y 45. ¿Qué devuelve =BUSCARX(\"PIR\";A1:A3;B1:B3)?",
+      "options": ["−80", "PIR", "120", "Un error, porque PIR no está en la primera fila"],
+      "answer": 0,
+      "explanation": "Busca PIR en A1:A3 y devuelve el valor de su fila en B1:B3.",
+      "wrongExplanations": {
+        "1": "Devuelve el dato del segundo rango, no el buscado.",
+        "2": "Ese es el resultado de NAR.",
+        "3": "BUSCARX busca en todo el rango."
+      }
+    },
+    {
+      "id": "salto-n5-u6-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "statement": "Un stop loss garantiza vender exactamente al precio del stop.",
+      "answer": false,
+      "explanation": "Falso: un hueco de apertura o un libro sin compradores pueden hacer que vendas más barato."
+    },
+    {
+      "id": "salto-n5-u6-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "prompt": "Arriesgando el 1 % de lo que queda en cada operación, ¿cuánto queda de 10.000 € tras 10 pérdidas seguidas? (€, 2 decimales)",
+      "answer": 9043.82,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "10000 * 0.99 ^ 10",
+      "explanation": "10.000 × 0,99^10 = 9.043,82 €."
+    },
+    {
+      "id": "salto-n5-u6-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Tras un mes con 12 aciertos de 15, un trader ficticio decide triplicar el riesgo por operación. ¿Qué es lo más probable?",
+      "options": [
+        "Exceso de confianza: 15 operaciones son pocas para saber si su acierto real es tan alto, y triplicar el riesgo multiplica el daño de una mala racha",
+        "Que ha descubierto una estrategia infalible",
+        "Que su acierto real es exactamente del 80 %",
+        "Que triplicar el riesgo reduce las pérdidas"
+      ],
+      "answer": 0,
+      "explanation": "Una racha corta no prueba nada, y el tamaño debe seguir las reglas.",
+      "wrongExplanations": {
+        "1": "No hay estrategias infalibles.",
+        "2": "Con 15 operaciones, la incertidumbre es enorme.",
+        "3": "Las aumenta."
+      }
+    },
+    {
+      "id": "salto-n5-u6-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes 300 acciones ficticias compradas a 40 € con el stop en 38 €, pero la acción abre a 36 € tras una mala noticia y vendes ahí. ¿Cuánto pierdes? (€)",
+      "answer": 1200,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "300 * (40 - 36)",
+      "explanation": "300 × 4 = 1.200 €."
+    },
+    {
+      "id": "salto-n5-u6-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["exceso-confianza"],
+      "statement": "El efecto disposición es la tendencia a vender pronto las inversiones que ganan y a mantener las que pierden.",
+      "answer": true,
+      "explanation": "Verdadero: así lo describieron Shefrin y Statman (1985)."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Hersh Shefrin y Meir Statman, «The Disposition to Sell Winners Too Early and Ride Losers Too Long», The Journal of Finance, 1985 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
+      "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Microsoft, ayuda de Excel: funciones SI y BUSCARX (pendiente de verificar la ruta)",
+      "url": "https://support.microsoft.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

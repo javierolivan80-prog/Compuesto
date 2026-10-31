@@ -1441,3 +1441,50 @@ test('¿patrón o ruido? de N5: captura y axe a 375 px en cada paso y lección c
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('el trader con stop de N5: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n5-u6-l1');
+  await expect(page.getByRole('heading', { name: 'El trader con stop' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('tamaño');
+  await page.getByRole('radio', { name: '500 acciones' }).click();
+  await expect(page.getByTestId('st-why')).toContainText('✗');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('riesgo y beneficio');
+  await page.getByRole('radio', { name: /^33,3\s%$/ }).click();
+  await expect(page.getByTestId('st-why')).toContainText('✓');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('30 sesiones');
+  await page.getByRole('radio').first().click();
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio').first().click();
+  await scan('tentación');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/trader-con-stop-n5-375.png',
+    fullPage: true,
+  });
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n5-u6-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n5/u6/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});

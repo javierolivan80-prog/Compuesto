@@ -1,0 +1,230 @@
+{
+  "id": "n5-u6-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 6,
+  "title": "Jefe final: el comité de riesgos de la mesa",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular tamaño de posición, acierto mínimo, esperanza y recuperación de una caída",
+    "Escribir una fórmula de diario con BUSCARX",
+    "Reconocer los sesgos al operar"
+  ],
+  "concepts": ["stop-tamano", "exceso-confianza", "si-buscarx"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n5-u6-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes 30.000 € y arriesgas el 1,5 % por operación. Entras a 60 € con el stop en 57 €. ¿Cuántas acciones compras? (acciones)",
+      "answer": 150,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "30000 * 0.015 / (60 - 57)",
+      "explanation": "450 / 3 = 150 acciones."
+    },
+    {
+      "id": "n5-u6-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con una relación riesgo/beneficio de 1:4, ¿qué porcentaje de aciertos necesitas para no perder? (%)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "100 / (1 + 4)",
+      "explanation": "1 / 5 = 20 %."
+    },
+    {
+      "id": "n5-u6-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Una estrategia ficticia acierta el 35 % con una relación de 1:2,5 y arriesga 200 € por operación. ¿Cuánto espera ganar por operación? (€)",
+      "answer": 45,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(0.35 * 2.5 - 0.65) * 200",
+      "explanation": "(0,875 − 0,65) × 200 = 45 €."
+    },
+    {
+      "id": "n5-u6-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "Una cuenta ficticia cae un 25 %. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
+      "answer": 33.33,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / 0.75 - 1) * 100",
+      "explanation": "1 / 0,75 − 1 = 33,33 %."
+    },
+    {
+      "id": "n5-u6-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Arriesgando el 2 % de lo que queda en cada operación, ¿cuánto queda de 10.000 € tras 8 pérdidas seguidas? (€, 2 decimales)",
+      "answer": 8507.46,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "10000 * 0.98 ^ 8",
+      "explanation": "10.000 × 0,98^8 = 8.507,46 €."
+    },
+    {
+      "id": "n5-u6-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes 200 acciones ficticias compradas a 25 € con el stop en 24 €, pero la acción abre a 22 € tras una mala noticia y vendes ahí. ¿Cuánto pierdes? (€)",
+      "answer": 600,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "200 * (25 - 22)",
+      "explanation": "200 × 3 = 600 €, el triple del riesgo previsto."
+    },
+    {
+      "id": "n5-u6-l6-e7",
+      "type": "spreadsheet",
+      "difficulty": 3,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["si-buscarx"],
+      "prompt": "En A1:A3 están los valores y en B1:B3 su resultado en R. Escribe en B5 una fórmula con BUSCARX que devuelva el resultado del valor de A5.",
+      "cells": {
+        "A1": "AZA",
+        "B1": 1.5,
+        "A2": "ALB",
+        "B2": -1,
+        "A3": "TRA",
+        "B3": 2,
+        "A5": "ALB"
+      },
+      "target": "B5",
+      "solution": "=BUSCARX(A5;A1:A3;B1:B3)",
+      "expected": -1,
+      "tolerance": 0,
+      "editable": [],
+      "requireFormula": true,
+      "hiddenCases": [
+        {
+          "set": {
+            "B2": 0.5
+          },
+          "expected": 0.5
+        }
+      ],
+      "explanation": "=BUSCARX(A5;A1:A3;B1:B3) devuelve −1 R, el resultado de ALB."
+    },
+    {
+      "id": "n5-u6-l6-e8",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["exceso-confianza"],
+      "prompt": "¿Qué sesgo es?",
+      "categories": ["Exceso de confianza", "Aversión a la pérdida", "Efecto disposición"],
+      "items": [
+        {
+          "text": "Subir el riesgo al 5 % tras una buena semana",
+          "category": "Exceso de confianza"
+        },
+        {
+          "text": "Promediar a la baja para no reconocer la pérdida",
+          "category": "Aversión a la pérdida"
+        },
+        {
+          "text": "Cerrar las ganadoras a la primera y dejar abiertas las perdedoras",
+          "category": "Efecto disposición"
+        }
+      ],
+      "explanation": "Tres sesgos, una defensa: reglas fijadas antes y un diario."
+    },
+    {
+      "id": "n5-u6-l6-e9",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "character": "jefe",
+      "situation": "Tras cinco pérdidas seguidas, un trader de la mesa quiere doblar el tamaño de la siguiente operación «para recuperar».",
+      "prompt": "¿Qué decide el jefe de la mesa?",
+      "options": [
+        "Mantener el riesgo por operación y revisar en el diario si las pérdidas siguieron el plan: doblar el tamaño para recuperar es aversión a la pérdida y acelera la ruina",
+        "Dejarle doblar, porque tras cinco pérdidas toca ganar",
+        "Triplicar el tamaño para ir más rápido",
+        "Quitar el stop para no perder más"
+      ],
+      "answer": 0,
+      "explanation": "Las operaciones independientes no se deben nada entre sí.",
+      "wrongExplanations": {
+        "1": "Después de cinco pérdidas no «toca» ganar.",
+        "2": "Multiplica el riesgo de ruina.",
+        "3": "Sin stop, la pérdida no tiene límite."
+      }
+    },
+    {
+      "id": "n5-u6-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "statement": "El tamaño de una posición se calcula a partir del riesgo en euros y de la distancia al stop.",
+      "answer": true,
+      "explanation": "Verdadero: tamaño = riesgo en € / distancia al stop."
+    }
+  ],
+  "realWorld": "En Albufera Partners, la mesa revisa cada mes el diario de cada trader: riesgo por operación, respeto de los stops y diferencias entre ganadoras y perdedoras. Las cifras de los ejemplos son de operaciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Hersh Shefrin y Meir Statman, «The Disposition to Sell Winners Too Early and Ride Losers Too Long», The Journal of Finance, 1985 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
+      "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Microsoft, ayuda de Excel: funciones SI y BUSCARX (pendiente de verificar la ruta)",
+      "url": "https://support.microsoft.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (gestión del riesgo y finanzas conductuales) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

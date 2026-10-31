@@ -1,0 +1,335 @@
+{
+  "id": "n5-u6-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 5,
+  "unit": 6,
+  "title": "Stop loss, take profit y tamaño de posición",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el tamaño de posición, el valor de la posición y la pérdida con un hueco",
+    "Ordenar los pasos para planificar una operación"
+  ],
+  "concepts": ["stop-tamano"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De las unidades anteriores: el valor esperado decide si una estrategia gana a la larga, y el apalancamiento multiplica las pérdidas. Aquí decides cuánto arriesgar en cada operación para que una mala racha no te saque del juego."
+    },
+    {
+      "type": "visual",
+      "component": "PositionSizing",
+      "props": {
+        "capital": 10000,
+        "losses": 10
+      }
+    },
+    {
+      "type": "card",
+      "term": "Stop y tamaño",
+      "text": "El stop loss es el precio al que vendes si la idea falla, y el take profit, al que vendes si sale bien. Primero se decide el riesgo (por ejemplo, un 1 % del capital) y dónde se invalida la idea; después, tamaño = riesgo en € / distancia al stop. Un hueco de apertura puede saltarse el stop."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n5-u6-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes {c} € y arriesgas el {r} % por operación. Entras en una acción ficticia a {e} € con el stop en {s} €. ¿Cuántas acciones compras? (acciones, redondeando hacia abajo)",
+      "answer": 125,
+      "unit": "acciones",
+      "tolerance": 0.1,
+      "answerDecimals": 0,
+      "formula": "ROUND({c} * {r} / 100 / ({e} - {s}) - 0.5, 0)",
+      "explanation": "{c} × {r} % / ({e} − {s}), redondeado hacia abajo: {answer} acciones.",
+      "params": {
+        "c": {
+          "value": 25000,
+          "min": 10000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 1,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "e": {
+          "value": 40,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 200,
+          "min": 50,
+          "max": 400,
+          "step": 50,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Entras en una acción ficticia a {e} € y pones el stop en {s} €. ¿A qué distancia está el stop, en %? (%, 3 decimales)",
+      "answer": 5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({e} - {s}) / {e} * 100",
+      "explanation": "({e} − {s}) / {e} = {answer} %.",
+      "params": {
+        "e": {
+          "value": 15,
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 75,
+          "min": 20,
+          "max": 300,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Con {c} € y un riesgo del {r} %, entras a {e} € con el stop en {s} €. ¿Cuánto vale la posición, sin redondear las acciones? (€, 2 decimales)",
+      "answer": 8000,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} * {r} / 100 / ({e} - {s}) * {e}",
+      "explanation": "{c} × {r} % / ({e} − {s}) × {e} = {answer} €.",
+      "params": {
+        "c": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 2,
+          "min": 1,
+          "max": 2,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "e": {
+          "value": 50,
+          "min": 20,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        },
+        "d": {
+          "value": 250,
+          "min": 100,
+          "max": 500,
+          "step": 50,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Tienes {n} acciones de una empresa ficticia compradas a {e} € con el stop en {s} €. Una mala noticia de madrugada hace que abra a {g} €, por debajo del stop, y vendes ahí. ¿Cuánto pierdes? (€, 2 decimales)",
+      "answer": 800,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{n} * ({e} - {g})",
+      "explanation": "{n} × ({e} − {g}) = {answer} €: un hueco puede costar bastante más que el riesgo previsto.",
+      "params": {
+        "n": {
+          "value": 160,
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "decimals": 0
+        },
+        "e": {
+          "value": 50,
+          "min": 20,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        },
+        "d": {
+          "value": 250,
+          "min": 100,
+          "max": 400,
+          "step": 50,
+          "decimals": 0
+        },
+        "gp": {
+          "value": 500,
+          "min": 450,
+          "max": 800,
+          "step": 50,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "s": {
+          "formula": "{e} - {d} / 100",
+          "decimals": 2
+        },
+        "g": {
+          "formula": "{e} - {gp} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Arriesgando el {r} % de lo que queda en cada operación, ¿cuánto quedaría de {c} € tras {n} pérdidas seguidas? (€, 2 decimales)",
+      "answer": 8170.73,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "{c} * (1 - {r} / 100) ^ {n}",
+      "explanation": "{c} × (1 − {r} %)^{n} = {answer} €.",
+      "params": {
+        "c": {
+          "value": 10000,
+          "min": 5000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "r": {
+          "value": 2,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 10,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n5-u6-l2-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "prompt": "Ordena los pasos para planificar una operación.",
+      "steps": [
+        "Decidir el riesgo máximo por operación, por ejemplo un 1 % del capital",
+        "Fijar el stop donde la idea queda invalidada",
+        "Calcular la distancia entre la entrada y el stop",
+        "Calcular el tamaño: riesgo en € / distancia al stop",
+        "Fijar el objetivo y revisar la relación riesgo/beneficio",
+        "Entrar y apuntar la operación en el diario"
+      ],
+      "explanation": "El stop sale del análisis; el tamaño, del stop y del riesgo."
+    },
+    {
+      "id": "n5-u6-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "character": "mentora",
+      "situation": "El becario rival pone el stop muy cerca de la entrada para poder comprar más acciones con el mismo riesgo.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que el stop va donde la idea queda invalidada, no donde permite comprar más: un stop demasiado cercano salta por el ruido normal del precio, y el tamaño se ajusta al stop, no al revés",
+        "Que tiene razón: así gana más",
+        "Que el stop hay que ponerlo siempre a un 1 %",
+        "Que sin stop es mejor"
+      ],
+      "answer": 0,
+      "explanation": "Primero el stop, después el tamaño.",
+      "wrongExplanations": {
+        "1": "Saltará una y otra vez con movimientos normales.",
+        "2": "Cada acción y cada idea tienen su distancia.",
+        "3": "Sin stop, la pérdida no tiene límite previsto."
+      }
+    },
+    {
+      "id": "n5-u6-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["stop-tamano"],
+      "statement": "Un stop loss garantiza vender exactamente al precio del stop.",
+      "answer": false,
+      "explanation": "Falso: si el precio abre con un hueco por debajo, o el libro no tiene compradores, vendes peor."
+    }
+  ],
+  "realWorld": "Los brókers ofrecen órdenes stop y stop limitada: conviene leer cómo funcionan y qué pasa si el precio abre con hueco. Las cifras de los ejemplos son de operaciones ficticias: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management (gestión del riesgo y finanzas conductuales) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}
