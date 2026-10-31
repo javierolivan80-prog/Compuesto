@@ -1,8 +1,8 @@
 {
   "id": "n5-u6-l6",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 5,
   "unit": 6,
   "title": "Jefe final: el comité de riesgos de la mesa",

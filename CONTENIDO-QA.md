@@ -608,3 +608,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** q12 pasa a «Muchas anomalías rinden menos después de publicarse».
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 6, 6 y 7 de 8, y 9 de 10. e2e de producción `n5u5.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las cifras de Barber y Odean (2000), las medidas de la ESMA (2018) y de la CNMV (2019) sobre CFD y su estimación del 74 al 89 %, y el Anexo II de MiFID II. Las fuentes se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n5-u6 — Stop, tamaño de posición y sesgos al operar y lección-juego «El trader con stop» (31/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - l6-e5: 10.000 × 0,98^8 = 8.507,63 € (decía 8.507,46). La tolerancia lo absorbía, así que el validador estrena la regla `respuesta-redondeo`: answer debe ser la fórmula redondeada a answerDecimals, ± media unidad. Pasada por todo el contenido, solo detectó este caso;
+    - ejercicios de hoja de cálculo con casos ocultos que cambian el valor buscado por BUSCARX (el esquema admite textos en `hiddenCases.set`) y casos nuevos en l5-e2. El evaluador incorpora SI.ERROR, perezoso;
+    - l2-e1 y l2-e3 con el stop a un 4-10 % de la entrada (la posición nunca supera el 50 % del capital); l2-e6 solo con pasos de dependencia estricta;
+    - test de salto: q7 sobre los rangos de BUSCARX (fill_blank, porque el banco no admite hojas de cálculo) y q12 sobre el resultado de Odean (1998).
+  - Menores: la tarjeta «Tamaño» de l1 ya no da la posición en €; l2-e5 con 20.000 €, un 3 % y 8 pérdidas (15.674,87 €); l6-e2 con 1:2,25; l3-e4 y l4-e6 reformulados; cita de Tversky y Kahneman (1992) para el coeficiente de aversión a la pérdida; textos del juego sobre el stop sin hueco y la tentación; l5-e3 con 200 acciones.
+- **Ronda 2:** los suelos con ROUND(x − 0,5; 0) fallaban por coma flotante (249 en vez de 250). Ahora llevan un margen de 1e-9 y un test barre la rejilla completa de sus parámetros contra un suelo calculado en enteros.
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n5u6.spec.ts`: pasa. Con esta unidad, la planta 4 (N5) tiene sus seis unidades. Una prueba en dev jugó las 36 lecciones: el Camino marca la planta 4 como completada y la 5 como próximamente.
+- 🛑 Pendiente de la revisión de Javier: las fuentes de finanzas conductuales (Shefrin y Statman, 1985; Kahneman y Tversky, 1979; Tversky y Kahneman, 1992; Odean, 1998; Barber y Odean, 2000) y la ayuda de Microsoft sobre SI y BUSCARX se citan por su URL raíz «(pendiente de verificar la ruta)».
