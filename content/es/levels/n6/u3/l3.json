@@ -1,0 +1,306 @@
+{
+  "id": "n6-u3-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 3,
+  "title": "CVaR, colas gordas y los límites del VaR",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el CVaR o expected shortfall",
+    "Explicar por qué el VaR falla con colas gordas, en crisis como la de 2008 y al sumar riesgos"
+  ],
+  "concepts": [
+    "var-cvar"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "CVaR",
+      "text": "El CVaR o expected shortfall es la pérdida media en el peor 1 % (o 5 %) de los días, más allá del VaR. Con la normal, el ES al 97,5 % casi iguala al VaR al 99 %; con colas gordas, pesa más. Basilea, en su revisión de 2019 (FRTB), pasó al ES al 97,5 %."
+    },
+    {
+      "type": "visual",
+      "component": "VarTail",
+      "props": {
+        "value": 1000000,
+        "sigma": 1
+      }
+    },
+    {
+      "type": "card",
+      "term": "Límites del VaR",
+      "text": "El VaR supone que el futuro se parece al pasado y, en su versión paramétrica, que las rentabilidades son normales. En 2008, muchos modelos calibrados con los años tranquilos se superaron muchas más veces de lo esperado. Y no siempre premia diversificar: el VaR de dos carteras juntas puede superar la suma de sus VaR."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u3-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Las cinco peores pérdidas diarias de una cartera ficticia en 500 días fueron, en euros, {a}, {b}, {c}, {d} y {e}. ¿Cuál es su CVaR al 99 %, la media de ese peor 1 %? (€)",
+      "answer": 44400,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "({a} + {b} + {c} + {d} + {e}) / 5",
+      "explanation": "({a} + {b} + {c} + {d} + {e}) / 5 = {answer} €.",
+      "params": {
+        "a": {
+          "value": 52000,
+          "min": 50000,
+          "max": 60000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "b": {
+          "value": 47000,
+          "min": 46000,
+          "max": 49000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "c": {
+          "value": 44000,
+          "min": 42000,
+          "max": 45000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "d": {
+          "value": 41000,
+          "min": 40000,
+          "max": 41000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "e": {
+          "value": 38000,
+          "min": 36000,
+          "max": 39000,
+          "step": 1000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Con la normal, el ES al 97,5 % vale 2,338 × σ. Para una cartera ficticia de {v} € con una volatilidad diaria del {s} %, ¿cuánto vale? (€)",
+      "answer": 14028,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "2.338 * {s} / 100 * {v}",
+      "explanation": "2,338 × {s} % × {v} = {answer} €, casi lo mismo que el VaR al 99 % (2,33 × σ).",
+      "params": {
+        "v": {
+          "value": 500000,
+          "min": 200000,
+          "max": 900000,
+          "step": 100000,
+          "decimals": 0
+        },
+        "s": {
+          "value": 1.2,
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Dos carteras ficticias tienen el mismo VaR al 99 %, pero el CVaR de A es de {a} € y el de B, de {b} €. ¿Cuánto más pierde B que A, de media, en su peor 1 % de días? (%, 2 decimales)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({b} - {a}) / {a} * 100",
+      "explanation": "({b} − {a}) / {a} = {answer} %: mismo VaR, colas muy distintas.",
+      "params": {
+        "a": {
+          "value": 30000,
+          "min": 25000,
+          "max": 35000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "b": {
+          "value": 48000,
+          "min": 45000,
+          "max": 60000,
+          "step": 3000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Dos bonos ficticios independientes tienen cada uno una probabilidad de impago del {p} % en un año. ¿Cuál es la probabilidad de que impague al menos uno? (%, 2 decimales)",
+      "answer": 7.84,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 - (1 - {p} / 100) ^ 2) * 100",
+      "explanation": "1 − (1 − {p} %)² = {answer} %. Por separado, cada uno tiene un VaR al 95 % de cero, porque su impago es menos probable que el 5 %; juntos, el VaR al 95 % ya incluye un impago: más que la suma.",
+      "params": {
+        "p": {
+          "value": 4,
+          "min": 3,
+          "max": 4.5,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l3-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "¿Qué hace falta para responder a cada pregunta?",
+      "categories": [
+        "VaR",
+        "CVaR",
+        "Test de estrés"
+      ],
+      "items": [
+        {
+          "text": "¿Qué pérdida no se supera el 95 % de los días?",
+          "category": "VaR"
+        },
+        {
+          "text": "¿Cuánto se pierde de media en el peor 5 % de los días?",
+          "category": "CVaR"
+        },
+        {
+          "text": "¿Qué pasaría si el BCE subiera los tipos tres puntos de golpe?",
+          "category": "Test de estrés"
+        },
+        {
+          "text": "¿Qué cartera tiene la cola más pesada, si el VaR es el mismo?",
+          "category": "CVaR"
+        }
+      ],
+      "explanation": "El VaR es un umbral, el CVaR la media de la cola y el test de estrés un escenario concreto."
+    },
+    {
+      "id": "n6-u3-l3-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "character": "compliance",
+      "situation": "Un operador ficticio vende opciones muy alejadas del precio: gana un poco casi todos los días y, con una probabilidad inferior al 1 %, perdería veinte veces lo que gana en un año. Su VaR al 99 % es pequeño.",
+      "prompt": "¿Qué pide la compliance officer?",
+      "options": [
+        "Medir también su CVaR y estresar la posición: el riesgo está en la cola, justo donde el VaR al 99 % no mira",
+        "Nada: con un VaR pequeño el riesgo es pequeño",
+        "Bajar la confianza al 95 % para que el VaR sea aún menor",
+        "Prohibir que se calcule el VaR"
+      ],
+      "answer": 0,
+      "explanation": "El VaR puede premiar los riesgos escondidos en la cola.",
+      "wrongExplanations": {
+        "1": "El VaR no ve lo que pasa más allá del 1 %.",
+        "2": "Así se ve todavía menos la cola.",
+        "3": "El VaR sirve; solo no basta."
+      }
+    },
+    {
+      "id": "n6-u3-l3-e7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "¿Por qué muchos modelos de VaR se superaron tantas veces en 2008?",
+      "options": [
+        "Porque estaban calibrados con años de baja volatilidad y suponían normalidad, y la crisis trajo días extremos más frecuentes de lo que permitía el modelo",
+        "Porque el VaR no puede calcularse en una crisis",
+        "Porque los bancos dejaron de calcularlo",
+        "Porque el VaR al 99 % solo vale para carteras de acciones"
+      ],
+      "answer": 0,
+      "explanation": "El modelo mira al pasado reciente y a una distribución sin colas gordas.",
+      "wrongExplanations": {
+        "1": "Se calcula; lo que falla es la hipótesis.",
+        "2": "Siguieron calculándolo y publicándolo.",
+        "3": "Se usa para cualquier cartera."
+      }
+    },
+    {
+      "id": "n6-u3-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "statement": "Dos carteras con el mismo VaR al 99 % tienen el mismo riesgo de cola.",
+      "answer": false,
+      "explanation": "Falso: el VaR solo marca dónde empieza la cola; lo que pesa lo mide el CVaR."
+    }
+  ],
+  "realWorld": "Desde la revisión de Basilea de 2019 (FRTB), el capital por riesgo de mercado de los modelos internos se calcula con el expected shortfall al 97,5 %, con periodos de estrés. Las cifras de los ejemplos son de carteras ficticias, y las de las crisis, aproximadas: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Comité de Supervisión Bancaria de Basilea, «Minimum capital requirements for market risk» (FRTB), 2019 (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "John C. Hull, Risk Management and Financial Institutions, Wiley (capítulos de VaR, expected shortfall, simulación histórica y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.wiley.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (medidas de riesgo, VaR, CVaR, simulación Monte Carlo y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

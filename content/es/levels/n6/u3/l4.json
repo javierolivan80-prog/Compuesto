@@ -1,0 +1,279 @@
+{
+  "id": "n6-u3-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 3,
+  "title": "Backtesting del VaR: excepciones y semáforo",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Contar las excepciones esperadas y contrastar si son demasiadas",
+    "Clasificar un modelo en el semáforo de Basilea"
+  ],
+  "concepts": [
+    "backtesting"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de trading: el backtest de una estrategia engaña si se prueban cien variantes y se queda la mejor, y un p-valor bajo no basta. Aquí el backtest es de otra cosa: comprobar si un modelo de VaR acierta tantas veces como promete."
+    },
+    {
+      "type": "card",
+      "term": "Excepciones",
+      "text": "Una excepción es un día con una pérdida mayor que el VaR. Al 99 %, en 250 días se esperan 250 × 1 % = 2,5. ¿Son demasiadas? z = (excepciones − Np) / √(Np(1 − p)), con p = 1 − confianza; si z pasa de 1,96, el modelo se rechaza al 95 %."
+    },
+    {
+      "type": "card",
+      "term": "Semáforo",
+      "text": "Basilea clasifica el VaR al 99 % con 250 días: zona verde, de 0 a 4 excepciones; amarilla, de 5 a 9; roja, 10 o más, que sube el capital exigido y obliga a revisar el modelo. Muy pocas excepciones también avisan: el modelo puede ser demasiado prudente."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u3-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Un modelo de VaR ficticio al {c} % se contrasta con {n} sesiones. ¿Cuántas excepciones se esperan? (1 decimal)",
+      "answer": 5,
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "{n} * (100 - {c}) / 100",
+      "explanation": "{n} × (100 − {c}) % = {answer}.",
+      "params": {
+        "n": {
+          "value": 500,
+          "min": 250,
+          "max": 1000,
+          "step": 250,
+          "decimals": 0
+        },
+        "c": {
+          "value": 99,
+          "min": 95,
+          "max": 99,
+          "step": 4,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Un VaR ficticio tuvo {x} excepciones en {n} sesiones. ¿En qué porcentaje de los días se superó? (%, 3 decimales)",
+      "answer": 1.8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{x} / {n} * 100",
+      "explanation": "{x} / {n} = {answer} %.",
+      "params": {
+        "x": {
+          "value": 9,
+          "min": 4,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "n": {
+          "value": 500,
+          "min": 250,
+          "max": 750,
+          "step": 250,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Un VaR ficticio al 99 % tuvo {x} excepciones en 250 sesiones. ¿Cuál es el estadístico z del backtest? (3 decimales)",
+      "answer": 3.496,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({x} - 250 * 0.01) / SQRT(250 * 0.01 * 0.99)",
+      "explanation": "({x} − 2,5) / √(2,5 × 0,99) = {answer}; por encima de 1,96, el modelo se rechaza.",
+      "params": {
+        "x": {
+          "value": 8,
+          "min": 6,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Simplificando, el capital por riesgo de mercado es k × VaR a 10 días, con k = 3 en zona verde. Si el VaR diario al 99 % de una mesa ficticia es de {d} €, ¿qué capital exige, escalando con √10? (€)",
+      "answer": 189737.0,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "3 * {d} * SQRT(10)",
+      "explanation": "3 × {d} × √10 = {answer} €. En zona roja, k sube a 4.",
+      "params": {
+        "d": {
+          "value": 20000,
+          "min": 10000,
+          "max": 40000,
+          "step": 5000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l4-e5",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "VaR al 99 % contrastado con 250 sesiones: ¿en qué zona del semáforo queda cada modelo?",
+      "categories": [
+        "Verde",
+        "Amarilla",
+        "Roja"
+      ],
+      "items": [
+        {
+          "text": "3 excepciones",
+          "category": "Verde"
+        },
+        {
+          "text": "7 excepciones",
+          "category": "Amarilla"
+        },
+        {
+          "text": "11 excepciones",
+          "category": "Roja"
+        },
+        {
+          "text": "0 excepciones",
+          "category": "Verde"
+        },
+        {
+          "text": "5 excepciones",
+          "category": "Amarilla"
+        }
+      ],
+      "explanation": "Verde de 0 a 4, amarilla de 5 a 9 y roja con 10 o más."
+    },
+    {
+      "id": "n6-u3-l4-e6",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "character": "jefe",
+      "situation": "El VaR al 99 % de la mesa no ha tenido ninguna excepción en 250 sesiones, y el becario lo celebra.",
+      "prompt": "¿Qué matiza el jefe de la mesa?",
+      "options": [
+        "Que está en zona verde, pero se esperaban unas 2,5: cero puede indicar un modelo demasiado prudente, que exige más capital del necesario y frena operaciones que caben en el apetito de riesgo",
+        "Que cero excepciones demuestra que el modelo es perfecto",
+        "Que está en zona roja",
+        "Que hay que cambiar el VaR por el valor esperado"
+      ],
+      "answer": 0,
+      "explanation": "Un buen modelo falla tanto como promete, ni más ni menos.",
+      "wrongExplanations": {
+        "1": "Se esperaban algunas; ninguna también es información.",
+        "2": "La roja empieza en 10.",
+        "3": "El valor esperado no mide la cola."
+      }
+    },
+    {
+      "id": "n6-u3-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "character": "rival",
+      "situation": "El becario rival dice que su VaR aguantará cualquier crisis porque pasó el backtest de un año tranquilo con 2 excepciones.",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que el backtest solo dice que el modelo acertó en ese año: si cambia el régimen de volatilidad, como en 2008, puede fallar; hay que completarlo con el CVaR y los tests de estrés",
+        "Que tiene razón: un backtest aprobado vale para siempre",
+        "Que 2 excepciones están en zona roja",
+        "Que el backtest no sirve para nada"
+      ],
+      "answer": 0,
+      "explanation": "Pasar el examen de un año tranquilo no prepara para una crisis.",
+      "wrongExplanations": {
+        "1": "El pasado reciente no garantiza el futuro.",
+        "2": "2 excepciones están en zona verde.",
+        "3": "Sirve, pero no basta."
+      }
+    },
+    {
+      "id": "n6-u3-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "statement": "En el semáforo de Basilea, la zona roja sube el capital exigido y obliga a revisar el modelo.",
+      "answer": true,
+      "explanation": "Verdadero: con 10 excepciones o más en 250 sesiones, el multiplicador pasa a 4 y el supervisor exige revisar el modelo."
+    }
+  ],
+  "realWorld": "En el informe de Pilar 3, los bancos muestran el gráfico del backtesting de su VaR: las pérdidas diarias frente al VaR y las excepciones del año. Las cifras de los ejemplos son de carteras ficticias, y las de las crisis, aproximadas: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Comité de Supervisión Bancaria de Basilea, «Supervisory framework for the use of backtesting in conjunction with the internal models approach to market risk capital requirements», 1996 (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "John C. Hull, Risk Management and Financial Institutions, Wiley (capítulos de VaR, expected shortfall, simulación histórica y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.wiley.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (medidas de riesgo, VaR, CVaR, simulación Monte Carlo y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

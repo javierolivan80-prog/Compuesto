@@ -11,7 +11,9 @@
     "id": "poder-adquisitivo",
     "name": "Poder adquisitivo",
     "level": 0,
-    "prerequisites": ["inflacion"],
+    "prerequisites": [
+      "inflacion"
+    ],
     "unit": "n0-u1",
     "description": "Cantidad de bienes y servicios que se pueden comprar con una cantidad de dinero."
   },
@@ -19,7 +21,9 @@
     "id": "tipo-real-nominal",
     "name": "Tipo real y nominal",
     "level": 0,
-    "prerequisites": ["inflacion"],
+    "prerequisites": [
+      "inflacion"
+    ],
     "unit": "n0-u1",
     "description": "La rentabilidad nominal descontada la inflación da la rentabilidad real."
   },
@@ -35,7 +39,9 @@
     "id": "interes-simple",
     "name": "Interés simple",
     "level": 0,
-    "prerequisites": ["porcentajes"],
+    "prerequisites": [
+      "porcentajes"
+    ],
     "unit": "n0-u1",
     "description": "Interés que se calcula siempre sobre el capital inicial."
   },
@@ -43,7 +49,9 @@
     "id": "interes-compuesto",
     "name": "Interés compuesto",
     "level": 0,
-    "prerequisites": ["interes-simple"],
+    "prerequisites": [
+      "interes-simple"
+    ],
     "unit": "n0-u1",
     "description": "Interés calculado sobre el capital más los intereses ya acumulados: capital × (1 + i)^n."
   },
@@ -51,7 +59,9 @@
     "id": "regla-del-72",
     "name": "Regla del 72",
     "level": 0,
-    "prerequisites": ["interes-compuesto"],
+    "prerequisites": [
+      "interes-compuesto"
+    ],
     "unit": "n0-u1",
     "description": "Atajo para estimar en cuántos años se duplica un capital: 72 / tipo %."
   },
@@ -59,7 +69,9 @@
     "id": "valor-temporal-dinero",
     "name": "Valor temporal del dinero",
     "level": 0,
-    "prerequisites": ["interes-compuesto"],
+    "prerequisites": [
+      "interes-compuesto"
+    ],
     "unit": "n0-u1",
     "description": "Un euro hoy vale más que un euro mañana: valor futuro y valor actual."
   },
@@ -67,7 +79,9 @@
     "id": "tin",
     "name": "TIN",
     "level": 0,
-    "prerequisites": ["interes-simple"],
+    "prerequisites": [
+      "interes-simple"
+    ],
     "unit": "n0-u2",
     "description": "Tipo de interés nominal anual, sin comisiones ni capitalización."
   },
@@ -75,7 +89,10 @@
     "id": "tae",
     "name": "TAE",
     "level": 0,
-    "prerequisites": ["tin", "interes-compuesto"],
+    "prerequisites": [
+      "tin",
+      "interes-compuesto"
+    ],
     "unit": "n0-u2",
     "description": "Tasa anual equivalente: coste o rentabilidad efectiva con capitalización y comisiones."
   },
@@ -83,7 +100,9 @@
     "id": "prestamo",
     "name": "Préstamo y cuota",
     "level": 0,
-    "prerequisites": ["tin"],
+    "prerequisites": [
+      "tin"
+    ],
     "unit": "n0-u2",
     "description": "Capital prestado que se devuelve en cuotas con intereses."
   },
@@ -91,7 +110,9 @@
     "id": "cuadro-amortizacion",
     "name": "Cuadro de amortización",
     "level": 0,
-    "prerequisites": ["prestamo"],
+    "prerequisites": [
+      "prestamo"
+    ],
     "unit": "n0-u2",
     "description": "Reparto de cada cuota entre intereses y capital amortizado."
   },
@@ -99,7 +120,9 @@
     "id": "hipoteca",
     "name": "Hipoteca",
     "level": 0,
-    "prerequisites": ["prestamo"],
+    "prerequisites": [
+      "prestamo"
+    ],
     "unit": "n0-u2",
     "description": "Préstamo con garantía sobre un inmueble."
   },
@@ -107,7 +130,9 @@
     "id": "euribor",
     "name": "Euríbor y tipo variable",
     "level": 0,
-    "prerequisites": ["hipoteca"],
+    "prerequisites": [
+      "hipoteca"
+    ],
     "unit": "n0-u2",
     "description": "Índice de referencia al que se ligan las hipotecas a tipo variable."
   },
@@ -115,7 +140,9 @@
     "id": "alquilar-vs-comprar",
     "name": "Alquilar o comprar",
     "level": 0,
-    "prerequisites": ["hipoteca"],
+    "prerequisites": [
+      "hipoteca"
+    ],
     "unit": "n0-u2",
     "description": "Comparar el coste total y el coste de oportunidad de cada opción."
   },
@@ -123,7 +150,9 @@
     "id": "presupuesto",
     "name": "Presupuesto personal",
     "level": 0,
-    "prerequisites": ["porcentajes"],
+    "prerequisites": [
+      "porcentajes"
+    ],
     "unit": "n0-u3",
     "description": "Ingresos, gastos fijos y variables y capacidad de ahorro."
   },
@@ -131,7 +160,9 @@
     "id": "fondo-emergencia",
     "name": "Fondo de emergencia",
     "level": 0,
-    "prerequisites": ["presupuesto"],
+    "prerequisites": [
+      "presupuesto"
+    ],
     "unit": "n0-u3",
     "description": "Colchón de liquidez para imprevistos, de varios meses de gastos."
   },
@@ -139,7 +170,10 @@
     "id": "deuda-buena-mala",
     "name": "Deuda buena y deuda mala",
     "level": 0,
-    "prerequisites": ["prestamo", "tae"],
+    "prerequisites": [
+      "prestamo",
+      "tae"
+    ],
     "unit": "n0-u3",
     "description": "Cuándo endeudarse tiene sentido y cuándo destruye riqueza (tarjetas revolving)."
   },
@@ -171,7 +205,9 @@
     "id": "creacion-dinero",
     "name": "Creación de dinero bancario",
     "level": 0,
-    "prerequisites": ["banco"],
+    "prerequisites": [
+      "banco"
+    ],
     "unit": "n0-u4",
     "description": "Los créditos de los bancos crean dinero (depósitos) y lo multiplican."
   },
@@ -179,7 +215,10 @@
     "id": "deposito",
     "name": "Depósito bancario",
     "level": 0,
-    "prerequisites": ["banco", "tin"],
+    "prerequisites": [
+      "banco",
+      "tin"
+    ],
     "unit": "n0-u4",
     "description": "Dinero entregado al banco a cambio de un interés."
   },
@@ -187,7 +226,9 @@
     "id": "fgd",
     "name": "Fondo de Garantía de Depósitos",
     "level": 0,
-    "prerequisites": ["deposito"],
+    "prerequisites": [
+      "deposito"
+    ],
     "unit": "n0-u4",
     "description": "Protege los depósitos hasta 100.000 € por titular y entidad."
   },
@@ -195,7 +236,9 @@
     "id": "irpf-intereses",
     "name": "Intereses en el IRPF",
     "level": 0,
-    "prerequisites": ["deposito"],
+    "prerequisites": [
+      "deposito"
+    ],
     "unit": "n0-u4",
     "description": "Tributación de los intereses como rendimientos del capital mobiliario."
   },
@@ -219,7 +262,9 @@
     "id": "tres-pilares",
     "name": "Los tres pilares de la jubilación",
     "level": 0,
-    "prerequisites": ["pensiones-publicas"],
+    "prerequisites": [
+      "pensiones-publicas"
+    ],
     "unit": "n0-u5",
     "description": "Pensión pública, planes de empresa y ahorro individual."
   },
@@ -227,7 +272,9 @@
     "id": "riesgo-rentabilidad",
     "name": "Riesgo y rentabilidad",
     "level": 0,
-    "prerequisites": ["porcentajes"],
+    "prerequisites": [
+      "porcentajes"
+    ],
     "unit": "n0-u5",
     "description": "A mayor rentabilidad esperada, mayor riesgo."
   },
@@ -243,7 +290,9 @@
     "id": "accion",
     "name": "Acción",
     "level": 1,
-    "prerequisites": ["empresa"],
+    "prerequisites": [
+      "empresa"
+    ],
     "unit": "n1-u1",
     "description": "Parte alícuota del capital de una sociedad que da derechos económicos y políticos."
   },
@@ -251,7 +300,9 @@
     "id": "capitalizacion",
     "name": "Capitalización bursátil",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u1",
     "description": "Precio por acción multiplicado por el número de acciones."
   },
@@ -259,7 +310,9 @@
     "id": "free-float",
     "name": "Free float",
     "level": 1,
-    "prerequisites": ["capitalizacion"],
+    "prerequisites": [
+      "capitalizacion"
+    ],
     "unit": "n1-u1",
     "description": "Parte de las acciones que cotiza libremente en el mercado."
   },
@@ -267,7 +320,9 @@
     "id": "mercado-primario",
     "name": "Mercado primario",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u2",
     "description": "Donde la empresa emite valores nuevos y recibe el dinero."
   },
@@ -275,7 +330,9 @@
     "id": "opv",
     "name": "OPV y OPS",
     "level": 1,
-    "prerequisites": ["mercado-primario"],
+    "prerequisites": [
+      "mercado-primario"
+    ],
     "unit": "n1-u2",
     "description": "Oferta pública de venta o suscripción: salida a bolsa."
   },
@@ -283,7 +340,9 @@
     "id": "mercado-secundario",
     "name": "Mercado secundario",
     "level": 1,
-    "prerequisites": ["mercado-primario"],
+    "prerequisites": [
+      "mercado-primario"
+    ],
     "unit": "n1-u2",
     "description": "Donde los inversores se compran y venden valores ya emitidos."
   },
@@ -291,7 +350,9 @@
     "id": "bme",
     "name": "BME y mercado continuo",
     "level": 1,
-    "prerequisites": ["mercado-secundario"],
+    "prerequisites": [
+      "mercado-secundario"
+    ],
     "unit": "n1-u3",
     "description": "Operador de las bolsas españolas y su sistema de negociación continua."
   },
@@ -299,7 +360,10 @@
     "id": "ibex-35",
     "name": "IBEX 35",
     "level": 1,
-    "prerequisites": ["capitalizacion", "bme"],
+    "prerequisites": [
+      "capitalizacion",
+      "bme"
+    ],
     "unit": "n1-u3",
     "description": "Índice de las 35 mayores empresas del mercado continuo."
   },
@@ -307,7 +371,9 @@
     "id": "bme-growth",
     "name": "BME Growth",
     "level": 1,
-    "prerequisites": ["bme"],
+    "prerequisites": [
+      "bme"
+    ],
     "unit": "n1-u3",
     "description": "Mercado para pequeñas empresas en expansión."
   },
@@ -315,7 +381,9 @@
     "id": "indices-mundiales",
     "name": "Índices mundiales",
     "level": 1,
-    "prerequisites": ["ibex-35"],
+    "prerequisites": [
+      "ibex-35"
+    ],
     "unit": "n1-u3",
     "description": "S&P 500, Euro Stoxx 50, Nikkei y otros índices de referencia."
   },
@@ -323,7 +391,9 @@
     "id": "otc",
     "name": "Mercados OTC",
     "level": 1,
-    "prerequisites": ["mercado-secundario"],
+    "prerequisites": [
+      "mercado-secundario"
+    ],
     "unit": "n1-u3",
     "description": "Operaciones bilaterales fuera de un mercado organizado."
   },
@@ -331,7 +401,9 @@
     "id": "formacion-precios",
     "name": "Formación de precios",
     "level": 1,
-    "prerequisites": ["mercado-secundario"],
+    "prerequisites": [
+      "mercado-secundario"
+    ],
     "unit": "n1-u4",
     "description": "El precio surge del cruce de órdenes de compra y venta."
   },
@@ -339,7 +411,9 @@
     "id": "horquilla",
     "name": "Horquilla (bid-ask)",
     "level": 1,
-    "prerequisites": ["formacion-precios"],
+    "prerequisites": [
+      "formacion-precios"
+    ],
     "unit": "n1-u4",
     "description": "Diferencia entre el mejor precio de compra y el de venta."
   },
@@ -347,7 +421,9 @@
     "id": "liquidez",
     "name": "Liquidez de mercado",
     "level": 1,
-    "prerequisites": ["horquilla"],
+    "prerequisites": [
+      "horquilla"
+    ],
     "unit": "n1-u4",
     "description": "Facilidad para comprar o vender sin mover el precio."
   },
@@ -355,7 +431,9 @@
     "id": "orden-mercado",
     "name": "Orden de mercado",
     "level": 1,
-    "prerequisites": ["formacion-precios"],
+    "prerequisites": [
+      "formacion-precios"
+    ],
     "unit": "n1-u4",
     "description": "Se ejecuta ya al mejor precio disponible; garantiza ejecución, no precio."
   },
@@ -363,7 +441,9 @@
     "id": "orden-limitada",
     "name": "Orden limitada",
     "level": 1,
-    "prerequisites": ["orden-mercado"],
+    "prerequisites": [
+      "orden-mercado"
+    ],
     "unit": "n1-u4",
     "description": "Fija el precio máximo de compra o mínimo de venta; garantiza precio, no ejecución."
   },
@@ -371,7 +451,9 @@
     "id": "subastas",
     "name": "Subastas de apertura y cierre",
     "level": 1,
-    "prerequisites": ["formacion-precios"],
+    "prerequisites": [
+      "formacion-precios"
+    ],
     "unit": "n1-u4",
     "description": "Fases en las que se fija el precio de apertura y cierre."
   },
@@ -379,7 +461,9 @@
     "id": "comisiones",
     "name": "Comisiones y costes de operar",
     "level": 1,
-    "prerequisites": ["orden-mercado"],
+    "prerequisites": [
+      "orden-mercado"
+    ],
     "unit": "n1-u5",
     "description": "Comisión del bróker, canon de bolsa y la horquilla como coste."
   },
@@ -387,7 +471,9 @@
     "id": "broker-espana",
     "name": "Abrir un bróker en España",
     "level": 1,
-    "prerequisites": ["bme"],
+    "prerequisites": [
+      "bme"
+    ],
     "unit": "n1-u5",
     "description": "Qué mirar al elegir un bróker regulado por la CNMV."
   },
@@ -395,7 +481,9 @@
     "id": "dividendo",
     "name": "Dividendo",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u5",
     "description": "Parte del beneficio que la empresa reparte a sus accionistas."
   },
@@ -403,7 +491,10 @@
     "id": "rentabilidad-dividendo",
     "name": "Rentabilidad por dividendo",
     "level": 1,
-    "prerequisites": ["dividendo", "porcentajes"],
+    "prerequisites": [
+      "dividendo",
+      "porcentajes"
+    ],
     "unit": "n1-u5",
     "description": "Dividendo por acción entre precio de la acción."
   },
@@ -411,7 +502,9 @@
     "id": "rentabilidad-total",
     "name": "Rentabilidad total",
     "level": 1,
-    "prerequisites": ["rentabilidad-dividendo"],
+    "prerequisites": [
+      "rentabilidad-dividendo"
+    ],
     "unit": "n1-u5",
     "description": "Revalorización más dividendos."
   },
@@ -419,7 +512,9 @@
     "id": "scrip-dividend",
     "name": "Scrip dividend",
     "level": 1,
-    "prerequisites": ["dividendo"],
+    "prerequisites": [
+      "dividendo"
+    ],
     "unit": "n1-u5",
     "description": "Dividendo a elegir entre efectivo o acciones nuevas."
   },
@@ -427,7 +522,9 @@
     "id": "irpf-ganancias",
     "name": "Ganancias patrimoniales en el IRPF",
     "level": 1,
-    "prerequisites": ["rentabilidad-total"],
+    "prerequisites": [
+      "rentabilidad-total"
+    ],
     "unit": "n1-u5",
     "description": "Tributación de la venta de acciones y de los dividendos."
   },
@@ -435,7 +532,9 @@
     "id": "ampliacion-capital",
     "name": "Ampliación de capital",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u6",
     "description": "La empresa emite acciones nuevas para captar fondos."
   },
@@ -443,7 +542,9 @@
     "id": "derechos-suscripcion",
     "name": "Derechos de suscripción",
     "level": 1,
-    "prerequisites": ["ampliacion-capital"],
+    "prerequisites": [
+      "ampliacion-capital"
+    ],
     "unit": "n1-u6",
     "description": "Derecho de los accionistas a suscribir acciones nuevas antes que nadie."
   },
@@ -451,7 +552,9 @@
     "id": "split",
     "name": "Split y contrasplit",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u6",
     "description": "Cambio del número de acciones sin cambiar el valor de la empresa."
   },
@@ -459,7 +562,9 @@
     "id": "recompra-acciones",
     "name": "Recompra de acciones",
     "level": 1,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n1-u6",
     "description": "La empresa compra sus propias acciones para amortizarlas."
   },
@@ -467,7 +572,10 @@
     "id": "opa",
     "name": "OPA",
     "level": 1,
-    "prerequisites": ["accion", "capitalizacion"],
+    "prerequisites": [
+      "accion",
+      "capitalizacion"
+    ],
     "unit": "n1-u6",
     "description": "Oferta pública de adquisición dirigida a todos los accionistas."
   },
@@ -475,7 +583,9 @@
     "id": "informacion-privilegiada",
     "name": "Información privilegiada (introducción)",
     "level": 1,
-    "prerequisites": ["opa"],
+    "prerequisites": [
+      "opa"
+    ],
     "unit": "n1-u6",
     "description": "Información concreta que no es pública y movería el precio, como una OPA que aún no se ha anunciado: quien la tiene no puede operar, recomendar ni comunicarla, y debe avisar a cumplimiento normativo."
   },
@@ -483,7 +593,9 @@
     "id": "fomo-manada",
     "name": "FOMO y efecto manada",
     "level": 1,
-    "prerequisites": ["sesgo-presente"],
+    "prerequisites": [
+      "sesgo-presente"
+    ],
     "unit": "n1-u4",
     "description": "Comprar por miedo a perderse una subida porque otros lo hacen."
   },
@@ -491,7 +603,9 @@
     "id": "cupon-bono",
     "name": "Cupón y valor nominal de un bono",
     "level": 2,
-    "prerequisites": ["interes-compuesto"],
+    "prerequisites": [
+      "interes-compuesto"
+    ],
     "unit": "n2-u1",
     "description": "Un bono paga un cupón fijo sobre su nominal cada año y devuelve el nominal al vencimiento."
   },
@@ -499,7 +613,9 @@
     "id": "precio-bono-tipos",
     "name": "Precio de un bono y tipos de interés",
     "level": 2,
-    "prerequisites": ["cupon-bono"],
+    "prerequisites": [
+      "cupon-bono"
+    ],
     "unit": "n2-u1",
     "description": "El precio de un bono es el valor actual de sus flujos: si suben los tipos, baja. A la par si el cupón iguala lo que pide el mercado."
   },
@@ -507,7 +623,9 @@
     "id": "tir-bono",
     "name": "TIR de un bono",
     "level": 2,
-    "prerequisites": ["precio-bono-tipos"],
+    "prerequisites": [
+      "precio-bono-tipos"
+    ],
     "unit": "n2-u1",
     "description": "La TIR es la rentabilidad que iguala el precio con el valor actual de los flujos: lo que se gana manteniendo el bono hasta el vencimiento. No es el cupón ni la rentabilidad corriente."
   },
@@ -515,7 +633,9 @@
     "id": "curva-tipos",
     "name": "Curva de tipos",
     "level": 2,
-    "prerequisites": ["tir-bono"],
+    "prerequisites": [
+      "tir-bono"
+    ],
     "unit": "n2-u2",
     "description": "La rentabilidad de cada plazo: normal (sube con el plazo), plana o invertida. Su pendiente (10 − 2 años, en pb) resume lo que espera el mercado."
   },
@@ -523,25 +643,33 @@
     "id": "curva-cupon-cero",
     "name": "Curva cupón cero",
     "level": 2,
-    "prerequisites": ["curva-tipos"]
+    "prerequisites": [
+      "curva-tipos"
+    ]
   },
   {
     "id": "precio-limpio-sucio",
     "name": "Precio limpio y sucio, cupón corrido y convención de días",
     "level": 2,
-    "prerequisites": ["precio-bono-tipos"]
+    "prerequisites": [
+      "precio-bono-tipos"
+    ]
   },
   {
     "id": "bootstrapping-forwards",
     "name": "Bootstrapping de la curva cupón cero y tipos forward",
     "level": 2,
-    "prerequisites": ["curva-cupon-cero"]
+    "prerequisites": [
+      "curva-cupon-cero"
+    ]
   },
   {
     "id": "duracion",
     "name": "Duración",
     "level": 2,
-    "prerequisites": ["precio-bono-tipos"],
+    "prerequisites": [
+      "precio-bono-tipos"
+    ],
     "unit": "n2-u2",
     "description": "Plazo medio ponderado en que se cobra un bono (Macaulay). La modificada, Macaulay / (1 + TIR), es el % aproximado que cae el precio por cada punto que sube la rentabilidad. A más plazo y menos cupón, más duración."
   },
@@ -549,7 +677,9 @@
     "id": "convexidad",
     "name": "Convexidad",
     "level": 2,
-    "prerequisites": ["duracion"],
+    "prerequisites": [
+      "duracion"
+    ],
     "unit": "n2-u2",
     "description": "La relación precio-rentabilidad es una curva: el precio cae algo menos y sube algo más de lo que dice la duración, y la diferencia crece con el tamaño del movimiento."
   },
@@ -557,7 +687,9 @@
     "id": "rating-spread",
     "name": "Rating y spread de crédito",
     "level": 2,
-    "prerequisites": ["tir-bono"],
+    "prerequisites": [
+      "tir-bono"
+    ],
     "unit": "n2-u1",
     "description": "El rating mide el riesgo de impago (grado de inversión desde BBB−) y el diferencial es lo que paga una empresa sobre el Estado al mismo plazo, en puntos básicos."
   },
@@ -565,7 +697,9 @@
     "id": "letras-bonos-tesoro",
     "name": "Letras y Bonos del Tesoro",
     "level": 2,
-    "prerequisites": ["cupon-bono"],
+    "prerequisites": [
+      "cupon-bono"
+    ],
     "unit": "n2-u1",
     "description": "Deuda del Estado: Letras (hasta 12 meses, al descuento), Bonos (hasta 5 años) y Obligaciones (más de 5 años), con cupón anual."
   },
@@ -573,7 +707,9 @@
     "id": "mercado-monetario-repo",
     "name": "Mercado monetario y repo",
     "level": 2,
-    "prerequisites": ["letras-bonos-tesoro"],
+    "prerequisites": [
+      "letras-bonos-tesoro"
+    ],
     "unit": "n2-u6",
     "description": "Financiación a menos de un año: depósitos, Letras, pagarés y repos (préstamos con bonos como garantía y un recorte). Tipos de referencia: €STR a un día y Euríbor a plazos; intereses con actual/360."
   },
@@ -581,7 +717,10 @@
     "id": "cedulas-titulizaciones",
     "name": "Cédulas hipotecarias y titulizaciones",
     "level": 2,
-    "prerequisites": ["hipoteca", "rating-spread"],
+    "prerequisites": [
+      "hipoteca",
+      "rating-spread"
+    ],
     "unit": "n2-u6",
     "description": "Las cédulas hipotecarias son bonos garantizados: deuda del banco con una cartera de hipotecas como garantía preferente. En una titulización, los préstamos pasan a un fondo que emite tramos; las pérdidas van del equity al senior."
   },
@@ -589,7 +728,9 @@
     "id": "fondos-inversion",
     "name": "Fondos de inversión y TER",
     "level": 2,
-    "prerequisites": ["riesgo-rentabilidad"],
+    "prerequisites": [
+      "riesgo-rentabilidad"
+    ],
     "unit": "n2-u3",
     "description": "Un fondo junta el dinero de muchos partícipes; una gestora lo invierte y un depositario lo custodia. Sus gastos corrientes se cobran cada año del patrimonio y se componen con el tiempo."
   },
@@ -597,7 +738,9 @@
     "id": "traspasos-fondos",
     "name": "Traspasos entre fondos",
     "level": 2,
-    "prerequisites": ["fondos-inversion"],
+    "prerequisites": [
+      "fondos-inversion"
+    ],
     "unit": "n2-u3",
     "description": "En el IRPF, pasar el dinero de un fondo a otro con un traspaso aplaza la tributación de la ganancia hasta el reembolso. Los ETF, en general, quedan fuera."
   },
@@ -605,7 +748,10 @@
     "id": "etf",
     "name": "ETF",
     "level": 2,
-    "prerequisites": ["fondos-inversion", "mercado-secundario"],
+    "prerequisites": [
+      "fondos-inversion",
+      "mercado-secundario"
+    ],
     "unit": "n2-u3",
     "description": "Un fondo que cotiza en bolsa durante toda la sesión, normalmente indexado y con gastos bajos; al operar suma corretaje y horquilla."
   },
@@ -613,7 +759,9 @@
     "id": "planes-pensiones",
     "name": "Planes de pensiones",
     "level": 2,
-    "prerequisites": ["tres-pilares"],
+    "prerequisites": [
+      "tres-pilares"
+    ],
     "unit": "n2-u7",
     "description": "Ahorro para la jubilación: las aportaciones reducen la base del IRPF (límite general de 1.500 € al año) y el rescate tributa entero como rendimiento del trabajo. El dinero solo se recupera en supuestos tasados."
   },
@@ -621,7 +769,9 @@
     "id": "socimi-reit",
     "name": "SOCIMI y REIT",
     "level": 2,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n2-u7",
     "description": "Sociedad cotizada de inmuebles en alquiler que tributa al 0 % en sociedades si cumple sus requisitos, entre ellos repartir al menos el 80 % del beneficio por alquileres. En Estados Unidos, REIT."
   },
@@ -629,7 +779,9 @@
     "id": "materias-primas",
     "name": "Materias primas",
     "level": 2,
-    "prerequisites": ["mercado-secundario"],
+    "prerequisites": [
+      "mercado-secundario"
+    ],
     "unit": "n2-u5",
     "description": "Se invierte en ellas sobre todo con futuros, ETC o acciones de productoras. No generan flujos de caja, son volátiles y, en contango, renovar futuros cuesta dinero."
   },
@@ -637,7 +789,9 @@
     "id": "divisas",
     "name": "Divisas y tipo de cambio",
     "level": 2,
-    "prerequisites": ["mercado-secundario"],
+    "prerequisites": [
+      "mercado-secundario"
+    ],
     "unit": "n2-u5",
     "description": "Un par como EUR/USD dice cuántas unidades de la segunda moneda vale una de la primera. El tipo de cambio cambia lo que ganas en euros con activos en otra moneda; cubrirlo neutraliza ese efecto a un coste."
   },
@@ -645,7 +799,9 @@
     "id": "cripto-mica",
     "name": "Cripto y MiCA",
     "level": 2,
-    "prerequisites": ["riesgo-rentabilidad"],
+    "prerequisites": [
+      "riesgo-rentabilidad"
+    ],
     "unit": "n2-u5",
     "description": "Criptoactivos: activos digitales muy volátiles, muchos sin emisor ni flujos de caja. MiCA regula en la UE a emisores y proveedores de servicios; no garantiza su valor."
   },
@@ -653,7 +809,9 @@
     "id": "derivados-intro",
     "name": "Introducción a derivados",
     "level": 2,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n2-u7",
     "description": "Contratos cuyo valor depende de un subyacente. El futuro obliga a las dos partes (suma cero, apalancado); la opción comprada da un derecho a cambio de una prima, que es su pérdida máxima."
   },
@@ -661,7 +819,9 @@
     "id": "productos-complejos",
     "name": "Productos complejos y avisos CNMV",
     "level": 2,
-    "prerequisites": ["derivados-intro"],
+    "prerequisites": [
+      "derivados-intro"
+    ],
     "unit": "n2-u7",
     "description": "Derivados (como los CFD, contratos por diferencias apalancados) y productos con condiciones difíciles de valorar. Sin asesoramiento, el banco evalúa la conveniencia (si lo entiendes); con asesoramiento, la idoneidad. Avisos de la CNMV y KID con riesgo del 1 al 7."
   },
@@ -669,7 +829,9 @@
     "id": "media-desviacion",
     "name": "Media y desviación típica",
     "level": 2,
-    "prerequisites": ["porcentajes"],
+    "prerequisites": [
+      "porcentajes"
+    ],
     "unit": "n2-u4",
     "description": "La media resume el centro de unas rentabilidades; la desviación típica (volatilidad), cuánto se alejan de ella. La volatilidad anual es aproximadamente la mensual por √12."
   },
@@ -677,7 +839,9 @@
     "id": "distribucion-normal",
     "name": "Distribución normal y colas gordas",
     "level": 2,
-    "prerequisites": ["media-desviacion"],
+    "prerequisites": [
+      "media-desviacion"
+    ],
     "unit": "n2-u4",
     "description": "En una normal, un 68 % de los datos queda a menos de una desviación típica y un 95 % a menos de dos. Los mercados tienen colas gordas: los extremos, de tres desviaciones o más, pasan bastante más a menudo."
   },
@@ -685,7 +849,9 @@
     "id": "ilusion-control",
     "name": "Ilusión de control",
     "level": 2,
-    "prerequisites": ["fomo-manada"],
+    "prerequisites": [
+      "fomo-manada"
+    ],
     "unit": "n2-u4",
     "description": "Creer que controlamos o predecimos lo que depende del azar. Las rachas cortas son frecuentes por pura suerte: (1/2)^n entre muchos que lo intentan."
   },
@@ -699,13 +865,18 @@
     "id": "fiscalidad-fondos",
     "name": "Fiscalidad de fondos, ETF y cripto",
     "level": 2,
-    "prerequisites": ["fondos-inversion", "irpf-ganancias"]
+    "prerequisites": [
+      "fondos-inversion",
+      "irpf-ganancias"
+    ]
   },
   {
     "id": "balance",
     "name": "Balance",
     "level": 3,
-    "prerequisites": ["empresa"],
+    "prerequisites": [
+      "empresa"
+    ],
     "unit": "n3-u1",
     "description": "Foto de la empresa a una fecha: lo que tiene (activo) frente a cómo lo financió, con dinero de sus accionistas (patrimonio neto) o de terceros (pasivo). Siempre cuadra."
   },
@@ -713,7 +884,9 @@
     "id": "pyg",
     "name": "Cuenta de pérdidas y ganancias",
     "level": 3,
-    "prerequisites": ["empresa"],
+    "prerequisites": [
+      "empresa"
+    ],
     "unit": "n3-u1",
     "description": "Ingresos y gastos de un periodo: del resultado de explotación al resultado del ejercicio, pasando por los gastos financieros y el impuesto sobre beneficios."
   },
@@ -721,7 +894,10 @@
     "id": "flujos-caja",
     "name": "Estado de flujos de caja",
     "level": 3,
-    "prerequisites": ["balance", "pyg"],
+    "prerequisites": [
+      "balance",
+      "pyg"
+    ],
     "unit": "n3-u1",
     "description": "Cobros y pagos de un periodo en tres bloques (explotación, inversión y financiación); su suma es la variación de la caja."
   },
@@ -729,7 +905,11 @@
     "id": "conexion-estados",
     "name": "Conexión entre los tres estados",
     "level": 3,
-    "prerequisites": ["balance", "pyg", "flujos-caja"],
+    "prerequisites": [
+      "balance",
+      "pyg",
+      "flujos-caja"
+    ],
     "unit": "n3-u1",
     "description": "El resultado del ejercicio pasa al patrimonio neto y el estado de flujos explica la caja entre dos balances: beneficio y caja no coinciden."
   },
@@ -737,61 +917,83 @@
     "id": "pgc-niif",
     "name": "PGC español vs NIIF",
     "level": 3,
-    "prerequisites": ["balance"]
+    "prerequisites": [
+      "balance"
+    ]
   },
   {
     "id": "consolidacion",
     "name": "Consolidación",
     "level": 3,
-    "prerequisites": ["balance"]
+    "prerequisites": [
+      "balance"
+    ]
   },
   {
     "id": "fondo-comercio",
     "name": "Fondo de comercio y deterioros",
     "level": 3,
-    "prerequisites": ["consolidacion"]
+    "prerequisites": [
+      "consolidacion"
+    ]
   },
   {
     "id": "provisiones",
     "name": "Provisiones",
     "level": 3,
-    "prerequisites": ["pyg"]
+    "prerequisites": [
+      "pyg"
+    ]
   },
   {
     "id": "arrendamientos-ifrs16",
     "name": "Arrendamientos (IFRS 16)",
     "level": 3,
-    "prerequisites": ["balance"]
+    "prerequisites": [
+      "balance"
+    ]
   },
   {
     "id": "niif15-ingresos",
     "name": "Reconocimiento de ingresos (NIIF 15)",
     "level": 3,
-    "prerequisites": ["pgc-niif"]
+    "prerequisites": [
+      "pgc-niif"
+    ]
   },
   {
     "id": "nic12-impuestos-diferidos",
     "name": "Impuestos diferidos (NIC 12)",
     "level": 3,
-    "prerequisites": ["impuesto-sociedades", "pgc-niif"]
+    "prerequisites": [
+      "impuesto-sociedades",
+      "pgc-niif"
+    ]
   },
   {
     "id": "minoritarios-equivalencia",
     "name": "Minoritarios y puesta en equivalencia",
     "level": 3,
-    "prerequisites": ["consolidacion"]
+    "prerequisites": [
+      "consolidacion"
+    ]
   },
   {
     "id": "flujos-metodo-indirecto",
     "name": "Estado de flujos por el método indirecto desde dos balances",
     "level": 3,
-    "prerequisites": ["conexion-estados"]
+    "prerequisites": [
+      "conexion-estados"
+    ]
   },
   {
     "id": "ratios",
     "name": "Ratios financieros",
     "level": 3,
-    "prerequisites": ["balance", "pyg"],
+    "prerequisites": [
+      "balance",
+      "pyg"
+    ],
     "unit": "n3-u3",
     "description": "Ratios de rentabilidad (márgenes, ROA, ROE y su árbol DuPont), liquidez (corriente y prueba ácida) y solvencia (deuda financiera neta / EBITDA, cobertura de intereses), y el apalancamiento financiero."
   },
@@ -799,13 +1001,19 @@
     "id": "dupont-roic",
     "name": "Árbol DuPont y ROIC frente a WACC",
     "level": 3,
-    "prerequisites": ["ratios", "wacc"]
+    "prerequisites": [
+      "ratios",
+      "wacc"
+    ]
   },
   {
     "id": "calidad-beneficio",
     "name": "Conversión del beneficio en caja (calidad del beneficio)",
     "level": 3,
-    "prerequisites": ["ratios", "flujos-caja"],
+    "prerequisites": [
+      "ratios",
+      "flujos-caja"
+    ],
     "unit": "n3-u3",
     "description": "Si el beneficio se convierte en caja (flujo de explotación ÷ resultado) y las señales de alarma: clientes o existencias que crecen más que las ventas, beneficio que sube con caja que baja, extraordinarios recurrentes."
   },
@@ -813,7 +1021,9 @@
     "id": "ciclo-caja",
     "name": "Circulante y ciclo de caja",
     "level": 3,
-    "prerequisites": ["balance"],
+    "prerequisites": [
+      "balance"
+    ],
     "unit": "n3-u2",
     "description": "Días de existencias + días de cobro − días de pago, y las necesidades operativas de fondos (clientes + existencias − proveedores) que hay que financiar; el fondo de maniobra es la parte que cubren los recursos a largo plazo."
   },
@@ -821,19 +1031,25 @@
     "id": "prestamo-sindicado",
     "name": "Préstamo bancario y sindicado",
     "level": 3,
-    "prerequisites": ["prestamo"]
+    "prerequisites": [
+      "prestamo"
+    ]
   },
   {
     "id": "leasing-renting",
     "name": "Leasing y renting",
     "level": 3,
-    "prerequisites": ["arrendamientos-ifrs16"]
+    "prerequisites": [
+      "arrendamientos-ifrs16"
+    ]
   },
   {
     "id": "factoring-confirming",
     "name": "Factoring y confirming",
     "level": 3,
-    "prerequisites": ["ciclo-caja"],
+    "prerequisites": [
+      "ciclo-caja"
+    ],
     "unit": "n3-u2",
     "description": "Formas de financiar el circulante: la póliza de crédito (con límite), el factoring (adelanto de cobros a clientes) y el confirming (gestión de pagos a proveedores), dentro de los plazos legales de pago."
   },
@@ -841,13 +1057,17 @@
     "id": "emision-bonos",
     "name": "Emisión de bonos corporativos",
     "level": 3,
-    "prerequisites": ["prestamo"]
+    "prerequisites": [
+      "prestamo"
+    ]
   },
   {
     "id": "estructura-capital",
     "name": "Estructura de capital",
     "level": 3,
-    "prerequisites": ["balance"],
+    "prerequisites": [
+      "balance"
+    ],
     "unit": "n3-u5",
     "description": "La mezcla de deuda y capital propio, medida a valor de mercado (D/V, D/E). Con impuestos, algo de deuda baja el WACC; demasiada, lo sube."
   },
@@ -855,19 +1075,26 @@
     "id": "modigliani-miller",
     "name": "Modigliani-Miller (intuitivo)",
     "level": 3,
-    "prerequisites": ["estructura-capital"]
+    "prerequisites": [
+      "estructura-capital"
+    ]
   },
   {
     "id": "politica-dividendos",
     "name": "Política de dividendos",
     "level": 3,
-    "prerequisites": ["dividendo", "estructura-capital"]
+    "prerequisites": [
+      "dividendo",
+      "estructura-capital"
+    ]
   },
   {
     "id": "van",
     "name": "VAN",
     "level": 3,
-    "prerequisites": ["valor-temporal-dinero"],
+    "prerequisites": [
+      "valor-temporal-dinero"
+    ],
     "unit": "n3-u6",
     "description": "Valor actual neto: los flujos de un proyecto traídos a hoy con su tasa de descuento, menos la inversión. Positivo, crea valor."
   },
@@ -875,13 +1102,17 @@
     "id": "tir-proyecto",
     "name": "TIR de un proyecto",
     "level": 3,
-    "prerequisites": ["van"]
+    "prerequisites": [
+      "van"
+    ]
   },
   {
     "id": "multiplos",
     "name": "Múltiplos de valoración",
     "level": 3,
-    "prerequisites": ["ratios"],
+    "prerequisites": [
+      "ratios"
+    ],
     "unit": "n3-u4",
     "description": "Valorar por comparación: PER (precio ÷ beneficio por acción) y EV/EBITDA (valor de empresa = capitalización + deuda financiera neta), con la mediana de comparables bien elegidos como referencia."
   },
@@ -889,7 +1120,11 @@
     "id": "dcf",
     "name": "DCF paso a paso",
     "level": 3,
-    "prerequisites": ["van", "flujos-caja", "wacc"],
+    "prerequisites": [
+      "van",
+      "flujos-caja",
+      "wacc"
+    ],
     "unit": "n3-u6",
     "description": "Valorar una empresa por la caja que generará: flujos de caja libres del plan y valor terminal (Gordon o múltiplo), descontados al WACC; menos la deuda neta, entre las acciones. Se presenta con sensibilidad."
   },
@@ -897,7 +1132,10 @@
     "id": "coste-deuda",
     "name": "Coste de la deuda después de impuestos",
     "level": 3,
-    "prerequisites": ["impuesto-sociedades", "emision-bonos"],
+    "prerequisites": [
+      "impuesto-sociedades",
+      "emision-bonos"
+    ],
     "unit": "n3-u5",
     "description": "Lo que costaría hoy endeudarse, neto del ahorro fiscal de los intereses: kd × (1 − t)."
   },
@@ -905,7 +1143,10 @@
     "id": "beta-apalancada",
     "name": "Beta apalancada y desapalancada (Hamada)",
     "level": 3,
-    "prerequisites": ["capm-beta", "estructura-capital"],
+    "prerequisites": [
+      "capm-beta",
+      "estructura-capital"
+    ],
     "unit": "n3-u5",
     "description": "La deuda sube la beta de los accionistas. Hamada: βl = βu × (1 + (1 − t) × D/E); se desapalancan las betas de comparables y se reapalanca con la estructura objetivo."
   },
@@ -913,7 +1154,10 @@
     "id": "coste-capital",
     "name": "Coste del capital propio (CAPM)",
     "level": 3,
-    "prerequisites": ["estructura-capital", "capm-beta"],
+    "prerequisites": [
+      "estructura-capital",
+      "capm-beta"
+    ],
     "unit": "n3-u5",
     "description": "Lo que piden los accionistas: tipo sin riesgo + beta × prima de mercado (CAPM), a veces con una prima por tamaño."
   },
@@ -921,7 +1165,11 @@
     "id": "wacc",
     "name": "WACC",
     "level": 3,
-    "prerequisites": ["coste-capital", "coste-deuda", "beta-apalancada"],
+    "prerequisites": [
+      "coste-capital",
+      "coste-deuda",
+      "beta-apalancada"
+    ],
     "unit": "n3-u5",
     "description": "Coste medio ponderado del capital: E/V × ke + D/V × kd × (1 − t). Es la rentabilidad mínima de los proyectos con el riesgo de la empresa y la tasa de descuento del DCF."
   },
@@ -929,19 +1177,25 @@
     "id": "trampas-contables",
     "name": "Trampas contables",
     "level": 3,
-    "prerequisites": ["conexion-estados"]
+    "prerequisites": [
+      "conexion-estados"
+    ]
   },
   {
     "id": "impuesto-sociedades",
     "name": "Impuesto sobre sociedades",
     "level": 3,
-    "prerequisites": ["pyg"]
+    "prerequisites": [
+      "pyg"
+    ]
   },
   {
     "id": "anclaje",
     "name": "Sesgo de anclaje",
     "level": 3,
-    "prerequisites": ["fomo-manada"],
+    "prerequisites": [
+      "fomo-manada"
+    ],
     "unit": "n3-u4",
     "description": "Quedarse pegado a una cifra que no importa para el valor, como el precio de compra o el máximo del año."
   },
@@ -949,7 +1203,9 @@
     "id": "pib",
     "name": "PIB",
     "level": 4,
-    "prerequisites": ["porcentajes"],
+    "prerequisites": [
+      "porcentajes"
+    ],
     "unit": "n4-u1",
     "description": "Valor de lo producido en un periodo: consumo + inversión + gasto público + exportaciones − importaciones. Se publica cada trimestre; el real descuenta los precios. Dos trimestres seguidos de caída: recesión técnica."
   },
@@ -957,7 +1213,9 @@
     "id": "ipc",
     "name": "IPC e inflación",
     "level": 4,
-    "prerequisites": ["inflacion"],
+    "prerequisites": [
+      "inflacion"
+    ],
     "unit": "n4-u1",
     "description": "El IPC mide el precio de una cesta de consumo; la inflación es su variación interanual. La subyacente quita energía y alimentos no elaborados; el BCE mira el IPCA, con un objetivo del 2 % simétrico a medio plazo."
   },
@@ -965,7 +1223,9 @@
     "id": "paro-pmi",
     "name": "Paro y PMI",
     "level": 4,
-    "prerequisites": ["pib"],
+    "prerequisites": [
+      "pib"
+    ],
     "unit": "n4-u1",
     "description": "Tasa de paro = parados / activos (EPA del INE; el paro registrado del SEPE es otra medida). El PMI es una encuesta a empresas: por encima de 50, expansión; por debajo, contracción."
   },
@@ -973,7 +1233,10 @@
     "id": "calendario-macro",
     "name": "Calendario macro",
     "level": 4,
-    "prerequisites": ["pib", "ipc"],
+    "prerequisites": [
+      "pib",
+      "ipc"
+    ],
     "unit": "n4-u1",
     "description": "Agenda de datos y reuniones de bancos centrales. Cada dato tiene un consenso, que ya está en el precio: el mercado reacciona a la sorpresa, no al nivel."
   },
@@ -981,7 +1244,9 @@
     "id": "bce",
     "name": "BCE y política monetaria",
     "level": 4,
-    "prerequisites": ["ipc"],
+    "prerequisites": [
+      "ipc"
+    ],
     "unit": "n4-u2",
     "description": "Banco central de la zona euro. Objetivo: inflación del 2 % simétrico a medio plazo, medida con el IPCA. Tres tipos oficiales (depósito, operaciones principales y facilidad marginal); en marzo de 2024 confirmó que orienta su política con el de depósito. Se reúne cada seis semanas y su decisión llega a los precios por el Euríbor, el crédito y el consumo."
   },
@@ -989,7 +1254,9 @@
     "id": "fed",
     "name": "Fed",
     "level": 4,
-    "prerequisites": ["bce"],
+    "prerequisites": [
+      "bce"
+    ],
     "unit": "n4-u2",
     "description": "Banco central de EE. UU. Doble mandato: máximo empleo y estabilidad de precios (2 %, medida con el PCE). El FOMC fija un rango objetivo para los fondos federales en 8 reuniones al año; sus sorpresas mueven el dólar y a los emergentes endeudados en dólares."
   },
@@ -997,7 +1264,9 @@
     "id": "qe-qt",
     "name": "QE y QT",
     "level": 4,
-    "prerequisites": ["bce"],
+    "prerequisites": [
+      "bce"
+    ],
     "unit": "n4-u2",
     "description": "QE: el banco central compra bonos, su balance crece y bajan las rentabilidades largas. QT: deja de reinvertir lo que vence o vende, y el balance se reduce. En el BCE, los programas APP y PEPP."
   },
@@ -1005,7 +1274,9 @@
     "id": "inversion-curva",
     "name": "Inversión de la curva de tipos",
     "level": 4,
-    "prerequisites": ["curva-tipos"],
+    "prerequisites": [
+      "curva-tipos"
+    ],
     "unit": "n4-u2",
     "description": "Pendiente 10 años − 2 años negativa: el corto rinde más que el largo. Suele reflejar que se esperan bajadas de tipos; ha precedido a varias recesiones, pero es un patrón histórico, no una ley."
   },
@@ -1013,7 +1284,9 @@
     "id": "ciclo-economico",
     "name": "Ciclo económico y rotación sectorial",
     "level": 4,
-    "prerequisites": ["pib"],
+    "prerequisites": [
+      "pib"
+    ],
     "unit": "n4-u3",
     "description": "Fases del ciclo: expansión (el PIB real crece por encima de su potencial sin tensar los precios), auge o sobrecalentamiento (con la inflación al alza), desaceleración (crece por debajo del potencial) y recesión (se contrae). Las cíclicas suelen ir mejor en expansión y auge; las defensivas, aguantar mejor en desaceleración y recesión (rotación sectorial)."
   },
@@ -1021,7 +1294,9 @@
     "id": "politica-fiscal",
     "name": "Política fiscal y deuda pública",
     "level": 4,
-    "prerequisites": ["pib"],
+    "prerequisites": [
+      "pib"
+    ],
     "unit": "n4-u3",
     "description": "Impuestos y gasto público: expansiva o contractiva. Déficit = gasto − ingresos del año; la deuda acumula los déficits. Referencias del Pacto de Estabilidad: 3 % de déficit y 60 % de deuda sobre el PIB. Sin déficit primario, la deuda/PIB sube si el tipo medio de la deuda (r) supera el crecimiento nominal (g) y baja si g supera a r."
   },
@@ -1029,7 +1304,10 @@
     "id": "prima-riesgo",
     "name": "Prima de riesgo",
     "level": 4,
-    "prerequisites": ["rating-spread", "politica-fiscal"],
+    "prerequisites": [
+      "rating-spread",
+      "politica-fiscal"
+    ],
     "unit": "n4-u3",
     "description": "Diferencia entre la rentabilidad del bono a 10 años de España y la del Bund alemán, en puntos básicos. Suele ensancharse con más deuda, déficit, poco crecimiento, inestabilidad o huida hacia el Bund, y encarece la financiación del Estado y de las empresas."
   },
@@ -1037,7 +1315,9 @@
     "id": "balanza-pagos",
     "name": "Balanza de pagos",
     "level": 4,
-    "prerequisites": ["pib"],
+    "prerequisites": [
+      "pib"
+    ],
     "unit": "n4-u4",
     "description": "Registro de las operaciones de un país con el exterior: cuenta corriente (bienes, servicios, rentas primarias y secundarias), de capital (transferencias para invertir) y financiera (activos y pasivos). Corriente + capital = capacidad o necesidad de financiación. España pasó de grandes déficits antes de 2008 a superávits desde 2013."
   },
@@ -1045,7 +1325,9 @@
     "id": "ppa-pti",
     "name": "Paridad del poder adquisitivo y de tipos",
     "level": 4,
-    "prerequisites": ["divisas"],
+    "prerequisites": [
+      "divisas"
+    ],
     "unit": "n4-u4",
     "description": "PPA: a largo plazo, la moneda con más inflación tiende a depreciarse (EUR/USD esperado = actual × (1 + π$) / (1 + π€)). PTI cubierta: forward = contado × (1 + i$) / (1 + i€). La descubierta, que espera una depreciación igual al diferencial, falla a corto plazo: en eso se apoya el carry trade."
   },
@@ -1053,7 +1335,9 @@
     "id": "emergentes",
     "name": "Mercados emergentes",
     "level": 4,
-    "prerequisites": ["divisas"],
+    "prerequisites": [
+      "divisas"
+    ],
     "unit": "n4-u4",
     "description": "Países que suelen depender de financiación exterior y endeudarse en dólares. Con la Fed subiendo y el dólar al alza, su deuda pesa más y el capital puede cortarse de golpe (parada súbita); los más vulnerables tienen déficit corriente, deuda en dólares a corto y pocas reservas."
   },
@@ -1061,7 +1345,9 @@
     "id": "margen-intereses",
     "name": "Margen de intereses bancario",
     "level": 4,
-    "prerequisites": ["banco"],
+    "prerequisites": [
+      "banco"
+    ],
     "unit": "n4-u5",
     "description": "Intereses cobrados por préstamos y bonos menos intereses pagados por depósitos y deuda. Con comisiones y resultados financieros forma el margen bruto; eficiencia = gastos de explotación / margen bruto, cuanto más bajo mejor."
   },
@@ -1069,7 +1355,9 @@
     "id": "solvencia-cet1",
     "name": "Solvencia y CET1",
     "level": 4,
-    "prerequisites": ["banco"],
+    "prerequisites": [
+      "banco"
+    ],
     "unit": "n4-u5",
     "description": "Ratio CET1 = capital ordinario de nivel 1 (acciones y reservas, menos deducciones) / activos ponderados por riesgo (APR). Los APR pesan cada activo según su riesgo: deuda pública del euro al 0 %, hipotecas en torno al 35 %, empresas sin rating al 100 % (versión simplificada)."
   },
@@ -1077,7 +1365,9 @@
     "id": "basilea",
     "name": "Basilea",
     "level": 4,
-    "prerequisites": ["solvencia-cet1"],
+    "prerequisites": [
+      "solvencia-cet1"
+    ],
     "unit": "n4-u5",
     "description": "Basilea III (en la UE, el reglamento CRR y la directiva CRD): pilar 1 con un mínimo del 4,5 % de CET1, 6 % de nivel 1 y 8 % total; colchones de conservación (2,5 %), anticíclico y sistémicos; pilar 2 (P2R y P2G tras el SREP); pilar 3, transparencia. Dentro de los colchones se limitan los repartos (MDA)."
   },
@@ -1085,7 +1375,9 @@
     "id": "liquidez-lcr-nsfr",
     "name": "Liquidez bancaria: LCR y NSFR",
     "level": 4,
-    "prerequisites": ["banco"],
+    "prerequisites": [
+      "banco"
+    ],
     "unit": "n4-u5",
     "description": "LCR = activos líquidos de alta calidad / salidas netas a 30 días ≥ 100 %. NSFR = financiación estable disponible / requerida ≥ 100 %, a un año."
   },
@@ -1093,7 +1385,9 @@
     "id": "test-estres",
     "name": "Test de estrés",
     "level": 4,
-    "prerequisites": ["solvencia-cet1"],
+    "prerequisites": [
+      "solvencia-cet1"
+    ],
     "unit": "n4-u5",
     "description": "Proyección del capital de un banco a tres años en un escenario base y otro adverso (EBA y BCE, cada dos años). No hay aprobado ni suspenso: alimenta la revisión del supervisor y la recomendación de pilar 2."
   },
@@ -1101,7 +1395,9 @@
     "id": "pd-lgd-ead",
     "name": "PD, LGD y EAD",
     "level": 4,
-    "prerequisites": ["rating-spread"],
+    "prerequisites": [
+      "rating-spread"
+    ],
     "unit": "n4-u6",
     "description": "Pérdida esperada = PD (probabilidad de impago) × LGD (pérdida si impaga, 1 − recuperación) × EAD (exposición en el impago). La esperada la cubren el precio y las provisiones; la inesperada, el capital. Una garantía baja la LGD, no la PD."
   },
@@ -1109,7 +1405,9 @@
     "id": "morosidad-ifrs9",
     "name": "Morosidad y provisiones IFRS 9",
     "level": 4,
-    "prerequisites": ["pd-lgd-ead"],
+    "prerequisites": [
+      "pd-lgd-ead"
+    ],
     "unit": "n4-u6",
     "description": "Morosidad = dudosos / préstamos; cobertura = provisiones / dudosos. NIIF 9: fase 1, pérdida esperada a 12 meses; fase 2 (aumento significativo del riesgo, presunción refutable de más de 30 días), de toda la vida; fase 3 (impago, más de 90 días), LGD × EAD."
   },
@@ -1117,7 +1415,9 @@
     "id": "union-bancaria",
     "name": "Unión Bancaria, MUS y resolución",
     "level": 4,
-    "prerequisites": ["basilea"],
+    "prerequisites": [
+      "basilea"
+    ],
     "unit": "n4-u6",
     "description": "MUS: el BCE supervisa directamente a los bancos significativos y los nacionales al resto. MUR: la JUR resuelve con bail-in y el Fondo Único de Resolución. Depósitos garantizados hasta 100.000 € por titular y entidad por fondos nacionales; el EDIS sigue pendiente."
   },
@@ -1125,7 +1425,10 @@
     "id": "valorar-bancos",
     "name": "Valorar bancos (P/VTC, ROTE)",
     "level": 4,
-    "prerequisites": ["multiplos", "solvencia-cet1"],
+    "prerequisites": [
+      "multiplos",
+      "solvencia-cet1"
+    ],
     "unit": "n4-u7",
     "description": "En un banco la deuda es materia prima: no se usan el EV ni el FCF, se valora al accionista. P/VTC = capitalización / (patrimonio − intangibles) frente al ROTE; justificado = (ROTE − g) / (Ke − g), 1 si el ROTE iguala al Ke. También descuento de dividendos, exceso de CET1 repartible y coste del riesgo, que mueve el ROE."
   },
@@ -1133,7 +1436,9 @@
     "id": "correlacion",
     "name": "Correlación",
     "level": 4,
-    "prerequisites": ["media-desviacion"],
+    "prerequisites": [
+      "media-desviacion"
+    ],
     "unit": "n4-u3",
     "description": "Medida entre −1 y 1 de si dos series se mueven juntas: covarianza / (desviación típica de A × desviación típica de B). Positiva, se mueven en el mismo sentido; negativa, en sentido contrario; cerca de 0, sin relación lineal. No implica causalidad."
   },
@@ -1141,7 +1446,9 @@
     "id": "sesgo-narrativa",
     "name": "Sesgo de narrativa",
     "level": 4,
-    "prerequisites": ["anclaje"],
+    "prerequisites": [
+      "anclaje"
+    ],
     "unit": "n4-u1",
     "description": "Tomar por causa segura una historia contada a posteriori; el mismo dato sirve para justificar subidas y bajadas."
   },
@@ -1149,7 +1456,10 @@
     "id": "libro-ordenes",
     "name": "Libro de órdenes",
     "level": 5,
-    "prerequisites": ["horquilla", "orden-limitada"],
+    "prerequisites": [
+      "horquilla",
+      "orden-limitada"
+    ],
     "unit": "n5-u1",
     "description": "La profundidad es cuánto dinero hay en el libro cerca del punto medio. El coste de impacto de una orden se mide en pb frente al punto medio de llegada y crece con su peso frente al volumen diario."
   },
@@ -1157,7 +1467,9 @@
     "id": "market-makers",
     "name": "Market makers y HFT",
     "level": 5,
-    "prerequisites": ["libro-ordenes"],
+    "prerequisites": [
+      "libro-ordenes"
+    ],
     "unit": "n5-u1",
     "description": "Cotizan compra y venta y ganan la horquilla; su riesgo es el inventario. Horquilla efectiva = 2 × |precio − punto medio|; realizada = la que queda tras el movimiento posterior del precio; la diferencia es el impacto en el precio (selección adversa). El HFT estrecha horquillas en calma y puede retirarse en tensión."
   },
@@ -1165,7 +1477,9 @@
     "id": "dark-pools",
     "name": "Dark pools",
     "level": 5,
-    "prerequisites": ["libro-ordenes"],
+    "prerequisites": [
+      "libro-ordenes"
+    ],
     "unit": "n5-u1",
     "description": "Centros sin transparencia previa que cruzan bloques al punto medio; las operaciones se publican después. MiFID II limitó su volumen (4 % por plataforma y 8 % en la UE; la revisión de MiFIR de 2024 lo sustituye por un límite único del 7 % para la exención por precio de referencia)."
   },
@@ -1173,7 +1487,9 @@
     "id": "subastas-avanzadas",
     "name": "Subastas y fixing",
     "level": 5,
-    "prerequisites": ["subastas"],
+    "prerequisites": [
+      "subastas"
+    ],
     "unit": "n5-u2",
     "description": "La subasta de cierre (en el mercado continuo, de 17:30 a unos 17:35, con final aleatorio) fija el precio de cierre, con el que se calculan índices y se valoran fondos. Si un precio fuera a salirse del rango estático o dinámico del valor, salta una subasta de volatilidad de 5 minutos. Los valores poco líquidos negocian en fixing: dos subastas al día, que terminan hacia las 12:00 y las 16:00, con un final aleatorio. Un fixing es un precio de referencia."
   },
@@ -1181,7 +1497,10 @@
     "id": "costes-reales-operar",
     "name": "Costes reales de operar",
     "level": 5,
-    "prerequisites": ["comisiones", "horquilla"],
+    "prerequisites": [
+      "comisiones",
+      "horquilla"
+    ],
     "unit": "n5-u2",
     "description": "Explícitos: comisión, cánones e impuesto sobre las transacciones financieras (0,2 % de las compras de acciones españolas de más de 1.000 M€). Implícitos: media horquilla, coste de impacto, retraso y oportunidad. Se miden con el implementation shortfall frente al precio de llegada; el VWAP es una referencia que puede esconder el coste."
   },
@@ -1189,7 +1508,9 @@
     "id": "cortos",
     "name": "Ventas en corto y préstamo de valores",
     "level": 5,
-    "prerequisites": ["accion"],
+    "prerequisites": [
+      "accion"
+    ],
     "unit": "n5-u3",
     "description": "Vender en corto es vender acciones prestadas para recomprarlas más baratas: se paga una comisión de préstamo y el dividendo manufacturado, la ganancia máxima es el 100 % y la pérdida no tiene techo; si sube, llega el margin call, y con muchos días para cubrir hay riesgo de short squeeze. En la UE (Reglamento 236/2012) las ventas descubiertas están prohibidas y las posiciones cortas netas se notifican desde el 0,1 % del capital y se publican desde el 0,5 %. Sirven para cubrir, arbitrar y especular."
   },
@@ -1197,7 +1518,9 @@
     "id": "analisis-tecnico",
     "name": "Análisis técnico con mirada crítica",
     "level": 5,
-    "prerequisites": ["formacion-precios"],
+    "prerequisites": [
+      "formacion-precios"
+    ],
     "unit": "n5-u5",
     "description": "Soportes, resistencias, medias móviles y momentum describen el pasado del precio. El momentum a 3-12 meses tiene evidencia académica (Jegadeesh y Titman, 1993); la mayoría de figuras y reglas de cruce no ganan después de costes, las series aleatorias también dibujan figuras y los backtests sufren sesgo de supervivencia y data snooping."
   },
@@ -1205,7 +1528,9 @@
     "id": "perdida-minorista",
     "name": "Por qué pierde el inversor minorista",
     "level": 5,
-    "prerequisites": ["analisis-tecnico"],
+    "prerequisites": [
+      "analisis-tecnico"
+    ],
     "unit": "n5-u5",
     "description": "El minorista pierde por costes y rotación (Barber y Odean, 2000), por sesgos y por el apalancamiento. En los CFD, la ESMA y la CNMV limitan el apalancamiento, cierran la posición al 50 % de la garantía, impiden perder más de lo depositado y obligan a publicar el porcentaje de cuentas minoristas que pierden; la ESMA estimó en 2018 que perdía dinero entre el 74 y el 89 % de ellas."
   },
@@ -1213,7 +1538,10 @@
     "id": "eficiencia-mercado",
     "name": "Eficiencia de mercado (débil, semifuerte, fuerte) y anomalías",
     "level": 5,
-    "prerequisites": ["formacion-precios", "valor-esperado"],
+    "prerequisites": [
+      "formacion-precios",
+      "valor-esperado"
+    ],
     "unit": "n5-u5",
     "description": "Un mercado es eficiente si los precios reflejan la información disponible (Fama, 1970): forma débil (precios pasados), semifuerte (información pública) y fuerte (también la privada). Las anomalías, como el momentum o la deriva tras resultados, chocan con ella, pero muchas se reducen tras publicarse o no sobreviven a los costes."
   },
@@ -1221,7 +1549,9 @@
     "id": "stop-tamano",
     "name": "Stop y tamaño de posición",
     "level": 5,
-    "prerequisites": ["orden-mercado"],
+    "prerequisites": [
+      "orden-mercado"
+    ],
     "unit": "n5-u6",
     "description": "El stop loss va donde la idea queda invalidada; tamaño = riesgo en € (1-2 % del capital) / distancia al stop. Con una relación 1:k basta acertar 1 / (1 + k) de las veces, y la esperanza en R es acierto × k − fallo. Un hueco puede saltarse el stop."
   },
@@ -1229,7 +1559,9 @@
     "id": "valor-esperado",
     "name": "Probabilidad y valor esperado",
     "level": 5,
-    "prerequisites": ["media-desviacion"],
+    "prerequisites": [
+      "media-desviacion"
+    ],
     "unit": "n5-u4",
     "description": "Valor esperado de una estrategia = acierto × ganancia media − fallo × pérdida media. La media de n operaciones se acerca a él (ley de los grandes números) con un error típico de desviación típica / √n. Bayes: P(ventaja | señal) depende de la proporción de partida, la detección y los falsos positivos."
   },
@@ -1237,7 +1569,10 @@
     "id": "contraste-hipotesis",
     "name": "Contraste de hipótesis, p-valor e intervalos de confianza",
     "level": 5,
-    "prerequisites": ["valor-esperado", "distribucion-normal"],
+    "prerequisites": [
+      "valor-esperado",
+      "distribucion-normal"
+    ],
     "unit": "n5-u4",
     "description": "Se parte de la hipótesis nula (sin ventaja) y se calcula t = media / error típico; el p-valor es la probabilidad de un resultado tan extremo si la nula fuera cierta. Error tipo I: falso positivo; tipo II: falso negativo. En un backtest, t ≈ Sharpe anual × √años, y al probar muchas variantes hay que corregir por multiple testing."
   },
@@ -1245,7 +1580,9 @@
     "id": "exceso-confianza",
     "name": "Exceso de confianza y aversión a la pérdida",
     "level": 5,
-    "prerequisites": ["sesgo-narrativa"],
+    "prerequisites": [
+      "sesgo-narrativa"
+    ],
     "unit": "n5-u6",
     "description": "Exceso de confianza: operar de más y subir el tamaño tras unos aciertos. Aversión a la pérdida: una pérdida duele más o menos el doble que alegra una ganancia (Kahneman y Tversky, 1979; estimado en torno a 2–2,25 por Tversky y Kahneman, 1992). Efecto disposición: vender pronto lo que gana y mantener lo que pierde (Shefrin y Statman, 1985)."
   },
@@ -1253,7 +1590,9 @@
     "id": "si-buscarx",
     "name": "SI y BUSCARX en hojas de cálculo",
     "level": 5,
-    "prerequisites": ["celdas-suma"],
+    "prerequisites": [
+      "celdas-suma"
+    ],
     "unit": "n5-u6",
     "description": "=SI(condición; sí; no) decide entre dos resultados, y =BUSCARX(valor; rango donde buscar; rango que devolver; [si no lo encuentra]) devuelve el dato de la misma fila. Con ellas, un diario de operaciones calcula solo las ganadoras, el respeto del límite de riesgo o el resultado de un valor."
   },
@@ -1261,7 +1600,9 @@
     "id": "rentabilidad-log",
     "name": "Rentabilidad simple y logarítmica",
     "level": 6,
-    "prerequisites": ["rentabilidad-total"],
+    "prerequisites": [
+      "rentabilidad-total"
+    ],
     "unit": "n6-u1",
     "description": "Rentabilidad simple: (P1 − P0) / P0; logarítmica: ln(P1 / P0). Las logarítmicas se suman entre periodos; las simples se componen multiplicando (1 + r). La media geométrica describe lo que pasó; la aritmética la supera tanto más cuanto mayor es la volatilidad (≈ σ² / 2)."
   },
@@ -1269,7 +1610,9 @@
     "id": "twr-mwr",
     "name": "TWR vs MWR",
     "level": 6,
-    "prerequisites": ["rentabilidad-log"],
+    "prerequisites": [
+      "rentabilidad-log"
+    ],
     "unit": "n6-u1",
     "description": "La rentabilidad ponderada en el tiempo (TWR) compone los tramos entre flujos y mide al gestor (las normas GIPS la exigen con carácter general). La ponderada por el dinero (MWR) es la TIR de los flujos de un inversor y depende de cuándo entra y sale; el método de Dietz modificado la aproxima."
   },
@@ -1277,7 +1620,9 @@
     "id": "volatilidad",
     "name": "Volatilidad",
     "level": 6,
-    "prerequisites": ["media-desviacion"],
+    "prerequisites": [
+      "media-desviacion"
+    ],
     "unit": "n6-u1",
     "description": "La volatilidad es la desviación típica de las rentabilidades; la anual es, aproximadamente, la mensual por √12. Es la medida de riesgo que usan el ratio de Sharpe y los informes de los fondos."
   },
@@ -1285,7 +1630,10 @@
     "id": "diversificacion",
     "name": "Diversificación",
     "level": 6,
-    "prerequisites": ["correlacion", "volatilidad"],
+    "prerequisites": [
+      "correlacion",
+      "volatilidad"
+    ],
     "unit": "n6-u2",
     "description": "Varianza de dos activos = w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB: con ρ < 1, la volatilidad queda por debajo de la media ponderada. Con muchos activos desaparece el riesgo idiosincrático y queda el sistemático (σ√ρ con N activos iguales), que no se diversifica."
   },
@@ -1293,7 +1641,9 @@
     "id": "markowitz",
     "name": "Markowitz y frontera eficiente",
     "level": 6,
-    "prerequisites": ["diversificacion"],
+    "prerequisites": [
+      "diversificacion"
+    ],
     "unit": "n6-u2",
     "description": "Frontera eficiente: las carteras con más rentabilidad esperada para cada riesgo. La de mínima varianza es la de menos riesgo; la tangente, la de mayor ratio de Sharpe. Con el activo sin riesgo se forma la línea del mercado de capitales, rf + Sharpe × volatilidad."
   },
@@ -1301,7 +1651,9 @@
     "id": "capm-beta",
     "name": "CAPM y beta",
     "level": 3,
-    "prerequisites": ["riesgo-rentabilidad"],
+    "prerequisites": [
+      "riesgo-rentabilidad"
+    ],
     "unit": "n3-u5",
     "description": "La beta mide cuánto se mueve una acción con el mercado; el CAPM solo paga ese riesgo, que no se diversifica."
   },
@@ -1309,7 +1661,10 @@
     "id": "regresion",
     "name": "Regresión: coeficientes, t, R² y sus trampas",
     "level": 6,
-    "prerequisites": ["correlacion", "contraste-hipotesis"],
+    "prerequisites": [
+      "correlacion",
+      "contraste-hipotesis"
+    ],
     "unit": "n6-u2",
     "description": "Regresión en excesos sobre el tipo sin riesgo, Ri − rf = α + β(Rm − rf) + error: la pendiente es la beta (covarianza / varianza = ρσi/σm), el R² la parte de la varianza explicada (ρ²) y el estadístico t de la beta, β / su error típico. Con pocos datos, la estimación es incierta."
   },
@@ -1317,7 +1672,11 @@
     "id": "capm-avanzado",
     "name": "CAPM avanzado: estimación por regresión y beta ajustada",
     "level": 6,
-    "prerequisites": ["capm-beta", "markowitz", "regresion"],
+    "prerequisites": [
+      "capm-beta",
+      "markowitz",
+      "regresion"
+    ],
     "unit": "n6-u2",
     "description": "El CAPM pide rf + β(Rm − rf); el alfa de Jensen es lo que se rinde por encima. Las betas estimadas tienden hacia 1 (beta ajustada de Blume, 0,67β + 0,33). Batir al índice con más beta no es alfa."
   },
@@ -1325,7 +1684,9 @@
     "id": "sharpe-sortino",
     "name": "Sharpe y Sortino",
     "level": 6,
-    "prerequisites": ["volatilidad"],
+    "prerequisites": [
+      "volatilidad"
+    ],
     "unit": "n6-u1",
     "description": "Ratio de Sharpe = (rentabilidad − tipo sin riesgo) / volatilidad. El de Sortino usa la desviación a la baja, que solo cuenta las rentabilidades por debajo de un objetivo. Sirven para comparar fondos con riesgos distintos, con cuidado si hay pocos años o riesgos de cola."
   },
@@ -1333,13 +1694,17 @@
     "id": "tracking-error-ir",
     "name": "Tracking error y ratio de información",
     "level": 6,
-    "prerequisites": ["sharpe-sortino"]
+    "prerequisites": [
+      "sharpe-sortino"
+    ]
   },
   {
     "id": "drawdown",
     "name": "Drawdown",
     "level": 6,
-    "prerequisites": ["volatilidad"],
+    "prerequisites": [
+      "volatilidad"
+    ],
     "unit": "n6-u1",
     "description": "El drawdown máximo es la mayor caída desde un máximo anterior. Recuperar una caída d exige subir 1 / (1 − d) − 1; el ratio de Calmar divide la rentabilidad anual entre el drawdown máximo."
   },
@@ -1347,732 +1712,980 @@
     "id": "var-cvar",
     "name": "VaR y CVaR",
     "level": 6,
-    "prerequisites": ["distribucion-normal", "volatilidad"]
+    "prerequisites": [
+      "distribucion-normal",
+      "volatilidad"
+    ],
+    "unit": "n6-u3",
+    "description": "VaR paramétrico = (zσ − μ) × valor, con z = 1,645 al 95 % y 2,33 al 99 %; se escala con √t si los días son independientes. El histórico toma el percentil de las pérdidas pasadas. El CVaR o expected shortfall es la pérdida media más allá del VaR, y con colas gordas informa mejor."
   },
   {
     "id": "factores",
     "name": "Inversión por factores",
     "level": 6,
-    "prerequisites": ["capm-beta"]
+    "prerequisites": [
+      "capm-beta"
+    ]
   },
   {
     "id": "pasiva-activa",
     "name": "Gestión pasiva vs activa",
     "level": 6,
-    "prerequisites": ["fondos-inversion"]
+    "prerequisites": [
+      "fondos-inversion"
+    ]
   },
   {
     "id": "atribucion-brinson",
     "name": "Atribución de resultados (Brinson-Fachler)",
     "level": 6,
-    "prerequisites": ["pasiva-activa"]
+    "prerequisites": [
+      "pasiva-activa"
+    ]
   },
   {
     "id": "alternativos-inversion",
     "name": "Alternativos como inversión",
     "level": 6,
-    "prerequisites": ["riesgo-rentabilidad", "diversificacion"]
+    "prerequisites": [
+      "riesgo-rentabilidad",
+      "diversificacion"
+    ]
   },
   {
     "id": "esg-sfdr",
     "name": "ESG y SFDR",
     "level": 6,
-    "prerequisites": ["fondos-inversion"]
+    "prerequisites": [
+      "fondos-inversion"
+    ]
   },
   {
     "id": "asset-allocation",
     "name": "Asset allocation y rebalanceo",
     "level": 6,
-    "prerequisites": ["diversificacion"]
+    "prerequisites": [
+      "diversificacion"
+    ]
   },
   {
     "id": "black-litterman-paridad",
     "name": "Black-Litterman y paridad de riesgo (intuición)",
     "level": 6,
-    "prerequisites": ["asset-allocation", "markowitz"]
+    "prerequisites": [
+      "asset-allocation",
+      "markowitz"
+    ]
   },
   {
     "id": "monte-carlo",
     "name": "Simulación Monte Carlo",
     "level": 6,
-    "prerequisites": ["distribucion-normal"]
+    "prerequisites": [
+      "distribucion-normal"
+    ],
+    "unit": "n6-u3",
+    "description": "Simular miles de escenarios con las hipótesis elegidas, revalorizar la cartera y leer percentiles (VaR) y medias de la cola (CVaR). El error típico baja con √N: para reducirlo a la mitad, cuatro veces más simulaciones. Hereda los fallos de sus hipótesis."
   },
   {
     "id": "backtesting",
     "name": "Trampas del backtesting",
     "level": 6,
-    "prerequisites": ["monte-carlo"]
+    "prerequisites": [
+      "monte-carlo"
+    ],
+    "unit": "n6-u3",
+    "description": "Backtesting del VaR: excepciones esperadas = N × (1 − confianza); z = (x − Np) / √(Np(1 − p)). Semáforo de Basilea al 99 % con 250 días: verde 0–4, amarilla 5–9, roja 10 o más. Un backtest de un año tranquilo no garantiza una crisis, como no lo garantiza el de una estrategia."
   },
   {
     "id": "comisiones-compuestas",
     "name": "Efecto compuesto de las comisiones",
     "level": 6,
-    "prerequisites": ["interes-compuesto", "fondos-inversion"]
+    "prerequisites": [
+      "interes-compuesto",
+      "fondos-inversion"
+    ]
   },
   {
     "id": "contabilidad-mental",
     "name": "Contabilidad mental",
     "level": 6,
-    "prerequisites": ["exceso-confianza"]
+    "prerequisites": [
+      "exceso-confianza"
+    ]
   },
   {
     "id": "futuros-forwards",
     "name": "Futuros y forwards",
     "level": 7,
-    "prerequisites": ["derivados-intro"]
+    "prerequisites": [
+      "derivados-intro"
+    ]
   },
   {
     "id": "opciones",
     "name": "Opciones call y put",
     "level": 7,
-    "prerequisites": ["derivados-intro"]
+    "prerequisites": [
+      "derivados-intro"
+    ]
   },
   {
     "id": "payoff",
     "name": "Payoffs",
     "level": 7,
-    "prerequisites": ["opciones"]
+    "prerequisites": [
+      "opciones"
+    ]
   },
   {
     "id": "paridad-put-call",
     "name": "Paridad put-call",
     "level": 7,
-    "prerequisites": ["opciones", "payoff"]
+    "prerequisites": [
+      "opciones",
+      "payoff"
+    ]
   },
   {
     "id": "forward-coste-financiacion",
     "name": "Precio forward por coste de financiación y base",
     "level": 7,
-    "prerequisites": ["futuros-forwards", "valor-temporal-dinero"]
+    "prerequisites": [
+      "futuros-forwards",
+      "valor-temporal-dinero"
+    ]
   },
   {
     "id": "valor-intrinseco-temporal",
     "name": "Valor intrínseco y temporal",
     "level": 7,
-    "prerequisites": ["opciones"]
+    "prerequisites": [
+      "opciones"
+    ]
   },
   {
     "id": "binomial-un-paso",
     "name": "Modelo binomial de un paso",
     "level": 7,
-    "prerequisites": ["valor-intrinseco-temporal"]
+    "prerequisites": [
+      "valor-intrinseco-temporal"
+    ]
   },
   {
     "id": "binomial-dos-pasos",
     "name": "Binomial de dos pasos y probabilidad neutral al riesgo",
     "level": 7,
-    "prerequisites": ["binomial-un-paso"]
+    "prerequisites": [
+      "binomial-un-paso"
+    ]
   },
   {
     "id": "black-scholes",
     "name": "Black-Scholes con números",
     "level": 7,
-    "prerequisites": ["binomial-un-paso", "volatilidad"]
+    "prerequisites": [
+      "binomial-un-paso",
+      "volatilidad"
+    ]
   },
   {
     "id": "griegas",
     "name": "Griegas",
     "level": 7,
-    "prerequisites": ["black-scholes"]
+    "prerequisites": [
+      "black-scholes"
+    ]
   },
   {
     "id": "estrategias-opciones",
     "name": "Estrategias con opciones",
     "level": 7,
-    "prerequisites": ["payoff"]
+    "prerequisites": [
+      "payoff"
+    ]
   },
   {
     "id": "swaps",
     "name": "Swaps de tipos y divisa",
     "level": 7,
-    "prerequisites": ["futuros-forwards"]
+    "prerequisites": [
+      "futuros-forwards"
+    ]
   },
   {
     "id": "cds",
     "name": "CDS",
     "level": 7,
-    "prerequisites": ["rating-spread"]
+    "prerequisites": [
+      "rating-spread"
+    ]
   },
   {
     "id": "apalancamiento-margin",
     "name": "Apalancamiento y margin call",
     "level": 7,
-    "prerequisites": ["futuros-forwards"]
+    "prerequisites": [
+      "futuros-forwards"
+    ]
   },
   {
     "id": "coberturas-empresa",
     "name": "Coberturas en empresas",
     "level": 7,
-    "prerequisites": ["futuros-forwards", "divisas"]
+    "prerequisites": [
+      "futuros-forwards",
+      "divisas"
+    ]
   },
   {
     "id": "sesgo-resultado",
     "name": "Sesgo de resultado",
     "level": 7,
-    "prerequisites": ["contabilidad-mental"]
+    "prerequisites": [
+      "contabilidad-mental"
+    ]
   },
   {
     "id": "fiscalidad-derivados",
     "name": "Tributación de derivados",
     "level": 7,
-    "prerequisites": ["irpf-ganancias"]
+    "prerequisites": [
+      "irpf-ganancias"
+    ]
   },
   {
     "id": "mapa-sector",
     "name": "Mapa del sector financiero",
     "level": 8,
-    "prerequisites": ["banco"]
+    "prerequisites": [
+      "banco"
+    ]
   },
   {
     "id": "emisiones-opv",
     "name": "OPV y emisiones en detalle",
     "level": 8,
-    "prerequisites": ["opv"]
+    "prerequisites": [
+      "opv"
+    ]
   },
   {
     "id": "m-and-a",
     "name": "M&A y sinergias",
     "level": 8,
-    "prerequisites": ["valorar-bancos"]
+    "prerequisites": [
+      "valorar-bancos"
+    ]
   },
   {
     "id": "lbo",
     "name": "LBO",
     "level": 8,
-    "prerequisites": ["m-and-a", "estructura-capital"]
+    "prerequisites": [
+      "m-and-a",
+      "estructura-capital"
+    ]
   },
   {
     "id": "venture-capital",
     "name": "Venture capital y rondas",
     "level": 8,
-    "prerequisites": ["alternativos-inversion"]
+    "prerequisites": [
+      "alternativos-inversion"
+    ]
   },
   {
     "id": "fintech-panorama",
     "name": "Panorama fintech",
     "level": 8,
-    "prerequisites": ["mapa-sector"]
+    "prerequisites": [
+      "mapa-sector"
+    ]
   },
   {
     "id": "open-banking",
     "name": "Open banking",
     "level": 8,
-    "prerequisites": ["fintech-panorama"]
+    "prerequisites": [
+      "fintech-panorama"
+    ]
   },
   {
     "id": "euro-digital",
     "name": "Euro digital",
     "level": 8,
-    "prerequisites": ["bce"]
+    "prerequisites": [
+      "bce"
+    ]
   },
   {
     "id": "tokenizacion",
     "name": "Tokenización",
     "level": 8,
-    "prerequisites": ["cripto-mica"]
+    "prerequisites": [
+      "cripto-mica"
+    ]
   },
   {
     "id": "research-informe",
     "name": "Informe de research",
     "level": 8,
-    "prerequisites": ["dcf", "multiplos"]
+    "prerequisites": [
+      "dcf",
+      "multiplos"
+    ]
   },
   {
     "id": "entrevistas-banca",
     "name": "Preparación de entrevistas de banca",
     "level": 8,
-    "prerequisites": ["mapa-sector"]
+    "prerequisites": [
+      "mapa-sector"
+    ]
   },
   {
     "id": "certificaciones",
     "name": "CFA, EFPA y FRM",
     "level": 8,
-    "prerequisites": ["mapa-sector"]
+    "prerequisites": [
+      "mapa-sector"
+    ]
   },
   {
     "id": "pensamiento-grupo",
     "name": "Pensamiento de grupo",
     "level": 8,
-    "prerequisites": ["sesgo-resultado"]
+    "prerequisites": [
+      "sesgo-resultado"
+    ]
   },
   {
     "id": "burbujas-historia",
     "name": "Burbujas y crisis históricas",
     "level": 9,
-    "prerequisites": ["ciclo-economico"]
+    "prerequisites": [
+      "ciclo-economico"
+    ]
   },
   {
     "id": "crisis-2008",
     "name": "Crisis de 2008",
     "level": 9,
-    "prerequisites": ["burbujas-historia"]
+    "prerequisites": [
+      "burbujas-historia"
+    ]
   },
   {
     "id": "burbuja-inmobiliaria-es",
     "name": "Burbuja inmobiliaria española",
     "level": 9,
-    "prerequisites": ["crisis-2008"]
+    "prerequisites": [
+      "crisis-2008"
+    ]
   },
   {
     "id": "crisis-cajas-bankia",
     "name": "Crisis de las cajas y Bankia",
     "level": 9,
-    "prerequisites": ["crisis-2008"]
+    "prerequisites": [
+      "crisis-2008"
+    ]
   },
   {
     "id": "deuda-europea-2012",
     "name": "Crisis de deuda europea 2012",
     "level": 9,
-    "prerequisites": ["prima-riesgo"]
+    "prerequisites": [
+      "prima-riesgo"
+    ]
   },
   {
     "id": "banco-popular-2017",
     "name": "Resolución del Banco Popular",
     "level": 9,
-    "prerequisites": ["union-bancaria"]
+    "prerequisites": [
+      "union-bancaria"
+    ]
   },
   {
     "id": "covid-svb",
     "name": "COVID y SVB 2023",
     "level": 9,
-    "prerequisites": ["burbujas-historia"]
+    "prerequisites": [
+      "burbujas-historia"
+    ]
   },
   {
     "id": "fraudes",
     "name": "Fraudes financieros",
     "level": 9,
-    "prerequisites": ["trampas-contables"]
+    "prerequisites": [
+      "trampas-contables"
+    ]
   },
   {
     "id": "chiringuitos",
     "name": "Chiringuitos financieros",
     "level": 9,
-    "prerequisites": ["fraudes"]
+    "prerequisites": [
+      "fraudes"
+    ]
   },
   {
     "id": "regulacion-cnmv-esma",
     "name": "CNMV, ESMA y MiFID II",
     "level": 9,
-    "prerequisites": ["broker-espana"]
+    "prerequisites": [
+      "broker-espana"
+    ]
   },
   {
     "id": "idoneidad-conveniencia",
     "name": "Idoneidad y conveniencia",
     "level": 9,
-    "prerequisites": ["regulacion-cnmv-esma"]
+    "prerequisites": [
+      "regulacion-cnmv-esma"
+    ]
   },
   {
     "id": "abuso-mercado",
     "name": "Abuso de mercado",
     "level": 9,
-    "prerequisites": ["regulacion-cnmv-esma", "informacion-privilegiada"]
+    "prerequisites": [
+      "regulacion-cnmv-esma",
+      "informacion-privilegiada"
+    ]
   },
   {
     "id": "blanqueo-kyc",
     "name": "Prevención del blanqueo y KYC",
     "level": 9,
-    "prerequisites": ["banco"]
+    "prerequisites": [
+      "banco"
+    ]
   },
   {
     "id": "reclamaciones-be",
     "name": "Reclamaciones al Banco de España",
     "level": 9,
-    "prerequisites": ["banco"]
+    "prerequisites": [
+      "banco"
+    ]
   },
   {
     "id": "fiscalidad-avanzada",
     "name": "Fiscalidad avanzada (720/721, doble imposición)",
     "level": 9,
-    "prerequisites": ["irpf-ganancias"]
+    "prerequisites": [
+      "irpf-ganancias"
+    ]
   },
   {
     "id": "patrimonio-sucesiones",
     "name": "Patrimonio y Sucesiones",
     "level": 9,
-    "prerequisites": ["fiscalidad-avanzada"]
+    "prerequisites": [
+      "fiscalidad-avanzada"
+    ]
   },
   {
     "id": "etica-conflictos",
     "name": "Ética y conflictos de interés",
     "level": 9,
-    "prerequisites": ["abuso-mercado", "etica-estandares"]
+    "prerequisites": [
+      "abuso-mercado",
+      "etica-estandares"
+    ]
   },
   {
     "id": "productos-activo-pasivo",
     "name": "Productos de activo y pasivo",
     "level": 4,
-    "prerequisites": ["margen-intereses"],
+    "prerequisites": [
+      "margen-intereses"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "scoring-rating-interno",
     "name": "Scoring y rating interno",
     "level": 4,
-    "prerequisites": ["pd-lgd-ead"],
+    "prerequisites": [
+      "pd-lgd-ead"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "modelos-irb",
     "name": "Modelos IRB (intuición)",
     "level": 4,
-    "prerequisites": ["scoring-rating-interno"],
+    "prerequisites": [
+      "scoring-rating-interno"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "ifrs9-fases",
     "name": "IFRS 9: fases y pérdida esperada",
     "level": 4,
-    "prerequisites": ["morosidad-ifrs9"],
+    "prerequisites": [
+      "morosidad-ifrs9"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "ifrs9-clasificacion",
     "name": "IFRS 9: clasificación (modelo de negocio y prueba SPPI)",
     "level": 4,
-    "prerequisites": ["morosidad-ifrs9"],
+    "prerequisites": [
+      "morosidad-ifrs9"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "ifrs9-ecl-escenarios",
     "name": "IFRS 9: pérdida esperada ponderada por escenarios y matriz de provisiones",
     "level": 4,
-    "prerequisites": ["ifrs9-fases"],
+    "prerequisites": [
+      "ifrs9-fases"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "alm-tipo-interes",
     "name": "ALM y riesgo de tipo de interés",
     "level": 4,
-    "prerequisites": ["margen-intereses"],
+    "prerequisites": [
+      "margen-intereses"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "liquidez-financiacion",
     "name": "Liquidez y financiación",
     "level": 4,
-    "prerequisites": ["liquidez-lcr-nsfr"],
+    "prerequisites": [
+      "liquidez-lcr-nsfr"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "riesgo-mercado-operacional",
     "name": "Riesgo de mercado y operacional",
     "level": 4,
-    "prerequisites": ["solvencia-cet1"],
+    "prerequisites": [
+      "solvencia-cet1"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "capital-pilares",
     "name": "Capital: Pilares 1, 2 y 3",
     "level": 4,
-    "prerequisites": ["basilea"],
+    "prerequisites": [
+      "basilea"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "crr3-capital",
     "name": "Basilea III final (CRR3): APR estándar e IRB, suelo de resultados y ratio de apalancamiento",
     "level": 4,
-    "prerequisites": ["capital-pilares", "modelos-irb"],
+    "prerequisites": [
+      "capital-pilares",
+      "modelos-irb"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "colchones-srep-mrel",
     "name": "Colchones de capital, Pilar 2 (P2R, P2G), SREP y MREL",
     "level": 4,
-    "prerequisites": ["capital-pilares"],
+    "prerequisites": [
+      "capital-pilares"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "raroc-precio-prestamo",
     "name": "Precio de un préstamo con RAROC",
     "level": 4,
-    "prerequisites": ["scoring-rating-interno"],
+    "prerequisites": [
+      "scoring-rating-interno"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "npl-titulizacion-srt",
     "name": "Gestión de dudosos y titulizaciones con transferencia de riesgo",
     "level": 4,
-    "prerequisites": ["morosidad-ifrs9", "cedulas-titulizaciones"],
+    "prerequisites": [
+      "morosidad-ifrs9",
+      "cedulas-titulizaciones"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "test-estres-avanzado",
     "name": "Test de estrés avanzado",
     "level": 4,
-    "prerequisites": ["test-estres"],
+    "prerequisites": [
+      "test-estres"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "banca-privada-mifid",
     "name": "Banca privada y asesoramiento MiFID",
     "level": 4,
-    "prerequisites": ["idoneidad-conveniencia"],
+    "prerequisites": [
+      "idoneidad-conveniencia"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "blanqueo-avanzado",
     "name": "Prevención del blanqueo avanzada",
     "level": 4,
-    "prerequisites": ["blanqueo-kyc"],
+    "prerequisites": [
+      "blanqueo-kyc"
+    ],
     "track": "banca-riesgos"
   },
   {
     "id": "inmunizacion",
     "name": "Inmunización",
     "level": 5,
-    "prerequisites": ["duracion"],
+    "prerequisites": [
+      "duracion"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "carry-roll-down",
     "name": "Carry y roll-down",
     "level": 5,
-    "prerequisites": ["curva-tipos"],
+    "prerequisites": [
+      "curva-tipos"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "posicionamiento-curva",
     "name": "Posicionamiento en la curva",
     "level": 5,
-    "prerequisites": ["inversion-curva"],
+    "prerequisites": [
+      "inversion-curva"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "griegas-cartera",
     "name": "Griegas de una cartera",
     "level": 5,
-    "prerequisites": ["griegas"],
+    "prerequisites": [
+      "griegas"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "volatilidad-implicita",
     "name": "Volatilidad implícita y sonrisa",
     "level": 5,
-    "prerequisites": ["black-scholes"],
+    "prerequisites": [
+      "black-scholes"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "exoticos-intro",
     "name": "Introducción a exóticos",
     "level": 5,
-    "prerequisites": ["payoff"],
+    "prerequisites": [
+      "payoff"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "divisas-materias",
     "name": "Divisas y materias primas avanzadas",
     "level": 5,
-    "prerequisites": ["divisas"],
+    "prerequisites": [
+      "divisas"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "mesa-trading",
     "name": "Cómo funciona una mesa",
     "level": 5,
-    "prerequisites": ["market-makers"],
+    "prerequisites": [
+      "market-makers"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "ejecucion-algoritmica",
     "name": "Ejecución algorítmica",
     "level": 5,
-    "prerequisites": ["libro-ordenes"],
+    "prerequisites": [
+      "libro-ordenes"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "riesgo-mesa",
     "name": "Riesgo de mesa: VaR, límites y P&L",
     "level": 5,
-    "prerequisites": ["var-cvar"],
+    "prerequisites": [
+      "var-cvar"
+    ],
     "track": "mercados-trading"
   },
   {
     "id": "modelo-tres-estados",
     "name": "Modelo de 3 estados completo",
     "level": 3,
-    "prerequisites": ["conexion-estados"],
+    "prerequisites": [
+      "conexion-estados"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "dcf-avanzado",
     "name": "DCF avanzado",
     "level": 3,
-    "prerequisites": ["dcf"],
+    "prerequisites": [
+      "dcf"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "comparables",
     "name": "Comparables y transacciones precedentes",
     "level": 3,
-    "prerequisites": ["multiplos"],
+    "prerequisites": [
+      "multiplos"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "suma-partes",
     "name": "Suma de partes",
     "level": 3,
-    "prerequisites": ["dcf"],
+    "prerequisites": [
+      "dcf"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "valoracion-sectores",
     "name": "Valorar bancos, aseguradoras e inmobiliarias",
     "level": 3,
-    "prerequisites": ["valorar-bancos"],
+    "prerequisites": [
+      "valorar-bancos"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "ma-completo",
     "name": "M&A completo (acreción/dilución, due diligence)",
     "level": 3,
-    "prerequisites": ["multiplos"],
+    "prerequisites": [
+      "multiplos"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "dd-calidad-beneficio",
     "name": "Due diligence financiera: calidad del beneficio, circulante normalizado y deuda financiera neta",
     "level": 3,
-    "prerequisites": ["calidad-beneficio"],
+    "prerequisites": [
+      "calidad-beneficio"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "locked-box-completion",
     "name": "SPA: locked box frente a completion accounts y earn-out",
     "level": 3,
-    "prerequisites": ["ma-completo"],
+    "prerequisites": [
+      "ma-completo"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "opa-precio-equitativo",
     "name": "OPAs: precio equitativo, OPA de exclusión y venta y compra forzosas",
     "level": 3,
-    "prerequisites": ["ma-completo"],
+    "prerequisites": [
+      "ma-completo"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "lbo-completo",
     "name": "LBO completo",
     "level": 3,
-    "prerequisites": ["lbo"],
+    "prerequisites": [
+      "lbo"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "lbo-fiscalidad-espana",
     "name": "Deuda de adquisición en España: art. 16 LIS y fusión apalancada",
     "level": 3,
-    "prerequisites": ["lbo-completo", "impuesto-sociedades"],
+    "prerequisites": [
+      "lbo-completo",
+      "impuesto-sociedades"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "concurso-acreedores",
     "name": "Concurso de acreedores en España",
     "level": 3,
-    "prerequisites": ["emision-bonos"],
+    "prerequisites": [
+      "emision-bonos"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "reestructuracion-clases",
     "name": "Planes de reestructuración: clases, arrastre entre clases y prioridad absoluta",
     "level": 3,
-    "prerequisites": ["concurso-acreedores"],
+    "prerequisites": [
+      "concurso-acreedores"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "pe-vc-dentro",
     "name": "Private equity y VC desde dentro",
     "level": 3,
-    "prerequisites": ["venture-capital"],
+    "prerequisites": [
+      "venture-capital"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "pitch-book",
     "name": "Cómo se hace un pitch book",
     "level": 3,
-    "prerequisites": ["comparables"],
+    "prerequisites": [
+      "comparables"
+    ],
     "track": "corporate-valoracion"
   },
   {
     "id": "medios-pago",
     "name": "Medios de pago e infraestructura",
     "level": 6,
-    "prerequisites": ["banco"],
+    "prerequisites": [
+      "banco"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "psd2-psd3",
     "name": "Open banking: PSD2 y PSD3",
     "level": 6,
-    "prerequisites": ["open-banking"],
+    "prerequisites": [
+      "open-banking"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "euro-digital-rama",
     "name": "Euro digital en detalle",
     "level": 6,
-    "prerequisites": ["euro-digital"],
+    "prerequisites": [
+      "euro-digital"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "defi-mica",
     "name": "Cripto, DeFi y tokenización bajo MiCA",
     "level": 6,
-    "prerequisites": ["tokenizacion"],
+    "prerequisites": [
+      "tokenizacion"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "regtech",
     "name": "Regtech",
     "level": 6,
-    "prerequisites": ["regulacion-cnmv-esma"],
+    "prerequisites": [
+      "regulacion-cnmv-esma"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "ia-finanzas",
     "name": "IA en finanzas: usos y sesgos",
     "level": 6,
-    "prerequisites": ["fintech-panorama"],
+    "prerequisites": [
+      "fintech-panorama"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "python-finanzas",
     "name": "Python para finanzas",
     "level": 6,
-    "prerequisites": ["valor-temporal-dinero"],
+    "prerequisites": [
+      "valor-temporal-dinero"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "series-temporales",
     "name": "Series temporales",
     "level": 6,
-    "prerequisites": ["volatilidad"],
+    "prerequisites": [
+      "volatilidad"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "modelos-factores",
     "name": "Modelos de factores",
     "level": 6,
-    "prerequisites": ["factores"],
+    "prerequisites": [
+      "factores"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "montecarlo-riguroso",
     "name": "Monte Carlo y backtesting rigurosos",
     "level": 6,
-    "prerequisites": ["backtesting"],
+    "prerequisites": [
+      "backtesting"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "contraste-multiple",
     "name": "Contraste múltiple y Sharpe deflactado",
     "level": 6,
-    "prerequisites": ["montecarlo-riguroso", "contraste-hipotesis"],
+    "prerequisites": [
+      "montecarlo-riguroso",
+      "contraste-hipotesis"
+    ],
     "track": "fintech-cuantitativo"
   },
   {
     "id": "ewma-garch",
     "name": "Volatilidad EWMA y GARCH",
     "level": 6,
-    "prerequisites": ["series-temporales"],
+    "prerequisites": [
+      "series-temporales"
+    ],
     "track": "fintech-cuantitativo"
   }
 ]

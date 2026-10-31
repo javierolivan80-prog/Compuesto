@@ -2363,5 +2363,70 @@
   "efficientFrontier": {
     "title": "La correlación dobla la frontera",
     "minVar": "Mínima varianza"
+  },
+  "timeMachineGame": {
+    "title": "Máquina del tiempo",
+    "step": {
+      "var": "Paso 1 de 4 · 2007, los años tranquilos",
+      "cvar": "Paso 2 de 4 · otoño de 2008",
+      "backtest": "Paso 3 de 4 · el examen de 2008",
+      "decision": "Paso 4 de 4 · rebobinamos a {{crisis}}"
+    },
+    "disclaimer": "Viaje en el tiempo con una cartera ficticia: las cifras de las crisis son aproximadas e ilustrativas.",
+    "board": {
+      "value": "Valor de la cartera",
+      "sigma": "Volatilidad diaria (años tranquilos)",
+      "conf": "Nivel de confianza",
+      "day": "Peor día {{n}}"
+    },
+    "briefVar": "Planta 5 de Albufera Partners, mesa de riesgos. Rebobinamos a 2007. Con la volatilidad diaria de los años tranquilos, la mesa calcula el VaR a un día al {{conf}}: z × volatilidad × valor, con z = {{z}} y una rentabilidad media diaria que se toma como cero.",
+    "askVar": "¿Cuál es el VaR a un día de la cartera?",
+    "whyVar": "{{z}} × {{sigma}} = {{pct}}; sobre la cartera, {{v}}. Es la pérdida que, según el modelo, solo se supera un día de cada cien (o de cada veinte al 95 %), no la peor pérdida posible.",
+    "briefCvar": "Otoño de 2008. El VaR decía que una pérdida diaria de más del {{var}} sería rara, pero llegaron estos días. El CVaR, o expected shortfall, es la media de las pérdidas que superan el VaR.",
+    "askCvar": "¿Cuál es el CVaR, la media de esos días que superaron el VaR?",
+    "whyCvar": "La media de esas pérdidas es {{v}}, varias veces el VaR ({{var}}): el VaR dice dónde empieza la cola, no cuánto pesa. Por eso, con colas gordas, el CVaR informa mejor.",
+    "briefBacktest": "En 2008 hubo {{days}} sesiones y el VaR al {{conf}} se superó en {{observed}} de ellas: son las excepciones. Para saber si el modelo funciona, se comparan con las que esperaba.",
+    "askBacktest": "¿Cuántas excepciones esperaba el modelo en el año?",
+    "whyBacktest": {
+      "red": "{{days}} × {{rate}} = {{v}}, y hubo {{observed}}: zona roja del semáforo de Basilea (10 o más en 250 días al 99 %). El modelo, con la volatilidad de los años tranquilos y la hipótesis normal, subestimaba el riesgo.",
+      "yellow": "{{days}} × {{rate}} = {{v}}, y hubo {{observed}}: zona amarilla del semáforo de Basilea (de 5 a 9 en 250 días al 99 %). El modelo subestimaba el riesgo y hay que revisarlo.",
+      "green": "{{days}} × {{rate}} = {{v}}, y hubo {{observed}}: zona verde del semáforo de Basilea.",
+      "na": "{{days}} × {{rate}} = {{v}}, y hubo {{observed}}: muchas más de las esperadas. El modelo, con la volatilidad de los años tranquilos y la hipótesis normal, subestimaba el riesgo."
+    },
+    "briefDecision": {
+      "2000": "Rebobinamos a 2000-2002, tras la burbuja puntocom. La cartera ficticia, diversificada y pensada a largo plazo, cae alrededor de un 40 % en dos años (cifra aproximada). Los titulares dicen que «esta vez la bolsa no se recupera».",
+      "2012": "Rebobinamos a 2012, en lo peor de la crisis de deuda en España, con la prima de riesgo disparada. La cartera ficticia, diversificada y pensada a largo plazo, cae alrededor de un 30 % (cifra aproximada). Los titulares hablan de rescate.",
+      "2020": "Rebobinamos a marzo de 2020, con la pandemia. La cartera ficticia, diversificada y pensada a largo plazo, cae alrededor de un 35 % en un mes (cifra aproximada). Los titulares hablan de la peor caída en décadas."
+    },
+    "askDecision": "¿Qué haces?",
+    "move": {
+      "hold": "Mantener el plan y rebalancear si toca",
+      "sell": "Venderlo todo y esperar a que pase",
+      "lever": "Pedir prestado para comprar más y recuperar antes"
+    },
+    "whyDecision": "Vender en lo más bajo convierte una caída en pérdida definitiva, y apalancarse en plena tormenta puede acabar en un margin call. Quien mantuvo un plan diversificado acabó recuperándose, aunque tras 2000 y 2012 tardó años y tras 2020, meses: el riesgo que mide el VaR se vive así.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Vuelta al presente",
+    "row": {
+      "var": "VaR",
+      "cvar": "CVaR",
+      "backtest": "Backtesting",
+      "decision": "Decisión en la crisis"
+    },
+    "great": "Viaje impecable: mides el riesgo y no pierdes la cabeza cuando llega.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa el VaR, el CVaR, el backtesting y qué hacer en una crisis.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "varTail": {
+    "title": "Dónde empieza la cola y cuánto pesa",
+    "var": "VaR",
+    "cvar": "CVaR",
+    "conf": "Confianza del {{conf}} %",
+    "fat": "Colas gordas"
   }
 }

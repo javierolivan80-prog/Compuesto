@@ -99,6 +99,10 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
       sB: z.number().positive(),
     })
     .refine((p) => p.rA > p.rB && p.sA > p.sB, 'A rinde más y es más volátil que B'),
+  VarTail: z.object({
+    value: z.number().positive(),
+    sigma: z.number().positive().max(10),
+  }),
   Drawdown: z.object({
     peak: z.number().positive(),
   }),

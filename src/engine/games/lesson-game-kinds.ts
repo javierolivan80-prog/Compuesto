@@ -38,4 +38,5 @@ export const LESSON_GAMES = [
   'stop-trade',
   'fund-report',
   'two-assets',
+  'time-machine',
 ] as const;

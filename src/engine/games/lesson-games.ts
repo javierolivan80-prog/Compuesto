@@ -87,6 +87,13 @@ import {
 } from './fund-report';
 import { alpha, cml, minVarWeight, portVol, setupTwo, twoValues } from './two-assets';
 import {
+  cvarPct,
+  expected as tmExpected,
+  machineValues,
+  setupMachine,
+  varEur,
+} from './time-machine';
+import {
   nextRatio,
   phaseOf,
   premiumValues,
@@ -709,6 +716,22 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     sharpe: [2, 2],
     hits: [0, 0],
   },
+  'time-machine': {
+    value: [0, 0],
+    sigma: [0, 1],
+    conf: [0, 0],
+    tail: [0, 0],
+    z: [2, 3],
+    var_pct: [0, 2],
+    var_eur: [0, 0],
+    worst: [0, 1],
+    cvar_pct: [0, 2],
+    cvar_eur: [0, 0],
+    days: [0, 0],
+    expected: [0, 1],
+    observed: [0, 0],
+    hits: [0, 0],
+  },
   'two-assets': {
     s_a: [0, 0],
     s_b: [0, 0],
@@ -1181,6 +1204,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           alpha: alpha(setup),
         }),
         twoValues(setup, { vol: 0, minVar: 0, cml: 0, alpha: 0 }),
+      ];
+    }
+    case 'time-machine': {
+      // todo bien, y todo mal
+      const setup = setupMachine(seed);
+      return [
+        machineValues(setup, {
+          var: varEur(setup),
+          cvar: cvarPct(setup),
+          expected: tmExpected(setup),
+          move: 'hold',
+        }),
+        machineValues(setup, { var: 0, cvar: 0, expected: 0, move: 'sell' }),
       ];
     }
   }

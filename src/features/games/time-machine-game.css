@@ -1,0 +1,9 @@
+/* Máquina del tiempo (N6): panel y pantallas. */
+.tm-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.tm-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

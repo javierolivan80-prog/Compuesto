@@ -121,7 +121,8 @@ export async function solve(page: Page, e: Ex, wrong = false) {
         await page
           .getByRole('group', { name: it.text, ...exact })
           .getByRole('button', {
-            name: new RegExp(`${cat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
+            // con el inicio o un espacio delante: «VaR» no debe casar con «CVaR»
+            name: new RegExp(`(?:^|\\s)${cat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`),
           })
           .click();
       }

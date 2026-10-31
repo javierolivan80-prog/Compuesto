@@ -10,7 +10,12 @@
         {
           "id": "n1-u1",
           "name": "La empresa y la acción",
-          "concepts": ["empresa", "accion", "capitalizacion", "free-float"]
+          "concepts": [
+            "empresa",
+            "accion",
+            "capitalizacion",
+            "free-float"
+          ]
         },
         {
           "id": "n1-u4",
@@ -28,7 +33,13 @@
         {
           "id": "n1-u3",
           "name": "Bolsas e índices",
-          "concepts": ["bme", "ibex-35", "bme-growth", "indices-mundiales", "otc"]
+          "concepts": [
+            "bme",
+            "ibex-35",
+            "bme-growth",
+            "indices-mundiales",
+            "otc"
+          ]
         },
         {
           "id": "n1-u5",
@@ -46,7 +57,11 @@
         {
           "id": "n1-u2",
           "name": "Mercado primario y secundario",
-          "concepts": ["mercado-primario", "opv", "mercado-secundario"]
+          "concepts": [
+            "mercado-primario",
+            "opv",
+            "mercado-secundario"
+          ]
         },
         {
           "id": "n1-u6",
@@ -71,22 +86,36 @@
         {
           "id": "n3-u1",
           "name": "Los tres estados financieros",
-          "concepts": ["balance", "pyg", "flujos-caja", "conexion-estados"]
+          "concepts": [
+            "balance",
+            "pyg",
+            "flujos-caja",
+            "conexion-estados"
+          ]
         },
         {
           "id": "n3-u2",
           "name": "De la cuenta de resultados a la caja",
-          "concepts": ["ciclo-caja", "factoring-confirming"]
+          "concepts": [
+            "ciclo-caja",
+            "factoring-confirming"
+          ]
         },
         {
           "id": "n3-u3",
           "name": "Ratios y calidad del beneficio",
-          "concepts": ["ratios", "calidad-beneficio"]
+          "concepts": [
+            "ratios",
+            "calidad-beneficio"
+          ]
         },
         {
           "id": "n3-u4",
           "name": "Múltiplos: ¿cara o barata?",
-          "concepts": ["multiplos", "anclaje"]
+          "concepts": [
+            "multiplos",
+            "anclaje"
+          ]
         },
         {
           "id": "n3-u5",
@@ -103,7 +132,10 @@
         {
           "id": "n3-u6",
           "name": "DCF: lo que vale una empresa",
-          "concepts": ["van", "dcf"]
+          "concepts": [
+            "van",
+            "dcf"
+          ]
         }
       ]
     },
@@ -128,32 +160,56 @@
         {
           "id": "n2-u2",
           "name": "Duración y curva de tipos",
-          "concepts": ["curva-tipos", "duracion", "convexidad"]
+          "concepts": [
+            "curva-tipos",
+            "duracion",
+            "convexidad"
+          ]
         },
         {
           "id": "n2-u3",
           "name": "Fondos, ETF y comisiones",
-          "concepts": ["fondos-inversion", "etf", "traspasos-fondos"]
+          "concepts": [
+            "fondos-inversion",
+            "etf",
+            "traspasos-fondos"
+          ]
         },
         {
           "id": "n2-u4",
           "name": "Riesgo y estadística",
-          "concepts": ["media-desviacion", "distribucion-normal", "ilusion-control"]
+          "concepts": [
+            "media-desviacion",
+            "distribucion-normal",
+            "ilusion-control"
+          ]
         },
         {
           "id": "n2-u5",
           "name": "Divisas, materias primas y cripto",
-          "concepts": ["divisas", "materias-primas", "cripto-mica"]
+          "concepts": [
+            "divisas",
+            "materias-primas",
+            "cripto-mica"
+          ]
         },
         {
           "id": "n2-u6",
           "name": "Mercado monetario, repo, cédulas y titulizaciones",
-          "concepts": ["mercado-monetario-repo", "cedulas-titulizaciones"]
+          "concepts": [
+            "mercado-monetario-repo",
+            "cedulas-titulizaciones"
+          ]
         },
         {
           "id": "n2-u7",
           "name": "Pensiones, SOCIMI, derivados y productos complejos",
-          "concepts": ["planes-pensiones", "socimi-reit", "derivados-intro", "productos-complejos"]
+          "concepts": [
+            "planes-pensiones",
+            "socimi-reit",
+            "derivados-intro",
+            "productos-complejos"
+          ]
         }
       ]
     },
@@ -167,22 +223,42 @@
         {
           "id": "n4-u1",
           "name": "Los datos que mueven el mercado",
-          "concepts": ["ipc", "pib", "paro-pmi", "calendario-macro", "sesgo-narrativa"]
+          "concepts": [
+            "ipc",
+            "pib",
+            "paro-pmi",
+            "calendario-macro",
+            "sesgo-narrativa"
+          ]
         },
         {
           "id": "n4-u2",
           "name": "Bancos centrales: BCE, Fed y QE",
-          "concepts": ["bce", "fed", "qe-qt", "inversion-curva"]
+          "concepts": [
+            "bce",
+            "fed",
+            "qe-qt",
+            "inversion-curva"
+          ]
         },
         {
           "id": "n4-u3",
           "name": "Ciclo, política fiscal y prima de riesgo",
-          "concepts": ["ciclo-economico", "politica-fiscal", "prima-riesgo", "correlacion"]
+          "concepts": [
+            "ciclo-economico",
+            "politica-fiscal",
+            "prima-riesgo",
+            "correlacion"
+          ]
         },
         {
           "id": "n4-u4",
           "name": "Finanzas internacionales",
-          "concepts": ["balanza-pagos", "ppa-pti", "emergentes"]
+          "concepts": [
+            "balanza-pagos",
+            "ppa-pti",
+            "emergentes"
+          ]
         },
         {
           "id": "n4-u5",
@@ -198,12 +274,18 @@
         {
           "id": "n4-u6",
           "name": "Riesgo de crédito y supervisión",
-          "concepts": ["pd-lgd-ead", "morosidad-ifrs9", "union-bancaria"]
+          "concepts": [
+            "pd-lgd-ead",
+            "morosidad-ifrs9",
+            "union-bancaria"
+          ]
         },
         {
           "id": "n4-u7",
           "name": "Valorar bancos",
-          "concepts": ["valorar-bancos"]
+          "concepts": [
+            "valorar-bancos"
+          ]
         }
       ]
     },
@@ -217,32 +299,52 @@
         {
           "id": "n5-u1",
           "name": "Libro de órdenes, market makers y dark pools",
-          "concepts": ["libro-ordenes", "market-makers", "dark-pools"]
+          "concepts": [
+            "libro-ordenes",
+            "market-makers",
+            "dark-pools"
+          ]
         },
         {
           "id": "n5-u2",
           "name": "Subastas, fixing y costes reales de operar",
-          "concepts": ["subastas-avanzadas", "costes-reales-operar"]
+          "concepts": [
+            "subastas-avanzadas",
+            "costes-reales-operar"
+          ]
         },
         {
           "id": "n5-u3",
           "name": "Ventas en corto y préstamo de valores",
-          "concepts": ["cortos"]
+          "concepts": [
+            "cortos"
+          ]
         },
         {
           "id": "n5-u4",
           "name": "Probabilidad, valor esperado y contraste de hipótesis",
-          "concepts": ["valor-esperado", "contraste-hipotesis"]
+          "concepts": [
+            "valor-esperado",
+            "contraste-hipotesis"
+          ]
         },
         {
           "id": "n5-u5",
           "name": "Análisis técnico, eficiencia de mercado y por qué pierde el minorista",
-          "concepts": ["analisis-tecnico", "eficiencia-mercado", "perdida-minorista"]
+          "concepts": [
+            "analisis-tecnico",
+            "eficiencia-mercado",
+            "perdida-minorista"
+          ]
         },
         {
           "id": "n5-u6",
           "name": "Stop, tamaño de posición y sesgos al operar",
-          "concepts": ["stop-tamano", "exceso-confianza", "si-buscarx"]
+          "concepts": [
+            "stop-tamano",
+            "exceso-confianza",
+            "si-buscarx"
+          ]
         }
       ]
     },
@@ -256,12 +358,32 @@
         {
           "id": "n6-u1",
           "name": "Medir rentabilidad y riesgo de una cartera",
-          "concepts": ["rentabilidad-log", "twr-mwr", "volatilidad", "sharpe-sortino", "drawdown"]
+          "concepts": [
+            "rentabilidad-log",
+            "twr-mwr",
+            "volatilidad",
+            "sharpe-sortino",
+            "drawdown"
+          ]
         },
         {
           "id": "n6-u2",
           "name": "Diversificación, Markowitz y CAPM con regresión",
-          "concepts": ["diversificacion", "markowitz", "regresion", "capm-avanzado"]
+          "concepts": [
+            "diversificacion",
+            "markowitz",
+            "regresion",
+            "capm-avanzado"
+          ]
+        },
+        {
+          "id": "n6-u3",
+          "name": "VaR, CVaR, Monte Carlo y backtest",
+          "concepts": [
+            "var-cvar",
+            "monte-carlo",
+            "backtesting"
+          ]
         }
       ]
     },
@@ -344,7 +466,13 @@
         {
           "id": "n0-u4",
           "name": "Bancos y depósitos",
-          "concepts": ["banco", "creacion-dinero", "deposito", "fgd", "irpf-intereses"]
+          "concepts": [
+            "banco",
+            "creacion-dinero",
+            "deposito",
+            "fgd",
+            "irpf-intereses"
+          ]
         },
         {
           "id": "n0-u5",

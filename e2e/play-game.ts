@@ -108,6 +108,12 @@ import { BROKERS, cheapestBroker, setupDividend } from '../src/engine/games/divi
 import { formatNumber } from '../src/lib/format';
 import { setupFirstShares } from '../src/engine/games/first-shares';
 import { outcomeAt, PRICES, setupIpo } from '../src/engine/games/ipo-book';
+import {
+  cvarPct as tmCvar,
+  expected as tmExpected,
+  setupMachine,
+  varEur as tmVar,
+} from '../src/engine/games/time-machine';
 import { playSessions, setupIndex } from '../src/engine/games/index-mover';
 import { referenceValues, type LessonGameKind } from '../src/engine/games/lesson-games';
 import { instantiate, isParametric } from '../src/engine/params';
@@ -347,6 +353,24 @@ export async function playGameLesson(
         exact: true,
       })
       .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'time-machine') {
+    // referencia 0: el VaR, el CVaR, las excepciones esperadas y mantener el plan
+    await expect(page.getByRole('heading', { name: 'Máquina del tiempo' })).toBeVisible();
+    const setup = setupMachine(seed);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    const num = (v: number, d: number) => esc(formatNumber(v, d));
+    const var0 = tmVar(setup);
+    await page.getByRole('radio', { name: new RegExp(`^${num(var0, 0)}\\s€$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: new RegExp(`^${num(tmCvar(setup), 2)}\\s%$`) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const e = tmExpected(setup);
+    await page
+      .getByRole('radio', { name: formatNumber(e, Number.isInteger(e) ? 0 : 1), exact: true })
+      .click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: 'Mantener el plan y rebalancear si toca' }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'two-assets') {
     // referencia 0: la volatilidad, la mínima varianza, la CML y el alfa

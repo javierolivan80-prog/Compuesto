@@ -1,0 +1,253 @@
+{
+  "id": "n6-u3-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 3,
+  "title": "VaR paramétrico, escalado con √t e histórico",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el VaR paramétrico con y sin media y escalarlo con √t",
+    "Calcular el VaR histórico ordenando pérdidas"
+  ],
+  "concepts": [
+    "var-cvar"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de estadística: en una normal, el 95 % de los datos cae a menos de dos desviaciones típicas, y los mercados tienen colas gordas. Del test de estrés de la banca: qué pasa en un escenario concreto. El VaR responde otra pregunta: cuánto se puede perder con una probabilidad dada."
+    },
+    {
+      "type": "card",
+      "term": "VaR paramétrico",
+      "text": "Con normalidad, VaR = (zσ − μ) × valor, con z = 1,645 al 95 % y 2,33 al 99 %; a un día, μ se suele tomar como cero. Un VaR al 99 % de 50.000 € dice que el 99 % de los días no se perderá más, no cuánto se pierde el otro 1 %."
+    },
+    {
+      "type": "card",
+      "term": "√t e histórico",
+      "text": "Si los días son independientes, la volatilidad crece con √t: VaR a 10 días ≈ VaR diario × √10. El VaR histórico no supone ninguna distribución: aplica las rentabilidades pasadas a la cartera de hoy, ordena las pérdidas y toma el percentil. Con 500 días, al 99 %, es la quinta peor pérdida."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u3-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Una cartera ficticia de {v} € tiene una volatilidad diaria del {s} %. ¿Cuál es su VaR a un día al 95 %, con media cero? (€)",
+      "answer": 9870,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "1.645 * {s} / 100 * {v}",
+      "explanation": "1,645 × {s} % × {v} = {answer} €.",
+      "params": {
+        "v": {
+          "value": 400000,
+          "min": 200000,
+          "max": 800000,
+          "step": 100000,
+          "decimals": 0
+        },
+        "s": {
+          "value": 1.5,
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Una cartera ficticia tiene una rentabilidad media diaria del {m} % y una volatilidad diaria del {s} %. ¿Cuál es su VaR a un día al 99 %, en porcentaje, con la media? (%, 3 decimales)",
+      "answer": 2.746,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "2.33 * {s} - {m}",
+      "explanation": "zσ − μ = 2,33 × {s} − {m} = {answer} %: la media reduce algo el VaR.",
+      "params": {
+        "m": {
+          "value": 0.05,
+          "min": 0.02,
+          "max": 0.1,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "s": {
+          "value": 1.2,
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "El VaR a un día al 99 % de una cartera ficticia es de {d} €. ¿Cuál es su VaR a {t} días, escalando con √t? (€)",
+      "answer": 63246.0,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "{d} * SQRT({t})",
+      "explanation": "{d} × √{t} = {answer} €.",
+      "params": {
+        "d": {
+          "value": 20000,
+          "min": 10000,
+          "max": 50000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "t": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "El VaR a 10 días de una cartera ficticia es de {v} €. ¿Cuál es su VaR a un día, con el mismo nivel de confianza? (€)",
+      "answer": 18974.0,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "{v} / SQRT(10)",
+      "explanation": "{v} / √10 = {answer} €.",
+      "params": {
+        "v": {
+          "value": 60000,
+          "min": 30000,
+          "max": 90000,
+          "step": 10000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Con 500 días de historia, las siete peores pérdidas diarias de una cartera ficticia fueron, en euros: 41.200, 38.900, 35.100, 33.800, 31.500, 30.200 y 29.700. ¿Cuál es su VaR histórico a un día al 99 %? (€)",
+      "answer": 31500,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "31500",
+      "explanation": "El 1 % de 500 días son 5: el VaR histórico al 99 % es la quinta peor pérdida, 31.500 €."
+    },
+    {
+      "id": "n6-u3-l2-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Ordena los pasos para calcular un VaR histórico al 99 % con 500 días.",
+      "steps": [
+        "Reunir las rentabilidades diarias de los últimos 500 días",
+        "Aplicarlas a la cartera de hoy para obtener 500 resultados posibles",
+        "Ordenar esos resultados de la peor pérdida a la mayor ganancia",
+        "Tomar la quinta peor pérdida como VaR al 99 %"
+      ],
+      "explanation": "Se simula la cartera de hoy con los días del pasado, y el percentil sale de ordenar los resultados."
+    },
+    {
+      "id": "n6-u3-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "character": "jefe",
+      "situation": "Con los mismos datos, el VaR paramétrico al 99 % de una cartera ficticia sale de 30.000 € y el histórico con 500 días, de 42.000 €.",
+      "prompt": "¿Qué explica el jefe de la mesa al becario?",
+      "options": [
+        "Que los datos reales tienen colas más gordas que la normal: hubo más días extremos de los que supone el paramétrico, que por eso queda por debajo",
+        "Que el histórico está mal calculado: los dos deben coincidir",
+        "Que el paramétrico siempre es más prudente",
+        "Que la diferencia se debe a que el histórico usa la media"
+      ],
+      "answer": 0,
+      "explanation": "El paramétrico hereda los defectos de la normal.",
+      "wrongExplanations": {
+        "1": "Solo coinciden si los datos son normales.",
+        "2": "Con colas gordas suele ser al revés.",
+        "3": "La media pesa muy poco a un día."
+      }
+    },
+    {
+      "id": "n6-u3-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "statement": "Escalar el VaR con √t supone que las rentabilidades diarias son independientes y tienen la misma volatilidad.",
+      "answer": true,
+      "explanation": "Verdadero: si los días malos se encadenan, como en las crisis, √t se queda corto."
+    }
+  ],
+  "realWorld": "Los informes de Pilar 3 de los grandes bancos españoles muestran el VaR diario de su cartera de negociación al 99 % y explican con qué método lo calculan. Las cifras de los ejemplos son de carteras ficticias, y las de las crisis, aproximadas: no es una recomendación.",
+  "sources": [
+    {
+      "title": "John C. Hull, Risk Management and Financial Institutions, Wiley (capítulos de VaR, expected shortfall, simulación histórica y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.wiley.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (medidas de riesgo, VaR, CVaR, simulación Monte Carlo y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

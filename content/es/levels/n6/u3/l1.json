@@ -1,0 +1,319 @@
+{
+  "id": "n6-u3-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 3,
+  "order": 0,
+  "title": "Juego: máquina del tiempo",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el VaR paramétrico y el CVaR de una cartera con las cifras de una crisis",
+    "Contar las excepciones esperadas en el backtesting del VaR y decidir con calma en una caída"
+  ],
+  "concepts": [
+    "var-cvar",
+    "monte-carlo",
+    "backtesting"
+  ],
+  "companies": [
+    "albufera-partners"
+  ],
+  "historical": false,
+  "game": {
+    "kind": "time-machine",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "VaR",
+      "text": "Acertaste {hits} de 4. Con un {sigma} % de volatilidad diaria y z = {z}, el VaR a un día al {conf} % era un {var_pct} %: {var_eur} € de una cartera de {value} €. Es un umbral que el modelo espera superar pocas veces (el {tail} % de los días), no la peor pérdida posible."
+    },
+    {
+      "type": "card",
+      "term": "CVaR",
+      "text": "En 2008, los peores días superaron de largo el VaR: el peor, un {worst} %. Su media, el CVaR o expected shortfall, fue un {cvar_pct} % ({cvar_eur} €). El VaR dice dónde empieza la cola; el CVaR, cuánto pesa."
+    },
+    {
+      "type": "card",
+      "term": "Backtesting",
+      "text": "En las {days} sesiones de 2008, el modelo esperaba {expected} excepciones, días con pérdidas por encima del VaR, y hubo {observed}: calibrado con los años tranquilos y la normal, subestimaba el riesgo. Y en la crisis, vender en lo más bajo fija la pérdida; mantener un plan diversificado dio tiempo a recuperarse."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u3-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Con el VaR diario de tu partida ({z} × {sigma} % sobre {value} €), ¿cuál sería el VaR a {t} días, escalando con √t? (€)",
+      "answer": 73681.0,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "ROUND({z} * {sigma}, 2) / 100 * {value} * SQRT({t})",
+      "explanation": "VaR diario × √{t} = {answer} €, si los días son independientes y con la misma volatilidad.",
+      "params": {
+        "z": {
+          "value": 2.33,
+          "min": 1.645,
+          "max": 2.33,
+          "step": 0.685,
+          "decimals": 3
+        },
+        "sigma": {
+          "value": 1,
+          "min": 0.8,
+          "max": 1.2,
+          "step": 0.2,
+          "decimals": 1
+        },
+        "value": {
+          "value": 1000000,
+          "min": 1000000,
+          "max": 5000000,
+          "step": 1000000,
+          "decimals": 0
+        },
+        "t": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Con la volatilidad diaria de tu partida ({sigma} %) y la misma cartera ({value} €), ¿cuál sería el VaR a un día al 97,5 %, con z = 1,96? (€)",
+      "answer": 19600,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "1.96 * {sigma} / 100 * {value}",
+      "explanation": "1,96 × {sigma} % × {value} = {answer} €.",
+      "params": {
+        "sigma": {
+          "value": 1,
+          "min": 0.8,
+          "max": 1.2,
+          "step": 0.2,
+          "decimals": 1
+        },
+        "value": {
+          "value": 1000000,
+          "min": 1000000,
+          "max": 5000000,
+          "step": 1000000,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "El peor día de tu partida cayó un {worst} % y el VaR era un {z} × {sigma} %, redondeado a 2 decimales. ¿Cuántas veces el VaR fue esa pérdida? (2 decimales)",
+      "answer": 3.86,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{worst} / ROUND({z} * {sigma}, 2)",
+      "explanation": "{worst} / VaR = {answer} veces: el VaR no dice cuánto se puede perder en la cola.",
+      "params": {
+        "worst": {
+          "value": 9,
+          "min": 8,
+          "max": 10.5,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "z": {
+          "value": 2.33,
+          "min": 1.645,
+          "max": 2.33,
+          "step": 0.685,
+          "decimals": 3
+        },
+        "sigma": {
+          "value": 1,
+          "min": 0.8,
+          "max": 1.2,
+          "step": 0.2,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Si el backtest de tu partida hubiera durado {n} sesiones, con la misma confianza ({conf} %), ¿cuántas excepciones esperaría el modelo? (1 decimal)",
+      "answer": 5,
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "{n} * (100 - {conf}) / 100",
+      "explanation": "{n} × (100 − {conf}) % = {answer}.",
+      "params": {
+        "n": {
+          "value": 500,
+          "min": 500,
+          "max": 1000,
+          "step": 250,
+          "decimals": 0
+        },
+        "conf": {
+          "value": 99,
+          "min": 95,
+          "max": 99,
+          "step": 4,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "En tu partida hubo {observed} excepciones en 250 sesiones. ¿Qué porcentaje de los días se superó el VaR? (%, 1 decimal)",
+      "answer": 4.8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 1,
+      "formula": "{observed} / 250 * 100",
+      "explanation": "{observed} / 250 = {answer} %, frente al 1 % (al 99 %) o el 5 % (al 95 %) que esperaba el modelo.",
+      "params": {
+        "observed": {
+          "value": 12,
+          "min": 8,
+          "max": 18,
+          "step": 2,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "¿Qué medida responde a cada pregunta?",
+      "categories": [
+        "VaR",
+        "CVaR",
+        "Test de estrés"
+      ],
+      "items": [
+        {
+          "text": "¿Qué pérdida solo se supera el 1 % de los días?",
+          "category": "VaR"
+        },
+        {
+          "text": "¿Cuánto se pierde de media en ese peor 1 % de los días?",
+          "category": "CVaR"
+        },
+        {
+          "text": "¿Qué pasaría si se repitiera el escenario de 2008?",
+          "category": "Test de estrés"
+        },
+        {
+          "text": "¿Cuánto pesa la cola cuando hay colas gordas?",
+          "category": "CVaR"
+        }
+      ],
+      "explanation": "El VaR marca un umbral, el CVaR mide la cola y el test de estrés evalúa un escenario concreto."
+    },
+    {
+      "id": "n6-u3-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "var-cvar"
+      ],
+      "character": "mentora",
+      "situation": "El becario rival presenta el VaR al 99 % de la cartera, 23.300 €, como «lo máximo que podemos perder en un día».",
+      "prompt": "¿Qué le corrige tu mentora?",
+      "options": [
+        "Que es la pérdida que, según el modelo, solo se supera un día de cada cien: ese día se puede perder mucho más, y para medirlo está el CVaR",
+        "Que tiene razón: el VaR es la pérdida máxima",
+        "Que el VaR es la pérdida media de un día normal",
+        "Que el VaR solo sirve para los bancos"
+      ],
+      "answer": 0,
+      "explanation": "El VaR es un umbral, no un techo.",
+      "wrongExplanations": {
+        "1": "En 2008 se superó con creces.",
+        "2": "Eso sería la media, no el percentil.",
+        "3": "También lo usan gestoras y empresas."
+      }
+    },
+    {
+      "id": "n6-u3-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "backtesting"
+      ],
+      "statement": "Con un VaR al 99 % bien calibrado, lo normal es que se supere unos 2 o 3 días al año.",
+      "answer": true,
+      "explanation": "Verdadero: el 1 % de unas 250 sesiones son 2,5 días."
+    }
+  ],
+  "realWorld": "Los bancos publican su VaR de la cartera de negociación en los informes de Pilar 3, con un gráfico del backtesting y sus excepciones del año. Las cifras de los ejemplos son de carteras ficticias, y las de las crisis, aproximadas: no es una recomendación.",
+  "sources": [
+    {
+      "title": "John C. Hull, Risk Management and Financial Institutions, Wiley (capítulos de VaR, expected shortfall, simulación histórica y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.wiley.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Comité de Supervisión Bancaria de Basilea, «Supervisory framework for the use of backtesting in conjunction with the internal models approach to market risk capital requirements», 1996 (pendiente de verificar la ruta)",
+      "url": "https://www.bis.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (medidas de riesgo, VaR, CVaR, simulación Monte Carlo y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

@@ -60,6 +60,7 @@ import { EdgeTestGame } from '../games/EdgeTestGame';
 import { PatternNoiseGame } from '../games/PatternNoiseGame';
 import { StopTradeGame } from '../games/StopTradeGame';
 import { FundReportGame } from '../games/FundReportGame';
+import { TimeMachineGame } from '../games/TimeMachineGame';
 import { TwoAssetsGame } from '../games/TwoAssetsGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
@@ -263,6 +264,7 @@ export function LessonScreen({
             'stop-trade': StopTradeGame,
             'fund-report': FundReportGame,
             'two-assets': TwoAssetsGame,
+            'time-machine': TimeMachineGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

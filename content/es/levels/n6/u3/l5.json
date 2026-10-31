@@ -1,0 +1,248 @@
+{
+  "id": "n6-u3-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 3,
+  "title": "Simulación Monte Carlo y número de simulaciones",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el VaR y el CVaR con resultados simulados",
+    "Calcular cuántas simulaciones hacen falta para reducir el error"
+  ],
+  "concepts": [
+    "monte-carlo"
+  ],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Monte Carlo",
+      "text": "Monte Carlo simula miles de futuros posibles: en cada uno sortea rentabilidades con la media, la volatilidad y las correlaciones elegidas y revaloriza la cartera. Ordenando los resultados, el percentil da el VaR, y la media del peor tramo, el CVaR. Sirve cuando no hay fórmula, como con opciones o carteras complejas."
+    },
+    {
+      "type": "card",
+      "term": "Cuántas simulaciones",
+      "text": "Es una estimación con error: el error típico de la media de N simulaciones es σ / √N. Para reducirlo a la mitad hacen falta cuatro veces más simulaciones; para dividirlo entre diez, cien veces más. Las colas piden muchas: con 1.000 simulaciones, el peor 1 % son solo 10 resultados."
+    },
+    {
+      "type": "card",
+      "term": "Basura que entra",
+      "text": "Monte Carlo devuelve lo que se le pide: si sortea con una normal y la volatilidad de los años tranquilos, hereda los mismos fallos que el VaR paramétrico. Los modelos serios sortean con colas gordas, correlaciones que suben en las crisis y escenarios de estrés."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u3-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "Los resultados simulados de una cartera ficticia tienen una desviación típica de {s} €. Con {n} simulaciones, ¿cuál es el error típico de su media? (€, 2 decimales)",
+      "answer": 500,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{s} / SQRT({n})",
+      "explanation": "{s} / √{n} = {answer} €.",
+      "params": {
+        "s": {
+          "value": 50000,
+          "min": 20000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "n": {
+          "value": 10000,
+          "min": 2500,
+          "max": 40000,
+          "step": 2500,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "Una simulación ficticia usa {n} escenarios. ¿Cuántos necesita para dividir su error típico entre {k}?",
+      "answer": 4000,
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "{n} * {k} ^ 2",
+      "explanation": "El error baja con √N: dividirlo entre {k} exige {k}² veces más escenarios, {answer}.",
+      "params": {
+        "n": {
+          "value": 1000,
+          "min": 1000,
+          "max": 5000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 2,
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "De 1.000 simulaciones a un día de una cartera ficticia, las doce peores pérdidas son, en euros: 88.000, 81.000, 77.000, 74.000, 70.000, 67.000, 65.000, 63.000, 61.000, 58.000, 56.000 y 55.000. Tomando el VaR al 99 % como la décima peor, ¿cuánto vale? (€)",
+      "answer": 58000,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "58000",
+      "explanation": "El 1 % de 1.000 son 10: la décima peor pérdida, 58.000 €."
+    },
+    {
+      "id": "n6-u3-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "Con esas mismas simulaciones, ¿cuál es el CVaR al 99 %, la media de las diez peores pérdidas? (€)",
+      "answer": 70400,
+      "unit": "€",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(88000 + 81000 + 77000 + 74000 + 70000 + 67000 + 65000 + 63000 + 61000 + 58000) / 10",
+      "explanation": "704.000 / 10 = 70.400 €, bastante más que el VaR (58.000 €)."
+    },
+    {
+      "id": "n6-u3-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "En {n} simulaciones de la jubilación de un cliente ficticio, el dinero se acaba antes de tiempo en {k} de ellas. ¿Qué probabilidad estima el modelo? (%, 2 decimales)",
+      "answer": 8.3,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{k} / {n} * 100",
+      "explanation": "{k} / {n} = {answer} %. Es una estimación: depende de las hipótesis del modelo.",
+      "params": {
+        "n": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 830,
+          "min": 400,
+          "max": 1200,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u3-l5-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "prompt": "Ordena los pasos para calcular un VaR por Monte Carlo.",
+      "steps": [
+        "Elegir la distribución, las volatilidades y las correlaciones",
+        "Sortear miles de escenarios de rentabilidades",
+        "Revalorizar la cartera en cada escenario",
+        "Ordenar las pérdidas y tomar el percentil"
+      ],
+      "explanation": "Primero las hipótesis, después el sorteo, la revalorización y el percentil."
+    },
+    {
+      "id": "n6-u3-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "character": "mentora",
+      "situation": "El becario rival ha calculado el VaR al 99 % con solo 100 simulaciones, sorteando con una normal y la volatilidad del último año, muy tranquilo.",
+      "prompt": "¿Qué le dice tu mentora?",
+      "options": [
+        "Que con 100 simulaciones el VaR al 99 % sale de un único resultado y es muy inestable, y que además hereda la normal y un año tranquilo: más simulaciones y colas más gordas",
+        "Que 100 simulaciones bastan para cualquier percentil",
+        "Que Monte Carlo no tiene error porque usa muchos números",
+        "Que debería usar menos simulaciones para ir más rápido"
+      ],
+      "answer": 0,
+      "explanation": "El número de simulaciones y las hipótesis deciden la calidad del resultado.",
+      "wrongExplanations": {
+        "1": "En la cola apenas quedan datos.",
+        "2": "Es una estimación con error σ / √N.",
+        "3": "Con menos, el error crece."
+      }
+    },
+    {
+      "id": "n6-u3-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": [
+        "monte-carlo"
+      ],
+      "statement": "Multiplicar por cuatro el número de simulaciones reduce a la mitad el error típico.",
+      "answer": true,
+      "explanation": "Verdadero: el error baja con √N, y √4 = 2."
+    }
+  ],
+  "realWorld": "Los planificadores financieros y los simuladores de jubilación de muchas gestoras usan Monte Carlo para estimar la probabilidad de que el dinero llegue al final; sus hipótesis aparecen en la letra pequeña. Las cifras de los ejemplos son de carteras ficticias, y las de las crisis, aproximadas: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Paul Glasserman, Monte Carlo Methods in Financial Engineering, Springer, 2003 (pendiente de verificar la ruta)",
+      "url": "https://link.springer.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "John C. Hull, Risk Management and Financial Institutions, Wiley (capítulos de VaR, expected shortfall, simulación histórica y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.wiley.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (medidas de riesgo, VaR, CVaR, simulación Monte Carlo y backtesting) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

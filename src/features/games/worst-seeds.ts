@@ -26,6 +26,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'macro-day': 0,
   'ecb-meeting': 0,
   'order-desk': 96, // acción a 15 €, bloque de 50.000 acciones y horquilla realizada negativa
+  'time-machine': 31, // 5.000.000 € al 95 % con un 1,2 % de volatilidad: VaR de 98.500 € y CVaR del 7,66 %
   'two-assets': 4, // correlación negativa, volatilidad objetivo del 20 % (con préstamo) y alfa negativo
   'fund-report': 63, // 50.000 € más 20.000 € en julio, año negativo (−2,69 %) y Sharpe negativo
   'stop-trade': 22, // 125 acciones con un stop del 4 %, sin tocar stop ni objetivo, y −38,75 € al cierre

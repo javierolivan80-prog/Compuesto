@@ -120,7 +120,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | `EfficientFrontier` | Markowitz | Frontera de dos activos que se dobla hacia la izquierda al bajar la correlación, con la cartera de mínima varianza marcada (la nube de muchos activos queda para más adelante) | Paso a paso (correlación 1; 0,5; 0 y −0,5) |
 | `SecurityMarketLine` | CAPM | Activos en un gráfico beta-rentabilidad; los que quedan sobre la línea brillan | Beta |
 | `Drawdown` | Drawdown y recuperación | La cartera cae desde su máximo y, al lado, crece la subida necesaria para volver: 1 / (1 − caída) − 1 | Paso a paso (caídas del 10, 20, 30 y 50 %) |
-| `VarTail` | VaR y CVaR | Histograma de pérdidas con la cola sombreada al 5 % | Nivel de confianza |
+| `VarTail` | VaR y CVaR | Histograma de rentabilidades diarias con la cola sombreada desde el VaR y la marca del CVaR; el último paso engorda la cola como en los datos reales | Paso a paso (confianza del 95 y del 99 %, y colas gordas) |
 | `MonteCarloPaths` | Monte Carlo | Cientos de caminos que se abren en abanico (Canvas); bandas de percentiles | Volatilidad y años |
 | `BacktestTrap` | Sobreajuste | Estrategia perfecta en gris que se desmorona al cruzar al periodo fuera de muestra | Número de parámetros |
 

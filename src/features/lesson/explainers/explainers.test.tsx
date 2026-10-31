@@ -193,6 +193,16 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     const text = screen.getByRole('figure').textContent ?? '';
     expect(text).toMatch(/1, 8,0\s%; 0,5, 8,0\s%; 0, 7,4\s%; −0,5, 5,5\s%/);
   });
+  it('VarTail: el VaR y el CVaR al 95 y al 99 %', () => {
+    render(<ExplainerBlock component="VarTail" props={{ value: 1000000, sigma: 1 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(
+      /al 95 %, VaR del 1,65\s% \(16\.500\s€\) y CVaR del 2,06\s% \(20\.600\s€\)/,
+    );
+    expect(text).toMatch(
+      /al 99 %, VaR del 2,33\s% \(23\.300\s€\) y CVaR del 2,64\s% \(26\.400\s€\)/,
+    );
+  });
   it('Drawdown: la subida para recuperarse crece más deprisa que la caída', () => {
     render(<ExplainerBlock component="Drawdown" props={{ peak: 20000 }} />);
     const text = screen.getByRole('figure').textContent ?? '';
