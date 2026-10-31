@@ -197,7 +197,7 @@
       "tolerance": 0.5,
       "answerDecimals": 3,
       "formula": "({r} - 2) / {v}",
-      "explanation": "({r} − 2) / {v} = {answer}, menos que 0,4: la cartera queda por debajo de la línea, y mezclar la tangente con liquidez daría más rentabilidad con el mismo riesgo.",
+      "explanation": "({r} − 2) / {v} = {answer}, menos que 0,4: la cartera queda por debajo de la línea, y una combinación de la tangente con el activo sin riesgo (prestando o pidiendo prestado) daría más rentabilidad con el mismo riesgo.",
       "params": {
         "v": {
           "value": 14,
