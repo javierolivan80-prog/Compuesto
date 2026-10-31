@@ -50,7 +50,7 @@
       "unit": "acciones",
       "tolerance": 0.1,
       "answerDecimals": 0,
-      "formula": "ROUND(10000 * {r2} / 100 / ({entry} * {stop_pct} / 100) - 0.5, 0)",
+      "formula": "ROUND(10000 * {r2} / 100 / ({entry} * {stop_pct} / 100) - 0.5 + 1e-9, 0)",
       "explanation": "10.000 × {r2} % / ({entry} × {stop_pct} %), redondeado hacia abajo: {answer} acciones.",
       "params": {
         "entry": {

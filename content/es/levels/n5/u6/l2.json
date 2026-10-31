@@ -48,7 +48,7 @@
       "unit": "acciones",
       "tolerance": 0.1,
       "answerDecimals": 0,
-      "formula": "ROUND({c} * {r} / 100 / ({e} - {s}) - 0.5, 0)",
+      "formula": "ROUND({c} * {r} / 100 / ({e} - {s}) - 0.5 + 1e-9, 0)",
       "explanation": "{c} × {r} % / ({e} − {s}), redondeado hacia abajo: {answer} acciones.",
       "params": {
         "c": {
