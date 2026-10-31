@@ -225,6 +225,15 @@ describe('numeric_input y spreadsheet: la fórmula se evalúa y se compara', () 
     expect(ask('¿Cuánto toca a cada uno? (€, 2 decimales)')).toEqual([]);
     expect(ask('¿Cuánto toca a cada uno? (€)', 0)).toEqual([]);
   });
+  it('redondeo: la tolerancia no tapa una errata en answer (media unidad del último decimal)', () => {
+    const ex = { formula: '10000 * 0.98 ^ 8', tolerance: 0.1, answerDecimals: 2 };
+    // 8.507,63022…: 8.507,63 está bien; 8.507,46 entra en la tolerancia del 0,1 %, pero es una errata
+    expect(codes(lesson({ ...ex, answer: 8507.63 }))).toEqual([]);
+    expect(codes(lesson({ ...ex, answer: 8507.46 }))).toContain('respuesta-redondeo');
+    // con 0 decimales basta con estar a media unidad
+    expect(codes(lesson({ ...ex, answerDecimals: 0, answer: 8508 }))).toEqual([]);
+    expect(codes(lesson({ ...ex, answerDecimals: 0, answer: 8507 }))).toContain('respuesta-redondeo');
+  });
   it('fórmula ilegible o peligrosa → error, no excepción', () => {
     expect(codes(lesson({ formula: '1 +' }))).toContain('formula');
     expect(codes(lesson({ formula: 'process.exit(1)' }))).toContain('formula');

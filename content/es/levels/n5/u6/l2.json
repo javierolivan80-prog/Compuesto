@@ -72,17 +72,17 @@
           "step": 1,
           "decimals": 0
         },
-        "d": {
-          "value": 200,
-          "min": 50,
-          "max": 400,
-          "step": 50,
+        "p": {
+          "value": 5,
+          "min": 4,
+          "max": 10,
+          "step": 1,
           "decimals": 0
         }
       },
       "derived": {
         "s": {
-          "formula": "{e} - {d} / 100",
+          "formula": "{e} * (1 - {p} / 100)",
           "decimals": 2
         }
       }
@@ -160,17 +160,17 @@
           "step": 5,
           "decimals": 0
         },
-        "d": {
-          "value": 250,
-          "min": 100,
-          "max": 500,
-          "step": 50,
+        "p": {
+          "value": 5,
+          "min": 4,
+          "max": 10,
+          "step": 1,
           "decimals": 0
         }
       },
       "derived": {
         "s": {
-          "formula": "{e} - {d} / 100",
+          "formula": "{e} * (1 - {p} / 100)",
           "decimals": 2
         }
       }
@@ -238,7 +238,7 @@
       "tags": [],
       "concepts": ["stop-tamano"],
       "prompt": "Arriesgando el {r} % de lo que queda en cada operación, ¿cuánto quedaría de {c} € tras {n} pérdidas seguidas? (€, 2 decimales)",
-      "answer": 8170.73,
+      "answer": 15674.87,
       "unit": "€",
       "tolerance": 0.1,
       "answerDecimals": 2,
@@ -246,21 +246,21 @@
       "explanation": "{c} × (1 − {r} %)^{n} = {answer} €.",
       "params": {
         "c": {
-          "value": 10000,
+          "value": 20000,
           "min": 5000,
           "max": 50000,
           "step": 5000,
           "decimals": 0
         },
         "r": {
-          "value": 2,
+          "value": 3,
           "min": 1,
           "max": 5,
           "step": 1,
           "decimals": 0
         },
         "n": {
-          "value": 10,
+          "value": 8,
           "min": 5,
           "max": 15,
           "step": 1,
@@ -277,14 +277,12 @@
       "concepts": ["stop-tamano"],
       "prompt": "Ordena los pasos para planificar una operación.",
       "steps": [
-        "Decidir el riesgo máximo por operación, por ejemplo un 1 % del capital",
         "Fijar el stop donde la idea queda invalidada",
         "Calcular la distancia entre la entrada y el stop",
         "Calcular el tamaño: riesgo en € / distancia al stop",
-        "Fijar el objetivo y revisar la relación riesgo/beneficio",
         "Entrar y apuntar la operación en el diario"
       ],
-      "explanation": "El stop sale del análisis; el tamaño, del stop y del riesgo."
+      "explanation": "Cada paso necesita el anterior: sin stop no hay distancia, sin distancia no hay tamaño y sin tamaño no se puede entrar."
     },
     {
       "id": "n5-u6-l2-e7",

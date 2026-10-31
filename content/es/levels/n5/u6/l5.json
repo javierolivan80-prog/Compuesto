@@ -103,6 +103,21 @@
             "B1": 2
           },
           "expected": 150
+        },
+        {
+          "set": {
+            "B2": 3,
+            "B3": 200
+          },
+          "expected": 200
+        },
+        {
+          "set": {
+            "B1": 1,
+            "B2": 0.5,
+            "B3": 80
+          },
+          "expected": 0
         }
       ],
       "explanation": "=SI(B1>B2;0;B3): un 3 % supera el límite del 2 %, así que da 0."
@@ -117,18 +132,18 @@
       "prompt": "B1 es el capital, B2 el riesgo por operación (%), B3 la entrada y B4 el stop. Escribe en B5 el tamaño de la posición: riesgo en € / distancia al stop.",
       "cells": {
         "A1": "Capital (€)",
-        "B1": 25000,
+        "B1": 30000,
         "A2": "Riesgo (%)",
-        "B2": 1,
+        "B2": 1.5,
         "A3": "Entrada (€)",
-        "B3": 40,
+        "B3": 36,
         "A4": "Stop (€)",
-        "B4": 38,
+        "B4": 33.75,
         "A5": "Tamaño (acciones)"
       },
       "target": "B5",
       "solution": "=B1*B2/100/(B3-B4)",
-      "expected": 125,
+      "expected": 200,
       "tolerance": 0,
       "editable": [],
       "requireFormula": true,
@@ -152,7 +167,7 @@
           "expected": 80
         }
       ],
-      "explanation": "=B1*B2/100/(B3-B4) = 250 / 2 = 125 acciones."
+      "explanation": "=B1*B2/100/(B3-B4) = 450 / 2,25 = 200 acciones."
     },
     {
       "id": "n5-u6-l5-e4",
@@ -191,6 +206,12 @@
             "B3": -15
           },
           "expected": -15
+        },
+        {
+          "set": {
+            "A6": "PIR"
+          },
+          "expected": -80
         }
       ],
       "explanation": "=BUSCARX(A6;A1:A4;B1:B4) busca MED en A1:A4 y devuelve el de su fila en B1:B4: 45 €."
@@ -226,6 +247,18 @@
             "B1": 200
           },
           "expected": 0
+        },
+        {
+          "set": {
+            "A6": "NAR"
+          },
+          "expected": 120
+        },
+        {
+          "set": {
+            "A6": "TRA"
+          },
+          "expected": -30
         }
       ],
       "explanation": "El cuarto argumento es lo que devuelve si no lo encuentra: ALB no está, así que da 0."

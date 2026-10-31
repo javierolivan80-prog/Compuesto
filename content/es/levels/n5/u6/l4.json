@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Aversión a la pérdida",
-      "text": "Una pérdida duele más o menos el doble que alegra una ganancia del mismo tamaño (Kahneman y Tversky, 1979). Por eso cuesta cerrar una pérdida: mientras no se vende, no parece real, y se acaba bajando el stop o promediando a la baja."
+      "text": "Una pérdida duele más o menos el doble que alegra una ganancia del mismo tamaño (Kahneman y Tversky, 1979; estimado en torno a 2–2,25 por Tversky y Kahneman, 1992). Por eso cuesta cerrar una pérdida, y se acaba bajando el stop o promediando a la baja."
     },
     {
       "type": "card",
@@ -204,7 +204,7 @@
           "category": "Exceso de confianza"
         },
         {
-          "text": "No cerrar una pérdida para no «hacerla real»",
+          "text": "Rechazar una apuesta a cara o cruz en la que ganas 150 € o pierdes 100 €",
           "category": "Aversión a la pérdida"
         },
         {
@@ -264,6 +264,11 @@
     {
       "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
       "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Amos Tversky y Daniel Kahneman, «Advances in Prospect Theory: Cumulative Representation of Uncertainty», Journal of Risk and Uncertainty, 1992 (pendiente de verificar la ruta)",
+      "url": "https://link.springer.com/journal/11166",
       "date": "2026-10-31"
     },
     {

@@ -84,6 +84,23 @@ describe('BUSCARX (n5-u6)', () => {
   });
 });
 
+describe('SI.ERROR (n5-u6)', () => {
+  const cells: Record<string, Value> = { A1: 'NAR', A2: 'PIR', B1: 120, B2: -80, C1: 0 };
+  const env = { get: (n: string) => cells[n] };
+  it('devuelve el valor si no hay error y la alternativa si lo hay, en inglés y en español', () => {
+    expect(evaluate('IFERROR(10 / 2, 0)')).toBe(5);
+    expect(evaluate('SI.ERROR(10 / C1; -1)', env)).toBe(-1);
+    expect(evaluate('SI.ERROR(BUSCARX("TRA"; A1:A2; B1:B2); 0)', env)).toBe(0);
+    expect(evaluate('SI.ERROR(BUSCARX("PIR"; A1:A2; B1:B2); 0) * 2', env)).toBe(-160);
+  });
+  it('es perezoso: la alternativa no se evalúa si el valor no falla', () => {
+    expect(evaluate('SI.ERROR(1; 1 / 0)')).toBe(1);
+  });
+  it('sin segundo argumento es un error de sintaxis', () => {
+    expect(() => evaluate('SI.ERROR(1)')).toThrow(/dos argumentos/);
+  });
+});
+
 describe('TIR, VNA y códigos de error (tarea 1.5)', () => {
   // Valores de referencia calculados aparte con bisección en aritmética decimal de 50 dígitos.
   const IRR_REFERENCE: [string, number[], number][] = [

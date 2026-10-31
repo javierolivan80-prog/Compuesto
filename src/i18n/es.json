@@ -2220,7 +2220,7 @@
     "chartAria": "30 sesiones. Stop en {{stop}} y objetivo en {{target}}. Mínimo de {{min}} en la sesión {{minDay}}, máximo de {{max}} en la sesión {{maxDay}} y cierre de {{close}}.",
     "askPath": "¿Cuál fue el resultado de tus {{n}} acciones?",
     "whyPath": {
-      "stop": "Saltó el stop en la sesión {{day}}, a {{price}}: {{v}}, justo el riesgo que habías decidido. Una pérdida pequeña y prevista.",
+      "stop": "Saltó el stop en la sesión {{day}}. Suponiendo que se ejecuta al precio del stop, sin hueco: {{v}}, como mucho el riesgo que habías decidido.",
       "target": "Tocó el objetivo en la sesión {{day}}, a {{price}}: {{v}}. Vender ahí es parte del plan, aunque luego siga subiendo.",
       "close": "No tocó ni el stop ni el objetivo: vendiste al cierre de la sesión {{day}}, a {{price}}: {{v}}."
     },
@@ -2232,7 +2232,7 @@
       "lower": "Lo bajo para darle más aire",
       "average": "Compro más para promediar a la baja"
     },
-    "whyTempt": "El stop se decide antes, con la cabeza fría. Bajarlo cuando la operación va mal es aversión a la pérdida: duele tanto cerrar en negativo que se agranda el riesgo. Y promediar a la baja dobla la apuesta perdedora. Es el efecto disposición: vender pronto lo que gana y aguantar lo que pierde.",
+    "whyTempt": "El stop se decide antes, con la cabeza fría. Bajarlo cuando la operación va mal suele ser aversión a la pérdida: cerrar en negativo duele, y se acaba agrandando el riesgo. Promediar a la baja dobla la apuesta perdedora. Y aguantar las que pierden mientras se venden pronto las que ganan es el efecto disposición.",
     "summary": "Ver el resumen",
     "next": "Siguiente",
     "hit": "¡Bien!",

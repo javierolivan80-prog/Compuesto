@@ -1247,7 +1247,7 @@
     "level": 5,
     "prerequisites": ["sesgo-narrativa"],
     "unit": "n5-u6",
-    "description": "Exceso de confianza: operar de más y subir el tamaño tras unos aciertos. Aversión a la pérdida: una pérdida duele más o menos el doble que alegra una ganancia (Kahneman y Tversky, 1979). Efecto disposición: vender pronto lo que gana y mantener lo que pierde (Shefrin y Statman, 1985)."
+    "description": "Exceso de confianza: operar de más y subir el tamaño tras unos aciertos. Aversión a la pérdida: una pérdida duele más o menos el doble que alegra una ganancia (Kahneman y Tversky, 1979; estimado en torno a 2–2,25 por Tversky y Kahneman, 1992). Efecto disposición: vender pronto lo que gana y mantener lo que pierde (Shefrin y Statman, 1985)."
   },
   {
     "id": "si-buscarx",

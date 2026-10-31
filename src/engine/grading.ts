@@ -28,7 +28,7 @@ export function gradeSpreadsheet(
   const targetText = user[e.target];
   if (targetText === undefined) return { correct: false, empty: true };
   if (e.requireFormula && !isFormula(targetText)) return ko({ wrongItems: [e.target] });
-  const run = (set: Record<string, number>) =>
+  const run = (set: Record<string, number | string>) =>
     numericValue(evaluateSheet({ ...e.cells, ...user, ...set })[e.target]);
   const value = run({});
   if (!within(value, e.expected, e.tolerance)) return ko({ parsed: value, wrongItems: [e.target] });

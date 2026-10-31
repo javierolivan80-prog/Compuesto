@@ -342,6 +342,36 @@ export function evaluate(src: string, env: Env = {}): Value {
     }
     if (t.t === 'id') {
       const name = t.v;
+      if (isOp('(') && ['IFERROR', 'SI.ERROR'].includes(name.toUpperCase())) {
+        // SI.ERROR(valor; si hay error): perezoso, como en Excel. Si el primer argumento falla, se salta y se
+        // evalúa el segundo; si no, el segundo ni se evalúa
+        p++;
+        const start = p;
+        let value: Value | undefined;
+        try {
+          const v = argument();
+          if (Array.isArray(v)) throw new ExprError('SI.ERROR no admite un rango', '#VALUE!');
+          value = v;
+        } catch (x) {
+          if (!(x instanceof ExprError)) throw x;
+          p = start;
+          skipArgument();
+        }
+        if (!isOp(',') && !isOp(';'))
+          throw new ExprError(`SI.ERROR necesita dos argumentos en "${src}"`);
+        p++;
+        let result: Value;
+        if (value === undefined) {
+          const alt = argument();
+          if (Array.isArray(alt)) throw new ExprError('SI.ERROR no admite un rango', '#VALUE!');
+          result = alt;
+        } else {
+          skipArgument();
+          result = value;
+        }
+        eat(')');
+        return result;
+      }
       if (isOp('(')) {
         p++;
         const args: (Value | Value[])[] = [];
@@ -363,6 +393,19 @@ export function evaluate(src: string, env: Env = {}): Value {
       return v;
     }
     throw new ExprError(`Símbolo inesperado en "${src}"`);
+  };
+  /** Avanza hasta el final del argumento actual (la coma, el punto y coma o el paréntesis que lo cierra). */
+  const skipArgument = () => {
+    let depth = 0;
+    for (; p < toks.length; p++) {
+      const t = toks[p]!;
+      if (t.t !== 'op') continue;
+      if (t.v === '(') depth++;
+      else if (t.v === ')') {
+        if (depth === 0) return;
+        depth--;
+      } else if ((t.v === ',' || t.v === ';') && depth === 0) return;
+    }
   };
   /** Un argumento puede ser un rango A1:B2 (devuelve la lista de valores). */
   const argument = (): Value | Value[] => {

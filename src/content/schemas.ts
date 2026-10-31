@@ -214,7 +214,8 @@ const ss = z.object({
   hiddenCases: z
     .array(
       z.object({
-        set: z.record(z.string().regex(/^[A-Z]+\d+$/), z.number()),
+        /** Celdas que cambian: cifras o textos (p. ej. el valor que busca un BUSCARX). */
+        set: z.record(z.string().regex(/^[A-Z]+\d+$/), z.union([z.number(), z.string()])),
         expected: z.number(),
       }),
     )

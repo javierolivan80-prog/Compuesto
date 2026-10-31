@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Tamaño",
-      "text": "Acertaste {hits} de 4. Arriesgando el {risk_pct} % de {capital} €, es decir, {risk_eur} €, con la entrada en {entry} € y el stop en {stop} €, el tamaño era de {shares} acciones: una posición de {position} €, mucho menos que todo el capital."
+      "text": "Acertaste {hits} de 4. Arriesgando el {risk_pct} % de {capital} €, es decir, {risk_eur} €, con la entrada en {entry} € y el stop en {stop} €, el tamaño era de {shares} acciones, mucho menos de lo que permitía el capital."
     },
     {
       "type": "card",
@@ -279,6 +279,11 @@
     {
       "title": "Daniel Kahneman y Amos Tversky, «Prospect Theory: An Analysis of Decision under Risk», Econometrica, 1979 (pendiente de verificar la ruta)",
       "url": "https://www.econometricsociety.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Amos Tversky y Daniel Kahneman, «Advances in Prospect Theory: Cumulative Representation of Uncertainty», Journal of Risk and Uncertainty, 1992 (pendiente de verificar la ruta)",
+      "url": "https://link.springer.com/journal/11166",
       "date": "2026-10-31"
     },
     {

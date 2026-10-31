@@ -142,7 +142,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["stop-tamano"],
-      "prompt": "Si esa estrategia tiene una esperanza de {x} R por operación y cada R son {r} €, ¿cuánto espera ganar en {n} operaciones? (€)",
+      "prompt": "Si una estrategia ficticia tiene una esperanza de {x} R por operación y cada R son {r} €, ¿cuánto espera ganar en {n} operaciones? (€)",
       "answer": 3000,
       "unit": "€",
       "tolerance": 0.1,

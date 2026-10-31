@@ -328,6 +328,17 @@ function checkConcrete(e: Exercise, strict: boolean): Issue[] {
             'formula',
             `La fórmula "${e.formula}" da ${Number(v.toPrecision(12))}, no ${e.answer} (tolerancia ${e.tolerance} %)`,
           );
+        else if (!e.modelRef) {
+          // la tolerancia no debe tapar una errata: answer es la fórmula redondeada a answerDecimals (± media unidad)
+          const d = e.answerDecimals ?? DEFAULT_ANSWER_DECIMALS;
+          const unit = 10 ** -d;
+          const rounded = Math.round(v / unit) * unit;
+          if (Math.abs(v - e.answer) > unit / 2 + 1e-9 * Math.max(1, Math.abs(v)))
+            err(
+              'respuesta-redondeo',
+              `La fórmula "${e.formula}" da ${Number(v.toPrecision(12))}, que con ${d} decimal(es) es ${Number(rounded.toFixed(d))}, no ${e.answer}`,
+            );
+        }
       } catch (x) {
         err('formula', `La fórmula "${e.formula}" no se puede evaluar: ${(x as Error).message}`);
       }
@@ -335,7 +346,7 @@ function checkConcrete(e: Exercise, strict: boolean): Issue[] {
     }
     case 'spreadsheet': {
       const formula = e.solution.startsWith('=') ? e.solution : `=${e.solution}`;
-      const run = (set: Record<string, number>) =>
+      const run = (set: Record<string, number | string>) =>
         numericValue(evaluateSheet({ ...e.cells, ...set, [e.target]: formula })[e.target]);
       const within = (v: number | null, expected: number) =>
         v !== null &&

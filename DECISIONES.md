@@ -947,3 +947,9 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **Sesgos:** aversión a la pérdida («más o menos el doble», Kahneman y Tversky, 1979), efecto disposición (Shefrin y Statman, 1985; Odean, 1998) y exceso de confianza (Barber y Odean, 2000). Las fuentes van por su URL raíz «(pendiente de verificar la ruta)».
 - **Planta 4:** con esta unidad tiene sus seis unidades. `tests/screens.test.tsx` mantiene la planta 5 (Carteras) como «próximamente».
 - `curriculum.json` incorpora `n5-u6`.
+
+### n5-u6, ronda 1 de la revisión (31/10/2026)
+- **Regla nueva del validador, `respuesta-redondeo`:** la respuesta de un `numeric_input` debe estar a media unidad del último decimal (`answerDecimals`) del resultado de su fórmula; en los paramétricos se aplica a los valores por defecto. La tolerancia sirve para la persona, pero no debe tapar una errata del contenido. Pasada por todo el contenido, solo detecta n5-u6-l6-e5 (8.507,46 → 8.507,63).
+- **El IF del evaluador es estricto:** evalúa las dos ramas antes de elegir, así que `=SI(B1=0;0;1/B1)` da error con B1 = 0. Para eso se añade `IFERROR`/`SI.ERROR`, que sí es perezoso: si el primer argumento no falla, el segundo ni se evalúa.
+- **Casos ocultos con texto:** en los ejercicios `spreadsheet`, `hiddenCases.set` admite también textos, para cambiar el valor que busca un BUSCARX.
+- **Test de salto:** su banco no admite `spreadsheet`, así que la q7 de BUSCARX es un `fill_blank` con los dos rangos.
