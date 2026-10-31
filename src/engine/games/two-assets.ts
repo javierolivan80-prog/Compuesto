@@ -9,7 +9,7 @@ import { mulberry32 } from '../prng';
  *      peso por volatilidad inversa, σB / (σA + σB).
  *   3. Línea del mercado de capitales: rentabilidad esperada para una volatilidad σ* combinando la cartera tangente
  *      con el activo sin riesgo: rf + (Rt − rf) / σt × σ*. Distractores: sin el tipo sin riesgo y con el cociente al revés.
- *   4. Alfa de Jensen: β = ρ × σi / σm (la pendiente de la regresión) y α = R − [rf + β(Rm − rf)]. Distractores: usar
+ *   4. Alfa de Jensen: β = ρ × σi / σm (la pendiente de la regresión Ri − rf = α + β(Rm − rf) + error) y α = R − [rf + β(Rm − rf)]. Distractores: usar
  *      ρ como si fuera la beta y comparar sin más con el mercado (R − Rm).
  * Cifras ficticias, en % con números enteros salvo la correlación.
  */

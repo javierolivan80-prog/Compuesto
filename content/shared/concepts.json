@@ -1311,7 +1311,7 @@
     "level": 6,
     "prerequisites": ["correlacion", "contraste-hipotesis"],
     "unit": "n6-u2",
-    "description": "Regresión de las rentabilidades de un activo sobre las del mercado: la pendiente es la beta (covarianza / varianza = ρσi/σm), el R² la parte de la varianza explicada (ρ²) y el estadístico t de la beta, β / su error típico. Con pocos datos, la estimación es incierta."
+    "description": "Regresión en excesos sobre el tipo sin riesgo, Ri − rf = α + β(Rm − rf) + error: la pendiente es la beta (covarianza / varianza = ρσi/σm), el R² la parte de la varianza explicada (ρ²) y el estadístico t de la beta, β / su error típico. Con pocos datos, la estimación es incierta."
   },
   {
     "id": "capm-avanzado",

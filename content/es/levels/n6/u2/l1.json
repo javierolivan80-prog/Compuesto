@@ -34,7 +34,7 @@
     {
       "type": "card",
       "term": "Beta y alfa",
-      "text": "La beta de la acción, {rho_m} × {si} / {sm}, era {beta}. Con el mercado al {rm} %, el CAPM pedía rf + β × (Rm − rf), y la acción rindió {alpha} puntos más (o menos, si es negativo): su alfa de Jensen."
+      "text": "La beta de la acción, {rho_m} × {si} / {sm}, era {beta}. Con el mercado al {rm} %, el CAPM pedía rf + β × (Rm − rf); la diferencia entre lo que rindió la acción y eso, {alpha} puntos (negativo si quedó por debajo), es su alfa de Jensen."
     }
   ],
   "exercises": [

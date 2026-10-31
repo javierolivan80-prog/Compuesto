@@ -192,23 +192,16 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["markowitz"],
-      "prompt": "Una cartera ficticia rinde un {r} % con un {v} % de volatilidad, y el tipo sin riesgo es del {rf} %. ¿Cuál es su ratio de Sharpe? Compáralo con la pendiente de la línea del mercado de capitales. (3 decimales)",
+      "prompt": "La línea del mercado de capitales tiene una pendiente de 0,4 y el tipo sin riesgo es del 2 %. Una cartera ficticia rinde un {r} % con un {v} % de volatilidad. ¿Cuál es su ratio de Sharpe? (3 decimales)",
       "answer": 0.357,
       "tolerance": 0.5,
       "answerDecimals": 3,
-      "formula": "({r} - {rf}) / {v}",
-      "explanation": "({r} − {rf}) / {v} = {answer}: si es menor que el Sharpe de la cartera tangente, la cartera queda por debajo de la línea.",
+      "formula": "({r} - 2) / {v}",
+      "explanation": "({r} − 2) / {v} = {answer}, menos que 0,4: la cartera queda por debajo de la línea, y mezclar la tangente con liquidez daría más rentabilidad con el mismo riesgo.",
       "params": {
-        "rf": {
-          "value": 2,
-          "min": 1,
-          "max": 3,
-          "step": 1,
-          "decimals": 0
-        },
         "v": {
           "value": 14,
-          "min": 10,
+          "min": 14,
           "max": 20,
           "step": 1,
           "decimals": 0
@@ -216,7 +209,7 @@
         "r": {
           "value": 7,
           "min": 6,
-          "max": 9,
+          "max": 7.5,
           "step": 0.5,
           "decimals": 1
         }

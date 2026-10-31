@@ -2340,7 +2340,7 @@
     "briefCml": "Combinando la cartera tangente (la de mejor Sharpe) con el activo sin riesgo, prestando o pidiendo prestado, se obtiene la línea del mercado de capitales. El cliente quiere una volatilidad del {{target}}.",
     "askCml": "¿Qué rentabilidad esperada le da la línea del mercado de capitales?",
     "whyCml": "{{rf}} + ({{rt}} − {{rf}}) / {{st}} × {{target}} = {{v}}. La pendiente de la línea es el ratio de Sharpe de la cartera tangente: cada punto de volatilidad se paga igual.",
-    "briefAlpha": "Por último, una acción ficticia de la cartera. Su beta es la pendiente de la regresión de sus rentabilidades sobre las del mercado: correlación × volatilidad de la acción / volatilidad del mercado. El alfa de Jensen es lo que rinde por encima de lo que pide el CAPM para esa beta.",
+    "briefAlpha": "Por último, una acción ficticia de la cartera. Su beta es la pendiente de la regresión Ri − rf = α + β(Rm − rf) + error: correlación × volatilidad de la acción / volatilidad del mercado. El alfa de Jensen es lo que rinde por encima de lo que pide el CAPM para esa beta.",
     "askAlpha": "¿Cuál es el alfa de Jensen de la acción?",
     "whyAlpha": "β = {{rhoM}} × {{si}} / {{sm}} = {{beta}}; α = rentabilidad − [rf + β × (mercado − rf)] = {{v}}. La correlación no es la beta: hay que escalarla por las volatilidades.",
     "summary": "Ver el resumen",

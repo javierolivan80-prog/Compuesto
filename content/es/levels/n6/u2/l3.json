@@ -19,7 +19,7 @@
     {
       "type": "card",
       "term": "Markowitz",
-      "text": "Markowitz (1952) propuso elegir carteras por su rentabilidad esperada y su riesgo a la vez. Una cartera es eficiente si no hay otra con más rentabilidad y el mismo riesgo, o con el mismo rentabilidad y menos riesgo. Juntas forman la frontera eficiente."
+      "text": "Markowitz (1952) propuso elegir carteras por su rentabilidad esperada y su riesgo a la vez. Una cartera es eficiente si no hay otra con más rentabilidad y el mismo riesgo, o con la misma rentabilidad y menos riesgo. Juntas forman la frontera eficiente."
     },
     {
       "type": "visual",
@@ -191,21 +191,14 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["markowitz"],
-      "prompt": "Una cartera ficticia tiene un {w} % en A, que rinde un {ra} %, y el resto en B, que rinde un {rb} %. ¿Cuál es su rentabilidad esperada? (%, 2 decimales)",
-      "answer": 8.2,
+      "prompt": "Dos activos ficticios no correlacionados: A rinde un {ra} % con una volatilidad del {sa} % y B, un {rb} % con un {sb} %. ¿Qué rentabilidad esperada tiene su cartera de mínima varianza? (%, 2 decimales)",
+      "answer": 5.2,
       "unit": "%",
       "tolerance": 0.3,
       "answerDecimals": 2,
-      "formula": "{w} / 100 * {ra} + (1 - {w} / 100) * {rb}",
-      "explanation": "{w} % × {ra} + (100 − {w}) % × {rb} = {answer} %.",
+      "formula": "{sb} ^ 2 / ({sa} ^ 2 + {sb} ^ 2) * {ra} + (1 - {sb} ^ 2 / ({sa} ^ 2 + {sb} ^ 2)) * {rb}",
+      "explanation": "Con ρ = 0, el peso en A es σB² / (σA² + σB²); la rentabilidad, peso × {ra} + (1 − peso) × {rb} = {answer} %.",
       "params": {
-        "w": {
-          "value": 70,
-          "min": 50,
-          "max": 90,
-          "step": 10,
-          "decimals": 0
-        },
         "ra": {
           "value": 10,
           "min": 8,
@@ -213,11 +206,25 @@
           "step": 1,
           "decimals": 0
         },
+        "sa": {
+          "value": 24,
+          "min": 18,
+          "max": 30,
+          "step": 2,
+          "decimals": 0
+        },
         "rb": {
           "value": 4,
           "min": 2,
           "max": 5,
           "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 12,
+          "min": 8,
+          "max": 14,
+          "step": 2,
           "decimals": 0
         }
       }
@@ -229,12 +236,12 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["markowitz"],
-      "prompt": "Tres carteras ficticias tienen la misma volatilidad, un 14 %, y una cuarta tiene un 10 % y rinde un 6 %. ¿Cuáles son eficientes?",
-      "categories": ["Eficiente", "Dominada"],
+      "prompt": "Tres carteras ficticias tienen la misma volatilidad, un 14 %, y una cuarta tiene un 10 % y rinde un 6 %. Comparando solo estas cuatro, ¿cuáles no están dominadas por otra?",
+      "categories": ["No dominada", "Dominada"],
       "items": [
         {
           "text": "La que rinde un 8 % con un 14 % de volatilidad",
-          "category": "Eficiente"
+          "category": "No dominada"
         },
         {
           "text": "La que rinde un 6 % con un 14 %",
@@ -246,7 +253,7 @@
         },
         {
           "text": "La que rinde un 6 % con un 10 %",
-          "category": "Eficiente"
+          "category": "No dominada"
         }
       ],
       "explanation": "Con el mismo riesgo, gana la de más rentabilidad; con la misma rentabilidad, la de menos riesgo."

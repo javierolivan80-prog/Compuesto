@@ -24,7 +24,7 @@
     {
       "type": "card",
       "term": "Regresión",
-      "text": "Se regresan las rentabilidades de la acción sobre las del mercado: Ri = α + βRm + error. La pendiente es β = covarianza / varianza del mercado = ρσi/σm. El R² es la parte de la varianza que explica el mercado, ρ². El estadístico t de β es β / su error típico."
+      "text": "Se regresan las rentabilidades en exceso: Ri − rf = α + β(Rm − rf) + error. La pendiente es β = covarianza / varianza del mercado = ρσi/σm. El R² es la parte de la varianza que explica el mercado, ρ². El estadístico t de β es β / su error típico."
     },
     {
       "type": "card",
@@ -99,11 +99,11 @@
       "tolerance": 0.3,
       "answerDecimals": 3,
       "formula": "{b} / {e}",
-      "explanation": "{b} / {e} = {answer}: por encima de 2, la beta es claramente distinta de cero.",
+      "explanation": "{b} / {e} = {answer}. Con la regla habitual, un t por encima de 2 indica que la beta es significativamente distinta de cero.",
       "params": {
         "b": {
           "value": 1.2,
-          "min": 0.5,
+          "min": 0.9,
           "max": 1.8,
           "step": 0.1,
           "decimals": 1
@@ -193,7 +193,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["regresion"],
-      "prompt": "¿Qué número de la regresión lo mide?",
+      "prompt": "En la regresión Ri − rf = α + β(Rm − rf) + error, ¿qué número lo mide?",
       "categories": ["La beta", "El R²", "El alfa"],
       "items": [
         {

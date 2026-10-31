@@ -132,14 +132,18 @@
     },
     {
       "id": "salto-n6-u2-q8",
-      "type": "true_false_swipe",
+      "type": "numeric_input",
       "difficulty": 2,
-      "bloom": "entender",
+      "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["diversificacion"],
-      "statement": "Con correlación −1 se puede construir una cartera de dos activos sin volatilidad.",
-      "answer": true,
-      "explanation": "Verdadero: con los pesos adecuados, lo que pierde uno lo gana el otro."
+      "prompt": "Una cartera ficticia reparte el dinero a partes iguales entre infinitas acciones, todas con una volatilidad del 20 % y una correlación media de 0,25. ¿Qué volatilidad le queda? (%)",
+      "answer": 10,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "20 * SQRT(0.25)",
+      "explanation": "σ × √ρ = 20 × 0,5 = 10 %: el riesgo sistemático, que no se diversifica."
     },
     {
       "id": "salto-n6-u2-q9",
@@ -198,10 +202,10 @@
       "difficulty": 2,
       "bloom": "entender",
       "tags": ["test-de-salto"],
-      "concepts": ["capm-avanzado"],
-      "statement": "Una acción con beta 0 no tiene ningún riesgo.",
-      "answer": false,
-      "explanation": "Falso: no tiene riesgo de mercado, pero puede tener mucho riesgo idiosincrático."
+      "concepts": ["diversificacion"],
+      "statement": "Con correlación −1 se puede construir una cartera de dos activos sin volatilidad.",
+      "answer": true,
+      "explanation": "Verdadero: con los pesos adecuados, lo que pierde uno lo gana el otro."
     }
   ],
   "sources": [

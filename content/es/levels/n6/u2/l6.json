@@ -40,13 +40,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["markowitz"],
-      "prompt": "Dos activos ficticios no correlacionados tienen volatilidades del 25 % y del 10 %. ¿Qué peso en el primero tiene la cartera de mínima varianza? (%, 2 decimales)",
-      "answer": 13.79,
+      "prompt": "Dos activos ficticios no correlacionados tienen volatilidades del 24 % y del 10 %. ¿Qué peso en el primero tiene la cartera de mínima varianza? (%, 2 decimales)",
+      "answer": 14.79,
       "unit": "%",
       "tolerance": 0.3,
       "answerDecimals": 2,
-      "formula": "100 / (625 + 100) * 100",
-      "explanation": "σB² / (σA² + σB²) = 100 / 725 = 13,79 %."
+      "formula": "100 / (576 + 100) * 100",
+      "explanation": "σB² / (σA² + σB²) = 100 / 676 = 14,79 %."
     },
     {
       "id": "n6-u2-l6-e3",
