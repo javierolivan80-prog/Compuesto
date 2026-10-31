@@ -91,6 +91,9 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  Drawdown: z.object({
+    peak: z.number().positive(),
+  }),
   PositionSizing: z.object({
     capital: z.number().positive(),
     losses: z.number().int().min(2).max(30),

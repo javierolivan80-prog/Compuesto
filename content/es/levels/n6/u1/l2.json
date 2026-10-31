@@ -1,0 +1,285 @@
+{
+  "id": "n6-u1-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "title": "Rentabilidad simple, logarítmica y compuesta",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular rentabilidades simples, logarítmicas y medias geométricas",
+    "Explicar por qué la volatilidad separa la media aritmética de la geométrica"
+  ],
+  "concepts": ["rentabilidad-log"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus primeras lecciones: el interés compuesto y la rentabilidad total de una acción, con sus dividendos. Aquí aprendes a juntar las rentabilidades de varios periodos como lo hace un gestor de carteras: cuándo se suman, cuándo se multiplican y cómo se promedian."
+    },
+    {
+      "type": "card",
+      "term": "Simple y logarítmica",
+      "text": "Rentabilidad simple: (P1 − P0) / P0. Logarítmica: ln(P1 / P0). En movimientos pequeños casi coinciden. La ventaja de la logarítmica es que la de varios periodos es la suma de las de cada uno; las simples, en cambio, se componen multiplicando."
+    },
+    {
+      "type": "card",
+      "term": "Aritmética y geométrica",
+      "text": "Si un año gana un 50 % y el siguiente pierde un 50 %, la media aritmética es 0 %, pero queda el 75 % del capital. La media geométrica, √(1,5 × 0,5) − 1 = −13,4 %, describe lo que pasó. Cuanta más volatilidad, más se separan."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u1-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Una acción ficticia pasa de {p0} € a {p1} € en un año, sin dividendos. ¿Cuál es su rentabilidad simple? (%, 2 decimales)",
+      "answer": 15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({p1} - {p0}) / {p0} * 100",
+      "explanation": "({p1} − {p0}) / {p0} = {answer} %.",
+      "params": {
+        "p0": {
+          "value": 40,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 115,
+          "min": 80,
+          "max": 150,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Esa acción ficticia pasa de {p0} € a {p1} €. ¿Cuál es su rentabilidad logarítmica, ln(P1 / P0)? (%, 3 decimales)",
+      "answer": 13.976,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "LN({p1} / {p0}) * 100",
+      "explanation": "ln({p1} / {p0}) = {answer} %.",
+      "params": {
+        "p0": {
+          "value": 40,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 115,
+          "min": 105,
+          "max": 150,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "p1": {
+          "formula": "{p0} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Las rentabilidades logarítmicas de un fondo ficticio en tres años fueron {a} %, {b} % y {c} %. ¿Cuál es su rentabilidad simple acumulada en los tres años? (%, 2 decimales)",
+      "answer": 11.07,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(EXP(({a} + {b} + {c}) / 100) - 1) * 100",
+      "explanation": "Se suman los logaritmos, {a} + {b} + {c}, y se deshace el logaritmo: e^(suma) − 1 = {answer} %.",
+      "params": {
+        "a": {
+          "value": 5.2,
+          "min": 4,
+          "max": 10,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "b": {
+          "value": -3.1,
+          "min": -5,
+          "max": -1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "c": {
+          "value": 8.4,
+          "min": 3,
+          "max": 12,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Un fondo ficticio gana un {a} % un año y pierde un {b} % el siguiente. ¿Cuál es su media geométrica anual? (%, 3 decimales; negativa si pierde)",
+      "answer": 1.98,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "(SQRT((1 + {a} / 100) * (1 - {b} / 100)) - 1) * 100",
+      "explanation": "√((1 + {a} %) × (1 − {b} %)) − 1 = {answer} % al año, menos que la media aritmética.",
+      "params": {
+        "a": {
+          "value": 30,
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "b": {
+          "value": 20,
+          "min": 5,
+          "max": 25,
+          "step": 5,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Una cartera ficticia tiene una rentabilidad media aritmética del {m} % anual y una volatilidad del {s} %. Con la aproximación media geométrica ≈ aritmética − σ² / 2, ¿cuál es su media geométrica? (%, 2 decimales)",
+      "answer": 6,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{m} - {s} ^ 2 / 200",
+      "explanation": "{m} − {s}² / 2 (en tanto por uno) = {answer} %: es el «lastre» de la volatilidad.",
+      "params": {
+        "m": {
+          "value": 8,
+          "min": 6,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "s": {
+          "value": 20,
+          "min": 5,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l2-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "¿Cómo se juntan las rentabilidades de varios periodos?",
+      "categories": ["Se suman", "Se componen multiplicando (1 + r)"],
+      "items": [
+        {
+          "text": "Rentabilidades logarítmicas",
+          "category": "Se suman"
+        },
+        {
+          "text": "Rentabilidades simples",
+          "category": "Se componen multiplicando (1 + r)"
+        },
+        {
+          "text": "Las logarítmicas de doce meses, para la del año",
+          "category": "Se suman"
+        },
+        {
+          "text": "Las simples de dos semestres, para la del año",
+          "category": "Se componen multiplicando (1 + r)"
+        }
+      ],
+      "explanation": "Logarítmicas: suma. Simples: producto de (1 + r) menos 1."
+    },
+    {
+      "id": "n6-u1-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "character": "rival",
+      "situation": "El becario rival dice que un fondo ficticio que ganó un 50 % y luego perdió un 50 % «está igual que al principio, porque la media es cero».",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que de cada 100 € quedan 75: la media aritmética engaña; la geométrica, un −13,4 % anual, es la que describe lo que pasó",
+        "Que tiene razón",
+        "Que en realidad ha ganado un 25 %",
+        "Que la media aritmética siempre es la correcta"
+      ],
+      "answer": 0,
+      "explanation": "Las rentabilidades se componen: 1,5 × 0,5 = 0,75.",
+      "wrongExplanations": {
+        "1": "El capital no vuelve al punto de partida.",
+        "2": "Ha perdido un 25 % en total.",
+        "3": "Para varios periodos, la que cuenta es la geométrica."
+      }
+    },
+    {
+      "id": "n6-u1-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "statement": "La media aritmética de unas rentabilidades anuales siempre es mayor o igual que su media geométrica.",
+      "answer": true,
+      "explanation": "Verdadero: son iguales solo si todas las rentabilidades coinciden; con volatilidad, la geométrica queda por debajo."
+    }
+  ],
+  "realWorld": "Las fichas de los fondos dan rentabilidades acumuladas y anualizadas: las anualizadas son medias geométricas. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

@@ -71,6 +71,13 @@ import {
   shares as stShares,
 } from '../src/engine/games/stop-trade';
 import {
+  maxDrawdown as frDd,
+  mwr as frMwr,
+  setupReport,
+  sharpe as frSharpe,
+  twr as frTwr,
+} from '../src/engine/games/fund-report';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -331,6 +338,28 @@ export async function playGameLesson(
       .getByRole('radio', {
         name: deskMove(setup) === 'widen' ? 'La ensancho' : 'La mantengo',
         exact: true,
+      })
+      .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'fund-report') {
+    // referencia 0: la TWR, la MWR, el drawdown máximo y el Sharpe
+    await expect(page.getByRole('heading', { name: 'El informe del gestor' })).toBeVisible();
+    const setup = setupReport(seed);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    const pctRe = (v: number) =>
+      new RegExp(
+        `^${v < 0 ? '−' : ''}${esc(formatNumber(Math.abs(v), Number.isInteger(v) ? 0 : 2))}\\s%$`,
+      );
+    await page.getByRole('radio', { name: pctRe(frTwr(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: pctRe(frMwr(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: pctRe(frDd(setup)) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const sh = frSharpe(setup);
+    await page
+      .getByRole('radio', {
+        name: new RegExp(`^${sh < 0 ? '−' : ''}${esc(formatNumber(Math.abs(sh), 2))}$`),
       })
       .click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();

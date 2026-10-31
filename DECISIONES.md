@@ -953,3 +953,19 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 - **El IF del evaluador es estricto:** evalúa las dos ramas antes de elegir, así que `=SI(B1=0;0;1/B1)` da error con B1 = 0. Para eso se añade `IFERROR`/`SI.ERROR`, que sí es perezoso: si el primer argumento no falla, el segundo ni se evalúa.
 - **Casos ocultos con texto:** en los ejercicios `spreadsheet`, `hiddenCases.set` admite también textos, para cambiar el valor que busca un BUSCARX.
 - **Test de salto:** su banco no admite `spreadsheet`, así que la q7 de BUSCARX es un `fill_blank` con los dos rangos.
+
+## 2026-10-31 — Planta 5 (N6): división en unidades y n6-u1 (draft)
+- **Unidades de N6**, propuestas a partir de los conceptos de N6 en concepts.json con el criterio de N5: la opción más simple que respeta CLAUDE.md §2, sin esperar respuesta, como pidió el coordinador.
+  1. **Medir rentabilidad y riesgo de una cartera** (`rentabilidad-log`, `twr-mwr`, `volatilidad`, `sharpe-sortino`, `drawdown`). Juego nuevo: «El informe del gestor».
+  2. **Diversificación, Markowitz y CAPM con regresión** (`diversificacion`, `markowitz`, `regresion`, `capm-avanzado`). Juego nuevo. Explicadores del catálogo: `Diversification` y `EfficientFrontier`.
+  3. **Riesgo extremo: VaR, CVaR, Monte Carlo y trampas del backtest** (`var-cvar`, `monte-carlo`, `backtesting`). Ficha 6 de JUEGOS.md, «Máquina del tiempo», en su versión de N6. Explicadores: `VarTail`, `MonteCarloPaths` y `BacktestTrap`.
+  4. **Gestión pasiva y activa, factores y atribución** (`pasiva-activa`, `factores`, `tracking-error-ir`, `atribucion-brinson`, `comisiones-compuestas`). Juego nuevo. Explicador: `SecurityMarketLine`.
+  5. **Asset allocation, rebalanceo y contabilidad mental** (`asset-allocation`, `black-litterman-paridad`, `contabilidad-mental`, con la optimización fiscal legal de una cartera). Ficha 5 de JUEGOS.md, «Gestor por un año».
+  6. **Alternativos y ESG** (`alternativos-inversion`, `esg-sfdr`). Juego nuevo.
+- **Solape:** media, desviación típica y volatilidad anual ya se ven en n2-u4; comisiones y su efecto compuesto, en n2-u3; correlación e intuición de la diversificación, en n4-u3; contraste de hipótesis y data snooping, en n5-u4. Cada unidad parte de ahí con una tarjeta «Ya sabes» cuando hace falta.
+- **Datos:** `curriculum.json` solo incluye por ahora `n6-u1`. `tests/screens.test.tsx` pasa a usar la planta 6 (Derivados) como referencia de «próximamente».
+- **n6-u1:**
+  - El explicador de drawdown no estaba en el catálogo de nivel 6, así que se añade `Drawdown` a ANIMACIONES.
+  - La MWR se enseña como la TIR de los flujos, con la ecuación de segundo grado para dos aportaciones anuales y el método de Dietz modificado como aproximación.
+  - La TWR se presenta como la medida que exigen las normas GIPS.
+  - Las fuentes (CFA Institute, GIPS, Sharpe, 1994, y Sortino y Price, 1994) van por su URL raíz «(pendiente de verificar la ruta)».

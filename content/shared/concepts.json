@@ -1261,19 +1261,25 @@
     "id": "rentabilidad-log",
     "name": "Rentabilidad simple y logarítmica",
     "level": 6,
-    "prerequisites": ["rentabilidad-total"]
+    "prerequisites": ["rentabilidad-total"],
+    "unit": "n6-u1",
+    "description": "Rentabilidad simple: (P1 − P0) / P0; logarítmica: ln(P1 / P0). Las logarítmicas se suman entre periodos; las simples se componen multiplicando (1 + r). La media geométrica describe lo que pasó; la aritmética la supera tanto más cuanto mayor es la volatilidad (≈ σ² / 2)."
   },
   {
     "id": "twr-mwr",
     "name": "TWR vs MWR",
     "level": 6,
-    "prerequisites": ["rentabilidad-log"]
+    "prerequisites": ["rentabilidad-log"],
+    "unit": "n6-u1",
+    "description": "La rentabilidad ponderada en el tiempo (TWR) compone los tramos entre flujos y mide al gestor (la exigen las normas GIPS). La ponderada por el dinero (MWR) es la TIR de los flujos de un inversor y depende de cuándo entra y sale; el método de Dietz modificado la aproxima."
   },
   {
     "id": "volatilidad",
     "name": "Volatilidad",
     "level": 6,
-    "prerequisites": ["media-desviacion"]
+    "prerequisites": ["media-desviacion"],
+    "unit": "n6-u1",
+    "description": "La volatilidad es la desviación típica de las rentabilidades; la anual es, aproximadamente, la mensual por √12. Es la medida de riesgo que usan el ratio de Sharpe y los informes de los fondos."
   },
   {
     "id": "diversificacion",
@@ -1311,7 +1317,9 @@
     "id": "sharpe-sortino",
     "name": "Sharpe y Sortino",
     "level": 6,
-    "prerequisites": ["volatilidad"]
+    "prerequisites": ["volatilidad"],
+    "unit": "n6-u1",
+    "description": "Ratio de Sharpe = (rentabilidad − tipo sin riesgo) / volatilidad. El de Sortino usa la desviación a la baja, que solo cuenta las rentabilidades por debajo de un objetivo. Sirven para comparar fondos con riesgos distintos, con cuidado si hay pocos años o riesgos de cola."
   },
   {
     "id": "tracking-error-ir",
@@ -1323,7 +1331,9 @@
     "id": "drawdown",
     "name": "Drawdown",
     "level": 6,
-    "prerequisites": ["volatilidad"]
+    "prerequisites": ["volatilidad"],
+    "unit": "n6-u1",
+    "description": "El drawdown máximo es la mayor caída desde un máximo anterior. Recuperar una caída d exige subir 1 / (1 − d) − 1; el ratio de Calmar divide la rentabilidad anual entre el drawdown máximo."
   },
   {
     "id": "var-cvar",

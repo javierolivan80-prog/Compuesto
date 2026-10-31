@@ -252,7 +252,13 @@
       "rank": "Director",
       "floor": 5,
       "weeks": "Semanas 34–38",
-      "units": []
+      "units": [
+        {
+          "id": "n6-u1",
+          "name": "Medir rentabilidad y riesgo de una cartera",
+          "concepts": ["rentabilidad-log", "twr-mwr", "volatilidad", "sharpe-sortino", "drawdown"]
+        }
+      ]
     },
     {
       "level": 7,

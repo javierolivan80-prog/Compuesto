@@ -26,6 +26,7 @@ export const WORST_SEEDS: Record<LessonGameKind, number> = {
   'macro-day': 0,
   'ecb-meeting': 0,
   'order-desk': 96, // acción a 15 €, bloque de 50.000 acciones y horquilla realizada negativa
+  'fund-report': 63, // 50.000 € más 20.000 € en julio, año negativo (−2,69 %) y Sharpe negativo
   'stop-trade': 22, // 125 acciones con un stop del 4 %, sin tocar stop ni objetivo, y −38,75 € al cierre
   'pattern-noise': 60, // CFD de 5.000 € a 20:1 (100.000 € de exposición, 2.000 € de pérdida) y medias móviles que pierden un 6 % neto
   'edge-test': 8, // estrategia que pierde 28 € por operación, 16 años de backtest y 100 variantes probadas

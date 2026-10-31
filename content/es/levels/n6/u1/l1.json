@@ -1,0 +1,299 @@
+{
+  "id": "n6-u1-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "order": 0,
+  "title": "Juego: el informe del gestor",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la rentabilidad ponderada en el tiempo y la ponderada por el dinero de un año",
+    "Calcular el drawdown máximo y el ratio de Sharpe de un fondo"
+  ],
+  "concepts": ["twr-mwr", "drawdown", "sharpe-sortino"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "fund-report",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "TWR y MWR",
+      "text": "Acertaste {hits} de 4. El fondo ganó un {twr} % en el año: un {h1} % y un {h2} % en cada semestre, compuestos. El cliente, que añadió {added} € en julio, obtuvo una TIR del {mwr} %, porque metió más dinero justo antes del peor tramo."
+    },
+    {
+      "type": "card",
+      "term": "Drawdown",
+      "text": "La mayor caída desde un máximo fue del {max_dd} %, más que el peor mes, un {worst_month} %: las caídas se encadenan. Es lo que pudo llegar a perder quien entró en el peor momento del año."
+    },
+    {
+      "type": "card",
+      "term": "Sharpe",
+      "text": "Con una volatilidad anual del {vol} % y un tipo sin riesgo del {rf} %, el ratio de Sharpe fue de {sharpe}: la rentabilidad por encima del tipo sin riesgo por cada punto de volatilidad."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u1-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Otro fondo ficticio gana un {a} % en el primer semestre y pierde un {b} % en el segundo. ¿Cuál es su rentabilidad logarítmica en el año, ln(1 + R)? (%, 2 decimales)",
+      "answer": 7.25,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "LN((1 + {a} / 100) * (1 - {b} / 100)) * 100",
+      "explanation": "ln((1 + {a} %) × (1 − {b} %)) = {answer} %; también es la suma de los logaritmos de cada semestre.",
+      "params": {
+        "a": {
+          "value": 12,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "b": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Con esos dos semestres (+{a} % y −{b} %), ¿cuál es la rentabilidad media semestral compuesta, la media geométrica? (%, 2 decimales)",
+      "answer": 3.69,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(SQRT((1 + {a} / 100) * (1 - {b} / 100)) - 1) * 100",
+      "explanation": "√((1 + {a} %) × (1 − {b} %)) − 1 = {answer} % por semestre: dos semestres a ese ritmo dan lo mismo que los reales.",
+      "params": {
+        "a": {
+          "value": 12,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "b": {
+          "value": 4,
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un cliente invirtió {start} € en enero y añadió {added} € en julio. El fondo ganó un {h1} % en el primer semestre y un {h2} % en el segundo. ¿Cuántos € ganó o perdió el cliente? (€, 2 decimales; negativo si perdió)",
+      "answer": 673.94,
+      "unit": "€",
+      "tolerance": 0.1,
+      "answerDecimals": 2,
+      "formula": "({start} * (1 + {h1} / 100) + {added}) * (1 + {h2} / 100) - {start} - {added}",
+      "explanation": "({start} × (1 + {h1} %) + {added}) × (1 + {h2} %) − {start} − {added} = {answer} €.",
+      "params": {
+        "start": {
+          "value": 10000,
+          "min": 10000,
+          "max": 50000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "added": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 5000,
+          "decimals": 0
+        },
+        "h1": {
+          "value": 13.64,
+          "min": -25,
+          "max": 40,
+          "step": 0.01,
+          "decimals": 2
+        },
+        "h2": {
+          "value": -3.23,
+          "min": -20,
+          "max": 40,
+          "step": 0.01,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Con un drawdown máximo del {max_dd} %, ¿cuánto tendría que subir el fondo desde el mínimo para volver al máximo? (%, 2 decimales)",
+      "answer": 8.57,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / (1 - {max_dd} / 100) - 1) * 100",
+      "explanation": "1 / (1 − {max_dd} %) − 1 = {answer} %: siempre más que la caída.",
+      "params": {
+        "max_dd": {
+          "value": 7.89,
+          "min": 1,
+          "max": 30,
+          "step": 0.01,
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Otro fondo ficticio rinde un {r} % al año, el tipo sin riesgo es del {rf} % y la desviación de sus rentabilidades por debajo de cero (la desviación a la baja) es del {dv} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
+      "answer": 1.333,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({r} - {rf}) / {dv}",
+      "explanation": "({r} − {rf}) / {dv} = {answer}: como el Sharpe, pero solo penaliza las caídas.",
+      "params": {
+        "r": {
+          "value": 10,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "dv": {
+          "value": 6,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "¿TWR o MWR?",
+      "categories": ["TWR", "MWR"],
+      "items": [
+        {
+          "text": "Comparar a dos gestores de fondos",
+          "category": "TWR"
+        },
+        {
+          "text": "Saber cuánto ganó de verdad un cliente que hizo aportaciones",
+          "category": "MWR"
+        },
+        {
+          "text": "El dato de rentabilidad que publica el fondo",
+          "category": "TWR"
+        },
+        {
+          "text": "Medir si acertaste al decidir cuándo meter y sacar dinero",
+          "category": "MWR"
+        }
+      ],
+      "explanation": "La TWR mide al gestor; la MWR, la experiencia de cada cliente con sus entradas y salidas."
+    },
+    {
+      "id": "n6-u1-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "character": "rival",
+      "situation": "El becario rival ve que un fondo ficticio publica un 10 % anual y que un cliente que añadió dinero a mitad de año solo ha ganado un 4 %, y dice que el fondo «miente».",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que los dos datos son correctos: el fondo publica la TWR, que no depende de las aportaciones, y el cliente obtuvo menos porque metió más dinero justo antes de la caída",
+        "Que el fondo debería publicar la rentabilidad del cliente",
+        "Que la diferencia son comisiones ocultas",
+        "Que el cliente se ha equivocado al calcularla"
+      ],
+      "answer": 0,
+      "explanation": "Mismo fondo, dos preguntas distintas: cómo lo hizo el gestor y cómo le fue al cliente.",
+      "wrongExplanations": {
+        "1": "Cada cliente tiene su propia MWR, según cuándo invierte.",
+        "2": "Las comisiones ya están en la rentabilidad del fondo.",
+        "3": "Las dos cifras salen de los mismos datos."
+      }
+    },
+    {
+      "id": "n6-u1-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "statement": "Una cartera que cae un 50 % necesita subir otro 50 % para recuperarse.",
+      "answer": false,
+      "explanation": "Falso: necesita subir un 100 %. Con la mitad del capital, hay que duplicarlo."
+    }
+  ],
+  "realWorld": "Los informes periódicos de los fondos que publica la CNMV dan la rentabilidad del fondo (TWR) por periodos, su volatilidad y su comparación con el índice; el extracto de cada cliente puede mostrar una rentabilidad distinta. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, Global Investment Performance Standards (GIPS): cálculo de la rentabilidad ponderada en el tiempo (pendiente de verificar la ruta)",
+      "url": "https://www.gipsstandards.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "William F. Sharpe, «The Sharpe Ratio», The Journal of Portfolio Management, 1994 (pendiente de verificar la ruta)",
+      "url": "https://www.pm-research.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CNMV, informes periódicos de las instituciones de inversión colectiva: rentabilidad, volatilidad y comparación con el índice (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "n6-u1-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "title": "Jefe final: el comité de carteras",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular rentabilidades logarítmicas, geométricas, TWR y MWR",
+    "Calcular volatilidad, Sharpe y drawdown",
+    "Elegir la medida adecuada para cada pregunta"
+  ],
+  "concepts": ["rentabilidad-log", "twr-mwr", "volatilidad", "sharpe-sortino", "drawdown"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n6-u1-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Una acción ficticia pasa de 48 € a 52 €. ¿Cuál es su rentabilidad logarítmica? (%, 2 decimales)",
+      "answer": 8.0,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "LN(52 / 48) * 100",
+      "explanation": "ln(52 / 48) = 8,00 %."
+    },
+    {
+      "id": "n6-u1-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Un fondo ficticio gana un 40 % un año y pierde un 25 % el siguiente. ¿Cuál es su media geométrica anual? (%, 2 decimales)",
+      "answer": 2.47,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(SQRT(1.4 * 0.75) - 1) * 100",
+      "explanation": "√1,05 − 1 = 2,47 %."
+    },
+    {
+      "id": "n6-u1-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un fondo ficticio gana un 7 % el primer semestre y pierde un 4 % el segundo. ¿Cuál es su TWR anual? (%, 2 decimales)",
+      "answer": 2.72,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1.07 * 0.96 - 1) * 100",
+      "explanation": "1,07 × 0,96 − 1 = 2,72 %."
+    },
+    {
+      "id": "n6-u1-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un inversor ficticio aporta 20.000 € al empezar y 10.000 € al cabo de un año, y al final del segundo año tiene 33.000 €. ¿Cuál es su MWR anual? (%, 2 decimales)",
+      "answer": 5.86,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "((-10000 + SQRT(10000 ^ 2 + 4 * 20000 * 33000)) / (2 * 20000) - 1) * 100",
+      "explanation": "Resolviendo 20.000 × (1 + r)² + 10.000 × (1 + r) = 33.000: r = 5,86 %."
+    },
+    {
+      "id": "n6-u1-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Un fondo ficticio rinde un 11 % con una volatilidad del 16 %, y el tipo sin riesgo es del 3 %. ¿Cuál es su ratio de Sharpe? (2 decimales)",
+      "answer": 0.5,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(11 - 3) / 16",
+      "explanation": "8 / 16 = 0,50."
+    },
+    {
+      "id": "n6-u1-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Una cartera ficticia cae un 40 % desde su máximo. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
+      "answer": 66.67,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / 0.6 - 1) * 100",
+      "explanation": "1 / 0,6 − 1 = 66,67 %."
+    },
+    {
+      "id": "n6-u1-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "¿Qué medida responde a cada pregunta?",
+      "categories": ["TWR", "MWR", "Drawdown máximo"],
+      "items": [
+        {
+          "text": "¿Lo hizo bien el gestor?",
+          "category": "TWR"
+        },
+        {
+          "text": "¿Cuánto ganó este cliente con sus aportaciones?",
+          "category": "MWR"
+        },
+        {
+          "text": "¿Cuánto pudo llegar a perder quien entró en lo más alto?",
+          "category": "Drawdown máximo"
+        }
+      ],
+      "explanation": "Cada medida responde a una pregunta distinta."
+    },
+    {
+      "id": "n6-u1-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "character": "jefe",
+      "situation": "Una gestora ficticia presume de un ratio de Sharpe de 2,5 con solo dos años de historia, y su estrategia vende seguros contra caídas fuertes.",
+      "prompt": "¿Qué le pide el jefe de la mesa al comité?",
+      "options": [
+        "Prudencia: con dos años el ratio es muy incierto, y una estrategia que vende seguros puede tener pocas caídas durante años y una pérdida enorme de golpe; hay que mirar el drawdown en crisis y las pruebas de estrés",
+        "Invertir enseguida: un Sharpe de 2,5 es excelente",
+        "Ignorar el riesgo porque el Sharpe ya lo incluye",
+        "Pedirle solo la rentabilidad del último mes"
+      ],
+      "answer": 0,
+      "explanation": "El Sharpe resume el pasado, no el riesgo de cola.",
+      "wrongExplanations": {
+        "1": "Dos años no bastan para fiarse.",
+        "2": "El Sharpe no ve las caídas que aún no han pasado.",
+        "3": "Un mes dice todavía menos."
+      }
+    },
+    {
+      "id": "n6-u1-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["volatilidad"],
+      "prompt": "Un fondo ficticio tiene una volatilidad mensual del 4 %. ¿Cuál es su volatilidad anual aproximada?",
+      "options": ["13,86 %", "48 %", "4 %", "16 %"],
+      "answer": 0,
+      "explanation": "4 % × √12 ≈ 13,86 %.",
+      "wrongExplanations": {
+        "1": "Multiplicar por 12 exagera: la volatilidad crece con la raíz del tiempo.",
+        "2": "Es la mensual, no la anual.",
+        "3": "4 × 4 no tiene sentido aquí."
+      }
+    },
+    {
+      "id": "n6-u1-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["rentabilidad-log"],
+      "statement": "Las rentabilidades logarítmicas de varios periodos se suman para obtener la del periodo completo.",
+      "answer": true,
+      "explanation": "Verdadero: ln(P2 / P0) = ln(P1 / P0) + ln(P2 / P1)."
+    }
+  ],
+  "realWorld": "En Albufera Partners, el informe de cada cartera recoge la TWR, la volatilidad, el ratio de Sharpe y el drawdown máximo, y el de cada cliente, su MWR. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, Global Investment Performance Standards (GIPS): cálculo de la rentabilidad ponderada en el tiempo (pendiente de verificar la ruta)",
+      "url": "https://www.gipsstandards.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "William F. Sharpe, «The Sharpe Ratio», The Journal of Portfolio Management, 1994 (pendiente de verificar la ruta)",
+      "url": "https://www.pm-research.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

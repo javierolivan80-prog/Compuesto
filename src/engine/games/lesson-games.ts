@@ -77,6 +77,7 @@ import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './shor
 import { edgeValues, ev, falsePositives, posterior, setupEdge, tStat } from './edge-test';
 import { loss as cfdLoss, net as taNet, patternValues, setupPattern } from './pattern-noise';
 import { breakeven, result as stopPnl, setupStop, shares, stopValues } from './stop-trade';
+import { maxDrawdown, mwr, reportValues, setupReport, sharpe as reportSharpe, twr } from './fund-report';
 import {
   nextRatio,
   phaseOf,
@@ -683,6 +684,23 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     result: [0, 2],
     hits: [0, 0],
   },
+  'fund-report': {
+    h1: [0, 2],
+    h2: [0, 2],
+    twr: [0, 2],
+    start: [0, 0],
+    added: [0, 0],
+    end_value: [0, 2],
+    mwr: [0, 2],
+    roi: [0, 2],
+    max_dd: [0, 2],
+    worst_month: [0, 0],
+    vol_m: [0, 2],
+    vol: [0, 2],
+    rf: [0, 0],
+    sharpe: [2, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1107,6 +1125,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           move: 'keep',
         }),
         stopValues(setup, { shares: 0, breakeven: 0, result: 0, move: 'lower' }),
+      ];
+    }
+    case 'fund-report': {
+      // todo bien, y todo mal
+      const setup = setupReport(seed);
+      return [
+        reportValues(setup, {
+          twr: twr(setup),
+          mwr: mwr(setup),
+          dd: maxDrawdown(setup),
+          sharpe: reportSharpe(setup),
+        }),
+        reportValues(setup, { twr: 0, mwr: 0, dd: 0, sharpe: 0 }),
       ];
     }
   }

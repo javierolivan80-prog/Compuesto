@@ -1,0 +1,308 @@
+{
+  "id": "n6-u1-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "title": "Volatilidad, ratio de Sharpe y ratio de Sortino",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la volatilidad anual, el ratio de Sharpe y el ratio de Sortino",
+    "Comparar fondos por su rentabilidad ajustada al riesgo"
+  ],
+  "concepts": ["volatilidad", "sharpe-sortino"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de riesgo y estadística: la desviación típica de las rentabilidades y que la volatilidad anual es, más o menos, la mensual por √12. Aquí la usas para medir cuánto riesgo costó cada punto de rentabilidad."
+    },
+    {
+      "type": "card",
+      "term": "Sharpe y Sortino",
+      "text": "Ratio de Sharpe = (rentabilidad − tipo sin riesgo) / volatilidad. El de Sortino cambia la volatilidad por la desviación a la baja, que solo cuenta las rentabilidades por debajo de un objetivo (por ejemplo, cero): no castiga las subidas fuertes."
+    },
+    {
+      "type": "card",
+      "term": "Cómo usarlos",
+      "text": "Sirven para comparar fondos con riesgos distintos: más ratio, más rentabilidad por unidad de riesgo. Tienen límites: suponen que el pasado se repite, con pocos años son muy inciertos y una estrategia que vende seguros puede tener un Sharpe alto hasta el día en que se hunde."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u1-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["volatilidad"],
+      "prompt": "Un fondo ficticio tiene una volatilidad mensual del {m} %. ¿Cuál es su volatilidad anual aproximada? (%, 2 decimales)",
+      "answer": 12.12,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{m} * SQRT(12)",
+      "explanation": "{m} × √12 = {answer} %.",
+      "params": {
+        "m": {
+          "value": 3.5,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Un fondo ficticio rinde un {r} % al año con una volatilidad del {s} %, y el tipo sin riesgo es del {rf} %. ¿Cuál es su ratio de Sharpe? (3 decimales)",
+      "answer": 0.5,
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "({r} - {rf}) / {s}",
+      "explanation": "({r} − {rf}) / {s} = {answer}.",
+      "params": {
+        "r": {
+          "value": 9,
+          "min": 6,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "s": {
+          "value": 14,
+          "min": 6,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Ese fondo ficticio (un {r} % al año, con un tipo sin riesgo del {rf} %) tiene una desviación a la baja del {d} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
+      "answer": 0.875,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({r} - {rf}) / {d}",
+      "explanation": "({r} − {rf}) / {d} = {answer}: mayor que el Sharpe, porque buena parte de su volatilidad eran subidas.",
+      "params": {
+        "r": {
+          "value": 9,
+          "min": 5,
+          "max": 20,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "d": {
+          "value": 8,
+          "min": 4,
+          "max": 12,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Un fondo ficticio A tiene un ratio de Sharpe de {sa}. Otro, B, tiene una volatilidad del {s} %, y el tipo sin riesgo es del {rf} %. ¿Qué rentabilidad necesita B para igualar el Sharpe de A? (%, 2 decimales)",
+      "answer": 12,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rf} + {sa} * {s}",
+      "explanation": "{rf} + {sa} × {s} = {answer} %.",
+      "params": {
+        "sa": {
+          "value": 0.5,
+          "min": 0.3,
+          "max": 1,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "s": {
+          "value": 20,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Las rentabilidades mensuales de una cartera ficticia fueron {a} %, −{b} %, {c} % y −{d} %. La desviación a la baja (objetivo 0) es √(suma de los cuadrados de las negativas / número de meses). ¿Cuánto vale? (%, 3 decimales)",
+      "answer": 1.581,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "SQRT(({b} ^ 2 + {d} ^ 2) / 4)",
+      "explanation": "√(({b}² + {d}²) / 4) = {answer} %: las subidas no cuentan.",
+      "params": {
+        "a": {
+          "value": 2,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        },
+        "b": {
+          "value": 3,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 1,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        },
+        "d": {
+          "value": 1,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "¿Sharpe o Sortino?",
+      "categories": ["Sharpe", "Sortino"],
+      "items": [
+        {
+          "text": "Penaliza igual las subidas fuertes que las caídas",
+          "category": "Sharpe"
+        },
+        {
+          "text": "Solo cuenta la volatilidad de las caídas",
+          "category": "Sortino"
+        },
+        {
+          "text": "Usa la desviación típica de todas las rentabilidades",
+          "category": "Sharpe"
+        },
+        {
+          "text": "Da mejor imagen a una estrategia con subidas fuertes y pocas caídas",
+          "category": "Sortino"
+        }
+      ],
+      "explanation": "Sharpe: toda la volatilidad. Sortino: solo la de las caídas."
+    },
+    {
+      "id": "n6-u1-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "character": "jefe",
+      "situation": "El fondo ficticio A ganó un 12 % con una volatilidad del 20 % y el B, un 8 % con un 8 %. El tipo sin riesgo es del 2 %. Un cliente quiere el A «porque gana más».",
+      "prompt": "¿Qué le explica el jefe de la mesa?",
+      "options": [
+        "Que B dio más rentabilidad por unidad de riesgo (Sharpe de 0,75 frente a 0,5): con algo de apalancamiento, o combinándolo con liquidez, B podría dar la rentabilidad de A con menos riesgo",
+        "Que A es mejor porque gana más",
+        "Que son iguales",
+        "Que la volatilidad no importa a largo plazo"
+      ],
+      "answer": 0,
+      "explanation": "Rentabilidad sin riesgo al lado no dice cuál es mejor.",
+      "wrongExplanations": {
+        "1": "Gana más, pero con mucho más riesgo.",
+        "2": "Sus ratios de Sharpe son distintos.",
+        "3": "La volatilidad decide cuánto puedes perder por el camino."
+      }
+    },
+    {
+      "id": "n6-u1-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["sharpe-sortino"],
+      "statement": "Un ratio de Sharpe negativo significa que el fondo rindió menos que el activo sin riesgo.",
+      "answer": true,
+      "explanation": "Verdadero: el numerador, rentabilidad menos tipo sin riesgo, es negativo."
+    }
+  ],
+  "realWorld": "Las fichas de los fondos y las plataformas de análisis publican la volatilidad y el ratio de Sharpe a 1, 3 y 5 años; los informes periódicos de la CNMV incluyen la volatilidad. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "William F. Sharpe, «The Sharpe Ratio», The Journal of Portfolio Management, 1994 (pendiente de verificar la ruta)",
+      "url": "https://www.pm-research.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Frank A. Sortino y Lee N. Price, «Performance Measurement in a Downside Risk Framework», The Journal of Investing, 1994 (pendiente de verificar la ruta)",
+      "url": "https://www.pm-research.com/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CNMV, informes periódicos de las instituciones de inversión colectiva: rentabilidad, volatilidad y comparación con el índice (pendiente de verificar la ruta)",
+      "url": "https://www.cnmv.es/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

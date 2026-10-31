@@ -59,6 +59,7 @@ import { ShortDeskGame } from '../games/ShortDeskGame';
 import { EdgeTestGame } from '../games/EdgeTestGame';
 import { PatternNoiseGame } from '../games/PatternNoiseGame';
 import { StopTradeGame } from '../games/StopTradeGame';
+import { FundReportGame } from '../games/FundReportGame';
 import { DevDataToggle } from '../games/DevDataToggle';
 import { WORST_SEEDS, worstCaseOn } from '../games/worst-seeds';
 import { TapGuard } from '../games/kit/TapGuard';
@@ -259,6 +260,7 @@ export function LessonScreen({
             'edge-test': EdgeTestGame,
             'pattern-noise': PatternNoiseGame,
             'stop-trade': StopTradeGame,
+            'fund-report': FundReportGame,
           }[lesson.game.kind];
           return (
             <TapGuard>

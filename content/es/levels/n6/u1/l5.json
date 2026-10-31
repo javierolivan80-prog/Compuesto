@@ -1,0 +1,274 @@
+{
+  "id": "n6-u1-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "title": "Drawdown, recuperación y ratio de Calmar",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el drawdown máximo, la subida necesaria para recuperarse y el ratio de Calmar",
+    "Valorar el drawdown como medida del riesgo que vive un inversor"
+  ],
+  "concepts": ["drawdown"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Drawdown",
+      "text": "El drawdown es la caída desde el máximo anterior; el drawdown máximo, la mayor de esas caídas en un periodo. Mide lo peor que pudo vivir un inversor que entró en un máximo, y es lo que hace que muchos vendan en el peor momento."
+    },
+    {
+      "type": "visual",
+      "component": "Drawdown",
+      "props": {
+        "peak": 20000
+      }
+    },
+    {
+      "type": "card",
+      "term": "Recuperación y Calmar",
+      "text": "Para recuperarse de una caída d hace falta subir 1 / (1 − d) − 1, y puede tardar años. El ratio de Calmar divide la rentabilidad anual entre el drawdown máximo: cuánto se ganó por cada punto de la peor caída."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u1-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Un fondo ficticio sube hasta un valor liquidativo de {pk} y después cae hasta {tr}. ¿Cuál es el drawdown de esa caída? (%, 2 decimales)",
+      "answer": 24,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({pk} - {tr}) / {pk} * 100",
+      "explanation": "({pk} − {tr}) / {pk} = {answer} %.",
+      "params": {
+        "pk": {
+          "value": 125,
+          "min": 105,
+          "max": 200,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 76,
+          "min": 50,
+          "max": 95,
+          "step": 1,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "tr": {
+          "formula": "{pk} * {k} / 100",
+          "decimals": 2
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Una cartera ficticia cae un {d} % desde su máximo. ¿Cuánto tiene que subir para volver al máximo? (%, 2 decimales)",
+      "answer": 53.85,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / (1 - {d} / 100) - 1) * 100",
+      "explanation": "1 / (1 − {d} %) − 1 = {answer} %.",
+      "params": {
+        "d": {
+          "value": 35,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Una cartera ficticia está un {d} % por debajo de su máximo y gana un {g} % al año. ¿Cuántos años tardará en recuperarlo? (años, 3 decimales)",
+      "answer": 5.272,
+      "unit": "años",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "LN(1 / (1 - {d} / 100)) / LN(1 + {g} / 100)",
+      "explanation": "ln(1 / (1 − {d} %)) / ln(1 + {g} %) = {answer} años.",
+      "params": {
+        "d": {
+          "value": 30,
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "g": {
+          "value": 7,
+          "min": 3,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Un fondo ficticio rinde un {r} % anual y su drawdown máximo ha sido del {d} %. ¿Cuál es su ratio de Calmar? (3 decimales)",
+      "answer": 0.5,
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "{r} / {d}",
+      "explanation": "{r} / {d} = {answer}.",
+      "params": {
+        "r": {
+          "value": 9,
+          "min": 4,
+          "max": 15,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "d": {
+          "value": 18,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "El valor liquidativo de un fondo ficticio a fin de cada trimestre fue 100, {b}, {c}, {e}, {f} y {g}. ¿Cuál fue su drawdown máximo? (%, 2 decimales)",
+      "answer": 18.64,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({e} - {f}) / {e} * 100",
+      "explanation": "El máximo previo a la peor caída es {e} y el mínimo posterior, {f}: ({e} − {f}) / {e} = {answer} %.",
+      "params": {
+        "b": {
+          "value": 112,
+          "min": 105,
+          "max": 115,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 104,
+          "min": 100,
+          "max": 104,
+          "step": 1,
+          "decimals": 0
+        },
+        "e": {
+          "value": 118,
+          "min": 116,
+          "max": 125,
+          "step": 1,
+          "decimals": 0
+        },
+        "f": {
+          "value": 96,
+          "min": 85,
+          "max": 99,
+          "step": 1,
+          "decimals": 0
+        },
+        "g": {
+          "value": 108,
+          "min": 100,
+          "max": 110,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l5-e6",
+      "type": "order_steps",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "prompt": "Ordena los pasos para calcular el drawdown máximo de una serie de valores.",
+      "steps": [
+        "Recorrer los valores en orden de fecha",
+        "Guardar el máximo alcanzado hasta cada fecha",
+        "Calcular la caída de cada valor desde ese máximo",
+        "Quedarse con la mayor de esas caídas"
+      ],
+      "explanation": "Cada caída se mide desde el máximo anterior, no desde el máximo de toda la serie."
+    },
+    {
+      "id": "n6-u1-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "character": "mentora",
+      "situation": "Un cliente ficticio quiere vender todo su fondo porque está un 20 % por debajo del máximo, aunque cuando invirtió le explicaron que podía caer un 30 %.",
+      "prompt": "¿Qué le recomienda tu mentora?",
+      "options": [
+        "Repasar con él si su plan y su horizonte siguen siendo los mismos: si nada ha cambiado, vender tras la caída suele convertir una pérdida temporal en definitiva; y si no soporta esas caídas, ajustar el riesgo cuando haya calma",
+        "Vender todo inmediatamente",
+        "Comprar más con apalancamiento",
+        "Decirle que los fondos nunca bajan más"
+      ],
+      "answer": 0,
+      "explanation": "El drawdown es el riesgo que se vive, por eso conviene conocerlo antes de invertir.",
+      "wrongExplanations": {
+        "1": "Vender en la caída fija la pérdida.",
+        "2": "El apalancamiento agrava el problema.",
+        "3": "Puede caer más; nadie lo sabe."
+      }
+    },
+    {
+      "id": "n6-u1-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["drawdown"],
+      "statement": "El drawdown máximo de un fondo nunca puede ser mayor que su peor mes.",
+      "answer": false,
+      "explanation": "Falso: varios meses malos seguidos acumulan una caída mayor que la de cualquier mes."
+    }
+  ],
+  "realWorld": "Las fichas de los fondos y las plataformas de análisis suelen mostrar el drawdown máximo y cuánto tardó en recuperarse; es una buena forma de imaginar lo peor antes de invertir. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

@@ -1,0 +1,341 @@
+{
+  "id": "n6-u1-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 1,
+  "title": "Rentabilidad ponderada en el tiempo y por el dinero",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la TWR con flujos de entrada y la MWR (TIR) de un inversor",
+    "Elegir la medida adecuada para el gestor y para el cliente"
+  ],
+  "concepts": ["twr-mwr"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "TWR",
+      "text": "La rentabilidad ponderada en el tiempo divide el periodo en tramos cada vez que entra o sale dinero, calcula la rentabilidad de cada tramo y las compone. No depende de los flujos, así que mide al gestor; las normas GIPS exigen usarla."
+    },
+    {
+      "type": "card",
+      "term": "MWR",
+      "text": "La rentabilidad ponderada por el dinero es la TIR de los flujos del inversor: lo que aportó, cuándo, y lo que vale al final. Pesa más los periodos en los que había más dinero invertido, así que depende de cuándo entra y sale cada cliente."
+    },
+    {
+      "type": "card",
+      "term": "Cuál usar",
+      "text": "Para comparar gestores o fondos, la TWR. Para saber cómo le fue a un cliente concreto, la MWR. Si un fondo sube mientras los clientes entran tarde y salen en las caídas, su TWR es buena y la MWR media de sus clientes, peor."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u1-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un fondo ficticio gana un {a} % el primer trimestre, pierde un {b} % el segundo y gana un {c} % el tercero. ¿Cuál es su TWR en los tres trimestres? (%, 3 decimales)",
+      "answer": 8.035,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "((1 + {a} / 100) * (1 - {b} / 100) * (1 + {c} / 100) - 1) * 100",
+      "explanation": "(1 + {a} %) × (1 − {b} %) × (1 + {c} %) − 1 = {answer} %.",
+      "params": {
+        "a": {
+          "value": 4,
+          "min": 3,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "b": {
+          "value": 2,
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "decimals": 0
+        },
+        "c": {
+          "value": 6,
+          "min": 3,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un inversor ficticio aporta {c0} € al empezar y {c1} € al cabo de un año; al final del segundo año su cartera vale {v} €. ¿Cuál es su MWR, la TIR anual de sus flujos? (%, 2 decimales)",
+      "answer": 7.76,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "((-{c1} + SQRT({c1} ^ 2 + 4 * {c0} * {v})) / (2 * {c0}) - 1) * 100",
+      "explanation": "La TIR r cumple {c0} × (1 + r)² + {c1} × (1 + r) = {v}; resolviendo la ecuación de segundo grado, r = {answer} %.",
+      "params": {
+        "c0": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "c1": {
+          "value": 5000,
+          "min": 1000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 500,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c0} + {c1} + {g}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Con esos mismos flujos ({c0} € al empezar, {c1} € al año y {v} € al final del segundo año), ¿qué ganancia obtiene sobre el total aportado, sin tener en cuenta el tiempo? (%, 2 decimales)",
+      "answer": 13.33,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({v} - {c0} - {c1}) / ({c0} + {c1}) * 100",
+      "explanation": "({v} − {c0} − {c1}) / ({c0} + {c1}) = {answer} %: no dice cuánto tiempo estuvo invertido cada euro.",
+      "params": {
+        "c0": {
+          "value": 10000,
+          "min": 5000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "c1": {
+          "value": 5000,
+          "min": 1000,
+          "max": 10000,
+          "step": 1000,
+          "decimals": 0
+        },
+        "g": {
+          "value": 2000,
+          "min": 1000,
+          "max": 4000,
+          "step": 500,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c0} + {c1} + {g}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Una cartera ficticia vale {v0} € en enero y {v1} € a mitad de año; entonces el cliente aporta {f} € y a fin de año vale {v2} €. ¿Cuál es su TWR anual? (%, 3 decimales; negativa si pierde)",
+      "answer": 3.125,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({v1} / {v0} * {v2} / ({v1} + {f}) - 1) * 100",
+      "explanation": "Primer tramo: {v1} / {v0}; segundo: {v2} / ({v1} + {f}). Compuestos: {answer} %.",
+      "params": {
+        "v0": {
+          "value": 100000,
+          "min": 50000,
+          "max": 200000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "k": {
+          "value": 110,
+          "min": 95,
+          "max": 120,
+          "step": 1,
+          "decimals": 0
+        },
+        "f": {
+          "value": 50000,
+          "min": 10000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "j": {
+          "value": 9375,
+          "min": 9000,
+          "max": 11000,
+          "step": 25,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v1": {
+          "formula": "{v0} * {k} / 100",
+          "decimals": 0
+        },
+        "v2": {
+          "formula": "({v1} + {f}) * {j} / 10000",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "Con el método de Dietz modificado, la MWR de un año es ganancia / (capital inicial + flujo × fracción del año que estuvo invertido). Un cliente ficticio empieza con {c0} €, aporta {c1} € a mitad de año y acaba con {v} €. ¿Cuál es su MWR aproximada? (%, 3 decimales)",
+      "answer": 8,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({v} - {c0} - {c1}) / ({c0} + {c1} * 0.5) * 100",
+      "explanation": "({v} − {c0} − {c1}) / ({c0} + {c1} × 0,5) = {answer} %.",
+      "params": {
+        "c0": {
+          "value": 100000,
+          "min": 50000,
+          "max": 200000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "c1": {
+          "value": 50000,
+          "min": 10000,
+          "max": 80000,
+          "step": 10000,
+          "decimals": 0
+        },
+        "g": {
+          "value": 10000,
+          "min": 2000,
+          "max": 20000,
+          "step": 1000,
+          "decimals": 0
+        }
+      },
+      "derived": {
+        "v": {
+          "formula": "{c0} + {c1} + {g}",
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u1-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "prompt": "¿Sube o baja la MWR del cliente frente a la TWR del fondo?",
+      "categories": ["La MWR queda por encima", "La MWR queda por debajo"],
+      "items": [
+        {
+          "text": "Aporta mucho justo antes de una subida fuerte",
+          "category": "La MWR queda por encima"
+        },
+        {
+          "text": "Aporta mucho justo antes de una caída",
+          "category": "La MWR queda por debajo"
+        },
+        {
+          "text": "Retira casi todo justo antes de una caída",
+          "category": "La MWR queda por encima"
+        },
+        {
+          "text": "Retira casi todo justo antes de una subida",
+          "category": "La MWR queda por debajo"
+        }
+      ],
+      "explanation": "La MWR premia o castiga el momento en que entra y sale el dinero; la TWR no."
+    },
+    {
+      "id": "n6-u1-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "character": "mentora",
+      "situation": "Un fondo ficticio ha ganado un 8 % anual en diez años, pero sus clientes, de media, solo un 5 %: compraron tras las subidas y vendieron en las caídas.",
+      "prompt": "¿Qué le explica tu mentora al becario?",
+      "options": [
+        "Que el 8 % es la TWR del fondo y el 5 %, la MWR media de los clientes: la diferencia la causa el momento en que entraron y salieron, no el gestor",
+        "Que el fondo cobra un 3 % de comisión oculta",
+        "Que el 8 % está mal calculado",
+        "Que los clientes tuvieron mala suerte con el gestor"
+      ],
+      "answer": 0,
+      "explanation": "La brecha entre el fondo y sus clientes es de comportamiento.",
+      "wrongExplanations": {
+        "1": "Las comisiones ya están dentro del 8 %.",
+        "2": "Las dos cifras son correctas.",
+        "3": "El gestor es el mismo para todos; cambia el momento de cada cliente."
+      }
+    },
+    {
+      "id": "n6-u1-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["twr-mwr"],
+      "statement": "La TWR de un fondo cambia si un cliente mete mucho dinero justo antes de una caída.",
+      "answer": false,
+      "explanation": "Falso: la TWR compone tramos y no depende de los flujos; lo que cambia es la MWR de ese cliente."
+    }
+  ],
+  "realWorld": "Las gestoras que siguen las normas GIPS presentan sus resultados con la TWR; el extracto de un bróker puede mostrar además la rentabilidad personal, la MWR. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "CFA Institute, Global Investment Performance Standards (GIPS): cálculo de la rentabilidad ponderada en el tiempo (pendiente de verificar la ruta)",
+      "url": "https://www.gipsstandards.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (rentabilidades, TWR y MWR, medidas de riesgo y de rentabilidad ajustada al riesgo) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

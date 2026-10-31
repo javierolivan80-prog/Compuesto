@@ -1,0 +1,221 @@
+{
+  "id": "salto-n6-u1",
+  "unitId": "n6-u1",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n6-u1-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Una acción ficticia pasa de 30 € a 33 €. ¿Cuál es su rentabilidad logarítmica? (%, 2 decimales)",
+      "answer": 9.53,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "LN(33 / 30) * 100",
+      "explanation": "ln(1,1) = 9,53 %."
+    },
+    {
+      "id": "salto-n6-u1-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un fondo ficticio gana un 5 % el primer trimestre, pierde un 3 % el segundo y gana un 2 % el tercero. ¿Cuál es su TWR? (%, 2 decimales)",
+      "answer": 3.89,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1.05 * 0.97 * 1.02 - 1) * 100",
+      "explanation": "1,05 × 0,97 × 1,02 − 1 = 3,89 %."
+    },
+    {
+      "id": "salto-n6-u1-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Un fondo ficticio rinde un 7 % con una volatilidad del 12 %, y el tipo sin riesgo es del 1 %. ¿Cuál es su ratio de Sharpe? (2 decimales)",
+      "answer": 0.5,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(7 - 1) / 12",
+      "explanation": "6 / 12 = 0,50."
+    },
+    {
+      "id": "salto-n6-u1-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["volatilidad"],
+      "prompt": "Un fondo ficticio tiene una volatilidad mensual del 2,5 %. ¿Cuál es su volatilidad anual aproximada? (%, 2 decimales)",
+      "answer": 8.66,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "2.5 * SQRT(12)",
+      "explanation": "2,5 × √12 = 8,66 %."
+    },
+    {
+      "id": "salto-n6-u1-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["drawdown"],
+      "prompt": "Un fondo ficticio sube hasta un valor liquidativo de 140 y después cae hasta 112. ¿Cuál es su drawdown? (%)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(140 - 112) / 140 * 100",
+      "explanation": "28 / 140 = 20 %."
+    },
+    {
+      "id": "salto-n6-u1-q6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["twr-mwr"],
+      "prompt": "¿TWR o MWR?",
+      "categories": ["TWR", "MWR"],
+      "items": [
+        {
+          "text": "Comparar dos fondos de la misma categoría",
+          "category": "TWR"
+        },
+        {
+          "text": "La TIR de un cliente que fue aportando cada mes",
+          "category": "MWR"
+        },
+        {
+          "text": "La rentabilidad que exigen las normas GIPS",
+          "category": "TWR"
+        }
+      ],
+      "explanation": "La TWR mide al gestor; la MWR, a cada cliente con sus flujos."
+    },
+    {
+      "id": "salto-n6-u1-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-log"],
+      "prompt": "Un fondo ficticio gana un 20 % un año y pierde un 20 % el siguiente. ¿Qué pasó con el capital?",
+      "options": [
+        "Bajó un 4 %: 1,2 × 0,8 = 0,96",
+        "Quedó igual, porque la media es cero",
+        "Subió un 4 %",
+        "Bajó un 20 %"
+      ],
+      "answer": 0,
+      "explanation": "Las rentabilidades se componen.",
+      "wrongExplanations": {
+        "1": "La media aritmética engaña.",
+        "2": "Al revés: bajó.",
+        "3": "Bajó un 4 %, no un 20 %."
+      }
+    },
+    {
+      "id": "salto-n6-u1-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["drawdown"],
+      "statement": "Tras una caída del 50 %, una cartera necesita subir un 100 % para volver a su máximo.",
+      "answer": true,
+      "explanation": "Verdadero: con la mitad del capital, hay que duplicarlo."
+    },
+    {
+      "id": "salto-n6-u1-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["drawdown"],
+      "prompt": "Una cartera ficticia cae un 25 % desde su máximo. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
+      "answer": 33.33,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(1 / 0.75 - 1) * 100",
+      "explanation": "1 / 0,75 − 1 = 33,33 %."
+    },
+    {
+      "id": "salto-n6-u1-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un fondo ficticio ganó un 9 % anual en diez años, pero la TIR media de sus clientes fue del 6 %. ¿Qué es lo más probable?",
+      "options": [
+        "Que los clientes entraron tras las subidas y salieron en las caídas: la diferencia entre la TWR del fondo y su MWR es de comportamiento",
+        "Que el fondo cobra un 3 % oculto",
+        "Que el 9 % está mal calculado",
+        "Que el gestor fue peor con unos clientes que con otros"
+      ],
+      "answer": 0,
+      "explanation": "TWR y MWR responden a preguntas distintas.",
+      "wrongExplanations": {
+        "1": "Las comisiones ya están en el 9 %.",
+        "2": "Las dos cifras pueden ser correctas.",
+        "3": "El gestor es el mismo para todos."
+      }
+    },
+    {
+      "id": "salto-n6-u1-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["sharpe-sortino"],
+      "prompt": "Un fondo ficticio rinde un 10 %, el tipo sin riesgo es del 2 % y su desviación a la baja es del 5 %. ¿Cuál es su ratio de Sortino? (2 decimales)",
+      "answer": 1.6,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "(10 - 2) / 5",
+      "explanation": "8 / 5 = 1,60."
+    },
+    {
+      "id": "salto-n6-u1-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["rentabilidad-log"],
+      "statement": "La media geométrica de unas rentabilidades anuales siempre es mayor que su media aritmética.",
+      "answer": false,
+      "explanation": "Falso: es menor o igual; la diferencia crece con la volatilidad."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, Global Investment Performance Standards (GIPS) (pendiente de verificar la ruta)",
+      "url": "https://www.gipsstandards.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "William F. Sharpe, «The Sharpe Ratio», The Journal of Portfolio Management, 1994 (pendiente de verificar la ruta)",
+      "url": "https://www.pm-research.com/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

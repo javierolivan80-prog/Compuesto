@@ -79,9 +79,9 @@ describe('pantallas principales', () => {
     expect(floors[9]).toHaveTextContent('Mercados en vivo');
     expect(floors[9]).toHaveTextContent('disponible'); // lo completado es de la Base, que no es planta
     expect(floors[8]).toHaveTextContent('Leer una empresa');
-    // la planta 5 (Carteras, N6) aún no tiene unidades; la 4 (N5) ya tiene las seis
-    expect(floors[4]).toHaveTextContent('Carteras');
-    expect(floors[4]).toHaveTextContent('próximamente');
+    // la planta 6 (Derivados, N7) aún no tiene unidades; la 5 (N6) ya tiene la primera
+    expect(floors[3]).toHaveTextContent('Derivados');
+    expect(floors[3]).toHaveTextContent('próximamente');
     expect(screen.getAllByText(/Próximamente/).length).toBeGreaterThan(3);
   });
 

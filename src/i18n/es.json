@@ -2253,5 +2253,59 @@
   "positionSizing": {
     "title": "El riesgo por operación decide si sobrevives",
     "recover": "Para recuperarlo hay que ganar un"
+  },
+  "fundReportGame": {
+    "title": "El informe del gestor",
+    "step": {
+      "twr": "Paso 1 de 4 · la rentabilidad del fondo",
+      "mwr": "Paso 2 de 4 · la rentabilidad del cliente",
+      "dd": "Paso 3 de 4 · la peor caída",
+      "sharpe": "Paso 4 de 4 · el riesgo que costó"
+    },
+    "board": {
+      "h1": "Primer semestre",
+      "h2": "Segundo semestre",
+      "start": "Aportación en enero",
+      "added": "Aportación en julio",
+      "end": "Valor en diciembre",
+      "twr": "Rentabilidad del año (TWR)",
+      "rf": "Tipo sin riesgo",
+      "volM": "Volatilidad mensual",
+      "vol": "Volatilidad anual"
+    },
+    "briefTwr": "Planta 5 de Albufera Partners, gestión de carteras. Preparas el informe anual de un fondo ficticio. La rentabilidad de cada semestre se compone: lo que gana o pierde el segundo se aplica sobre lo que ya había al final del primero.",
+    "askTwr": "¿Cuál fue la rentabilidad del fondo en el año?",
+    "whyTwr": "(1 + {{h1}}) × (1 + {{h2}}) − 1 = {{v}}. Es la rentabilidad ponderada en el tiempo (TWR): no depende de cuándo entra o sale el dinero, por eso mide al gestor.",
+    "briefMwr": "Un cliente invirtió {{start}} en enero y, contento con el primer semestre, añadió {{added}} en julio, justo antes del peor tramo. Su rentabilidad ponderada por el dinero (MWR) es la TIR de sus aportaciones y su valor final.",
+    "askMwr": "¿Cuál fue la rentabilidad anual del cliente, la TIR (MWR)?",
+    "whyMwr": "La TIR que iguala lo aportado con el valor final es {{v}}, frente al {{twr}} del fondo: el cliente puso más dinero justo antes de que el fondo cayera. La ganancia sobre lo aportado, {{roi}}, no tiene en cuenta cuánto tiempo estuvo invertido cada euro.",
+    "briefDd": "Este es el valor liquidativo del fondo mes a mes, desde 100. El drawdown máximo es la mayor caída desde un máximo anterior hasta un mínimo posterior.",
+    "chartAria": "Valor liquidativo durante 12 meses, desde 100. Rentabilidades mensuales en %: {{months}}.",
+    "askDd": "¿Cuál fue la caída máxima (drawdown)?",
+    "whyDd": "La mayor caída desde un máximo fue del {{v}}, más que el peor mes ({{worst}}): las caídas se encadenan. El drawdown mide lo que un inversor pudo llegar a perder si entró en el peor momento.",
+    "briefSharpe": "Por último, ¿cuánta rentabilidad dio el fondo por cada punto de riesgo? El ratio de Sharpe divide la rentabilidad por encima del tipo sin riesgo entre la volatilidad anual.",
+    "askSharpe": "¿Cuál es el ratio de Sharpe del año?",
+    "whySharpe": "({{twr}} − {{rf}}) / {{vol}} = {{v}}. Hay que restar el tipo sin riesgo y usar la volatilidad anual, la misma escala de tiempo que la rentabilidad.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Informe firmado",
+    "row": {
+      "twr": "Rentabilidad del fondo (TWR)",
+      "mwr": "Rentabilidad del cliente (MWR)",
+      "dd": "Drawdown máximo",
+      "sharpe": "Ratio de Sharpe"
+    },
+    "great": "Informe impecable: mides al gestor y al cliente como un analista de carteras.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa la TWR, la MWR, el drawdown y el ratio de Sharpe.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "drawdown": {
+    "title": "Lo que cuesta volver al máximo",
+    "drop": "Caída",
+    "back": "Para volver"
   }
 }

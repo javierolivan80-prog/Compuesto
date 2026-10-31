@@ -1,0 +1,9 @@
+/* El informe del gestor (N6): panel, pantallas y gráfico. */
+.fr-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.fr-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

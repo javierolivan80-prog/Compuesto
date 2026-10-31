@@ -186,6 +186,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('Drawdown: la subida para recuperarse crece más deprisa que la caída', () => {
+    render(<ExplainerBlock component="Drawdown" props={{ peak: 20000 }} />);
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(
+      /tras caer un 10 % hay que subir un 11,1\s%; tras un 20 %, un 25,0\s%; tras un 30 %, un 42,9\s%; tras un 50 %, un 100,0\s%/,
+    );
+  });
   it('PositionSizing: la misma racha vacía más la cuenta cuanto más se arriesga', () => {
     render(<ExplainerBlock component="PositionSizing" props={{ capital: 10000, losses: 10 }} />);
     const text = screen.getByRole('figure').textContent ?? '';
