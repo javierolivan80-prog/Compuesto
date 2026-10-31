@@ -45,7 +45,10 @@ export function setupReport(seed: number): ReportSetup {
       added: pick(rnd, [5000, 10_000, 20_000]),
       rf: pick(rnd, [1, 2, 3]),
     };
+    // primer semestre positivo y segundo peor: el cliente aporta tras el buen tramo y su MWR queda por debajo de la TWR
     if (
+      h1(s) > 0 &&
+      h2(s) < h1(s) &&
       new Set(twrOptions(s)).size === 3 &&
       new Set(mwrOptions(s)).size === 3 &&
       new Set(ddOptions(s)).size === 3 &&

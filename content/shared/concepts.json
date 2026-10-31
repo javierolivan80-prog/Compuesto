@@ -1271,7 +1271,7 @@
     "level": 6,
     "prerequisites": ["rentabilidad-log"],
     "unit": "n6-u1",
-    "description": "La rentabilidad ponderada en el tiempo (TWR) compone los tramos entre flujos y mide al gestor (la exigen las normas GIPS). La ponderada por el dinero (MWR) es la TIR de los flujos de un inversor y depende de cuándo entra y sale; el método de Dietz modificado la aproxima."
+    "description": "La rentabilidad ponderada en el tiempo (TWR) compone los tramos entre flujos y mide al gestor (las normas GIPS la exigen con carácter general). La ponderada por el dinero (MWR) es la TIR de los flujos de un inversor y depende de cuándo entra y sale; el método de Dietz modificado la aproxima."
   },
   {
     "id": "volatilidad",

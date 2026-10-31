@@ -57,7 +57,7 @@
         },
         "k": {
           "value": 115,
-          "min": 80,
+          "min": 101,
           "max": 150,
           "step": 1,
           "decimals": 0

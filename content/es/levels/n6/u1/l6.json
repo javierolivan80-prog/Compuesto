@@ -99,13 +99,13 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["drawdown"],
-      "prompt": "Una cartera ficticia cae un 40 % desde su máximo. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
-      "answer": 66.67,
+      "prompt": "El valor liquidativo de un fondo ficticio a fin de cada trimestre fue 100, 110, 104, 121, 99 y 105. ¿Cuál fue su drawdown máximo? (%, 2 decimales)",
+      "answer": 18.18,
       "unit": "%",
       "tolerance": 0.3,
       "answerDecimals": 2,
-      "formula": "(1 / 0.6 - 1) * 100",
-      "explanation": "1 / 0,6 − 1 = 66,67 %."
+      "formula": "(121 - 99) / 121 * 100",
+      "explanation": "El máximo previo a la peor caída es 121 y el mínimo posterior, 99: 22 / 121 = 18,18 %."
     },
     {
       "id": "n6-u1-l6-e7",

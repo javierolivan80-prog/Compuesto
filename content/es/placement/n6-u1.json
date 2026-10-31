@@ -71,13 +71,13 @@
       "bloom": "aplicar",
       "tags": ["test-de-salto"],
       "concepts": ["drawdown"],
-      "prompt": "Un fondo ficticio sube hasta un valor liquidativo de 140 y después cae hasta 112. ¿Cuál es su drawdown? (%)",
-      "answer": 20,
+      "prompt": "El valor liquidativo de un fondo ficticio a fin de cada trimestre fue 100, 120, 102, 125, 105 y 118. ¿Cuál fue su drawdown máximo? (%)",
+      "answer": 16,
       "unit": "%",
       "tolerance": 0.3,
       "answerDecimals": 0,
-      "formula": "(140 - 112) / 140 * 100",
-      "explanation": "28 / 140 = 20 %."
+      "formula": "(125 - 105) / 125 * 100",
+      "explanation": "Hay dos caídas: de 120 a 102 (15 %) y de 125 a 105 (16 %). La mayor, 16 %."
     },
     {
       "id": "salto-n6-u1-q6",
@@ -98,7 +98,7 @@
           "category": "MWR"
         },
         {
-          "text": "La rentabilidad que exigen las normas GIPS",
+          "text": "La rentabilidad que las normas GIPS exigen con carácter general",
           "category": "TWR"
         }
       ],
@@ -106,6 +106,21 @@
     },
     {
       "id": "salto-n6-u1-q7",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["twr-mwr"],
+      "prompt": "Un inversor ficticio aporta 8.000 € al empezar y 4.000 € al cabo de un año, y al final del segundo año tiene 13.000 €. ¿Cuál es su MWR, la TIR anual de sus flujos? (%, 2 decimales)",
+      "answer": 4.9,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "((-4000 + SQRT(4000 ^ 2 + 4 * 8000 * 13000)) / (2 * 8000) - 1) * 100",
+      "explanation": "Resolviendo 8.000 × (1 + r)² + 4.000 × (1 + r) = 13.000: r = 4,90 %."
+    },
+    {
+      "id": "salto-n6-u1-q8",
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -127,7 +142,7 @@
       }
     },
     {
-      "id": "salto-n6-u1-q8",
+      "id": "salto-n6-u1-q9",
       "type": "true_false_swipe",
       "difficulty": 2,
       "bloom": "entender",
@@ -136,21 +151,6 @@
       "statement": "Tras una caída del 50 %, una cartera necesita subir un 100 % para volver a su máximo.",
       "answer": true,
       "explanation": "Verdadero: con la mitad del capital, hay que duplicarlo."
-    },
-    {
-      "id": "salto-n6-u1-q9",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": ["test-de-salto"],
-      "concepts": ["drawdown"],
-      "prompt": "Una cartera ficticia cae un 25 % desde su máximo. ¿Cuánto tiene que subir para recuperarse? (%, 2 decimales)",
-      "answer": 33.33,
-      "unit": "%",
-      "tolerance": 0.3,
-      "answerDecimals": 2,
-      "formula": "(1 / 0.75 - 1) * 100",
-      "explanation": "1 / 0,75 − 1 = 33,33 %."
     },
     {
       "id": "salto-n6-u1-q10",
@@ -195,9 +195,9 @@
       "bloom": "entender",
       "tags": ["test-de-salto"],
       "concepts": ["rentabilidad-log"],
-      "statement": "La media geométrica de unas rentabilidades anuales siempre es mayor que su media aritmética.",
-      "answer": false,
-      "explanation": "Falso: es menor o igual; la diferencia crece con la volatilidad."
+      "statement": "Con la aproximación media geométrica ≈ aritmética − σ²/2, una cartera con una media del 10 % y una volatilidad del 20 % tiene una media geométrica en torno al 8 %.",
+      "answer": true,
+      "explanation": "Verdadero: 0,20² / 2 = 0,02, así que 10 % − 2 % ≈ 8 %."
     }
   ],
   "sources": [

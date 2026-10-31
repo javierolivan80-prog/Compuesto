@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   ddOptions,
   endValue,
+  h1,
+  h2,
   maxDrawdown,
   mwr,
   mwrOptions,
@@ -38,6 +40,15 @@ describe('El informe del gestor (N6)', () => {
       const r = mwr(s) / 100;
       const v = s.start * (1 + r) + s.added * Math.sqrt(1 + r);
       expect(Math.abs(v - endValue(s)) / endValue(s)).toBeLessThan(0.0005);
+    }
+  });
+
+  it('en 10.000 semillas: primer semestre positivo, segundo peor y la MWR por debajo de la TWR', () => {
+    for (let seed = 0; seed < 10_000; seed++) {
+      const s = setupReport(seed);
+      expect(h1(s)).toBeGreaterThan(0);
+      expect(h2(s)).toBeLessThan(h1(s));
+      expect(mwr(s)).toBeLessThan(twr(s));
     }
   });
 

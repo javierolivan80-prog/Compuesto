@@ -131,15 +131,15 @@
         },
         "h1": {
           "value": 13.64,
-          "min": -25,
-          "max": 40,
+          "min": 0.01,
+          "max": 45,
           "step": 0.01,
           "decimals": 2
         },
         "h2": {
           "value": -3.23,
           "min": -20,
-          "max": 40,
+          "max": 25,
           "step": 0.01,
           "decimals": 2
         }
@@ -176,7 +176,7 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["sharpe-sortino"],
-      "prompt": "Otro fondo ficticio rinde un {r} % al año, el tipo sin riesgo es del {rf} % y la desviación de sus rentabilidades por debajo de cero (la desviación a la baja) es del {dv} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
+      "prompt": "Otro fondo ficticio rinde un {r} % al año, el tipo sin riesgo es del {rf} % y la desviación de sus rentabilidades por debajo del tipo sin riesgo (la desviación a la baja) es del {dv} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
       "answer": 1.333,
       "tolerance": 0.3,
       "answerDecimals": 3,

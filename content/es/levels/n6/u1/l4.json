@@ -101,16 +101,16 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": ["sharpe-sortino"],
-      "prompt": "Ese fondo ficticio (un {r} % al año, con un tipo sin riesgo del {rf} %) tiene una desviación a la baja del {d} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
+      "prompt": "Un fondo ficticio rinde un {r} % al año con una volatilidad del {s} %, el tipo sin riesgo es del {rf} % y su desviación a la baja es del {d} %. ¿Cuál es su ratio de Sortino? (3 decimales)",
       "answer": 0.875,
-      "tolerance": 0.3,
+      "tolerance": 0.5,
       "answerDecimals": 3,
       "formula": "({r} - {rf}) / {d}",
-      "explanation": "({r} − {rf}) / {d} = {answer}: mayor que el Sharpe, porque buena parte de su volatilidad eran subidas.",
+      "explanation": "({r} − {rf}) / {d} = {answer}: mayor que su Sharpe, ({r} − {rf}) / {s}, porque buena parte de su volatilidad eran subidas.",
       "params": {
         "r": {
           "value": 9,
-          "min": 5,
+          "min": 6,
           "max": 20,
           "step": 0.5,
           "decimals": 1
@@ -122,12 +122,25 @@
           "step": 0.5,
           "decimals": 1
         },
+        "s": {
+          "value": 16,
+          "min": 8,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        },
+        "k": {
+          "value": 50,
+          "min": 40,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        }
+      },
+      "derived": {
         "d": {
-          "value": 8,
-          "min": 4,
-          "max": 12,
-          "step": 0.5,
-          "decimals": 1
+          "formula": "{s} * {k} / 100",
+          "decimals": 2
         }
       }
     },
@@ -255,13 +268,13 @@
       "situation": "El fondo ficticio A ganó un 12 % con una volatilidad del 20 % y el B, un 8 % con un 8 %. El tipo sin riesgo es del 2 %. Un cliente quiere el A «porque gana más».",
       "prompt": "¿Qué le explica el jefe de la mesa?",
       "options": [
-        "Que B dio más rentabilidad por unidad de riesgo (Sharpe de 0,75 frente a 0,5): con algo de apalancamiento, o combinándolo con liquidez, B podría dar la rentabilidad de A con menos riesgo",
+        "Que B dio más rentabilidad por unidad de riesgo (Sharpe de 0,75 frente a 0,5): apalancado unas 1,67 veces, B daría un 12 % con un 13,3 % de volatilidad, menos que el 20 % de A",
         "Que A es mejor porque gana más",
         "Que son iguales",
         "Que la volatilidad no importa a largo plazo"
       ],
       "answer": 0,
-      "explanation": "Rentabilidad sin riesgo al lado no dice cuál es mejor.",
+      "explanation": "La rentabilidad, si no se mira junto al riesgo, no dice cuál es mejor.",
       "wrongExplanations": {
         "1": "Gana más, pero con mucho más riesgo.",
         "2": "Sus ratios de Sharpe son distintos.",
