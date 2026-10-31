@@ -45,6 +45,13 @@ describe('Máquina del tiempo (N6)', () => {
     expect(crises).toEqual(new Set(['2000', '2012', '2020']));
   });
 
+  it('en 10.000 semillas: el backtest siempre tiene más excepciones de las esperadas', () => {
+    for (let seed = 0; seed < 10_000; seed++) {
+      const s = setupMachine(seed);
+      expect(s.observed).toBeGreaterThan(expected(s));
+    }
+  });
+
   it('cifras para la lección: todo bien da 4 aciertos', () => {
     const s = setupMachine(0);
     const v = machineValues(s, { var: 23_300, cvar: 7, expected: 2.5, move: 'hold' });

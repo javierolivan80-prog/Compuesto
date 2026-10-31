@@ -163,6 +163,42 @@
     },
     {
       "id": "salto-n6-u3-q8",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "var-cvar"
+      ],
+      "prompt": "Con 1.000 días de historia, ¿qué posición ocupa el VaR histórico al 99 % entre las pérdidas ordenadas de peor a mejor?",
+      "answer": 10,
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "1000 * 0.01",
+      "explanation": "El 1 % de 1.000 días son 10: la décima peor pérdida."
+    },
+    {
+      "id": "salto-n6-u3-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [
+        "test-de-salto"
+      ],
+      "concepts": [
+        "backtesting"
+      ],
+      "prompt": "Un VaR ficticio al 99 % tuvo 7 excepciones en 250 sesiones. ¿Cuál es el estadístico z del backtest? (3 decimales)",
+      "answer": 2.86,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "(7 - 2.5) / SQRT(2.5 * 0.99)",
+      "explanation": "(7 − 2,5) / √2,475 = 2,860: por encima de 1,96, se rechaza el modelo."
+    },
+    {
+      "id": "salto-n6-u3-q10",
       "type": "multiple_choice",
       "difficulty": 2,
       "bloom": "aplicar",
@@ -186,42 +222,6 @@
         "2": "La cartera es la misma.",
         "3": "Existe, pero con error."
       }
-    },
-    {
-      "id": "salto-n6-u3-q9",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "backtesting"
-      ],
-      "prompt": "Un VaR ficticio al 99 % tuvo 7 excepciones en 250 sesiones. ¿Cuál es el estadístico z del backtest? (3 decimales)",
-      "answer": 2.86,
-      "tolerance": 0.3,
-      "answerDecimals": 3,
-      "formula": "(7 - 2.5) / SQRT(2.5 * 0.99)",
-      "explanation": "(7 − 2,5) / √2,475 = 2,860: por encima de 1,96, se rechaza el modelo."
-    },
-    {
-      "id": "salto-n6-u3-q10",
-      "type": "numeric_input",
-      "difficulty": 2,
-      "bloom": "aplicar",
-      "tags": [
-        "test-de-salto"
-      ],
-      "concepts": [
-        "var-cvar"
-      ],
-      "prompt": "Con 1.000 días de historia, ¿qué posición ocupa el VaR histórico al 99 % entre las pérdidas ordenadas de peor a mejor?",
-      "answer": 10,
-      "tolerance": 0.3,
-      "answerDecimals": 0,
-      "formula": "1000 * 0.01",
-      "explanation": "El 1 % de 1.000 días son 10: la décima peor pérdida."
     },
     {
       "id": "salto-n6-u3-q11",
@@ -260,9 +260,9 @@
       "concepts": [
         "var-cvar"
       ],
-      "statement": "El VaR al 99 % es la pérdida máxima posible en un día.",
-      "answer": false,
-      "explanation": "Falso: es la pérdida que solo se supera un día de cada cien; ese día se puede perder mucho más."
+      "statement": "Escalar el VaR con √t supone que las rentabilidades diarias son independientes y tienen la misma volatilidad.",
+      "answer": true,
+      "explanation": "Verdadero: si los días malos se encadenan, como en las crisis, √t se queda corto."
     }
   ],
   "sources": [

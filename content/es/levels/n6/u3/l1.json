@@ -35,7 +35,7 @@
     {
       "type": "card",
       "term": "CVaR",
-      "text": "En 2008, los peores días superaron de largo el VaR: el peor, un {worst} %. Su media, el CVaR o expected shortfall, fue un {cvar_pct} % ({cvar_eur} €). El VaR dice dónde empieza la cola; el CVaR, cuánto pesa."
+      "text": "En 2008, los peores días superaron de largo el VaR: el peor, un {worst} %. La media de los cinco peores, el peor 2 % del año (un CVaR histórico al 98 %), fue un {cvar_pct} % ({cvar_eur} €). El VaR dice dónde empieza la cola; el CVaR, cuánto pesa."
     },
     {
       "type": "card",
@@ -53,10 +53,10 @@
       "concepts": [
         "var-cvar"
       ],
-      "prompt": "Con el VaR diario de tu partida ({z} × {sigma} % sobre {value} €), ¿cuál sería el VaR a {t} días, escalando con √t? (€)",
+      "prompt": "Con el VaR diario de tu partida ({z} × {sigma} %, redondeado a dos decimales como en la partida, sobre {value} €), ¿cuál sería el VaR a {t} días, escalando con √t? (€)",
       "answer": 73681.0,
       "unit": "€",
-      "tolerance": 0.3,
+      "tolerance": 0.5,
       "answerDecimals": 0,
       "formula": "ROUND({z} * {sigma}, 2) / 100 * {value} * SQRT({t})",
       "explanation": "VaR diario × √{t} = {answer} €, si los días son independientes y con la misma volatilidad.",
@@ -215,7 +215,7 @@
         "observed": {
           "value": 12,
           "min": 8,
-          "max": 18,
+          "max": 30,
           "step": 2,
           "decimals": 0
         }

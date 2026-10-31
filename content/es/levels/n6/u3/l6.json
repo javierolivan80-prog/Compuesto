@@ -99,14 +99,15 @@
       "bloom": "aplicar",
       "tags": [],
       "concepts": [
-        "backtesting"
+        "var-cvar"
       ],
-      "prompt": "Un VaR ficticio al 99 % se contrasta con 750 sesiones. ¿Cuántas excepciones se esperan? (1 decimal)",
-      "answer": 7.5,
+      "prompt": "Con 800 días de historia, las nueve peores pérdidas diarias de una cartera ficticia fueron, en euros: 68.000, 61.000, 57.000, 52.000, 49.000, 47.000, 45.500, 44.000 y 43.000. ¿Cuál es su VaR histórico a un día al 99 %? (€)",
+      "answer": 44000,
+      "unit": "€",
       "tolerance": 0.3,
-      "answerDecimals": 1,
-      "formula": "750 * 0.01",
-      "explanation": "750 × 1 % = 7,5."
+      "answerDecimals": 0,
+      "formula": "44000",
+      "explanation": "El 1 % de 800 días son 8: el VaR histórico al 99 % es la octava peor pérdida, 44.000 €."
     },
     {
       "id": "n6-u3-l6-e6",

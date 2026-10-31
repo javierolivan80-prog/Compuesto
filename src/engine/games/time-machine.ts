@@ -6,7 +6,7 @@ import { mulberry32 } from '../prng';
  * aproximadas e ilustrativas, y la pantalla lo dice:
  *   1. Antes de 2008, con la volatilidad diaria de los años tranquilos: VaR paramétrico a un día = z × σ × valor
  *      (media diaria ≈ 0). Distractores: con el z del otro nivel de confianza y sin z.
- *   2. Los peores días de 2008: el CVaR (expected shortfall) es la media de las pérdidas que superan el VaR.
+ *   2. Los cinco peores días de 2008, el peor 2 % de 250 sesiones: su media es el CVaR histórico al 98 %.
  *      Distractores: la peor pérdida y el propio VaR.
  *   3. Backtesting del VaR en 2008: excepciones esperadas en 250 días = 250 × (1 − confianza). Distractores: las
  *      observadas y una al año.
@@ -25,7 +25,7 @@ export interface MachineSetup {
   conf: 95 | 99;
   /** Cinco peores pérdidas diarias de 2008 (décimas de punto, en positivo), por encima del VaR. */
   worst10: [number, number, number, number, number];
-  /** Excepciones observadas en los 250 días de 2008. */
+  /** Excepciones observadas en los 250 días de 2008 (siempre más que las esperadas). */
   observed: number;
   crisis: Crisis;
 }
@@ -63,9 +63,10 @@ export function setupMachine(seed: number): MachineSetup {
         top - 27,
         top - pick(rnd, [33, 36]),
       ] as [number, number, number, number, number],
-      observed: pick(rnd, [8, 10, 12, 14, 18]),
+      observed: 0,
       crisis: pick(rnd, ['2000', '2012', '2020'] as const),
     };
+    s.observed = s.conf === 99 ? pick(rnd, [8, 10, 12, 14, 18]) : pick(rnd, [18, 22, 26, 30]);
     if (
       new Set(varOptions(s)).size === 3 &&
       new Set(cvarOptions(s)).size === 3 &&
@@ -89,7 +90,7 @@ export function varOptions(s: MachineSetup): number[] {
   ].sort((a, b) => a - b);
 }
 
-/** Paso 2: CVaR, la media de las peores pérdidas por encima del VaR (%, 2 decimales). */
+/** Paso 2: CVaR histórico al 98 %, la media de los cinco peores días de 250 (%, 2 decimales). */
 export const worstLosses = (s: MachineSetup) => s.worst10.map((w) => w / 10);
 export const cvarPct = (s: MachineSetup) => r2(worstLosses(s).reduce((a, b) => a + b, 0) / 5);
 export function cvarOptions(s: MachineSetup): number[] {
