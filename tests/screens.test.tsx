@@ -232,11 +232,13 @@ describe('pantallas principales', () => {
   it('el botón "Reportar error" de una lección guarda el reporte', async () => {
     await open('#/leccion/n0-u1-l1');
     const user = userEvent.setup();
-    await user.click(await screen.findByRole('button', { name: 'Siguiente' }));
-    await user.click(await screen.findByRole('button', { name: 'Siguiente' }));
-    await user.click(await screen.findByRole('button', { name: 'Empezar los ejercicios' }));
-    await user.click(await screen.findByRole('button', { name: 'Reportar error' }));
-    const dialog = await screen.findByRole('dialog', { name: 'Reportar un error' });
+    // bajo la carga de la batería completa, cargar la lección tarda más de 1 s: margen de 5 s en cada paso
+    const wait = { timeout: 5000 };
+    await user.click(await screen.findByRole('button', { name: 'Siguiente' }, wait));
+    await user.click(await screen.findByRole('button', { name: 'Siguiente' }, wait));
+    await user.click(await screen.findByRole('button', { name: 'Empezar los ejercicios' }, wait));
+    await user.click(await screen.findByRole('button', { name: 'Reportar error' }, wait));
+    const dialog = await screen.findByRole('dialog', { name: 'Reportar un error' }, wait);
     expect(within(dialog).getByRole('button', { name: 'Guardar reporte' })).toBeDisabled();
     await user.type(within(dialog).getByLabelText(/¿Qué está mal/), 'Enunciado ambiguo');
     await user.click(within(dialog).getByRole('button', { name: 'Guardar reporte' }));

@@ -621,3 +621,16 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** los suelos con ROUND(x − 0,5; 0) fallaban por coma flotante (249 en vez de 250). Ahora llevan un margen de 1e-9 y un test barre la rejilla completa de sus parámetros contra un suelo calculado en enteros.
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 7, 7 y 6 de 8, y 9 de 10. e2e de producción `n5u6.spec.ts`: pasa. Con esta unidad, la planta 4 (N5) tiene sus seis unidades. Una prueba en dev jugó las 36 lecciones: el Camino marca la planta 4 como completada y la 5 como próximamente.
 - 🛑 Pendiente de la revisión de Javier: las fuentes de finanzas conductuales (Shefrin y Statman, 1985; Kahneman y Tversky, 1979; Tversky y Kahneman, 1992; Odean, 1998; Barber y Odean, 2000) y la ayuda de Microsoft sobre SI y BUSCARX se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n6-u1 — Medir rentabilidad y riesgo de una cartera y lección-juego «El informe del gestor» (31/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - en el juego, el primer semestre siempre es positivo y el segundo peor que el primero: la MWR del cliente, que aporta en julio, queda siempre por debajo de la TWR (test de 10.000 semillas). La semilla 0 no cambia;
+    - test de salto: la MWR numérica (4,90 %) y un drawdown de dos tramos (16 %) entran en la primera fase; q12, sobre la aproximación geométrica ≈ aritmética − σ²/2;
+    - l4-e3 deriva la desviación a la baja de la volatilidad (k entre el 40 y el 80 %); l4-e7 explica que, apalancado unas 1,67 veces, el fondo B daría un 12 % con un 13,3 % de volatilidad;
+    - el Jefe final evalúa el drawdown máximo de una serie (18,18 %).
+  - Menores: la desviación a la baja de l1-e5 se mide frente al tipo sin riesgo; GIPS exige la TWR «con carácter general»; l2-e1 con subidas de al menos un 1 %.
+- **Ronda 2:** el texto del juego sobre la MWR habla del peor tramo del año (cambio del coordinador, 81ec10e).
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 7, 7 y 7 de 8, y 9 de 10. e2e de producción `n6u1.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, GIPS, Sharpe, 1994, Sortino y Price, 1994, y CNMV) se citan por su URL raíz «(pendiente de verificar la ruta)».

@@ -969,3 +969,6 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
   - La MWR se enseña como la TIR de los flujos, con la ecuación de segundo grado para dos aportaciones anuales y el método de Dietz modificado como aproximación.
   - La TWR se presenta como la medida que exigen las normas GIPS.
   - Las fuentes (CFA Institute, GIPS, Sharpe, 1994, y Sortino y Price, 1994) van por su URL raíz «(pendiente de verificar la ruta)».
+
+## 2026-10-31 — Tiempo de espera en tests/screens.test.tsx
+- El test «el botón "Reportar error" de una lección guarda el reporte» falló de forma intermitente al pasar la batería completa de vitest, porque cargar la lección tardaba más de 1 s. Ya ocurrió con tests/app.test.tsx el 29/10. Sus esperas pasan a 5 s, como allí. No cambia nada de lo que se comprueba.
