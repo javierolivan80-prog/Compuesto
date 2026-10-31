@@ -77,7 +77,15 @@ import { borrowFee, callPrice, duty, pnl, setupShort, shortValues } from './shor
 import { edgeValues, ev, falsePositives, posterior, setupEdge, tStat } from './edge-test';
 import { loss as cfdLoss, net as taNet, patternValues, setupPattern } from './pattern-noise';
 import { breakeven, result as stopPnl, setupStop, shares, stopValues } from './stop-trade';
-import { maxDrawdown, mwr, reportValues, setupReport, sharpe as reportSharpe, twr } from './fund-report';
+import {
+  maxDrawdown,
+  mwr,
+  reportValues,
+  setupReport,
+  sharpe as reportSharpe,
+  twr,
+} from './fund-report';
+import { alpha, cml, minVarWeight, portVol, setupTwo, twoValues } from './two-assets';
 import {
   nextRatio,
   phaseOf,
@@ -701,6 +709,28 @@ export const LESSON_GAME_FORMATS: Record<LessonGameKind, Record<string, Format>>
     sharpe: [2, 2],
     hits: [0, 0],
   },
+  'two-assets': {
+    s_a: [0, 0],
+    s_b: [0, 0],
+    rho: [0, 1],
+    w_a: [0, 0],
+    port_vol: [0, 2],
+    avg_vol: [0, 2],
+    min_var_w: [0, 1],
+    rf: [0, 0],
+    rt: [0, 0],
+    st: [0, 0],
+    target: [0, 0],
+    cml: [0, 2],
+    ri: [0, 0],
+    rho_m: [1, 1],
+    si: [0, 0],
+    sm: [0, 0],
+    rm: [0, 0],
+    beta: [0, 2],
+    alpha: [0, 2],
+    hits: [0, 0],
+  },
 };
 
 /**
@@ -1138,6 +1168,19 @@ export function referenceValues(kind: LessonGameKind, seed: number): Record<stri
           sharpe: reportSharpe(setup),
         }),
         reportValues(setup, { twr: 0, mwr: 0, dd: 0, sharpe: 0 }),
+      ];
+    }
+    case 'two-assets': {
+      // todo bien, y todo mal
+      const setup = setupTwo(seed);
+      return [
+        twoValues(setup, {
+          vol: portVol(setup),
+          minVar: minVarWeight(setup),
+          cml: cml(setup),
+          alpha: alpha(setup),
+        }),
+        twoValues(setup, { vol: 0, minVar: 0, cml: 0, alpha: 0 }),
       ];
     }
   }

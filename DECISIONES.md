@@ -972,3 +972,9 @@ Petición de Javier: «que me salga siempre el botón de continuar, seguir de pr
 
 ## 2026-10-31 — Tiempo de espera en tests/screens.test.tsx
 - El test «el botón "Reportar error" de una lección guarda el reporte» falló de forma intermitente al pasar la batería completa de vitest, porque cargar la lección tardaba más de 1 s. Ya ocurrió con tests/app.test.tsx el 29/10. Sus esperas pasan a 5 s, como allí. No cambia nada de lo que se comprueba.
+
+## 2026-10-31 — n6-u2 «Diversificación, Markowitz y CAPM con regresión» (draft)
+- **Sin repetir n3-u5 ni n4-u3:** el CAPM como coste del capital y la correlación con su intuición se dan por sabidos en tarjetas «Ya sabes» (l2 y l5). Lo nuevo es la varianza de una cartera con covarianza, el riesgo que queda con muchos activos (σ√ρ), la frontera eficiente y la cartera de mínima varianza, la línea del mercado de capitales y la cartera tangente, la beta por regresión (β = ρσi/σm), el R², el estadístico t de la beta, la beta ajustada de Blume y el alfa de Jensen.
+- **Juego nuevo:** «La cartera de dos activos» (`two-assets`, spec en `docs/specs/cartera-dos-activos-n6.md`).
+- **Explicador:** `EfficientFrontier`, del catálogo (nivel 6), en su versión de dos activos. Recorre paso a paso la correlación (1; 0,5; 0 y −0,5); el texto avisa cuando la mínima varianza es el activo menos volátil solo. La nube de muchos activos que describe el catálogo queda para más adelante.
+- **Fuentes:** Markowitz (1952), Sharpe (1964), Jensen (1968), Blume (1971) y el CFA Institute, citadas por su URL raíz «(pendiente de verificar la ruta)».

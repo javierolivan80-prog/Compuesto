@@ -91,6 +91,14 @@ export const EXPLAINER_PROPS: Record<ExplainerName, z.ZodType> = {
     rate: z.number().min(-1).max(10),
     rise: z.number().positive().max(3),
   }),
+  EfficientFrontier: z
+    .object({
+      rA: z.number(),
+      sA: z.number().positive(),
+      rB: z.number(),
+      sB: z.number().positive(),
+    })
+    .refine((p) => p.rA > p.rB && p.sA > p.sB, 'A rinde más y es más volátil que B'),
   Drawdown: z.object({
     peak: z.number().positive(),
   }),

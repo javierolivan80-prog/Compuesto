@@ -1535,3 +1535,50 @@ test('el informe del gestor de N6: captura y axe a 375 px en cada paso y lecció
   expect(r.answered).toBe(lesson.exercises.length);
   await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
 });
+
+test('la cartera de dos activos de N6: captura y axe a 375 px en cada paso y lección completa con tus cifras', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await completeOnboarding(page);
+  await page.goto('/#/leccion/n6-u2-l1');
+  await expect(page.getByRole('heading', { name: 'La cartera de dos activos' })).toBeVisible();
+  const scan = async (label: string) => {
+    await page.waitForTimeout(400);
+    const axe = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    expect(
+      axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`),
+      label,
+    ).toEqual([]);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    expect(overflow, label).toBe(false);
+  };
+  await scan('volatilidad');
+  await page.getByRole('radio', { name: /^15,20\s%$/ }).click();
+  await expect(page.getByTestId('ta-why')).toContainText('✗');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('mínima varianza');
+  await page.getByRole('radio', { name: /^8,0\s%$/ }).click();
+  await expect(page.getByTestId('ta-why')).toContainText('✓');
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await scan('CML');
+  await page.getByRole('radio').first().click();
+  await page.getByRole('button', { name: 'Siguiente' }).click();
+  await page.getByRole('radio').first().click();
+  await scan('alfa');
+  await page.screenshot({
+    path: 'docs/capturas/leccion-juego/cartera-dos-activos-n6-375.png',
+    fullPage: true,
+  });
+
+  await page.goto('/#/');
+  await page.goto('/#/leccion/n6-u2-l1');
+  const lesson = JSON.parse(readFileSync('content/es/levels/n6/u2/l1.json', 'utf8')) as GameLesson;
+  const r = await playGameLesson(page, lesson);
+  expect(r.answered).toBe(lesson.exercises.length);
+  await expect(page.getByRole('heading', { name: 'Lección completada' })).toBeVisible();
+});

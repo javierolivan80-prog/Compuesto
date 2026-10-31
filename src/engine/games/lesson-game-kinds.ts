@@ -37,4 +37,5 @@ export const LESSON_GAMES = [
   'pattern-noise',
   'stop-trade',
   'fund-report',
+  'two-assets',
 ] as const;

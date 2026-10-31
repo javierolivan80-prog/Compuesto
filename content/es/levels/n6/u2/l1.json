@@ -1,0 +1,354 @@
+{
+  "id": "n6-u2-l1",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "order": 0,
+  "title": "Juego: la cartera de dos activos",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la volatilidad de una cartera de dos activos y su cartera de mínima varianza",
+    "Usar la línea del mercado de capitales y calcular la beta y el alfa de Jensen"
+  ],
+  "concepts": ["diversificacion", "markowitz", "regresion", "capm-avanzado"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "game": {
+    "kind": "two-assets",
+    "seed": 0
+  },
+  "intro": [
+    {
+      "type": "card",
+      "term": "Diversificar",
+      "text": "Acertaste {hits} de 4. Con un {w_a} % en acciones y una correlación de {rho}, la cartera tenía una volatilidad del {port_vol} %, por debajo de la media ponderada, un {avg_vol} %. La cartera de mínima varianza llevaba un {min_var_w} % en acciones."
+    },
+    {
+      "type": "card",
+      "term": "Línea del mercado",
+      "text": "Mezclando la cartera tangente (un {rt} %, con un {st} % de volatilidad) con el activo sin riesgo al {rf} %, una volatilidad del {target} % rendía un {cml} %. La pendiente de la línea es el ratio de Sharpe de la cartera tangente."
+    },
+    {
+      "type": "card",
+      "term": "Beta y alfa",
+      "text": "La beta de la acción, {rho_m} × {si} / {sm}, era {beta}. Con el mercado al {rm} %, el CAPM pedía rf + β × (Rm − rf), y la acción rindió {alpha} puntos más (o menos, si es negativo): su alfa de Jensen."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u2-l1-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Con las volatilidades de tu partida (A: {s_a} %, B: {s_b} %) y la misma correlación, {rho}, ¿qué volatilidad tendría una cartera con solo un {w2} % en A? (%, 2 decimales)",
+      "answer": 8.99,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "SQRT(({w2} / 100) ^ 2 * {s_a} ^ 2 + (1 - {w2} / 100) ^ 2 * {s_b} ^ 2 + 2 * {w2} / 100 * (1 - {w2} / 100) * {rho} * {s_a} * {s_b})",
+      "explanation": "√(w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB) con w = {w2} %: {answer} %.",
+      "params": {
+        "s_a": {
+          "value": 20,
+          "min": 15,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        },
+        "s_b": {
+          "value": 8,
+          "min": 5,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "rho": {
+          "value": 0.2,
+          "min": -0.3,
+          "max": 0.4,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "w2": {
+          "value": 30,
+          "min": 10,
+          "max": 30,
+          "step": 10,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l1-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente de tu partida rinde un {rt} % con un {st} % de volatilidad, y el tipo sin riesgo es del {rf} %. ¿Cuál es su ratio de Sharpe, la pendiente de la línea del mercado de capitales? (3 decimales)",
+      "answer": 0.417,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({rt} - {rf}) / {st}",
+      "explanation": "({rt} − {rf}) / {st} = {answer}.",
+      "params": {
+        "rt": {
+          "value": 7,
+          "min": 6,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "st": {
+          "value": 12,
+          "min": 10,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l1-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Con esa cartera tangente ({rt} %, {st} % de volatilidad) y el activo sin riesgo al {rf} %, ¿qué rentabilidad esperada da la línea del mercado de capitales para una volatilidad del {t2} %? (%, 2 decimales)",
+      "answer": 8.25,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rf} + ({rt} - {rf}) / {st} * {t2}",
+      "explanation": "{rf} + ({rt} − {rf}) / {st} × {t2} = {answer} %.",
+      "params": {
+        "rt": {
+          "value": 7,
+          "min": 6,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "st": {
+          "value": 12,
+          "min": 10,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "t2": {
+          "value": 15,
+          "min": 11,
+          "max": 16,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l1-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "Si la correlación de la acción con el mercado fuera de {r2} en lugar de {rho_m}, con las mismas volatilidades ({si} % y {sm} %), ¿cuál sería su beta? (2 decimales)",
+      "answer": 1.8,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{r2} * {si} / {sm}",
+      "explanation": "{r2} × {si} / {sm} = {answer}.",
+      "params": {
+        "r2": {
+          "value": 0.9,
+          "min": 0.9,
+          "max": 1,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "rho_m": {
+          "value": 0.6,
+          "min": 0.4,
+          "max": 0.8,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "si": {
+          "value": 30,
+          "min": 20,
+          "max": 35,
+          "step": 5,
+          "decimals": 0
+        },
+        "sm": {
+          "value": 15,
+          "min": 12,
+          "max": 18,
+          "step": 3,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l1-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "prompt": "Con la beta de tu acción ({rho_m} × {si} / {sm}), el mercado al {rm} % y el tipo sin riesgo al {rf} %, ¿qué rentabilidad pedía el CAPM? (%, 2 decimales)",
+      "answer": 9.2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rf} + {rho_m} * {si} / {sm} * ({rm} - {rf})",
+      "explanation": "{rf} + β × ({rm} − {rf}) = {answer} %, con β = {rho_m} × {si} / {sm}.",
+      "params": {
+        "rho_m": {
+          "value": 0.6,
+          "min": 0.4,
+          "max": 0.8,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "si": {
+          "value": 30,
+          "min": 20,
+          "max": 35,
+          "step": 5,
+          "decimals": 0
+        },
+        "sm": {
+          "value": 15,
+          "min": 12,
+          "max": 18,
+          "step": 3,
+          "decimals": 0
+        },
+        "rm": {
+          "value": 8,
+          "min": 6,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l1-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "¿Riesgo sistemático o idiosincrático?",
+      "categories": ["Sistemático", "Idiosincrático"],
+      "items": [
+        {
+          "text": "Una subida de tipos del BCE que afecta a toda la bolsa",
+          "category": "Sistemático"
+        },
+        {
+          "text": "Un incendio en la fábrica de una empresa ficticia",
+          "category": "Idiosincrático"
+        },
+        {
+          "text": "Una recesión mundial",
+          "category": "Sistemático"
+        },
+        {
+          "text": "La dimisión por sorpresa del consejero delegado de una empresa",
+          "category": "Idiosincrático"
+        }
+      ],
+      "explanation": "El idiosincrático se diversifica con muchas empresas; el sistemático no, y por eso es el que paga el mercado."
+    },
+    {
+      "id": "n6-u2-l1-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "character": "mentora",
+      "situation": "El becario rival dice que, si una acción tiene una correlación de 0,6 con el mercado, su beta es 0,6.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que la beta es la correlación por el cociente de volatilidades, ρ × σacción / σmercado: una acción muy volátil puede tener una beta mayor que 1 con una correlación de 0,6",
+        "Que tiene razón: beta y correlación son lo mismo",
+        "Que la beta es la volatilidad de la acción",
+        "Que la beta no depende de la correlación"
+      ],
+      "answer": 0,
+      "explanation": "La correlación dice si se mueven juntos; la beta, cuánto.",
+      "wrongExplanations": {
+        "1": "Solo coinciden si las dos volatilidades son iguales.",
+        "2": "La volatilidad es solo una parte.",
+        "3": "Sí depende: β = ρ × σi / σm."
+      }
+    },
+    {
+      "id": "n6-u2-l1-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "statement": "Añadir a una cartera un activo más volátil que ella siempre aumenta su volatilidad.",
+      "answer": false,
+      "explanation": "Falso: si está poco correlacionado, una pequeña dosis puede reducirla, como en la cartera de mínima varianza."
+    }
+  ],
+  "realWorld": "Los informes de los fondos muestran su volatilidad y, a veces, su beta frente al índice; las plataformas de análisis publican la correlación entre fondos y entre clases de activos. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Harry Markowitz, «Portfolio Selection», The Journal of Finance, 1952 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "William F. Sharpe, «Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk», The Journal of Finance, 1964 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Michael C. Jensen, «The Performance of Mutual Funds in the Period 1945-1964», The Journal of Finance, 1968 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

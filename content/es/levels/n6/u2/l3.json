@@ -1,0 +1,305 @@
+{
+  "id": "n6-u2-l3",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "title": "Frontera eficiente y cartera de mínima varianza",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la cartera de mínima varianza y la rentabilidad de una combinación de dos activos",
+    "Distinguir carteras eficientes de carteras dominadas"
+  ],
+  "concepts": ["markowitz"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Markowitz",
+      "text": "Markowitz (1952) propuso elegir carteras por su rentabilidad esperada y su riesgo a la vez. Una cartera es eficiente si no hay otra con más rentabilidad y el mismo riesgo, o con el mismo rentabilidad y menos riesgo. Juntas forman la frontera eficiente."
+    },
+    {
+      "type": "visual",
+      "component": "EfficientFrontier",
+      "props": {
+        "rA": 8,
+        "sA": 20,
+        "rB": 3,
+        "sB": 8
+      }
+    },
+    {
+      "type": "card",
+      "term": "Mínima varianza",
+      "text": "La cartera de mínima varianza es el punto de la frontera con menos riesgo. Con dos activos, el peso en A es (σB² − ρσAσB) / (σA² + σB² − 2ρσAσB). Las carteras por debajo de ella, con más riesgo y menos rentabilidad, están dominadas."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u2-l3-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Dos activos ficticios: A con una volatilidad del {sa} %, B con un {sb} % y una correlación de {r}. ¿Qué peso en A tiene la cartera de mínima varianza? (%, 2 decimales)",
+      "answer": 12.5,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({sb} ^ 2 - {r} * {sa} * {sb}) / ({sa} ^ 2 + {sb} ^ 2 - 2 * {r} * {sa} * {sb}) * 100",
+      "explanation": "(σB² − ρσAσB) / (σA² + σB² − 2ρσAσB) = {answer} %.",
+      "params": {
+        "sa": {
+          "value": 20,
+          "min": 16,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "r": {
+          "value": 0.25,
+          "min": -0.5,
+          "max": 0.25,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l3-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Una cartera ficticia tiene un {w} % en A, que rinde un {ra} %, y el resto en B, que rinde un {rb} %. ¿Cuál es su rentabilidad esperada? (%, 3 decimales)",
+      "answer": 4.625,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{w} / 100 * {ra} + (1 - {w} / 100) * {rb}",
+      "explanation": "{w} % × {ra} + (100 − {w}) % × {rb} = {answer} %.",
+      "params": {
+        "w": {
+          "value": 12.5,
+          "min": 5,
+          "max": 40,
+          "step": 2.5,
+          "decimals": 1
+        },
+        "ra": {
+          "value": 9,
+          "min": 6,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "rb": {
+          "value": 4,
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l3-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Si dos activos ficticios no están correlacionados (ρ = 0) y tienen volatilidades del {sa} % y del {sb} %, ¿qué volatilidad tiene su cartera de mínima varianza? (%, 2 decimales)",
+      "answer": 8.94,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{sa} * {sb} / SQRT({sa} ^ 2 + {sb} ^ 2)",
+      "explanation": "Con ρ = 0, la mínima varianza vale σAσB / √(σA² + σB²) = {answer} %, menos que cualquiera de los dos.",
+      "params": {
+        "sa": {
+          "value": 20,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 10,
+          "min": 5,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l3-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Una cartera ficticia combina A, que rinde un {ra} %, y B, que rinde un {rb} %. ¿Qué peso en A necesita para esperar un {t} %? (%, 2 decimales)",
+      "answer": 50,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "({t} - {rb}) / ({ra} - {rb}) * 100",
+      "explanation": "({t} − {rb}) / ({ra} − {rb}) = {answer} %.",
+      "params": {
+        "ra": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "rb": {
+          "value": 4,
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        },
+        "t": {
+          "value": 7,
+          "min": 6,
+          "max": 7,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l3-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Una cartera ficticia tiene un {w} % en A, que rinde un {ra} %, y el resto en B, que rinde un {rb} %. ¿Cuál es su rentabilidad esperada? (%, 2 decimales)",
+      "answer": 8.2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{w} / 100 * {ra} + (1 - {w} / 100) * {rb}",
+      "explanation": "{w} % × {ra} + (100 − {w}) % × {rb} = {answer} %.",
+      "params": {
+        "w": {
+          "value": 70,
+          "min": 50,
+          "max": 90,
+          "step": 10,
+          "decimals": 0
+        },
+        "ra": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "rb": {
+          "value": 4,
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l3-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Tres carteras ficticias tienen la misma volatilidad, un 14 %, y una cuarta tiene un 10 % y rinde un 6 %. ¿Cuáles son eficientes?",
+      "categories": ["Eficiente", "Dominada"],
+      "items": [
+        {
+          "text": "La que rinde un 8 % con un 14 % de volatilidad",
+          "category": "Eficiente"
+        },
+        {
+          "text": "La que rinde un 6 % con un 14 %",
+          "category": "Dominada"
+        },
+        {
+          "text": "La que rinde un 5 % con un 14 %",
+          "category": "Dominada"
+        },
+        {
+          "text": "La que rinde un 6 % con un 10 %",
+          "category": "Eficiente"
+        }
+      ],
+      "explanation": "Con el mismo riesgo, gana la de más rentabilidad; con la misma rentabilidad, la de menos riesgo."
+    },
+    {
+      "id": "n6-u2-l3-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "character": "rival",
+      "situation": "El becario rival recomienda la cartera de mínima varianza a un cliente ficticio de 30 años, con un horizonte de 35 años y mucha tolerancia al riesgo.",
+      "prompt": "¿Qué le explicas?",
+      "options": [
+        "Que la mínima varianza es la cartera eficiente con menos riesgo, no la mejor para todos: a ese cliente le encaja un punto más alto de la frontera, con más rentabilidad esperada",
+        "Que tiene razón: la mínima varianza es la mejor para todo el mundo",
+        "Que debería elegir una cartera dominada",
+        "Que la frontera eficiente no sirve para clientes jóvenes"
+      ],
+      "answer": 0,
+      "explanation": "Cada cliente elige su punto de la frontera según su tolerancia al riesgo.",
+      "wrongExplanations": {
+        "1": "Es la de menos riesgo, no la de mejor relación para cualquiera.",
+        "2": "Una dominada siempre es peor.",
+        "3": "Sirve para todos; cambia el punto elegido."
+      }
+    },
+    {
+      "id": "n6-u2-l3-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "statement": "La cartera de mínima varianza es la que más rentabilidad da por unidad de riesgo.",
+      "answer": false,
+      "explanation": "Falso: esa es la cartera tangente, la de mayor ratio de Sharpe; la de mínima varianza solo es la de menos riesgo."
+    }
+  ],
+  "realWorld": "Los optimizadores de carteras de las gestoras dibujan la frontera eficiente con las rentabilidades, volatilidades y correlaciones esperadas; pequeños cambios en esas estimaciones mueven mucho los pesos. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Harry Markowitz, «Portfolio Selection», The Journal of Finance, 1952 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

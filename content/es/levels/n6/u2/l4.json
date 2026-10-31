@@ -1,0 +1,308 @@
+{
+  "id": "n6-u2-l4",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "title": "Línea del mercado de capitales y cartera tangente",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular el ratio de Sharpe de la cartera tangente y la rentabilidad en la línea del mercado de capitales",
+    "Decidir cuánto prestar o pedir prestado para una volatilidad objetivo"
+  ],
+  "concepts": ["markowitz"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Activo sin riesgo",
+      "text": "Al combinar una cartera arriesgada con el activo sin riesgo, prestando o pidiendo prestado, las mezclas forman una recta en el plano volatilidad-rentabilidad: rentabilidad = rf + (R − rf) / σ × volatilidad."
+    },
+    {
+      "type": "card",
+      "term": "Cartera tangente",
+      "text": "La mejor de esas rectas toca la frontera eficiente en la cartera tangente, la de mayor ratio de Sharpe: es la línea del mercado de capitales. Su pendiente es ese ratio de Sharpe, y todas las carteras de la línea lo comparten."
+    },
+    {
+      "type": "card",
+      "term": "Separación",
+      "text": "Según la teoría, todos deberían tener la misma cartera tangente y cambiar solo cuánto ponen en ella: los prudentes mezclan con liquidez y los atrevidos piden prestado. En la práctica, el apalancamiento cuesta más que el tipo sin riesgo y tiene límites."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u2-l4-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia rinde un {rt} % con una volatilidad del {st} %, y el tipo sin riesgo es del {rf} %. ¿Cuál es su ratio de Sharpe? (3 decimales)",
+      "answer": 0.4,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "({rt} - {rf}) / {st}",
+      "explanation": "({rt} − {rf}) / {st} = {answer}.",
+      "params": {
+        "rt": {
+          "value": 8,
+          "min": 6,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "st": {
+          "value": 15,
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l4-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Con un ratio de Sharpe de la cartera tangente de {s} y un tipo sin riesgo del {rf} %, ¿qué rentabilidad esperada da la línea del mercado de capitales para una volatilidad del {v} %? (%, 2 decimales)",
+      "answer": 6,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rf} + {s} * {v}",
+      "explanation": "{rf} + {s} × {v} = {answer} %.",
+      "params": {
+        "s": {
+          "value": 0.4,
+          "min": 0.3,
+          "max": 0.6,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "v": {
+          "value": 10,
+          "min": 5,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l4-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia tiene una volatilidad del {st} %. ¿Qué parte del dinero hay que poner en ella, y el resto en el activo sin riesgo, para una volatilidad del {v} %? (%, 2 decimales)",
+      "answer": 60,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{v} / {st} * 100",
+      "explanation": "{v} / {st} = {answer} % en la tangente.",
+      "params": {
+        "st": {
+          "value": 15,
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "v": {
+          "value": 9,
+          "min": 4,
+          "max": 9,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l4-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia rinde un {rt} % con un {st} % de volatilidad, y se puede pedir prestado al {rf} %. ¿Qué rentabilidad esperada tiene una cartera con una volatilidad del {v} %, pidiendo prestado? (%, 2 decimales)",
+      "answer": 10,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{rf} + ({rt} - {rf}) * {v} / {st}",
+      "explanation": "{rf} + ({rt} − {rf}) × {v} / {st} = {answer} %: se invierte más del 100 % en la tangente.",
+      "params": {
+        "rt": {
+          "value": 8,
+          "min": 6,
+          "max": 10,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "st": {
+          "value": 15,
+          "min": 10,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        },
+        "v": {
+          "value": 20,
+          "min": 16,
+          "max": 25,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l4-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Una cartera ficticia rinde un {r} % con un {v} % de volatilidad, y el tipo sin riesgo es del {rf} %. ¿Cuál es su ratio de Sharpe? Compáralo con la pendiente de la línea del mercado de capitales. (3 decimales)",
+      "answer": 0.357,
+      "tolerance": 0.5,
+      "answerDecimals": 3,
+      "formula": "({r} - {rf}) / {v}",
+      "explanation": "({r} − {rf}) / {v} = {answer}: si es menor que el Sharpe de la cartera tangente, la cartera queda por debajo de la línea.",
+      "params": {
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        },
+        "v": {
+          "value": 14,
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "r": {
+          "value": 7,
+          "min": 6,
+          "max": 9,
+          "step": 0.5,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l4-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia tiene un 15 % de volatilidad. ¿Qué hay que hacer para cada volatilidad objetivo?",
+      "categories": [
+        "Prestar: parte en el activo sin riesgo",
+        "Pedir prestado: más del 100 % en la tangente"
+      ],
+      "items": [
+        {
+          "text": "Una volatilidad objetivo del 6 %",
+          "category": "Prestar: parte en el activo sin riesgo"
+        },
+        {
+          "text": "Una del 22 %",
+          "category": "Pedir prestado: más del 100 % en la tangente"
+        },
+        {
+          "text": "Una del 12 %",
+          "category": "Prestar: parte en el activo sin riesgo"
+        },
+        {
+          "text": "Una del 18 %",
+          "category": "Pedir prestado: más del 100 % en la tangente"
+        }
+      ],
+      "explanation": "Por debajo de la volatilidad de la tangente se mezcla con liquidez; por encima, se apalanca."
+    },
+    {
+      "id": "n6-u2-l4-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "character": "jefe",
+      "situation": "Un cliente quiere más rentabilidad que la cartera tangente y el becario propone cambiarle a una cartera concentrada en dos acciones muy volátiles.",
+      "prompt": "¿Qué propone el jefe de la mesa?",
+      "options": [
+        "Mantener la cartera tangente, que es la de mejor Sharpe, y, si el cliente acepta el riesgo, apalancarla con prudencia; concentrarse en dos acciones añade riesgo que no se paga",
+        "Hacer caso al becario",
+        "Pasarlo todo al activo sin riesgo",
+        "Elegir la cartera de mínima varianza"
+      ],
+      "answer": 0,
+      "explanation": "Más rentabilidad se consigue moviéndose por la línea, no saliendo de ella.",
+      "wrongExplanations": {
+        "1": "Es riesgo idiosincrático, que no se remunera.",
+        "2": "Eso reduce la rentabilidad.",
+        "3": "Tiene menos rentabilidad que la tangente."
+      }
+    },
+    {
+      "id": "n6-u2-l4-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "statement": "Todas las carteras de la línea del mercado de capitales tienen el mismo ratio de Sharpe.",
+      "answer": true,
+      "explanation": "Verdadero: están en una recta que sale del activo sin riesgo, y su pendiente es ese ratio de Sharpe."
+    }
+  ],
+  "realWorld": "Los fondos perfilados de las gestoras (conservador, moderado, dinámico) son, en la práctica, distintas mezclas de una misma cartera de riesgo con activos de bajo riesgo. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "William F. Sharpe, «Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk», The Journal of Finance, 1964 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

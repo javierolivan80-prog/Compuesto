@@ -1,0 +1,218 @@
+{
+  "id": "n6-u2-l6",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "title": "Jefe final: el comité de asignación",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la volatilidad de una cartera, la mínima varianza y el riesgo que no se diversifica",
+    "Usar la línea del mercado de capitales",
+    "Estimar la beta y el alfa de Jensen"
+  ],
+  "concepts": ["diversificacion", "markowitz", "regresion", "capm-avanzado"],
+  "companies": ["albufera-partners"],
+  "historical": false,
+  "intro": [],
+  "exercises": [
+    {
+      "id": "n6-u2-l6-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Una cartera ficticia tiene un 40 % en A (volatilidad del 25 %) y un 60 % en B (10 %), con una correlación de −0,2. ¿Cuál es su volatilidad? (%, 2 decimales)",
+      "answer": 10.58,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "SQRT(0.4 ^ 2 * 25 ^ 2 + 0.6 ^ 2 * 10 ^ 2 + 2 * 0.4 * 0.6 * (-0.2) * 25 * 10)",
+      "explanation": "√(100 + 36 − 24) = √112 = 10,58 %."
+    },
+    {
+      "id": "n6-u2-l6-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "Dos activos ficticios no correlacionados tienen volatilidades del 25 % y del 10 %. ¿Qué peso en el primero tiene la cartera de mínima varianza? (%, 2 decimales)",
+      "answer": 13.79,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "100 / (625 + 100) * 100",
+      "explanation": "σB² / (σA² + σB²) = 100 / 725 = 13,79 %."
+    },
+    {
+      "id": "n6-u2-l6-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia rinde un 9 % con un 15 % de volatilidad, y el tipo sin riesgo es del 3 %. ¿Qué rentabilidad da la línea del mercado de capitales para un 10 % de volatilidad? (%)",
+      "answer": 7,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "3 + (9 - 3) / 15 * 10",
+      "explanation": "3 + 0,4 × 10 = 7 %."
+    },
+    {
+      "id": "n6-u2-l6-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "Una acción ficticia tiene una correlación de 0,7 con el mercado, una volatilidad del 28 % y el mercado, un 14 %. ¿Cuál es su beta? (2 decimales)",
+      "answer": 1.4,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "0.7 * 28 / 14",
+      "explanation": "0,7 × 2 = 1,40."
+    },
+    {
+      "id": "n6-u2-l6-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "prompt": "Esa acción rindió un 13 % con el mercado al 9 % y el tipo sin riesgo al 3 %. ¿Cuál es su alfa de Jensen, con beta 1,4? (%, 2 decimales)",
+      "answer": 1.6,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "13 - (3 + 1.4 * (9 - 3))",
+      "explanation": "13 − (3 + 8,4) = 1,60 %."
+    },
+    {
+      "id": "n6-u2-l6-e6",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Con infinitas acciones de volatilidad del 25 % y una correlación media de 0,36, ¿qué volatilidad queda en la cartera? (%)",
+      "answer": 15,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "25 * SQRT(0.36)",
+      "explanation": "25 × 0,6 = 15 %."
+    },
+    {
+      "id": "n6-u2-l6-e7",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "¿Riesgo sistemático o idiosincrático?",
+      "categories": ["Sistemático", "Idiosincrático"],
+      "items": [
+        {
+          "text": "Una guerra comercial que hunde las bolsas",
+          "category": "Sistemático"
+        },
+        {
+          "text": "Una multa de la CNMV a una sola empresa",
+          "category": "Idiosincrático"
+        },
+        {
+          "text": "Una subida general de los tipos de interés",
+          "category": "Sistemático"
+        }
+      ],
+      "explanation": "El idiosincrático se diversifica; el sistemático, no."
+    },
+    {
+      "id": "n6-u2-l6-e8",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "character": "mentora",
+      "situation": "Un fondo ficticio presume de haber batido al índice en 3 puntos, pero tiene una beta de 1,5 y el mercado subió con fuerza.",
+      "prompt": "¿Qué pregunta tu mentora?",
+      "options": [
+        "Cuál es su alfa de Jensen: con beta 1,5, en un año de subidas debía batir al índice solo por su riesgo de mercado; lo que cuenta es lo que rindió por encima de rf + β(Rm − rf)",
+        "Cuántas acciones tiene",
+        "Si ha cambiado de gestor",
+        "Ninguna: batir al índice basta"
+      ],
+      "answer": 0,
+      "explanation": "Batir al índice con más beta no es habilidad.",
+      "wrongExplanations": {
+        "1": "No responde a la pregunta.",
+        "2": "No responde a la pregunta.",
+        "3": "Hay que descontar el riesgo de mercado."
+      }
+    },
+    {
+      "id": "n6-u2-l6-e9",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "La regresión de un fondo ficticio sobre su índice da un R² del 95 %. ¿Qué significa?",
+      "options": [
+        "Que el 95 % de la varianza del fondo se explica por los movimientos del índice: se parece mucho a él",
+        "Que el fondo bate al índice el 95 % de las veces",
+        "Que su beta es 0,95",
+        "Que tiene un 95 % de probabilidad de subir"
+      ],
+      "answer": 0,
+      "explanation": "El R² mide cuánto se parece el fondo al índice.",
+      "wrongExplanations": {
+        "1": "El R² no dice si lo bate.",
+        "2": "La beta es otra cosa.",
+        "3": "No es una probabilidad de subir."
+      }
+    },
+    {
+      "id": "n6-u2-l6-e10",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["markowitz"],
+      "statement": "La cartera tangente es la de la frontera eficiente con mayor ratio de Sharpe.",
+      "answer": true,
+      "explanation": "Verdadero: es la que toca la recta más empinada que sale del activo sin riesgo."
+    }
+  ],
+  "realWorld": "En Albufera Partners, el comité de asignación revisa cada trimestre la volatilidad y la beta de cada cartera, y el alfa de cada gestor frente a lo que pedía su riesgo. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Harry Markowitz, «Portfolio Selection», The Journal of Finance, 1952 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "William F. Sharpe, «Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk», The Journal of Finance, 1964 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Michael C. Jensen, «The Performance of Mutual Funds in the Period 1945-1964», The Journal of Finance, 1968 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

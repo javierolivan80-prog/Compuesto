@@ -257,6 +257,11 @@
           "id": "n6-u1",
           "name": "Medir rentabilidad y riesgo de una cartera",
           "concepts": ["rentabilidad-log", "twr-mwr", "volatilidad", "sharpe-sortino", "drawdown"]
+        },
+        {
+          "id": "n6-u2",
+          "name": "Diversificación, Markowitz y CAPM con regresión",
+          "concepts": ["diversificacion", "markowitz", "regresion", "capm-avanzado"]
         }
       ]
     },

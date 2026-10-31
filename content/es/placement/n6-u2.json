@@ -1,0 +1,225 @@
+{
+  "id": "salto-n6-u2",
+  "unitId": "n6-u2",
+  "version": 2,
+  "status": "draft",
+  "reviewedBy": [],
+  "questions": [
+    {
+      "id": "salto-n6-u2-q1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["diversificacion"],
+      "prompt": "Una cartera ficticia tiene un 50 % en A (volatilidad del 16 %) y un 50 % en B (12 %), con una correlación de 0,5. ¿Cuál es su volatilidad? (%, 2 decimales)",
+      "answer": 12.17,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "SQRT(0.25 * 256 + 0.25 * 144 + 2 * 0.25 * 0.5 * 16 * 12)",
+      "explanation": "√(64 + 36 + 48) = √148 = 12,17 %."
+    },
+    {
+      "id": "salto-n6-u2-q2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["markowitz"],
+      "prompt": "Dos activos ficticios tienen volatilidades del 16 % y del 10 % y una correlación de 0,3. ¿Qué peso en el primero tiene la cartera de mínima varianza? (%)",
+      "answer": 20,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "(100 - 0.3 * 160) / (256 + 100 - 2 * 0.3 * 160) * 100",
+      "explanation": "(100 − 48) / (256 + 100 − 96) = 52 / 260 = 20 %."
+    },
+    {
+      "id": "salto-n6-u2-q3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["markowitz"],
+      "prompt": "La cartera tangente ficticia rinde un 7 % con un 12 % de volatilidad, y el tipo sin riesgo es del 1 %. ¿Qué rentabilidad da la línea del mercado de capitales para un 6 % de volatilidad? (%)",
+      "answer": 4,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "1 + (7 - 1) / 12 * 6",
+      "explanation": "1 + 0,5 × 6 = 4 %."
+    },
+    {
+      "id": "salto-n6-u2-q4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["regresion"],
+      "prompt": "La covarianza entre una acción ficticia y el mercado es 180 (en %²) y la varianza del mercado, 144. ¿Cuál es su beta? (2 decimales)",
+      "answer": 1.25,
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "180 / 144",
+      "explanation": "180 / 144 = 1,25."
+    },
+    {
+      "id": "salto-n6-u2-q5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-avanzado"],
+      "prompt": "Un fondo ficticio rindió un 10 % con una beta de 0,8; el mercado rindió un 9 % y el tipo sin riesgo es del 2 %. ¿Cuál es su alfa de Jensen? (%, 2 decimales)",
+      "answer": 2.4,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "10 - (2 + 0.8 * (9 - 2))",
+      "explanation": "10 − (2 + 5,6) = 2,40 %."
+    },
+    {
+      "id": "salto-n6-u2-q6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["diversificacion"],
+      "prompt": "¿Riesgo sistemático o idiosincrático?",
+      "categories": ["Sistemático", "Idiosincrático"],
+      "items": [
+        {
+          "text": "Una crisis financiera mundial",
+          "category": "Sistemático"
+        },
+        {
+          "text": "Un fallo en el producto estrella de una empresa ficticia",
+          "category": "Idiosincrático"
+        },
+        {
+          "text": "Una subida general de impuestos a todas las empresas",
+          "category": "Sistemático"
+        },
+        {
+          "text": "La salida del fundador de una empresa",
+          "category": "Idiosincrático"
+        }
+      ],
+      "explanation": "El idiosincrático se diversifica; el sistemático, no."
+    },
+    {
+      "id": "salto-n6-u2-q7",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["markowitz"],
+      "prompt": "¿Qué es la cartera tangente?",
+      "options": [
+        "La cartera de la frontera eficiente con mayor ratio de Sharpe",
+        "La de menor volatilidad",
+        "La que más rentabilidad da, sin importar el riesgo",
+        "La que solo tiene el activo sin riesgo"
+      ],
+      "answer": 0,
+      "explanation": "Es la que toca la recta más empinada que sale del activo sin riesgo.",
+      "wrongExplanations": {
+        "1": "Esa es la de mínima varianza.",
+        "2": "Esa sería la de más riesgo.",
+        "3": "El activo sin riesgo está en el eje vertical."
+      }
+    },
+    {
+      "id": "salto-n6-u2-q8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["diversificacion"],
+      "statement": "Con correlación −1 se puede construir una cartera de dos activos sin volatilidad.",
+      "answer": true,
+      "explanation": "Verdadero: con los pesos adecuados, lo que pierde uno lo gana el otro."
+    },
+    {
+      "id": "salto-n6-u2-q9",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["regresion"],
+      "prompt": "La correlación de una acción ficticia con el mercado es 0,8. ¿Qué R² tiene su regresión sobre el mercado? (%)",
+      "answer": 64,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 0,
+      "formula": "0.8 ^ 2 * 100",
+      "explanation": "0,8² = 64 %."
+    },
+    {
+      "id": "salto-n6-u2-q10",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "bloom": "analizar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-avanzado"],
+      "prompt": "Un fondo ficticio con beta 1,6 batió a su índice en 4 puntos en un año de fuertes subidas. ¿Qué conviene comprobar?",
+      "options": [
+        "Su alfa de Jensen: con tanta beta, debía batir al índice en un año alcista solo por su riesgo de mercado",
+        "Nada: batir al índice demuestra habilidad",
+        "Solo el número de acciones",
+        "Solo las comisiones"
+      ],
+      "answer": 0,
+      "explanation": "Hay que descontar el riesgo de mercado.",
+      "wrongExplanations": {
+        "1": "Puede ser solo beta.",
+        "2": "No dice nada de la habilidad.",
+        "3": "Importan, pero no responden a la pregunta."
+      }
+    },
+    {
+      "id": "salto-n6-u2-q11",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-avanzado"],
+      "prompt": "La beta estimada de una acción ficticia es 0,7. ¿Cuál es su beta ajustada de Blume, 0,67 × β + 0,33? (3 decimales)",
+      "answer": 0.799,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "0.67 * 0.7 + 0.33",
+      "explanation": "0,469 + 0,33 = 0,799."
+    },
+    {
+      "id": "salto-n6-u2-q12",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": ["test-de-salto"],
+      "concepts": ["capm-avanzado"],
+      "statement": "Una acción con beta 0 no tiene ningún riesgo.",
+      "answer": false,
+      "explanation": "Falso: no tiene riesgo de mercado, pero puede tener mucho riesgo idiosincrático."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Harry Markowitz, «Portfolio Selection», The Journal of Finance, 1952 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Michael C. Jensen, «The Performance of Mutual Funds in the Period 1945-1964», The Journal of Finance, 1968 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30"
+}

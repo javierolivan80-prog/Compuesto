@@ -1285,13 +1285,17 @@
     "id": "diversificacion",
     "name": "Diversificación",
     "level": 6,
-    "prerequisites": ["correlacion", "volatilidad"]
+    "prerequisites": ["correlacion", "volatilidad"],
+    "unit": "n6-u2",
+    "description": "Varianza de dos activos = w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB: con ρ < 1, la volatilidad queda por debajo de la media ponderada. Con muchos activos desaparece el riesgo idiosincrático y queda el sistemático (σ√ρ con N activos iguales), que no se diversifica."
   },
   {
     "id": "markowitz",
     "name": "Markowitz y frontera eficiente",
     "level": 6,
-    "prerequisites": ["diversificacion"]
+    "prerequisites": ["diversificacion"],
+    "unit": "n6-u2",
+    "description": "Frontera eficiente: las carteras con más rentabilidad esperada para cada riesgo. La de mínima varianza es la de menos riesgo; la tangente, la de mayor ratio de Sharpe. Con el activo sin riesgo se forma la línea del mercado de capitales, rf + Sharpe × volatilidad."
   },
   {
     "id": "capm-beta",
@@ -1305,13 +1309,17 @@
     "id": "regresion",
     "name": "Regresión: coeficientes, t, R² y sus trampas",
     "level": 6,
-    "prerequisites": ["correlacion", "contraste-hipotesis"]
+    "prerequisites": ["correlacion", "contraste-hipotesis"],
+    "unit": "n6-u2",
+    "description": "Regresión de las rentabilidades de un activo sobre las del mercado: la pendiente es la beta (covarianza / varianza = ρσi/σm), el R² la parte de la varianza explicada (ρ²) y el estadístico t de la beta, β / su error típico. Con pocos datos, la estimación es incierta."
   },
   {
     "id": "capm-avanzado",
     "name": "CAPM avanzado: estimación por regresión y beta ajustada",
     "level": 6,
-    "prerequisites": ["capm-beta", "markowitz", "regresion"]
+    "prerequisites": ["capm-beta", "markowitz", "regresion"],
+    "unit": "n6-u2",
+    "description": "El CAPM pide rf + β(Rm − rf); el alfa de Jensen es lo que se rinde por encima. Las betas estimadas tienden hacia 1 (beta ajustada de Blume, 0,67β + 0,33). Batir al índice con más beta no es alfa."
   },
   {
     "id": "sharpe-sortino",

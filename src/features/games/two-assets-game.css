@@ -1,0 +1,9 @@
+/* La cartera de dos activos (N6): panel y pantallas. */
+.ta-panel {
+  background: var(--surface-1);
+  border-color: var(--line);
+}
+.ta-board {
+  background: var(--surface-2);
+  border-color: var(--line);
+}

@@ -39,6 +39,7 @@ export const EXPLAINER_NAMES = [
   'MarginCall',
   'PositionSizing',
   'Drawdown',
+  'EfficientFrontier',
   'FuturePayoff',
 ] as const;
 export type ExplainerName = (typeof EXPLAINER_NAMES)[number];

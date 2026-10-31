@@ -117,7 +117,7 @@ Se declaran en el JSON de la lección con `{ "type": "visual", "component": "<No
 | Explicador | Concepto | Qué se mueve | Manipulación |
 |---|---|---|---|
 | `Diversification` | Diversificación | Líneas de activos que zigzaguean; al combinarse, la línea total se suaviza | Correlación |
-| `EfficientFrontier` | Markowitz | Nube de carteras que se forma punto a punto; la frontera se dibuja en dorado | Pesos |
+| `EfficientFrontier` | Markowitz | Frontera de dos activos que se dobla hacia la izquierda al bajar la correlación, con la cartera de mínima varianza marcada (la nube de muchos activos queda para más adelante) | Paso a paso (correlación 1; 0,5; 0 y −0,5) |
 | `SecurityMarketLine` | CAPM | Activos en un gráfico beta-rentabilidad; los que quedan sobre la línea brillan | Beta |
 | `Drawdown` | Drawdown y recuperación | La cartera cae desde su máximo y, al lado, crece la subida necesaria para volver: 1 / (1 − caída) − 1 | Paso a paso (caídas del 10, 20, 30 y 50 %) |
 | `VarTail` | VaR y CVaR | Histograma de pérdidas con la cola sombreada al 5 % | Nivel de confianza |

@@ -2307,5 +2307,61 @@
     "title": "Lo que cuesta volver al máximo",
     "drop": "Caída",
     "back": "Para volver"
+  },
+  "twoAssetsGame": {
+    "title": "La cartera de dos activos",
+    "step": {
+      "vol": "Paso 1 de 4 · la volatilidad de la cartera",
+      "minVar": "Paso 2 de 4 · la cartera de mínima varianza",
+      "cml": "Paso 3 de 4 · la línea del mercado de capitales",
+      "alpha": "Paso 4 de 4 · la beta y el alfa"
+    },
+    "board": {
+      "sA": "Volatilidad de A (acciones)",
+      "sB": "Volatilidad de B (bonos)",
+      "rho": "Correlación entre A y B",
+      "wA": "Peso en A",
+      "rf": "Tipo sin riesgo",
+      "rt": "Rentabilidad de la cartera tangente",
+      "st": "Volatilidad de la cartera tangente",
+      "target": "Volatilidad objetivo",
+      "ri": "Rentabilidad de la acción",
+      "rhoM": "Correlación con el mercado",
+      "si": "Volatilidad de la acción",
+      "sm": "Volatilidad del mercado",
+      "rm": "Rentabilidad del mercado"
+    },
+    "briefVol": "Planta 5 de Albufera Partners, gestión de carteras. Un fondo ficticio mezcla acciones (A) y bonos (B): {{w}} en A y {{wb}} en B. La varianza de la cartera es w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB, y la volatilidad, su raíz.",
+    "askVol": "¿Cuál es la volatilidad de la cartera?",
+    "whyVol": "√(w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB) = {{v}}. Como la correlación es menor que 1, queda por debajo de la media ponderada de las volatilidades: eso es diversificar.",
+    "briefMinVar": "El cliente quiere la cartera con la menor volatilidad posible con estos dos activos. El peso en A que la consigue es (σB² − ρσAσB) / (σA² + σB² − 2ρσAσB).",
+    "askMinVar": "¿Qué peso en A tiene la cartera de mínima varianza?",
+    "whyMinVar": "Con un {{v}} en A, la volatilidad baja al {{vol}}, menos que el {{sB}} de los bonos solos: añadir un poco de un activo más volátil, pero poco correlacionado, puede reducir el riesgo.",
+    "briefCml": "Combinando la cartera tangente (la de mejor Sharpe) con el activo sin riesgo, prestando o pidiendo prestado, se obtiene la línea del mercado de capitales. El cliente quiere una volatilidad del {{target}}.",
+    "askCml": "¿Qué rentabilidad esperada le da la línea del mercado de capitales?",
+    "whyCml": "{{rf}} + ({{rt}} − {{rf}}) / {{st}} × {{target}} = {{v}}. La pendiente de la línea es el ratio de Sharpe de la cartera tangente: cada punto de volatilidad se paga igual.",
+    "briefAlpha": "Por último, una acción ficticia de la cartera. Su beta es la pendiente de la regresión de sus rentabilidades sobre las del mercado: correlación × volatilidad de la acción / volatilidad del mercado. El alfa de Jensen es lo que rinde por encima de lo que pide el CAPM para esa beta.",
+    "askAlpha": "¿Cuál es el alfa de Jensen de la acción?",
+    "whyAlpha": "β = {{rhoM}} × {{si}} / {{sm}} = {{beta}}; α = rentabilidad − [rf + β × (mercado − rf)] = {{v}}. La correlación no es la beta: hay que escalarla por las volatilidades.",
+    "summary": "Ver el resumen",
+    "next": "Siguiente",
+    "hit": "¡Bien!",
+    "yes": "Sí",
+    "no": "No",
+    "doneTitle": "Cartera montada",
+    "row": {
+      "vol": "Volatilidad de la cartera",
+      "minVar": "Mínima varianza",
+      "cml": "Línea del mercado de capitales",
+      "alpha": "Alfa de Jensen"
+    },
+    "great": "Cartera impecable: diversificas, eliges en la frontera y mides el alfa como un gestor.",
+    "ok": "Bien encaminado: repasa el paso que fallaste.",
+    "bad": "Repasa la volatilidad de una cartera, la mínima varianza, la línea del mercado de capitales y el alfa.",
+    "debrief": "Ver qué ha pasado"
+  },
+  "efficientFrontier": {
+    "title": "La correlación dobla la frontera",
+    "minVar": "Mínima varianza"
   }
 }

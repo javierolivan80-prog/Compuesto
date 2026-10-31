@@ -1,0 +1,305 @@
+{
+  "id": "n6-u2-l2",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "title": "Varianza de una cartera y diversificación",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Calcular la covarianza, la correlación y la volatilidad de una cartera de dos activos",
+    "Calcular el riesgo que queda al diversificar entre muchos activos"
+  ],
+  "concepts": ["diversificacion"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de macro: la correlación va de −1 a 1 y combinar activos poco correlacionados reduce el riesgo, aunque en las crisis las correlaciones suben. Aquí lo calculas: cuánto riesgo tiene una cartera y cuánto se puede quitar."
+    },
+    {
+      "type": "card",
+      "term": "Dos activos",
+      "text": "Covarianza = ρ × σA × σB. Varianza de la cartera = w²σA² + (1 − w)²σB² + 2w(1 − w) × covarianza. Con ρ = 1, la volatilidad es la media ponderada; con ρ < 1, menos. Con ρ = −1 se puede llegar a eliminar del todo."
+    },
+    {
+      "type": "card",
+      "term": "Muchos activos",
+      "text": "Con N activos iguales, de volatilidad σ y correlación media ρ, la varianza es σ²/N + (1 − 1/N)ρσ². Al crecer N, el primer término, el riesgo idiosincrático, desaparece; queda el sistemático, ρσ², que no se puede diversificar."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u2-l2-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Una cartera ficticia tiene un {w} % en A (volatilidad del {sa} %) y el resto en B (volatilidad del {sb} %), con una correlación de {r}. ¿Cuál es su volatilidad? (%, 2 decimales)",
+      "answer": 12.22,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "SQRT(({w} / 100) ^ 2 * {sa} ^ 2 + (1 - {w} / 100) ^ 2 * {sb} ^ 2 + 2 * {w} / 100 * (1 - {w} / 100) * {r} * {sa} * {sb})",
+      "explanation": "√(w²σA² + (1 − w)²σB² + 2w(1 − w)ρσAσB) = {answer} %.",
+      "params": {
+        "w": {
+          "value": 50,
+          "min": 20,
+          "max": 80,
+          "step": 10,
+          "decimals": 0
+        },
+        "sa": {
+          "value": 18,
+          "min": 12,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 12,
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        },
+        "r": {
+          "value": 0.3,
+          "min": -0.5,
+          "max": 0.8,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l2-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Dos activos ficticios tienen volatilidades del {sa} % y del {sb} % y una correlación de {r}. ¿Cuál es su covarianza? (en %², 2 decimales)",
+      "answer": 60,
+      "unit": "%²",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{r} * {sa} * {sb}",
+      "explanation": "{r} × {sa} × {sb} = {answer}.",
+      "params": {
+        "r": {
+          "value": 0.4,
+          "min": 0.1,
+          "max": 0.8,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "sa": {
+          "value": 15,
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 10,
+          "min": 4,
+          "max": 15,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l2-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Dos activos ficticios tienen una covarianza de {c} (en %²) y volatilidades del {sa} % y del {sb} %. ¿Cuál es su correlación? (3 decimales)",
+      "answer": 0.4,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{c} / ({sa} * {sb})",
+      "explanation": "{c} / ({sa} × {sb}) = {answer}.",
+      "params": {
+        "c": {
+          "value": 60,
+          "min": 50,
+          "max": 80,
+          "step": 5,
+          "decimals": 0
+        },
+        "sa": {
+          "value": 15,
+          "min": 12,
+          "max": 20,
+          "step": 1,
+          "decimals": 0
+        },
+        "sb": {
+          "value": 10,
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l2-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Una cartera ficticia reparte el dinero a partes iguales entre {n} acciones, todas con una volatilidad del {s} % y una correlación media de {r}. ¿Cuál es su volatilidad? (%, 2 decimales)",
+      "answer": 17.36,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "SQRT({s} ^ 2 / {n} + (1 - 1 / {n}) * {r} * {s} ^ 2)",
+      "explanation": "√(σ²/N + (1 − 1/N)ρσ²) = {answer} %.",
+      "params": {
+        "n": {
+          "value": 20,
+          "min": 5,
+          "max": 50,
+          "step": 5,
+          "decimals": 0
+        },
+        "s": {
+          "value": 30,
+          "min": 20,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "r": {
+          "value": 0.3,
+          "min": 0.1,
+          "max": 0.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l2-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "Si esa cartera tuviera infinitas acciones (volatilidad del {s} % cada una y correlación media de {r}), ¿qué volatilidad le quedaría? (%, 2 decimales)",
+      "answer": 16.43,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{s} * SQRT({r})",
+      "explanation": "σ × √ρ = {answer} %: es el riesgo sistemático, el que no se puede diversificar.",
+      "params": {
+        "s": {
+          "value": 30,
+          "min": 20,
+          "max": 40,
+          "step": 5,
+          "decimals": 0
+        },
+        "r": {
+          "value": 0.3,
+          "min": 0.1,
+          "max": 0.5,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l2-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "prompt": "¿Se puede eliminar diversificando?",
+      "categories": ["Sí: es idiosincrático", "No: es sistemático"],
+      "items": [
+        {
+          "text": "Que una empresa ficticia pierda su mayor cliente",
+          "category": "Sí: es idiosincrático"
+        },
+        {
+          "text": "Que suba el petróleo y caigan casi todas las bolsas",
+          "category": "No: es sistemático"
+        },
+        {
+          "text": "Que una auditoría encuentre errores en las cuentas de una empresa",
+          "category": "Sí: es idiosincrático"
+        },
+        {
+          "text": "Que el mercado entero caiga por una crisis financiera",
+          "category": "No: es sistemático"
+        }
+      ],
+      "explanation": "Lo que afecta a una sola empresa se compensa entre muchas; lo que afecta a todas, no."
+    },
+    {
+      "id": "n6-u2-l2-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "character": "jefe",
+      "situation": "Un fondo ficticio presume de estar «muy diversificado» porque tiene 40 acciones, pero todas son bancos españoles.",
+      "prompt": "¿Qué le dice el jefe de la mesa al becario?",
+      "options": [
+        "Que 40 acciones del mismo sector están muy correlacionadas: se quita poco riesgo idiosincrático y queda expuesto a todo lo que afecta a la banca española",
+        "Que con 40 acciones ya no hay riesgo",
+        "Que el número de acciones es lo único que importa",
+        "Que los bancos no tienen riesgo sistemático"
+      ],
+      "answer": 0,
+      "explanation": "Lo que diversifica es la correlación baja, no solo el número de valores.",
+      "wrongExplanations": {
+        "1": "Siempre queda riesgo, y aquí mucho.",
+        "2": "Importa sobre todo cómo se correlacionan.",
+        "3": "Lo tienen, y además comparten el del sector."
+      }
+    },
+    {
+      "id": "n6-u2-l2-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["diversificacion"],
+      "statement": "Con correlación −1 se puede construir una cartera de dos activos sin volatilidad.",
+      "answer": true,
+      "explanation": "Verdadero: con los pesos adecuados, lo que pierde uno lo gana el otro exactamente."
+    }
+  ],
+  "realWorld": "Las gestoras publican la matriz de correlaciones entre clases de activos en sus informes de asignación de activos; en las crisis, esas correlaciones suelen subir. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "Harry Markowitz, «Portfolio Selection», The Journal of Finance, 1952 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

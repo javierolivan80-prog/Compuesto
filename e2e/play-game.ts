@@ -78,6 +78,13 @@ import {
   twr as frTwr,
 } from '../src/engine/games/fund-report';
 import {
+  alpha as taAlpha,
+  cml as taCml,
+  minVarWeight as taMinVar,
+  portVol as taVol,
+  setupTwo,
+} from '../src/engine/games/two-assets';
+import {
   carryReturn,
   currentAccount,
   forward as fxForward,
@@ -340,6 +347,21 @@ export async function playGameLesson(
         exact: true,
       })
       .click();
+    await page.getByRole('button', { name: 'Ver el resumen' }).click();
+  } else if (kind === 'two-assets') {
+    // referencia 0: la volatilidad, la mínima varianza, la CML y el alfa
+    await expect(page.getByRole('heading', { name: 'La cartera de dos activos' })).toBeVisible();
+    const setup = setupTwo(seed);
+    const esc = (x: string) => x.replaceAll('.', '\\.');
+    const pctRe = (v: number, d: number) =>
+      new RegExp(`^${v < 0 ? '−' : ''}${esc(formatNumber(Math.abs(v), d))}\\s%$`);
+    await page.getByRole('radio', { name: pctRe(taVol(setup), 2) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: pctRe(taMinVar(setup), 1) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: pctRe(taCml(setup), 2) }).click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await page.getByRole('radio', { name: pctRe(taAlpha(setup), 2) }).click();
     await page.getByRole('button', { name: 'Ver el resumen' }).click();
   } else if (kind === 'fund-report') {
     // referencia 0: la TWR, la MWR, el drawdown máximo y el Sharpe

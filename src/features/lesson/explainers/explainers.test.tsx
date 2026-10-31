@@ -186,6 +186,13 @@ describe('explicadores de la Unidad 2 del Nivel 0', () => {
     expect(text).toMatch(/2\.000, 15,0\spb/);
     expect(text).toMatch(/5\.000, 30,0\spb/);
   });
+  it('EfficientFrontier: con menos correlación, menos volatilidad en la mínima varianza', () => {
+    render(
+      <ExplainerBlock component="EfficientFrontier" props={{ rA: 8, sA: 20, rB: 3, sB: 8 }} />,
+    );
+    const text = screen.getByRole('figure').textContent ?? '';
+    expect(text).toMatch(/1, 8,0\s%; 0,5, 8,0\s%; 0, 7,4\s%; −0,5, 5,5\s%/);
+  });
   it('Drawdown: la subida para recuperarse crece más deprisa que la caída', () => {
     render(<ExplainerBlock component="Drawdown" props={{ peak: 20000 }} />);
     const text = screen.getByRole('figure').textContent ?? '';

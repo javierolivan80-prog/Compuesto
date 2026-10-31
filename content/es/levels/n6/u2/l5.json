@@ -1,0 +1,275 @@
+{
+  "id": "n6-u2-l5",
+  "version": 1,
+  "status": "draft",
+  "reviewedBy": [],
+  "level": 6,
+  "unit": 2,
+  "title": "Beta por regresión, CAPM y alfa de Jensen",
+  "cfa": "portfolio-management",
+  "estimatedMinutes": 5,
+  "objectives": [
+    "Estimar la beta por regresión, su estadístico t, el R² y la beta ajustada",
+    "Calcular el alfa de Jensen de una acción o un fondo"
+  ],
+  "concepts": ["regresion", "capm-avanzado"],
+  "companies": [],
+  "historical": false,
+  "intro": [
+    {
+      "type": "card",
+      "term": "Ya sabes",
+      "text": "De tus lecciones de valoración: el CAPM, coste del capital = rf + β × prima de mercado, y la beta como el riesgo que no se diversifica. Aquí la estimas tú, con una regresión, y mides si un gestor batió a lo que pedía su beta."
+    },
+    {
+      "type": "card",
+      "term": "Regresión",
+      "text": "Se regresan las rentabilidades de la acción sobre las del mercado: Ri = α + βRm + error. La pendiente es β = covarianza / varianza del mercado = ρσi/σm. El R² es la parte de la varianza que explica el mercado, ρ². El estadístico t de β es β / su error típico."
+    },
+    {
+      "type": "card",
+      "term": "Beta ajustada y alfa",
+      "text": "Las betas estimadas tienden a volver hacia 1 con el tiempo; la beta ajustada de Blume es 0,67 × β + 0,33. El alfa de Jensen es la rentabilidad menos la que pide el CAPM, rf + β(Rm − rf): positiva si se batió a lo que exigía el riesgo de mercado."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "n6-u2-l5-e1",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "La covarianza entre una acción ficticia y el mercado es {c} (en %²) y la varianza del mercado, {v}. ¿Cuál es su beta? (3 decimales)",
+      "answer": 1.2,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{c} / {v}",
+      "explanation": "{c} / {v} = {answer}.",
+      "params": {
+        "c": {
+          "value": 270,
+          "min": 100,
+          "max": 400,
+          "step": 10,
+          "decimals": 0
+        },
+        "v": {
+          "value": 225,
+          "min": 144,
+          "max": 256,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l5-e2",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "La correlación de una acción ficticia con el mercado es de {r}. ¿Qué parte de su varianza explica el mercado, el R² de la regresión? (%, 2 decimales)",
+      "answer": 36,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{r} ^ 2 * 100",
+      "explanation": "{r}² = {answer} %; el resto es riesgo idiosincrático.",
+      "params": {
+        "r": {
+          "value": 0.6,
+          "min": 0.3,
+          "max": 0.9,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l5-e3",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "La regresión de una acción ficticia da una beta de {b} con un error típico de {e}. ¿Cuál es el estadístico t de la beta? (3 decimales)",
+      "answer": 3,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "{b} / {e}",
+      "explanation": "{b} / {e} = {answer}: por encima de 2, la beta es claramente distinta de cero.",
+      "params": {
+        "b": {
+          "value": 1.2,
+          "min": 0.5,
+          "max": 1.8,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "e": {
+          "value": 0.4,
+          "min": 0.2,
+          "max": 0.6,
+          "step": 0.05,
+          "decimals": 2,
+          "fixed": true
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l5-e4",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "prompt": "Un fondo ficticio rindió un {r} % con una beta de {b}. El mercado rindió un {m} % y el tipo sin riesgo es del {rf} %. ¿Cuál es su alfa de Jensen? (%, 2 decimales; negativo si quedó por debajo)",
+      "answer": 1.2,
+      "unit": "%",
+      "tolerance": 0.3,
+      "answerDecimals": 2,
+      "formula": "{r} - ({rf} + {b} * ({m} - {rf}))",
+      "explanation": "{r} − ({rf} + {b} × ({m} − {rf})) = {answer} %.",
+      "params": {
+        "r": {
+          "value": 11,
+          "min": 9,
+          "max": 14,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "b": {
+          "value": 1.3,
+          "min": 0.8,
+          "max": 1.3,
+          "step": 0.1,
+          "decimals": 1
+        },
+        "m": {
+          "value": 8,
+          "min": 6,
+          "max": 8,
+          "step": 1,
+          "decimals": 0
+        },
+        "rf": {
+          "value": 2,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "decimals": 0
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l5-e5",
+      "type": "numeric_input",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "prompt": "La beta estimada de una acción ficticia es {b}. ¿Cuál es su beta ajustada de Blume, 0,67 × β + 0,33? (3 decimales)",
+      "answer": 1.402,
+      "tolerance": 0.3,
+      "answerDecimals": 3,
+      "formula": "0.67 * {b} + 0.33",
+      "explanation": "0,67 × {b} + 0,33 = {answer}: más cerca de 1.",
+      "params": {
+        "b": {
+          "value": 1.6,
+          "min": 0.4,
+          "max": 2,
+          "step": 0.1,
+          "decimals": 1
+        }
+      }
+    },
+    {
+      "id": "n6-u2-l5-e6",
+      "type": "categorize",
+      "difficulty": 2,
+      "bloom": "aplicar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "prompt": "¿Qué número de la regresión lo mide?",
+      "categories": ["La beta", "El R²", "El alfa"],
+      "items": [
+        {
+          "text": "Cuánto se mueve la acción cuando el mercado sube un 1 %",
+          "category": "La beta"
+        },
+        {
+          "text": "Qué parte de la varianza de la acción explica el mercado",
+          "category": "El R²"
+        },
+        {
+          "text": "Lo que rindió por encima de lo que pedía su riesgo de mercado",
+          "category": "El alfa"
+        }
+      ],
+      "explanation": "Pendiente, ajuste y ordenada en el origen de la regresión."
+    },
+    {
+      "id": "n6-u2-l5-e7",
+      "type": "scenario",
+      "difficulty": 3,
+      "bloom": "analizar",
+      "tags": [],
+      "concepts": ["regresion"],
+      "character": "mentora",
+      "situation": "El becario rival ha estimado la beta de una acción ficticia con 12 rentabilidades mensuales: β = 1,5 con un error típico de 0,9. Quiere usarla en la valoración.",
+      "prompt": "¿Qué le explica tu mentora?",
+      "options": [
+        "Que con un t de 1,67 y tan pocos datos la estimación es muy incierta: conviene usar más datos, la beta ajustada o la mediana de comparables",
+        "Que una beta de 1,5 siempre es fiable",
+        "Que el error típico no importa",
+        "Que debería usar la correlación en lugar de la beta"
+      ],
+      "answer": 0,
+      "explanation": "Una beta es una estimación con error, como cualquier otra.",
+      "wrongExplanations": {
+        "1": "Con 12 datos puede estar muy lejos de la real.",
+        "2": "Es justo lo que dice cuánto fiarse.",
+        "3": "La correlación no es la beta."
+      }
+    },
+    {
+      "id": "n6-u2-l5-e8",
+      "type": "true_false_swipe",
+      "difficulty": 2,
+      "bloom": "entender",
+      "tags": [],
+      "concepts": ["capm-avanzado"],
+      "statement": "Una acción con beta 0 no tiene ningún riesgo.",
+      "answer": false,
+      "explanation": "Falso: no tiene riesgo de mercado, pero puede ser muy volátil por su riesgo idiosincrático."
+    }
+  ],
+  "realWorld": "Los terminales financieros dan la beta de cada acción frente a su índice, con su R², y muchos muestran también la beta ajustada. Las cifras de los ejemplos son de fondos y carteras ficticios: no es una recomendación.",
+  "sources": [
+    {
+      "title": "William F. Sharpe, «Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk», The Journal of Finance, 1964 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Michael C. Jensen, «The Performance of Mutual Funds in the Period 1945-1964», The Journal of Finance, 1968 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "Marshall E. Blume, «On the Assessment of Risk», The Journal of Finance, 1971 (pendiente de verificar la ruta)",
+      "url": "https://onlinelibrary.wiley.com/journal/15406261",
+      "date": "2026-10-31"
+    },
+    {
+      "title": "CFA Institute, CFA Program Level I: Portfolio Management y Quantitative Methods (riesgo y rentabilidad de carteras, CAPM y regresión) (pendiente de verificar la ruta)",
+      "url": "https://www.cfainstitute.org/",
+      "date": "2026-10-31"
+    }
+  ],
+  "verificarAntesDe": "2027-06-30",
+  "lastReviewed": "2026-10-31"
+}

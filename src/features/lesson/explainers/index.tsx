@@ -34,6 +34,7 @@ import { ExpectedValue } from './ExpectedValue';
 import { MarginCall } from './MarginCall';
 import { PositionSizing } from './PositionSizing';
 import { Drawdown } from './Drawdown';
+import { EfficientFrontier } from './EfficientFrontier';
 import { Rule72 } from './Rule72';
 import { ShareDilution } from './ShareDilution';
 import { StockSplit } from './StockSplit';
@@ -87,6 +88,7 @@ const REGISTRY = {
   MarginCall,
   PositionSizing,
   Drawdown,
+  EfficientFrontier,
   FuturePayoff,
 } as unknown as Registry;
 
