@@ -634,3 +634,15 @@ Abre la planta 0 (unidad `n1-u1`). Juego: cinco noticias de Naranjas del Turia; 
 - **Ronda 2:** el texto del juego sobre la MWR habla del peor tramo del año (cambio del coordinador, 81ec10e).
 - **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 7, 7 y 7 de 8, y 9 de 10. e2e de producción `n6u1.spec.ts`: pasa.
 - 🛑 Pendiente de la revisión de Javier: las fuentes (CFA Institute, GIPS, Sharpe, 1994, Sortino y Price, 1994, y CNMV) se citan por su URL raíz «(pendiente de verificar la ruta)».
+
+## n6-u2 — Diversificación, Markowitz y CAPM con regresión y lección-juego «La cartera de dos activos» (31/10/2026)
+
+- **Ronda 1 (revisor-financiero):** cambios necesarios.
+  - Mayores aplicados:
+    - la regresión se plantea en excesos sobre el tipo sin riesgo, Ri − rf = α + β(Rm − rf) + error, en la tarjeta y el ejercicio de l5, en el concepto, en el juego y en su ficha;
+    - test de salto: la volatilidad que no se diversifica con infinitas acciones (10 %) entra en la primera fase y el verdadero/falso de ρ = −1 pasa a la segunda;
+    - l3-e5 pide la rentabilidad de la cartera de mínima varianza; l4-e5 da la pendiente de la línea del mercado de capitales (0,4); l6-e2 con volatilidades del 24 % y el 10 % (14,79 %).
+  - Menores: l5-e3 con betas de al menos 0,9 y explicación neutra; «la misma rentabilidad» en la tarjeta de Markowitz; l3-e6 pregunta qué carteras no están dominadas entre esas cuatro; tarjeta «Beta y alfa» de l1.
+- **Ronda 2:** explicación de l4-e5 con préstamo o endeudamiento (cambio del coordinador, efa3ee2).
+- **Ronda 3:** aprobada. Estado: `reviewed`. Bloom de aplicar o analizar: 7, 7, 7, 7 y 7 de 8, y 9 de 10. e2e de producción `n6u2.spec.ts`: pasa.
+- 🛑 Pendiente de la revisión de Javier: las fuentes (Markowitz, 1952; Sharpe, 1964; Jensen, 1968; Blume, 1971; CFA Institute) se citan por su URL raíz «(pendiente de verificar la ruta)».

@@ -1,8 +1,8 @@
 {
   "id": "n6-u2-l5",
   "version": 1,
-  "status": "draft",
-  "reviewedBy": [],
+  "status": "reviewed",
+  "reviewedBy": ["subagente"],
   "level": 6,
   "unit": 2,
   "title": "Beta por regresión, CAPM y alfa de Jensen",
